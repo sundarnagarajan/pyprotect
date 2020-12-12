@@ -51,7 +51,7 @@ That's it!
 #### READABILITY: Whether the attribute VALUE can be read
 - Applies to Protected object - NOT original wrapped object
 - IS controled by Protected clsas
-- Affects getattr, hasattr, object.__getattribute__ etc
+- Affects ```getattr```, ```hasattr```, ```object.__getattribute__``` etc
 
 ### MUTABILITY: Ability to CHANGE or DELETE an attribute
 - Protected class will not allow CHANGING OR DELETING an attribute that is not VISIBLE - per rules of Protected class
@@ -90,7 +90,7 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 ### Some run-time behaviors to AVOID in wrapped objects:
 - Creating attribute at run-time - these will not be detected once the object instance is wrapped in Protected
 - Deleting attributes at run-time - these will still appear to be part of the wrapped object when accessing through the wrapping Protected class. Actual access will result in ```AttributeError``` as expected
-- Change attribute TYPE - from method to DATA or vice-versa
+- Change attribute TYPE - from METHOD to DATA or vice-versa
     - This will cause predictable effects if Protected instance was created using any of the following options:
           hide_method
           hide_data
@@ -101,39 +101,55 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 
 ### Proteced class constructor keyword arguments:
 
-- **frozen-->bool**: If True, no attributes can be CHANGED or ADDED
-    - Overrides 'add'
+- **add-->bool**
+    - Whether attributes can be ADDED - Default: True
+- **frozen-->bool**
+    - If True, no attributes can be CHANGED or ADDED
     - Default: False
-- **add-->bool**: Whether attributes can be ADDED - Default: True
-- **protect_class-->bool**: Prevents modification of CLASS of wrapped object
+    - Overrides 'add', 'rw'
+- **protect_class-->bool**
+    - Prevents modification of CLASS of wrapped object
     - ```__class__``` attribute returns a COPY of actual class
     - Doesn't PREVENT modification, but modification has no effect
     - Default: True
-- **hide_all-->bool**: All attributes will be hidden
+- **hide_all-->bool**
+    - All attributes will be hidden
     - Default: False
     - Can override selectively with 'show'
-- **hide_data-->bool**: Data (non-method) attributes will be hidden
+- **hide_data-->bool**
+    - Data (non-method) attributes will be hidden
     - Default: False
-- **hide_method-->bool**: Method attributes will be hidden
+- **hide_method-->bool**
+    - Method attributes will be hidden
     - Default: False
-- **hide_private-->bool**: Private vars (form _var) will be hidden
+- **hide_private-->bool**
+    - Private vars (form _var) will be hidden
     - Default: False
-- **hide_dunder-->bool**: 'dunder-vars' will be hidden
+- **hide_dunder-->bool**
+    - 'dunder-vars' will be hidden
     - Default: False
-- **ro_all-->bool**: All attributes will be read-only
+- **ro_all-->bool**
+    - All attributes will be read-only
     - Default: False
     - Can override selectively with 'rw'
-- **ro_data-->bool**: Data (non-method) attributes will be read-only
+- **ro_data-->bool**
+    - Data (non-method) attributes will be read-only
     - Default: False
-- **ro_method-->bool**: Method attributes will be read-only
+- **ro_method-->bool**
+    - Method attributes will be read-only
     - Default: True
-- **ro_dunder-->bool**: 'dunder-vars' will be  read-only
+- **ro_dunder-->bool**
+    - 'dunder-vars' will be  read-only
     - Default: True
-- **ro-->list of str**: attributes that will be read-only
-- **rw-->list of str**: attributes that will be read-write
+- **ro-->list of str**
+    - attributes that will be read-only
+- **rw-->list of str**
+    - attributes that will be read-write
     - Overrides 'ro', ro_all, 'ro_data', 'ro_method', 'ro_dunder'
-- **hide-->list of str**: attributes that will be hidden
-- **show-->list of str**: attributes that will be visible
+- **hide-->list of str**
+    - attributes that will be hidden
+- **show-->list of str**
+    - attributes that will be visible
     - Overrides 'hide', hide_all', 'hide_data', 'hide_method', 'hide_dunder'
 
 
