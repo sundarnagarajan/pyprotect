@@ -12,8 +12,37 @@
 - doctests in tests directory
 
 
+### Usage
+```
+    from protected_class import Protected
 
 
+    class MyClass(object):
+        def __init__(self):
+            self.__hidden = 1
+            self._private = 2
+            self.public = 3
+
+    myinst = MyClass()
+    wrapped = Protected(myinst)
+```
+
+That's it!
+
+
+### Default settings:
+- Traditional (mangled) Python private vars are ALWAYS hidden
+    - CANNOT be overridden
+- Private vars (form _var) will be read-only
+    - Can use hide_private to hide them
+    - They CANNOT be made read-write
+- add == True: New attributes can be added (Python philosophy)
+- ro_dunder == True: 'dunder-vars' will be  read-only
+- ro_method == True: Method attributes will be read-only
+- All other non-dunder non-private data attributes are read-write
+
+
+```
     VISIBILITY versus READABILITY:
         VISIBILITY: appears in dir(object)
             - Never affected by Protected class
@@ -87,25 +116,10 @@
         - None of the above run-time behaviors should be common or
           recommended - especially when wanting to expose a wrapped
           interface with visibility and/or mutability protections
-
-
-
-
-```
-    from protected_class import Protected
-    
-
-    class MyClass(object):
-        def __init__(self):
-            self.__hidden = 1
-            self._private = 2
-            self.public = 3
-
-    myinst = MyClass()
-    wrapped = Protected(myinst)
 ```
 
-    That's it!
+
+
 
     Constructor keyword arguments:
 
@@ -148,17 +162,7 @@
         show-->list of str: attributes that will be visible
             Overrides 'hide', hide_all', 'hide_data', 'hide_method',
             'hide_dunder'
-
-        Default settings:
-        - Traditional (mangled) Python private vars are ALWAYS hidden
-            - CANNOT be overridden
-        - Private vars (form _var) will be read-only
-            - Can use hide_private to hide them
-            - They CANNOT be made read-write
-        - add == True: New attributes can be added (Python philosophy)
-        - ro_dunder == True: 'dunder-vars' will be  read-only
-        - ro_method == True: Method attributes will be read-only
-        - All other non-dunder non-private data attributes are read-write
+```
 
 
 
