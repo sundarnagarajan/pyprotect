@@ -63,101 +63,93 @@ That's it!
 - These rules are implemented by the python language (interpreter) and Protected class does not enforce or check
 
 
-```
-    Notes on non-overrideable behaviors of Protected class:
-        1. Traditional python 'private' vars - start with '__' but do not
-           end with '__' - can never be read, written or deleted
-        2. If an attribute cannot be read, it cannot be written or deleted
-        3. Attributes can NEVER be DELETED UNLESS they were added at run-time
-        4. Attributes that are properties are ALWAYS visible AND WRITABLE
-            - Properties indicate an intention of class author to expose them
-            - Whether they are actually writable depends on whether class
-              author implemented property.setter
-        5. The following attributes of wrapped object are NEVER visible:
-             '__dict__', '__delattr__', '__setattr__', '__slots__',
-             '__getattribute__'
-        6. Subclassing from Protected class
-            - Protected class is only for wrapping a python object INSTANCE
-            - Subclassing is possible, but MOST things will not work:
-                - Overriding methods of Protected class is
-                  not possible - since Protected is implemented in C
-                - Overriding attributes of wrapped object is not possible,
-                  since the original object is wrapped inside ProtectedC
-                  and all accesses are mediated
-                - New attributes defined in sub-class will not be accessible,
-                  since attribute access is mediated by ProtectedC class
-            - Because of this, Protected class PREVENTS sub-classing
-            - Subclass your python object BEFORE wrapping with Protected
+### Non-overrideable behaviors of Protected class:
+1. Traditional python 'private' vars - start with '__' but do not end with '__' - can never be read, written or deleted
+2. If an attribute cannot be read, it cannot be written or deleted
+3. Attributes can NEVER be DELETED UNLESS they were added at run-time
+4. Attributes that are properties are ALWAYS visible AND WRITABLE
+    - Properties indicate an intention of class author to expose them
+    - Whether they are actually writable depends on whether class author implemented property.setter
+5. The following attributes of wrapped object are NEVER visible:
+     '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
+6. Subclassing from Protected class
+    - Protected class is only for wrapping a python object INSTANCE
+    - Subclassing is possible, but MOST things will not work:
+        - Overriding methods of Protected class is not possible - since Protected is implemented in C
+        - Overriding attributes of wrapped object is not possible, since the original object is wrapped inside ProtectedC and all accesses are mediated
+        - New attributes defined in sub-class will not be accessible, since attribute access is mediated by ProtectedC class
+    - Because of this, Protected class PREVENTS sub-classing
+    - Subclass your python object BEFORE wrapping with Protected
 
-    What kind of python objects can be wrapped?
-        - Pretty much anything. Protected only mediates attribute access
-          using object.__getattribute__, object.__setattr__ and
-          object.__delatr__. If these methods work on your object,
-          your object can be wrapped
+### What kind of python objects can be wrapped?
+Pretty much anything. Protected only mediates attribute access using object.__getattribute__, object.__setattr__ and object.__delatr__. If these methods work on your object, your object can be wrapped
 
-    Can a Protected class instance be wrapped again using Protected?
-        YES !
+### Can a Protected class instance be wrapped again using Protected?
+**YES !**
 
-    Some run-time behaviors to AVOID in wrapped objects:
-        - Creating attribute at run-time - these will not be detected
-          once the object instance is wrapped in Protected
-        - Deleting attributes at run-time - these will still appear
-          to be part of the wrapped object when accessing through the
-          wrapping Protected class. Actual access will result in
-          AttributeError as expected
-        - Change attribute TYPE - from method to DATA or vice-versa
-            - This will cause predictable effects if Protected
-              instance was created using any of the following options:
-                  hide_method
-                  hide_data
-                  ro_method
-                  ro_data
-        - None of the above run-time behaviors should be common or
-          recommended - especially when wanting to expose a wrapped
-          interface with visibility and/or mutability protections
+### Some run-time behaviors to AVOID in wrapped objects:
+- Creating attribute at run-time - these will not be detected once the object instance is wrapped in Protected
+- Deleting attributes at run-time - these will still appear to be part of the wrapped object when accessing through the wrapping Protected class. Actual access will result in ```AttributeError``` as expected
+- Change attribute TYPE - from method to DATA or vice-versa
+    - This will cause predictable effects if Protected instance was created using any of the following options:
+          hide_method
+          hide_data
+          ro_method
+          ro_data
+- None of the above run-time behaviors should be common or recommended - especially when wanting to expose a wrapped
+  interface with visibility and/or mutability protections
 
-    Constructor keyword arguments:
+### Proteced class constructor keyword arguments:
 
-        o-->object to be wrapped
-        frozen-->bool: If True, no attributes can be CHANGED or ADDED
-            - Overrides 'add'
-            - Default: False
-        add-->bool: Whether attributes can be ADDED - Default: True
-        protect_class-->bool: Prevents modification of CLASS of wrapped object
-            - __class__ attribute returns a COPY of actual __class__
-            - Doesn't PREVENT modification, but modification has no effect
-            - Default: True
-        hide_all-->bool: All attributes will be hidden
-            - Default: False
-            - Can override selectively with 'show'
-        hide_data-->bool: Data (non-method) attributes will be hidden
-            - Default: False
-        hide_method-->bool: Method attributes will be hidden
-            - Default: False
-        hide_private-->bool: Private vars (form _var) will be hidden
-            - Default: False
-        hide_dunder-->bool: 'dunder-vars' will be hidden
-            - Default: False
+frozen-->bool: If True, no attributes can be CHANGED or ADDED
+    - Overrides 'add'
+    - Default: False
 
-        ro_all-->bool: All attributes will be read-only
-            - Default: False
-            - Can override selectively with 'rw'
-        ro_data-->bool: Data (non-method) attributes will be read-only
-            - Default: False
-        ro_method-->bool: Method attributes will be read-only
-            - Default: True
-        ro_dunder-->bool: 'dunder-vars' will be  read-only
-            - Default: True
+add-->bool: Whether attributes can be ADDED - Default: True
 
-        ro-->list of str: attributes that will be read-only
-        rw-->list of str: attributes that will be read-write
-            Overrides 'ro', ro_all, 'ro_data', 'ro_method', 'ro_dunder'
+protect_class-->bool: Prevents modification of CLASS of wrapped object
+    - __class__ attribute returns a COPY of actual __class__
+    - Doesn't PREVENT modification, but modification has no effect
+    - Default: True
 
-        hide-->list of str: attributes that will be hidden
-        show-->list of str: attributes that will be visible
-            Overrides 'hide', hide_all', 'hide_data', 'hide_method',
-            'hide_dunder'
-```
+hide_all-->bool: All attributes will be hidden
+    - Default: False
+    - Can override selectively with 'show'
+
+hide_data-->bool: Data (non-method) attributes will be hidden
+    - Default: False
+
+hide_method-->bool: Method attributes will be hidden
+    - Default: False
+
+hide_private-->bool: Private vars (form _var) will be hidden
+    - Default: False
+
+hide_dunder-->bool: 'dunder-vars' will be hidden
+    - Default: False
+
+ro_all-->bool: All attributes will be read-only
+    - Default: False
+    - Can override selectively with 'rw'
+
+ro_data-->bool: Data (non-method) attributes will be read-only
+    - Default: False
+
+ro_method-->bool: Method attributes will be read-only
+    - Default: True
+
+ro_dunder-->bool: 'dunder-vars' will be  read-only
+    - Default: True
+
+ro-->list of str: attributes that will be read-only
+
+rw-->list of str: attributes that will be read-write
+    - Overrides 'ro', ro_all, 'ro_data', 'ro_method', 'ro_dunder'
+
+hide-->list of str: attributes that will be hidden
+
+show-->list of str: attributes that will be visible
+    - Overrides 'hide', hide_all', 'hide_data', 'hide_method', 'hide_dunder'
 
 
 
