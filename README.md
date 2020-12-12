@@ -14,17 +14,19 @@
 
 ### Usage
 ```python
-    from protected_class import Protected
+from protected_class import Protected
 
 
-    class MyClass(object):
-        def __init__(self):
-            self.__hidden = 1
-            self._private = 2
-            self.public = 3
+class MyClass(object):
+    def __init__(self):
+        self.__hidden = 1
+        self._private = 2
+        self.public = 3
 
-    myinst = MyClass()
-    wrapped = Protected(myinst)
+myinst = MyClass()
+
+# One-line to wrap and protect class attributes
+wrapped = Protected(myinst)
 ```
 
 That's it!
