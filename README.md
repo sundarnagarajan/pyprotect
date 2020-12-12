@@ -37,20 +37,20 @@ That's it!
 
 ### Options: Proteced class constructor keyword arguments:
 
-| Option            | Type     | Default  | Description | Overrides |
-| ----------------- | -------- | -------- | ----------- | --------- |
-| **add**           | **bool** | **True** | **<ul><li>Whether attributes can be ADDED</li></ul>** | |
-| frozen            | bool     | False    | <ul><li>If True, no attributes can be CHANGED or ADDED</li></ul> | <ul><li>add</li><li>rw</li></ul> | |
-| **protect_class** | bool     | **True** | **<ul><li>Prevents modification of CLASS of wrapped object</li><li>Doesn't PREVENT modification, but modification has no effect</li></ul>** | |
-| hide_all          | bool     | False    | <ul><li>All attributes will be hidden</li><li>Can override selectively with 'show'</li></ul> | |
-| hide_data         | bool     | False    | <ul><li>Data (non-method) attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
-| hide_method       | bool     | False    | <ul><li>Method attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
-| hide_private      | bool     | False    | <ul><li>Private vars (form _var) will be hidden</li><li>Override selectively with 'show'</li></ul> | |
-| hide_dunder       | bool     | False    | <ul><li>'dunder-vars' will be hidden</li><li>Override selectively with 'show'</li></ul> | |
-| ro_all            | bool     | False    | <ul><li>All attributes will be read-only</li><li>Can override selectively with 'rw'</li></ul> | |
-| ro_data           | bool     | False    | <ul><li>Data (non-method) attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
-| **ro_method**     | **bool** | **True** | **<ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul>** | |
-| **ro_dunder**     | **bool** | **True** | **<ul><li>'dunder-vars' will be  read-only</li><li>Override selectively with 'rw'</li></ul>** | |
+| Option            | Type        | Default  | Description | Overrides |
+| ----------------- | ----------- | -------- | ----------- | --------- |
+| **add**           | **bool**    | **True** | **<ul><li>Whether attributes can be ADDED</li></ul>** | |
+| frozen            | bool        | False    | <ul><li>If True, no attributes can be CHANGED or ADDED</li></ul> | <ul><li>add</li><li>rw</li></ul> | |
+| **protect_class** | bool        | **True** | **<ul><li>Prevents modification of CLASS of wrapped object</li><li>Doesn't PREVENT modification, but modification has no effect</li></ul>** | |
+| hide_all          | bool        | False    | <ul><li>All attributes will be hidden</li><li>Can override selectively with 'show'</li></ul> | |
+| hide_data         | bool        | False    | <ul><li>Data (non-method) attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
+| hide_method       | bool        | False    | <ul><li>Method attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
+| hide_private      | bool        | False    | <ul><li>Private vars (form _var) will be hidden</li><li>Override selectively with 'show'</li></ul> | |
+| hide_dunder       | bool        | False    | <ul><li>'dunder-vars' will be hidden</li><li>Override selectively with 'show'</li></ul> | |
+| ro_all            | bool        | False    | <ul><li>All attributes will be read-only</li><li>Can override selectively with 'rw'</li></ul> | |
+| ro_data           | bool        | False    | <ul><li>Data (non-method) attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
+| **ro_method**     | **bool**    | **True** | **<ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul>** | |
+| **ro_dunder**     | **bool**    | **True** | **<ul><li>'dunder-vars' will be  read-only</li><li>Override selectively with 'rw'</li></ul>** | |
 | ro                | list of str | [ ]   | <ul><li>Attributes that will be read-only</li><li>Can selectively override with 'rw'</li></ul> | |
 | rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <ul><li>ro_all</li><li>ro_data</li><li>ro_method</li><li>ro_dunder</li><li>ro</li></ul> |
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li><li>Override selectively with 'show'</li></ul> | |
@@ -158,17 +158,16 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 - Mangled private variables still won't be visible
 - Private variables (form ```_var```) will still be read-only
 
-### Some run-time behaviors to AVOID in wrapped objects:
-- Creating attribute at run-time - these will not be detected once the object instance is wrapped in Protected
-- Deleting attributes at run-time - these will still appear to be part of the wrapped object when accessing through the wrapping Protected class. Actual access will result in ```AttributeError``` as expected
-- Change attribute TYPE - from METHOD to DATA or vice-versa
+### Some RUN-TIME behaviors to AVOID in wrapped objects:
+- Do not create attribute - these will not be detected once the object instance is wrapped in Protected
+- Do not delete attributes - these will still appear to be part of the wrapped object when accessing through the wrapping Protected class. Actual access will result in ```AttributeError``` as expected
+- Do not change attribute TYPE - from METHOD to DATA or vice-versa
     - This will cause predictable effects if Protected instance was created using any of the following options:
           hide_method
           hide_data
           ro_method
           ro_data
-- None of the above run-time behaviors should be common or recommended - especially when wanting to expose a wrapped
-  interface with visibility and/or mutability protections
+- None of the above run-time behaviors should be common or recommended - especially when wanting to expose a wrapped interface with visibility and/or mutability protections
 
 ### Work in progress
 - Completing setup.py to allow installation with ```pip```
