@@ -97,6 +97,19 @@ That's it!
     - attributes that will be visible
     - Overrides 'hide', hide_all', 'hide_data', 'hide_method', 'hide_dunder'
 
+| Option | Type | Default | Description | Overrides |
+| ------ | ---- | ------- | ----------- | --------- |
+| add    | bool | True    | Whether attributes can be ADDED | |
+| frozen | bool | False   | If True, no attributes can be CHANGED or ADDED | <ul><li>add</li><li>rw</li></ul> | |
+| protect_class | bool | True | <ul><li>Prevents modification of CLASS of wrapped object</li><li>Doesn't PREVENT modification, but modification has no effect</li></ul> | |
+| hide_all | bool | False | <ul><li>All attributes will be hidden</li><li>Can override selectively with 'show'</li></ul> | |
+| hide_data | bool | False | Data (non-method) attributes will be hidden | |
+| hide_method | bool | False | Method attributes will be hidden | |
+
+
+
+
+
 ### VISIBILITY versus READABILITY:
 #### VISIBILITY: appears in dir(object)
 - Never affected by Protected class
