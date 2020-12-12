@@ -58,16 +58,18 @@ That's it!
 
 ### VISIBILITY versus READABILITY or ACCESSIBILITY
 #### VISIBILITY: appears in dir(object)
-- Never affected by Protected class
-- Note: visibility in Protected object IS controlled by PermsDict
+- Never affected by Protected class: ```object.__dir__(myinst)``` will still show ALL attribute **NAMES**
+- Note: visibility in Protected object IS controlled by Protected class: ```object.__dir__(wrapped)``` will show attributes based on options used with Protected class
 
 #### READABILITY or ACCESSIBILITY: Accessing the VALUE of the attribute
-- Applies to Protected object - NOT original wrapped object
-- IS controled by Protected clsas
+- Applies to Protected object instance - NOT original wrapped object
+- Code of original wrapped object instance is completely UNAFFECTED by Protected Class
+- Accessibility of attributes of original wrapped object through Protected class instance IS controled by Protected class
 - Affects ```getattr```, ```hasattr```, ```object.__getattribute__``` etc
 
 ### MUTABILITY: Ability to CHANGE or DELETE an attribute
 - Protected class will not allow CHANGING OR DELETING an attribute that is not VISIBLE - per rules of Protected class
+- Attributes set to read-only using Protected class cannot be modified through Protected class instance. The code of the original wrapped object is not affected by this.
 
 | Option        | Attribute Type    | Readability | Mutability     |
 | ------------- | ----------------- | ----------- | -------------- |
