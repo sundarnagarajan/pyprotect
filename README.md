@@ -13,7 +13,7 @@
 
 
 ### Usage
-```
+```python
     from protected_class import Protected
 
 
