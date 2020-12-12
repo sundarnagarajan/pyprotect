@@ -41,30 +41,27 @@ That's it!
 - ro_method == True: Method attributes will be read-only
 - All other non-dunder non-private data attributes are read-write
 
+### VISIBILITY versus READABILITY:
+#### VISIBILITY: appears in dir(object)
+- Never affected by Protected class
+- Note: visibility in Protected object IS controlled by PermsDict
+
+#### READABILITY: Whether the attribute VALUE can be read
+- Applies to Protected object - NOT original wrapped object
+- IS controled by Protected clsas
+- Affects getattr, hasattr, object.__getattribute__ etc
+
+### MUTABILITY: Ability to CHANGE or DELETE an attribute
+- Protected class will not allow CHANGING OR DELETING an attribute that is not VISIBLE - per rules of Protected class
+
+### Python rules for attributes of type 'property':
+- Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
+- Properties cannot be DELETED
+- Properties cannot be WRITTEN to unless property has a 'setter' method defined in the CLASS
+- These rules are implemented by the python language (interpreter) and Protected class does not enforce or check
+
 
 ```
-    VISIBILITY versus READABILITY:
-        VISIBILITY: appears in dir(object)
-            - Never affected by Protected class
-            - Note: visibility in Protected object IS controlled by PermsDict
-        READABILITY: Whether the attribute VALUE can be read
-            - Applies to Protected object - NOT original wrapped object
-            - IS controled by Protected clsas
-            - Affects getattr, hasattr, object.__getattribute__ etc
-
-    MUTABILITY: Ability to CHANGE or DELETE an attribute
-        - Protected class will not allow CHANGING OR DELETING an attribute
-          that is not VISIBLE - per rules of Protected class
-
-    Python rules for attributes of type 'property':
-        - Properties are defined in the CLASS, and cannot be changed
-            in the object INSTANCE
-        - Properties cannot be DELETED
-        - Properties cannot be WRITTEN to unless property has a 'setter' method
-            defined in the CLASS
-        - These rules are implemented by the python language (interpreter)
-            and Protected class does not enforce or check
-
     Notes on non-overrideable behaviors of Protected class:
         1. Traditional python 'private' vars - start with '__' but do not
            end with '__' - can never be read, written or deleted
@@ -116,10 +113,6 @@ That's it!
         - None of the above run-time behaviors should be common or
           recommended - especially when wanting to expose a wrapped
           interface with visibility and/or mutability protections
-```
-
-
-
 
     Constructor keyword arguments:
 
