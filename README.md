@@ -64,14 +64,14 @@ That's it!
 
 
 ### Non-overrideable behaviors of Protected class:
-1. Traditional python 'private' vars - start with '__' but do not end with '__' - can never be read, written or deleted
+1. Traditional python 'private' vars - start with ```__``` but do not end with ```__``` - can never be read, written or deleted
 2. If an attribute cannot be read, it cannot be written or deleted
 3. Attributes can NEVER be DELETED UNLESS they were added at run-time
 4. Attributes that are properties are ALWAYS visible AND WRITABLE
     - Properties indicate an intention of class author to expose them
     - Whether they are actually writable depends on whether class author implemented property.setter
 5. The following attributes of wrapped object are NEVER visible:
-     '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
+       ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
 6. Subclassing from Protected class
     - Protected class is only for wrapping a python object INSTANCE
     - Subclassing is possible, but MOST things will not work:
@@ -82,7 +82,7 @@ That's it!
     - Subclass your python object BEFORE wrapping with Protected
 
 ### What kind of python objects can be wrapped?
-Pretty much anything. Protected only mediates attribute access using object.__getattribute__, object.__setattr__ and object.__delatr__. If these methods work on your object, your object can be wrapped
+Pretty much anything. Protected only mediates attribute access using ```object.__getattribute__```, ```object.__setattr__``` and ```object.__delatr__```. If these methods work on your object, your object can be wrapped
 
 ### Can a Protected class instance be wrapped again using Protected?
 **YES !**
