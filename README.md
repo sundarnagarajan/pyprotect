@@ -77,7 +77,7 @@ That's it!
 | hide_all      | ANY               | YES         | YES (Indirect) |
 | hide_data     | Data attributes   | YES         | YES (Indirect) |
 | hide_method   | Method attributes | YES         | YES (Indirect) |
-| hide_privae   | Privae attributes | YES         | YES (Indirect) |
+| hide_private  | Privae attributes | YES         | YES (Indirect) |
 | hide_dunder   | dunder-attributes | YES         | YES (Indirect) |
 | ro_all        | ANY               | NO          | YES            |
 | ro_data       | Data attributes   | NO          | YES            |
@@ -136,8 +136,9 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 
 ### How do I
 #### Make my object completely read-only
+- Use ```add=False, frozen=True```
 
-#### Completely hide privae variables hat are normally read-only, but visible
+#### Completely hide private variables hat are normally read-only, but visible
 - Use ```hide_private=True```
 
 #### Hide all except properties
@@ -152,6 +153,10 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 #### Make all attributes read-only except specific ones
 - Use ```ro_all=True, rw=['exception1', 'exception2']```
 
+#### How can I get close to default python behavior
+- Use ```add=True, protect_class=False, ro_method=False, ro_dunder=False```
+- Mangled private variables still won't be visible
+- Private variables (form ```_var```) will still be read-only
 
 ### Some run-time behaviors to AVOID in wrapped objects:
 - Creating attribute at run-time - these will not be detected once the object instance is wrapped in Protected
