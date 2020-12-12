@@ -14,18 +14,19 @@
 
 ### Usage
 ```python
-from protected_class import Protected
-
-
+# Use any custom class of your own
 class MyClass(object):
     def __init__(self):
         self.__hidden = 1
         self._private = 2
         self.public = 3
 
+
+# Gen an instance of your class
 myinst = MyClass()
 
-# One-line to wrap and protect class attributes
+# import + ONE line to wrap and protect class attributes
+from protected_class import Protected
 wrapped = Protected(myinst)
 ```
 
