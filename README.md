@@ -1,4 +1,5 @@
 ## python_protected_class
+
 ### Protect class attributes in any python object instance
 
 - Supports (virtually) any python object
@@ -10,6 +11,8 @@
 - Should work on any Python 3 version
 - Well documented (docstring)
 - doctests in tests directory
+- Tested (only) on Ubuntu Bionic 18.04. Should work on any Linux distribution
+- Should work wherever cython works
 
 
 ### Usage
@@ -65,13 +68,23 @@ That's it!
 - ro_method == True: Method attributes will be read-only
 - All other non-dunder non-private data attributes are read-write
 
+### Non-overrideable behaviors of Protected class:
+1. Traditional python 'private' vars - start with ```__``` but do not end with ```__``` - can never be read, written or deleted
+2. If an attribute cannot be read, it cannot be written or deleted
+3. Attributes can NEVER be DELETED UNLESS they were added at run-time
+4. Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
+    - Properties indicate an intention of class author to expose them
+    - Whether they are actually writable depends on whether class author implemented property.setter
+5. The following attributes of wrapped object are NEVER visible:
+       ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
+6. You cannot subclass Protected class
 
-### VISIBILITY versus READABILITY:
+### VISIBILITY versus READABILITY or ACCESSIBILITY
 #### VISIBILITY: appears in dir(object)
 - Never affected by Protected class
 - Note: visibility in Protected object IS controlled by PermsDict
 
-#### READABILITY: Whether the attribute VALUE can be read
+#### READABILITY or ACCESSIBILITY: Accessing the VALUE of the attribute
 - Applies to Protected object - NOT original wrapped object
 - IS controled by Protected clsas
 - Affects ```getattr```, ```hasattr```, ```object.__getattribute__``` etc
@@ -79,36 +92,47 @@ That's it!
 ### MUTABILITY: Ability to CHANGE or DELETE an attribute
 - Protected class will not allow CHANGING OR DELETING an attribute that is not VISIBLE - per rules of Protected class
 
+| Option        | Attribute Type    | Readability | Mutability     |
+| ------------- | ----------------- | ----------- | -------------- |
+| frozen        | Any               | NO          | YES            |
+| add           | Added at run-time | NO          | NO             |
+| protect_class | object class      | NO          | YES            |
+| hide_all      | ANY               | YES         | YES (Indirect) |
+| hide_data     | Data attributes   | YES         | YES (Indirect) |
+| hide_method   | Method attributes | YES         | YES (Indirect) |
+| hide_privae   | Privae attributes | YES         | YES (Indirect) |
+| hide_dunder   | dunder-attributes | YES         | YES (Indirect) |
+| ro_all        | ANY               | NO          | YES            |
+| ro_data       | Data attributes   | NO          | YES            |
+| ro_method     | Method attributes | NO          | YES            |
+| ro_dunder     | dunder-attributes | NO          | YES            |
+| ro            | ANY               | NO          | YES            |
+| rw            | ANY               | NO          | YES            |
+| hide          | ANY               | YES         | YES (Indirect) |
+| show          | ANY               | YES         | NO             |
+
+
 ### Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
 - Properties cannot be DELETED
 - Properties cannot be WRITTEN to unless property has a 'setter' method defined in the CLASS
 - These rules are implemented by the python language (interpreter) and Protected class does not enforce or check
 
-
-### Non-overrideable behaviors of Protected class:
-1. Traditional python 'private' vars - start with ```__``` but do not end with ```__``` - can never be read, written or deleted
-2. If an attribute cannot be read, it cannot be written or deleted
-3. Attributes can NEVER be DELETED UNLESS they were added at run-time
-4. Attributes that are properties are ALWAYS visible AND WRITABLE
-    - Properties indicate an intention of class author to expose them
-    - Whether they are actually writable depends on whether class author implemented property.setter
-5. The following attributes of wrapped object are NEVER visible:
-       ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
-6. Subclassing from Protected class
-    - Protected class is only for wrapping a python object INSTANCE
-    - Subclassing is possible, but MOST things will not work:
-        - Overriding methods of Protected class is not possible - since Protected is implemented in C
-        - Overriding attributes of wrapped object is not possible, since the original object is wrapped inside ProtectedC and all accesses are mediated
-        - New attributes defined in sub-class will not be accessible, since attribute access is mediated by ProtectedC class
-    - Because of this, Protected class PREVENTS sub-classing
-    - Subclass your python object BEFORE wrapping with Protected
-
 ### What kind of python objects can be wrapped?
 Pretty much anything. Protected only mediates attribute access using ```object.__getattribute__```, ```object.__setattr__``` and ```object.__delatr__```. If these methods work on your object, your object can be wrapped
 
 ### Can a Protected class instance be wrapped again using Protected?
 **YES !**
+
+### Why can't I subclass Protected class?
+- Protected class is only for wrapping a python object INSTANCE
+- NONE of the atributes of Protected class are exposed - only (selecive) attributes of the WRAPPED object
+- Overriding methods of Protected class is not possible - since Protected is implemented in C
+- Overriding attributes of wrapped object is not possible, since the original object is wrapped inside Protected and all accesses are hrough the Proteced class instance
+- New attributes defined in sub-class will not be accessible, since attribute access is mediated by Protected class
+- Because of this, Protected class PREVENTS sub-classing
+- Subclass your python object BEFORE wrapping with Protected
+
 
 ### Some run-time behaviors to AVOID in wrapped objects:
 - Creating attribute at run-time - these will not be detected once the object instance is wrapped in Protected
@@ -122,5 +146,7 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 - None of the above run-time behaviors should be common or recommended - especially when wanting to expose a wrapped
   interface with visibility and/or mutability protections
 
-
+### Work in progress
+- Completing setup.py to allow installation with ```pip```
+- Uploading to pypi.org
 
