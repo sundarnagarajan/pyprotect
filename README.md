@@ -22,7 +22,7 @@ class MyClass(object):
         self.public = 3
 
 
-# Gen an instance of your class
+# Get an instance of your class
 myinst = MyClass()
 
 # import + ONE line to wrap and protect class attributes
