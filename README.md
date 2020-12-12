@@ -101,39 +101,39 @@ Pretty much anything. Protected only mediates attribute access using object.__ge
 
 ### Proteced class constructor keyword arguments:
 
-**frozen-->bool**: If True, no attributes can be CHANGED or ADDED
+- **frozen-->bool**: If True, no attributes can be CHANGED or ADDED
     - Overrides 'add'
     - Default: False
-**add-->bool**: Whether attributes can be ADDED - Default: True
-**protect_class-->bool**: Prevents modification of CLASS of wrapped object
+- **add-->bool**: Whether attributes can be ADDED - Default: True
+- **protect_class-->bool**: Prevents modification of CLASS of wrapped object
     - __class__ attribute returns a COPY of actual __class__
     - Doesn't PREVENT modification, but modification has no effect
     - Default: True
-**hide_all-->bool**: All attributes will be hidden
+- **hide_all-->bool**: All attributes will be hidden
     - Default: False
     - Can override selectively with 'show'
-**hide_data-->bool**: Data (non-method) attributes will be hidden
+- **hide_data-->bool**: Data (non-method) attributes will be hidden
     - Default: False
-**hide_method-->bool**: Method attributes will be hidden
+- **hide_method-->bool**: Method attributes will be hidden
     - Default: False
-**hide_private-->bool**: Private vars (form _var) will be hidden
+- **hide_private-->bool**: Private vars (form _var) will be hidden
     - Default: False
-**hide_dunder-->bool**: 'dunder-vars' will be hidden
+- **hide_dunder-->bool**: 'dunder-vars' will be hidden
     - Default: False
-**ro_all-->bool**: All attributes will be read-only
+- **ro_all-->bool**: All attributes will be read-only
     - Default: False
     - Can override selectively with 'rw'
-**ro_data-->bool**: Data (non-method) attributes will be read-only
+- **ro_data-->bool**: Data (non-method) attributes will be read-only
     - Default: False
-**ro_method-->bool**: Method attributes will be read-only
+- **ro_method-->bool**: Method attributes will be read-only
     - Default: True
-**ro_dunder-->bool**: 'dunder-vars' will be  read-only
+- **ro_dunder-->bool**: 'dunder-vars' will be  read-only
     - Default: True
-**ro-->list of str**: attributes that will be read-only
-**rw-->list of str**: attributes that will be read-write
+- **ro-->list of str**: attributes that will be read-only
+- **rw-->list of str**: attributes that will be read-write
     - Overrides 'ro', ro_all, 'ro_data', 'ro_method', 'ro_dunder'
-**hide-->list of str**: attributes that will be hidden
-**show-->list of str**: attributes that will be visible
+- **hide-->list of str**: attributes that will be hidden
+- **show-->list of str**: attributes that will be visible
     - Overrides 'hide', hide_all', 'hide_data', 'hide_method', 'hide_dunder'
 
 
