@@ -56,29 +56,6 @@ That's it!
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li><li>Override selectively with 'show'</li></ul> | |
 | show              | list of str | [ ]   | <ul><li>Attributes that will be visible</li></ul> | <ul><li>hide_all</li><li>hide_data</li><li>hide_method</li><li>hide_dunder</li><li>hide</li></ul> |
 
-### Default settings:
-- Traditional (mangled) Python private vars are ALWAYS hidden
-    - CANNOT be overridden
-- Private vars (form _var) will be read-only
-    - Can use hide_private to hide them
-    - They CANNOT be made read-write
-- add == True: New attributes can be added (Python philosophy)
-- protect_class == True: Prevents modification of CLASS of wrapped object
-- ro_dunder == True: 'dunder-vars' will be  read-only
-- ro_method == True: Method attributes will be read-only
-- All other non-dunder non-private data attributes are read-write
-
-### Non-overrideable behaviors of Protected class:
-1. Traditional python 'private' vars - start with ```__``` but do not end with ```__``` - can never be read, written or deleted
-2. If an attribute cannot be read, it cannot be written or deleted
-3. Attributes can NEVER be DELETED UNLESS they were added at run-time
-4. Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
-    - Properties indicate an intention of class author to expose them
-    - Whether they are actually writable depends on whether class author implemented property.setter
-5. The following attributes of wrapped object are NEVER visible:
-       ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
-6. You cannot subclass Protected class
-
 ### VISIBILITY versus READABILITY or ACCESSIBILITY
 #### VISIBILITY: appears in dir(object)
 - Never affected by Protected class
@@ -112,6 +89,29 @@ That's it!
 | show          | ANY               | YES         | NO             |
 
 
+### Default settings:
+- Traditional (mangled) Python private vars are ALWAYS hidden
+    - CANNOT be overridden
+- Private vars (form _var) will be read-only
+    - Can use hide_private to hide them
+    - They CANNOT be made read-write
+- add == True: New attributes can be added (Python philosophy)
+- protect_class == True: Prevents modification of CLASS of wrapped object
+- ro_dunder == True: 'dunder-vars' will be  read-only
+- ro_method == True: Method attributes will be read-only
+- All other non-dunder non-private data attributes are read-write
+
+### Non-overrideable behaviors of Protected class:
+1. Traditional python 'private' vars - start with ```__``` but do not end with ```__``` - can never be read, written or deleted
+2. If an attribute cannot be read, it cannot be written or deleted
+3. Attributes can NEVER be DELETED UNLESS they were added at run-time
+4. Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
+    - Properties indicate an intention of class author to expose them
+    - Whether they are actually writable depends on whether class author implemented property.setter
+5. The following attributes of wrapped object are NEVER visible:
+       ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
+6. You cannot subclass Protected class
+
 ### Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
 - Properties cannot be DELETED
@@ -132,6 +132,25 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 - New attributes defined in sub-class will not be accessible, since attribute access is mediated by Protected class
 - Because of this, Protected class PREVENTS sub-classing
 - Subclass your python object BEFORE wrapping with Protected
+
+
+### How do I
+#### Make my object completely read-only
+
+#### Completely hide privae variables hat are normally read-only, but visible
+- Use ```hide_private=True```
+
+#### Hide all except properties
+- Use ```ro_all=True```
+
+#### Hide all dunder-attributes except specific ones
+- Use ```hide_dunder=True, show=['exception1', 'exception2']```
+
+#### Hide all attributes except specific ones
+- Use ```hide_all=True, show=['exception1', 'exception2']```
+
+#### Make all attributes read-only except specific ones
+- Use ```ro_all=True, rw=['exception1', 'exception2']```
 
 
 ### Some run-time behaviors to AVOID in wrapped objects:
