@@ -106,7 +106,7 @@ Pretty much anything. Protected only mediates attribute access using object.__ge
     - Default: False
 - **add-->bool**: Whether attributes can be ADDED - Default: True
 - **protect_class-->bool**: Prevents modification of CLASS of wrapped object
-    - __class__ attribute returns a COPY of actual __class__
+    - ```__class__``` attribute returns a COPY of actual class
     - Doesn't PREVENT modification, but modification has no effect
     - Default: True
 - **hide_all-->bool**: All attributes will be hidden
