@@ -75,22 +75,23 @@ AttributeError: Read-only attribute: TestObj._ro
 
 >>> k = o1.__class__
 >>> k.junk = 1
->>> o1.junk
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
-  File "src/protected_class.pyx", line 433, in protected_class.Protected.__getattribute__
-    self.aclcheck(a=a, op='r')
-  File "src/protected_class.pyx", line 409, in protected_class.Protected.aclcheck
-    raise AttributeError(missing_msg)
-AttributeError: Object 'TestObj' has no attribute 'junk'
->>> t1.junk
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-AttributeError: 'TestObj' object has no attribute 'junk'
+  File "src/protected_class.pyx", line 178, in protected_class.ReadOnlyWrapper.__setattr__
+    - Default: False
+TypeError: Class object is read-only
 
 ---------- Delete a (property) attribute in __class__
 
 >>> del k.x
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "src/protected_class.pyx", line 181, in protected_class.ReadOnlyWrapper.__delattr__
+    - Default: False
+  File "<stdin>", line 1, in <module>
+  File "src/protected_class.pyx", line 178, in protected_class.ReadOnlyWrapper.__setattr__
+    - Default: False
+TypeError: Class object is read-only
 >>> o1.x
 1
 >>> t1.x
@@ -224,8 +225,6 @@ AttributeError: Read-only attribute: TestObj.__doc__
 >>> o1.__doc__ = 1
 >>> t1 = TestObj()
 >>> o1 = Protected(t1)
->>> o1.__class__
-<class 'test_protected_class.TestObj'>
 >>> t1 = TestObj()
 >>> o1 = Protected(t1, hide=['__class__'])
 >>> o1.__class__
@@ -248,8 +247,6 @@ Traceback (most recent call last):
 AttributeError: Object 'TestObj' has no attribute '__class__'
 >>> t1 = TestObj()
 >>> o1 = Protected(t1, hide=['__class__', '__doc__'], show=['__class__'])
->>> o1.__class__
-<class 'test_protected_class.TestObj'>
 >>> t1 = TestObj()
 >>> o1 = Protected(t1, frozen=False)
 >>> o1.rw = 3
@@ -317,6 +314,11 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 AttributeError: 'TestObj' object has no attribute 'junk2'
 >>> k.junk2 = 1
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "src/protected_class.pyx", line 178, in protected_class.ReadOnlyWrapper.__setattr__
+    - Default: False
+TypeError: Class object is read-only
 >>> t1.junk2
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
