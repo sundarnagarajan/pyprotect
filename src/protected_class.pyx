@@ -10,18 +10,88 @@ Building:
         gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing
                 -I/usr/include/python2.7 -o private.so private.c
 
+VISIBILITY versus READABILITY:
+    VISIBILITY: appears in dir(object)
+        - Never affected by Protected class
+        - Note: visibility in Protected object IS controlled by PermsDict
+    READABILITY: Whether the attribute VALUE can be read
+        - Applies to Protected object - NOT original wrapped object
+        - IS controled by Protected clsas
+        - Affects getattr, hasattr, object.__getattribute__ etc
+
+MUTABILITY: Ability to CHANGE or DELETE an attribute
+    - Protected class will not allow CHANGING OR DELETING an attribute
+      that is not VISIBLE - per rules of Protected class
+
+Python rules for attributes of type 'property':
+    - Properties are defined in the CLASS, and cannot be changed
+        in the object INSTANCE
+    - Properties cannot be DELETED
+    - Properties cannot be WRITTEN to unless property has a 'setter' method
+        defined in the CLASS
+    - These rules are implemented by the python language (interpreter)
+        and Protected class does not enforce or check
+
+Notes on non-overrideable behaviors of Protected class:
+    1. Traditional python 'private' vars - start with '__' but do not
+       end with '__' - can never be read, written or deleted
+    2. If an attribute cannot be read, it cannot be written or deleted
+    3. Attributes can NEVER be DELETED UNLESS they were added at run-time
+    4. Attributes that are properties are ALWAYS visible AND WRITABLE
+        - Properties indicate an intention of class author to expose them
+        - Whether they are actually writable depends on whether class
+          author implemented property.setter
+    5. The following attributes of wrapped object are NEVER visible:
+         '__dict__', '__delattr__', '__setattr__', '__slots__',
+         '__getattribute__'
+    6. Subclassing from Protected class
+        - Protected class is only for wrapping a python object INSTANCE
+        - Subclassing is possible, but MOST things will not work:
+            - Overriding methods of Protected class is
+              not possible - since Protected is implemented in C
+            - Overriding attributes of wrapped object is not possible,
+              since the original object is wrapped inside ProtectedC
+              and all accesses are mediated
+            - New attributes defined in sub-class will not be accessible,
+              since attribute access is mediated by ProtectedC class
+        - Because of this, Protected class PREVENTS sub-classing
+        - Subclass your python object BEFORE wrapping with Protected
+
+What kind of python objects can be wrapped?
+    - Pretty much anything. Protected only mediates attribute access
+      using object.__getattribute__, object.__setattr__ and
+      object.__delatr__. If these methods work on your object,
+      your object can be wrapped
+
+Can a Protected class instance be wrapped again using Protected?
+    YES !
+
+Some run-time behaviors to AVOID in wrapped objects:
+    - Creating attribute at run-time - these will not be detected
+      once the object instance is wrapped in Protected
+    - Deleting attributes at run-time - these will still appear
+      to be part of the wrapped object when accessing through the
+      wrapping Protected class. Actual access will result in
+      AttributeError as expected
+    - Change attribute TYPE - from method to DATA or vice-versa
+        - This will cause predictable effects if Protected
+          instance was created using any of the following options:
+              hide_method
+              hide_data
+              ro_method
+              ro_data
+    - None of the above run-time behaviors should be common or
+      recommended - especially when wanting to expose a wrapped
+      interface with visibility and/or mutability protections
 '''
 import sys
 import re
+import collections
+import types
 from cpython.object cimport (
     Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
 )
 cimport cython
-
-
-cdef class __Object(object):
-    pass
-
 
 cdef dict hidden_always
 hidden_always = dict.fromkeys([
@@ -39,88 +109,107 @@ cdef object attr_identifier
 attr_identifier = re.compile('^[_a-zA-Z][a-zA-Z0-9_]*$')
 
 
+# ------------------------------------------------------------------------
+# Order is significant to avoid errors of the form
+# 'Cannot create a consistent method resolution order (MRO) for bases ...'
+cdef list class_list = [
+    collections.MutableSequence,
+    collections.MutableSet,
+    collections.MutableMapping,
+    collections.MappingView,
+    collections.Hashable,
+]
+if sys.version_info.major > 2:
+    class_list += [
+        collections.Collection,
+        collections.Generator,
+    ]
+class_list += [
+    collections.Iterator,
+]
+if sys.version_info.major < 3:
+    class_list += [
+        collections.Container,
+    ]
+# ------------------------------------------------------------------------
+
+cdef list invalid_types = [
+    types.BuiltinFunctionType, types.BuiltinMethodType,
+    types.CodeType, types.FunctionType, types.LambdaType,
+    types.MemberDescriptorType, types.MethodType, types.ModuleType,
+    types.TracebackType,
+    property,
+    # Allow type itself to allow CLASS
+    # type,
+]
+if sys.version_info.major < 3:
+    invalid_types += [
+        types.EllipsisType,
+        types.UnboundMethodType,
+    ]
+
+
+cdef isclass(o):
+    if isinstance(o, type) and not isinstance(o, tuple(invalid_types)):
+        return True
+    return False
+
+
+@cython.internal
+cdef class ReadOnlyWrapper(object):
+    cdef object pvt_o
+    cdef str cn
+    cdef object frozen_error
+
+    def __init__(self, o):
+        '''
+        o-->object to be wrapped
+        '''
+        self.pvt_o = o
+        self.cn = o.__class__.__name__
+        self.frozen_error = TypeError('Object is read-only')
+
+    def __getattribute__(self, a):
+        if a == 'pvt_o':
+            return self.pvt_o
+        return getattr(self.pvt_o, a)
+
+    def __setattr__(self, a, val):
+        raise self.frozen_error
+
+    def __delattr__(self, a):
+        raise self.frozen_error
+
+
+cdef class ReadOnlyClassWrapper(ReadOnlyWrapper):
+    def __init__(self, o):
+        '''o-->class object to be wrapped'''
+        if not isclass(o):
+            raise TypeError('o: Invalid type: %s' % (repr(o),))
+        ReadOnlyWrapper.__init__(self, o)
+        self.frozen_error = TypeError('Class object is read-only')
+
+    def __call__(self, *args, **kwargs):
+        return self.pvt_o(*args, **kwargs)
+
+
+cdef class ReadOnlyModuleWrapper(object):
+    def __init__(self, o):
+        '''o-->class object to be wrapped'''
+        if not isinstance(o, types.ModuleType):
+            raise TypeError('o: Invalid type: %s' % (repr(o),))
+        ReadOnlyWrapper.__init__(self, o)
+        self.frozen_error = TypeError('Class object is read-only')
+
+
+# Not visible to python (or outside this module ?)
+# @cython.internal
 @cython.final
 cdef class Protected(object):
-    '''
-    VISIBILITY versus READABILITY:
-        VISIBILITY: appears in dir(object)
-            - Never affected by Protected class
-            - Note: visibility in Protected object IS controlled by PermsDict
-        READABILITY: Whether the attribute VALUE can be read
-            - Applies to Protected object - NOT original wrapped object
-            - IS controled by Protected clsas
-            - Affects getattr, hasattr, object.__getattribute__ etc
-
-    MUTABILITY: Ability to CHANGE or DELETE an attribute
-        - Protected class will not allow CHANGING OR DELETING an attribute
-          that is not VISIBLE - per rules of Protected class
-
-    Python rules for attributes of type 'property':
-        - Properties are defined in the CLASS, and cannot be changed
-            in the object INSTANCE
-        - Properties cannot be DELETED
-        - Properties cannot be WRITTEN to unless property has a 'setter' method
-            defined in the CLASS
-        - These rules are implemented by the python language (interpreter)
-            and Protected class does not enforce or check
-
-    Notes on non-overrideable behaviors of Protected class:
-        1. Traditional python 'private' vars - start with '__' but do not
-           end with '__' - can never be read, written or deleted
-        2. If an attribute cannot be read, it cannot be written or deleted
-        3. Attributes can NEVER be DELETED UNLESS they were added at run-time
-        4. Attributes that are properties are ALWAYS visible AND WRITABLE
-            - Properties indicate an intention of class author to expose them
-            - Whether they are actually writable depends on whether class
-              author implemented property.setter
-        5. The following attributes of wrapped object are NEVER visible:
-             '__dict__', '__delattr__', '__setattr__', '__slots__',
-             '__getattribute__'
-        6. Subclassing from Protected class
-            - Protected class is only for wrapping a python object INSTANCE
-            - Subclassing is possible, but MOST things will not work:
-                - Overriding methods of Protected class is
-                  not possible - since Protected is implemented in C
-                - Overriding attributes of wrapped object is not possible,
-                  since the original object is wrapped inside ProtectedC
-                  and all accesses are mediated
-                - New attributes defined in sub-class will not be accessible,
-                  since attribute access is mediated by ProtectedC class
-            - Because of this, Protected class PREVENTS sub-classing
-            - Subclass your python object BEFORE wrapping with Protected
-
-    What kind of python objects can be wrapped?
-        - Pretty much anything. Protected only mediates attribute access
-          using object.__getattribute__, object.__setattr__ and
-          object.__delatr__. If these methods work on your object,
-          your object can be wrapped
-
-    Can a Protected class instance be wrapped again using Protected?
-        YES !
-
-    Some run-time behaviors to AVOID in wrapped objects:
-        - Creating attribute at run-time - these will not be detected
-          once the object instance is wrapped in Protected
-        - Deleting attributes at run-time - these will still appear
-          to be part of the wrapped object when accessing through the
-          wrapping Protected class. Actual access will result in
-          AttributeError as expected
-        - Change attribute TYPE - from method to DATA or vice-versa
-            - This will cause predictable effects if Protected
-              instance was created using any of the following options:
-                  hide_method
-                  hide_data
-                  ro_method
-                  ro_data
-        - None of the above run-time behaviors should be common or
-          recommended - especially when wanting to expose a wrapped
-          interface with visibility and/or mutability protections
-    '''
-
     # Constructor parameters
     cdef object pvt_o
     cdef bint frozen
-    cdef bint add
+    cdef bint add_allowed
     cdef bint protect_class
     cdef bint hide_all
     cdef bint hide_data
@@ -137,6 +226,7 @@ cdef class Protected(object):
     cdef dict show
 
     cdef str cn
+    cdef object frozen_error
     cdef dict attr_acl
     cdef dict attr_props
     cdef object hidden_private_attr
@@ -147,9 +237,7 @@ cdef class Protected(object):
 
     def __init__(
         self, o,
-        frozen=False,
-        add=True,
-        protect_class=True,
+        frozen=False, add=True, protect_class=True,
         hide_all=False, hide_data=False, hide_method=False,
         hide_private=False, hide_dunder=False,
         ro_all=False, ro_data=False, ro_method=True, ro_dunder=True,
@@ -207,9 +295,15 @@ cdef class Protected(object):
         - ro_method == True: Method attributes will be read-only
         - All other non-dunder non-private data attributes are read-write
         '''
+        if o is None:
+            raise TypeError('o: Invalid type: %s' % (repr(o),))
+        if o is NotImplemented:
+            raise TypeError('o: Invalid type: %s' % (repr(o),))
+        if isinstance(o, tuple(invalid_types)):
+            raise TypeError('o: Invalid type: %s' % (o.__class__.__name__,))
         self.pvt_o = o
+        self.add_allowed = bool(add)
         self.frozen = bool(frozen)
-        self.add = bool(add)
         self.protect_class = bool(protect_class)
         self.hide_all = bool(hide_all)
         self.hide_data = bool(hide_data)
@@ -244,6 +338,7 @@ cdef class Protected(object):
         self.show = dict.fromkeys(show)
 
         self.cn = o.__class__.__name__
+        self.frozen_error = TypeError('Object is Read-only: %s' % (self.cn))
         self.attr_acl = {}
         self.attr_props = {}
         # Use compiled regex - no function call, no str operations
@@ -253,6 +348,7 @@ cdef class Protected(object):
         self.dir_out = []
 
         self.set_attr_acl()
+
 
     cdef set_attr_acl(self):
         '''
@@ -413,7 +509,7 @@ cdef class Protected(object):
                     raise AttributeError(ro_msg)
                 return
             # New attribute creation
-            if not self.add:
+            if not self.add_allowed:
                 raise AttributeError(noadd_msg)
             if self.hidden_private_attr.match(a):
                 raise AttributeError(nopvt_msg)
@@ -428,13 +524,12 @@ cdef class Protected(object):
                     raise AttributeError(missing_msg)
 
     def __getattribute__(self, a):
-        if a == 'pvt_o':
+        if a == 'pvt.o':
             return self.pvt_o
         self.aclcheck(a=a, op='r')
-        # Protect CLASS of wrapped object
+        # Protect CLASS and MODULE of wrapped object
         if a == '__class__' and self.protect_class:
-            x = getattr(self.pvt_o, a)
-            return type(x.__name__, x.__bases__, dict(x.__dict__))
+            return ReadOnlyClassWrapper(self.pvt_o.__class__)
         return getattr(self.pvt_o, a)
 
     def __setattr__(self, a, val):
@@ -467,12 +562,108 @@ cdef class Protected(object):
     def __str__(self):
         return str(self.pvt_o)
 
+    # TODO ___richcmp__ code doesn't work !
+    # probably CANNOT work with a wrapped object
+    # How can one object see 'innards' of other object to compare?
+    '''
     def __richcmp__(self, other, int op):
+        print('DEBUG: self: ', self)
+        print('DEBUG: self: ', type(self))
         fn_map = {
             Py_LT: '__lt__', Py_LE: '__le__', Py_EQ: '__eq__',
             Py_NE: '__ne__', Py_GE: '__ge__', Py_GT: '__gt__',
         }
         m = fn_map.get(op, NotImplemented)
-        if not hasattr(self.pvt_o, m):
+        o = self.__getattribute__('pvt_o')
+        m = getattr(o, m, None)
+        if not m:
             return NotImplemented
-        return getattr(self.pvt_o, m)(other)
+        return m(other)
+    '''
+    def __richcmp__(self, other, int op):
+        if op not in (Py_NE, Py_EQ):
+            return NotImplemented
+        res = (hash(self) == hash(other))
+        if op == Py_EQ:
+            return res
+        if op == Py_NE:
+            return (not res)
+
+
+    # ------------------------------------------------------------------------
+    # The rest of the methods are implementations of abstract methods to
+    # proxy different types of objects from collections module
+    # ------------------------------------------------------------------------
+
+    # Sequence
+
+    def __reversed__(self):
+        if self.frozen:
+            raise self.frozen_error
+        return self.pvt_o.__reversed__()
+
+    # MutableMapping:
+
+    def __getitem__(self, key):
+        return self.pvt_o.__getitem__(key)
+
+    def __delitem__(self, key):
+        if self.frozen:
+            raise self.frozen_error
+        try:
+            self.pvt_o.__delitem__(key)
+        except AttributeError:
+            raise TypeError(
+                "'%s' object does not support item deletion" % (self.cn,)
+            )
+
+    def __setitem__(self, key, val):
+        if self.frozen:
+            raise self.frozen_error
+        try:
+            self.pvt_o.__setitem__(key, val)
+        except AttributeError:
+            raise TypeError(
+                "'%s' object does not support item assignment" % (self.cn,)
+            )
+
+    def __iter__(self):
+        return iter(self.pvt_o)
+
+    def __len__(self):
+        return self.pvt_o.__len__()
+
+    # MutableSequence:
+
+    def add(self, *args, **kwargs):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o.add(*args, **kwargs)
+
+    def insert(self, *args, **kwargs):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o.insert(*args, **kwargs)
+
+    def discard(self, *args, **kwargs):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o.discard(*args, **kwargs)
+
+    # Generator
+
+    def send(self, *args, **kwargs):
+        self.pvt_o.send(*args, **kwargs)
+
+    def throw(self, *args, **kwargs):
+        self.pvt_o.throw(*args, **kwargs)
+
+    # Hashable
+
+    def __hash__(self):
+        return hash(str(id(Protected)) + '_' + str(id(self.pvt_o)))
+
+    # Iterator
+
+    def next(self, *args, **kwargs):
+        return self.pvt_o.next(*args, **kwargs)
