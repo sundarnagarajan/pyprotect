@@ -79,7 +79,7 @@ That's it!
 | hide_all      | ANY               | YES         | YES (Indirect) |
 | hide_data     | Data attributes   | YES         | YES (Indirect) |
 | hide_method   | Method attributes | YES         | YES (Indirect) |
-| hide_private  | Privae attributes | YES         | YES (Indirect) |
+| hide_private  | Private attributes | YES         | YES (Indirect) |
 | hide_dunder   | dunder-attributes | YES         | YES (Indirect) |
 | ro_all        | ANY               | NO          | YES            |
 | ro_data       | Data attributes   | NO          | YES            |
