@@ -193,7 +193,7 @@ cdef class ReadOnlyClassWrapper(ReadOnlyWrapper):
         return self.pvt_o(*args, **kwargs)
 
 
-cdef class ReadOnlyModuleWrapper(object):
+cdef class ReadOnlyModuleWrapper(ReadOnlyWrapper):
     def __init__(self, o):
         '''o-->class object to be wrapped'''
         if not isinstance(o, types.ModuleType):
