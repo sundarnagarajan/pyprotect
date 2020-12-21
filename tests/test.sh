@@ -15,33 +15,29 @@ else
     PYVER=""
 fi
 
-if [[ -f "$TEST_CASE_FILE" ]]; then
-    if [[ -z "$PYVER" || "$PYVER" = "PY3" ]]; then
-        ret=0
-        python3 -c "import $MODULE_NAME" 1>/dev/null 2>&1 || ret=1
-        if [[ $ret -eq 0 ]]; then
-            echo "---------- Testing in Python3 ----------"
-            python3 "$TEST_SCRIPT" $@
-        else
-            >&2 echo "Python 3 module $MODULE_NAME not found"
-            if [[ -n "$PYVER" ]]; then
-                exit 1
-            fi
+if [[ -z "$PYVER" || "$PYVER" = "PY3" ]]; then
+    ret=0
+    python3 -c "import $MODULE_NAME" 1>/dev/null 2>&1 || ret=1
+    if [[ $ret -eq 0 ]]; then
+        echo "---------- Testing in Python3 ----------"
+        python3 "$TEST_SCRIPT" $@
+    else
+        >&2 echo "Python 3 module $MODULE_NAME not found"
+        if [[ -n "$PYVER" ]]; then
+            exit 1
         fi
     fi
-    if [[ -z "$PYVER" || "$PYVER" = "PY2" ]]; then
-        ret=0
-        python2 -c "import $MODULE_NAME" 1>/dev/null 2>&1 || ret=1
-        if [[ $ret -eq 0 ]]; then
-            echo "---------- Testing in Python2 ----------"
-            python2 "$TEST_SCRIPT" $@
-        else
-            >&2 echo "Python 2 module $MODULE_NAME not found"
-            if [[ -n "$PYVER" ]]; then
-                exit 1
-            fi
+fi
+if [[ -z "$PYVER" || "$PYVER" = "PY2" ]]; then
+    ret=0
+    python2 -c "import $MODULE_NAME" 1>/dev/null 2>&1 || ret=1
+    if [[ $ret -eq 0 ]]; then
+        echo "---------- Testing in Python2 ----------"
+        python2 "$TEST_SCRIPT" $@
+    else
+        >&2 echo "Python 2 module $MODULE_NAME not found"
+        if [[ -n "$PYVER" ]]; then
+            exit 1
         fi
     fi
-else
-    >&2 echo "Test cases not found: $TEST_CASE_FILE"
 fi

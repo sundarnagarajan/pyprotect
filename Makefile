@@ -40,8 +40,8 @@ protected_class.so: ${C_SOURCE}
 test: .tested2 .tested3
 
 forcetest:
-	tests/test.sh PY3
-	tests/test.sh PY2
+	tests/test.sh PY3 -v
+	tests/test.sh PY2 -v
 
 clean:
 	rm -f *.so
