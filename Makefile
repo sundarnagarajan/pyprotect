@@ -47,3 +47,6 @@ clean:
 	rm -f *.so
 	rm -f src/protected_class.c
 	rm -f .tested3 .tested2
+
+testclean:
+	rm -f .tested3 .tested2
