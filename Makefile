@@ -48,11 +48,11 @@ py2 : python2
 python2: protected_class.so
 
 test2: python2
-	tests/test.sh PY2
+	tests/run_tests.sh PY2
 	@echo ""
 
 forcetest2: python2
-	tests/test.sh PY2 -v
+	tests/run_tests.sh PY2 -v
 	@echo ""
 
 # ---------- Python 3 targets --------------------------------------------
@@ -69,9 +69,9 @@ py3: python3
 python3: protected_class.cpython-3*.so
 
 test3: python3
-	tests/test.sh PY3
+	tests/run_tests.sh PY3
 	@echo ""
 
 forcetest3: python3
-	tests/test.sh PY3 -v
+	tests/run_tests.sh PY3 -v
 	@echo ""
