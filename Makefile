@@ -11,13 +11,15 @@ LS_CMD := ls -g --time-style="+%Y-%m-%d %H:%M:%S"
 # Do not echo each command
 .SILENT: 
 
-all: ${C_SOURCE} python3 python2 test
+all: ${C_SOURCE} module
 .PHONY: all
 
 ${C_SOURCE}: ${PYX_SOURCE}
 	@echo Building C source using ${CYTHON_PROG}
 	${CYTHON_PROG} ${PYX_SOURCE}
 	${LS_CMD} ${C_SOURCE}
+
+module: python3 python2
 
 py2 : python2
 
