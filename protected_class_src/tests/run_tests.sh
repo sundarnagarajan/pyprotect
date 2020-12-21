@@ -2,7 +2,7 @@
 # $1: either PY2 or PY3 - defaults to testing in both
 
 PROG_DIR=$(readlink -e $(dirname $0))
-export PYTHONPATH="$(readlink -e "${PROG_DIR}"/..):$PYTHONPATH"
+export PYTHONPATH="$(readlink -e "${PROG_DIR}"/../..):$PYTHONPATH"
 TEST_SCRIPT="${PROG_DIR}/test_protected_class.py"
 TEST_CASE_FILE="${PROG_DIR}/testcases.txt"
 MODULE_NAME=protected_class
