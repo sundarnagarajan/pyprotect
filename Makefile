@@ -11,13 +11,21 @@ LS_CMD := ls -g --time-style="+%Y-%m-%d %H:%M:%S"
 # Do not echo each command
 .SILENT: 
 
-all: ${C_SOURCE} protected_class.cpython-3*.so protected_class.so test
+all: ${C_SOURCE} python3 python2 test
 .PHONY: all
 
 ${C_SOURCE}: ${PYX_SOURCE}
 	@echo Building C source using ${CYTHON_PROG}
 	${CYTHON_PROG} ${PYX_SOURCE}
 	${LS_CMD} ${C_SOURCE}
+
+py2 : python2
+
+py3: python3
+
+python2: protected_class.so
+
+python3: protected_class.cpython-3*.so
 
 protected_class.cpython-3*.so: ${C_SOURCE}
 	@echo Building Python 3 extension module
@@ -37,7 +45,7 @@ protected_class.so: ${C_SOURCE}
 	tests/test.sh PY2
 	touch .tested2
 
-test: .tested2 .tested3
+test: .tested3 .tested2
 
 forcetest:
 	tests/test.sh PY3 -v
