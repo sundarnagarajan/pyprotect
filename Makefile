@@ -39,24 +39,22 @@ protected_class.so: ${C_SOURCE}
 	python2 setup.py build_ext --inplace 1>/dev/null && rm -rf build
 	${LS_CMD} protected_class.so
 
-.tested3: protected_class.cpython-3*.so
+test3: python3
 	tests/test.sh PY3
-	touch .tested3
 
-.tested2: protected_class.so
+test2: python2
 	tests/test.sh PY2
-	touch .tested2
 
-test: .tested3 .tested2
+test: python3 python2
+	tests/test.sh
 
-forcetest:
+forcetest: python3 python2
 	tests/test.sh PY3 -v
 	tests/test.sh PY2 -v
 
 clean:
 	rm -f *.so
 	rm -f src/protected_class.c
-	rm -f .tested3 .tested2
 
 testclean:
 	rm -f .tested3 .tested2
