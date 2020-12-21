@@ -23,9 +23,9 @@ ${C_SOURCE}: ${PYX_SOURCE}
 
 module: python3 python2
 
-test: test3 test2
+test: module test3 test2
 
-forcetest: forcetest3 forcetest2
+forcetest: module forcetest3 forcetest2
 
 clean:
 	@echo rm -f *.so
@@ -40,6 +40,7 @@ protected_class.so: ${C_SOURCE}
 	@echo Building Python 2 extension module
 	python2 setup.py build_ext --inplace 1>/dev/null && rm -rf build
 	${LS_CMD} protected_class.so
+	nm -D -g --defined-only protected_class.so | sed -e 's/^/    /'
 	@echo ""
 
 py2 : python2
@@ -60,6 +61,7 @@ protected_class.cpython-3*.so: ${C_SOURCE}
 	@echo Building Python 3 extension module
 	python3 setup.py build_ext --inplace 1>/dev/null && rm -rf build
 	${LS_CMD} protected_class.cpython-3*.so
+	nm -D -g --defined-only protected_class.cpython-3*.so | sed -e 's/^/    /'
 	@echo ""
 
 py3: python3
