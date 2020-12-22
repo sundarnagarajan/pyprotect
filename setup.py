@@ -1,5 +1,6 @@
 import sys
 from setuptools import Extension
+from setuptools import setup
 
 # Metadata for setup()
 name = 'protected_class'
@@ -51,42 +52,6 @@ scripts = [
     'tests/test_protected_class',
 ]
 
-# PostInstallCommand etc do not work when installing from a wheel
-# - what happens when installling from PyPi / github
-
-
-def post_install():
-    import subprocess
-    import sys
-
-    cmd = 'test_protected_data'
-    try:
-        cmd_loc = subprocess.check_output('which ' + cmd, shell=True)
-        cmd_line = '%s -v' % (cmd_loc,)
-
-        try:
-            print('')
-            print('-' * 75)
-            print('Running unit tests')
-            print('-' * 75)
-            print('')
-            subprocess.call(cmd_line, shell=True)
-            print('')
-            print('-' * 75)
-            print('All unit tests passed.')
-            print("Run unit tests any time with the command 'test_protected_class'")
-            print('-' * 75)
-            print('')
-        except:
-            sys.stderr.write('\n' + ('-' * 75) + '\n')
-            sys.stderr.write('Unit tests failed !\n')
-            sys.stderr.write(('-' * 75) + '\n')
-            exit(1)
-
-    except:
-        return
-
-
 kwargs = dict(
     name=name,
     version=version,
@@ -99,24 +64,13 @@ kwargs = dict(
     data_files=data_files,
     ext_modules=extensions,
     scripts=scripts,
-    # cmdclass=cmdclass,
 )
 
 
 # long_description_content_type and produces warning if used with
-# 'build_ext --inplace'
+# 'build_ext --inplace' (when calling setup.py from Makefile
 
 if 'build_ext' in sys.argv and '--inplace' in sys.argv:
     del kwargs['long_description_content_type']
 
-import setuptools
-setuptools_setup = setuptools.setup
-
-
-def setup(*args, **kwargs):
-    setuptools_setup(*args, **kwargs)
-    post_install()
-
-
-setuptools.setup = setup
-setuptools.setup(**kwargs)
+setup(**kwargs)
