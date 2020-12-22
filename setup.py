@@ -27,6 +27,13 @@ keywords = (
     'frozen_object immutable_object freeze_object'
 )
 license = 'BSD'
+project_urls = {
+    'Source': 'ihttps://github.com/sundarnagarajan/python_protected_class',
+    'Tracker': 'https://github.com/sundarnagarajan/python_protected_class/issues',   # noqa: E501
+    'Documentation': 'https://github.com/sundarnagarajan/python_protected_class/blob/main/README.md',   # noqa: E501
+}
+
+
 data_files = [
     (module_dir, [
         'src/c/' + name + '.c',
