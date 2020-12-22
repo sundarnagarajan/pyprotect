@@ -4,9 +4,15 @@ from setuptools import setup
 
 # Metadata for setup()
 name = 'protected_class'
-module_dir = name + '_src'
+pyver = '%d.%d.%d-%s' % (
+    sys.version_info.major,
+    sys.version_info.minor,
+    sys.version_info.micro,
+    sys.version_info.releaselevel
+)
+module_dir = name + '_src-' + pyver
 
-version = '1.0.1'
+version = '1.0.2'
 description = 'Protect class attributes in any python object instance'
 long_description = open('README.md', 'r').read()
 long_description_content_type = 'text/markdown'
