@@ -247,12 +247,8 @@ Checking at run-time whether an attribute can be deleted:
             # Should (hopefully) work on any object, wrapped or not
 '''
 
-
-import sys
 import re
 import collections
-import types
-from functools import partial
 from cpython.object cimport (
     Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
 )
@@ -292,6 +288,7 @@ class ReadonlyTypeError(TypeError):
 # Looks complex, but it is computed only once, while COMPILING
 # ------------------------------------------------------------------------
 
+import sys
 cdef object builtin_module
 cdef list builtin_names
 cdef list basic_data_names
@@ -456,17 +453,23 @@ for a in builtin_module_immutable_attributes:
     except:
         continue
 builtin_module_immutable_attributes = s
-del s
-del test_attr_name
 
 builtins_ids = set([
     id(getattr(builtin_module, a)) for a in builtin_names
     if a in builtin_module_immutable_attributes
 ])
 
-
 # End of stuff for isimmutable()
 # ------------------------------------------------------------------------
+
+# Avoid locals and imports leaking into module namespace
+del x
+del s
+del test_attr_name
+del a
+del sys
+del re
+del collections
 
 # ------------------------------------------------------------------------
 # Python-visible methods
@@ -488,6 +491,9 @@ def isimmutable(o):
     isimmutable(o) --> bool: object class is KNOWN to be immutable
     o-->object
     '''
+    # Import locally to avoid re leaking into module namespace
+    import collections
+
     # Everything in builtin module is immutable
     if id(o) in builtins_ids:
         return True
@@ -870,6 +876,10 @@ cdef class Wrapped(object):
     '''
 
     def __getattribute__(self, a):
+        # Import locally to avoid re leaking into module namespace
+        import collections
+        from functools import partial
+
         missing_msg = "Object '%s' has no attribute '%s'" % (self.cn, str(a))
         if a in overridden_always:
             return partial(getattr(Wrapped, a), self)
@@ -1071,6 +1081,9 @@ cdef class PrivacyDict(Wrapped):
         - Cannot modify traditionally private attributes (form '_var')
         - Cannot modify CLASS of wrapped object
     '''
+    # Import locally to avoid re leaking into module namespace
+    import collections
+
     cdef object hidden_private_attr
 
     def __init__(self, o, cn, frozen=False):
@@ -1078,6 +1091,10 @@ cdef class PrivacyDict(Wrapped):
         o-->dict (any Mapping or MutableMapping type)
         cn-->str: class name
         '''
+        # Import locally to avoid re leaking into module namespace
+        import re
+        import collections
+
         if not isinstance(o, collections.Mapping):
             raise TypeError('o: Invalid type: %s' % (o.__class__.__name__,))
         self.cn = str(cn)
@@ -1261,6 +1278,9 @@ cdef class Private(Wrapped):
         o-->object to be wrapped
         frozen--bool: If True, no direct attribute can be modified
         '''
+        # Import locally to avoid re leaking into module namespace
+        import re
+
         Wrapped.__init__(self, o, frozen=frozen)
         # Use compiled regex - no function call, no str operations
         self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
@@ -1562,6 +1582,9 @@ cdef class Protected(Private):
         rules-->dict
         Called once at object wrapping time
         '''
+        # Import locally to avoid re leaking into module namespace
+        import re
+
         self.attr_type_check = False
         for kw in ('hide_method', 'hide_data', 'ro_method', 'ro_data'):
             if bool(rules.get(kw, False)):

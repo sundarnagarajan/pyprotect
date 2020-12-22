@@ -2,15 +2,16 @@
 SHELL := /bin/bash
 
 MOD_NAME := protected_class
-PYX_SOURCE := protected_class_src/cython/${MOD_NAME}.pyx
-C_SOURCE := protected_class_src/c/${MOD_NAME}.c
+PYX_SOURCE := src/cython/${MOD_NAME}.pyx
+C_SOURCE := src/c/${MOD_NAME}.c
 CYTHON_PROG := $(shell which cython3 2>/dev/null || which cython 2>/dev/null)
 LS_CMD := ls -g --time-style="+%Y-%m-%d %H:%M:%S"
-RUN_TEST_FILE := protected_class_src/tests/run_tests.sh
+RUN_TEST_FILE := tests/run_tests.sh
 
 # Do not echo each command
-.SILENT: 
+.SILENT:
 .PHONY: all
+
 
 # ---------- Combined targets --------------------------------------------
 
@@ -18,7 +19,7 @@ all: ${C_SOURCE} module
 
 ${C_SOURCE}: ${PYX_SOURCE}
 	@echo Building C source using ${CYTHON_PROG}
-	${CYTHON_PROG} ${PYX_SOURCE} -o ${C_SOURCE}
+	${CYTHON_PROG} ${PYX_SOURCE} -o ${C_SOURCE} 1>/dev/null
 	${LS_CMD} ${C_SOURCE}
 	@echo ""
 

@@ -4,6 +4,8 @@ import sys
 import re
 import unittest
 
+import warnings
+warnings.simplefilter("ignore")
 from protected_class import isimmutable
 from protected_class import id_protected
 from protected_class import isreadonly
@@ -15,6 +17,7 @@ from protected_class import freeze
 from protected_class import private
 from protected_class import protect
 from protected_class import immutable_builtin_attributes
+del warnings
 
 
 if sys.version_info.major > 2:

@@ -1,9 +1,13 @@
 
-from distutils.core import setup
-from distutils.extension import Extension
+import sys
+from setuptools import setup, Extension
+# from distutils.core import setup
+# from distutils.extension import Extension
 
 # Metadata for setup()
-module_name = 'protected_class'
+name = 'protected_class'
+module_dir = name + '_src'
+
 version = '1.0.0'
 description = 'Protect class attributes in any python object instance'
 long_description = "README.md"
@@ -25,41 +29,46 @@ keywords = (
     'frozen_object immutable_object freeze_object'
 )
 data_files = [
-    ('test_scripts', [
-        module_name + '/tests/__init__.py',
-        module_name + '/tests/test_protected_class.py',
-        module_name + '/tests/run_tests.sh',
-    ]),
-    ('sources', [
-        module_name + '/src/' + module_name + '.c',
-        module_name + '/src/' + module_name + '.pyx',
+    (module_dir, [
+        'src/c/' + name + '.c',
+        'src/cython/' + name + '.pyx',
+        'tests/__init__.py',
+        'tests/test_protected_class.py',
+        'tests/run_tests.sh',
     ]),
 ]
-
 
 language = 'c'
 include_dirs = []
 
-src = 'protected_class_src' + '/c/' + module_name + '.c'
+src = 'src/c/' + name + '.c'
 extensions = [
     Extension(
-        module_name,
-        [src],
+        name=name,
+        sources=[src],
         language='c',
         include_dirs=include_dirs,
     )
 ]
 
-setup(
-    name=module_name,
+kwargs = dict(
+    name=name,
     version=version,
     description=description,
     long_description=long_description,
-    # long_description_content_type ignored and produces warning !
-    # long_description_content_type=long_description_content_type,
+    long_description_content_type=long_description_content_type,
     url=url,
     classifiers=classifiers,
     keywords=keywords,
     data_files=data_files,
-    ext_modules=extensions
+    ext_modules=extensions,
 )
+
+
+# long_description_content_type and produces warning if used with
+# 'build_ext --inplace'
+
+if 'build_ext' in sys.argv and '--inplace' in sys.argv:
+    del kwargs['long_description_content_type']
+
+setup(**kwargs)
