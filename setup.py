@@ -26,6 +26,7 @@ keywords = (
     'private private_attributes frozen immutable freeze '
     'frozen_object immutable_object freeze_object'
 )
+license = 'BSD'
 data_files = [
     (module_dir, [
         'src/c/' + name + '.c',
@@ -61,6 +62,7 @@ kwargs = dict(
     url=url,
     classifiers=classifiers,
     keywords=keywords,
+    license=license,
     data_files=data_files,
     ext_modules=extensions,
     scripts=scripts,
