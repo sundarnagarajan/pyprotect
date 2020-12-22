@@ -76,3 +76,28 @@ if 'build_ext' in sys.argv and '--inplace' in sys.argv:
     del kwargs['long_description_content_type']
 
 setup(**kwargs)
+
+# Run unit tests after installation is complete
+import subprocess
+import sys
+
+try:
+    print('')
+    print('-' * 75)
+    print('Running unit tests')
+    print('-' * 75)
+    print('')
+    subprocess.call('test_protected_class -v', shell=True)
+    print('')
+    print('-' * 75)
+    print('All unit tests passed.')
+    print("Run unit tests any time with the command 'test_protected_class'")
+    print('-' * 75)
+    print('')
+except:
+    print('')
+    print('-' * 75)
+    sys.stderr.write('Unit tests failed !\n')
+    print('-' * 75)
+    print('')
+    exit(1)
