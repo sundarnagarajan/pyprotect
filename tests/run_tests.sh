@@ -16,7 +16,9 @@ if [[ "$1" = "PY2" || "$1" = "PY3" ]]; then
 else
     PYVER=""
 fi
+REST_ARGS=$@
 
+cd "${PROG_DIR}"
 
 function test_in_1_python() {
     # $1: python command to use
@@ -25,7 +27,7 @@ function test_in_1_python() {
     $PYTHON -c "import $MODULE_NAME" 1>/dev/null 2>&1 || ret=1
     if [[ $ret -eq 0 ]]; then
         echo "---------- Testing in $PYTHON ----------"
-        python -m tests.test_protected_class
+        $PYTHON test_protected_class.py $REST_ARGS
     else
         >&2 echo "$PYTHON module $MODULE_NAME not found"
         return 1
