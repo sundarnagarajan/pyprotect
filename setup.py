@@ -1,7 +1,5 @@
 import sys
-from setuptools import setup as setuptools_setup
 from setuptools import Extension
-# from setuptools.command.install import install
 
 # Metadata for setup()
 name = 'protected_class'
@@ -89,19 +87,6 @@ def post_install():
         return
 
 
-'''
-class PostInstallCommand(install):
-    def run(self):
-        install.run(self)
-        # Run unit tests after installation is complete
-
-
-cmdclass = {
-    'install': PostInstallCommand,
-}
-'''
-
-
 kwargs = dict(
     name=name,
     version=version,
@@ -124,10 +109,14 @@ kwargs = dict(
 if 'build_ext' in sys.argv and '--inplace' in sys.argv:
     del kwargs['long_description_content_type']
 
+import setuptools
+setuptools_setup = setuptools.setup
+
 
 def setup(*args, **kwargs):
     setuptools_setup(*args, **kwargs)
     post_install()
 
 
-setup(**kwargs)
+setuptools.setup = setup
+setuptools.setup(**kwargs)
