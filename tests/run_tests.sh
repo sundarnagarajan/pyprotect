@@ -2,7 +2,8 @@
 # $1: either PY2 or PY3 - defaults to testing in both
 
 PROG_DIR=$(readlink -e $(dirname $0))
-export PYTHONPATH="$(readlink -e "${PROG_DIR}"):$PYTHONPATH"
+# We need $pwd) in case we run it from Makefile dir (from Makefile)
+export PYTHONPATH="$(readlink -e "${PROG_DIR}"):$(pwd):$PYTHONPATH"
 TEST_SCRIPT="${PROG_DIR}/test_protected_class.py"
 MODULE_NAME=protected_class
 
