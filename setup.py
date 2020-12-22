@@ -50,6 +50,9 @@ extensions = [
         include_dirs=include_dirs,
     )
 ]
+scripts = [
+    'tests/test_protected_class',
+]
 
 kwargs = dict(
     name=name,
@@ -62,6 +65,7 @@ kwargs = dict(
     keywords=keywords,
     data_files=data_files,
     ext_modules=extensions,
+    scripts=scripts,
 )
 
 
