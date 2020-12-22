@@ -6,11 +6,16 @@ from setuptools import setup
 name = 'protected_class'
 module_dir = name + '_src'
 
-version = '1.0.0'
+version = '1.0.1'
 description = 'Protect class attributes in any python object instance'
-long_description = "README.md"
+long_description = open('README.md', 'r').read()
 long_description_content_type = 'text/markdown'
+
 url = 'https://github.com/sundarnagarajan/python_protected_class'
+
+author = 'Sundar Nagarajan'
+author_email = 'sun.nagarajan@gmail.com'
+
 classifiers = [
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
@@ -67,10 +72,12 @@ kwargs = dict(
     long_description=long_description,
     long_description_content_type=long_description_content_type,
     url=url,
+    author=author,
+    author_email=author_email,
     classifiers=classifiers,
     keywords=keywords,
     license=license,
-    project_urls=project_urls,
+    # project_urls=project_urls,
     data_files=data_files,
     ext_modules=extensions,
     scripts=scripts,
