@@ -70,6 +70,7 @@ kwargs = dict(
     classifiers=classifiers,
     keywords=keywords,
     license=license,
+    project_urls=project_urls,
     data_files=data_files,
     ext_modules=extensions,
     scripts=scripts,
