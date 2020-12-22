@@ -1,7 +1,7 @@
-
 import sys
 from setuptools import setup, Extension
-from setuptools.command.install import install
+# from setuptools.command.install import install
+import atexit
 
 # Metadata for setup()
 name = 'protected_class'
@@ -53,14 +53,19 @@ scripts = [
     'tests/test_protected_class',
 ]
 
+# PostInstallCommand etc do not work when installing from a wheel
+# - what happens when installling from PyPi / github
 
-class PostInstallCommand(install):
-    '''Post-installation for installation mode.'''
-    def run(self):
-        install.run(self)
-        # Run unit tests after installation is complete
-        import subprocess
-        import sys
+
+@atexit.register
+def post_install():
+    import subprocess
+    import sys
+
+    cmd = 'test_protected_data'
+    try:
+        cmd_loc = subprocess.check_output('which ' + cmd, shell=True)
+        cmd_line = '%s -v' % (cmd_loc,)
 
         try:
             print('')
@@ -68,7 +73,7 @@ class PostInstallCommand(install):
             print('Running unit tests')
             print('-' * 75)
             print('')
-            subprocess.call('test_protected_class -v', shell=True)
+            subprocess.call(cmd_line, shell=True)
             print('')
             print('-' * 75)
             print('All unit tests passed.')
@@ -76,17 +81,27 @@ class PostInstallCommand(install):
             print('-' * 75)
             print('')
         except:
-            print('')
-            print('-' * 75)
+            sys.stderr.write('\n' + ('-' * 75) + '\n')
             sys.stderr.write('Unit tests failed !\n')
-            print('-' * 75)
-            print('')
+            sys.stderr.write(('-' * 75) + '\n')
             exit(1)
+
+    except:
+        return
+
+
+'''
+class PostInstallCommand(install):
+    def run(self):
+        install.run(self)
+        # Run unit tests after installation is complete
 
 
 cmdclass = {
     'install': PostInstallCommand,
 }
+'''
+
 
 kwargs = dict(
     name=name,
@@ -100,7 +115,7 @@ kwargs = dict(
     data_files=data_files,
     ext_modules=extensions,
     scripts=scripts,
-    cmdclass=cmdclass,
+    # cmdclass=cmdclass,
 )
 
 
@@ -109,5 +124,8 @@ kwargs = dict(
 
 if 'build_ext' in sys.argv and '--inplace' in sys.argv:
     del kwargs['long_description_content_type']
+
+
+
 
 setup(**kwargs)
