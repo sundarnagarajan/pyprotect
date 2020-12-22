@@ -1,8 +1,7 @@
 
 import sys
 from setuptools import setup, Extension
-# from distutils.core import setup
-# from distutils.extension import Extension
+from setuptools.command.install import install
 
 # Metadata for setup()
 name = 'protected_class'
@@ -54,6 +53,41 @@ scripts = [
     'tests/test_protected_class',
 ]
 
+
+class PostInstallCommand(install):
+    '''Post-installation for installation mode.'''
+    def run(self):
+        install.run(self)
+        # Run unit tests after installation is complete
+        import subprocess
+        import sys
+
+        try:
+            print('')
+            print('-' * 75)
+            print('Running unit tests')
+            print('-' * 75)
+            print('')
+            subprocess.call('test_protected_class -v', shell=True)
+            print('')
+            print('-' * 75)
+            print('All unit tests passed.')
+            print("Run unit tests any time with the command 'test_protected_class'")
+            print('-' * 75)
+            print('')
+        except:
+            print('')
+            print('-' * 75)
+            sys.stderr.write('Unit tests failed !\n')
+            print('-' * 75)
+            print('')
+            exit(1)
+
+
+cmdclass = {
+    'install': PostInstallCommand,
+}
+
 kwargs = dict(
     name=name,
     version=version,
@@ -66,6 +100,7 @@ kwargs = dict(
     data_files=data_files,
     ext_modules=extensions,
     scripts=scripts,
+    cmdclass=cmdclass,
 )
 
 
@@ -76,28 +111,3 @@ if 'build_ext' in sys.argv and '--inplace' in sys.argv:
     del kwargs['long_description_content_type']
 
 setup(**kwargs)
-
-# Run unit tests after installation is complete
-import subprocess
-import sys
-
-try:
-    print('')
-    print('-' * 75)
-    print('Running unit tests')
-    print('-' * 75)
-    print('')
-    subprocess.call('test_protected_class -v', shell=True)
-    print('')
-    print('-' * 75)
-    print('All unit tests passed.')
-    print("Run unit tests any time with the command 'test_protected_class'")
-    print('-' * 75)
-    print('')
-except:
-    print('')
-    print('-' * 75)
-    sys.stderr.write('Unit tests failed !\n')
-    print('-' * 75)
-    print('')
-    exit(1)
