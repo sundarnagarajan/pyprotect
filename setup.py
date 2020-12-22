@@ -1,7 +1,7 @@
 import sys
-from setuptools import setup, Extension
+from setuptools import setup as setuptools_setup
+from setuptools import Extension
 # from setuptools.command.install import install
-import atexit
 
 # Metadata for setup()
 name = 'protected_class'
@@ -57,7 +57,6 @@ scripts = [
 # - what happens when installling from PyPi / github
 
 
-@atexit.register
 def post_install():
     import subprocess
     import sys
@@ -126,6 +125,9 @@ if 'build_ext' in sys.argv and '--inplace' in sys.argv:
     del kwargs['long_description_content_type']
 
 
+def setup(*args, **kwargs):
+    setuptools_setup(*args, **kwargs)
+    post_install()
 
 
 setup(**kwargs)
