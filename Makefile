@@ -10,12 +10,12 @@ RUN_TEST_FILE := tests/run_tests.sh
 
 # Do not echo each command
 .SILENT:
-.PHONY: all
+.PHONY: help
+help:    ## Show this help
+	@echo -e "$$(grep -hE '^\S+[ ]*:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[34m\\x1b[1m\1\\x1b[0m:\2/' | column -c2 -t -s :)"
 
 
 # ---------- Combined targets --------------------------------------------
-
-all: ${C_SOURCE} module
 
 ${C_SOURCE}: ${PYX_SOURCE}
 	@echo Building C source using ${CYTHON_PROG}
@@ -23,36 +23,15 @@ ${C_SOURCE}: ${PYX_SOURCE}
 	${LS_CMD} ${C_SOURCE}
 	@echo ""
 
-module: python3 python2
+module: py3 py2    ## (PY2 and PY3) Build modules
 
-test: module test3 test2
+test: module test3 test2   ## (PY2 and PY3) Build and test modules
 
-forcetest: module forcetest3 forcetest2
+vtest: module vtest3 vtest2    ## (PY2 and PY3) Build and test module (VERBOSE)
 
-clean:
+clean:    ## (PY2 and PY3) Remove built modules
 	@echo rm -f protected_class.so protected_class.cpython-3*.so
 	rm -f protected_class.so protected_class.cpython-3*.so
-	@echo ""
-
-# ---------- Python 2 targets --------------------------------------------
-
-protected_class.so: ${C_SOURCE}
-	@echo Building Python 2 extension module
-	python2 setup.py build_ext --inplace 1>/dev/null && rm -rf build
-	${LS_CMD} protected_class.so
-	nm -D -g --defined-only protected_class.so | sed -e 's/^/    /'
-	@echo ""
-
-py2 : python2
-
-python2: protected_class.so
-
-test2: python2
-	${RUN_TEST_FILE} PY2
-	@echo ""
-
-forcetest2: python2
-	${RUN_TEST_FILE} PY2 -v
 	@echo ""
 
 # ---------- Python 3 targets --------------------------------------------
@@ -64,14 +43,31 @@ protected_class.cpython-3*.so: ${C_SOURCE}
 	nm -D -g --defined-only protected_class.cpython-3*.so | sed -e 's/^/    /'
 	@echo ""
 
-py3: python3
+py3: protected_class.cpython-3*.so       ## PY3 Build module
 
-python3: protected_class.cpython-3*.so
-
-test3: python3
+test3: py3       ## PY3 Build and test module
 	${RUN_TEST_FILE} PY3
 	@echo ""
 
-forcetest3: python3
+vtest3: py3       ## PY3 Build and test module (VERBOSE)
 	${RUN_TEST_FILE} PY3 -v
+	@echo ""
+
+# ---------- Python 2 targets --------------------------------------------
+
+protected_class.so: ${C_SOURCE}
+	@echo Building Python 2 extension module
+	python2 setup.py build_ext --inplace 1>/dev/null && rm -rf build
+	${LS_CMD} protected_class.so
+	nm -D -g --defined-only protected_class.so | sed -e 's/^/    /'
+	@echo ""
+
+py2: protected_class.so       ## PY2 Build module
+
+test2: py2       ## PY2 Build and test module
+	${RUN_TEST_FILE} PY2
+	@echo ""
+
+vtest2: py2     ## PY2 Build and test module (VERBOSE)
+	${RUN_TEST_FILE} PY2 -v
 	@echo ""
