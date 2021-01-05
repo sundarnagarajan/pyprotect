@@ -1,4 +1,5 @@
 import sys
+import os
 from setuptools import Extension
 from setuptools import setup
 
@@ -12,7 +13,7 @@ pyver = '%d.%d.%d-%s' % (
 )
 module_dir = name + '_src-' + pyver
 
-version = '1.0.2'
+version = '1.1.0'
 description = 'Protect class attributes in any python object instance'
 long_description = open('README.md', 'r').read()
 long_description_content_type = 'text/markdown'
@@ -45,9 +46,14 @@ project_urls = {
 }
 
 
+if sys.version_info.major < 3:
+    src = 'src/c/2/' + name + '.c'
+else:
+    src = 'src/c/3/' + name + '.c'
+
 data_files = [
     (module_dir, [
-        'src/c/' + name + '.c',
+        src,
         'src/cython/' + name + '.pyx',
         'tests/__init__.py',
         'tests/test_protected_class.py',
@@ -58,7 +64,6 @@ data_files = [
 language = 'c'
 include_dirs = []
 
-src = 'src/c/' + name + '.c'
 extensions = [
     Extension(
         name=name,

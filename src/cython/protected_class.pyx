@@ -359,22 +359,27 @@ basic_immutable_data_types = [
     get_builtin_obj(x) for x in basic_immutable_data_names
 ]
 
-mapping_types = [dict, collections.MutableMapping, collections.Mapping]
-list_types = [list, collections.MutableSequence]
-tuple_types = [tuple, collections.Sequence]
-set_types = [set, collections.Set, collections.MutableSet]
 
 if sys.version_info.major > 2:
-    mapping_types += [collections.abc.MutableMapping, collections.abc.Mapping]
-    list_types += [collections.abc.MutableSequence]
-    tuple_types += [collections.abc.Sequence]
-    set_types += [collections.abc.Set, collections.abc.MutableSet]
+    mapping_types = [collections.abc.MutableMapping, collections.abc.Mapping]
+    list_types = [collections.abc.MutableSequence]
+    tuple_types = [collections.abc.Sequence]
+    set_types = [collections.abc.Set, collections.abc.MutableSet]
+else:
+    mapping_types = [dict, collections.MutableMapping, collections.Mapping]
+    list_types = [list, collections.MutableSequence]
+    tuple_types = [tuple, collections.Sequence]
+    set_types = [set, collections.Set, collections.MutableSet]
 
 sequence_types = tuple_types + list_types
 
-mutable_mapping_types = [dict, collections.MutableMapping]
 mutable_sequence_types = list_types
-mutable_set_types = [set, collections.MutableSet]
+if sys.version_info.major > 2:
+    mutable_mapping_types = [dict, collections.abc.MutableMapping]
+    mutable_set_types = [set, collections.abc.MutableSet]
+else:
+    mutable_mapping_types = [dict, collections.MutableMapping]
+    mutable_set_types = [set, collections.MutableSet]
 
 immutable_mapping_types = [
     x for x in mapping_types if
@@ -492,7 +497,11 @@ def isimmutable(o):
     o-->object
     '''
     # Import locally to avoid re leaking into module namespace
-    import collections
+    import sys
+    if sys.version_info.major > 2:
+        import collections.abc as CollectionsABC
+    else:
+        import collections as CollectionsABC
 
     # Everything in builtin module is immutable
     if id(o) in builtins_ids:
@@ -509,7 +518,7 @@ def isimmutable(o):
         return True
     if iswrapped(o):
         return False
-    if isinstance(o, collections.Container):
+    if isinstance(o, CollectionsABC.Container):
         return False
     return isinstance(o, tuple(immutable_types))
 
@@ -877,7 +886,11 @@ cdef class Wrapped(object):
 
     def __getattribute__(self, a):
         # Import locally to avoid re leaking into module namespace
-        import collections
+        import sys
+        if sys.version_info.major > 2:
+            import collections.abc as CollectionsABC
+        else:
+            import collections as CollectionsABC
         from functools import partial
 
         missing_msg = "Object '%s' has no attribute '%s'" % (self.cn, str(a))
@@ -888,10 +901,10 @@ cdef class Wrapped(object):
         elif a == '_Protected_id_____':
             return self._Protected_id_____
         if self.frozen:
-            if isinstance(self.pvt_o, collections.Mapping):
+            if isinstance(self.pvt_o, CollectionsABC.Mapping):
                 if a in ('pop', 'popitem', 'clear'):
                     raise self.frozen_error
-            if isinstance(self.pvt_o, collections.MutableSequence):
+            if isinstance(self.pvt_o, CollectionsABC.MutableSequence):
                 if a in ('add', 'insert', 'discard'):
                     raise self.frozen_error
         # If frozen, freeze all the way down
@@ -1081,9 +1094,6 @@ cdef class PrivacyDict(Wrapped):
         - Cannot modify traditionally private attributes (form '_var')
         - Cannot modify CLASS of wrapped object
     '''
-    # Import locally to avoid re leaking into module namespace
-    import collections
-
     cdef object hidden_private_attr
 
     def __init__(self, o, cn, frozen=False):
@@ -1093,9 +1103,13 @@ cdef class PrivacyDict(Wrapped):
         '''
         # Import locally to avoid re leaking into module namespace
         import re
-        import collections
+        import sys
+        if sys.version_info.major > 2:
+            import collections.abc as CollectionsABC
+        else:
+            import collections as CollectionsABC
 
-        if not isinstance(o, collections.Mapping):
+        if not isinstance(o, CollectionsABC.Mapping):
             raise TypeError('o: Invalid type: %s' % (o.__class__.__name__,))
         self.cn = str(cn)
         # Use compiled regex - no function call, no str operations

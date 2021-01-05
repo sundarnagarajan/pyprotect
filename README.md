@@ -7,12 +7,17 @@
 - Does not leave a back door like:
     - Attributes still accessible using ```object.__getattribute__(myobj, atribute)```
     - Looking at python stack frame
-- Tested on Python 2.7.17 and python 3.6.9
+- Tested on Python 2.7.17 and python 3.6.9, 3.7.5, 3.8.0
 - Should work on any Python 3 version
 - Well documented (docstring)
 - doctests in tests directory
 - Tested (only) on Ubuntu Bionic 18.04. Should work on any Linux distribution
 - Should work wherever cython works
+- If you want to CHANGE the source and recompile protected_class.c, and you want it
+  to work with Python 3.7+, you need to install cython version >= 0.27.3
+  Do this with
+  ```sudo pip3 install --upgrade cython>=0.27.3```
+- This README.md is not completely up to date. Use ```pydoc protected_class``` for the most up-to-date documentation
 
 
 ### Usage
