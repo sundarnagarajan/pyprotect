@@ -7,7 +7,7 @@
 - Does not leave a back door like:
     - Attributes still accessible using ```object.__getattribute__(myobj, atribute)```
     - Looking at python stack frame
-- Tested on Python 2.7.17 and python 3.6.9, 3.7.5, 3.8.0
+- Tested on Python 2.7.17 and python 3.6.9, 3.7.5, 3.8.0, 3.10.6
 - Should work on any Python 3 version
 - Well documented (docstring)
 - doctests in tests directory
@@ -177,6 +177,5 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 - None of the above run-time behaviors should be common or recommended - especially when wanting to expose a wrapped interface with visibility and/or mutability protections
 
 ### Work in progress
-- Completing setup.py to allow installation with ```pip```
 - Uploading to pypi.org
 

@@ -1,4 +1,2 @@
-include README.md
-include LICENSE
-recursive-include src *
-recursive-include tests *
+global-include *.pyx
+global-include *.c

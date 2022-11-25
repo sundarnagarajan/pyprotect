@@ -1,291 +1,10 @@
-'''
-VISIBILITY versus READABILITY:
-    VISIBILITY: using object.__dir__(original_object)
-        - Never affected by Protected class
-        - Note: dir(wrapped_object) IS affected if you use private / protect
-    READABILITY: Whether the attribute VALUE can be read
-        - Applies to wrapped object - NOT original object
-        - IS affected if you use private / protect
-        - Objects wrapped with private / protect do not expose getattr,
-          __getattribute__, __setattr__ or __delattr__
-
-MUTABILITY: Ability to CHANGE or DELETE an attribute
-    - Protected object will not allow CHANGING OR DELETING an attribute
-      that is not VISIBLE
-    - Objects wrapped with private / protect do not allow modification
-      of __class__, __dict__ or __slots attributes
-    - When using protect(o, **kwargs), writeability depends on kwargs
-
-freeze(o) --> Frozen object
-    Frozen object prevents modification of ANY attribute
-        - Does not hide traditionally 'private' mangled python attributes
-
-private(o, frozen=True) --> FrozenPrivate if frozen; Private otherwise
-
-    Private:
-        - Cannot access traditionally 'private' mangled python attributes
-        - Cannot modify traditionally private attributes (form '_var')
-        - Cannot modify CLASS of wrapped object
-        - Cannot modify __dict__ of wrapped object
-        - The following attributes of wrapped object are NEVER modifiable:
-            '__class__', '__dict__', '__slots__',
-            '__getattr__', '__getattribute__', '__delattr__', '__setattr__',
-
-    FrozenPrivate:
-        All features of Private PLUS prevents modification of ANY attribute
-
-protect(
-        o,
-        frozen=False, add=False, dynamic=True,
-        hide_all=False, hide_data=False, hide_method=False,
-        hide_private=False, hide_dunder=False,
-        ro_all=False, ro_data=False, ro_method=True, ro_dunder=True,
-        ro=[], rw=[], hide=[], show=[],
-    ) --> FrozenProtected if frozen; Protected otherwise
-
-    Protected:
-        Features of Private PLUS allows customization of:
-            - Which attributes are VISIBLE
-            - Which attributes are WRITEABLE
-            - Attributes cannot BE deleted UNLESS they were added at run-time
-            - If an attribute cannot be read, it cannot be written or deleted
-
-    FrozenProtected:
-        All features of Protected PLUS prevents modification of ANY attribute
-
-What kind of python objects can be wrapped?
-    Any object that supports getattr, setattr and delattr
-    Pickling / unpickling of wrapped objects is not supported (yet)
-
-Can I wrap an object from a python C extension?
-    YES. See answer to 'What kind of python objects can be wrapped?'
-
-Check if a wrapped object is frozen (immutable):
-    Use 'isimmutable(o)'.  Also works on objects that are not wrapped
-
-Freeze an object only if it is mutable:
-    Just use 'freeze'. 'freeze' already checks, and wraps only if mutable
-
-Will wrapper detect attributes that my object adds, changes or deletes
-at RUN-TIME?
-
-    wrap / freeze / private: YES !
-
-    protect:
-        If 'dynamic' is True (default): YES !
-
-        If 'dynamic' is False and you do NOT use any of the followng in kwargs:
-            hide_data
-            hide_method
-            ro_data
-            ro_method
-        then: YES !
-
-        If 'dynamic' is False and you use any of the followng in kwargs:
-            hide_data
-            hide_method
-            ro_data
-            ro_method
-        the run-time behavior will NOT be as expected if the wrapped
-        object adds attributes or changes the type of attributes at run-time
-
-        Also, if 'dynamic' is False, dir(wrapped_object) will not
-        accurately reflect attributes added or deleted at run-time
-
-        Note that the above caveats are UNAFFECTED by 'add' or 'frozen'
-        kwargs:
-            'add' controls whether attributes can be added from OUTSIDE
-                the wrapped object
-            add = True is required to add attributes from OUTSIDE the
-                wrapped object
-            Deleting attributes ONLY works if both conditions below are met:
-                - 'add' is True
-                - Attribute was added at run-time from OUTSIDE wrapped object
-            'frozen' only controls whether object can be modified from OUTSIDE
-                the wrapped object
-
-Will I need to change the code for my object / class?
-    ONLY in the following cases fnd ONLY if wrapped using private / protect:
-
-    - If your object DEPENDS on external visibility of traditionally
-      'private' mangled object attributes, you will need to change
-      the names of those attributes - this is a basic objective of
-      private / protect
-    - If your object DEPENDS on external writeability of traditionally
-      'private' attributes of the form '_var', you will need to change
-      the names of those attributes - this is a basic objective of
-      private / protect
-    - If your object DEPENDS on EXTERNAL modifability of __class__,
-      __dict__ or __slots__, you will need to change the behavior
-      of your object (change the code) - since this contradicts the
-      basic objective of private / protect.
-
-Code changes required when USING a wrapped object vs. using original object:
-    Pickling / unpickling of wrapped objects is not supported (yet)
-
-    If 'o' is your original object, and 'w' is the wrapped object:
-    One difference across wrap / freeze / private / protect:
-        - dir(w) will necessarily be different from dir(o):
-            'wrap' / 'freeze' / 'private' / 'protect':
-                Additional attributes in 'w':
-                    _Protected_id_____
-                    _Protected_isinstance_____
-            'private':
-                One more additional attribute in 'w':
-                    _Protected_testop_____
-                    Used in unit tests for protected_class
-                Traditionally 'private' mangled attributes will not appear
-
-            'protect':
-                One more additional attribute in 'w':
-                    _Protected_rules_____
-                    Used to avoid redundant multiple wraps when using 'protect'
-                Traditionally 'private' mangled attributes will not appear
-                Further differences depending on keyword arguments to 'protect'
-
-    Following applies only to wrapping with private / protect (not wrap):
-        - Change calls to w.__getattribute__(a) to getattr(w, a)
-        - Change calls to w.__delattr__ to delattr(w, a)
-        - Change calls to w.__setattr(a, val) to setattr(w, a, val)
-        - Change isinstance(w, Mytypes) to isinstance_protected(w, MyTypes)
-            isinstance_protected can also be used transparently on objects
-            that have NOT been wrapped
-        - Change id(w) to id_protected(w). id_protected can also be used
-            transparently on objects that have NOT been wrapped
-        - Change 'w is x' to id_protected(w) == id_protected(x)
-        - Change type(w) to w.__class__ if you want to use the CLASS of w
-            but safely - not allowing class modifications
-
-Object equality:
-    Two objects returned by wrap / freeze / private / protect are equal
-    IF AND ONLY IF all the following conditions are met:
-        - They wrap the SAME object - id(o1) == id(o2)
-        - They were wrapped using the same method
-        - For private: bothe were wrapped with the same value for 'frozen'
-        - For protect: the EFFECTIVE visibility and writeability implied
-          by keyword arguments provided to 'protect' for the two objects
-          is identical
-
-
-Can a Frozen / Private / Protected class instance be wrapped again
-using freeze / private / protect?
-    YES !
-
-    To avoid unnecessarily wrapping multiple times and impacting performance
-    while guaranteeing the behavior intended by calling wrap / freeze /
-    private / protect, the following optimizations are done:
-
-    wrap(o): if 'o' was already created using 'wrap', returns 'o'
-
-    private(o, frozen):
-        If 'o' was already created using 'private' AND with the SAME value for
-        frozen, returns 'o'
-
-    protect(o, **kwargs):
-        If 'o' was already created using 'protect' AND the EFFECTIVE
-        visibility and writeability of 'o' is identical to visibility
-        and writeability implied by kwargs, returns 'o
-
-    freeze(o): If 'o' is already known to be immutable, returns 'o'
-        This means that when using
-
-        w = freeze(o)
-
-        you should check
-
-        isimmutable(w)
-
-        rather than
-
-        isfrozen(w)
-
-        since, for an immutable 'o' (like o=10)
-
-        freeze(o) will return o
-
-        and isfrozen(freeze(10)) will return False
-        but isimmutable(freeze(10)) will return True
-
-Checking at run-time whether an attribute is visible:
-    Assuming 'o' is the object, whether wrapped or not and 'a is attribute:
-    Just use hasattr(o, a).  Works on any object, wrapped or not
-
-Checking at run-time whether an attribute is writeable:
-    Assuming 'o' is the object, whether wrapped or not and you waht to set
-    attribute 'a' to value 'val':
-
-    Pythonic way - optimistic - try and handle exception
-
-        from protected_class import ProtectionError
-
-        try:
-            setattr(o, a, val)
-        except (TypeError|ProtectionError):
-            # Do something if attribute cannot be set
-            # Should (hopefully) work on any object, wrapped or not
-
-    Non-pythonic way - 'check and hope'
-    if isreadonly(o, a):
-        # Do something if attribute is read-only
-        pass
-    else:
-        # Do something else if attribute is writeable
-        pass
-
-Checking at run-time whether an attribute can be deleted:
-    Assuming 'o' is the object, whether wrapped or not and you waht to delete
-    attribute 'a':
-
-    Pythonic way - optimistic - try and handle exception
-
-        from protected_class import ProtectionError
-
-        try:
-            delattr(o, a)
-        except (TypeError|ProtectionError):
-            # Do something if attribute cannot be deleted
-            # Should (hopefully) work on any object, wrapped or not
-'''
-
-import re
-import collections
-from cpython.object cimport (
-    Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-)
-cimport cython
-
-cdef object overridden_always
-overridden_always = frozenset([
-    '__getattr__', '__getattribute__', '__delattr__', '__setattr__',
-    # '__slots__',
-])
-
-
-# Use compiled regex - no function call, no str operations
-cdef object ro_private_attr
-ro_private_attr = re.compile('^_[^_].*?(?<!_)$')
-cdef object dunder_attr
-dunder_attr = re.compile('^__.*?__$')
-
-# Python 2 str does not have isidentifier() method
-cdef object attr_identifier
-attr_identifier = re.compile('^[_a-zA-Z][a-zA-Z0-9_]*$')
-
-# Use special exception class for protected_class-specific exceptions
-# Cannot subclass from builtin exceptions other than Exception
-# See: https://github.com/cython/cython/issues/1416
-class ProtectionError(TypeError):
-    pass
-
-class HiddenAttributeError(AttributeError):
-    pass
-
-class ReadonlyTypeError(TypeError):
-    pass
-
 # ------------------------------------------------------------------------
 # All of following to implement isimmutable() to avoid freezing immutables
 # Looks complex, but it is computed only once, while COMPILING
+# Only the following 3 attributes are used outside this module
+#   immutable_types
+#   builtin_module_immutable_attributes
+#   builtins_ids
 # ------------------------------------------------------------------------
 
 import sys
@@ -308,15 +27,17 @@ cdef list mutable_set_types
 cdef list immutable_mapping_types
 cdef list immutable_sequence_ytpes
 cdef list immutable_set_types
+
 cdef list immutable_types
 cdef set builtins_ids
-cdef set builtin_module_immutable_attributes
+cdef frozenset builtin_module_immutable_attributes
 
 
 if sys.version_info.major > 2:
     import collections.abc
     builtin_module = sys.modules['builtins']
 else:
+    import collections
     builtin_module = sys.modules['__builtin__']
 
 builtin_names = dir(builtin_module)
@@ -399,55 +120,12 @@ immutable_types = list(set(
 ))
 immutable_types = [x for x in immutable_types if isinstance(x, type)]
 
-# builtin module itself is writeable by default in python, so we need
-# a set of attributes which are KNOWN ot be immutable in the builtin module
-# For python3 this will (may) be a moving target
-# Can safely keep adding to this - since attribute is used ONLY if
-# it is actually present in builtin_module
-# This is only used in isimmutable()
-# This is the UNION of attributes present in python 2.7 and python 3.6.9
-
-builtin_module_immutable_attributes = set([
-    'ArithmeticError', 'AssertionError', 'AttributeError', 'BaseException',
-    'BlockingIOError', 'BrokenPipeError', 'BufferError', 'BytesWarning',
-    'ChildProcessError', 'ConnectionAbortedError', 'ConnectionError',
-    'ConnectionRefusedError', 'ConnectionResetError', 'DeprecationWarning',
-    'EOFError', 'Ellipsis', 'EnvironmentError', 'Exception', 'False',
-    'FileExistsError', 'FileNotFoundError', 'FloatingPointError',
-    'FutureWarning', 'GeneratorExit', 'IOError', 'ImportError',
-    'ImportWarning', 'IndentationError', 'IndexError', 'InterruptedError',
-    'IsADirectoryError', 'KeyError', 'KeyboardInterrupt', 'LookupError',
-    'MemoryError', 'ModuleNotFoundError', 'NameError', 'None',
-    'NotADirectoryError', 'NotImplemented', 'NotImplementedError', 'OSError',
-    'OverflowError', 'PendingDeprecationWarning', 'PermissionError',
-    'ProcessLookupError', 'RecursionError', 'ReferenceError',
-    'ResourceWarning', 'RuntimeError', 'RuntimeWarning', 'StandardError',
-    'StopAsyncIteration', 'StopIteration', 'SyntaxError', 'SyntaxWarning',
-    'SystemError', 'SystemExit', 'TabError', 'TimeoutError', 'True',
-    'TypeError', 'UnboundLocalError', 'UnicodeDecodeError',
-    'UnicodeEncodeError', 'UnicodeError', 'UnicodeTranslateError',
-    'UnicodeWarning', 'UserWarning', 'ValueError', 'Warning',
-    'ZeroDivisionError', '__build_class__', '__debug__', '__doc__',
-    '__import__', '__loader__', '__name__', '__package__', '__spec__', 'abs',
-    'all', 'any', 'apply', 'ascii', 'basestring', 'bin', 'bool', 'buffer',
-    'bytearray', 'bytes', 'callable', 'chr', 'classmethod', 'cmp', 'coerce',
-    'compile', 'complex', 'copyright', 'credits', 'delattr', 'dict', 'dir',
-    'divmod', 'enumerate', 'eval', 'exec', 'execfile', 'exit', 'file',
-    'filter', 'float', 'format', 'frozenset', 'getattr', 'globals', 'hasattr',
-    'hash', 'help', 'hex', 'id', 'input', 'int', 'intern', 'isinstance',
-    'issubclass', 'iter', 'len', 'license', 'list', 'locals', 'long', 'map',
-    'max', 'memoryview', 'min', 'next', 'object', 'oct', 'open', 'ord', 'pow',
-    'print', 'property', 'quit', 'range', 'raw_input', 'reduce', 'reload',
-    'repr', 'reversed', 'round', 'set', 'setattr', 'slice', 'sorted',
-    'staticmethod', 'str', 'sum', 'super', 'tuple', 'type', 'unichr',
-    'unicode', 'vars', 'xrange', 'zip'
-])
 # Since builtin_module is by default writeable in Python and attributes
-# in builtin_module can be overwritten, we only list those attributes
+# in builtin_module can be overwritten, we only track attributes
 # that do not allow __class__ attribute to be overwritten (crude test)
 s = set()
 test_attr_name = '__class__'
-for a in builtin_module_immutable_attributes:
+for a in builtin_names:
     try:
         x = getattr(builtin_module, a)
         try:
@@ -457,15 +135,12 @@ for a in builtin_module_immutable_attributes:
             s.add(a)
     except:
         continue
-builtin_module_immutable_attributes = s
+builtin_module_immutable_attributes = frozenset(s)
 
 builtins_ids = set([
     id(getattr(builtin_module, a)) for a in builtin_names
     if a in builtin_module_immutable_attributes
 ])
-
-# End of stuff for isimmutable()
-# ------------------------------------------------------------------------
 
 # Avoid locals and imports leaking into module namespace
 del x
@@ -473,163 +148,106 @@ del s
 del test_attr_name
 del a
 del sys
-del re
 del collections
 
-# ------------------------------------------------------------------------
-# Python-visible methods
-# ------------------------------------------------------------------------
 
 def immutable_builtin_attributes():
     '''
     Returns-->set of str: attributes in builtins that are immutable
     Used in unit tests
-    Note that this is a UNION of immutable attributes in Python 2 and 3
-    So there is no guarantee that these attributes are actually present
-    in the builtin module, but IF present, SHOULD be immutable
     '''
     return builtin_module_immutable_attributes
 
 
-def isimmutable(o):
+def isimmutable(o: object) -> bool:
     '''
-    isimmutable(o) --> bool: object class is KNOWN to be immutable
-    o-->object
+    isimmutable(o: object) -> bool:
+    'o' is KNOWN to be immutable
     '''
-    # Import locally to avoid re leaking into module namespace
-    import sys
-    if sys.version_info.major > 2:
-        import collections.abc as CollectionsABC
-    else:
-        import collections as CollectionsABC
-
-    # Everything in builtin module is immutable
-    if id(o) in builtins_ids:
-        return True
-    if type(o) in builtins_ids:
-        return True
-    # None and NotImplemented are immutable
-    if o is None or o is NotImplemented:
-        return True
-    # str and basestring are immutable, THOUGH they are Containers
-    if isinstance(o, (str, basestring)):
-        return True
-    if isfrozen(o):
-        return True
-    if iswrapped(o):
-        return False
-    if isinstance(o, CollectionsABC.Container):
-        return False
-    return isinstance(o, tuple(immutable_types))
+    return isimmutable_cython(o)
 
 
-def id_protected(o):
+def id_protected(o: object) -> int:
     '''
-    id(o)
-    o-->object: wrapped or not
-    Returns-->int: id of wrapped object if wrapped; id of o otherwise
+    id_protected(o: object) -> int:
+    id of wrapped object if wrapped; id of 'o' otherwise
     '''
-    if isinstance(o, Wrapped):
-        return o._Protected_id_____
-    return id(o)
+    return id_protected_cython(o)
 
 
-def isinstance_protected(o, c):
+def isinstance_protected(o: object, c: type) -> bool:
     '''
-    isinstance_protected(o, c)
-    o-->object
-    c-->type
+    isinstance_protected(o: object, c: type) -> bool:
+    Returns-->True IFF isinstance(object_wrapped_by_o, c)
     Similar to isinstance, but object o can be an object returned
     by freeze(), private() or protect()
-    Returns True IFF isinstance(object_wrapped_by_o, c)
     '''
-    if isinstance(o, Wrapped):
-        return o._Protected_isinstance_____(o, c)
-    return isinstance(o, c)
+    return isinstance_protected_cython(o=o, c=c)
 
 
-def isreadonly(o, a):
+def help_protected(o: object) -> None:
     '''
-    isreadonly(o, a) --> bool: whether attribute 'a' of object 'o' is read-only
-    o-->object
-    a-->str: attribute
+    help_protected(o: object) -> None:
+    help for wrapped object if wrapped; help for 'o' otherwise
+    '''
+    return help_protected_cython(o)
+
+
+def isreadonly(o: object, a: str) -> bool:
+    '''
+    isreadonly(o: object, a: str) -> bool:
     Returns-->bool: True IFF 'o' is wrapped AND 'o' makes arribute 'a'
         read-only if present in wrapped object
     This represents RULE of wrapped object - does not guarantee
     that WRAPPED OBJECT has attribute 'a' or that setting attribute
     'a' in object 'o' will not raise any exception
     '''
-    try:
-        if isimmutable(o):
-            return True
-    except:
-        pass
-    if isprivate(o) or isprotected(o):
-        return not o._Protected_testop_____(o, a, 'w')
-    else:
-        return False
+    return isreadonly_cython(o=o, a=a)
 
 
-def contains(p, o):
+def contains(p: object, o: object):
     '''
-    p-->object created with freeze / private / protect
-    o-->any object
-    Returns-->bool: whether p wraps o
+    contains(p: object, o: object):
+    Returns--whether 'p' wraps 'o'
     '''
-    if isinstance(p, Wrapped):
-        return p._Protected_id_____ == id(o)
-    return False
+    return contains_cython(p=p, o=o)
 
 
-def iswrapped(o):
+def iswrapped(o: object) -> bool:
     '''
-    iswrapped(o)
-    o-->object
-    Returns-->bool: object was created using wrap / freeze / private / protect
+    iswrapped(o: object) -> bool:
+    'o' was created using wrap / freeze / private / protect
     '''
-    return isinstance(o, Wrapped)
+    return iswrapped_cython(o)
 
 
-def isfrozen(o):
+def isfrozen(o: object) -> bool:
     '''
-    isfrozen(o)
-    o-->object
-    Returns-->bool: object was created using freeze()
+    isfrozen(o: object) -> bool:
+    'o' was created using freeze()
     '''
-    return isinstance(o, (
-        Frozen, FrozenPrivate, FrozenPrivacyDict, FrozenProtected,
-    ))
+    return isfrozen_cython(o)
 
 
-def isprivate(o):
+def isprivate(o: object) -> bool:
     '''
-    isprivate(o)
-    o-->object
-    Returns-->bool: object was created using private()
+    isprivate(o: object) -> bool:
+    'o' was created using private()
     '''
-    return isinstance(o, (
-        Private,
-        FrozenPrivate,
-    ))
+    return isprivate_cython(o)
 
 
-def isprotected(o):
+def isprotected(o: object) -> bool:
     '''
-    isprotected(o)
-    o-->object
-    Returns-->bool: object was created using protect()
+    isprotected(o: object) -> bool:
+    'o' was created using protect()
     '''
-    return isinstance(o, (
-        Protected,
-        FrozenProtected,
-    ))
+    return isprotected_cython(o)
 
 
-def wrap(o):
+def wrap(o: object) -> object:
     '''
-    wrap(o) --> Wrapped object
-    o-->Object to be wrapped
-
+    wrap(o: object) -> object:
     Wrapped:
         - Should behave just like the wrapped object, except
           following attributes cannot be modified:
@@ -640,34 +258,22 @@ def wrap(o):
 
     Useful for testing if wrapping is failing for a particular type of object
     '''
-    if iswrapped(o):
-        # Do not wrap twice
-        return o
-    return Wrapped(o, frozen=False)
+    return wrap_cython(o)
 
 
-def freeze(o):
+def freeze(o: object) -> object:
     '''
-    freeze(o) --> Frozen object
-    o-->Object to be wrapped
-
+    freeze(o: object) -> object:
     Frozen object prevents modification of ANY attribute
         - Does not hide traditionally 'private' mangled python attributes
     '''
-    if isfrozen(o):
-        # Never freeze twice
-        return o
-    elif isimmutable(o):
-        # Object is KNOWN to be immutable - return as-is
-        return o
-    # Must freeze
-    return Frozen(o)
+    return freeze_cython(o)
 
 
-def private(o, frozen=False):
+def private(o: object, frozen: bool = False) -> object:
     '''
-    private(o, frozen=True) --> FrozenPrivate if frozen; Private otherwise
-    o-->Object to be wrapped
+    private(o: object, frozen: bool = False) -> object:
+    FrozenPrivate instance if frozen; Private instance otherwise
 
     Private:
         - Cannot access traditionally 'private' mangled python attributes
@@ -680,44 +286,20 @@ def private(o, frozen=False):
         Features of Private PLUS prevents modification of ANY attribute
 
     '''
-    if frozen:
-        if isprivate(o) and isfrozen(o):
-            return o
-        return FrozenPrivate(o)
-    else:
-        if isinstance (o, FrozenPrivate):
-            # Underlying is already FrozenPrivate
-            return o
-        elif isinstance(o, Private):
-            return o
-        return Private(o)
+    return private_cython(o=o, frozen=frozen)
 
 
 def protect(
-        o,
-        frozen=False, add=False, dynamic=True,
-        hide_all=False, hide_data=False, hide_method=False,
-        hide_private=False, hide_dunder=False,
-        ro_all=False, ro_data=False, ro_method=True, ro_dunder=True,
-        ro=[], rw=[], hide=[], show=[],
+    o: object,
+    frozen: bool = False, add: bool = False, dynamic: bool = True,
+    hide_all: bool = False, hide_data: bool = False,
+    hide_method: bool = False, hide_private: bool = False,
+    hide_dunder: bool = False, ro_all: bool = False, ro_data: bool = False,
+    ro_method: bool = True, ro_dunder: bool = True,
+    ro=[], rw=[],
+    hide=[], show=[],
 ):
     '''
-    protect(
-        o,
-        frozen=False, add=False, dynamic=True,
-        hide_all=False, hide_data=False, hide_method=False,
-        hide_private=False, hide_dunder=False,
-        ro_all=False, ro_data=False, ro_method=True, ro_dunder=True,
-        ro=[], rw=[], hide=[], show=[],
-    ) --> FrozenProtected if frozen; Protected otherwise
-    Protected:
-        Features of Private PLUS allows customization of:
-            - Which attributes are VISIBLE
-            - Which attributes are WRITEABLE
-
-    FrozenProtected:
-        Features of Protected PLUS prevents modification of ANY attribute
-
     o-->object to be wrapped
     frozen-->bool: No attribute can be modified. Default: False
         - Overrides 'add'
@@ -748,6 +330,15 @@ def protect(
     hide-->list of str: attributes that will be hidden. Default: []
     show-->list of str: attributes that will be visible. Default: []
         Overrides 'hide_*'
+    Returns-->Instance of FrozenProtected if frozen; Instance of Protected otherwise
+
+    Protected:
+        Features of Private PLUS allows customization of:
+            - Which attributes are VISIBLE
+            - Which attributes are WRITEABLE
+
+    FrozenProtected:
+        Features of Protected PLUS prevents modification of ANY attribute
 
     Default settings:
     Features of Private:
@@ -761,6 +352,196 @@ def protect(
     - ro_dunder == True: 'dunder-vars' will be  read-only
     - ro_method == True: Method attributes will be read-only
     - All other non-dunder non-private data attributes are read-write
+    '''
+    return protect_cython(
+        o, frozen=frozen, add=add, dynamic=dynamic,
+        hide_all=hide_all, hide_data=hide_data, hide_method=hide_method,
+        hide_private=hide_private, hide_dunder=hide_dunder,
+        ro_all=ro_all, ro_data=ro_data, ro_method=ro_method,
+        ro_dunder=ro_dunder, ro=ro, rw=rw, hide=hide, show=show
+    )
+
+
+__all__ = [
+    'contains', 'freeze', 'id_protected', 'immutable_builtin_attributes',
+    'isfrozen', 'isimmutable', 'isinstance_protected', 'isprivate',
+    'isprotected', 'isreadonly', 'iswrapped', 'private', 'protect', 'wrap',
+    'help_protected',
+]
+def __dir__():
+    return __all__
+
+
+cdef isimmutable_cython(o: object):
+    '''
+    see __doc__ of python isimmutable() method
+    '''
+    # Import locally to avoid leaking into module namespace
+    import sys
+    if sys.version_info.major > 2:
+        import collections.abc as CollectionsABC
+    else:
+        import collections as CollectionsABC
+
+    # Everything in builtin module is immutable
+    if id(o) in builtins_ids:
+        return True
+    if type(o) in builtins_ids:
+        return True
+    # None and NotImplemented are immutable
+    if o is None or o is NotImplemented:
+        return True
+    # str and basestring are immutable, THOUGH they are Containers
+    if isinstance(o, (str, basestring)):
+        return True
+    if isfrozen_cython(o):
+        return True
+    if iswrapped_cython(o):
+        return False
+    if isinstance(o, CollectionsABC.Container):
+        return False
+    return isinstance(o, tuple(immutable_types))
+
+
+cdef id_protected_cython(o: object):
+    '''
+    see __doc__ of python id_protected() method
+    '''
+    if isinstance(o, Wrapped):
+        return o._Protected_id_____
+    return id(o)
+
+
+cdef help_protected_cython(o: object):
+    '''
+    see __doc__ of python help_protected() method
+    '''
+    if isinstance(o, Wrapped):
+        return o._Protected_help_____(o)
+    return help(o)
+
+
+cdef isinstance_protected_cython(o, c):
+    '''
+    see __doc__ of python isinstance_protected() method
+    '''
+    if isinstance(o, Wrapped):
+        return o._Protected_isinstance_____(o, c)
+    return isinstance(o, c)
+
+
+cdef isreadonly_cython(o, a):
+    '''
+    see __doc__ of python isreadonly() method
+    '''
+    try:
+        if isimmutable_cython(o):
+            return True
+    except:
+        pass
+    if isprivate_cython(o) or isprotected_cython(o):
+        return not o._Protected_testop_____(o, a, 'w')
+    else:
+        return False
+
+
+cdef contains_cython(p: object, o: object):
+    '''
+    see __doc__ of python contains() method
+    '''
+    if isinstance(p, Wrapped):
+        return p._Protected_id_____ == id(o)
+    return False
+
+
+cdef iswrapped_cython(o: object):
+    '''
+    see __doc__ of python iswrapped() method
+    '''
+    return isinstance(o, Wrapped)
+
+
+cdef isfrozen_cython(o: object):
+    '''
+    see __doc__ of python isfrozen() method
+    '''
+    return isinstance(o, (
+        Frozen, FrozenPrivate, FrozenPrivacyDict, FrozenProtected,
+    ))
+
+
+cdef isprivate_cython(o: object):
+    '''
+    see __doc__ of python isprivate() method
+    '''
+    return isinstance(o, (
+        Private,
+        FrozenPrivate,
+    ))
+
+
+cdef isprotected_cython(o: object):
+    '''
+    see __doc__ of python isprotected() method
+    '''
+    return isinstance(o, (
+        Protected,
+        FrozenProtected,
+    ))
+
+
+cdef wrap_cython(o: object):
+    '''
+    see __doc__ of python wrap() method
+    '''
+    if iswrapped_cython(o):
+        # Do not wrap twice
+        return o
+    return Wrapped(o, frozen=False)
+
+
+cdef freeze_cython(o: object):
+    '''
+    see __doc__ of python freeze() method
+    '''
+    if isfrozen_cython(o):
+        # Never freeze twice
+        return o
+    elif isimmutable_cython(o):
+        # Object is KNOWN to be immutable - return as-is
+        return o
+    # Must freeze
+    return Frozen(o)
+
+
+cdef private_cython(o: object, frozen: bool = False):
+    '''
+    See __doc__ of python private() method
+    '''
+    if frozen:
+        if isprivate_cython(o) and isfrozen_cython(o):
+            return o
+        return FrozenPrivate(o)
+    else:
+        if isinstance (o, FrozenPrivate):
+            # Underlying is already FrozenPrivate
+            return o
+        elif isinstance(o, Private):
+            return o
+        return Private(o)
+
+
+cdef protect_cython(
+    o,
+    frozen=False, add=False, dynamic=True,
+    hide_all=False, hide_data=False,
+    hide_method=False, hide_private=False,
+    hide_dunder=False, ro_all=False, ro_data=False,
+    ro_method=True, ro_dunder=True,
+    ro=[], rw=[], hide=[], show=[]
+):
+    '''
+    See __doc__ of python protect() method
     '''
 
     kwargs = {
@@ -804,14 +585,57 @@ def protect(
                     return o
         return Protected(o, rules)
 
+# ------------------------------------------------------------------------
+# End of methods called from python code directly
+# ------------------------------------------------------------------------
+
+cimport cython
+from cpython.object cimport (
+    Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+)
+cdef object overridden_always = frozenset([
+    '__getattr__', '__getattribute__', '__delattr__', '__setattr__',
+    # '__slots__',
+])
+
+
+import re
+# Use compiled regex - no function call, no str operations
+cdef object ro_private_attr = re.compile('^_[^_].*?(?<!_)$')
+cdef object dunder_attr = re.compile('^__.*?__$')
+
+# Python 2 str does not have isidentifier() method
+cdef object attr_identifier = re.compile('^[_a-zA-Z][a-zA-Z0-9_]*$')
+del re
+
+# Use special exception class for protected_class-specific exceptions
+# Cannot subclass from builtin exceptions other than Exception
+# See: https://github.com/cython/cython/issues/1416
+# But you CAN cdef intermediate classes and derive from them
+
+@cython.internal
+cdef class TypeError(Exception):
+    pass
+
+@cython.internal
+cdef class AttributeError(Exception):
+    pass
+
+@cython.internal
+cdef class ProtectionError(TypeError):
+    pass
+
+@cython.internal
+cdef class ReadonlyTypeError(TypeError):
+    pass
+
+@cython.internal
+cdef class HiddenAttributeError(AttributeError):
+    pass
 
 # ------------------------------------------------------------------------
-# End of python-visible methods
-# ------------------------------------------------------------------------
 
 
-
-# Not visible to python
 cdef privatedict(o, cn, frozen=False):
     '''
     o-->Mapping (to be wrapped)
@@ -830,7 +654,6 @@ cdef privatedict(o, cn, frozen=False):
         return PrivacyDict(o, cn)
 
 
-# Not visible to python (or outside this module ?)
 @cython.internal
 cdef class Wrapped(object):
     '''
@@ -849,7 +672,9 @@ cdef class Wrapped(object):
     cdef bint frozen
     cdef object frozen_error
     cdef object special_attributes
+    cdef object pickle_attributes
     cdef object _Protected_id_____
+    cdef object constructor_args
 
     def __init__(self, o, frozen=False):
         '''
@@ -857,13 +682,18 @@ cdef class Wrapped(object):
         frozen--bool: If True, no attribute can be modified
         '''
         self.pvt_o = o
-        self._Protected_id_____ = id(o)
+        self.constructor_args = (o, frozen)
         self.cn = o.__class__.__name__
         self.frozen = bool(frozen)
         self.frozen_error = ProtectionError('Object is read-only')
         self.special_attributes = set([
             '_Protected_isinstance_____',
             '_Protected_id_____',
+            '_Protected_help_____',
+        ])
+        self.pickle_attributes = set([
+            '__reduce__', '__reduce_ex__',
+            '__getsate__', '__setstate__',
         ])
 
     cdef fif(self, o):
@@ -873,19 +703,17 @@ cdef class Wrapped(object):
         Returns-->o or Frozen(o)
         '''
         if self.frozen:
-            return freeze(o)
+            return freeze_cython(o)
         return o
 
     cdef public _Protected_isinstance_____(self, c):
         return isinstance(self.pvt_o, c)
 
-    '''
-    def __getattr__(self, a):
-        return self.get_attribute(a)
-    '''
+    cdef public _Protected_help_____(self):
+        return help(self.pvt_o)
 
     def __getattribute__(self, a):
-        # Import locally to avoid re leaking into module namespace
+        # Import locally to avoid leaking into module namespace
         import sys
         if sys.version_info.major > 2:
             import collections.abc as CollectionsABC
@@ -898,8 +726,13 @@ cdef class Wrapped(object):
             return partial(getattr(Wrapped, a), self)
         if a == '_Protected_isinstance_____':
             return self._Protected_isinstance_____
+        elif a == '_Protected_help_____':
+            return self._Protected_help_____
         elif a == '_Protected_id_____':
-            return self._Protected_id_____
+            return id(self.pvt_o)
+        # PREVENT pickling
+        elif a in self.pickle_attributes:
+            raise ProtectionError('Wrapped object cannot be pickled')
         if self.frozen:
             if isinstance(self.pvt_o, CollectionsABC.Mapping):
                 if a in ('pop', 'popitem', 'clear'):
@@ -910,7 +743,7 @@ cdef class Wrapped(object):
         # If frozen, freeze all the way down
         x = getattr(self.pvt_o, a)
         if self.frozen:
-            return freeze(x)
+            return freeze_cython(x)
         return x
 
     def __setattr__(self, a, val):
@@ -932,7 +765,7 @@ cdef class Wrapped(object):
         delattr(self.pvt_o, a)
 
     def __dir__(self):
-        l1 = dir(self.pvt_o)
+        l1 = [x for x in dir(self.pvt_o) if x not in self.pickle_attributes]
         l2 = [x for x in self.special_attributes if x not in l1]
         return sorted(l1 + l2)
 
@@ -949,7 +782,7 @@ cdef class Wrapped(object):
         try:
             res = (
                 isinstance(other, Wrapped) and
-                id_protected(self) == id_protected(other)
+                id_protected_cython(self) == id_protected_cython(other)
             )
         except:
             return NotImplemented
@@ -962,6 +795,7 @@ cdef class Wrapped(object):
     # The rest of the methods are implementations of abstract methods to
     # proxy different types of objects from collections module
     # ------------------------------------------------------------------------
+
 
     # Sequence
 
@@ -1054,12 +888,11 @@ cdef class Wrapped(object):
         return self.fif(self.pvt_o(*args, **kwargs))
 
 
-# Not visible to python (or outside this module ?)
 @cython.internal
 @cython.final
 cdef class Frozen(Wrapped):
     '''
-    Wrapped which is automatically frozen
+    Subclass of Wrapped that is automatically frozen
     '''
     def __init__(self, o):
         '''o-->object to be wrapped'''
@@ -1076,7 +909,7 @@ cdef class Frozen(Wrapped):
         try:
             res = (
                 isinstance(other, Frozen) and
-                id_protected(self) == id_protected(other)
+                id_protected_cython(self) == id_protected_cython(other)
             )
         except:
             return NotImplemented
@@ -1085,7 +918,6 @@ cdef class Frozen(Wrapped):
         if op == Py_NE:
             return (not res)
 
-# Not visible to python (or outside this module ?)
 @cython.internal
 cdef class PrivacyDict(Wrapped):
     '''
@@ -1101,7 +933,7 @@ cdef class PrivacyDict(Wrapped):
         o-->dict (any Mapping or MutableMapping type)
         cn-->str: class name
         '''
-        # Import locally to avoid re leaking into module namespace
+        # Import locally to avoid leaking into module namespace
         import re
         import sys
         if sys.version_info.major > 2:
@@ -1121,7 +953,7 @@ cdef class PrivacyDict(Wrapped):
             raise KeyError(a)
         # Cannot modify CLASS of wrapped object
         if a == '__class__':
-            return freeze(self.pvt_o.__class__)
+            return freeze_cython(self.pvt_o.__class__)
         # If frozen, freeze all the way down
         x = object.__getattribute__(self.pvt_o, a)
         return self.fif(x)
@@ -1220,7 +1052,7 @@ cdef class PrivacyDict(Wrapped):
         try:
             res = (
                 isinstance(other, PrivacyDict) and
-                id_protected(self) == id_protected(other)
+                id_protected_cython(self) == id_protected_cython(other)
             )
         except:
             return NotImplemented
@@ -1230,12 +1062,11 @@ cdef class PrivacyDict(Wrapped):
             return (not res)
 
 
-# Not visible to python (or outside this module ?)
 @cython.internal
 @cython.final
 cdef class FrozenPrivacyDict(PrivacyDict):
     '''
-    PrivacyDict that is automatically frozen
+    Subclass of PrivacyDict that is automatically frozen
     '''
     def __init__(self, o, cn):
         '''o-->object to be wrapped'''
@@ -1252,7 +1083,7 @@ cdef class FrozenPrivacyDict(PrivacyDict):
         try:
             res = (
                 isinstance(other, FrozenPrivacyDict) and
-                id_protected(self) == id_protected(other)
+                id_protected_cython(self) == id_protected_cython(other)
             )
         except:
             return NotImplemented
@@ -1262,11 +1093,10 @@ cdef class FrozenPrivacyDict(PrivacyDict):
             return (not res)
 
 
-# Not visible to python (or outside this module ?)
 @cython.internal
 cdef class Private(Wrapped):
     '''
-    Wrapped with following additional functionality:
+    Subclass of Wrapped with following additional functionality:
         - Cannot access traditionally 'private' mangled python attributes
         - Cannot modify traditionally private attributes (form '_var')
         - Cannot modify CLASS of wrapped object
@@ -1292,7 +1122,7 @@ cdef class Private(Wrapped):
         o-->object to be wrapped
         frozen--bool: If True, no direct attribute can be modified
         '''
-        # Import locally to avoid re leaking into module namespace
+        # Import locally to avoid leaking into module namespace
         import re
 
         Wrapped.__init__(self, o, frozen=frozen)
@@ -1327,10 +1157,10 @@ cdef class Private(Wrapped):
             return privatedict(d, self.cn, frozen=True)
         elif a == '__slots__':
             # Can SEE but not CHANGE __slots__ - EVEN if not frozen
-            return freeze(getattr(self.pvt_o, a))
+            return freeze_cython(getattr(self.pvt_o, a))
         elif a == '__class__':
             # Cannot modify CLASS of wrapped object - EVEN if not frozen
-            return freeze(self.pvt_o.__class__)
+            return freeze_cython(self.pvt_o.__class__)
         if not self.visible(a):
             raise HiddenAttributeError(missing_msg)
         return Wrapped.__getattribute__(self, a)
@@ -1375,7 +1205,7 @@ cdef class Private(Wrapped):
         try:
             res = (
                 isinstance(other, Private) and
-                id_protected(self) == id_protected(other)
+                id_protected_cython(self) == id_protected_cython(other)
             )
         except:
             return NotImplemented
@@ -1385,12 +1215,11 @@ cdef class Private(Wrapped):
             return (not res)
 
 
-# Not visible to python (or outside this module ?)
 @cython.internal
 @cython.final
 cdef class FrozenPrivate(Private):
     '''
-    Private that is automatically frozen
+    Subclass of Private that is automatically frozen
     '''
     def __init__(self, o):
         '''o-->object to be wrapped'''
@@ -1407,7 +1236,7 @@ cdef class FrozenPrivate(Private):
         try:
             res = (
                 isinstance(other, FrozenPrivate) and
-                id_protected(self) == id_protected(other)
+                id_protected_cython(self) == id_protected_cython(other)
             )
         except:
             return NotImplemented
@@ -1417,7 +1246,6 @@ cdef class FrozenPrivate(Private):
             return (not res)
 
 
-# Not visible to python (or outside this module ?)
 cdef get_visibility_rules(kwargs):
     '''
     kwargs-->dict
@@ -1550,11 +1378,10 @@ cdef get_visibility_rules(kwargs):
 
 
 
-# Not visible to python (or outside this module ?)
 @cython.internal
 cdef class Protected(Private):
     '''
-    Private that allows customization of:
+    Subclass of Private that allows customization of:
         - Which attributes are VISIBLE
         - Which attributes are WRITEABLE
     '''
@@ -1596,7 +1423,7 @@ cdef class Protected(Private):
         rules-->dict
         Called once at object wrapping time
         '''
-        # Import locally to avoid re leaking into module namespace
+        # Import locally to avoid leaking into module namespace
         import re
 
         self.attr_type_check = False
@@ -1812,7 +1639,7 @@ cdef class Protected(Private):
             self.aclcheck(a=a, op='w')
             return x
         except:   # not writeable for any reason
-            return freeze(x)
+            return freeze_cython(x)
 
     def __setattr__(self, a, val):
         self.aclcheck(a=a, op='w')
@@ -1861,7 +1688,7 @@ cdef class Protected(Private):
             d2 = dict(other._Protected_rules_____)
             res = (
                 isinstance(other, Protected) and
-                id_protected(self) == id_protected(other) and
+                id_protected_cython(self) == id_protected_cython(other) and
                 d1 == d2
             )
         except:
@@ -1872,11 +1699,10 @@ cdef class Protected(Private):
             return (not res)
 
 
-# Not visible to python (or outside this module ?)
 @cython.internal
 cdef class FrozenProtected(Protected):
     '''
-    Protected that is automatically frozen
+    Subclass of Protected that is automatically frozen
     '''
     def __init__(self, o, rules):
         '''
@@ -1899,7 +1725,7 @@ cdef class FrozenProtected(Protected):
             d2 = dict(other._Protected_rules_____)
             res = (
                 isinstance(other, FrozenProtected) and
-                id_protected(self) == id_protected(other) and
+                id_protected_cython(self) == id_protected_cython(other) and
                 d1 == d2
             )
         except:

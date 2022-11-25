@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+sys.dont_write_bytecode = True
 import re
 import unittest
 
@@ -201,10 +202,12 @@ def get_builtin_obj(s):
 
 overridden_always = set((
     '__getattribute__', '__setattr__', '__delattr__',
+    '__reduce__', '__reduce_ex__',
 ))
 special_attributes = set((
     '_Protected_id_____', '_Protected_isinstance_____',
     '_Protected_testop_____', '_Protected_rules_____',
+    '_Protected_help_____',
 ))
 never_writeable = set((
     '__class__', '__dict__', '__slots__',
