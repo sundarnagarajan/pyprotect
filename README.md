@@ -183,7 +183,7 @@ wrapped = protect(myinst)
 
 | Option            | Type        | Default  | Description | Overrides |
 | ----------------- | ----------- | -------- | ----------- | --------- |
-| **add**           | **bool**    | **True** | **<ul><li>Whether attributes can be ADDED</li></ul>** | |
+| add           | bool    | True | <ul><li>Whether attributes can be ADDED</li></ul> | |
 | frozen            | bool        | False    | <ul><li>If True, no attributes can be CHANGED or ADDED</li></ul> | <ul><li>add</li><li>rw</li></ul> | |
 | hide_all          | bool        | False    | <ul><li>All attributes will be hidden</li><li>Can override selectively with 'show'</li></ul> | |
 | hide_data         | bool        | False    | <ul><li>Data (non-method) attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
@@ -192,8 +192,8 @@ wrapped = protect(myinst)
 | hide_dunder       | bool        | False    | <ul><li>'dunder-vars' will be hidden</li><li>Override selectively with 'show'</li></ul> | |
 | ro_all            | bool        | False    | <ul><li>All attributes will be read-only</li><li>Can override selectively with 'rw'</li></ul> | |
 | ro_data           | bool        | False    | <ul><li>Data (non-method) attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
-| **ro_method**     | **bool**    | **True** | **<ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul>** | |
-| **ro_dunder**     | **bool**    | **True** | **<ul><li>'dunder-vars' will be  read-only</li><li>Override selectively with 'rw'</li></ul>** | |
+| ro_method     | bool    | True | <ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
+| ro_dunder     | bool    | True | <ul><li>'dunder-vars' will be  read-only</li><li>Override selectively with 'rw'</li></ul> | |
 | ro                | list of str | [ ]   | <ul><li>Attributes that will be read-only</li><li>Can selectively override with 'rw'</li></ul> | |
 | rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <ul><li>ro_all</li><li>ro_data</li><li>ro_method</li><li>ro_dunder</li><li>ro</li></ul> |
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li><li>Override selectively with 'show'</li></ul> | |
