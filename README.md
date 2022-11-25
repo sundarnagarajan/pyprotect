@@ -79,7 +79,6 @@ That's it!
 | ------------- | ----------------- | ----------- | -------------- |
 | frozen        | Any               | NO          | YES            |
 | add           | Added at run-time | NO          | NO             |
-| protect_class | object class      | NO          | YES            |
 | hide_all      | ANY               | YES         | YES (Indirect) |
 | hide_data     | Data attributes   | YES         | YES (Indirect) |
 | hide_method   | Method attributes | YES         | YES (Indirect) |
