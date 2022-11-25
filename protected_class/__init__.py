@@ -38,4 +38,4 @@ if not in_sys_path:
         sys.path.remove(module_dir)
     except ValueError:
         pass
-del module_dir, os, sys
+del in_sys_path, module_dir, os, sys
