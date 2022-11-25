@@ -46,7 +46,6 @@ That's it!
 | ----------------- | ----------- | -------- | ----------- | --------- |
 | **add**           | **bool**    | **True** | **<ul><li>Whether attributes can be ADDED</li></ul>** | |
 | frozen            | bool        | False    | <ul><li>If True, no attributes can be CHANGED or ADDED</li></ul> | <ul><li>add</li><li>rw</li></ul> | |
-| **protect_class** | bool        | **True** | **<ul><li>Prevents modification of CLASS of wrapped object</li><li>Doesn't PREVENT modification, but modification has no effect</li></ul>** | |
 | hide_all          | bool        | False    | <ul><li>All attributes will be hidden</li><li>Can override selectively with 'show'</li></ul> | |
 | hide_data         | bool        | False    | <ul><li>Data (non-method) attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
 | hide_method       | bool        | False    | <ul><li>Method attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
