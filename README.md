@@ -78,6 +78,71 @@
     FrozenPrivate:
         Features of Private PLUS prevents modification of ANY attribute
 
+#### protect(o: object frozen: bool = False, add: bool = False, dynamic: bool = True, hide_all: bool = False, hide_data: bool = False, hide_method: bool = False, hide_private: bool = False, hide_dunder: bool = False, ro_all: bool = False, ro_data: bool = False, ro_method: bool = True, ro_dunder: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = [], show: List[str] = []
+
+    o-->object to be wrapped
+    frozen-->bool: No attribute can be modified. Default: False
+        - Overrides 'add'
+    add-->bool: Whether attributes can be ADDED. Default: False
+        Automatically set to False if 'dynamic' is True
+        Only attributes added through the wrapper can be deleted through
+            the wrapper
+    dynamic-->bool: Attribute additions, deletions, type changes in wrapped
+        object are automatically visible
+        If True, 'add' is automatically set to False
+        Default: True
+    
+    hide_all-->bool: All attributes will be hidden. Default: False
+    hide_data-->bool: Data attributes will be hidden. Default: False
+    hide_method-->bool: Method attributes will be hidden. Default: False
+    hide_private-->bool: Private vars (_var) will be hidden. Default: False
+    hide_dunder-->bool: 'dunder-vars' will be hidden. Default: False
+    
+    ro_all-->bool: All attributes will be read-only. Default: False
+    ro_data-->bool: Data attributes will be read-only. Default: False
+    ro_method-->bool: Method attributes will be read-only. Default: True
+    ro_dunder-->bool: 'dunder-vars' will be  read-only. Default: True
+    
+    ro-->list of str: attributes that will be read-only. Default: []
+    rw-->list of str: attributes that will be read-write. Default: []
+        Overrides 'ro_*'
+    
+    hide-->list of str: attributes that will be hidden. Default: []
+    show-->list of str: attributes that will be visible. Default: []
+        Overrides 'hide_*'
+    Returns-->Instance of FrozenProtected if frozen; Instance of Protected otherwise
+    
+    Protected:
+        Features of Private PLUS allows customization of:
+            - Which attributes are VISIBLE
+            - Which attributes are WRITEABLE
+    
+    FrozenProtected:
+        Features of Protected PLUS prevents modification of ANY attribute
+    
+    Default settings:
+    Features of Private:
+        - Cannot access traditionally 'private' mangled python attributes
+        - Cannot modify traditionally private attributes (form '_var')
+        - Cannot modify CLASS of wrapped object
+        - Cannot modify __dict__ of wrapped object
+        - Cannot modify __slots__ of wrapped object
+    - dynamic == True
+      Attribute additions, deletions, type changes automatically visible
+    - ro_dunder == True: 'dunder-vars' will be  read-only
+    - ro_method == True: Method attributes will be read-only
+    - All other non-dunder non-private data attributes are read-write
+    
+#### wrap(o: object) -> object:
+    Wrapped:
+        - Should behave just like the wrapped object, except
+          following attributes cannot be modified:
+            'getattr, __getattribute__',
+            '__delattr__', '__setattr__', '__slots__',
+        - Does NOT protect CLASS of wrapped object from modification
+        - Does NOT protect __dict__ or __slots__
+    
+    Useful for testing if wrapping is failing for a particular type of object
 
 
 ### Usage
