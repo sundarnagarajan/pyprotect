@@ -20,6 +20,66 @@
 - This README.md is not completely up to date. Use ```pydoc protected_class``` for the most up-to-date documentation
 
 
+### FUNCTIONS
+#### contains(p: object, o: object):
+    Returns--whether 'p' wraps 'o'
+
+#### freeze(o: object) -> object:
+    Frozen object prevents modification of ANY attribute
+        - Does not hide traditionally 'private' mangled python attributes
+
+#### help_protected(o: object) -> None:
+    help for wrapped object if wrapped; help for 'o' otherwise
+
+#### id_protected(o: object) -> int:
+    id of wrapped object if wrapped; id of 'o' otherwise
+
+#### immutable_builtin_attributes() -> Set[str]:
+    Returns-->set of str: attributes in builtins that are immutable
+    Used in unit tests
+
+#### isfrozen(o: object) -> bool:
+    'o' was created using freeze()
+
+#### isimmutable(o: object) -> bool:
+    'o' is KNOWN to be immutable
+
+#### isinstance_protected(o: object, c: type) -> bool:
+    Returns-->True IFF isinstance(object_wrapped_by_o, c)
+    Similar to isinstance, but object o can be an object returned
+    by freeze(), private() or protect()
+
+#### isprivate(o: object) -> bool:
+    'o' was created using private()
+
+#### isprotected(o: object) -> bool:
+    'o' was created using protect()
+
+#### isreadonly(o: object, a: str) -> bool:
+    Returns-->bool: True IFF 'o' is wrapped AND 'o' makes arribute 'a'
+        read-only if present in wrapped object
+    This represents RULE of wrapped object - does not guarantee
+    that WRAPPED OBJECT has attribute 'a' or that setting attribute
+    'a' in object 'o' will not raise any exception
+
+#### iswrapped(o: object) -> bool:
+    'o' was created using wrap / freeze / private / protect
+
+#### private(o: object, frozen: bool = False) -> object:
+    FrozenPrivate instance if frozen; Private instance otherwise
+    
+    Private:
+        - Cannot access traditionally 'private' mangled python attributes
+        - Cannot modify traditionally private attributes (form '_var')
+        - Cannot modify CLASS of wrapped object
+        - Cannot modify __dict__ of wrapped object
+        - Cannot modify __slots__ of wrapped object
+    
+    FrozenPrivate:
+        Features of Private PLUS prevents modification of ANY attribute
+
+
+
 ### Usage
 ```python
 # Use any custom class of your own
@@ -34,13 +94,13 @@ class MyClass(object):
 myinst = MyClass()
 
 # import + ONE line to wrap and protect class attributes
-from protected_class import Protected
-wrapped = Protected(myinst)
+from protected_class import protect
+wrapped = protect(myinst)
 ```
 
 That's it!
 
-### Options: Proteced class constructor keyword arguments:
+### Options: protect method arguments
 
 | Option            | Type        | Default  | Description | Overrides |
 | ----------------- | ----------- | -------- | ----------- | --------- |
