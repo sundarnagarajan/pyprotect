@@ -1,4 +1,4 @@
-## python_protected_class
+## protected_class module
 
 ### Protect attributes in any python object instance
 
