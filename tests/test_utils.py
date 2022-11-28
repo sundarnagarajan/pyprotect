@@ -7,14 +7,16 @@ sys.dont_write_bytecode = True
 import re
 from obj_utils import writeable_in_python
 from protected_wrapper import protected
+from protected import attribute_protected
 
 
+PROT_ATTR = attribute_protected()
 overridden_always = set((
     '__getattribute__', '__setattr__', '__delattr__',
     '__reduce__', '__reduce_ex__',
 ))
 special_attributes = set((
-    '_Protected_____',
+    PROT_ATTR,
 ))
 
 

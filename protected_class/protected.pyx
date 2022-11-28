@@ -152,7 +152,24 @@ del sys
 del collections
 
 # The ONLY place where the name of the special attribute is defined / used
-PROT_ATTR_NAME = '_Protected_____'
+cdef str PROT_ATTR_NAME = '_Protected_____'
+cdef str ENV_VAR = PROT_ATTR_NAME
+# Can override by setting env var '_Protected_____'
+# Value of env var '_Protected_____' will be fixed to have exactly
+# one leading underscore and at least 5 trailing underscores
+import os
+x = os.environ.get(ENV_VAR, None)
+if x is not None:
+    if x.startswith('_'):
+        x = x.lstrip('_') + '_'
+    if not x.endswith('_____'):
+        x = x.rstrip('_') + '_____'
+    PROT_ATTR_NAME = x
+del x, os
+
+
+def attribute_protected():
+    return PROT_ATTR_NAME
 
 
 def immutable_builtin_attributes():
@@ -602,7 +619,7 @@ __all__ = [
     'contains', 'freeze', 'id_protected', 'immutable_builtin_attributes',
     'isfrozen', 'isimmutable', 'isinstance_protected', 'isprivate',
     'isprotected', 'isreadonly', 'iswrapped', 'private', 'protect', 'wrap',
-    'help_protected',
+    'help_protected', 'attribute_protected',
 ]
 
 def __dir__():

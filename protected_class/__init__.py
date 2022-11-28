@@ -16,11 +16,15 @@ except ImportError:
 # [flake8]
 # per-file-ignores =
 #     __init__.py: F401
-# Make protected MODULE read-only - doesn't work in PY2
+# Make protected MODULE read-only - makes tests fail in PY2
+# TODO - investigate cause for test failures
 if sys.version_info.major > 2:
     protected = protected.freeze(protected)
 else:
-    sys.modules['protected'] = protected
+    # Module imported here does not allow further 'from x import y'
+    # in PY2 without adding explicitly to sys.modules
+    if 'protected' not in sys.modules:
+        sys.modules['protected'] = protected
 from doc import __doc__
 
 if not in_sys_path:
