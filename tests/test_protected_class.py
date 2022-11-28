@@ -205,12 +205,10 @@ overridden_always = set((
     '__reduce__', '__reduce_ex__',
 ))
 special_attributes = set((
-    '_Protected_id_____', '_Protected_isinstance_____',
-    '_Protected_testop_____', '_Protected_rules_____',
-    '_Protected_help_____',
+    '_Protected_____',
 ))
 never_writeable = set((
-    '__class__', '__dict__', '__slots__',
+    '__class__', '__dict__', '__slots__'
 ))
 
 
@@ -279,9 +277,11 @@ def ro_private_vars(o):
     Returns-->set of str: attribute names of the form _var
     '''
     ret = set()
+    # Regex for mangled private attributes
     h1_regex = re.compile('^_%s__.*?(?<!__)$' % (o.__class__.__name__))
     for a in dir(o):
         if h1_regex.match(a):
+            # Do not match mangled private attributes
             continue
         if a.startswith('_') and not a.endswith('_'):
             ret.add(a)
@@ -293,9 +293,11 @@ def method_vars(o):
     Returns-->set of str: attribute names of method attributes
     '''
     ret = set()
+    # Regex for mangled private attributes
     h1_regex = re.compile('^_%s__.*?(?<!__)$' % (o.__class__.__name__))
     for a in dir(o):
         if h1_regex.match(a):
+            # Do not match mangled private attributes
             continue
         if callable(getattr(o, a)):
             ret.add(a)
@@ -306,10 +308,12 @@ def data_vars(o):
     '''
     Returns-->set of str: attribute names of data attributes
     '''
+    # Regex for mangled private attributes
     h1_regex = re.compile('^_%s__.*?(?<!__)$' % (o.__class__.__name__))
     ret = set()
     for a in dir(o):
         if h1_regex.match(a):
+            # Do not match mangled private attributes
             continue
         if callable(getattr(o, a)):
             continue
@@ -445,11 +449,11 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(visible_is_readable(p1))
         self.assertTrue(special_attributes_immutable(o1))
         self.assertTrue(special_attributes_immutable(p1))
-        # Test _Protected_id_____
-        self.assertEqual(id(o1), p1._Protected_id_____)
-        # Test _Protected_isinstance_____
+        # Test _Protected.id
+        self.assertEqual(id(o1), p1._Protected_____.id)
+        # Test _Protected.isinstance
         self.assertEqual(
-            p1._Protected_isinstance_____(p1, o1.__class__),
+            p1._Protected_____.isinstance(o1.__class__),
             True
         )
 
@@ -459,12 +463,15 @@ class TestProtectedClass(unittest.TestCase):
         self.assertEqual(set(l1), overridden_always)
         self.assertEqual(l2, [])
         # never_writeable are also writeable in wrap
+        # special_attributes are not writeable even in wrap(o)
         for a in never_writeable:
             if a == '__slots__':
                 # SlotsObj
                 o2 = SlotsObj()
                 p2 = wrap(o2)
                 p2.__slots__.append('b')
+            elif a == '_Protected_____':
+                continue
             else:
                 if a in dir(p1):
                     setattr(p1, a, getattr(p1, a))
@@ -507,11 +514,11 @@ class TestProtectedClass(unittest.TestCase):
         p1 = freeze(o1)
         self.assertTrue(visible_is_readable(o1))
         self.assertTrue(visible_is_readable(p1))
-        # Test _Protected_id_____
-        self.assertEqual(id(o1), p1._Protected_id_____)
-        # Test _Protected_isinstance_____
+        # Test _Protected_____.id
+        self.assertEqual(id(o1), p1._Protected_____.id)
+        # Test _Protected_____.isinstance
         self.assertEqual(
-            p1._Protected_isinstance_____(p1, o1.__class__),
+            p1._Protected_____.isinstance(o1.__class__),
             True
         )
 
@@ -573,11 +580,11 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(visible_is_readable(p1))
         self.assertTrue(special_attributes_immutable(o1))
         self.assertTrue(special_attributes_immutable(p1))
-        # Test _Protected_id_____
-        self.assertEqual(id(o1), p1._Protected_id_____)
-        # Test _Protected_isinstance_____
+        # Test _Protected_____.id
+        self.assertEqual(id(o1), p1._Protected_____.id)
+        # Test _Protected_____.isinstance
         self.assertEqual(
-            p1._Protected_isinstance_____(p1, o1.__class__),
+            p1._Protected_____.isinstance(o1.__class__),
             True
         )
 
@@ -633,7 +640,7 @@ class TestProtectedClass(unittest.TestCase):
         s1 = set(dir(p1))
         s2 = set()
         for a in dir(p1):
-            if p1._Protected_testop_____(p1, a, 'r'):
+            if p1._Protected_____.testop(a, 'r'):
                 s2.add(a)
         self.assertEqual(s1, s2)
 
@@ -644,7 +651,7 @@ class TestProtectedClass(unittest.TestCase):
         s2 = set()
         if not isimmutable(p1):
             for a in dir(p1):
-                if p1._Protected_testop_____(p1, a, 'w'):
+                if p1._Protected_____.testop(a, 'w'):
                     if not writeable_in_python(p1, a):
                         continue
                     if a in never_writeable:
@@ -653,7 +660,7 @@ class TestProtectedClass(unittest.TestCase):
         self.assertEqual(s1, s2)
         # Test isreadonly versus testop
         for a in dir(p1):
-            x = (not isimmutable(p1) and p1._Protected_testop_____(p1, a, 'w'))
+            x = (not isimmutable(p1) and p1._Protected_____.testop(a, 'w'))
             y = not isreadonly(p1, a)
             self.assertEqual(x, y)
 
@@ -666,8 +673,8 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(visible_is_readable(p1))
         self.assertTrue(special_attributes_immutable(o1))
         self.assertTrue(special_attributes_immutable(p1))
-        # Test _Protected_id_____
-        self.assertEqual(id(o1), p1._Protected_id_____)
+        # Test _Protected_____.id
+        self.assertEqual(id(o1), p1._Protected_____.id)
 
         (l1, l2) = compare_readable_attrs(o1, p1, flexible=False)
         self.assertEqual(set(l1), hidden_private_vars(o1))
@@ -697,7 +704,7 @@ class TestProtectedClass(unittest.TestCase):
         s1 = set(dir(p1))
         s2 = set()
         for a in dir(p1):
-            if p1._Protected_testop_____(p1, a, 'r'):
+            if p1._Protected_____.testop(a, 'r'):
                 s2.add(a)
         self.assertEqual(s1, s2)
 
@@ -708,7 +715,7 @@ class TestProtectedClass(unittest.TestCase):
         s2 = set()
         if not isimmutable(p1):
             for a in dir(p1):
-                if p1._Protected_testop_____(p1, a, 'w'):
+                if p1._Protected_____.testop(a, 'w'):
                     if not writeable_in_python(p1, a):
                         continue
                     if a in never_writeable:
@@ -717,7 +724,7 @@ class TestProtectedClass(unittest.TestCase):
         self.assertEqual(s1, s2)
         # Test isreadonly versus testop
         for a in dir(p1):
-            x = (not isimmutable(p1) and p1._Protected_testop_____(p1, a, 'w'))
+            x = (not isimmutable(p1) and p1._Protected_____.testop(a, 'w'))
             y = not isreadonly(p1, a)
             self.assertEqual(x, y)
 
@@ -732,17 +739,19 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(visible_is_readable(p1))
         self.assertTrue(special_attributes_immutable(o1))
         self.assertTrue(special_attributes_immutable(p1))
-        # Test _Protected_id_____
-        self.assertEqual(id(o1), p1._Protected_id_____)
+        # Test _Protected_____.id
+        self.assertEqual(id(o1), p1._Protected_____.id)
         # Test _Protected_isinstance_____
         self.assertEqual(
-            p1._Protected_isinstance_____(p1, o1.__class__),
+            p1._Protected_____.isinstance(o1.__class__),
             True
         )
 
         (l1, l2) = compare_readable_attrs(o1, p1, flexible=False)
         self.assertEqual(set(l1), hidden_private_vars(o1))
         (l1, l2) = compare_writeable_attrs(o1, p1)
+        # Nothing additional is writeable in p1 over 01
+        self.assertEqual(l2, [])
         l1 = [
             x for x in l1
             if x in dir(p1) and
@@ -792,7 +801,7 @@ class TestProtectedClass(unittest.TestCase):
         s1 = set(dir(p1))
         s2 = set()
         for a in dir(p1):
-            if p1._Protected_testop_____(p1, a, 'r'):
+            if p1._Protected_____.testop(a, 'r'):
                 s2.add(a)
         self.assertEqual(s1, s2)
 
@@ -803,7 +812,7 @@ class TestProtectedClass(unittest.TestCase):
         s2 = set()
         if not isimmutable(p1):
             for a in dir(p1):
-                if p1._Protected_testop_____(p1, a, 'w'):
+                if p1._Protected_____.testop(a, 'w'):
                     if not writeable_in_python(p1, a):
                         continue
                     if a in never_writeable:
@@ -812,7 +821,7 @@ class TestProtectedClass(unittest.TestCase):
         self.assertEqual(s1, s2)
         # Test isreadonly versus testop
         for a in dir(p1):
-            x = (not isimmutable(p1) and p1._Protected_testop_____(p1, a, 'w'))
+            x = (not isimmutable(p1) and p1._Protected_____.testop(a, 'w'))
             y = not isreadonly(p1, a)
             self.assertEqual(x, y)
 
@@ -827,7 +836,7 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(special_attributes_immutable(o1))
         self.assertTrue(special_attributes_immutable(p1))
         # Test _Protected_id_____
-        self.assertEqual(id(o1), p1._Protected_id_____)
+        self.assertEqual(id(o1), p1._Protected_____.id)
 
         (l1, l2) = compare_readable_attrs(o1, p1, flexible=False)
         self.assertEqual(set(l1), hidden_private_vars(o1))
@@ -863,7 +872,7 @@ class TestProtectedClass(unittest.TestCase):
         s1 = set(dir(p1))
         s2 = set()
         for a in dir(p1):
-            if p1._Protected_testop_____(p1, a, 'r'):
+            if p1._Protected_____.testop(a, 'r'):
                 s2.add(a)
         self.assertEqual(s1, s2)
 
@@ -874,7 +883,7 @@ class TestProtectedClass(unittest.TestCase):
         s2 = set()
         if not isimmutable(p1):
             for a in dir(p1):
-                if p1._Protected_testop_____(p1, a, 'w'):
+                if p1._Protected_____.testop(a, 'w'):
                     if not writeable_in_python(p1, a):
                         continue
                     if a in never_writeable:
@@ -883,7 +892,7 @@ class TestProtectedClass(unittest.TestCase):
         self.assertEqual(s1, s2)
         # Test isreadonly versus testop
         for a in dir(p1):
-            x = (not isimmutable(p1) and p1._Protected_testop_____(p1, a, 'w'))
+            x = (not isimmutable(p1) and p1._Protected_____.testop(a, 'w'))
             y = not isreadonly(p1, a)
             self.assertEqual(x, y)
 
