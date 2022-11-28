@@ -19,27 +19,16 @@ from test_utils import compare_readable_attrs
 from test_utils import compare_writeable_attrs
 from test_utils import writeable_attrs
 
-from protected_wrapper import protected
-if sys.version_info.major == 2:
-    freeze = protected.freeze
-    isfrozen = protected.isfrozen
-    isimmutable = protected.isimmutable
-    immutable_builtin_attributes = protected.immutable_builtin_attributes
-    isreadonly = protected.isreadonly
-    private = protected.private
-    protect = protected.protect
-    wrap = protected.wrap
-else:
-    from protected import (
-        freeze,
-        isfrozen,
-        isimmutable,
-        immutable_builtin_attributes,
-        isreadonly,
-        private,
-        protect,
-        wrap,
-    )
+from protected import (
+    freeze,
+    isfrozen,
+    isimmutable,
+    immutable_builtin_attributes,
+    isreadonly,
+    private,
+    protect,
+    wrap,
+)
 
 
 if sys.version_info.major > 2:
