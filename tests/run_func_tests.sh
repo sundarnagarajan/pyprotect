@@ -2,10 +2,9 @@
 # $1: either PY2 or PY3 - defaults to testing in both
 
 PROG_DIR=$(readlink -e $(dirname $0))
-# We need $pwd) in case we run it from Makefile dir (from Makefile)
+# We need $pwd in case we run it from Makefile dir (from Makefile)
 export PYTHONPATH="$(readlink -e "${PROG_DIR}"):$(pwd):$PYTHONPATH"
 TEST_SCRIPT="${PROG_DIR}/test_protected_class.py"
-MODULE_NAME=protected_class
 
 env | grep -q '^VIRTUAL_ENV' && IN_VENV=yes || IN_VENV=no
 if [[ "$IN_VENV" = "yes" ]]; then
@@ -25,7 +24,7 @@ function test_in_1_python() {
     # $1: python command to use
     local PYTHON=$1
     local ret=0
-    $PYTHON -c "import $MODULE_NAME" 1>/dev/null 2>&1 || ret=1
+    $PYTHON -c "from protected_wrapper import protected" 1>/dev/null 2>&1 || ret=1
     if [[ $ret -eq 0 ]]; then
         echo "---------- Testing in $PYTHON ----------"
         $PYTHON test_protected_class.py $REST_ARGS

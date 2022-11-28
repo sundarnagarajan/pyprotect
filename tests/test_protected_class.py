@@ -2,23 +2,44 @@
 
 import sys
 sys.dont_write_bytecode = True
-import re
 import unittest
-
 import warnings
 warnings.simplefilter("ignore")
-from protected_class import isimmutable
-from protected_class import id_protected
-from protected_class import isreadonly
-from protected_class import iswrapped
-from protected_class import isfrozen
-from protected_class import isprivate
-from protected_class import wrap
-from protected_class import freeze
-from protected_class import private
-from protected_class import protect
-from protected_class import immutable_builtin_attributes
 del warnings
+from obj_utils import data_vars
+from obj_utils import dunder_vars
+from obj_utils import hidden_private_vars
+from obj_utils import method_vars
+from obj_utils import nested_obj
+from obj_utils import ro_private_vars
+from obj_utils import visible_is_readable
+from obj_utils import writeable_in_python
+
+from test_utils import compare_readable_attrs
+from test_utils import compare_writeable_attrs
+from test_utils import writeable_attrs
+
+from protected_wrapper import protected
+if sys.version_info.major == 2:
+    freeze = protected.freeze
+    isfrozen = protected.isfrozen
+    isimmutable = protected.isimmutable
+    immutable_builtin_attributes = protected.immutable_builtin_attributes
+    isreadonly = protected.isreadonly
+    private = protected.private
+    protect = protected.protect
+    wrap = protected.wrap
+else:
+    from protected import (
+        freeze,
+        isfrozen,
+        isimmutable,
+        immutable_builtin_attributes,
+        isreadonly,
+        private,
+        protect,
+        wrap,
+    )
 
 
 if sys.version_info.major > 2:
@@ -34,68 +55,6 @@ builtins_ids = set([
 # ------------------------------------------------------------------------
 # Test objects
 # ------------------------------------------------------------------------
-
-def nested_obj(
-    depth, no_cycles=False, json_compatible=False, custom_obj=True
-):
-    '''
-    depth-->int
-    no_cycles-->bool
-    json_compatible--:bool: If True, convert sets to lists, tuples to lists
-    custom_obj-->bool: If True, adds custom objects
-    Generates a deeply nested object with depth 'depth'
-    '''
-    width = 5
-    if json_compatible:
-        custom_obj = False
-        no_cycles = True
-
-    class CustomObj(object):
-        pass
-
-    class MyList(list):
-        pass
-
-    class MyTuple(tuple):
-        pass
-
-    class MyDict(dict):
-        pass
-
-    class MySet(set):
-        pass
-
-    def gen_dict():
-        d = dict.fromkeys([
-            'dict', 'list', 'tuple', 'set', 'cycle'
-        ])
-        if custom_obj:
-            d['obj'] = None
-        return d
-
-    obj = gen_dict()
-    top_obj = obj
-    for x in range(depth):
-        obj['dict'] = gen_dict()
-        obj['list'] = [a for a in range(width)]
-        if json_compatible:
-            obj['tuple'] = list(tuple([a for a in range(width)]))
-            obj['set'] = list(set([a for a in range(width)]))
-        else:
-            obj['tuple'] = tuple([a for a in range(width)])
-            obj['set'] = set([a for a in range(width)])
-        if not no_cycles:
-            obj['cycle'] = top_obj
-        if custom_obj:
-            obj['obj'] = CustomObj()
-            obj['mylist'] = MyList([a for a in range(width)])
-            obj['mytuple'] = MyTuple([a for a in range(width)])
-            obj['mydict'] = MyDict(obj['dict'])
-            if not json_compatible:
-                obj['myset'] = MySet([a for a in range(width)])
-        obj = obj['dict']
-    return top_obj
-
 
 class TestObj(object):
     def __init__(self, x=1, y=2):
@@ -223,207 +182,6 @@ def test_builtin_module():
             print('DEBUG: %s is not immutable' % (a,))
             ret = False
     return ret
-
-
-def isproperty(o, a):
-    '''Returns-->bool'''
-    try:
-        x = getattr(o.__class__, a)
-        return isinstance(x, property)
-    except:
-        pass
-    return False
-
-
-def writeable_in_python(o, a):
-    '''
-    o-->object
-    a-->str: attribute name
-    Returns-->bool
-    Some attributes are readonly in python
-    '''
-    if a == '__weakref__':
-        return False
-    if isproperty(o, a):
-        return False
-    return True
-
-
-def dunder_vars(o):
-    '''
-    Returns-->set of str: dunder attribute names in o
-    '''
-    ret = set()
-    for a in dir(o):
-        if a.startswith('__') and a.endswith('__'):
-            ret.add(a)
-    return ret
-
-
-def hidden_private_vars(o):
-    '''
-    Returns-->set of str: traditionally private mangled adttribute names
-    '''
-    ret = set()
-    h1_regex = re.compile('^_%s__.*?(?<!__)$' % (o.__class__.__name__))
-    for a in dir(o):
-        if h1_regex.match(a):
-            ret.add(a)
-    return ret
-
-
-def ro_private_vars(o):
-    '''
-    Returns-->set of str: attribute names of the form _var
-    '''
-    ret = set()
-    # Regex for mangled private attributes
-    h1_regex = re.compile('^_%s__.*?(?<!__)$' % (o.__class__.__name__))
-    for a in dir(o):
-        if h1_regex.match(a):
-            # Do not match mangled private attributes
-            continue
-        if a.startswith('_') and not a.endswith('_'):
-            ret.add(a)
-    return ret
-
-
-def method_vars(o):
-    '''
-    Returns-->set of str: attribute names of method attributes
-    '''
-    ret = set()
-    # Regex for mangled private attributes
-    h1_regex = re.compile('^_%s__.*?(?<!__)$' % (o.__class__.__name__))
-    for a in dir(o):
-        if h1_regex.match(a):
-            # Do not match mangled private attributes
-            continue
-        if callable(getattr(o, a)):
-            ret.add(a)
-    return ret
-
-
-def data_vars(o):
-    '''
-    Returns-->set of str: attribute names of data attributes
-    '''
-    # Regex for mangled private attributes
-    h1_regex = re.compile('^_%s__.*?(?<!__)$' % (o.__class__.__name__))
-    ret = set()
-    for a in dir(o):
-        if h1_regex.match(a):
-            # Do not match mangled private attributes
-            continue
-        if callable(getattr(o, a)):
-            continue
-        ret.add(a)
-    return ret
-
-
-def identical_in_both(a, o1, o2):
-    '''
-    a-->str: attribute name
-    o1, o2-->object
-    Returns-->bool
-    '''
-    try:
-        a1 = getattr(o1, a)
-        a2 = getattr(o2, a)
-        return id_protected(a1) == id_protected(a2)
-    except:
-        return False
-
-
-def visible_is_readable(o):
-    # a in dir(o) ==> getattr(o, a) works without exception
-    for a in dir(o):
-        try:
-            getattr(o, a)
-        except:
-            print('Attribute %s of object(%s) not readable' % (
-                a, str(type(o)),
-            ))
-            return False
-    return True
-
-
-def compare_readable_attrs(o1, o2, flexible=True):
-    '''
-    Returns-->(
-        list of str-->attributes only in o1,
-        list of str-->attributes only in o2,
-    ASSUMES visible_is_readable(o1) and visible_is_readable(o2)
-    '''
-    def get_dir(o):
-        ret = set()
-        for a in dir(o):
-            if a in overridden_always:
-                continue
-            if iswrapped(o) and a in special_attributes:
-                continue
-            ret.add(a)
-        return ret
-
-    h1_regex = re.compile('^_%s__.*?(?<!__)$' % (o1.__class__.__name__))
-    h2_regex = re.compile('^_%s__.*?(?<!__)$' % (o2.__class__.__name__))
-
-    s1 = get_dir(o1)
-    s2 = get_dir(o2)
-
-    only_in_1 = []
-    only_in_2 = []
-
-    for a in s1:
-        if flexible and (not isprivate(o1)) and h1_regex.match(a):
-            continue
-        if a not in s2:
-            only_in_1.append(a)
-    for a in s2:
-        if flexible and (not isprivate(o2)) and h2_regex.match(a):
-            continue
-        if a not in s1:
-            only_in_2.append(a)
-    return (only_in_1, only_in_2)
-
-
-def writeable_attrs(o):
-    '''
-    Returns-->list of str: attribute names that could be written
-    If o is NOT wrapped, we use immutable()
-    '''
-    ret = []
-    if not iswrapped(o):
-        if isimmutable(o):
-            return ret
-    for a in dir(o):
-        # Some properties are not writeable due to python protection
-        if not writeable_in_python(o, a):
-            continue
-        old_val = getattr(o, a)
-        try:
-            setattr(o, a, old_val)
-            ret.append(a)
-        except:
-            continue
-    return ret
-
-
-def compare_writeable_attrs(o1, o2):
-    '''
-    Returns-->(
-        list of str-->attributes writeable only in o1,
-        list of str-->attributes writeable only in o2,
-
-        if o1 or o2 is wrapped, filters out special_attributes
-        that are NEVER writeable
-    '''
-    w1 = writeable_attrs(o1)
-    w2 = writeable_attrs(o2)
-
-    only_in_1 = [x for x in w1 if x not in w2]
-    only_in_2 = [x for x in w2 if x not in w1]
-    return (only_in_1, only_in_2)
 
 
 def special_attributes_immutable(o):

@@ -16,21 +16,9 @@ except ImportError:
 # [flake8]
 # per-file-ignores =
 #     __init__.py: F401
-from protected import immutable_builtin_attributes
-from protected import isimmutable
-from protected import id_protected
-from protected import help_protected
-from protected import isinstance_protected
-from protected import isreadonly
-from protected import contains
-from protected import iswrapped
-from protected import isfrozen
-from protected import isprivate
-from protected import isprotected
-from protected import wrap
-from protected import freeze
-from protected import private
-from protected import protect
+# Make protected MODULE read-only - doesn't work in PY2
+if sys.version_info.major > 2:
+    protected = protected.freeze(protected)
 from doc import __doc__
 
 if not in_sys_path:
