@@ -25,14 +25,24 @@ def gen_random(n=LEN_RANDOM_ATTR_PART):
 GEN = gen_random()
 
 
-def generate_class(mult=1, obj_derived=True):
+def generate(
+    mult=1, obj_derived=True, nested=False, depth=100, no_cycles=True,
+):
     '''
+    mult: int = 1: Basic 48 attributes will be multiplied by mult
+    obj_derived: bool = True: Whether class is derived from object
+    nested: bool = False: Whether a deeply nested object is added
+    depth: int = 100: Depth of nested object if nested is True
+    no_cycles: bool = True: If True, nested obj has no cycles
+
     Returns--> dict:
         class->ytpe: class object
         props-->dict: various properties
         src-->str: source of class
     '''
+    mult = max(1, int(1))
     obj_derived = bool(obj_derived)
+    nested = bool(nested)
     n = 1
     n = n * mult
     tot = 0
@@ -94,11 +104,16 @@ def generate_class(mult=1, obj_derived=True):
         'normal_attr_show_over': set(),
         'dunder_attr_show_over': set(),
 
+        'nested': set(),
         'missing': set()
     }
 
+    class_source = ''
+    if nested:
+        class_source += 'from obj_utils import nested_obj\n\n'
+
     if obj_derived:
-        class_source = '''
+        class_source += '''
 class MyClass(object):
 '''
     else:
@@ -447,6 +462,16 @@ class MyClass:
             'inst_dunder_attr_show_over_', 'dunder_attr_show_over',
             dunder=True,
         )
+
+    if nested:
+        rnd_a = next(GEN)
+        a = 'nested_' + rnd_a
+        depth = max(100, int(depth))
+        no_cycles = bool(no_cycles)
+        class_source += '''\n
+    %s = nested_obj(depth=%d, no_cycles=%s)
+''' % (a, depth, no_cycles)
+        d['nested'].add(a)
 
     for rnd_a in [next(GEN) for i in range(n)]:
         d['missing'] = rnd_a

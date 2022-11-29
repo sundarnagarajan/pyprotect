@@ -695,12 +695,12 @@ cdef class _ProtectionData(object):
     cdef object attributes_map
 
     def __init__(
-        self, id, isinstance, help,
+        self, id_val, isinstance_val, help_val,
         testop, rules
     ):
-        self.id = id
-        self.isinstance = isinstance
-        self.help = help
+        self.id = id_val
+        self.isinstance = isinstance_val
+        self.help = help_val
         self.testop = testop
         self.rules = rules
         self.attributes_map = {
@@ -770,7 +770,6 @@ cdef class Wrapped(object):
     cdef object frozen_error
     cdef object pickle_attributes
     cdef object protected_attribute
-    cdef object _Protected_id_____
     cdef object rules
     cdef object special_attributes
 
@@ -792,13 +791,21 @@ cdef class Wrapped(object):
         self.special_attributes = set([
             PROT_ATTR_NAME,
         ])
-        self.protected_attribute = _ProtectionData(
-            id=id(self.pvt_o),
-            isinstance=partial(self.isinstance_protected, self),
-            help=partial(self.help_protected, self),
-            testop=partial(self.testop, self),
-            rules=dict(self.get_rules()),
-        )
+        # In case o is already wrapped, use _protectionData from o
+        # This can happen if:
+        # - protected module is frozen
+        # - a non-frozen wrapped object is frozen with freeze
+        if isinstance(o, Wrapped):
+            self.protected_attribute = getattr(o, PROT_ATTR_NAME)
+        else:
+            self.protected_attribute = _ProtectionData(
+                # id_val=partial(self.id_protected, self),
+                id_val=id(self.pvt_o),
+                isinstance_val=partial(self.isinstance_protected, self),
+                help_val=partial(self.help_protected, self),
+                testop=partial(self.testop, self),
+                rules=dict(self.get_rules()),
+            )
 
     # --------------------------------------------------------------------
     # Private methods
@@ -813,6 +820,9 @@ cdef class Wrapped(object):
         if self.frozen:
             return freeze(o)
         return o
+
+    cdef id_protected(self):
+        return id(self.pvt_o)
 
     cdef isinstance_protected(self, c):
         return isinstance(self.pvt_o, c)

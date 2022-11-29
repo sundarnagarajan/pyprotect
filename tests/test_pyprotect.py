@@ -19,6 +19,7 @@ from test_utils import compare_readable_attrs
 from test_utils import compare_writeable_attrs
 from test_utils import writeable_attrs
 
+from protected_wrapper import protected    # noqa: F401
 from protected import (
     freeze,
     isfrozen,
@@ -29,6 +30,8 @@ from protected import (
     protect,
     wrap,
     attribute_protected,
+    id_protected,
+    isinstance_protected,
 )
 
 PROT_ATTR = attribute_protected()
@@ -200,9 +203,14 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(special_attributes_immutable(p1))
         # Test _Protected.id
         self.assertEqual(id(o1), getattr(p1, PROT_ATTR).id)
+        self.assertEqual(id(o1), id_protected(p1))
         # Test _Protected.isinstance
         self.assertEqual(
             getattr(p1, PROT_ATTR).isinstance(o1.__class__),
+            True
+        )
+        self.assertEqual(
+            isinstance_protected(p1, o1.__class__),
             True
         )
 
@@ -265,9 +273,14 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(visible_is_readable(p1))
         # Test _Protected_____.id
         self.assertEqual(id(o1), getattr(p1, PROT_ATTR).id)
+        self.assertEqual(id(o1), id_protected(p1))
         # Test _Protected_____.isinstance
         self.assertEqual(
             getattr(p1, PROT_ATTR).isinstance(o1.__class__),
+            True
+        )
+        self.assertEqual(
+            isinstance_protected(p1, o1.__class__),
             True
         )
 
@@ -331,9 +344,14 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(special_attributes_immutable(p1))
         # Test _Protected_____.id
         self.assertEqual(id(o1), getattr(p1, PROT_ATTR).id)
+        self.assertEqual(id(o1), id_protected(p1))
         # Test _Protected_____.isinstance
         self.assertEqual(
             getattr(p1, PROT_ATTR).isinstance(o1.__class__),
+            True
+        )
+        self.assertEqual(
+            isinstance_protected(p1, o1.__class__),
             True
         )
 
@@ -427,6 +445,7 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(special_attributes_immutable(p1))
         # Test _Protected_____.id
         self.assertEqual(id(o1), getattr(p1, PROT_ATTR).id)
+        self.assertEqual(id(o1), id_protected(p1))
 
         (l1, l2) = compare_readable_attrs(o1, p1, flexible=False)
         self.assertEqual(set(l1), hidden_private_vars(o1))
@@ -496,9 +515,14 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(special_attributes_immutable(p1))
         # Test _Protected_____.id
         self.assertEqual(id(o1), getattr(p1, PROT_ATTR).id)
+        self.assertEqual(id(o1), id_protected(p1))
         # Test _Protected_isinstance_____
         self.assertEqual(
             getattr(p1, PROT_ATTR).isinstance(o1.__class__),
+            True
+        )
+        self.assertEqual(
+            isinstance_protected(p1, o1.__class__),
             True
         )
 
@@ -595,6 +619,7 @@ class TestProtectedClass(unittest.TestCase):
         self.assertTrue(special_attributes_immutable(p1))
         # Test _Protected_id_____
         self.assertEqual(id(o1), getattr(p1, PROT_ATTR).id)
+        self.assertEqual(id(o1), id_protected(p1))
 
         (l1, l2) = compare_readable_attrs(o1, p1, flexible=False)
         self.assertEqual(set(l1), hidden_private_vars(o1))

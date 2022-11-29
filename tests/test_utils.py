@@ -6,8 +6,14 @@ import sys
 sys.dont_write_bytecode = True
 import re
 from obj_utils import writeable_in_python
-from protected_wrapper import protected
-from protected import attribute_protected
+from protected_wrapper import protected    # noqa: F401
+from protected import (
+    attribute_protected,
+    id_protected,
+    iswrapped,
+    isprivate,
+    isimmutable,
+)
 
 
 PROT_ATTR = attribute_protected()
@@ -29,7 +35,7 @@ def identical_in_both(a, o1, o2):
     try:
         a1 = getattr(o1, a)
         a2 = getattr(o2, a)
-        return protected.id_protected(a1) == protected.id_protected(a2)
+        return id_protected(a1) == id_protected(a2)
     except:
         return False
 
@@ -46,7 +52,7 @@ def compare_readable_attrs(o1, o2, flexible=True):
         for a in dir(o):
             if a in overridden_always:
                 continue
-            if protected.iswrapped(o) and a in special_attributes:
+            if iswrapped(o) and a in special_attributes:
                 continue
             ret.add(a)
         return ret
@@ -61,12 +67,12 @@ def compare_readable_attrs(o1, o2, flexible=True):
     only_in_2 = []
 
     for a in s1:
-        if flexible and (not protected.isprivate(o1)) and h1_regex.match(a):
+        if flexible and (not isprivate(o1)) and h1_regex.match(a):
             continue
         if a not in s2:
             only_in_1.append(a)
     for a in s2:
-        if flexible and (not protected.isprivate(o2)) and h2_regex.match(a):
+        if flexible and (not isprivate(o2)) and h2_regex.match(a):
             continue
         if a not in s1:
             only_in_2.append(a)
@@ -79,8 +85,8 @@ def writeable_attrs(o):
     If o is NOT wrapped, we use immutable()
     '''
     ret = []
-    if not protected.iswrapped(o):
-        if protected.isimmutable(o):
+    if not iswrapped(o):
+        if isimmutable(o):
             return ret
     for a in dir(o):
         # Some properties are not writeable due to python protection
