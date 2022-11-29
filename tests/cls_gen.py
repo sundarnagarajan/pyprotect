@@ -4,29 +4,31 @@ Utilities to generate test classes
 
 import sys
 sys.dont_write_bytecode = True
-from random import choices
+if sys.version_info.major == 2:
+    from random import sample as choices
+else:
+    from random import choices
 import string
-from obj_utils import nested_obj, minimal_attributes
+from obj_utils import minimal_attributes
+from obj_utils import nested_obj   # noqa: F401
 
 LEN_RANDOM_ATTR_PART = 6
-SRC_RANDOM_STTR_PART = string.ascii_uppercase + string.ascii_lowercase
+SRC_RANDOM_ATTR_PART = string.ascii_uppercase + string.ascii_lowercase
 
 
 def gen_random(n=LEN_RANDOM_ATTR_PART):
     '''Generator'''
     s = set()
     while True:
-        x = ''.join(choices(SRC_RANDOM_STTR_PART, k=n))
+        x = ''.join(choices(SRC_RANDOM_ATTR_PART, k=n))
         if x in s:
             continue
         yield x
 
 
-GEN = gen_random()
-
-
 def generate(
-    mult=1, obj_derived=True, nested=False, depth=100, no_cycles=True,
+    mult=1, obj_derived=True,
+    nested=False, depth=100, no_cycles=True,
 ):
     '''
     mult: int = 1: Basic 48 attributes will be multiplied by mult
@@ -45,7 +47,13 @@ def generate(
     nested = bool(nested)
     n = 1
     n = n * mult
-    tot = 0
+    GEN = gen_random()
+
+    # Need to use tot within local wrapped functions, but PY2 doesn't have
+    # nonlocal keyword
+    class TOT:
+        tot = 0
+
     d = {
         'tot': 0,
         'minimal_attributes': minimal_attributes(obj_derived=obj_derived),
@@ -176,8 +184,7 @@ class MyClass:
         ) % (x, x)
 
     def add(a_rnd, fn, prefix, group, dunder=False):
-        nonlocal tot
-        tot += 1
+        TOT.tot += 1
         if dunder:
             a = '__' + prefix + a_rnd + '__'
         else:
@@ -480,7 +487,7 @@ class MyClass:
     exec(class_source, None, local_d)
     MyClass = local_d['MyClass']
 
-    d['tot'] = tot
+    d['tot'] = TOT.tot
     ret = {
         'class': MyClass,
         'props': d,
