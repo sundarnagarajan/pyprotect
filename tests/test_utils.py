@@ -1,5 +1,5 @@
 '''
-Utilities used in unit tests that need protected_class
+Utilities used in unit tests that need pyprotect
 '''
 
 import sys

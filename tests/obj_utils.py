@@ -1,5 +1,5 @@
 '''
-GENERIC utils for objects that do NOT use protected_class
+GENERIC utils for objects that do NOT use pyprotect
 '''
 
 import sys

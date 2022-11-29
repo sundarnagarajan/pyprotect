@@ -647,7 +647,7 @@ cdef object dunder_attr = re.compile('^__.*?__$')
 cdef object attr_identifier = re.compile('^[_a-zA-Z][a-zA-Z0-9_]*$')
 del re
 
-# Use special exception class for protected_class-specific exceptions
+# Use special exception class for pyprotect-specific exceptions
 # Cannot subclass from builtin exceptions other than Exception
 # See: https://github.com/cython/cython/issues/1416
 # But you CAN cdef intermediate classes and derive from them

@@ -142,7 +142,7 @@ Code changes required when USING a wrapped object vs. using original object:
             'private':
                 One more additional attribute in 'w':
                     _Protected_testop_____
-                    Used in unit tests for protected_class
+                    Used in unit tests for pyprotect
                 Traditionally 'private' mangled attributes will not appear
 
             'protect':
@@ -167,8 +167,8 @@ Code changes required when USING a wrapped object vs. using original object:
         - Change type(w) to w.__class__ if you want to use the CLASS of w
             but safely - not allowing class modifications
         - Getting interactive help on an object
-            Instead of help(o), use protected_class.help_protected(o)
-            Can also (even) alias help to protected_class.help_protected
+            Instead of help(o), use protected.help_protected(o)
+            Can also (even) alias help to protected.help_protected
 
 Object equality:
     Two objects returned by wrap / freeze / private / protect are equal
@@ -230,7 +230,7 @@ Checking at run-time whether an attribute is writeable:
 
     Pythonic way - optimistic - try and handle exception
 
-        from protected_class import ProtectionError
+        from pyprotect.protected import ProtectionError
 
         try:
             setattr(o, a, val)
@@ -252,7 +252,7 @@ Checking at run-time whether an attribute can be deleted:
 
     Pythonic way - optimistic - try and handle exception
 
-        from protected_class import ProtectionError
+        from pyprotect.protected import ProtectionError
 
         try:
             delattr(o, a)

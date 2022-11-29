@@ -1,4 +1,4 @@
-## protected_class module
+## pyprotect module
 
 ### Protect attributes in any python object instance
 
@@ -13,11 +13,11 @@
 - doctests in tests directory
 - Tested (only) on Ubuntu Bionic 18.04. Should work on any Linux distribution
 - Should work wherever cython works
-- If you want to CHANGE the source and recompile protected_class.c, and you want it
+- If you want to CHANGE the source and recompile protected.c, and you want it
   to work with Python 3.7+, you need to install cython version >= 0.27.3
   Do this with
   ```sudo pip3 install --upgrade cython>=0.27.3```
-- This README.md is not completely up to date. Use ```pydoc protected_class``` for the most up-to-date documentation
+- This README.md is not completely up to date. Use ```pydoc pyprotect.protected``` for the most up-to-date documentation
 
 ### VISIBILITY versus READABILITY or ACCESSIBILITY
 #### VISIBILITY: appears in dir(object)
@@ -174,7 +174,7 @@ class MyClass(object):
 myinst = MyClass()
 
 # import + ONE line to wrap and protect class attributes
-from protected_class import protect
+from pyprotect.protected import protect
 wrapped = protect(myinst)
 ```
 

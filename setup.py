@@ -9,12 +9,12 @@ long_description = open('README.md', 'r').read(),
 # Instead make sure DEVELOPER runs:
 #   'cython3 --3str protected.pyx' when(ever) protected.pyx changes
 ext_modules = [Extension(
-    'protected_class.protected',
-    ['protected_class/protected.c'],
+    'pyprotect.protected',
+    ['pyprotect/protected.c'],
 )]
 
 setup(
     version=version,
-    packages=['protected_class'],
+    packages=['pyprotect'],
     ext_modules=ext_modules,
 )
