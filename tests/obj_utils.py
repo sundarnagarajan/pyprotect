@@ -105,6 +105,41 @@ def minimal_attributes(obj_derived=True):
     return d
 
 
+def obj_attr_props(o):
+    '''
+    o: object: Any object
+    Returns: dict
+        'ro'      : set: Read-only attributes
+        'rw'      : set: Writeable attributes
+        'methods' : set: All method attributes (callable)
+        'attrs':  : set: All non-method attributes (not callable)
+        'props'   : set: Attributes that are properties
+        'all'     : set: All attributes (from dir)
+    '''
+    d = {
+        'ro': set(),
+        'rw': set(),
+        'methods': set(),
+        'attrs': set(),
+        'all': set(),
+    }
+    for attr_name in dir(o):
+        d['all'].add(attr_name)
+        a = getattr(o, attr_name)
+        if callable(a):
+            d['methods'].add(attr_name)
+        elif isinstance(a, property):
+            d['props'].add(attr_name)
+        else:
+            d['attrs'].add(attr_name)
+        try:
+            setattr(o, attr_name, a)
+            d['rw'].add(attr_name)
+        except:
+            d['ro'].add(attr_name)
+    return d
+
+
 def isproperty(o, a):
     '''Returns-->bool'''
     try:
