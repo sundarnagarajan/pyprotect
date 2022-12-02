@@ -1088,7 +1088,7 @@ cdef class Wrapped(object):
           All comparisons are passed to the wrapped object
 
         '''
-        def pass_to_wrapped(other):
+        def pass_to_wrapped():
             '''Trap RecursionError if object is too deeply nested'''
             if op == Py_LT:
                 try:
@@ -1124,7 +1124,7 @@ cdef class Wrapped(object):
                 return NotImplemented
 
         if not iswrapped(other):
-            return pass_to_wrapped(op)
+            return pass_to_wrapped()
         # other is Wrapped
         # Only equality / inequality are supported. Neither object
         # can access object wrapped by the other for other comparisons.
@@ -1143,8 +1143,14 @@ cdef class Wrapped(object):
             # Protected
             d1 = dict(self.rules)
             d2 = dict(getattr(other, PROT_ATTR_NAME).rules)
-            del d1['kwargs']
-            del d2['kwargs']
+            try:
+                del d1['kwargs']
+            except KeyError:
+                pass
+            try:
+                del d2['kwargs']
+            except KeyError:
+                pass
             res = res and d1 == d2
             if op == Py_EQ:
                 return res
