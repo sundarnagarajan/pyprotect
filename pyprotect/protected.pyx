@@ -2,10 +2,6 @@
 # ------------------------------------------------------------------------
 # All of following to implement isimmutable() to avoid freezing immutables
 # Looks complex, but it is computed only once, while COMPILING
-# Only the following 3 attributes are used outside this module
-#   immutable_types
-#   builtin_module_immutable_attributes
-#   builtins_ids
 # ------------------------------------------------------------------------
 
 import sys
@@ -151,9 +147,17 @@ del a
 del sys
 del collections
 
+# ------------------------------------------------------------------------
+# Only the following 3 attributes are used after this
+#   immutable_types
+#   builtin_module_immutable_attributes
+#   builtins_ids
+# ------------------------------------------------------------------------
+
 # The ONLY place where the name of the special attribute is defined / used
 cdef str PROT_ATTR_NAME = '_Protected_____'
 cdef str ENV_VAR = PROT_ATTR_NAME
+cdef str PROT_ATTR_SHORTEST_SUFFIX = '_____'
 # Can override by setting env var '_Protected_____'
 # Value of env var '_Protected_____' will be fixed to have exactly
 # one leading underscore and at least 5 trailing underscores
@@ -162,8 +166,8 @@ x = os.environ.get(ENV_VAR, None)
 if x is not None:
     if x.startswith('_'):
         x = x.lstrip('_') + '_'
-    if not x.endswith('_____'):
-        x = x.rstrip('_') + '_____'
+    if not x.endswith(PROT_ATTR_SHORTEST_SUFFIX):
+        x = x.rstrip('_') + PROT_ATTR_SHORTEST_SUFFIX
     PROT_ATTR_NAME = x
 del x, os
 
@@ -171,6 +175,77 @@ del x, os
 def attribute_protected():
     return PROT_ATTR_NAME
 
+# ------------------------------------------------------------------------
+# Methods to query metadata on wrapped object
+# ------------------------------------------------------------------------
+
+def id_protected(o: object) -> int:
+    '''
+    id_protected(o: object) -> int:
+    id of wrapped object if wrapped; id of 'o' otherwise
+    '''
+    if isinstance(o, Wrapped):
+        return getattr(o, PROT_ATTR_NAME).id
+    return id(o)
+
+
+def hash_protected(o: object) -> int:
+    '''
+    hash_protected(o: object) -> int:
+    hash of wrapped object if wrapped; hash of 'o' otherwise
+    '''
+    if isinstance(o, Wrapped):
+        return getattr(o, PROT_ATTR_NAME).hash()
+    return hash(o)
+
+
+def isinstance_protected(o: object, c: type) -> bool:
+    '''
+    isinstance_protected(o: object, c: type) -> bool:
+    Returns-->True IFF isinstance(object_wrapped_by_o, c)
+    Similar to isinstance, but object o can be an object returned
+    by freeze(), private() or protect()
+    '''
+    if isinstance(o, Wrapped):
+        return getattr(o, PROT_ATTR_NAME).isinstance(c)
+    return isinstance(o, c)
+
+
+def issubclass_protected(o: type, c: type) -> bool:
+    '''
+    issubclass_protected(o: type, c: type) -> bool:
+    Returns-->True IFF issubclass(object_wrapped_by_o, c)
+    Similar to issubclass, but object o can be an object returned
+    by freeze(), private() or protect()
+    '''
+    if isinstance(o, Wrapped):
+        return getattr(o, PROT_ATTR_NAME).issubclass(c)
+    return issubclass(o, c)
+
+
+def help_protected(o: object) -> None:
+    '''
+    help_protected(o: object) -> None:
+    help for wrapped object if wrapped; help for 'o' otherwise
+    '''
+    if isinstance(o, Wrapped):
+        return o.getattr(o, PROT_ATTR_NAME)()
+    return help(o)
+
+
+def contains(p: object, o: object):
+    '''
+    contains(p: object, o: object):
+    Returns--whether 'p' wraps 'o'
+    '''
+    if isinstance(p, Wrapped):
+        return getattr(p, PROT_ATTR_NAME).id == id(o)
+    return False
+
+
+# ------------------------------------------------------------------------
+# End of methods to query metadata on wrapped object
+# ------------------------------------------------------------------------
 
 def immutable_builtin_attributes():
     '''
@@ -210,38 +285,6 @@ def isimmutable(o: object) -> bool:
     if isinstance(o, CollectionsABC.Container):
         return False
     return isinstance(o, tuple(immutable_types))
-
-
-def id_protected(o: object) -> int:
-    '''
-    id_protected(o: object) -> int:
-    id of wrapped object if wrapped; id of 'o' otherwise
-    '''
-    if isinstance(o, Wrapped):
-        return getattr(o, PROT_ATTR_NAME).id
-    return id(o)
-
-
-def isinstance_protected(o: object, c: type) -> bool:
-    '''
-    isinstance_protected(o: object, c: type) -> bool:
-    Returns-->True IFF isinstance(object_wrapped_by_o, c)
-    Similar to isinstance, but object o can be an object returned
-    by freeze(), private() or protect()
-    '''
-    if isinstance(o, Wrapped):
-        return getattr(o, PROT_ATTR_NAME).isinstance(c)
-    return isinstance(o, c)
-
-
-def help_protected(o: object) -> None:
-    '''
-    help_protected(o: object) -> None:
-    help for wrapped object if wrapped; help for 'o' otherwise
-    '''
-    if isinstance(o, Wrapped):
-        return o.getattr(o, PROT_ATTR_NAME)()
-    return help(o)
 
 
 def iswrapped(o: object) -> bool:
@@ -304,16 +347,6 @@ def isreadonly(o: object, a: str) -> bool:
         return False
 
 
-def contains(p: object, o: object):
-    '''
-    contains(p: object, o: object):
-    Returns--whether 'p' wraps 'o'
-    '''
-    if isinstance(p, Wrapped):
-        return getattr(p, PROT_ATTR_NAME).id == id(o)
-    return False
-
-
 def wrap(o: object) -> object:
     '''
     wrap(o: object) -> object:
@@ -348,6 +381,9 @@ def freeze(o: object) -> object:
         # Object is KNOWN to be immutable - return as-is
         return o
     # Must freeze
+    # If Wrapped, avoid double wrapping
+    if iswrapped(o):
+        return getattr(o, PROT_ATTR_NAME).freeze()
     return Frozen(o)
 
 
@@ -367,17 +403,16 @@ def private(o: object, frozen: bool = False) -> object:
         Features of Private PLUS prevents modification of ANY attribute
 
     '''
-    if frozen:
-        if isprivate(o) and isfrozen(o):
-            return o
-        return FrozenPrivate(o)
+    # Avoid double-wrapping
+    if frozen or isfrozen(o):
+        frozen = True
+    if iswrapped(o):
+        return getattr(o, PROT_ATTR_NAME).private(frozen)
     else:
-        if isinstance (o, FrozenPrivate):
-            # Underlying is already FrozenPrivate
-            return o
-        elif isinstance(o, Private):
-            return o
-        return Private(o)
+        if frozen:
+            return FrozenPrivate(o)
+        else:
+            return Private(o)
 
 
 cdef get_visibility_rules(kwargs):
@@ -507,9 +542,48 @@ cdef get_visibility_rules(kwargs):
     d['dynamic'] = kwargs.get('dynamic', False)
     d['frozen'] = bool(kwargs.get('frozen', False))
     d['add_allowed'] = bool(kwargs.get('add', False))
+    d['kwargs'] = kwargs
 
     return d
 
+cdef merge_kwargs(kw1: dict, kw2: dict):
+    '''
+    Merges kw1 and kw2 to return dict with most restrictive options
+    kw1, kw2: dict
+    Returns: dict
+    '''
+    (kw1, kw2) = (dict(kw1), dict(kw2))
+    d = {}
+    # Permissive options - must be 'and-ed'
+    # dynamic defaults to True while add defaults to False
+    a = 'dynamic'
+    d[a] = (kw1.get(a, True) and kw2.get(a, True))
+    a = 'add'
+    d[a] = (kw1.get(a, False) and kw2.get(a, False))
+
+    # Restrictive options must be 'or-ed'
+    for a in (
+        'frozen', 'hide_all', 'hide_data', 'hide_method',
+        'hide_private', 'hide_dunder',
+        'ro_all', 'ro_data', 'ro_method', 'ro_dunder',
+    ):
+        d[a] = (kw1.get(a, False) or kw2.get(a, False))
+
+    # Permissive lists are intersected
+    for a in (
+        'rw', 'show',
+    ):
+        d[a] = list(
+            set(list(kw1.get(a, []))).intersection(set(list(kw2.get(a, []))))
+        )
+    # Restrictive lists are unioned
+    for a in (
+        'ro', 'hide',
+    ):
+        d[a] = list(
+            set(list(kw1.get(a, []))).union(set(list(kw2.get(a, []))))
+        )
+    return d
 
 def protect(
     o: object,
@@ -594,6 +668,27 @@ def protect(
         'dynamic': dynamic,
     }
 
+    # Avoid double-wrapping
+    if isprotected(o):
+        kw1 = dict(getattr(o, PROT_ATTR_NAME).rules.get('kwargs', {}))
+        kw2 = dict(kwargs)
+        kwargs = merge_kwargs(kw1, kw2)
+        assert(isinstance(kwargs, dict))
+    rules = dict(get_visibility_rules(kwargs))
+    assert(isinstance(rules, dict))
+    want_frozen = bool(rules.get('frozen', False)) or isfrozen(o)
+    if want_frozen and not isfrozen(o):
+        # Frozen objects remain frozen
+        rules['frozen'] = True
+    # if iswrapped(o):
+    #     # (Only) this causes RecursionError in __getattribute__ and aclcheck
+    #     return getattr(o, PROT_ATTR_NAME).protect(rules)
+    # else:
+    #     return Protected(o, rules)
+    return Protected(o, rules)
+
+    '''
+
     rules = dict(get_visibility_rules(kwargs))
     want_frozen = bool(rules.get('frozen', False))
 
@@ -614,6 +709,7 @@ def protect(
                 # Protected object with the SAME visibility rules
                 return o
         return Protected(o, rules)
+    '''
 
 __all__ = [
     'contains', 'freeze', 'id_protected', 'immutable_builtin_attributes',
@@ -623,7 +719,9 @@ __all__ = [
 ]
 
 def __dir__():
-    return sorted(__all__)
+    # Python's dir() does the sorting
+    # return sorted(__all__)
+    return __all__
 
 
 # ------------------------------------------------------------------------
@@ -681,34 +779,74 @@ cdef class _ProtectionData(object):
     '''
     Attributes:
         id: int
+        hash: method (no args) -> int
         isinstance: method: isinstance(o, x)
             identical to standard isinstance
+        issubclass: method: issubclass(o, x)
+            identical to standard issubclass
         help: method (no args)
+        help_str: method (no args) -> str
         testop: method: testop(a: str, op: str) -> bool
-        rules: method: needs self arg --> dict
+        rules: dict
+        freeze: method (no args) -> Wrapped
+        private: method (no args) -> Private
+        multiwrapped: method (no args) -> bool
     '''
     cdef public object id
+    cdef public object hash
     cdef public object isinstance
+    cdef public object issubclass
     cdef public object help
+    cdef public object help_str
     cdef public object testop
     cdef public object rules
+    cdef public object freeze
+    cdef public object private
+    cdef public object protect
+    cdef public object multiwrapped
     cdef object attributes_map
 
     def __init__(
-        self, id_val, isinstance_val, help_val,
-        testop, rules
+        self,
+        id_val,
+        hash_val,
+        isinstance_val,
+        issubclass_val,
+        help_val,
+        help_str,
+        testop,
+        rules,
+        freeze,
+        private,
+        protect,
+        multiwrapped,
     ):
         self.id = id_val
+        self.hash = hash_val
         self.isinstance = isinstance_val
+        self.issubclass = issubclass_val
         self.help = help_val
+        self.help_str = help_str
         self.testop = testop
         self.rules = rules
+        self.freeze = freeze
+        self.multiwrapped = multiwrapped
+        self.private = private
+        self.protect = protect
+
         self.attributes_map = {
             'id': self.id,
+            'hash': self.hash,
             'isinstance': self.isinstance,
+            'issubclass': self.issubclass,
             'help': self.help,
+            'help_str': self.help_str,
             'testop': self.testop,
             'rules': self.rules,
+            'freeze': self.freeze,
+            'private': self.private,
+            'protect': self.protect,
+            'multiwrapped': self.multiwrapped,
             '__class__': _ProtectionData,
         }
 
@@ -728,7 +866,9 @@ cdef class _ProtectionData(object):
         raise ProtectionError('Object is read-only')
 
     def __dir__(self):
-        return sorted(self.attributes_map.keys())
+        # Python's dir() does the sorting
+        # return sorted(self.attributes_map.keys())
+        return list(self.attributes_map.keys())
 
 
 cdef privatedict(o, cn, frozen=False):
@@ -758,8 +898,9 @@ cdef class Wrapped(object):
         '__getattr__', '__getattribute__',
         '__delattr__', '__setattr__', '__slots__',
     If frozen is True, prevents modification of ANY attribute
-    Does NOT protect CLASS of wrapped object from modification
-    Does NOT protect __dict__ or __slots__
+    WITHOUT frozen == True:
+        - Does NOT protect CLASS of wrapped object from modification
+        - Does NOT protect __dict__ or __slots__
     Implements all known special methods for classes under collections etc
     The one difference is that a Wrapped instance explicitly does NOT
     support pickling, and will raise a ProtectionError
@@ -796,15 +937,36 @@ cdef class Wrapped(object):
         # - protected module is frozen
         # - a non-frozen wrapped object is frozen with freeze
         if isinstance(o, Wrapped):
-            self.protected_attribute = getattr(o, PROT_ATTR_NAME)
-        else:
+            # Keep the rules, testop of outer Wrapped
+            p = getattr(o, PROT_ATTR_NAME)
             self.protected_attribute = _ProtectionData(
-                # id_val=partial(self.id_protected, self),
-                id_val=id(self.pvt_o),
-                isinstance_val=partial(self.isinstance_protected, self),
-                help_val=partial(self.help_protected, self),
+                id_val=p.id,
+                hash_val=p.hash,
+                isinstance_val=p.isinstance,
+                issubclass_val=p.issubclass,
+                help_val=p.help,
+                help_str=p.help_str,
                 testop=partial(self.testop, self),
                 rules=dict(self.get_rules()),
+                freeze=partial(self.freeze, self),
+                private=partial(private, self.pvt_o),
+                protect=partial(Protected, self.pvt_o),
+                multiwrapped=partial(self.multiwrapped, self),
+            )
+        else:
+            self.protected_attribute = _ProtectionData(
+                id_val=id(self.pvt_o),
+                hash_val=partial(self.hash_protected, self),
+                isinstance_val=partial(self.isinstance_protected, self),
+                issubclass_val=partial(self.issubclass_protected, self),
+                help_val=partial(self.help_protected, self),
+                help_str=partial(self.help_str_protected, self),
+                testop=partial(self.testop, self),
+                rules=dict(self.get_rules()),
+                freeze=partial(self.freeze, self),
+                private=partial(private, self.pvt_o),
+                protect=partial(Protected, self.pvt_o),
+                multiwrapped=partial(self.multiwrapped, self),
             )
 
     # --------------------------------------------------------------------
@@ -821,14 +983,71 @@ cdef class Wrapped(object):
             return freeze(o)
         return o
 
+    cdef freeze(self):
+        '''Smartly avoid double wrapping when freezing a Wrapped object'''
+        if self.frozen:
+            return self
+        if isinstance(self, Protected):
+            if self.rules.get('frozen', False):
+                return self
+            d = {}
+            d.update(self.rules)
+            d['frozen'] = True
+            return Protected(self.pvt_o, d)
+        elif isinstance(self, Private):
+            return private(self.pvt_o, frozen=True)
+        if isinstance(self, PrivacyDict):
+            return privatedict(self.pvt_o, cn=self.cn, frozen=True)
+        elif isinstance(self, Wrapped):
+            return freeze(self.pvt_o)
+        else:
+            return freeze(self.pvt_o)
+
+    cdef multiwrapped(self):
+        '''For testing'''
+        return isinstance(self.pvt_o, Wrapped)
+
     cdef id_protected(self):
         return id(self.pvt_o)
+
+    cdef hash_protected(self):
+        return hash(self.pvt_o)
 
     cdef isinstance_protected(self, c):
         return isinstance(self.pvt_o, c)
 
+    cdef issubclass_protected(self, c):
+        return issubclass(self.pvt_o.__class__, c)
+
     cdef help_protected(self):
         return help(self.pvt_o)
+
+    cdef help_str_protected(self):
+        '''
+        We do not care about covering all possibilities, since this
+        is mainly used for unit tests
+        '''
+        import pydoc
+        import types
+        if callable(self.pvt_o):
+            return pydoc.text.document(self.pvt_o)
+        elif isinstance(
+            self.pvt_o,
+            (
+                type,
+                property,
+                types.ModuleType,
+                types.ClassMethodDescriptorType,
+                types.GetSetDescriptorType,
+                types.MemberDescriptorType,
+                types.MethodDescriptorType,
+                types.MethodWrapperType,
+                types.WrapperDescriptorType,
+            )
+        ):
+            return pydoc.text.document(self.pvt_o)
+        else:
+            return pydoc.text.document(self.pvt_o.__class__)
 
     cdef testop(self, a, op):
         '''
@@ -900,7 +1119,8 @@ cdef class Wrapped(object):
     def __dir__(self):
         l1 = [x for x in dir(self.pvt_o) if x not in self.pickle_attributes]
         l2 = [x for x in self.special_attributes if x not in l1]
-        return sorted(l1 + l2)
+        # Python's dir() does the sorting
+        return l1 + l2
 
     def __repr__(self):
         return repr(self.pvt_o)
@@ -910,6 +1130,32 @@ cdef class Wrapped(object):
 
     # Can only offer equality / inequality check for wrapped object
     def __richcmp__(self, other, int op):
+        '''
+        As in regular python, equality is not the same as haviing the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object is the SAME as the wrapped object
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object:
+                id_protected(self.__class__) == id_protected(other.__class__)
+
+            This is the SAME for Frozen, Private, frozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+        '''
         if op not in (Py_NE, Py_EQ):
             return NotImplemented
         try:
@@ -1039,6 +1285,32 @@ cdef class Frozen(Wrapped):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
+        '''
+        As in regular python, equality is not the same as haviing the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object is the SAME as the wrapped object
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object:
+                id_protected(self.__class__) == id_protected(other.__class__)
+
+            This is the SAME for Frozen, Private, frozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+        '''
         if op not in (Py_NE, Py_EQ):
             return NotImplemented
         try:
@@ -1182,6 +1454,32 @@ cdef class PrivacyDict(Wrapped):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
+        '''
+        As in regular python, equality is not the same as haviing the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object is the SAME as the wrapped object
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object:
+                id_protected(self.__class__) == id_protected(other.__class__)
+
+            This is the SAME for Frozen, Private, frozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+        '''
         if op not in (Py_NE, Py_EQ):
             return NotImplemented
         try:
@@ -1213,6 +1511,32 @@ cdef class FrozenPrivacyDict(PrivacyDict):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
+        '''
+        As in regular python, equality is not the same as haviing the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object is the SAME as the wrapped object
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object:
+                id_protected(self.__class__) == id_protected(other.__class__)
+
+            This is the SAME for Frozen, Private, frozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+        '''
         if op not in (Py_NE, Py_EQ):
             return NotImplemented
         try:
@@ -1334,7 +1658,9 @@ cdef class Private(Wrapped):
             self.visible(x)
         ]
         l2 = [x for x in self.special_attributes if x not in l1]
-        return sorted(l1 + l2)
+        # Python's dir() does the sorting
+        # return sorted(l1 + l2)
+        return l1 + l2
 
     # Python / cython does not automatically use parent __hash__
     def __hash__(self):
@@ -1342,6 +1668,32 @@ cdef class Private(Wrapped):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
+        '''
+        As in regular python, equality is not the same as haviing the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object is the SAME as the wrapped object
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object:
+                id_protected(self.__class__) == id_protected(other.__class__)
+
+            This is the SAME for Frozen, Private, frozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+        '''
         if op not in (Py_NE, Py_EQ):
             return NotImplemented
         try:
@@ -1373,6 +1725,32 @@ cdef class FrozenPrivate(Private):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
+        '''
+        As in regular python, equality is not the same as haviing the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object is the SAME as the wrapped object
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object:
+                id_protected(self.__class__) == id_protected(other.__class__)
+
+            This is the SAME for Frozen, Private, frozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+        '''
         if op not in (Py_NE, Py_EQ):
             return NotImplemented
         try:
@@ -1421,6 +1799,15 @@ cdef class Protected(Private):
         rules-->dict: returned by get_visibility_rules
         '''
         self.frozen = bool(rules.get('frozen', False))
+        # Import locally to avoid leaking into module namespace
+        import re
+        # Use compiled regex - no function call, no str operations
+        self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
+        self.special_attributes = set([
+            PROT_ATTR_NAME,
+        ])
+        self.frozen_error = ProtectionError('Object is read-only')
+
         self.process_rules(rules)
         Private.__init__(self, o, frozen=self.frozen)
         self.orig_attrs = frozenset(dir(self.pvt_o))
@@ -1474,12 +1861,11 @@ cdef class Protected(Private):
         self.dir_out = []
         if not self.dynamic:
             # Make dir() pre-computed
-            self.dir_out = sorted(
-                [
+            # Python's dir() does the sorting
+            self.dir_out = [
                     k for (k, v) in self.acl_cache.items()
                     if v.get('r', False)
-                ]
-            )
+            ]
 
         self.rules = rules
 
@@ -1649,6 +2035,8 @@ cdef class Protected(Private):
     # --------------------------------------------------------------------
 
     def __getattribute__(self, a):
+        if a == 'frozen_error':
+            return self.frozen_error
         self.aclcheck(a=a, op='r')
         x = Private.__getattribute__(self, a)
         try:
@@ -1688,7 +2076,9 @@ cdef class Protected(Private):
                 if self.visible(x)
             ]
             l2 = [x for x in self.special_attributes if x not in l1]
-            return sorted(l1 + l2)
+            # Python's dir() does the sorting
+            # return sorted(l1 + l2)
+            return l1 + l2
         else:
             return self.dir_out
 
@@ -1698,6 +2088,32 @@ cdef class Protected(Private):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
+        '''
+        As in regular python, equality is not the same as haviing the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object is the SAME as the wrapped object
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object:
+                id_protected(self.__class__) == id_protected(other.__class__)
+
+            This is the SAME for Frozen, Private, frozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+        '''
         if op not in (Py_NE, Py_EQ):
             return NotImplemented
         try:
@@ -1735,6 +2151,32 @@ cdef class FrozenProtected(Protected):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
+        '''
+        As in regular python, equality is not the same as haviing the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object is the SAME as the wrapped object
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object:
+                id_protected(self.__class__) == id_protected(other.__class__)
+
+            This is the SAME for Frozen, Private, frozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+        '''
         if op not in (Py_NE, Py_EQ):
             return NotImplemented
         try:
