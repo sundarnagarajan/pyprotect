@@ -26,6 +26,71 @@ def gen_random(n=LEN_RANDOM_ATTR_PART):
         yield x
 
 
+def class_with_attrs_methods(n, prefix=''):
+    '''
+    n: int: Number of attrs and methods to add
+        if n == 10, 10 attrs and 10 10 methods are added
+    prefix: str = '':
+        if prefix is empty:
+            attrs will be named attr_<random_seq>
+            methods will be named method_<random_seq>
+        else:
+            attrs will be named <prefix>_attr_<random_seq>
+            methods will be named <prefix>_method_<random_seq>
+    Returns: class object
+    '''
+    n = max(1, int(n))
+    prefix = str(prefix)
+    GEN = gen_random()
+
+    class_source = '''
+class MyClass:
+    @classmethod
+    def add_to_object(cls, o):
+        from functools import partial
+
+        if hasattr(cls, 'attr_dict'):
+            for a in cls.attr_dict.get('attrs', set()):
+                setattr(o, a, getattr(cls, a))
+            for a in cls.attr_dict.get('methods', set()):
+                setattr(o, a, partial(getattr(cls, a), o))
+
+'''
+
+    def src_inst_m(x):
+        return (
+            '\n'
+            '    def %s(self):\n'
+            '        return "%s"\n'
+        ) % (x, x)
+
+    def src_attr(x):
+        return (
+            '\n'
+            '    %s = "%s"\n'
+        ) % (x, x)
+
+    attr_dict = {
+        'attrs': set(),
+        'methods': set(),
+    }
+    for i in range(n):
+        rnd_a = next(GEN)
+        if prefix:
+            attr_name = prefix + '_attr_' + rnd_a
+            meth_name = prefix + '_method_' + rnd_a
+            class_source += src_attr(attr_name)
+            class_source += src_inst_m(meth_name)
+            attr_dict['attrs'].add(attr_name)
+            attr_dict['methods'].add(meth_name)
+
+    local_d = {}
+    exec(class_source, None, local_d)
+    MyClass = local_d['MyClass']
+    MyClass.attr_dict = attr_dict
+    return MyClass
+
+
 def generate(
     mult=1, obj_derived=True,
     nested=False, depth=100, no_cycles=True,
@@ -54,9 +119,21 @@ def generate(
     class TOT:
         tot = 0
 
+    special_d_attributes = set([
+        'num_added',
+        'num_total',
+        'minimal_attributes',
+        'missing',
+        'all_added',
+        'all',
+    ])
     d = {
-        'tot': 0,
+        'num_added': 0,
+        'num_total': 0,
         'minimal_attributes': minimal_attributes(obj_derived=obj_derived),
+        'missing': set(),
+        'nested': set(),
+
         'ro_attr': set(),
         'pvt_attr': set(),
         'props_ro': set(),
@@ -112,8 +189,6 @@ def generate(
         'normal_attr_show_over': set(),
         'dunder_attr_show_over': set(),
 
-        'nested': set(),
-        'missing': set()
     }
 
     class_source = ''
@@ -194,7 +269,9 @@ class MyClass:
 
     class_source += '\n    def __init__(self):\n'
 
-    for rnd_a in [next(GEN) for i in range(n)]:
+    for i in range(n):
+        rnd_a = next(GEN)
+
         # single_ Class / instance attributes
         class_source += add(rnd_a, src_ro_attr, '_ro_', 'ro_attr')
 
@@ -479,15 +556,26 @@ class MyClass:
     %s = nested_obj(depth=%d, no_cycles=%s)
 ''' % (a, depth, no_cycles)
         d['nested'].add(a)
+        TOT.tot += 1
 
-    for rnd_a in [next(GEN) for i in range(n)]:
-        d['missing'] = rnd_a
+    for i in range(n):
+        a = 'missing_' + next(GEN)
+        d['missing'].add(a)
 
     local_d = {}
     exec(class_source, None, local_d)
     MyClass = local_d['MyClass']
 
-    d['tot'] = TOT.tot
+    d['num_added'] = TOT.tot
+    d['num_total'] = len(dir(MyClass))
+    d_sets = [
+        d.get(k) for k in d.keys()
+        if k not in special_d_attributes and
+        isinstance(d[k], set)
+    ]
+    d['all_added'] = set().union(*d_sets)
+    d['all'] = d['all_added'].union(dir(MyClass))
+
     ret = {
         'class': MyClass,
         'props': d,
