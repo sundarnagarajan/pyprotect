@@ -719,8 +719,6 @@ __all__ = [
 ]
 
 def __dir__():
-    # Python's dir() does the sorting
-    # return sorted(__all__)
     return __all__
 
 
@@ -866,8 +864,6 @@ cdef class _ProtectionData(object):
         raise ProtectionError('Object is read-only')
 
     def __dir__(self):
-        # Python's dir() does the sorting
-        # return sorted(self.attributes_map.keys())
         return list(self.attributes_map.keys())
 
 
@@ -1064,6 +1060,99 @@ cdef class Wrapped(object):
     cdef get_rules(self):
         return dict()
 
+    cdef comparator(self, other, op):
+        '''
+        Operations:
+            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
+
+        As in regular python, equality is not the same as having the
+        same hash() or id()
+
+        THIS object IS a wrapped object
+        If the OTHER object is also a wrapped object:
+          Equality means:
+              - The other object has the same ID as the wrapped object
+                id_protected(self.__class__) == id_protected(other.__class__)
+              - The BEHAVIOR of THIS object is the same as the behavior
+                of the OTHER object: type(self) == type(other)
+
+            This is the SAME for Frozen, Private, FrozenPrivate
+            For Protected, the rules should also be the same
+
+          Inequality is just not(equal)
+
+          Numeric comparisons are not supported - neither object can
+            access object wrapped by the other
+
+        If the OTHER object is NOT a wrapped object:
+          All comparisons are passed to the wrapped object
+
+        '''
+        def pass_to_wrapped(other):
+            '''Trap RecursionError if object is too deeply nested'''
+            if op == Py_LT:
+                try:
+                    return self.pvt_o < other
+                except RecursionError:
+                    return NotImplemented
+            elif op == Py_EQ:
+                try:
+                    return self.pvt_o == other
+                except RecursionError:
+                    return NotImplemented
+            elif op == Py_GT:
+                try:
+                    return self.pvt_o > other
+                except RecursionError:
+                    return NotImplemented
+            elif op == Py_LE:
+                try:
+                    return self.pvt_o <= other
+                except RecursionError:
+                    return NotImplemented
+            elif op == Py_NE:
+                try:
+                    return self.pvt_o != other
+                except RecursionError:
+                    return NotImplemented
+            elif op == Py_GE:
+                try:
+                    return self.pvt_o >= other
+                except RecursionError:
+                    return NotImplemented
+            else:
+                return NotImplemented
+
+        if not iswrapped(other):
+            return pass_to_wrapped(op)
+        # other is Wrapped
+        # Only equality / inequality are supported. Neither object
+        # can access object wrapped by the other for other comparisons.
+        if op not in (Py_NE, Py_EQ):
+            return NotImplemented
+        res = (
+            type(self) == type(other) and
+            id_protected(self) == id_protected(other)
+        )
+        if not isprotected(self):
+            if op == Py_EQ:
+                return res
+            elif op == Py_NE:
+                return not res
+        else:
+            # Protected
+            d1 = dict(self.rules)
+            d2 = dict(getattr(other, PROT_ATTR_NAME).rules)
+            del d1['kwargs']
+            del d2['kwargs']
+            res = res and d1 == d2
+            if op == Py_EQ:
+                return res
+            elif op == Py_NE:
+                return not res
+
+
+
     # --------------------------------------------------------------------
     # Public methods
     # --------------------------------------------------------------------
@@ -1119,7 +1208,6 @@ cdef class Wrapped(object):
     def __dir__(self):
         l1 = [x for x in dir(self.pvt_o) if x not in self.pickle_attributes]
         l2 = [x for x in self.special_attributes if x not in l1]
-        # Python's dir() does the sorting
         return l1 + l2
 
     def __repr__(self):
@@ -1128,47 +1216,9 @@ cdef class Wrapped(object):
     def __str__(self):
         return str(self.pvt_o)
 
-    # Can only offer equality / inequality check for wrapped object
     def __richcmp__(self, other, int op):
-        '''
-        As in regular python, equality is not the same as haviing the
-        same hash() or id()
-
-        THIS object IS a wrapped object
-        If the OTHER object is also a wrapped object:
-          Equality means:
-              - The other object is the SAME as the wrapped object
-              - The BEHAVIOR of THIS object is the same as the behavior
-                of the OTHER object:
-                id_protected(self.__class__) == id_protected(other.__class__)
-
-            This is the SAME for Frozen, Private, frozenPrivate
-            For Protected, the rules should also be the same
-
-          Inequality is just not(equal)
-
-          Numeric comparisons are not supported - neither object can
-            access object wrapped by the other
-
-        If the OTHER object is NOT a wrapped object:
-          All comparisons are passed to the wrapped object
-
-        Operations:
-            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-        '''
-        if op not in (Py_NE, Py_EQ):
-            return NotImplemented
-        try:
-            res = (
-                isinstance(other, Wrapped) and
-                id_protected(self) == id_protected(other)
-            )
-        except:
-            return NotImplemented
-        if op == Py_EQ:
-            return res
-        if op == Py_NE:
-            return (not res)
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
 
     # ------------------------------------------------------------------------
     # The rest of the methods are implementations of abstract methods to
@@ -1285,45 +1335,8 @@ cdef class Frozen(Wrapped):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
-        '''
-        As in regular python, equality is not the same as haviing the
-        same hash() or id()
-
-        THIS object IS a wrapped object
-        If the OTHER object is also a wrapped object:
-          Equality means:
-              - The other object is the SAME as the wrapped object
-              - The BEHAVIOR of THIS object is the same as the behavior
-                of the OTHER object:
-                id_protected(self.__class__) == id_protected(other.__class__)
-
-            This is the SAME for Frozen, Private, frozenPrivate
-            For Protected, the rules should also be the same
-
-          Inequality is just not(equal)
-
-          Numeric comparisons are not supported - neither object can
-            access object wrapped by the other
-
-        If the OTHER object is NOT a wrapped object:
-          All comparisons are passed to the wrapped object
-
-        Operations:
-            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-        '''
-        if op not in (Py_NE, Py_EQ):
-            return NotImplemented
-        try:
-            res = (
-                isinstance(other, Frozen) and
-                id_protected(self) == id_protected(other)
-            )
-        except:
-            return NotImplemented
-        if op == Py_EQ:
-            return res
-        if op == Py_NE:
-            return (not res)
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
 
 @cython.internal
 cdef class PrivacyDict(Wrapped):
@@ -1454,45 +1467,8 @@ cdef class PrivacyDict(Wrapped):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
-        '''
-        As in regular python, equality is not the same as haviing the
-        same hash() or id()
-
-        THIS object IS a wrapped object
-        If the OTHER object is also a wrapped object:
-          Equality means:
-              - The other object is the SAME as the wrapped object
-              - The BEHAVIOR of THIS object is the same as the behavior
-                of the OTHER object:
-                id_protected(self.__class__) == id_protected(other.__class__)
-
-            This is the SAME for Frozen, Private, frozenPrivate
-            For Protected, the rules should also be the same
-
-          Inequality is just not(equal)
-
-          Numeric comparisons are not supported - neither object can
-            access object wrapped by the other
-
-        If the OTHER object is NOT a wrapped object:
-          All comparisons are passed to the wrapped object
-
-        Operations:
-            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-        '''
-        if op not in (Py_NE, Py_EQ):
-            return NotImplemented
-        try:
-            res = (
-                isinstance(other, PrivacyDict) and
-                id_protected(self) == id_protected(other)
-            )
-        except:
-            return NotImplemented
-        if op == Py_EQ:
-            return res
-        if op == Py_NE:
-            return (not res)
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
 
 
 @cython.internal
@@ -1511,45 +1487,8 @@ cdef class FrozenPrivacyDict(PrivacyDict):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
-        '''
-        As in regular python, equality is not the same as haviing the
-        same hash() or id()
-
-        THIS object IS a wrapped object
-        If the OTHER object is also a wrapped object:
-          Equality means:
-              - The other object is the SAME as the wrapped object
-              - The BEHAVIOR of THIS object is the same as the behavior
-                of the OTHER object:
-                id_protected(self.__class__) == id_protected(other.__class__)
-
-            This is the SAME for Frozen, Private, frozenPrivate
-            For Protected, the rules should also be the same
-
-          Inequality is just not(equal)
-
-          Numeric comparisons are not supported - neither object can
-            access object wrapped by the other
-
-        If the OTHER object is NOT a wrapped object:
-          All comparisons are passed to the wrapped object
-
-        Operations:
-            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-        '''
-        if op not in (Py_NE, Py_EQ):
-            return NotImplemented
-        try:
-            res = (
-                isinstance(other, FrozenPrivacyDict) and
-                id_protected(self) == id_protected(other)
-            )
-        except:
-            return NotImplemented
-        if op == Py_EQ:
-            return res
-        if op == Py_NE:
-            return (not res)
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
 
 
 @cython.internal
@@ -1658,8 +1597,6 @@ cdef class Private(Wrapped):
             self.visible(x)
         ]
         l2 = [x for x in self.special_attributes if x not in l1]
-        # Python's dir() does the sorting
-        # return sorted(l1 + l2)
         return l1 + l2
 
     # Python / cython does not automatically use parent __hash__
@@ -1668,45 +1605,8 @@ cdef class Private(Wrapped):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
-        '''
-        As in regular python, equality is not the same as haviing the
-        same hash() or id()
-
-        THIS object IS a wrapped object
-        If the OTHER object is also a wrapped object:
-          Equality means:
-              - The other object is the SAME as the wrapped object
-              - The BEHAVIOR of THIS object is the same as the behavior
-                of the OTHER object:
-                id_protected(self.__class__) == id_protected(other.__class__)
-
-            This is the SAME for Frozen, Private, frozenPrivate
-            For Protected, the rules should also be the same
-
-          Inequality is just not(equal)
-
-          Numeric comparisons are not supported - neither object can
-            access object wrapped by the other
-
-        If the OTHER object is NOT a wrapped object:
-          All comparisons are passed to the wrapped object
-
-        Operations:
-            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-        '''
-        if op not in (Py_NE, Py_EQ):
-            return NotImplemented
-        try:
-            res = (
-                isinstance(other, Private) and
-                id_protected(self) == id_protected(other)
-            )
-        except:
-            return NotImplemented
-        if op == Py_EQ:
-            return res
-        if op == Py_NE:
-            return (not res)
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
 
 
 @cython.internal
@@ -1725,45 +1625,8 @@ cdef class FrozenPrivate(Private):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
-        '''
-        As in regular python, equality is not the same as haviing the
-        same hash() or id()
-
-        THIS object IS a wrapped object
-        If the OTHER object is also a wrapped object:
-          Equality means:
-              - The other object is the SAME as the wrapped object
-              - The BEHAVIOR of THIS object is the same as the behavior
-                of the OTHER object:
-                id_protected(self.__class__) == id_protected(other.__class__)
-
-            This is the SAME for Frozen, Private, frozenPrivate
-            For Protected, the rules should also be the same
-
-          Inequality is just not(equal)
-
-          Numeric comparisons are not supported - neither object can
-            access object wrapped by the other
-
-        If the OTHER object is NOT a wrapped object:
-          All comparisons are passed to the wrapped object
-
-        Operations:
-            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-        '''
-        if op not in (Py_NE, Py_EQ):
-            return NotImplemented
-        try:
-            res = (
-                isinstance(other, FrozenPrivate) and
-                id_protected(self) == id_protected(other)
-            )
-        except:
-            return NotImplemented
-        if op == Py_EQ:
-            return res
-        if op == Py_NE:
-            return (not res)
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
 
 
 @cython.internal
@@ -1861,7 +1724,6 @@ cdef class Protected(Private):
         self.dir_out = []
         if not self.dynamic:
             # Make dir() pre-computed
-            # Python's dir() does the sorting
             self.dir_out = [
                     k for (k, v) in self.acl_cache.items()
                     if v.get('r', False)
@@ -2076,8 +1938,6 @@ cdef class Protected(Private):
                 if self.visible(x)
             ]
             l2 = [x for x in self.special_attributes if x not in l1]
-            # Python's dir() does the sorting
-            # return sorted(l1 + l2)
             return l1 + l2
         else:
             return self.dir_out
@@ -2088,48 +1948,8 @@ cdef class Protected(Private):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
-        '''
-        As in regular python, equality is not the same as haviing the
-        same hash() or id()
-
-        THIS object IS a wrapped object
-        If the OTHER object is also a wrapped object:
-          Equality means:
-              - The other object is the SAME as the wrapped object
-              - The BEHAVIOR of THIS object is the same as the behavior
-                of the OTHER object:
-                id_protected(self.__class__) == id_protected(other.__class__)
-
-            This is the SAME for Frozen, Private, frozenPrivate
-            For Protected, the rules should also be the same
-
-          Inequality is just not(equal)
-
-          Numeric comparisons are not supported - neither object can
-            access object wrapped by the other
-
-        If the OTHER object is NOT a wrapped object:
-          All comparisons are passed to the wrapped object
-
-        Operations:
-            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-        '''
-        if op not in (Py_NE, Py_EQ):
-            return NotImplemented
-        try:
-            d1 = dict(self.protected_attribute.rules)
-            d2 = dict(getattr(other, PROT_ATTR_NAME).rules)
-            res = (
-                isinstance(other, Protected) and
-                id_protected(self) == id_protected(other) and
-                d1 == d2
-            )
-        except:
-            return NotImplemented
-        if op == Py_EQ:
-            return res
-        if op == Py_NE:
-            return (not res)
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
 
 
 @cython.internal
@@ -2151,45 +1971,5 @@ cdef class FrozenProtected(Protected):
 
     # __richcmp__ needs to be class-specific
     def __richcmp__(self, other, int op):
-        '''
-        As in regular python, equality is not the same as haviing the
-        same hash() or id()
-
-        THIS object IS a wrapped object
-        If the OTHER object is also a wrapped object:
-          Equality means:
-              - The other object is the SAME as the wrapped object
-              - The BEHAVIOR of THIS object is the same as the behavior
-                of the OTHER object:
-                id_protected(self.__class__) == id_protected(other.__class__)
-
-            This is the SAME for Frozen, Private, frozenPrivate
-            For Protected, the rules should also be the same
-
-          Inequality is just not(equal)
-
-          Numeric comparisons are not supported - neither object can
-            access object wrapped by the other
-
-        If the OTHER object is NOT a wrapped object:
-          All comparisons are passed to the wrapped object
-
-        Operations:
-            Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
-        '''
-        if op not in (Py_NE, Py_EQ):
-            return NotImplemented
-        try:
-            d1 = dict(self.protected_attribute.rules)
-            d2 = dict(getattr(other, PROT_ATTR_NAME).rules)
-            res = (
-                isinstance(other, FrozenProtected) and
-                id_protected(self) == id_protected(other) and
-                d1 == d2
-            )
-        except:
-            return NotImplemented
-        if op == Py_EQ:
-            return res
-        if op == Py_NE:
-            return (not res)
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
