@@ -116,6 +116,8 @@ immutable_types = list(set(
     immutable_set_types
 ))
 immutable_types = [x for x in immutable_types if isinstance(x, type)]
+cdef frozenset immutable_types_set
+immutable_types_set = frozenset(immutable_types)
 
 # Since builtin_module is by default writeable in Python and attributes
 # in builtin_module can be overwritten, we only track attributes
@@ -149,7 +151,7 @@ del collections
 
 # ------------------------------------------------------------------------
 # Only the following 3 attributes are used after this
-#   immutable_types
+#   immutable_types_set
 #   builtin_module_immutable_attributes
 #   builtins_ids
 # ------------------------------------------------------------------------
@@ -275,16 +277,26 @@ def isimmutable(o: object) -> bool:
     # None and NotImplemented are immutable
     if o is None or o is NotImplemented:
         return True
+    '''
+    # Instances of classes DERIVED from str (or other types
+    # in immutable_types_set) cannot be considered immutable
+
     # str and basestring are immutable, THOUGH they are Containers
     if isinstance(o, (str, basestring)):
         return True
+    '''
     if isfrozen(o):
         return True
+    if type(o) in immutable_types_set:
+        return True
+    '''
     if iswrapped(o):
         return False
     if isinstance(o, CollectionsABC.Container):
         return False
     return isinstance(o, tuple(immutable_types))
+    '''
+    return False
 
 
 def iswrapped(o: object) -> bool:
@@ -381,6 +393,17 @@ def freeze(o: object) -> object:
         # Object is KNOWN to be immutable - return as-is
         return o
     # Must freeze
+    # TODO specifically in case of ModuleType, make resultant
+    # object behave closest to a python module:
+    #   Module object ITSELF is frozen, but objects returned
+    #   FROM the module by methods, classes are not
+    #   This is 'ftlo' (freeze top level only)
+    # TODO: Optionally, allow ADDING attributes but not
+    #   deleting or changing EXISTING attributes
+    # TODO: Optionally, allow deleting only ADDED attributes
+    # import types
+    # Module: types.ModuleType
+
     # If Wrapped, avoid double wrapping
     if iswrapped(o):
         return getattr(o, PROT_ATTR_NAME).freeze()
@@ -608,6 +631,49 @@ def protect(
         If True, 'add' is automatically set to False
         Default: True
 
+    TODO:
+        - Following do not make sense because hiding special methods
+          will change the behavior of the wrapped object:
+              - hide_all
+              - hide_method
+              - hide_dunder
+          Can still hide special methods using 'hide'
+
+        - hide_data will mostly not make sense, and will probably
+          cripple usage of the object. Specific uses can still be
+          achieved (better) by explicitly using 'hide'
+
+        - ro_dunder seems to be redundant with ro_method. We want
+          people to write idiomatic Python classes, where 'dunder'
+          attributes are almost invariably methods - so can use 
+          'ro_method'. In exceptional cases 'ro' can be used.
+
+        - ro_all is redundant, since 'frozen' can be used instead
+
+        - 'add' does not align with 'idiomatic python' - should not be
+          adding attributes from outside the class
+
+        - 'show' is unnecessary. By default all attributes are visible,
+          unless hidden by 'hide_private' or 'hide'
+
+        - Only 'meta' options left are:
+            - ro_data - needs callable() check if 'dynamic'
+            - ro_method - needs callable() check if 'dynamic'
+            - hide_private - regex match
+
+        This leaves (only) the following, reducing testing load:
+            - Visibility:
+                - hide_private
+                - hide
+            - Mutability:
+                - ro_data
+                - ro_method
+                - ro
+                - rw
+                - frozen
+            - Behavior:
+                - dynamic
+
     hide_all-->bool: All attributes will be hidden. Default: False
     hide_data-->bool: Data attributes will be hidden. Default: False
     hide_method-->bool: Method attributes will be hidden. Default: False
@@ -643,6 +709,7 @@ def protect(
         - Cannot modify CLASS of wrapped object
         - Cannot modify __dict__ of wrapped object
         - Cannot modify __slots__ of wrapped object
+        - TODO: Cannot access any attribute not exported by dir(pvt_o)
     - dynamic == True
       Attribute additions, deletions, type changes automatically visible
     - ro_dunder == True: 'dunder-vars' will be  read-only
@@ -736,12 +803,119 @@ cdef object overridden_always = frozenset([
 
 import re
 # Use compiled regex - no function call, no str operations
+cdef object dunder_attr = re.compile('^__[^_].*?[^_]__$')
+# ro_private_attr: Start with single _, ending n non-underscore
 cdef object ro_private_attr = re.compile('^_[^_].*?(?<!_)$')
-cdef object dunder_attr = re.compile('^__.*?__$')
+# unmangled_private_attr: Start with double _, end in non-underscore or single _
+cdef object unmangled_private_attr = re.compile('^__[^_].*?[^_][_]{0,1}$')
 
 # Python 2 str does not have isidentifier() method
 cdef object attr_identifier = re.compile('^[_a-zA-Z][a-zA-Z0-9_]*$')
 del re
+
+# ------------------------------------------------------------------------
+# Globals related to special methods
+# ------------------------------------------------------------------------
+import sys
+if sys.version_info.major > 2:
+    import collections.abc as CollectionsABC
+else:
+    import collections as CollectionsABC
+import types
+# From: https://docs.python.org/3/reference/datamodel.html
+
+# m_compare, m_numeric and m_block are not USED anywhere
+# Uncommented members of m_numeric, m_block # are implemented in Wrapped
+# Type-specific methods im m_block_d are blocked based on self.frozen
+# in Wrapped.__getattribute__. These methods are not implemented in
+# Wrapped, but __getattribute__ delegates to wrapped object if
+# access is not blocked
+
+cdef set m_compare = set([
+    # Comparisons - non-mutating, returning immutable bool
+    '__lt__', '__le__', '__eq__', '__ne__', '__gt__', '__ge__',
+    # Python2 only - returns negative int / 0 / positive int (immutable)
+    '__cmp__',
+])
+cdef set m_numeric = set([
+    # Emulating numeric types - return immutable
+    '__add__', '__mul__', '__sub__', '__matmul__',
+     '__truediv__', '__floordiv__', '__mod__', '__divmod__', '__pow__',
+     '__lshift__', '__rshift__', '__and__', '__or__', '__xor__',
+    # Emulating numeric types - reflected (swapped) operands
+    # Return immutable
+     '__radd__', '__rmul__', '__rsub__', '__rmatmul__',
+     '__rtruediv__', '__rfloordiv__', '__rmod__', '__rdivmod__', '__rpow__',
+     '__rlshift__', '__rrshift__', '__rand__', '__ror__', '__rxor__',
+    # Other numeric operations - return immutable
+    '__neg__', '__pos__', '__abs__', '__invert__',
+    '__complex__', '__int__', '__float__', '__index__',
+    '__round__', '__trunc__', '__floor__', '__ceil__',
+])
+# These definitely do not mutate. If present, pass to wrapped
+cdef set m_safe = set([
+    # Representations - return immutable
+    '__format__',
+    # Truth value testing - non-mutating, returning immutable bool
+    '__bool__',
+    # Emulating container types - non-mutating
+    '__contains__', '__len__', '__length_hint__',
+    # Just pass to wrapped
+    '__instancecheck__', '__subclasscheck__',
+    # Return None - pass to wrapped object
+    '__init_subclass__', '__set_name__', '__prepare__',
+    # Coroutine objects - intrinsic behavior - pass to wrapped
+    'send', 'throw', 'close',
+    # Context managers - intrinsic behavior - pass to wrapped
+    '__enter__', '__exit__',
+    # Async context managers - intrinsic behavior - pass to wrapped
+    '__aenter__', '__aexit__',
+    # Customizing positional arguments in class pattern matching
+    # Returns tuple of strings (immutable) - pass to wrapped
+    '__match_args__',
+])
+'''
+'''
+cdef set m_block = set([
+    # If MutableMapping:
+    '__setitem__', '__delitem__',
+    # Numeric types - augmented assignments - mutating
+    '__iadd__', '__imul__', '__isub__', '__imatmul__',
+    '__itruediv__', '__ifloordiv__', '__imod__', '__ipow__',
+    '__ilshift__', '__irshift__', '__iand__', '__ior__', '__ixor__',
+    # Implementing descriptors - mutate object - block if frozen
+    '__set__', '__delete__',
+])
+'''
+'''
+# Methods which may be mutating depending on type
+cdef dict m_block_d =  {
+    CollectionsABC.MutableMapping: set([
+        'clear', 'setdefault', 'pop', 'popitem', 'update',
+    ]),
+    CollectionsABC.MutableSequence: set([
+        'append', 'extend', 'insert', 'pop', 'remove', 'reverse', 'sort',
+    ]),
+    CollectionsABC.MutableSet: set([
+        '__isub__',
+        'add', 'clear', 'discard', 'pop', 'remove',
+    ]),
+    types.FrameType: set([
+        'clear',
+    ])
+}
+# These attributes of FunctionType are writable only in PY2
+if sys.version_info.major == 2:
+    m_block_d[types.FunctionType] = set([
+        '__doc__', '__name__', '__module__',
+        '__defaults__', '__code__', '__dict__',
+    ])
+del sys, types, CollectionsABC
+
+
+# ------------------------------------------------------------------------
+# End of globals related to special methods
+# ------------------------------------------------------------------------
 
 # Use special exception class for pyprotect-specific exceptions
 # Cannot subclass from builtin exceptions other than Exception
@@ -752,9 +926,11 @@ del re
 cdef class TypeError(Exception):
     pass
 
+'''
 @cython.internal
 cdef class AttributeError(Exception):
     pass
+'''
 
 @cython.internal
 cdef class ProtectionError(TypeError):
@@ -765,7 +941,7 @@ cdef class ReadonlyTypeError(TypeError):
     pass
 
 @cython.internal
-cdef class HiddenAttributeError(AttributeError):
+cdef class HiddenAttributeError(Exception):
     pass
 
 # ------------------------------------------------------------------------
@@ -902,13 +1078,13 @@ cdef class Wrapped(object):
     support pickling, and will raise a ProtectionError
     '''
     cdef object pvt_o
-    cdef object cn
     cdef bint frozen
-    cdef object frozen_error
-    cdef object pickle_attributes
-    cdef object protected_attribute
-    cdef object rules
-    cdef object special_attributes
+    cdef Exception frozen_error
+    cdef _ProtectionData protected_attribute
+    cdef str cn
+    cdef set pickle_attributes
+    cdef dict rules
+    cdef set special_attributes
 
     def __init__(self, o, frozen=False):
         '''
@@ -928,6 +1104,7 @@ cdef class Wrapped(object):
         self.special_attributes = set([
             PROT_ATTR_NAME,
         ])
+
         # In case o is already wrapped, use _protectionData from o
         # This can happen if:
         # - protected module is frozen
@@ -994,8 +1171,6 @@ cdef class Wrapped(object):
             return private(self.pvt_o, frozen=True)
         if isinstance(self, PrivacyDict):
             return privatedict(self.pvt_o, cn=self.cn, frozen=True)
-        elif isinstance(self, Wrapped):
-            return freeze(self.pvt_o)
         else:
             return freeze(self.pvt_o)
 
@@ -1125,7 +1300,7 @@ cdef class Wrapped(object):
 
         if not iswrapped(other):
             return pass_to_wrapped()
-        # other is Wrapped
+        # If we got here, other is Wrapped
         # Only equality / inequality are supported. Neither object
         # can access object wrapped by the other for other comparisons.
         if op not in (Py_NE, Py_EQ):
@@ -1157,41 +1332,47 @@ cdef class Wrapped(object):
             elif op == Py_NE:
                 return not res
 
-
-
     # --------------------------------------------------------------------
     # Public methods
     # --------------------------------------------------------------------
 
     def __getattribute__(self, a):
-        # Import locally to avoid leaking into module namespace
-        import sys
-        if sys.version_info.major > 2:
-            import collections.abc as CollectionsABC
-        else:
-            import collections as CollectionsABC
         from functools import partial
-
-        missing_msg = "Object '%s' has no attribute '%s'" % (self.cn, str(a))
-        if a in overridden_always:
-            return partial(getattr(Wrapped, a), self)
+        # protected_attribute
         if a == PROT_ATTR_NAME:
             return self.protected_attribute
+        if a in overridden_always:
+            return partial(getattr(Wrapped, a), self)
         # PREVENT pickling
-        elif a in self.pickle_attributes:
+        if a in self.pickle_attributes:
             raise ProtectionError('Wrapped object cannot be pickled')
-        if self.frozen:
-            if isinstance(self.pvt_o, CollectionsABC.Mapping):
-                if a in ('pop', 'popitem', 'clear'):
-                    raise self.frozen_error
-            if isinstance(self.pvt_o, CollectionsABC.MutableSequence):
-                if a in ('add', 'insert', 'discard'):
-                    raise self.frozen_error
+        delegated = getattr(self.pvt_o, a, None)
+        # Special methods are all callables
+        if delegated and callable(delegated):
+            if a in m_numeric:
+                return delegated
+            # Check type-specific blocking
+            for (ancestors, attr_set) in m_block_d.items():
+                if isinstance(self.pvt_o, ancestors):
+                    if a in attr_set:
+                        if self.frozen:
+                            raise self.frozen_error
+                        else:
+                            return delegated
+        # Any non-method or missing attribute or special callable method
+        # that is not delegated or blocked
+        if delegated is None:
+            if a in set([
+                '__doc__', '__hash__', '__weakref__',
+            ]):
+                return delegated
+            raise AttributeError(
+                "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
+            )
         # If frozen, freeze all the way down
-        x = getattr(self.pvt_o, a)
         if self.frozen:
-            return freeze(x)
-        return x
+            delegated = freeze(delegated)
+        return delegated
 
     def __setattr__(self, a, val):
         if self.frozen:
@@ -1212,117 +1393,440 @@ cdef class Wrapped(object):
         delattr(self.pvt_o, a)
 
     def __dir__(self):
-        l1 = [x for x in dir(self.pvt_o) if x not in self.pickle_attributes]
-        l2 = [x for x in self.special_attributes if x not in l1]
-        return l1 + l2
+        res_set = self.special_attributes
+        delegated = set(dir(self.pvt_o))
+        res_set = res_set.union(delegated)
+        res_set = res_set.difference(self.pickle_attributes)
+        return list(res_set)
 
+    def __richcmp__(self, other, int op):
+        '''Use common method for all Wrapped objects'''
+        return self.comparator(other, op)
+
+    # Needs to be class-specific
+    def __hash__(self):
+        return hash((
+            id(self.__class__),
+            str(self.get_rules()),
+            id(self.pvt_o),
+            hash(self.pvt_o)
+        ))
+
+    # __repr__, __str__ and __bytes__:
+    # We do not want the default cython implementations of Wrapped
     def __repr__(self):
         return repr(self.pvt_o)
 
     def __str__(self):
         return str(self.pvt_o)
 
-    def __richcmp__(self, other, int op):
-        '''Use common method for all Wrapped objects'''
-        return self.comparator(other, op)
+    def __bytes__(self):
+        return bytes(self.pvt_o)
 
-    # ------------------------------------------------------------------------
-    # The rest of the methods are implementations of abstract methods to
-    # proxy different types of objects from collections module
-    # ------------------------------------------------------------------------
+    # --------------------------------------------------------------------
+    # Unfortunately, Cython class needs to IMPLEMENT special methods
+    # for them to work !
+    # CPython looks in the CLASS, rather than dir(instance), apparently
+    #
+    # From: https://docs.python.org/3/reference/datamodel.html
+    # --------------------------------------------------------------------
 
-    # Sequence
-
-    def __reversed__(self):
+    def __call__(self, *args, **kwargs):
+        x = self.pvt_o(*args, **kwargs)
         if self.frozen:
-            raise self.frozen_error
-        return self.pvt_o.__reversed__()
-
-    # MutableMapping:
-
-    def __getitem__(self, key):
-        return self.fif(self.pvt_o.__getitem__(key))
-
-    def __delitem__(self, key):
-        if self.frozen:
-            raise self.frozen_error
-        try:
-            self.pvt_o.__delitem__(key)
-        except AttributeError:
-            raise ReadonlyTypeError(
-                "'%s' object does not support item deletion" % (self.cn,)
-            )
-
-    def __setitem__(self, key, val):
-        if self.frozen:
-            raise self.frozen_error
-        try:
-            self.pvt_o.__setitem__(key, val)
-        except AttributeError:
-            raise ReadonlyTypeError(
-                "'%s' object does not support item assignment" % (self.cn,)
-            )
+            x = freeze(x)
+        return x
 
     def __iter__(self):
         for x in iter(self.pvt_o):
-            yield self.fif(x)
+            if self.frozen:
+                x = freeze(x)
+            yield x
+
+    # Representations - return immutable
+    def __format__(self, val):
+        return self.pvt_o.__format__(val)
+
+    # Truth value testing - non-mutating, returning immutable bool
+    def __bool__(self):
+        return bool(self.pvt_o)
+
+    # Emulating container types - non-mutating
+    def __getitem__(self, key):
+        x = self.pvt_o.__getitem__(key)
+        if self.frozen:
+            x = freeze(x)
+        return x
+
+    def __contains__(self, val):
+        return self.pvt_o.__contains__(val)
 
     def __len__(self):
         return self.pvt_o.__len__()
 
-    # MutableSequence:
+    def __length_hint__(self):
+        return self.pvt_o.__length_hint__()
 
-    def add(self, *args, **kwargs):
+    # Numeric types - return immutable
+    def __add__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__radd__', None)):
+                return val.__radd__(self)
+            else:
+                return NotImplemented
+        return self.__add__(val)
+
+    def __mul__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rmul__', None)):
+                return val.__rmul__(self)
+            else:
+                return NotImplemented
+        return self.__mul__(val)
+
+    def __sub__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rsub__', None)):
+                return val.__rsub__(self)
+            else:
+                return NotImplemented
+        return self.__sub__(val)
+
+    def __matmul__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rmatmul__', None)):
+                return val.__rmatmul__(self)
+            else:
+                return NotImplemented
+        return self.__matmul__(val)
+
+    def __truediv__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rtruediv__', None)):
+                return val.__rtruediv__(self)
+            else:
+                return NotImplemented
+        return self.__truediv__(val)
+
+    def __floordiv__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rtruediv__', None)):
+                return val.__rtruediv__(self)
+            else:
+                return NotImplemented
+        return self.__floordiv__(val)
+
+    def __mod__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rmod__', None)):
+                return val.__rmod__(self)
+            else:
+                return NotImplemented
+        return self.__mod__(val)
+
+    def __divmod__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rdivmod__', None)):
+                return val.__rdivmod__(self)
+            else:
+                return NotImplemented
+        return self.__divmod__(val)
+
+    def __pow__(self, val, mod):
+        return self.__pow__(val, mod)
+
+    def __lshift__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rlshift__', None)):
+                return val.__rlshift__(self)
+            else:
+                return NotImplemented
+        return self.__lshift__(val)
+
+    def __rshift__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rrshift__', None)):
+                return val.__rrshift__(self)
+            else:
+                return NotImplemented
+        return self.__rshift__(val)
+
+    def __and__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rand__', None)):
+                return val.__rand__(self)
+            else:
+                return NotImplemented
+        return self.__and__(val)
+
+    def __or__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__ror__', None)):
+                return val.__ror__(self)
+            else:
+                return NotImplemented
+        return self.__or__(val)
+
+    def __xor__(self, val):
+        if not isinstance(self, Wrapped):
+            if callable(getattr(val, '__rxor__', None)):
+                return val.__rxor__(self)
+            else:
+                return NotImplemented
+        return self.__xor__(val)
+
+    # Numeric types - return immutable
+    def __radd__(self, val):
+        return self.__radd__(val)
+
+    def __rmul__(self, val):
+        return self.__rmul__(val)
+
+    def __rsub__(self, val):
+        return self.__rsub__(val)
+
+    def __rmatmul__(self, val):
+        return self.__rmatmul__(val)
+
+    def __rtruediv__(self, val):
+        return self.__rtruediv__(val)
+
+    def __rfloordiv__(self, val):
+        return self.__rfloordiv__(val)
+
+    def __rmod__(self, val):
+        return self.__rmod__(val)
+
+    def __rdivmod__(self, val):
+        return self.__rdivmod__(val)
+
+    def __rpow__(self, val, mod):
+        return self.__rpow__(val, mod)
+
+    def __rlshift__(self, val):
+        return self.__rlshift__(val)
+
+    def __rrshift__(self, val):
+        return self.__rrshift__(val)
+
+    def __rand__(self, val):
+        return self.__rand__(val)
+
+    def __ror__(self, val):
+        return self.__ror__(val)
+
+    def __rxor__(self, val):
+        return self.__rxor__(val)
+
+
+
+    # Other numeric operations - return immutable
+    def __neg__(self):
+        return self.pvt_o.__neg__()
+
+    def __pos__(self):
+        return self.pvt_o.__pos__()
+
+    def __abs__(self):
+        return self.pvt_o.__abs__()
+
+    def __invert__(self):
+        return self.pvt_o.__invert__()
+
+    def __complex__(self):
+        return self.pvt_o.__complex__()
+
+    def __int__(self):
+        return self.pvt_o.__int__()
+
+    def __float__(self):
+        return self.pvt_o.__float__()
+
+    def __index__(self):
+        return self.pvt_o.__index__()
+
+    def __round__(self):
+        return self.pvt_o.__round__()
+
+    def __trunc__(self):
+        return self.pvt_o.__trunc__()
+
+    def __floor__(self):
+        return self.pvt_o.__floor__()
+
+    def __ceil__(self):
+        return self.pvt_o.__ceil__()
+
+    # Just pass to wrapped
+    def __instancecheck__(self, inst):
+        return self.pvt_o.__instancecheck__(inst)
+
+    def __subclasscheck__(self, subclass):
+        return self.pvt_o.__subclasscheck__(subclass)
+
+    # Coroutine objects - intrinsic behavior - pass to wrapped
+    def send(self, value):
+        import sys
+        if sys.version_info.major > 2:
+            import types
+            if isinstance(self.pvt_o, types.coroutine):
+                return self.pvt_o.send(value)
+
+        # Otherwise
+        missing_msg = "Object '%s' has no attribute '%s'" % (self.cn, 'send')
+        raise AttributeError(missing_msg)
+
+    def throw(self, value):
+        import sys
+        if sys.version_info.major > 2:
+            import types
+            if isinstance(self.pvt_o, types.coroutine):
+                return self.pvt_o.throw(value)
+
+        # Otherwise
+        missing_msg = "Object '%s' has no attribute '%s'" % (self.cn, 'throw')
+        raise AttributeError(missing_msg)
+
+    # Context managers - intrinsic behavior - pass to wrapped
+    def __enter__(self):
+        return self.pvt_o.__enter__()
+
+    def __exit__(self, exc_type, exc_value, tb):
+        return self.pvt_o.__exit(exc_type, exc_value, tb)
+
+    # Async context managers - intrinsic behavior - pass to wrapped
+    def __aenter__(self):
+        return self.pvt_o.__aenter__()
+
+    def __aexit__(self, exc_type, exc_value, tb):
+        return self.pvt_o.__aexit(exc_type, exc_value, tb)
+
+    # Customizing positional arguments in class pattern matching
+    # Returns tuple of strings (immutable) - pass to wrapped
+    def __match_args__(self):
+        return self.pvt_o.__match_args__()
+
+    def __setitem__(self, key, val):
+        import sys
+        if sys.version_info.major > 2:
+            import collections.abc as CollectionsABC
+        else:
+            import collections as CollectionsABC
+        if isinstance(self.pvt_o, CollectionsABC.MutableMapping):
+            if self.frozen:
+                raise self.frozen_error
+            self.pvt_o.__setitem__(key, val)
+
+    def __delitem__(self, key):
+        import sys
+        if sys.version_info.major > 2:
+            import collections.abc as CollectionsABC
+        else:
+            import collections as CollectionsABC
+        if isinstance(
+            self.pvt_o,
+            (
+                CollectionsABC.MutableMapping,
+                CollectionsABC.MutableSequence,
+            )
+        ):
+            if self.frozen:
+                raise self.frozen_error
+            self.pvt_o.__delitem__(key)
+
+    # Numeric types - augmented assignments - mutating
+    def __iadd__(self, val):
         if self.frozen:
             raise self.frozen_error
-        self.pvt_o.add(*args, **kwargs)
+        self.pvt_o += val
+        return self
 
-    def insert(self, *args, **kwargs):
+    def __imul__(self, val):
         if self.frozen:
             raise self.frozen_error
-        self.pvt_o.insert(*args, **kwargs)
+        self.pvt_o *= val
+        return self
 
-    def discard(self, *args, **kwargs):
+    def __isub__(self, val):
         if self.frozen:
             raise self.frozen_error
-        self.pvt_o.discard(*args, **kwargs)
+        self.pvt_o -= val
+        return self
 
-    # MutableSet
-    def update(self, *args, **kwargs):
+    def __imod__(self, val):
         if self.frozen:
             raise self.frozen_error
-        self.pvt_o.update(*args, **kwargs)
+        self.pvt_o  %= val
+        return self
 
-    def remove(self, *args, **kwargs):
+    def __ilshift__(self, val):
         if self.frozen:
             raise self.frozen_error
-        self.pvt_o.remove(*args, **kwargs)
+        self.pvt_o <<= val
+        return self
 
-    # Generator
+    def __irshift__(self, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o >>= val
+        return self
 
-    def send(self, *args, **kwargs):
-        self.pvt_o.send(*args, **kwargs)
+    def __iand__(self, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o &= val
+        return self
 
-    def throw(self, *args, **kwargs):
-        self.pvt_o.throw(*args, **kwargs)
+    def __ior__(self, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o |= val
+        return self
 
-    # Hashable
+    def __ixor__(self, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o ^= val
+        return self
 
-    def __hash__(self):
-        return hash(str(
-            id(self.__class__)) + '_' +
-            str(self.get_rules())
-        )
+    def __ipow__(self, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o **= val
+        return self
 
-    # Iterator
+    def __itruediv__(self, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o /= val
+        return self
 
-    def next(self, *args, **kwargs):
-        yield self.fif(self.pvt_o.next(*args, **kwargs))
+    def __ifloordiv__(self, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o //= val
+        return self
 
-    # Callable objects
+    def __imatmul__(self, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o.__imatmul__(val)
+        return self
 
-    def __call__(self, *args, **kwargs):
-        return self.fif(self.pvt_o(*args, **kwargs))
+    # Implementing descriptors - mutate object
+    def __set__(self, inst, val):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o.__set__(inst, val)
+
+    def __delete__(self, inst):
+        if self.frozen:
+            raise self.frozen_error
+        self.pvt_o.__delete__(inst)
+
+    # --------------------------------------------------------------------
+    # End of special methods proxies
+    # --------------------------------------------------------------------
 
 
 @cython.internal
@@ -1351,6 +1855,7 @@ cdef class PrivacyDict(Wrapped):
         - Cannot access traditionally 'private' mangled python attributes
         - Cannot modify traditionally private attributes (form '_var')
         - Cannot modify CLASS of wrapped object
+        - TODO: Cannot access any attribute not exported by dir(pvt_o)
     '''
     cdef object hidden_private_attr
 
@@ -1505,6 +2010,7 @@ cdef class Private(Wrapped):
         - Cannot modify traditionally private attributes (form '_var')
         - Cannot modify CLASS of wrapped object
         - Cannot modify __dict__ or __slots__ of wrapped object
+        - TODO: Cannot access any attribute not exported by dir(pvt_o)
     '''
     cdef object hidden_private_attr
 
