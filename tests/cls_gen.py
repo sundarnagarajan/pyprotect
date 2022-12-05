@@ -141,54 +141,45 @@ def generate(
         'normal_class_methods': set(),
         'normal_static_methods': set(),
         'normal_inst_methods': set(),
+        'normal_attr': set(),
+
         'dunder_class_methods': set(),
         'dunder_static_methods': set(),
         'dunder_inst_methods': set(),
-        'normal_attr': set(),
         'dunder_attr': set(),
+
+        'dunder_class_methods_ro': set(),
+        'dunder_static_methods_ro': set(),
+        'dunder_inst_methods_ro': set(),
+        'dunder_attr_ro': set(),
+
+        'dunder_class_methods_rw_over': set(),
+        'dunder_static_methods_rw_over': set(),
+        'dunder_inst_methods_rw_over': set(),
+        'dunder_attr_rw_over': set(),
+
+        'dunder_class_methods_hide': set(),
+        'dunder_static_methods_hide': set(),
+        'dunder_inst_methods_hide': set(),
+        'dunder_attr_hide': set(),
+
+        'dunder_class_methods_show_over': set(),
+        'dunder_static_methods_show_over': set(),
+        'dunder_inst_methods_show_over': set(),
+        'dunder_attr_show_over': set(),
 
         'normal_static_methods_ro': set(),
         'normal_inst_methods_ro': set(),
-        'dunder_static_methods_ro': set(),
-        'dunder_inst_methods_ro': set(),
         'normal_attr_ro': set(),
-        'dunder_attr_ro': set(),
-
-        'normal_static_methods_rw': set(),
-        'normal_inst_methods_rw': set(),
-        'dunder_static_methods_rw': set(),
-        'dunder_inst_methods_rw': set(),
-        'normal_attr_rw': set(),
-        'dunder_attr_rw': set(),
+        'normal_attr_show_over': set(),
 
         'normal_static_methods_rw_over': set(),
         'normal_inst_methods_rw_over': set(),
-        'dunder_static_methods_rw_over': set(),
-        'dunder_inst_methods_rw_over': set(),
         'normal_attr_rw_over': set(),
-        'dunder_attr_rw_over': set(),
 
         'normal_static_methods_hide': set(),
         'normal_inst_methods_hide': set(),
-        'dunder_static_methods_hide': set(),
-        'dunder_inst_methods_hide': set(),
         'normal_attr_hide': set(),
-        'dunder_attr_hide': set(),
-
-        'normal_static_methods_show': set(),
-        'normal_inst_methods_show': set(),
-        'dunder_static_methods_show': set(),
-        'dunder_inst_methods_show': set(),
-        'normal_attr_show': set(),
-        'dunder_attr_show': set(),
-
-        'normal_static_methods_show_over': set(),
-        'normal_inst_methods_show_over': set(),
-        'dunder_static_methods_show_over': set(),
-        'dunder_inst_methods_show_over': set(),
-        'normal_attr_show_over': set(),
-        'dunder_attr_show_over': set(),
-
     }
 
     class_source = ''
@@ -299,11 +290,6 @@ class MyClass:
             rnd_a, src_static_m, 'static_ro_', 'normal_static_methods_ro'
         )
 
-        # Normal static methods that can be added to 'rw'
-        class_source += add(
-            rnd_a, src_static_m, 'static_rw_', 'normal_static_methods_rw'
-        )
-
         # Normal static methods that can be added to 'rw' AND 'ro'
         class_source += add(
             rnd_a, src_static_m,
@@ -316,18 +302,6 @@ class MyClass:
             'static_hide_', 'normal_static_methods_hide'
         )
 
-        # Normal static methods that can be added to 'show'
-        class_source += add(
-            rnd_a, src_static_m,
-            'static_show_', 'normal_static_methods_show'
-        )
-
-        # Normal static methods that can be added to 'show' AND 'hide'
-        class_source += add(
-            rnd_a, src_static_m,
-            'static_show_over_', 'normal_static_methods_show_over'
-        )
-
         # Normal instance methods
         class_source += add(
             rnd_a, src_inst_m, 'inst_', 'normal_inst_methods'
@@ -336,11 +310,6 @@ class MyClass:
         # Normal instance methods that can be added to 'ro'
         class_source += add(
             rnd_a, src_inst_m, 'inst_ro_', 'normal_inst_methods_ro'
-        )
-
-        # Normal instance methods that can be added to 'rw'
-        class_source += add(
-            rnd_a, src_inst_m, 'inst_rw_', 'normal_inst_methods_rw'
         )
 
         # Normal instance methods that can be added to 'rw' AND 'ro'
@@ -358,12 +327,6 @@ class MyClass:
         class_source += add(
             rnd_a, src_inst_m,
             'inst_show_', 'normal_inst_methods_hide'
-        )
-
-        # Normal instance methods that can be added to 'show' AND 'hide'
-        class_source += add(
-            rnd_a, src_inst_m,
-            'inst_show_over_', 'normal_inst_methods_show_over'
         )
 
         # dunder class methods
@@ -385,13 +348,6 @@ class MyClass:
             dunder=True
         )
 
-        # dunder static methods that can be added to 'rw'
-        class_source += add(
-            rnd_a, src_static_m,
-            'static_dunder_rw_', 'dunder_static_methods_rw',
-            dunder=True
-        )
-
         # dunder static methods that can be added to 'rw' AND 'ro'
         class_source += add(
             rnd_a, src_static_m,
@@ -403,13 +359,6 @@ class MyClass:
         class_source += add(
             rnd_a, src_static_m,
             'static_dunder_hide_', 'dunder_static_methods_hide',
-            dunder=True
-        )
-
-        # dunder static methods that can be added to 'show'
-        class_source += add(
-            rnd_a, src_static_m,
-            'static_dunder_show_', 'dunder_static_methods_show',
             dunder=True
         )
 
@@ -432,12 +381,6 @@ class MyClass:
             'inst_dunder_ro_', 'dunder_inst_methods_ro',
             dunder=True,
         )
-        # dunder instance methods that can be added to 'rw'
-        class_source += add(
-            rnd_a, src_inst_m,
-            'inst_dunder_rw_', 'dunder_inst_methods_rw',
-            dunder=True,
-        )
         # dunder instance methods that can be added to 'rw' AND 'ro'
         class_source += add(
             rnd_a, src_inst_m,
@@ -448,12 +391,6 @@ class MyClass:
         class_source += add(
             rnd_a, src_inst_m,
             'inst_dunder_hide_', 'dunder_inst_methods_hide',
-            dunder=True,
-        )
-        # dunder instance methods that can be added to 'show'
-        class_source += add(
-            rnd_a, src_inst_m,
-            'inst_dunder_show_', 'dunder_inst_methods_show',
             dunder=True,
         )
         # dunder instance methods that can be added to 'show' AND 'hide'
@@ -473,11 +410,6 @@ class MyClass:
             rnd_a, src_inst_m, 'inst_attr_ro_', 'normal_attr_ro'
         )
 
-        # Normal instance attr that can be added to 'rw'
-        class_source += add(
-            rnd_a, src_inst_m, 'inst_attr_rw_', 'normal_attr_rw'
-        )
-
         # Normal instance attr that can be added to 'rw' AND 'ro'
         class_source += add(
             rnd_a, src_inst_m, 'inst_attr_rw_over_', 'normal_attr_rw_over'
@@ -487,12 +419,6 @@ class MyClass:
         class_source += add(
             rnd_a, src_inst_m,
             'inst_attr_hide_', 'normal_attr_hide'
-        )
-
-        # Normal instance attr that can be added to 'show'
-        class_source += add(
-            rnd_a, src_inst_m,
-            'inst_attr_show_', 'normal_attr_hide'
         )
 
         # Normal instance attr that can be added to 'show' AND 'hide'
@@ -513,12 +439,6 @@ class MyClass:
             dunder=True,
         )
 
-        # dunder instance attr that can be added to 'rw'
-        class_source += add(
-            rnd_a, src_inst_m, 'inst_dunder_attr_rw_', 'dunder_attr_rw',
-            dunder=True,
-        )
-
         # dunder instance attr that can be added to 'rw' AND 'ro'
         class_source += add(
             rnd_a, src_inst_m,
@@ -530,13 +450,6 @@ class MyClass:
         class_source += add(
             rnd_a, src_inst_m,
             'inst_dunder_attr_hide_', 'dunder_attr_hide',
-            dunder=True,
-        )
-
-        # dunder instance attr that can be added to 'show'
-        class_source += add(
-            rnd_a, src_inst_m,
-            'inst_dunder_attr_show_', 'dunder_attr_hide',
             dunder=True,
         )
 
