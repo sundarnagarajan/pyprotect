@@ -4,6 +4,9 @@ Utilities used in unit tests that need pyprotect
 
 import sys
 sys.dont_write_bytecode = True
+PY2 = False
+if sys.version_info.major == 2:
+    PY2 = True
 import re
 import types
 from pyprotect_finder import pyprotect    # noqa: F401
@@ -19,13 +22,10 @@ from pyprotect import (
 
 
 oldstyle_private_attr = re.compile(
-    '^_[_a-zA-Z][a-zA-Z0-9_]*__[^_].*?[^_][_]{0,1}$'
+    '^_[a-zA-Z][a-zA-Z0-9]*__[^_].*?[^_][_]{0,1}$'
 )
 unmangled_private_attr = re.compile('^__[^_].*?[^_][_]{0,1}$')
 PROT_ATTR = attribute_protected()
-overridden_always = set((
-    '__getattribute__', '__setattr__', '__delattr__',
-))
 pickle_attributes = set([
     '__reduce__', '__reduce_ex__',
 ])
@@ -36,10 +36,15 @@ always_frozen = frozenset([
     '__dict__', '__slots__', '__class__',
     '__module__',
 ])
-# always_delegated is not used
+# Following are not used (yet)
+'''
 always_delegated = frozenset([
     '__doc__', '__hash__', '__weakref__',
 ])
+overridden_always = set((
+    '__getattribute__', '__setattr__', '__delattr__',
+))
+'''
 
 
 def get_readable(o):
@@ -110,12 +115,15 @@ class CheckPredictions:
         if type(o) is type:
             self.cn = o.__name__
         else:
-            # Hack for PY2 'old-style' classes
-            if hasattr(o, '__class__'):
+            if not PY2:
                 self.cn = str(o.__class__.__name__)
             else:
-                self.cn = 'Unknown_OldStyleClass'
-                self.oldstyle_class = True
+                # Hack for PY2 'old-style' classes
+                if hasattr(o, '__class__'):
+                    self.cn = str(o.__class__.__name__)
+                else:
+                    self.cn = 'Unknown_OldStyleClass'
+                    self.oldstyle_class = True
         self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
 
         d = self.predict()
@@ -206,9 +214,9 @@ class CheckPredictions:
             if a in pickle_attributes:
                 d['addl_hide'].add(a)
 
-        # All attributes except overridden_always are writeable, unless frozen
+        # All attributes are writeable, unless frozen or 'o' is a module
         if isfrozen(self.__w):
-            # Check for the module hack
+            # No additional read-only attrs if 'o' is a module
             if not isinstance(self.__o, types.ModuleType):
                 d['addl_ro'] = self.__o_readable
         else:

@@ -552,7 +552,7 @@ cdef object attr_identifier = re.compile('^[_a-zA-Z][a-zA-Z0-9_]*$')
 # PY2 'Old style' CLASSES (not INSTANCES of such classes) do not have
 # __class__ attribute, so Private wrappers around such classes will hide
 # ALL similar looking attributes
-cdef object oldstyle_private_attr = re.compile('^_[_a-zA-Z][a-zA-Z0-9_]*__[^_].*?[^_][_]{0,1}$')
+cdef object oldstyle_private_attr = re.compile('^_[a-zA-Z][a-zA-Z0-9]*__[^_].*?[^_][_]{0,1}$')
 
 # ------------------------------------------------------------------------
 # Globals related to special methods
@@ -1947,7 +1947,16 @@ cdef class PrivacyDict(Wrapped):
         o-->dict (any Mapping or MutableMapping type)
         cn-->str: class name
         '''
-        if not isinstance(o, CollectionsABC.Mapping):
+        # In PY2 __dict__ is a dictproxy - not in types module and
+        # not instance of dict or CollectionsABC.Mapping
+        if PY2:
+            class C(object):
+                pass
+
+            t = type(C.__dict__)
+        else:
+            t = CollectionsABC.Mapping
+        if not isinstance(o, (t, dict)):
             raise TypeError('o: Invalid type: %s' % (o.__class__.__name__,))
         self.cn = str(cn)
         # Use compiled regex - no function call, no str operations
