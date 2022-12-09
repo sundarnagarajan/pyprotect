@@ -1,2 +1,2 @@
-global-include *.pyx
-global-include *.c
+global-include protected.pyx
+global-include protected.c

@@ -17,7 +17,7 @@
   to work with Python 3.7+, you need to install cython version >= 0.27.3
   Do this with
   ```sudo pip3 install --upgrade cython>=0.27.3```
-- This README.md is not completely up to date. Use ```pydoc pyprotect.protected``` for the most up-to-date documentation
+- This README.md is not completely up to date. Use ```pydoc pyprotect``` for the most up-to-date documentation
 
 ### VISIBILITY versus READABILITY or ACCESSIBILITY
 #### VISIBILITY: appears in dir(object)
@@ -93,38 +93,25 @@
     FrozenPrivate:
         Features of Private PLUS prevents modification of ANY attribute
 
-#### protect(o: object frozen: bool = False, add: bool = False, dynamic: bool = True, hide_all: bool = False, hide_data: bool = False, hide_method: bool = False, hide_private: bool = False, hide_dunder: bool = False, ro_all: bool = False, ro_data: bool = False, ro_method: bool = True, ro_dunder: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = [], show: List[str] = []
+#### protect(o: object frozen: bool = False, dynamic: bool = True, hide_private: bool = False, ro_data: bool = False, ro_method: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = []
 
     o-->object to be wrapped
     frozen-->bool: No attribute can be modified. Default: False
         - Overrides 'add'
-    add-->bool: Whether attributes can be ADDED. Default: False
-        Automatically set to False if 'dynamic' is True
-        Only attributes added through the wrapper can be deleted through
-            the wrapper
     dynamic-->bool: Attribute additions, deletions, type changes in wrapped
         object are automatically visible
         If True, 'add' is automatically set to False
         Default: True
     
-    hide_all-->bool: All attributes will be hidden. Default: False
-    hide_data-->bool: Data attributes will be hidden. Default: False
-    hide_method-->bool: Method attributes will be hidden. Default: False
     hide_private-->bool: Private vars (_var) will be hidden. Default: False
-    hide_dunder-->bool: 'dunder-vars' will be hidden. Default: False
-    
-    ro_all-->bool: All attributes will be read-only. Default: False
     ro_data-->bool: Data attributes will be read-only. Default: False
     ro_method-->bool: Method attributes will be read-only. Default: True
-    ro_dunder-->bool: 'dunder-vars' will be  read-only. Default: True
     
     ro-->list of str: attributes that will be read-only. Default: []
     rw-->list of str: attributes that will be read-write. Default: []
         Overrides 'ro_*'
     
     hide-->list of str: attributes that will be hidden. Default: []
-    show-->list of str: attributes that will be visible. Default: []
-        Overrides 'hide_*'
     Returns-->Instance of FrozenProtected if frozen; Instance of Protected otherwise
     
     Protected:
@@ -144,7 +131,6 @@
         - Cannot modify __slots__ of wrapped object
     - dynamic == True
       Attribute additions, deletions, type changes automatically visible
-    - ro_dunder == True: 'dunder-vars' will be  read-only
     - ro_method == True: Method attributes will be read-only
     - All other non-dunder non-private data attributes are read-write
     
@@ -174,7 +160,7 @@ class MyClass(object):
 myinst = MyClass()
 
 # import + ONE line to wrap and protect class attributes
-from pyprotect.protected import protect
+from pyprotect import protect
 wrapped = protect(myinst)
 ```
 
@@ -183,36 +169,21 @@ wrapped = protect(myinst)
 
 | Option            | Type        | Default  | Description | Overrides |
 | ----------------- | ----------- | -------- | ----------- | --------- |
-| add           | bool    | True | <ul><li>Whether attributes can be ADDED</li></ul> | |
 | frozen            | bool        | False    | <ul><li>If True, no attributes can be CHANGED or ADDED</li></ul> | <ul><li>add</li><li>rw</li></ul> | |
-| hide_all          | bool        | False    | <ul><li>All attributes will be hidden</li><li>Can override selectively with 'show'</li></ul> | |
-| hide_data         | bool        | False    | <ul><li>Data (non-method) attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
-| hide_method       | bool        | False    | <ul><li>Method attributes will be hidden</li><li>Override selectively with 'show'</li></ul> | |
 | hide_private      | bool        | False    | <ul><li>Private vars (form _var) will be hidden</li><li>Override selectively with 'show'</li></ul> | |
-| hide_dunder       | bool        | False    | <ul><li>'dunder-vars' will be hidden</li><li>Override selectively with 'show'</li></ul> | |
-| ro_all            | bool        | False    | <ul><li>All attributes will be read-only</li><li>Can override selectively with 'rw'</li></ul> | |
 | ro_data           | bool        | False    | <ul><li>Data (non-method) attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
 | ro_method     | bool    | True | <ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
-| ro_dunder     | bool    | True | <ul><li>'dunder-vars' will be  read-only</li><li>Override selectively with 'rw'</li></ul> | |
 | ro                | list of str | [ ]   | <ul><li>Attributes that will be read-only</li><li>Can selectively override with 'rw'</li></ul> | |
-| rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <ul><li>ro_all</li><li>ro_data</li><li>ro_method</li><li>ro_dunder</li><li>ro</li></ul> |
+| rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <li>ro_data</li><li>ro_method</li><li>ro</li></ul> |
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li><li>Override selectively with 'show'</li></ul> | |
-| show              | list of str | [ ]   | <ul><li>Attributes that will be visible</li></ul> | <ul><li>hide_all</li><li>hide_data</li><li>hide_method</li><li>hide_dunder</li><li>hide</li></ul> |
 
 ### Configurable readability and mutability of attributes with protect() method
 | Option        | Attribute Type    | Readability | Mutability     |
 | ------------- | ----------------- | ----------- | -------------- |
 | frozen        | Any               | NO          | YES            |
-| add           | Added at run-time | NO          | NO             |
-| hide_all      | ANY               | YES         | YES (Indirect) |
-| hide_data     | Data attributes   | YES         | YES (Indirect) |
-| hide_method   | Method attributes | YES         | YES (Indirect) |
 | hide_private  | Private attributes | YES         | YES (Indirect) |
-| hide_dunder   | dunder-attributes | YES         | YES (Indirect) |
-| ro_all        | ANY               | NO          | YES            |
 | ro_data       | Data attributes   | NO          | YES            |
 | ro_method     | Method attributes | NO          | YES            |
-| ro_dunder     | dunder-attributes | NO          | YES            |
 | ro            | ANY               | NO          | YES            |
 | rw            | ANY               | NO          | YES            |
 | hide          | ANY               | YES         | YES (Indirect) |
@@ -226,21 +197,18 @@ wrapped = protect(myinst)
     - Can use hide_private to hide them
     - They CANNOT be made read-write
 - add == True: New attributes can be added (Python philosophy)
-- protect_class == True: Prevents modification of CLASS of wrapped object
-- ro_dunder == True: 'dunder-vars' will be  read-only
 - ro_method == True: Method attributes will be read-only
 - All other non-dunder non-private data attributes are read-write
 
 ### Non-overrideable behaviors of Protected class:
 1. Traditional python 'private' vars - start with ```__``` but do not end with ```__``` - can never be read, written or deleted
 2. If an attribute cannot be read, it cannot be written or deleted
-3. Attributes can NEVER be DELETED UNLESS they were added at run-time
-4. Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
+3. Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
     - Properties indicate an intention of class author to expose them
     - Whether they are actually writable depends on whether class author implemented property.setter
-5. The following attributes of wrapped object are NEVER visible:
+4. The following attributes of wrapped object are NEVER visible:
        ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
-6. You cannot subclass Protected class
+5. You cannot subclass Protected class
 
 ### Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
@@ -301,3 +269,40 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 
 ### Work in progress
 - Uploading to pypi.org
+
+### Changelog
+#### Dec-08-2022
+A number of parameters to protect() have been discontinued. See list and reasons below, as well as how to achieve the same effect without thos parameters (sometimes, it takes more work). Most of them would be realistically useful very rarely, and / or do not align with what I call 'idiomatic python'.
+
+**hide_all, hide_method, hide_dunder**
+So-called 'special methods' in Python serve an important functional roles - especially in emulating containers (tuples, lists, sets, dicts), emulating numeric types supporting arithmetic operators, numeric comparisons etc. If such specific 'dunder methods' were hidden, it would definitely affect the behavior of the wrapped object. ```hide_dunder``` would hide all such special methods. ```hide_method``` would in addition hide all methods in the objest. ```hide_all``` would hide all object attributes, making the object virtually useless, and the option useful in testing (if at all).
+
+**hide_data**
+In most cases, hiding all non-method data attributes will make the object less useful / cripple the expected usage of the object. Specific use-cases can be achieved using the 'hide' parameter.
+
+**ro_dunder**
+Seems like it can be replaced by using ro_method' Mostly, in 'idiomatic python', methods of a class / instance are not mutated from outside the class / instance. This expected 'idiomatic python' behavior can be achieved with 'ro_method'.
+
+**ro_all**
+Is unnecessary, since 'frozen' can be used instead.
+
+**add**
+In my opinion, 'add' does not align with 'idiomatic python'. While Python allows users of a class / instance adding attributes to the class / instance, that is not the expected style. Based on this, I have decided to promote that 'idiomatic style', and prevent adding / deleting any attributes in a Private or Protected object.
+
+**show**
+It is unnecessary, since all attributes are visible by default in Python. Only 'hide' or 'hide_private' will hide any attributes.
+
+This leaves the following (incidentally also reducing testing load):
+
+	- Visibility:
+		- hide_private
+		- hide
+	- Mutability:
+		- ro_data
+		- ro_method
+		- ro
+		- rw
+		- frozen
+	- Behavior:
+		- dynamic
+

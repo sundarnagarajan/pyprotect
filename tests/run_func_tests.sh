@@ -24,7 +24,7 @@ function test_in_1_python() {
     # $1: python command to use
     local PYTHON=$1
     local ret=0
-    $PYTHON -c "from protected_wrapper import protected" 1>/dev/null 2>&1 || ret=1
+    $PYTHON -c "from pyprotect_finder import pyprotect" 1>/dev/null 2>&1 || ret=1
     if [[ $ret -eq 0 ]]; then
         echo "---------- Testing in $PYTHON ----------"
         $PYTHON "${TEST_SCRIPT}" $REST_ARGS

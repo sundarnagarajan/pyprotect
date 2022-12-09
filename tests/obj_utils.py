@@ -7,6 +7,10 @@ sys.dont_write_bytecode = True
 import re
 
 
+visible_but_blocked = set([
+    '__reduce__', '__reduce_ex__',
+])
+
 def nested_obj(
     depth, no_cycles=False, json_compatible=False, custom_obj=True
 ):
@@ -214,8 +218,11 @@ def method_vars(o):
         if h1_regex.match(a):
             # Do not match mangled private attributes
             continue
-        if callable(getattr(o, a)):
-            ret.add(a)
+        try:
+            if callable(getattr(o, a)):
+                ret.add(a)
+        except:
+            continue
     return ret
 
 
@@ -230,7 +237,10 @@ def data_vars(o):
         if h1_regex.match(a):
             # Do not match mangled private attributes
             continue
-        if callable(getattr(o, a)):
+        try:
+            if callable(getattr(o, a)):
+                continue
+        except:
             continue
         ret.add(a)
     return ret
@@ -239,6 +249,8 @@ def data_vars(o):
 def visible_is_readable(o):
     # a in dir(o) ==> getattr(o, a) works without exception
     for a in dir(o):
+        if a in visible_but_blocked:
+            continue
         try:
             getattr(o, a)
         except:
