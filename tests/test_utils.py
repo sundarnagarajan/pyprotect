@@ -9,6 +9,7 @@ if sys.version_info.major == 2:
     PY2 = True
 import re
 import types
+import itertools
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
     attribute_protected,
@@ -18,6 +19,7 @@ from pyprotect import (
     isprotected,
     isfrozen,
     isimmutable,
+    wrap, freeze, private, protect,
 )
 
 
@@ -32,6 +34,7 @@ pickle_attributes = set([
 special_attributes = set((
     PROT_ATTR,
 ))
+# Used (only) in CheckPredictions.check()
 always_frozen = frozenset([
     '__dict__', '__slots__', '__class__',
     '__module__',
@@ -83,10 +86,15 @@ def get_writeable(o):
     return s
 
 
+def check_predictions(o, w):
+    cp = CheckPredictions(o, w)
+    d = cp.get_predictions()
+    cp.check(d)
+
+
 class CheckPredictions:
-    def __init__(self, uti, o, w):
+    def __init__(self, o, w):
         '''
-        uti: unittest.TestCase instance
         o: object
         w: wrapped object (wrapping 'o')
 
@@ -105,13 +113,13 @@ class CheckPredictions:
         assert(iswrapped(o) is False)
         assert(iswrapped(w) is True)
         assert(id_protected(w) == id(o))
-        self.uti = uti
         self.__o = o
         self.__w = w
         self.oldstyle_class = False
         self.__o_readable = get_readable(o)
-        self.__o_writeable = get_writeable(o)
-        # Note that readablity / writeability of w is checked only in check()
+        # Note that predictions do not need to test writeability of 'o'
+        # get_writeable(self.__o) is only called in get_predictions()
+        # 'w' readability / writeability checked only in get_predictions()
         if type(o) is type:
             self.cn = o.__name__
         else:
@@ -126,57 +134,110 @@ class CheckPredictions:
                     self.oldstyle_class = True
         self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
 
-        d = self.predict()
-        self.check(d)
+    def get_predictions(self):
+        '''
+        Returns: dict:
+            o: dict
+                readable: set
+                writeable: set
+            w: dict
+                readable: set
+                writeable: set
+            predictions: dict
+                addl_hide: set(str): attrs that should be invisible in w
+                addl_ro: set(str): attrs that should NOT be writeable in w
+                    addl_ro will always be superset of addl_hide
+                addl_visible: set(str): should be exactly special_attributes
+        '''
+        d = {
+            'o': {
+                'readable': set(),
+                'writeable': set(),
+            },
+            'w': {
+                'readable': set(),
+                'writeable': set(),
+            },
+            'predictions': {
+                'addl_hide': set(),
+                'addl_ro': set(),
+                'addl_visible': set(),
+            }
+        }
+        d['o']['readable'] = self.__o_readable
+        d['o']['writeable'] = get_writeable(self.__o)
+        d['w']['readable'] = get_readable(self.__w)
+        d['w']['writeable'] = get_writeable(self.__w)
+        d['predictions'] = self.predict()
+        return d
 
     def check(self, d):
         '''
         d: key: str, values: set(str)
-            addl_hide: set(str): attrs that should be invisible in w
-            addl_ro: set(str): attrs that should NOT be writeable in w
-                addl_ro will always be superset of addl_hide
-            addl_visible: set(str): should always be exactly special_attributes
-        '''
-        uti = self.uti
+            o: dict
+                readable: set
+                writeable: set
+            w: dict
+                readable: set
+                writeable: set
+            predictions: dict
+                addl_hide: set(str): attrs that should be invisible in w
+                addl_ro: set(str): attrs that should NOT be writeable in w
+                    addl_ro will always be superset of addl_hide
+                addl_visible: set(str): should be exactly special_attributes
 
-        # Note that readablity / writeability of w is checked only in check()
-        self.__w_readable = get_readable(self.__w)
-        self.__w_writeable = get_writeable(self.__w)
+        check() is DECLARATIVE - predictions are checked based on
+        'promises' and known special 'hacks' for PY2, module objects etc
+
+        w_readable and w_writeable are ONLY used in asserts
+        '''
+        o_readable = d['o']['readable']
+        # o_writeable = d['o']['writeable']
+        w_readable = d['w']['readable']
+        w_writeable = d['w']['writeable']
 
         if isfrozen(self.__w):
-            uti.assertEqual(self.__w_writeable, set())
+            assert(w_writeable == set())
 
         # EXACTLY and ONLY one extra attribute is added
-        uti.assertEqual(
-            d['addl_visible'], special_attributes
-        )
+        assert(d['predictions']['addl_visible'] == special_attributes)
 
         # Make exact prediction on visibility
         # Originally readable - predicted hidden + added attribute
-        w_r = (self.__o_readable - d['addl_hide']).union(
+        w_r = (o_readable - d['predictions']['addl_hide']).union(
             special_attributes
         )
-        uti.assertEqual(self.__w_readable, w_r)
+        assert(w_readable == w_r)
 
         # Make exact prediction on mutability
         # None of addl_ro are writeable
-        w_w = d['addl_ro'].intersection(self.__w_writeable)
-        uti.assertEqual(w_w, set())
+        w_w = d['predictions']['addl_ro'].intersection(w_writeable)
+        assert(w_w == set())
 
         # Check the special module hack - if o is a module, when it is frozen
         # none of the attributes must be frozen
+        # This specifically is not appplied in Protected class - to allow
+        # full freezing of module is desired
         if isinstance(self.__o, types.ModuleType):
             if isfrozen(self.__w):
-                for a in self.__w_readable:
+                for a in w_readable:
                     # Single '_' attributes are always RO, even in modules
                     if a.startswith('_') and not a.endswith('_'):
                         continue
                     x = getattr(self.__w, a)
-                    assert(isfrozen(x) is False)
+                    if not isprotected(self.__w):
+                        try:
+                            assert(isfrozen(x) is False)
+                        except AssertionError:
+                            print(
+                                type(self.__o), a, type(x),
+                                type(self.__w),
+                            )
+                            raise
 
         # Check always_frozen for Private
         if isprivate(self.__w):
-            for a in self.__w_readable:
+            for a in w_readable:
                 x = getattr(self.__w, a)
                 if a in always_frozen:
                     assert(isfrozen(x) or isimmutable(x))
@@ -297,3 +358,51 @@ class CheckPredictions:
                 d['addl_ro'].add(a)
         return d
 
+
+class MultiWrap:
+    def __init__(self, o):
+        self.__o = o
+        assert(iswrapped(o) is False)
+        self.run()
+
+    def run(self):
+        NOOP = "NONE"
+        ops_map = {
+            "freeze": freeze,
+            "wrap": wrap,
+            "private": private,
+            "protect": protect,
+            NOOP: None,
+        }
+        op_names = list(ops_map.keys())
+        op_sequences = []
+        for r in range(1, (len(op_names) + 1)):
+            for p in itertools.permutations(op_names, r=r):
+                for start_op in ("freeze", NOOP):
+                    for end_op in ("freeze", NOOP):
+                        op_sequences.append((start_op,) + p + (end_op,))
+
+        frozen = False
+        w = None
+        for seq in op_sequences:
+            for op in seq:
+                if op == NOOP:
+                    continue
+                if w is None:
+                    w = ops_map[op](self.__o)
+                else:
+                    w = ops_map[op](w)
+                if op == "freeze":
+                    # May not always be frozen - e.g. if 'o' is immutable
+                    if isfrozen(w):
+                        frozen = True
+
+                # Now the checks
+                assert(isfrozen(w) == frozen)
+                assert(id_protected(w) == id(self.__o))
+                if iswrapped(w):
+                    # May not always be - if 'o' is immutable and op == freeze
+                    PROT_ATTR = attribute_protected()
+                    assert(
+                        getattr(w, PROT_ATTR).multiwrapped() is False
+                    )
