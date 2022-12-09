@@ -2330,11 +2330,11 @@ cdef class Protected(Private):
         self.special_attributes = frozenset([
             PROT_ATTR_NAME,
         ])
+        self.rules = rules
 
         frozen = bool(rules.get('frozen', False))
         Private.__init__(self, o, frozen=frozen)
         self.frozen = frozen
-        self.rules = rules
         self.process_rules(rules)
 
     # --------------------------------------------------------------------
@@ -2504,7 +2504,9 @@ cdef class Protected(Private):
         ro_msg = 'Read only attribute: %s' % (a,)
 
         if self.frozen and op in ('w', 'd'):
-            raise frozen_error
+            # Module hack
+            if not isinstance(self.pvt_o, types.ModuleType):
+                raise frozen_error
         if op == 'r':
             if not self.visible(a):
                 raise AttributeError(

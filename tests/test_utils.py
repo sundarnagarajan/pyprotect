@@ -5,6 +5,7 @@ Utilities used in unit tests that need pyprotect
 import sys
 sys.dont_write_bytecode = True
 import re
+import types
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
     attribute_protected,
@@ -15,7 +16,6 @@ from pyprotect import (
     isfrozen,
     isimmutable,
 )
-import types
 
 
 oldstyle_private_attr = re.compile(
@@ -32,12 +32,13 @@ pickle_attributes = set([
 special_attributes = set((
     PROT_ATTR,
 ))
-always_delegated = frozenset([
-    '__doc__', '__hash__', '__weakref__',
-])
 always_frozen = frozenset([
     '__dict__', '__slots__', '__class__',
     '__module__',
+])
+# always_delegated is not used
+always_delegated = frozenset([
+    '__doc__', '__hash__', '__weakref__',
 ])
 
 
@@ -109,6 +110,7 @@ class CheckPredictions:
         if type(o) is type:
             self.cn = o.__name__
         else:
+            # Hack for PY2 'old-style' classes
             if hasattr(o, '__class__'):
                 self.cn = str(o.__class__.__name__)
             else:
@@ -135,27 +137,34 @@ class CheckPredictions:
 
         if isfrozen(self.__w):
             uti.assertEqual(self.__w_writeable, set())
+
+        # EXACTLY and ONLY one extra attribute is added
         uti.assertEqual(
             d['addl_visible'], special_attributes
         )
+
+        # Make exact prediction on visibility
+        # Originally readable - predicted hidden + added attribute
         w_r = (self.__o_readable - d['addl_hide']).union(
             special_attributes
         )
-
-        # Make exact prediction on visibility
         uti.assertEqual(self.__w_readable, w_r)
 
         # Make exact prediction on mutability
         # None of addl_ro are writeable
-        uti.assertEqual(d['addl_ro'].intersection(self.__w_writeable), set())
+        w_w = d['addl_ro'].intersection(self.__w_writeable)
+        uti.assertEqual(w_w, set())
 
         # Check the special module hack - if o is a module, when it is frozen
         # none of the attributes must be frozen
         if isinstance(self.__o, types.ModuleType):
             if isfrozen(self.__w):
                 for a in self.__w_readable:
+                    # Single '_' attributes are always RO, even in modules
+                    if a.startswith('_') and not a.endswith('_'):
+                        continue
                     x = getattr(self.__w, a)
-                    assert(not isfrozen(x))
+                    assert(isfrozen(x) is False)
 
         # Check always_frozen for Private
         if isprivate(self.__w):
@@ -199,7 +208,9 @@ class CheckPredictions:
 
         # All attributes except overridden_always are writeable, unless frozen
         if isfrozen(self.__w):
-            d['addl_ro'] = self.__o_readable
+            # Check for the module hack
+            if not isinstance(self.__o, types.ModuleType):
+                d['addl_ro'] = self.__o_readable
         else:
             d['addl_ro'] = set()
 
