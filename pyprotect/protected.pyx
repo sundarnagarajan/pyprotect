@@ -1958,10 +1958,30 @@ cdef class PrivacyDict(Wrapped):
             t = CollectionsABC.Mapping
         if not isinstance(o, (t, dict)):
             raise TypeError('o: Invalid type: %s' % (o.__class__.__name__,))
+
         self.cn = str(cn)
         # Use compiled regex - no function call, no str operations
         self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
         Wrapped.__init__(self, o=o, frozen=frozen)
+
+    # --------------------------------------------------------------------
+    # Private methods
+    # --------------------------------------------------------------------
+
+    cdef key_hidden(self, key):
+        '''
+        Central place where we decide if a key is hidden in a
+        PrivacyDict object
+        '''
+        if self.hidden_private_attr.match(key):
+            return True
+        if self.oldstyle_class:
+            if oldstyle_private_attr.match(key):
+                return True
+
+    # --------------------------------------------------------------------
+    # Public methods
+    # --------------------------------------------------------------------
 
     def __getattribute__(self, a):
         if self.hidden_private_attr.match(a):
@@ -1972,142 +1992,133 @@ cdef class PrivacyDict(Wrapped):
         # Cannot modify CLASS of wrapped object
         if a == '__class__':
             return freeze(self.pvt_o.__class__)
-        # If frozen, freeze all the way down
-        x = object.__getattribute__(self.pvt_o, a)
-        return self.fif(x)
+        if a in set([
+            '__getitem__', '__setitem__', '__delitem__',
+            '__str__', '__repr__',
+            'copy', 
+            'iterkeys', 'iteritems', 'itervalues',
+            'viewkeys', 'viewitems', 'viewvalues',
+        ]):
+            return functools.partial(getattr(PrivacyDict, a), self)
+        if a in set([
+            'keys', 'items', 'values', 'copy',
+        ]):
+            py2_map = {
+                'keys': functools.partial(getattr(PrivacyDict, 'keys_py2'), self),
+                'items': functools.partial(getattr(PrivacyDict, 'items_py2'), self),
+                'values': functools.partial(getattr(PrivacyDict, 'values_py2'), self),
+            }
+            if PY2 and a in py2_map:
+                return py2_map[a]
+            return functools.partial(getattr(PrivacyDict, a), self)
 
-    # dict methods - the iter* and view* methods are for Python2 (only)
-    # The reason for needing to re-implement these methods in PrivacyDict 
-    # rather than # inheriting from Wrapped is not due to Dict but due to
-    # Privacy - need to exclude keys / key-value pairs that match the
-    #'private' keys to be excluded as part of PrivacyDict behavior
+        # If frozen, freeze all the way down
+        return self.wrapped_getattr(a)
 
     def __getitem__(self, key):
-        if self.hidden_private_attr.match(key):
+        if self.key_hidden(key):
             raise KeyError(key)
-        if self.oldstyle_class:
-            if oldstyle_private_attr.match(key):
-                raise KeyError(key)
         return self.fif(self.pvt_o.__getitem__(key))
 
     def __delitem__(self, key):
-        if self.hidden_private_attr.match(key):
+        if self.key_hidden(key):
             raise KeyError(key)
-        if self.oldstyle_class:
-            if oldstyle_private_attr.match(key):
-                raise KeyError(key)
+        nodel_msg = 'Cannot delete private attribute: %s.%s' % (self.cn, str(key))
+        if ro_private_attr.match(key):
+            raise ProtectionError(nodel_msg)
         Wrapped.__delitem__(self, key)
 
     def __setitem__(self, key, val):
         nopvt_msg = 'Cannot set private attribute: %s.%s' % (self.cn, str(key))
 
-        if self.hidden_private_attr.match(key):
+        if self.key_hidden(key):
             raise ProtectionError(nopvt_msg)
-        if self.oldstyle_class:
-            if oldstyle_private_attr.match(key):
-                raise ProtectionError(nopvt_msg)
         if ro_private_attr.match(key):
             raise ProtectionError(nopvt_msg)
         Wrapped.__setitem__(self, key, val)
 
     def __repr__(self):
-        d = {}
-        for (k, v) in self.pvt_o.items():
-            if self.hidden_private_attr.match(k):
-                continue
-            if self.oldstyle_class:
-                if oldstyle_private_attr.match(k):
-                    continue
-            d[k] = v
-        return repr(d)
+        ret = dict([x for x in self.items()])
+        return repr(ret)
 
     def __str__(self):
-        d = {}
-        for (k, v) in self.pvt_o.items():
-            if self.hidden_private_attr.match(k):
-                continue
-            if self.oldstyle_class:
-                if oldstyle_private_attr.match(k):
-                    continue
-            d[k] = v
-        return str(d)
+    \  ret = dict([x for x in self.items()])
+        return str(ret)
 
-    def items(self):
-        if self.oldstyle_class:
-            return self.fif([
-                (k, v) for (k, v) in self.pvt_o.items()
-                if not self.hidden_private_attr.match(k)
-                and not oldstyle_private_attr.match(k)
-            ])
-        else:
-            return self.fif([
-                (k, v) for (k, v) in self.pvt_o.items()
-                if not self.hidden_private_attr.match(k)
-            ])
-    def values(self):
-        if self.oldstyle_class:
-            return self.fif([
-                v for (k, v) in self.pvt_o.items()
-                if not self.hidden_private_attr.match(k)
-                and not oldstyle_private_attr.match(k)
-            ])
-        else:
-            return self.fif([
-                v for (k, v) in self.pvt_o.items()
-                if not self.hidden_private_attr.match(k)
-            ])
+    def copy(self):
+        # TODO: Something strange here: Just wrapping self.pvt_o and returning
+        # as a new FrozenPrivacyDict doesn't seem to adopt all the behavior
+        # of PrivacyDict!
+        d = {}
+        d.update(dict(self.items()))
+        return privatedict(d, self.cn, frozen=True)
+
+    # --------------------------------------------------------------------
+    # PY3 only
+    # --------------------------------------------------------------------
 
     def keys(self):
-        if self.oldstyle_class:
-            return self.fif([
-                k for (k, v) in self.pvt_o.items()
-                if not self.hidden_private_attr.match(k)
-                and not oldstyle_private_attr.match(k)
-            ])
-        else:
-            return self.fif([
-                k for (k, v) in self.pvt_o.items()
-                if not self.hidden_private_attr.match(k)
-            ])
+        for k in self.pvt_o.keys():
+            if self.key_hidden(k):
+                continue
+            yield k
 
-    def iteritems(self):
-        if self.oldstyle_class:
-            for (k, v) in self.pvt_o.iteritems():
-                if (
-                    not self.hidden_private_attr.match(k) and
-                    not oldstyle_private_attr.match(k)
-                ):
-                    yield (k, v)
-        else:
-            for (k, v) in self.pvt_o.iteritems():
-                if not self.hidden_private_attr.match(k):
-                    yield (k, v)
+    def items(self):
+        for k in self.keys():
+            v = self.pvt_o[k]
+            yield self.fif((k, v))
+
+    def values(self):
+        for k in self.keys():
+            v = self.pvt_o[k]
+            yield self.fif(v)
+
+    # --------------------------------------------------------------------
+    # PY2 only
+    # --------------------------------------------------------------------
+
+    def keys_py2(self):
+        # In PY2 returns list, in PY3, yields keys
+        ret = []
+        for k in self.pvt_o.iterkeys():
+            if self.key_hidden(k):
+                continue
+            ret.append(k)
+        return ret
+
+    def items_py2(self):
+        # In PY2 returns list, in PY3, yields items
+        ret = []
+        for k in self.keys():
+            v = self.pvt_o[k]
+            ret.append((k, v))
+        return self.fif(ret)
+
+    def values_py2(self):
+        # In PY2 returns list, in PY3, yields values
+        ret = []
+        for k in self.keys():
+            v = self.pvt_o[k]
+            ret.append(v)
+        return self.fif(ret)
 
     def iterkeys(self):
-        if self.oldstyle_class:
-            for k in self.pvt_o.iterkeys():
-                if (
-                    not self.hidden_private_attr.match(k) and
-                    not oldstyle_private_attr.match(k)
-                ):
-                    yield k
-        else:
-            for k in self.pvt_o.iterkeys():
-                if not self.hidden_private_attr.match(k):
-                    yield k
+        # PY2 only
+        for k in self.pvt_o.keys():
+            if self.key_hidden(k):
+                continue
+            yield k
+
+    def iteritems(self):
+        # PY2 only
+        for k in self.iterkeys():
+            v = self.pvt_o[k]
+            yield self.fif((k, v))
 
     def itervalues(self):
-        if self.oldstyle_class:
-            for (k, v) in self.pvt_o.iteritems():
-                if (
-                    not self.hidden_private_attr.match(k) and
-                    not oldstyle_private_attr.match(k)
-                ):
-                    yield v
-        else:
-            for (k, v) in self.pvt_o.iteritems():
-                if not self.hidden_private_attr.match(k):
-                    yield v
+        # PY2 only
+        for k in self.iterkeys():
+            yield self.fif(self.pvt_o[k])
 
     def viewitems(self):
         return self.fif(set(self.items()))
@@ -2117,6 +2128,10 @@ cdef class PrivacyDict(Wrapped):
 
     def viewkeys(self):
         return self.fif(set(self.keys()))
+
+    # --------------------------------------------------------------------
+    # End of PY2 only
+    # --------------------------------------------------------------------
 
 
     # Python / cython does not automatically use parent __hash__
@@ -2186,10 +2201,6 @@ cdef class Private(Wrapped):
         '''Share with Private-derived'''
         if a in self.special_attributes:
             return True
-        '''
-        if a in overridden_always:
-            return False
-        '''
         if self.hidden_private_attr.match(a):
             return False
         if unmangled_private_attr.match(a):
