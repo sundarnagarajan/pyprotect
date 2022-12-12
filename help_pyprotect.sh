@@ -1,8 +1,6 @@
 #!/usr/bin/sh
 PROG_DIR=$(readlink -e $(dirname $0))
 
-PYPROTECT_DIR_CMD='import pyprotect; import os; print(os.path.dirname(pyprotect.__file__))'
-PYPROTECT_DIR=""
 PYTHON_CMD=$(command -v python3) && PYDOC_CMD=pydoc3 || {
     PYTHON_CMD=$(command -v python2) && PYDOC_CMD=pydoc2
 }
@@ -10,17 +8,15 @@ PYTHON_CMD=$(command -v python3) && PYDOC_CMD=pydoc3 || {
     >&2 echo "Neither python2 nor python3 found"
     exit 1
 }
-command -v $PYDOC_CMD || {
+command -v $PYDOC_CMD 1>/dev/null 2>&1 || {
     >&2 echo "$PYDOC_CMD not found"
     exit 1
 }
-
-PYPROTECT_DIR=$($PYTHON_CMD -c "$PYPROTECT_DIR_CMD" 2>/dev/null) || {
+export __Protected_NOFREEZE_MODULE_____=yes
+$PYTHON_CMD -c "import pyprotect" 2>/dev/null && exec "$PYDOC_CMD" pyprotect || {
     cd "$PROG_DIR" && \
-    PYPROTECT_DIR=$($PYTHON_CMD -c "$PYPROTECT_DIR_CMD" 2>/dev/null) || {
+    $PYTHON_CMD -c "import pyprotect" 2>/dev/null && exec "$PYDOC_CMD" pyprotect || {
         >&2 echo "pyprotect module not found"
         exit 1
     }
-} 
-cd "$PYPROTECT_DIR"
-exec "$PYDOC_CMD" protected
+}
