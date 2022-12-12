@@ -4,7 +4,6 @@ sys.dont_write_bytecode = True
 import os
 try:
     import pyprotect
-    # from pyprotect import protected    # noqa: F401
 except ImportError:
     sys.path.append(
         os.path.join(
@@ -13,5 +12,4 @@ except ImportError:
         )
     )
     import pyprotect     # noqa: F401
-    # from pyprotect import protected    # noqa: F401
 del sys, os
