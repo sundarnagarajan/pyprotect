@@ -42,6 +42,3 @@ def gen_test_objects():
     ]
     for o in l:
         yield o
-
-
-test_objects = gen_test_objects()

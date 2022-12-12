@@ -17,18 +17,18 @@ from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
     freeze, private, protect, wrap,
 )
-from testcases import test_objects
+from testcases import gen_test_objects
 
 
 class test_pyprotect(unittest.TestCase):
     def test_01_multiwrap_1300_tests(self):
         # 1300 sequences of freeze, wrap, private, protect for each 'o'
-        for o in test_objects:
+        for o in gen_test_objects():
             MultiWrap(o)
 
     def test_02_wrap_objects(self):
         # wrap() on a variety pf objects
-        for o in test_objects:
+        for o in gen_test_objects():
             w = wrap(o)
             check_predictions(o, w)
             f = freeze(w)
@@ -36,7 +36,7 @@ class test_pyprotect(unittest.TestCase):
 
     def test_03_private_objects(self):
         # private() on a variety pf objects
-        for o in test_objects:
+        for o in gen_test_objects():
             w = private(o)
             check_predictions(o, w)
             f = freeze(w)
@@ -46,7 +46,7 @@ class test_pyprotect(unittest.TestCase):
 
     def test_04_protect_objects(self):
         # protect() on a variety pf objects
-        for o in test_objects:
+        for o in gen_test_objects():
             w = protect(o, ro_method=False)
             check_predictions(o, w)
             f = freeze(w)
@@ -371,4 +371,4 @@ class test_pyprotect(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)

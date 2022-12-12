@@ -541,18 +541,34 @@ from cpython.object cimport (
 cdef object overridden_always = frozenset([
     '__getattr__', '__getattribute__', '__delattr__', '__setattr__',
 ])
+cdef object pickle_attributes = frozenset([
+    '__reduce__', '__reduce_ex__',
+    '__getsate__', '__setstate__',
+])
+cdef object special_attributes = frozenset([
+    PROT_ATTR_NAME,
+])
+cdef object always_delegated = frozenset([
+    '__doc__', '__hash__', '__weakref__',
+    '__package__', 
+])
+cdef object always_frozen = frozenset([
+    '__dict__', '__slots__', '__class__',
+    '__module__',
+])
+
 # Use compiled regex - no function call, no str operations
-cdef object dunder_attr = re.compile('^__[^_].*?[^_]__$')
+# Python 2 str does not have isidentifier() method
+cdef object attr_identifier = re.compile('^[_a-zA-Z][a-zA-Z0-9_]*$')
 # ro_private_attr: Start with single _, ending n non-underscore
 cdef object ro_private_attr = re.compile('^_[^_].*?(?<!_)$')
 # unmangled_private_attr: Start with double _, end in non-underscore or single _
 cdef object unmangled_private_attr = re.compile('^__[^_].*?[^_][_]{0,1}$')
-# Python 2 str does not have isidentifier() method
-cdef object attr_identifier = re.compile('^[_a-zA-Z][a-zA-Z0-9_]*$')
 # PY2 'Old style' CLASSES (not INSTANCES of such classes) do not have
 # __class__ attribute, so Private wrappers around such classes will hide
 # ALL similar looking attributes
-cdef object oldstyle_private_attr = re.compile('^_[a-zA-Z][a-zA-Z0-9]*__[^_].*?[^_][_]{0,1}$')
+cdef object mangled_private_attr_classname_regex = '[a-zA-Z][a-zA-Z0-9]*'
+cdef object mangled_private_attr_regex_fmt = '^_%s__[^_](.*?[^_]|)[_]{0,1}$'
 
 # ------------------------------------------------------------------------
 # Globals related to special methods
@@ -894,7 +910,7 @@ cdef protected_merge_kwargs(kw1: dict, kw2: dict):
     return d
 
 
-cdef privatedict(o, cn, frozen=False):
+cdef privatedict(o, cn, frozen=False, oldstyle_class=None):
     '''
     o-->Mapping (to be wrapped)
     Returns-->FrozenPrivacyDict if frozen; Privacybject otherwise
@@ -902,14 +918,14 @@ cdef privatedict(o, cn, frozen=False):
     if frozen:
         if isinstance (o, FrozenPrivacyDict):
             return o
-        return FrozenPrivacyDict(o, cn)
+        return FrozenPrivacyDict(o, cn, oldstyle_class)
     else:
         if isinstance (o, FrozenPrivacyDict):
             # Underlying already frozen
             return o
         elif isinstance(o, PrivacyDict):
             return o
-        return PrivacyDict(o, cn)
+        return PrivacyDict(o, cn, oldstyle_class)
 
 
 @cython.final
@@ -1028,52 +1044,73 @@ cdef class Wrapped(object):
     cdef bint frozen
     cdef _ProtectionData protected_attribute
     cdef str cn
-    cdef frozenset pickle_attributes
-    cdef frozenset special_attributes
-    cdef frozenset always_delegated
     cdef dict rules
     cdef bint oldstyle_class
+    cdef object hidden_private_attr
 
-    def __init__(self, o, frozen=False, rules=None):
+    def __init__(self, o, frozen=False, rules=None, oldstyle_class=None):
         '''
         o: object to be wrapped
         frozen: bool: If True, no attribute can be modified
         rules: dict (if called from Protected.__init__) or None
         '''
+        if isinstance(o, Wrapped):
+            # We claim to be avoiding double-wrapping, so this exception
+            # should never be raised
+            raise RuntimeError('Double-wrapped!')
+
         self.pvt_o = o
-        self.oldstyle_class = False
+        self.frozen = bool(frozen)
+        if oldstyle_class is None:
+            self.oldstyle_class = False
+        else:
+            self.oldstyle_class = oldstyle_class
         if PY2:
             # In PY2 old-style classes don't have __class__ attribute !
-            # Such CLASSES cannot be wrapped, because private needs
-            # the class name as str to construct the mangled private
-            # attribute name regex to hide them. Instances of such
-            # classes CAN be wrapped
+            # When such CLASSES (not INSTANCES of such classes) are
+            # wrapped with Private, the class name cannot be used to
+            # identify mangled private attributes to hide, so ALL
+            # attributes of the form _CCC__YYYz where z is '' or '_'
+            # are hidden.
+            # If it is an old style PY2 CLASS, CCC is a REGEX, otherwise
+            # CCC is self.cn
+            # Instances of such classes CAN be wrapped normally.
             if hasattr(o, '__class__'):
                 if type(o) is type:
-                    self.cn = o.__name__
+                    if self.cn is None:
+                        self.cn = o.__name__
                 else:
-                    self.cn = str(o.__class__.__name__)
+                    if self.cn is None:
+                        self.cn = str(o.__class__.__name__)
             else:
-                self.cn = 'Unknown_OldStyle_Class'
-                self.oldstyle_class = True
+                if self.cn is None:
+                    self.cn = 'Unknown_OldStyle_Class'
+                if oldstyle_class is None:
+                    self.oldstyle_class = True
         else:
             if type(o) is type:
-                self.cn = o.__name__
+                if self.cn is None:
+                    self.cn = o.__name__
             else:
-                self.cn = str(o.__class__.__name__)
-        self.frozen = bool(frozen)
-        self.pickle_attributes = frozenset([
-            '__reduce__', '__reduce_ex__',
-            '__getsate__', '__setstate__',
-        ])
-        self.special_attributes = frozenset([
-            PROT_ATTR_NAME,
-        ])
-        self.always_delegated = frozenset([
-            '__doc__', '__hash__', '__weakref__',
-            '__package__', 
-        ])
+                if self.cn is None:
+                    self.cn = str(o.__class__.__name__)
 
+        # self.hidden_private_attr is set in Wrapped.__init__ but
+        # only used in Private and descendants
+        if self.oldstyle_class:
+            self.hidden_private_attr = re.compile(
+                mangled_private_attr_regex_fmt % (
+                    mangled_private_attr_classname_regex,
+                )
+            )
+        else:
+            self.hidden_private_attr = re.compile(
+                mangled_private_attr_regex_fmt % (
+                    self.cn,
+                )
+            )
+
+        # Special code to avoid double-wrapping of Protected
         if rules is None:
             rules = dict(self.get_rules())
 
@@ -1084,10 +1121,6 @@ cdef class Wrapped(object):
             protect_class = Protected
             private_class = Private
 
-        if isinstance(o, Wrapped):
-            # We claim to be avoiding double-wrapping, so this code
-            # should never be reached
-            raise RuntimeError('Double-wrapped!')
         self.protected_attribute = _ProtectionData(
             id_val=id(self.pvt_o),
             hash_val=functools.partial(self.hash_protected, self),
@@ -1106,6 +1139,16 @@ cdef class Wrapped(object):
     # --------------------------------------------------------------------
     # Private methods
     # --------------------------------------------------------------------
+
+    cdef attr_hidden(self, attr):
+        '''
+        Central place where we decide if an attribute or key in a
+        PrivacyDict is hidden
+        '''
+        if unmangled_private_attr.match(attr):
+            return True
+        if self.hidden_private_attr.match(attr):
+            return True
 
     cdef fif(self, o):
         '''
@@ -1314,11 +1357,11 @@ cdef class Wrapped(object):
             return functools.partial(getattr(Wrapped, a), self)
 
         # PREVENT pickling - doesn't work even if methods are implemented,
-        if a in self.pickle_attributes:
+        if a in pickle_attributes:
             raise AttributeError('Wrapped object cannot be pickled')
 
         delegated = getattr(self.pvt_o, a, None)
-        if a in self.always_delegated:
+        if a in always_delegated:
             return delegated
 
         # Container mutating methods - implemented and selectively blocked
@@ -1347,7 +1390,7 @@ cdef class Wrapped(object):
             raise frozen_error
         if a in overridden_always:
             raise ProtectionError('Cannot modify attribute: %s' % (a,))
-        if a in self.special_attributes:
+        if a in special_attributes:
             raise ProtectionError('Cannot modify attribute: %s' % (a,))
 
     cdef wrapped_check_delattr(self, a):
@@ -1355,16 +1398,16 @@ cdef class Wrapped(object):
             raise frozen_error
         if a in overridden_always:
             raise ProtectionError('Cannot delete attribute: %s' % (a,))
-        if a in self.special_attributes:
+        if a in special_attributes:
             raise ProtectionError('Cannot delete attribute: %s' % (a,))
         if not hasattr(self.pvt_o, a) and a in self.__dir__():
             raise ProtectionError('Cannot delete attribute: %s' % (a,))
 
     cdef wrapped_dir(self):
-        res_set = self.special_attributes
+        res_set = special_attributes
         delegated = set(dir(self.pvt_o))
         res_set = res_set.union(delegated)
-        res_set = res_set.difference(self.pickle_attributes)
+        res_set = res_set.difference(pickle_attributes)
         return list(res_set)
 
     # --------------------------------------------------------------------
@@ -1940,9 +1983,8 @@ cdef class PrivacyDict(Wrapped):
         - Cannot modify CLASS of wrapped object
         - TODO: Cannot access any attribute not exported by dir(pvt_o)
     '''
-    cdef object hidden_private_attr
 
-    def __init__(self, o, cn, frozen=False):
+    def __init__(self, o, cn, frozen=False, oldstyle_class=None):
         '''
         o-->dict (any Mapping or MutableMapping type)
         cn-->str: class name
@@ -1960,42 +2002,26 @@ cdef class PrivacyDict(Wrapped):
             raise TypeError('o: Invalid type: %s' % (o.__class__.__name__,))
 
         self.cn = str(cn)
-        # Use compiled regex - no function call, no str operations
-        self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
-        Wrapped.__init__(self, o=o, frozen=frozen)
+        Wrapped.__init__(self, o=o, frozen=frozen, oldstyle_class=oldstyle_class)
 
     # --------------------------------------------------------------------
     # Private methods
     # --------------------------------------------------------------------
-
-    cdef key_hidden(self, key):
-        '''
-        Central place where we decide if a key is hidden in a
-        PrivacyDict object
-        '''
-        if self.hidden_private_attr.match(key):
-            return True
-        if self.oldstyle_class:
-            if oldstyle_private_attr.match(key):
-                return True
 
     # --------------------------------------------------------------------
     # Public methods
     # --------------------------------------------------------------------
 
     def __getattribute__(self, a):
-        if self.hidden_private_attr.match(a):
+        if self.attr_hidden(a):
             raise KeyError(a)
-        if self.oldstyle_class:
-            if oldstyle_private_attr.match(a):
-                raise KeyError(a)
         # Cannot modify CLASS of wrapped object
         if a == '__class__':
             return freeze(self.pvt_o.__class__)
         if a in set([
             '__getitem__', '__setitem__', '__delitem__',
             '__str__', '__repr__',
-            'copy', 
+            'copy',
             'iterkeys', 'iteritems', 'itervalues',
             'viewkeys', 'viewitems', 'viewvalues',
         ]):
@@ -2016,12 +2042,12 @@ cdef class PrivacyDict(Wrapped):
         return self.wrapped_getattr(a)
 
     def __getitem__(self, key):
-        if self.key_hidden(key):
+        if self.attr_hidden(key):
             raise KeyError(key)
         return self.fif(self.pvt_o.__getitem__(key))
 
     def __delitem__(self, key):
-        if self.key_hidden(key):
+        if self.attr_hidden(key):
             raise KeyError(key)
         nodel_msg = 'Cannot delete private attribute: %s.%s' % (self.cn, str(key))
         if ro_private_attr.match(key):
@@ -2031,7 +2057,7 @@ cdef class PrivacyDict(Wrapped):
     def __setitem__(self, key, val):
         nopvt_msg = 'Cannot set private attribute: %s.%s' % (self.cn, str(key))
 
-        if self.key_hidden(key):
+        if self.attr_hidden(key):
             raise ProtectionError(nopvt_msg)
         if ro_private_attr.match(key):
             raise ProtectionError(nopvt_msg)
@@ -2042,7 +2068,7 @@ cdef class PrivacyDict(Wrapped):
         return repr(ret)
 
     def __str__(self):
-    \  ret = dict([x for x in self.items()])
+        ret = dict([x for x in self.items()])
         return str(ret)
 
     def copy(self):
@@ -2051,7 +2077,11 @@ cdef class PrivacyDict(Wrapped):
         # of PrivacyDict!
         d = {}
         d.update(dict(self.items()))
-        return privatedict(d, self.cn, frozen=True)
+        # return privatedict(d, self.cn, frozen=True, oldstyle_class=self.oldstyle_class)
+        return privatedict(
+            self.pvt_o, self.cn,
+            frozen=True, oldstyle_class=self.oldstyle_class
+        )
 
     # --------------------------------------------------------------------
     # PY3 only
@@ -2059,7 +2089,7 @@ cdef class PrivacyDict(Wrapped):
 
     def keys(self):
         for k in self.pvt_o.keys():
-            if self.key_hidden(k):
+            if self.attr_hidden(k):
                 continue
             yield k
 
@@ -2081,7 +2111,7 @@ cdef class PrivacyDict(Wrapped):
         # In PY2 returns list, in PY3, yields keys
         ret = []
         for k in self.pvt_o.iterkeys():
-            if self.key_hidden(k):
+            if self.attr_hidden(k):
                 continue
             ret.append(k)
         return ret
@@ -2105,7 +2135,7 @@ cdef class PrivacyDict(Wrapped):
     def iterkeys(self):
         # PY2 only
         for k in self.pvt_o.keys():
-            if self.key_hidden(k):
+            if self.attr_hidden(k):
                 continue
             yield k
 
@@ -2150,9 +2180,11 @@ cdef class FrozenPrivacyDict(PrivacyDict):
     '''
     Subclass of PrivacyDict that is automatically frozen
     '''
-    def __init__(self, o, cn):
+    def __init__(self, o, cn, oldstyle_class=None):
         '''o-->object to be wrapped'''
-        PrivacyDict.__init__(self, o, cn, frozen=True)
+        PrivacyDict.__init__(
+            self, o, cn, frozen=True, oldstyle_class=oldstyle_class
+        )
 
     # Python / cython does not automatically use parent __hash__
     def __hash__(self):
@@ -2176,8 +2208,6 @@ cdef class Private(Wrapped):
         - DONE: cannot access any unmangled double '_' attributes
         - DONE: Cannot add or delete attributes
     '''
-    cdef object hidden_private_attr
-    cdef frozenset always_frozen
 
     def __init__(self, o, frozen=False, rules=None):
         '''
@@ -2185,13 +2215,7 @@ cdef class Private(Wrapped):
         frozen--bool: If True, no direct attribute can be modified
         rules: dict (if called from Protected.__init__) or None
         '''
-        self.always_frozen = frozenset([
-            '__dict__', '__slots__', '__class__',
-            '__module__',
-        ])
         Wrapped.__init__(self, o, frozen=frozen, rules=rules)
-        # Use compiled regex - no function call, no str operations
-        self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
 
     # --------------------------------------------------------------------
     # Private methods
@@ -2199,16 +2223,10 @@ cdef class Private(Wrapped):
 
     cdef private_visible(self, a):
         '''Share with Private-derived'''
-        if a in self.special_attributes:
+        if a in special_attributes:
             return True
-        if self.hidden_private_attr.match(a):
+        if self.attr_hidden(a):
             return False
-        if unmangled_private_attr.match(a):
-            return False
-        # Special hack for PY2 'old style' CLASSES
-        if self.oldstyle_class:
-            if oldstyle_private_attr.match(a):
-                return False
         if a not in dir(self.pvt_o):
             return False
         # Special hack for PY2 that does not seem to obey __dir__ for modules
@@ -2228,9 +2246,9 @@ cdef class Private(Wrapped):
             return False
         if ro_private_attr.match(a):
             return False
-        if a in self.special_attributes:
+        if a in special_attributes:
             return False
-        if a in self.always_frozen:
+        if a in always_frozen:
             return False
         return True
 
@@ -2249,10 +2267,10 @@ cdef class Private(Wrapped):
             raise AttributeError(
                 "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
             )
-        if a in self.always_frozen:
+        if a in always_frozen:
             x = getattr(self.pvt_o, a)
             if a == '__dict__':
-                return privatedict(x, self.cn, frozen=True)
+                return privatedict(x, self.cn, frozen=True, oldstyle_class=self.oldstyle_class)
             else:
                 return freeze(x)
         return self.wrapped_getattr(a)
@@ -2345,13 +2363,7 @@ cdef class Protected(Private):
         o-->object to be wrapped
         rules-->dict: returned by protected_rules_from_kwargs
         '''
-        # Use compiled regex - no function call, no str operations
-        self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
-        self.special_attributes = frozenset([
-            PROT_ATTR_NAME,
-        ])
         self.rules = rules
-
         frozen = bool(rules.get('frozen', False))
         Private.__init__(self, o, frozen=frozen)
         self.frozen = frozen
@@ -2395,7 +2407,7 @@ cdef class Protected(Private):
         hidden_d = {'r': False, 'w': False}
 
         for a in dir(self.pvt_o):
-            if self.hidden_private_attr.match(a):
+            if self.attr_hidden(a):
                 self.acl_cache[a] = hidden_d
                 continue
             d = {
@@ -2435,15 +2447,15 @@ cdef class Protected(Private):
 
         # Enforce hiding of private mangled attributes
         # This is already done in Private !
-        if self.hidden_private_attr.match(a):
+        if self.attr_hidden(a):
             return False
 
         if op == 'r':
             # special_attributes always visible
-            if a in self.special_attributes:
+            if a in special_attributes:
                 return True
             # always_frozen are .... always frozen
-            if a in self.always_frozen:
+            if a in always_frozen:
                 return True
 
             if hide_private and ro_private_attr.match(a):
@@ -2456,7 +2468,7 @@ cdef class Protected(Private):
                 return False
         elif op == 'w':
             # special_attributes never writeable
-            if a in self.special_attributes:
+            if a in special_attributes:
                 return False
             if ro_private_attr.match(a):
                 return False
