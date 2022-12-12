@@ -39,6 +39,7 @@ if PY2:
     sys.modules['__builtin__'].help = protected.help_protected
 else:
     sys.modules['builtins'].help = protected.help_protected
+protected.__file__ = __file__
 protected = protected.private(protected, frozen=True)
 # __doc__ = getattr(protected, protected.attribute_protected()).help_str()
 sys.modules['pyprotect'] = protected

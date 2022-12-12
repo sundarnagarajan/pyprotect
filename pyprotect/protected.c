@@ -2364,6 +2364,7 @@ static const char __pyx_k_code[] = "__code__";
 static const char __pyx_k_copy[] = "copy";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_exit[] = "__exit";
+static const char __pyx_k_file[] = "__file__";
 static const char __pyx_k_hash[] = "hash";
 static const char __pyx_k_help[] = "help";
 static const char __pyx_k_hide[] = "hide";
@@ -2775,6 +2776,7 @@ static PyObject *__pyx_n_s_exc_value;
 static PyObject *__pyx_n_s_exit;
 static PyObject *__pyx_n_s_exit_2;
 static PyObject *__pyx_n_s_extend;
+static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_float;
 static PyObject *__pyx_n_s_float_2;
 static PyObject *__pyx_n_s_floor;
@@ -6865,7 +6867,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_34immutable_builtin_attributes(C
  *     '''
  *     return builtin_module_immutable_attributes             # <<<<<<<<<<<<<<
  * 
- * 
+ * __all__ = [
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v_9pyprotect_9protected_builtin_module_immutable_attributes);
@@ -51684,6 +51686,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_exit, __pyx_k_exit, sizeof(__pyx_k_exit), 0, 0, 1, 1},
   {&__pyx_n_s_exit_2, __pyx_k_exit_2, sizeof(__pyx_k_exit_2), 0, 0, 1, 1},
   {&__pyx_n_s_extend, __pyx_k_extend, sizeof(__pyx_k_extend), 0, 0, 1, 1},
+  {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_float, __pyx_k_float, sizeof(__pyx_k_float), 0, 0, 1, 1},
   {&__pyx_n_s_float_2, __pyx_k_float_2, sizeof(__pyx_k_float_2), 0, 0, 1, 1},
   {&__pyx_n_s_floor, __pyx_k_floor, sizeof(__pyx_k_floor), 0, 0, 1, 1},
@@ -53552,14 +53555,14 @@ if (!__Pyx_RefNanny) {
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_immutable_builtin_attributes, __pyx_t_1) < 0) __PYX_ERR(0, 501, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":508
- * 
+  /* "pyprotect/protected.pyx":507
+ *     return builtin_module_immutable_attributes
  * 
  * __all__ = [             # <<<<<<<<<<<<<<
  *     'contains', 'freeze', 'id_protected', 'immutable_builtin_attributes',
  *     'isfrozen', 'isimmutable', 'isinstance_protected', 'isprivate',
  */
-  __pyx_t_1 = PyList_New(16); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 508, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(17); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_contains_2);
   __Pyx_GIVEREF(__pyx_n_s_contains_2);
@@ -53609,7 +53612,10 @@ if (!__Pyx_RefNanny) {
   __Pyx_INCREF(__pyx_n_s_attribute_protected);
   __Pyx_GIVEREF(__pyx_n_s_attribute_protected);
   PyList_SET_ITEM(__pyx_t_1, 15, __pyx_n_s_attribute_protected);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_all, __pyx_t_1) < 0) __PYX_ERR(0, 508, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_n_s_file);
+  __Pyx_GIVEREF(__pyx_n_s_file);
+  PyList_SET_ITEM(__pyx_t_1, 16, __pyx_n_s_file);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_all, __pyx_t_1) < 0) __PYX_ERR(0, 507, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyprotect/protected.pyx":516

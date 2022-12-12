@@ -504,12 +504,12 @@ def immutable_builtin_attributes():
     '''
     return builtin_module_immutable_attributes
 
-
 __all__ = [
     'contains', 'freeze', 'id_protected', 'immutable_builtin_attributes',
     'isfrozen', 'isimmutable', 'isinstance_protected', 'isprivate',
     'isprotected', 'isreadonly', 'iswrapped', 'private', 'protect', 'wrap',
     'help_protected', 'attribute_protected',
+    '__file__',
 ]
 
 
