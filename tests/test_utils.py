@@ -10,6 +10,7 @@ if sys.version_info.major == 2:
 import re
 import types
 import itertools
+import pydoc
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
     attribute_protected,
@@ -48,6 +49,12 @@ overridden_always = set((
     '__getattribute__', '__setattr__', '__delattr__',
 ))
 '''
+
+
+def get_pydoc(o):
+    return '\n'.join(
+        pydoc.render_doc(o).splitlines()[2:]
+    ).rstrip('\n') + '\n'
 
 
 def get_readable(o):

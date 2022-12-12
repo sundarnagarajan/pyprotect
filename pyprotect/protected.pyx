@@ -1196,36 +1196,9 @@ cdef class Wrapped(object):
         return help(self.pvt_o)
 
     cdef help_str_protected(self):
-        '''
-        We do not care about covering all possibilities, since this
-        is mainly used for unit tests
-        '''
-        if PY2:
-            special_types = (
-                type,
-                property,
-                types.ModuleType,
-                types.GetSetDescriptorType,
-                types.MemberDescriptorType,
-            )
-        else:
-            special_types = (
-                type,
-                property,
-                types.ModuleType,
-                types.ClassMethodDescriptorType,
-                types.GetSetDescriptorType,
-                types.MemberDescriptorType,
-                types.MethodDescriptorType,
-                types.MethodWrapperType,
-                types.WrapperDescriptorType,
-            )
-        if callable(self.pvt_o):
-            return pydoc.text.document(self.pvt_o)
-        elif isinstance(self.pvt_o, special_types):
-            return pydoc.text.document(self.pvt_o)
-        else:
-            return pydoc.text.document(self.pvt_o.__class__)
+        return '\n'.join(
+            pydoc.render_doc(self.pvt_o).splitlines()[2:]
+        ).rstrip('\n') + '\n'
 
     cdef visible(self, a):
         return True

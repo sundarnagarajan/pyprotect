@@ -12,10 +12,13 @@ from test_utils import (
     PY2,
     check_predictions,
     MultiWrap,
+    get_pydoc,
+    PROT_ATTR,
 )
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
     freeze, private, protect, wrap,
+    iswrapped,
 )
 from testcases import gen_test_objects
 
@@ -368,6 +371,17 @@ class test_pyprotect(unittest.TestCase):
 
     def test_12_mutating_containers(self):
         pass
+
+    def test_13_help(self):
+        for o in gen_test_objects():
+            for op in (wrap, freeze, private, protect):
+                w = op(o)
+                if not iswrapped(w):
+                    continue
+                h1 = get_pydoc(o)
+                p = getattr(w, PROT_ATTR)
+                h2 = p.help_str()
+                assert(h1 == h2)
 
 
 if __name__ == '__main__':
