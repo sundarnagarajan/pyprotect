@@ -15,6 +15,12 @@ command -v $PYDOC_CMD || {
     exit 1
 }
 
-PYPROTECT_DIR=$($PYTHON_CMD -c "$PYPROTECT_DIR_CMD")
+PYPROTECT_DIR=$($PYTHON_CMD -c "$PYPROTECT_DIR_CMD" 2>/dev/null) || {
+    cd "$PROG_DIR" && \
+    PYPROTECT_DIR=$($PYTHON_CMD -c "$PYPROTECT_DIR_CMD" 2>/dev/null) || {
+        >&2 echo "pyprotect module not found"
+        exit 1
+    }
+} 
 cd "$PYPROTECT_DIR"
 exec "$PYDOC_CMD" protected
