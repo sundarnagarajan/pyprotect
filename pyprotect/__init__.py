@@ -1,5 +1,9 @@
 import sys
 sys.dont_write_bytecode = True
+if sys.version_info.major == 2:
+    PY2 = True
+else:
+    PY2 = False
 import os
 module_dir = os.path.dirname(__file__)
 in_sys_path = (module_dir in sys.path)
@@ -17,19 +21,29 @@ except ImportError:
 # per-file-ignores =
 #     __init__.py: F401
 
-from protected import *   # noqa: F403
 __doc__ = protected.__doc__
+'''
+from protected import *   # noqa: F403
 '''
 # Hacking at modules to control what attributes are exposed is actively
 # supported by Guido. See:
 # http://mail.python.org/pipermail/python-ideas/2012-May/014969.html
 # But when we do this, it becomes difficult to see help(pyprotect)
-# You HAVE to use help_protected(pyprotect)
-# Otherwise everything works!
-protected = protected.private(p, frozen=True)
+# To make it developer-friendly, we need to override 'help' in
+# builtin module to point at protected.help_protected
+#
+# But STILL, pydoc(pyprotect) will not work !
+# This is still developer-unfriendly !!
+
+if PY2:
+    sys.modules['__builtin__'].help = protected.help_protected
+else:
+    sys.modules['builtins'].help = protected.help_protected
+protected = protected.private(protected, frozen=True)
 # __doc__ = getattr(protected, protected.attribute_protected()).help_str()
 sys.modules['pyprotect'] = protected
-'''
+
+
 del protected
 
 if not in_sys_path:
