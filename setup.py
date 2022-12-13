@@ -17,4 +17,5 @@ setup(
     version=version,
     packages=['pyprotect'],
     ext_modules=ext_modules,
+    scripts=['bin/help_pyprotect.sh'],
 )
