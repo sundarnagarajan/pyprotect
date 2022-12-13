@@ -1327,6 +1327,9 @@ cdef class Wrapped(object):
         if a == PROT_ATTR_NAME:
             return self.protected_attribute
         if a in overridden_always:
+            raise AttributeError(
+                "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
+            )
             return functools.partial(getattr(Wrapped, a), self)
 
         # PREVENT pickling - doesn't work even if methods are implemented,

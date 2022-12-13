@@ -47,10 +47,10 @@ always_frozen = frozenset([
 always_delegated = frozenset([
     '__doc__', '__hash__', '__weakref__',
 ])
+'''
 overridden_always = set((
     '__getattribute__', '__setattr__', '__delattr__',
 ))
-'''
 
 
 def get_pydoc(o):
@@ -293,6 +293,8 @@ class CheckPredictions:
         # All existing attributes are visible, except pickle_attributes
         for a in self.__o_readable:
             if a in pickle_attributes:
+                d['addl_hide'].add(a)
+            if a in overridden_always:
                 d['addl_hide'].add(a)
 
         # All attributes are writeable, unless frozen or 'o' is a module
