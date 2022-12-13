@@ -28,6 +28,8 @@ oldstyle_private_attr = re.compile(
     '^_[a-zA-Z][a-zA-Z0-9]*__[^_].*?[^_][_]{0,1}$'
 )
 unmangled_private_attr = re.compile('^__[^_].*?[^_][_]{0,1}$')
+mangled_private_attr_classname_regex = '[a-zA-Z][a-zA-Z0-9]*'
+mangled_private_attr_regex_fmt = '^_%s__[^_](.*?[^_]|)[_]{0,1}$'
 PROT_ATTR = attribute_protected()
 pickle_attributes = set([
     '__reduce__', '__reduce_ex__',
@@ -139,7 +141,18 @@ class CheckPredictions:
                 else:
                     self.cn = 'Unknown_OldStyleClass'
                     self.oldstyle_class = True
-        self.hidden_private_attr = re.compile('^_%s__.*?(?<!__)$' % (self.cn,))
+        if self.oldstyle_class:
+            self.hidden_private_attr = re.compile(
+                mangled_private_attr_regex_fmt % (
+                    mangled_private_attr_classname_regex,
+                )
+            )
+        else:
+            self.hidden_private_attr = re.compile(
+                mangled_private_attr_regex_fmt % (
+                    self.cn,
+                )
+            )
 
     def get_predictions(self):
         '''
@@ -309,9 +322,6 @@ class CheckPredictions:
         for a in self.__o_readable:
             if unmangled_private_attr.match(a):
                 d['addl_hide'].add(a)
-            if self.oldstyle_class:
-                if oldstyle_private_attr.match(a):
-                    d['addl_hide'].add(a)
             if self.hidden_private_attr.match(a):
                 d['addl_hide'].add(a)
 
