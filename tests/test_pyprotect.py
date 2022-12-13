@@ -3,6 +3,7 @@
 import sys
 sys.dont_write_bytecode = True
 from math import ceil, floor, trunc
+from functools import partial
 import unittest
 import warnings
 warnings.simplefilter("ignore")
@@ -21,6 +22,10 @@ from pyprotect import (
     iswrapped,
 )
 from testcases import gen_test_objects
+
+
+class MissingExceptionError(Exception):
+    pass
 
 
 class test_pyprotect(unittest.TestCase):
@@ -213,10 +218,6 @@ class test_pyprotect(unittest.TestCase):
         Mutates wrapped object. This TC uses use freeze - all
         operations should FAIL
         '''
-
-        class MissingExceptionError(Exception):
-            pass
-
         class CI(int):
             pass
 
@@ -325,14 +326,6 @@ class test_pyprotect(unittest.TestCase):
             assert(w == 0)
 
     def test_10_mutating_logical_ops_frozen(self):
-        '''
-        Mutates wrapped object. This TC uses use freeze - all
-        operations should FAIL
-        '''
-
-        class MissingExceptionError(Exception):
-            pass
-
         class CI(int):
             pass
 
@@ -369,10 +362,272 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
 
-    def test_12_mutating_containers(self):
-        pass
+    def test_12_containers(self):
+        l1 = [1, 2, 3]
+        l2 = [3, 4, 5]
+        s1 = set(l1)
+        s2 = set(l2)
+        d1 = {'a': 1, 'b': 2}
 
-    def test_13_help(self):
+        for op in (wrap, private, protect, freeze):
+            w = op(l1)
+            assert(list(w + l2) == [1, 2, 3, 3, 4, 5])
+            assert(w[1] == 2)
+            assert(w[1:] == [2, 3])
+            assert(w[:-1] == [1, 2])
+            assert(w[-2:] == [2, 3])
+
+            w = op(s1)
+            assert(w.union(s2) == s1.union(s2))
+            assert(w.intersection(s2) == s1.intersection(s2))
+            assert(w.symmetric_difference(s2) == s1.symmetric_difference(s2))
+            assert((w & s2) == (s1 & s2))
+            assert((w | s2) == (s1 | s2))
+            assert((w ^ s2) == (s1 ^ s2))
+            assert((set(w & s2)) == set(w.intersection(s2)))
+            assert(set(w | s2) == set(w.union(s2)))
+            assert(set(w ^ s2) == set(w.symmetric_difference(s2)))
+
+            w = op(d1)
+            assert(w['a'] == 1)
+
+            assert(
+                set(list(w.items())) == set([
+                    ('a', 1), ('b', 2),
+                ])
+            )
+
+    def test_13_mutating_containers(self):
+        l1 = [1, 2, 3]
+        l2 = [3, 4, 5]
+        s1 = set(l1)
+        s2 = set(l2)
+        d2 = {'b': 20, 'c': 3}
+
+        for op in (wrap, private, protect):
+            # Mutating operations
+            w = op([1, 2, 3])
+            w += l2
+            assert(w == [1, 2, 3, 3, 4, 5])
+
+            w = op([1, 2, 3])
+            del w[1]
+            assert(list(w) == [1, 3])
+
+            w = op([1, 2, 3])
+            w *= 3
+            assert(w == [1, 2, 3, 1, 2, 3, 1, 2, 3])
+
+            w = op([1, 2, 3])
+            # pop(ind) pops out item at pos -ind
+            w.pop(1)
+            assert(list(w) == [1, 3])
+
+            w = op([1, 2, 3])
+            w.remove(3)
+            assert(list(w) == [1, 2])
+
+            w = op([1, 2, 3])
+            w.reverse()
+            assert(w == [3, 2, 1])
+
+            w = op([1, 2, 3])
+            w.sort()
+            assert(w == [1, 2, 3])
+
+            w = op(set([1, 2, 3]))
+            w &= s2
+            assert(w == (s1 & s2))
+
+            w = op(set([1, 2, 3]))
+            w |= s2
+            assert(w == (s1 | s2))
+
+            w = op(set([1, 2, 3]))
+            w ^= s2
+
+            w = op({'a': 1, 'b': 2})
+            w.clear()
+            assert(w == {})
+
+            w = op({'a': 1, 'b': 2})
+            assert(w.pop('a') == 1)
+
+            w = op({'a': 1, 'b': 2})
+            w.update(d2)
+            assert(w == {'a': 1, 'b': 20, 'c': 3})
+
+            w = op({'a': 1, 'b': 2})
+            x = w.popitem()
+            # popitem is non-deterministic in PY2 (like dict order)
+            if PY2:
+                assert(len(x) == 2)
+            else:
+                assert(x == ('b', 2))
+
+            w = op({'a': 1, 'b': 2})
+            assert(w.setdefault('c', None) is None)
+
+            x = w.setdefault('d', 4)
+            assert(x == 4)
+            x = w.setdefault('d')
+            assert(x == 4)
+
+    def test_14_mutating_containers_frozen(self):
+        l1 = [1, 2, 3]
+        l2 = [3, 4, 5]
+        s1 = set(l1)
+        s2 = set(l2)
+        d2 = {'b': 20, 'c': 3}
+
+        ops = (
+            freeze,
+            partial(private, frozen=True),
+            partial(protect, frozen=True),
+        )
+        for op in ops:
+            # Mutating operations
+            w = op([1, 2, 3])
+            try:
+                w += l2
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                del w[1]
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w *= 3
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                # pop(ind) pops out item at pos -ind
+                w.pop(1)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.remove(3)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.reverse()
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.sort()
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            w = op(s1)
+            try:
+                w &= s2
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w |= s2
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w ^= s2
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            w = op({'a': 1, 'b': 2})
+            try:
+                w.clear()
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.pop('a')
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.update(d2)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.popitem()
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.setdefault('c', None)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.setdefault('d', 4)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.setdefault('d')
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+    def test_15_help(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 w = op(o)

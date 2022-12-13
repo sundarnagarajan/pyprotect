@@ -587,7 +587,7 @@ cdef set m_block = set([
     '__set__', '__delete__',
     # Type-specific mutating methods (containers)
     'add', 'append', 'clear', 'discard', 'popitem', 'insert', 'pop',
-    'remove', 'reverse', 'setdefault', 'sort',
+    'remove', 'reverse', 'setdefault', 'sort', 'update',
 ])
 #
 # m_compare, m_safe, and m_numeric are not USED anywhere
@@ -729,7 +729,7 @@ cdef get_immutables():
     basic_mutable_data_names = ['bytearray', 'dict', 'list']
     basic_immutable_data_names = [
         'bool', 'bytes', 'complex', 'float',
-        'frozenset', 'int', 'set', 'str', 'tuple', 'basestring', 'unichr',
+        'frozenset', 'int', 'str', 'tuple', 'basestring', 'unichr',
         'unicode', 'long'
     ]
 
@@ -1746,7 +1746,13 @@ cdef class Wrapped(object):
 
     # Mutating methods of containers
     def __setitem__(self, key, val):
-        if isinstance(self.pvt_o, CollectionsABC.MutableMapping):
+        if isinstance(
+            self.pvt_o,
+            (
+                CollectionsABC.MutableMapping,
+                CollectionsABC.MutableSequence,
+            )
+        ):
             if self.frozen:
                 raise frozen_error
         self.pvt_o.__setitem__(key, val)
@@ -1815,6 +1821,7 @@ cdef class Wrapped(object):
     # --------------------------------------------------------------------
     # Mutating methods of containers
     # --------------------------------------------------------------------
+
     def clear(self, *args, **kwargs):
         if self.frozen and isinstance(
             self.pvt_o,
@@ -2530,6 +2537,8 @@ cdef class Protected(Private):
         x = self.private_getattr(a)
         # Can always read PROT_ATTR_NAME, even with hide_private == True
         if a == PROT_ATTR_NAME:
+            return x
+        if a in m_block and hasattr(Wrapped, a):
             return x
         try:
             self.aclcheck(a=a, op='w')
