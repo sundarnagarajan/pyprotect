@@ -152,11 +152,6 @@ class test_pyprotect(unittest.TestCase):
                 assert((w1 / i3) == 3.363)
 
     def test_07_mutating_numeric_ops_int(self):
-        '''
-        Mutates wrapped object. This TC does not use freeze - all
-        operations should succeed
-        '''
-
         class CI(int):
             pass
 
@@ -183,11 +178,6 @@ class test_pyprotect(unittest.TestCase):
             assert(w1 == 10)
 
     def test_08_mutating_numeric_ops_float(self):
-        '''
-        Mutates wrapped object. This TC does not use freeze - all
-        operations should succeed
-        '''
-
         class CF(float):
             pass
 
@@ -213,11 +203,7 @@ class test_pyprotect(unittest.TestCase):
             w1 %= i2
             assert(w1 == 10)
 
-    def test_08_mutating_numeric_ops_int_frozen(self):
-        '''
-        Mutates wrapped object. This TC uses use freeze - all
-        operations should FAIL
-        '''
+    def test_09_mutating_numeric_ops_int_frozen(self):
         class CI(int):
             pass
 
@@ -276,7 +262,7 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
 
-    def test_09_logical_ops(self):
+    def test_10_logical_ops(self):
         class CI(int):
             pass
 
@@ -294,11 +280,7 @@ class test_pyprotect(unittest.TestCase):
             assert((n2 ^ w) == 255)
             assert((n1 ^ w) == 0)
 
-    def test_10_mutating_logical_ops(self):
-        '''
-        Mutates wrapped object. This TC does not use freeze - all
-        operations should succeed
-        '''
+    def test_11_mutating_logical_ops(self):
         class CI(int):
             pass
 
@@ -325,7 +307,7 @@ class test_pyprotect(unittest.TestCase):
             w ^= n1
             assert(w == 0)
 
-    def test_10_mutating_logical_ops_frozen(self):
+    def test_12_mutating_logical_ops_frozen(self):
         class CI(int):
             pass
 
@@ -362,7 +344,7 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
 
-    def test_12_containers(self):
+    def test_13_containers(self):
         l1 = [1, 2, 3]
         l2 = [3, 4, 5]
         s1 = set(l1)
@@ -397,7 +379,7 @@ class test_pyprotect(unittest.TestCase):
                 ])
             )
 
-    def test_13_mutating_containers(self):
+    def test_14_mutating_containers(self):
         l1 = [1, 2, 3]
         l2 = [3, 4, 5]
         s1 = set(l1)
@@ -473,7 +455,7 @@ class test_pyprotect(unittest.TestCase):
             x = w.setdefault('d')
             assert(x == 4)
 
-    def test_14_mutating_containers_frozen(self):
+    def test_15_mutating_containers_frozen(self):
         l1 = [1, 2, 3]
         l2 = [3, 4, 5]
         s1 = set(l1)
@@ -627,7 +609,7 @@ class test_pyprotect(unittest.TestCase):
             except:
                 pass
 
-    def test_15_help(self):
+    def test_16_help(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 w = op(o)
