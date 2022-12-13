@@ -24,9 +24,6 @@ from pyprotect import (
 )
 
 
-oldstyle_private_attr = re.compile(
-    '^_[a-zA-Z][a-zA-Z0-9]*__[^_].*?[^_][_]{0,1}$'
-)
 unmangled_private_attr = re.compile('^__[^_].*?[^_][_]{0,1}$')
 mangled_private_attr_classname_regex = '[a-zA-Z][a-zA-Z0-9]*'
 mangled_private_attr_regex_fmt = '^_%s__[^_](.*?[^_]|)[_]{0,1}$'
@@ -59,7 +56,7 @@ def get_pydoc(o):
     ).rstrip('\n') + '\n'
 
 
-def get_readable(o):
+def get_readable(o, refer=None):
     '''get_readable(o: object) -> set'''
     s = set()
     for a in dir(o):
@@ -79,10 +76,23 @@ def get_readable(o):
                     continue
         except:
             pass
+    # Try harder using refer and object.__getattribute__
+    if refer is not None:
+        for a in dir(refer):
+            try:
+                getattr(o, a)
+                s.add(a)
+            except:
+                continue
+            try:
+                object.__getattribute__(o, a)
+                s.add(a)
+            except:
+                continue
     return s
 
 
-def get_writeable(o):
+def get_writeable(o, refer=None):
     '''get_writeable(o: object) -> set'''
     r = get_readable(o)
     s = set()
@@ -92,6 +102,24 @@ def get_writeable(o):
             s.add(a)
         except:
             continue
+    # Try harder using refer and object.__setattr__, object.__delattr__
+    if refer is not None:
+        for a in dir(refer):
+            try:
+                setattr(o, a, getattr(o, a))
+                s.add(a)
+            except:
+                continue
+            try:
+                object.__setattr__(o, a, getattr(o, a))
+                s.add(a)
+            except:
+                continue
+            try:
+                object.__delattr__(o, a)
+                s.add(a)
+            except:
+                continue
     return s
 
 
@@ -186,8 +214,8 @@ class CheckPredictions:
         }
         d['o']['readable'] = self.__o_readable
         d['o']['writeable'] = get_writeable(self.__o)
-        d['w']['readable'] = get_readable(self.__w)
-        d['w']['writeable'] = get_writeable(self.__w)
+        d['w']['readable'] = get_readable(self.__w, refer=self.__o)
+        d['w']['writeable'] = get_writeable(self.__w, refer=self.__o)
         d['predictions'] = self.predict()
         return d
 
