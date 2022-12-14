@@ -154,9 +154,10 @@ class CheckPredictions:
         self.__w = w
         self.oldstyle_class = False
         self.__o_readable = get_readable(o)
-        # Note that predictions do not need to test writeability of 'o'
-        # get_writeable(self.__o) is only called in get_predictions()
-        # 'w' readability / writeability checked only in get_predictions()
+        # Notes:
+        #   - Predictions do not need to test writeability of 'o'
+        #   - get_writeable(self.__o) is only called in get_predictions()
+        #   - 'w' readability / writeability checked only in get_predictions()
         if type(o) is type:
             self.cn = o.__name__
         else:
@@ -319,6 +320,9 @@ class CheckPredictions:
             'addl_visible': set(),
         }
         # All existing attributes are visible, except pickle_attributes
+        # and overridden_always
+        # overridden_always are never visible, to prevent use of
+        # object.__{getattribute|setattr|delattr}__()
         for a in self.__o_readable:
             if a in pickle_attributes:
                 d['addl_hide'].add(a)
@@ -375,16 +379,16 @@ class CheckPredictions:
         rules = dict(getattr(self.__w, PROT_ATTR).rules)
         kwargs = rules.get('kwargs', {})
 
-        # Single '_' attrs are hidden based on hide_private
         for a in self.__o_readable:
+            # Single '_' attrs are hidden based on hide_private
             if bool(kwargs.get('hide_private', False)):
                 for a in self.__o_readable:
                     if a.startswith('_') and not a.endswith('_'):
                         d['addl_hide'].add(a)
+            # Attributes in 'hide' are hidden
             for a in kwargs.get('hide', []):
                 d['addl_hide'].add(a)
 
-        # Single '_' attributes are read-only
         # Anything in ro_method / ro_data / ro are read-only
         # UNLESS they are rw
         ro_method = bool(kwargs.get('ro_method', True))
