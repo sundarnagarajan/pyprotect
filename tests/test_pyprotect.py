@@ -15,6 +15,7 @@ from test_utils import (
     MultiWrap,
     get_pydoc,
     PROT_ATTR,
+    CheckPredictions,
 )
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
@@ -609,7 +610,181 @@ class test_pyprotect(unittest.TestCase):
             except:
                 pass
 
-    def test_16_help(self):
+    def test_16_private_vs_wrapped(self):
+        # In PY2, this is a 'new style class', and will behave just like
+        # classes in PY3 when wrapped
+        class NewStyleClassInPY2(object):
+            __pvt = 1
+            _ShouldBeVisible__abc = 2
+            _ShouldBeVisible__def_ = 3
+            _ro = 4
+            a = 5
+
+        # ---------- NewStyleClassInPY2 identical in PY2 | PY3 ---------------
+        # Test wrapping CLASS itself
+        o = NewStyleClassInPY2
+        w = wrap(o)
+        p = private(o)
+
+        cpw = CheckPredictions(o, w)
+        dw = cpw.get_predictions()
+
+        cpp = CheckPredictions(o, p)
+        dp = cpp.get_predictions()
+
+        # Run standard checks
+        cpw.check(dw)
+        cpp.check(dp)
+
+        # Check the Private-related predictions
+        s1 = dw['predictions']['addl_hide']
+        s2 = dp['predictions']['addl_hide']
+        self.assertSetEqual(
+            s2.difference(s1), set([
+                '_NewStyleClassInPY2__pvt'
+            ])
+        )
+        s1 = dw['predictions']['addl_ro']
+        s2 = dp['predictions']['addl_ro']
+        self.assertSetEqual(
+            s2.difference(s1), set([
+                '_ShouldBeVisible__abc',
+                # But NOT _ShouldBeVisible__def_ (ends in '_')
+                '_ro',
+            ])
+        )
+        # Now test wrapping INSTANCE of the class
+        o = NewStyleClassInPY2()
+        w = wrap(o)
+        p = private(o)
+
+        cpw = CheckPredictions(o, w)
+        dw = cpw.get_predictions()
+
+        cpp = CheckPredictions(o, p)
+        dp = cpp.get_predictions()
+
+        # Run standard checks
+        cpw.check(dw)
+        cpp.check(dp)
+
+        # Check the Private-related predictions
+        s1 = dw['predictions']['addl_hide']
+        s2 = dp['predictions']['addl_hide']
+        self.assertSetEqual(
+            s2.difference(s1), set([
+                '_NewStyleClassInPY2__pvt'
+            ])
+        )
+        s1 = dw['predictions']['addl_ro']
+        s2 = dp['predictions']['addl_ro']
+        self.assertSetEqual(
+            s2.difference(s1), set([
+                '_ShouldBeVisible__abc',
+                # But NOT _ShouldBeVisible__def_ (ends in '_')
+                '_ro',
+            ])
+        )
+
+    def test_17_private_vs_wrapped_py2_oldstyle(self):
+        # In PY3, this class behaves as usual when wrapped
+        # In PY2 INSTANCES of this class behave as usual
+        class OldStyleClassInPY2:
+            __pvt = 1
+            _ShouldBeVisible__abc = 2
+            _ShouldBeVisible__def_ = 3
+            _ro = 4
+            a = 5
+
+        # ---------- OldStyleClassInPY2 DIFFERENT in PY2 | PY3 ---------------
+        # Test wrapping CLASS itself
+        o = OldStyleClassInPY2
+        w = wrap(o)
+        p = private(o)
+
+        cpw = CheckPredictions(o, w)
+        dw = cpw.get_predictions()
+
+        cpp = CheckPredictions(o, p)
+        dp = cpp.get_predictions()
+
+        # Run standard checks
+        cpw.check(dw)
+        cpp.check(dp)
+
+        # Check the Private-related predictions
+        s1 = dw['predictions']['addl_hide']
+        s2 = dp['predictions']['addl_hide']
+        if PY2:
+            self.assertSetEqual(
+                s2.difference(s1), set([
+                    '_OldStyleClassInPY2__pvt',
+                    # Following 2 are additionally hidden in old-style CLASSES
+                    # (not INSTANCES of old-style classes) in PY2
+                    '_ShouldBeVisible__abc',
+                    '_ShouldBeVisible__def_',
+                ])
+            )
+        else:
+            self.assertSetEqual(
+                s2.difference(s1), set([
+                    '_OldStyleClassInPY2__pvt'
+                ])
+            )
+        s1 = dw['predictions']['addl_ro']
+        s2 = dp['predictions']['addl_ro']
+        if PY2:
+            self.assertSetEqual(
+                s2.difference(s1), set([
+                    '_ro',
+                ])
+            )
+        else:
+            self.assertSetEqual(
+                s2.difference(s1), set([
+                    '_ShouldBeVisible__abc',
+                    # But NOT _ShouldBeVisible__def_ (ends in '_')
+                    '_ro',
+                ])
+            )
+        # Now test wrapping INSTANCE of the class
+        # Behavior should be the SAME in PY2, PY3
+        o = OldStyleClassInPY2()
+        w = wrap(o)
+        p = private(o)
+
+        cpw = CheckPredictions(o, w)
+        dw = cpw.get_predictions()
+
+        cpp = CheckPredictions(o, p)
+        dp = cpp.get_predictions()
+
+        # Run standard checks
+        cpw.check(dw)
+        cpp.check(dp)
+
+        # Check the Private-related predictions
+        s1 = dw['predictions']['addl_hide']
+        s2 = dp['predictions']['addl_hide']
+        self.assertSetEqual(
+            s2.difference(s1), set([
+                '_OldStyleClassInPY2__pvt'
+            ])
+        )
+        s1 = dw['predictions']['addl_ro']
+        s2 = dp['predictions']['addl_ro']
+        self.assertSetEqual(
+            s2.difference(s1), set([
+                '_ShouldBeVisible__abc',
+                # But NOT _ShouldBeVisible__def_ (ends in '_')
+                '_ro',
+            ])
+        )
+
+    def test_18_protected_options(self):
+        pass
+
+    def test_19_help(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 w = op(o)

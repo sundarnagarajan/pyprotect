@@ -361,8 +361,10 @@ class CheckPredictions:
 
         # Single '_' attributes are read-only
         for a in self.__o_readable:
-            if a.startswith('_') and not a.endswith('_'):
-                d['addl_ro'].add(a)
+            # Hidden attributes are not read-only
+            if a not in d['addl_hide']:
+                if a.startswith('_') and not a.endswith('_'):
+                    d['addl_ro'].add(a)
         return d
 
     def predict_protect(self):
