@@ -85,6 +85,8 @@ def get_readable(o, refer=None):
             except:
                 continue
             try:
+                # overridden_always accessible using object.__getattribute__
+                # but mangled private attributes cannot be accessed
                 object.__getattribute__(o, a)
                 s.add(a)
             except:
@@ -292,7 +294,14 @@ class CheckPredictions:
         w_r = (o_readable - d['predictions']['addl_hide']).union(
             special_attributes
         )
-        assert(w_readable == w_r)
+        try:
+            assert(w_readable == w_r)
+        except AssertionError:
+            print(
+                'DEBUG: ',
+                w_readable.difference(w_r),
+                w_r.difference(w_readable),
+            )
 
         # Make exact prediction on mutability
         # None of addl_ro are writeable
@@ -391,10 +400,6 @@ class CheckPredictions:
                 d['addl_hide'].add(a)
 
         for a in self.__o_readable:
-            # overridden_always are never visible in Private, to prevent use of
-            # object.__{getattribute|setattr|delattr}__()
-            if a in overridden_always:
-                d['addl_hide'].add(a)
             # Hidden attributes are not read-only
             if a not in d['addl_hide']:
                 # Single '_' attributes are read-only

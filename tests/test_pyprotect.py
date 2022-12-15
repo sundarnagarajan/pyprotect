@@ -17,8 +17,8 @@ from test_utils import (
     PROT_ATTR,
     CheckPredictions,
     pickle_attributes,
-    overridden_always,
     always_delegated,
+    always_frozen,
 )
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
@@ -649,7 +649,6 @@ class test_pyprotect(unittest.TestCase):
                 set([
                     '_NewStyleClassInPY2__pvt',
                 ]),
-                overridden_always
             )
         )
         s1 = dw['predictions']['addl_ro']
@@ -685,7 +684,6 @@ class test_pyprotect(unittest.TestCase):
                 set([
                     '_NewStyleClassInPY2__pvt',
                 ]),
-                overridden_always
             )
         )
 
@@ -738,8 +736,6 @@ class test_pyprotect(unittest.TestCase):
                         '_ShouldBeVisible__abc',
                         '_ShouldBeVisible__def_',
                     ]),
-                    # TODO: Why not in PY2
-                    # overridden_always
                 )
             )
         else:
@@ -748,7 +744,6 @@ class test_pyprotect(unittest.TestCase):
                     set([
                         '_OldStyleClassInPY2__pvt',
                     ]),
-                    overridden_always,
                 )
             )
         s1 = dw['predictions']['addl_ro']
@@ -792,8 +787,6 @@ class test_pyprotect(unittest.TestCase):
                     set([
                         '_OldStyleClassInPY2__pvt',
                     ]),
-                    # TODO: Why not in PY2
-                    # overridden_always
                 )
             )
         else:
@@ -802,7 +795,6 @@ class test_pyprotect(unittest.TestCase):
                     set([
                         '_OldStyleClassInPY2__pvt',
                     ]),
-                    overridden_always,
                 )
             )
         s1 = dw['predictions']['addl_ro']
@@ -879,7 +871,6 @@ class test_pyprotect(unittest.TestCase):
             set().union(
                 d['props']['ro_attr'],
                 pickle_attributes,
-                overridden_always,
                 hp,
             ),
             dp['predictions']['addl_hide']
@@ -896,7 +887,6 @@ class test_pyprotect(unittest.TestCase):
         self.assertSetEqual(
             set().union(
                 pickle_attributes,
-                overridden_always,
                 hp,
                 set(d['props']['normal_attr']),
             ),
@@ -919,7 +909,6 @@ class test_pyprotect(unittest.TestCase):
         self.assertSetEqual(
             set().union(
                 pickle_attributes,
-                overridden_always,
                 hp,
                 set(d['props']['normal_attr']),
                 d['props']['ro_attr'],
@@ -941,6 +930,7 @@ class test_pyprotect(unittest.TestCase):
                 methods,
                 # special_attributes in 'addl_visible' and in 'addl_ro'
                 # TODO: Why not always_frozen?
+                # always_frozen,
             ),
             dp['predictions']['addl_ro']
         )
@@ -958,6 +948,7 @@ class test_pyprotect(unittest.TestCase):
                 attrs,
                 # special_attributes in 'addl_visible' and in 'addl_ro'
                 # TODO: Why not always_frozen?
+                # always_frozen,
             ),
             dp['predictions']['addl_ro']
         )
@@ -985,6 +976,8 @@ class test_pyprotect(unittest.TestCase):
                 # TODO: Why not always_frozen?
                 d['props']['normal_attr_ro'],
                 d['props']['dunder_inst_methods_ro'],
+                # TODO: Why not always_frozen?
+                # always_frozen,
             ),
             dp['predictions']['addl_ro']
         )
@@ -1014,6 +1007,7 @@ class test_pyprotect(unittest.TestCase):
                 d['props']['ro_attr'],
                 # special_attributes part of ro_data
                 # TODO: Why not always_frozen?
+                # always_frozen,
             ),
             dp['predictions']['addl_ro']
         )
@@ -1049,6 +1043,7 @@ class test_pyprotect(unittest.TestCase):
                 d['props']['ro_attr'],
                 # special_attributes part of ro_data
                 # TODO: Why not always_frozen?
+                # always_frozen,
             ).difference(set().union(
                 d['props']['normal_attr_rw_over'],
                 d['props']['dunder_inst_methods_rw_over'],

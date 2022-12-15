@@ -1331,14 +1331,6 @@ cdef class Wrapped(object):
         # protected_attribute
         if a == PROT_ATTR_NAME:
             return self.protected_attribute
-        # Next 2 lines are CRITICAL to avoid access through
-        # object.__getattribute__, object.__setattr__, object.__delattr__
-        '''
-        if a in overridden_always:
-            raise AttributeError(
-                "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
-            )
-        '''
         if a in overridden_always:
             return functools.partial(getattr(Wrapped, a), self)
 
@@ -2258,14 +2250,10 @@ cdef class Private(Wrapped):
         # cannot access any unmangled double '_' attributes
         if not self.visible(a):
             raise AttributeError(
-                "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
+                "Object Private('%s') has no attribute '%s'" % (self.cn, a)
             )
-        # Next 2 lines are CRITICAL to avoid access through
-        # object.__getattribute__, object.__setattr__, object.__delattr__
         if a in overridden_always:
-            raise AttributeError(
-                "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
-            )
+            return functools.partial(getattr(Private, a), self)
 
         if a in always_frozen:
             x = getattr(self.pvt_o, a)
@@ -2288,7 +2276,7 @@ cdef class Private(Wrapped):
         nodel_msg = 'Cannot delete attribute: %s.%s' % (self.cn, str(a))
         if not hasattr(self.pvt_o, a):
             raise AttributeError(
-                "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
+                "Object Private('%s') has no attribute '%s'" % (self.cn, a)
             )
         raise ProtectionError(nodel_msg)
 
@@ -2542,7 +2530,7 @@ cdef class Protected(Private):
         if op == 'r':
             if not self.visible(a):
                 raise AttributeError(
-                    "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
+                    "Object Protected('%s') has no attribute '%s'" % (self.cn, a)
                 )
             return     # OK
         elif op == 'w':
