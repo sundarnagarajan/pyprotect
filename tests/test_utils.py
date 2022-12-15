@@ -21,33 +21,31 @@ from pyprotect import (
     isfrozen,
     isimmutable,
     wrap, freeze, private, protect,
+    never_writeable,
+    never_writeable_private,
+    hidden_pickle_attributes,
+    always_delegated_attributes,
 )
 
 
-unmangled_private_attr = re.compile('^__[^_].*?[^_][_]{0,1}$')
 mangled_private_attr_classname_regex = '[a-zA-Z][a-zA-Z0-9]*'
-mangled_private_attr_regex_fmt = '^_%s__[^_](.*?[^_]|)[_]{0,1}$'
+unmangled_private_attr_str = '__[^_](.*?[^_]|)[_]{0,1}$'
+unmangled_private_attr = re.compile('^' + unmangled_private_attr_str)
+mangled_private_attr_regex_fmt = '^_%%s%s' % (unmangled_private_attr_str,)
 PROT_ATTR = attribute_protected()
-pickle_attributes = set([
-    '__reduce__', '__reduce_ex__',
-])
 special_attributes = set((
     PROT_ATTR,
 ))
+# Used (only) in predict_protect()
+always_delegated = set(always_delegated_attributes())
+always_delegated.remove('__hash__')
+pickle_attributes = hidden_pickle_attributes()
+# Used (only) in predict_wrap()
+overridden_always = never_writeable()
 # Used (only) in CheckPredictions.check()
-always_frozen = frozenset([
-    '__dict__', '__slots__', '__class__',
-    '__module__',
-])
-# Used (only) in predict_wrap()
-always_delegated = frozenset([
-    '__doc__',
-    '__weakref__',
-])
-# Used (only) in predict_wrap()
-overridden_always = set((
-    '__getattribute__', '__setattr__', '__delattr__',
-))
+always_frozen = set().union(
+    never_writeable_private()
+).difference(overridden_always)
 
 
 def get_pydoc(o):
@@ -286,7 +284,7 @@ class CheckPredictions:
         if isfrozen(self.__w):
             assert(w_writeable == set())
 
-        # EXACTLY and ONLY one extra attribute is added
+        # EXACTLY ONE and ONLY one extra attribute is added
         assert(d['predictions']['addl_visible'] == special_attributes)
 
         # Make exact prediction on visibility
@@ -294,14 +292,7 @@ class CheckPredictions:
         w_r = (o_readable - d['predictions']['addl_hide']).union(
             special_attributes
         )
-        try:
-            assert(w_readable == w_r)
-        except AssertionError:
-            print(
-                'DEBUG: ',
-                w_readable.difference(w_r),
-                w_r.difference(w_readable),
-            )
+        assert(w_readable == w_r)
 
         # Make exact prediction on mutability
         # None of addl_ro are writeable
@@ -334,7 +325,9 @@ class CheckPredictions:
             for a in w_readable:
                 x = getattr(self.__w, a)
                 if a in always_frozen:
-                    assert(isfrozen(x) or isimmutable(x))
+                    assert(
+                        isfrozen(x) or isimmutable(x)
+                    )
             for a in always_frozen:
                 assert(a not in w_writeable)
 
@@ -467,7 +460,7 @@ class CheckPredictions:
                 a not in self.__o_ro_props
             ):
                 d['addl_ro'].add(a)
-            # always_delegated are delegate without control so
+            # always_delegated are delegated without control so
             # they cannot be in addl_ro
             d['addl_ro'] = d['addl_ro'].difference(always_delegated)
         return d
