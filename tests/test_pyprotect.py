@@ -653,12 +653,13 @@ class test_pyprotect(unittest.TestCase):
         )
         s1 = dw['predictions']['addl_ro']
         s2 = dp['predictions']['addl_ro']
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         self.assertSetEqual(
             s2.difference(s1), set([
                 '_ShouldBeVisible__abc',
                 # But NOT _ShouldBeVisible__def_ (ends in '_')
                 '_ro',
-            ])
+            ]).union(frozen_present)
         )
         # Now test wrapping INSTANCE of the class
         o = NewStyleClassInPY2()
@@ -689,12 +690,13 @@ class test_pyprotect(unittest.TestCase):
 
         s1 = dw['predictions']['addl_ro']
         s2 = dp['predictions']['addl_ro']
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         self.assertSetEqual(
             s2.difference(s1), set([
                 '_ShouldBeVisible__abc',
                 # But NOT _ShouldBeVisible__def_ (ends in '_')
                 '_ro',
-            ])
+            ]).union(frozen_present)
         )
 
     def test_17_private_vs_wrapped_py2_oldstyle(self):
@@ -748,11 +750,12 @@ class test_pyprotect(unittest.TestCase):
             )
         s1 = dw['predictions']['addl_ro']
         s2 = dp['predictions']['addl_ro']
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         if PY2:
             self.assertSetEqual(
                 s2.difference(s1), set([
                     '_ro',
-                ])
+                ]).union(frozen_present)
             )
         else:
             self.assertSetEqual(
@@ -760,7 +763,7 @@ class test_pyprotect(unittest.TestCase):
                     '_ShouldBeVisible__abc',
                     # But NOT _ShouldBeVisible__def_ (ends in '_')
                     '_ro',
-                ])
+                ]).union(frozen_present)
             )
         # Now test wrapping INSTANCE of the class
         # Behavior should be the SAME in PY2, PY3
@@ -799,12 +802,13 @@ class test_pyprotect(unittest.TestCase):
             )
         s1 = dw['predictions']['addl_ro']
         s2 = dp['predictions']['addl_ro']
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         self.assertSetEqual(
             s2.difference(s1), set([
                 '_ShouldBeVisible__abc',
                 # But NOT _ShouldBeVisible__def_ (ends in '_')
                 '_ro',
-            ])
+            ]).union(frozen_present)
         )
 
     def test_18_protected_options(self):
@@ -924,13 +928,13 @@ class test_pyprotect(unittest.TestCase):
         # Run standard checks
         cp.check(dp)
 
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         self.assertSetEqual(
             set().union(
                 d['props']['ro_attr'],
                 methods,
                 # special_attributes in 'addl_visible' and in 'addl_ro'
-                # TODO: Why not always_frozen?
-                # always_frozen,
+                frozen_present,
             ),
             dp['predictions']['addl_ro']
         )
@@ -942,13 +946,13 @@ class test_pyprotect(unittest.TestCase):
         # Run standard checks
         cp.check(dp)
 
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         self.assertSetEqual(
             set().union(
                 d['props']['ro_attr'],
                 attrs,
                 # special_attributes in 'addl_visible' and in 'addl_ro'
-                # TODO: Why not always_frozen?
-                # always_frozen,
+                frozen_present,
             ),
             dp['predictions']['addl_ro']
         )
@@ -969,15 +973,14 @@ class test_pyprotect(unittest.TestCase):
         # Run standard checks
         cp.check(dp)
 
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         self.assertSetEqual(
             set().union(
                 d['props']['ro_attr'],
                 # special_attributes in 'addl_visible' and in 'addl_ro'
-                # TODO: Why not always_frozen?
                 d['props']['normal_attr_ro'],
                 d['props']['dunder_inst_methods_ro'],
-                # TODO: Why not always_frozen?
-                # always_frozen,
+                frozen_present,
             ),
             dp['predictions']['addl_ro']
         )
@@ -998,6 +1001,7 @@ class test_pyprotect(unittest.TestCase):
         # Run standard checks
         cp.check(dp)
 
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         self.assertSetEqual(
             set().union(
                 methods,
@@ -1006,8 +1010,7 @@ class test_pyprotect(unittest.TestCase):
                 d['props']['dunder_inst_methods_ro'],
                 d['props']['ro_attr'],
                 # special_attributes part of ro_data
-                # TODO: Why not always_frozen?
-                # always_frozen,
+                frozen_present,
             ),
             dp['predictions']['addl_ro']
         )
@@ -1034,6 +1037,7 @@ class test_pyprotect(unittest.TestCase):
         # Run standard checks
         cp.check(dp)
 
+        frozen_present = dp['w']['readable'].intersection(always_frozen)
         self.assertSetEqual(
             set().union(
                 methods,
@@ -1042,8 +1046,7 @@ class test_pyprotect(unittest.TestCase):
                 d['props']['dunder_inst_methods_ro'],
                 d['props']['ro_attr'],
                 # special_attributes part of ro_data
-                # TODO: Why not always_frozen?
-                # always_frozen,
+                frozen_present,
             ).difference(set().union(
                 d['props']['normal_attr_rw_over'],
                 d['props']['dunder_inst_methods_rw_over'],

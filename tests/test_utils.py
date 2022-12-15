@@ -335,6 +335,8 @@ class CheckPredictions:
                 x = getattr(self.__w, a)
                 if a in always_frozen:
                     assert(isfrozen(x) or isimmutable(x))
+            for a in always_frozen:
+                assert(a not in w_writeable)
 
     def predict(self):
         '''
@@ -404,6 +406,8 @@ class CheckPredictions:
             if a not in d['addl_hide']:
                 # Single '_' attributes are read-only
                 if a.startswith('_') and not a.endswith('_'):
+                    d['addl_ro'].add(a)
+                if a in always_frozen:
                     d['addl_ro'].add(a)
         return d
 
