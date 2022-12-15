@@ -674,16 +674,11 @@ cdef set m_safe = set([
     # Returns tuple of strings (immutable) - pass to wrapped
     '__match_args__',
 ])
-# Methods which may be mutating depending on type
-cdef dict m_block_d =  {
-}
 # These attributes of FunctionType are writable only in PY2
-# TODO: Make such objects read-only in Private/Protected
-if PY2:
-    m_block_d[types.FunctionType] = set([
-        '__doc__', '__name__', '__module__',
-        '__defaults__', '__code__', '__dict__',
-    ])
+py2_function_attrs_rw = frozenset([
+    '__doc__', '__name__', '__module__',
+    '__defaults__', '__code__', '__dict__',
+])
 # ------------------------------------------------------------------------
 # End of globals related to special methods
 # ------------------------------------------------------------------------
@@ -2268,6 +2263,11 @@ cdef class Private(Wrapped):
             return False
         if a in always_frozen:
             return False
+        # These attributes of FunctionType are writable only in PY2
+        # Make such objects read-only in Private/Protected
+        if PY2 and isinstance(self.pvt_o, types.FunctionType):
+            if a in py2_function_attrs_rw:
+                return False
         return True
 
     cdef visible(self, a):
