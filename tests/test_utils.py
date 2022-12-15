@@ -39,12 +39,12 @@ always_frozen = frozenset([
     '__dict__', '__slots__', '__class__',
     '__module__',
 ])
-# Following are not used (yet)
-'''
+# Used (only) in predict_wrap()
 always_delegated = frozenset([
-    '__doc__', '__hash__', '__weakref__',
+    '__doc__',
+    '__weakref__',
 ])
-'''
+# Used (only) in predict_wrap()
 overridden_always = set((
     '__getattribute__', '__setattr__', '__delattr__',
 ))
@@ -129,6 +129,34 @@ def check_predictions(o, w):
     cp.check(d)
 
 
+def ro_props(o):
+    '''ro_props(o: object) -> set(str)'''
+    if not isinstance(o, type):
+        o = type(o)
+    r = get_readable(o)
+    s = set()
+    for a in r:
+        x = getattr(o, a)
+        if isinstance(x, property):
+            if x.fset is None:
+                s.add(a)
+    return s
+
+
+def rw_props(o):
+    '''rw_props(o: object) -> set(str)'''
+    if not isinstance(o, type):
+        o = type(o)
+    r = get_readable(o)
+    s = set()
+    for a in r:
+        x = getattr(o, a)
+        if isinstance(x, property):
+            if x.fset is not None:
+                s.add(a)
+    return s
+
+
 class CheckPredictions:
     def __init__(self, o, w):
         '''
@@ -154,6 +182,8 @@ class CheckPredictions:
         self.__w = w
         self.oldstyle_class = False
         self.__o_readable = get_readable(o)
+        self.__o_ro_props = ro_props(self.__o)
+        self.__o_rw_props = rw_props(self.__o)
         # Notes:
         #   - Predictions do not need to test writeability of 'o'
         #   - get_writeable(self.__o) is only called in get_predictions()
@@ -189,6 +219,8 @@ class CheckPredictions:
             o: dict
                 readable: set
                 writeable: set
+                ro_props: set
+                rw_props: set
             w: dict
                 readable: set
                 writeable: set
@@ -215,6 +247,8 @@ class CheckPredictions:
         }
         d['o']['readable'] = self.__o_readable
         d['o']['writeable'] = get_writeable(self.__o)
+        d['o']['ro_props'] = self.__o_ro_props
+        d['o']['rw_props'] = self.__o_rw_props
         d['w']['readable'] = get_readable(self.__w, refer=self.__o)
         d['w']['writeable'] = get_writeable(self.__w, refer=self.__o)
         d['predictions'] = self.predict()
@@ -226,6 +260,8 @@ class CheckPredictions:
             o: dict
                 readable: set
                 writeable: set
+                ro_props: set
+                rw_props: set
             w: dict
                 readable: set
                 writeable: set
@@ -405,10 +441,27 @@ class CheckPredictions:
                     d['addl_ro'].add(a)
             else:
                 # ro_data
-                if ro_data and a not in rw:
+                if (
+                    ro_data and
+                    (
+                        a not in rw and
+                        a not in self.__o_rw_props
+                    ) and
+                    a not in self.__o_ro_props
+                ):
                     d['addl_ro'].add(a)
-            if a in ro and a not in rw:
+            if (
+                a in ro and
+                (
+                    a not in rw and
+                    a not in self.__o_rw_props
+                ) and
+                a not in self.__o_ro_props
+            ):
                 d['addl_ro'].add(a)
+            # always_delegated are delegate without control so
+            # they cannot be in addl_ro
+            d['addl_ro'] = d['addl_ro'].difference(always_delegated)
         return d
 
 
