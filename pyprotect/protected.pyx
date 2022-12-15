@@ -497,6 +497,36 @@ def protect(
 # Other python-accesssible attributes
 # ------------------------------------------------------------------------
 
+def never_writeable():
+    '''
+    never_writeable() -> set(str): Attributes that are never writeable
+    in object 'o' if iswrapped(o)
+    '''
+    return overridden_always
+
+def never_writeable_private():
+    '''
+    never_writeable_private() -> set(str): Attributes that are never
+    writeable in object 'o' if isprivate(o)
+    '''
+    return frozenset(set().union(
+        overridden_always,
+        always_frozen
+    ))
+
+def hidden_pickle_attributes():
+    '''
+    hidden_pickle_attributes() -> set(str): Attributes that are never
+    visible in object 'o' if iswrapped(o) - to disallow pickling
+    '''
+    return pickle_attributes
+
+def always_delegated_attributes():
+    '''
+    always_delegated_attributes() -> set(str): Attributes that are
+    always delegated to wrapped object
+    '''
+    return always_delegated
 
 def immutable_builtin_attributes():
     '''
@@ -509,7 +539,8 @@ __all__ = [
     'isfrozen', 'isimmutable', 'isinstance_protected', 'isprivate',
     'isprotected', 'isreadonly', 'iswrapped', 'private', 'protect', 'wrap',
     'help_protected', 'attribute_protected',
-    '__file__',
+    '__file__', 'never_writeable', 'never_writeable_private',
+    'hidden_pickle_attributes', 'always_delegated_attributes',
 ]
 
 
@@ -549,7 +580,9 @@ cdef object special_attributes = frozenset([
     PROT_ATTR_NAME,
 ])
 cdef object always_delegated = frozenset([
-    '__doc__', '__hash__', '__weakref__',
+    '__doc__',
+    '__hash__',
+    '__weakref__',
     '__package__', 
 ])
 cdef object always_frozen = frozenset([
