@@ -556,7 +556,7 @@ def __dir__():
 cdef frozenset immutable_types_set
 cdef frozenset builtins_ids
 cdef frozenset builtin_module_immutable_attributes
-# The module only uses PROT_ATTR_NAME, never '_protected_____' 
+# The module only uses PROT_ATTR_NAME, never '_Protected_____' 
 # PROT_ATTR_NAME is set ONLY in get_protected_attr_name()
 cdef str PROT_ATTR_NAME = get_protected_attr_name()
 cdef Exception frozen_error = ProtectionError('Object is read-only')
@@ -571,6 +571,7 @@ from cpython.object cimport (
 )
 cdef object overridden_always = frozenset([
     '__getattr__', '__getattribute__', '__delattr__', '__setattr__',
+    '__hash__',
 ])
 cdef object pickle_attributes = frozenset([
     '__reduce__', '__reduce_ex__',
@@ -581,7 +582,6 @@ cdef object special_attributes = frozenset([
 ])
 cdef object always_delegated = frozenset([
     '__doc__',
-    '__hash__',
     '__weakref__',
     '__package__', 
 ])

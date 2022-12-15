@@ -38,7 +38,6 @@ special_attributes = set((
 ))
 # Used (only) in predict_protect()
 always_delegated = set(always_delegated_attributes())
-always_delegated.remove('__hash__')
 pickle_attributes = hidden_pickle_attributes()
 # Used (only) in predict_wrap()
 overridden_always = never_writeable()
