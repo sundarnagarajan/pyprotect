@@ -16,6 +16,9 @@ from test_utils import (
     get_pydoc,
     PROT_ATTR,
     CheckPredictions,
+    pickle_attributes,
+    overridden_always,
+    always_delegated,
 )
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
@@ -23,6 +26,7 @@ from pyprotect import (
     iswrapped,
 )
 from testcases import gen_test_objects
+from cls_gen import generate
 
 
 class MissingExceptionError(Exception):
@@ -782,7 +786,245 @@ class test_pyprotect(unittest.TestCase):
         )
 
     def test_18_protected_options(self):
-        pass
+        d = generate(obj_derived=True, nested=False)
+        cls = d['class']
+        o = cls()
+
+        '''
+        Parameters to test:
+            - hide_private
+            - hide
+            - ro_data
+            - ro_method
+            - ro
+            - rw
+        '''
+        #  --------------- protect equivalent to private ---------------
+        p1 = private(o)
+        p2 = protect(o, ro_method=False)
+        cp1 = CheckPredictions(o, p1)
+        cp2 = CheckPredictions(o, p2)
+        dp1 = cp1.get_predictions()
+        dp2 = cp2.get_predictions()
+        # hp: hidden private attr
+        hp = [x for x in d['props']['pvt_attr']][0]
+        hp = hp.replace('__', '_%s__' % d['class'].__name__)
+        hp = set([hp])
+        methods = set()
+        attrs = set()
+        for a in dir(o):
+            if hasattr(cls, a):
+                x = getattr(cls, a)
+                if isinstance(x, property):
+                    continue
+            if callable(getattr(o, a)):
+                methods.add(a)
+            else:
+                if a in always_delegated:
+                    continue
+                attrs.add(a)
+
+        # Run standard checks
+        cp1.check(dp1)
+        cp2.check(dp2)
+
+        self.assertSetEqual(
+            dp1['predictions']['addl_hide'],
+            dp2['predictions']['addl_hide'],
+        )
+        self.assertSetEqual(
+            dp1['predictions']['addl_ro'],
+            dp2['predictions']['addl_ro'],
+        )
+
+        #  --------------- hide_private ---------------
+        p = protect(o, hide_private=True, ro_method=False)
+        cp = CheckPredictions(o, p)
+        dp = cp.get_predictions()
+
+        # Run standard checks
+        cp.check(dp)
+
+        self.assertSetEqual(
+            set().union(
+                d['props']['ro_attr'],
+                pickle_attributes,
+                overridden_always,
+                hp,
+            ),
+            dp['predictions']['addl_hide']
+        )
+
+        #  --------------- hide only ------------------
+        p = protect(o, ro_method=False, hide=list(d['props']['normal_attr']))
+        cp = CheckPredictions(o, p)
+        dp = cp.get_predictions()
+
+        # Run standard checks
+        cp.check(dp)
+
+        self.assertSetEqual(
+            set().union(
+                pickle_attributes,
+                overridden_always,
+                hp,
+                set(d['props']['normal_attr']),
+            ),
+            dp['predictions']['addl_hide']
+        )
+
+        #  --------------- hide_private + hide --------
+        p = protect(
+            o,
+            ro_method=False,
+            hide_private=True,
+            hide=list(d['props']['normal_attr'])
+        )
+        cp = CheckPredictions(o, p)
+        dp = cp.get_predictions()
+
+        # Run standard checks
+        cp.check(dp)
+
+        self.assertSetEqual(
+            set().union(
+                pickle_attributes,
+                overridden_always,
+                hp,
+                set(d['props']['normal_attr']),
+                d['props']['ro_attr'],
+            ),
+            dp['predictions']['addl_hide']
+        )
+
+        #  --------------- ro_method only -------------
+        p = protect(o, ro_method=True)
+        cp = CheckPredictions(o, p)
+        dp = cp.get_predictions()
+
+        # Run standard checks
+        cp.check(dp)
+
+        self.assertSetEqual(
+            set().union(
+                d['props']['ro_attr'],
+                methods,
+                # Why not special_attributes?
+                # Why not always_frozen?
+            ),
+            dp['predictions']['addl_ro']
+        )
+        #  --------------- ro_data only ---------------
+        p = protect(o, ro_method=False, ro_data=True)
+        cp = CheckPredictions(o, p)
+        dp = cp.get_predictions()
+
+        # Run standard checks
+        cp.check(dp)
+
+        self.assertSetEqual(
+            set().union(
+                d['props']['ro_attr'],
+                attrs,
+                # Why not special_attributes?
+                # Why not always_frozen?
+            ),
+            dp['predictions']['addl_ro']
+        )
+
+        #  --------------- ro only --------------------
+        p = protect(
+            o, ro_method=False, ro_data=False,
+            ro=list(
+                set().union(
+                    d['props']['normal_attr_ro'],
+                    d['props']['dunder_inst_methods_ro'],
+                )
+            )
+        )
+        cp = CheckPredictions(o, p)
+        dp = cp.get_predictions()
+
+        # Run standard checks
+        cp.check(dp)
+
+        self.assertSetEqual(
+            set().union(
+                d['props']['ro_attr'],
+                # Why not special_attributes?
+                # Why not always_frozen?
+                d['props']['normal_attr_ro'],
+                d['props']['dunder_inst_methods_ro'],
+            ),
+            dp['predictions']['addl_ro']
+        )
+
+        #  ---------- ro_data, ro_method, ro ----------
+        p = protect(
+            o, ro_method=True, ro_data=True,
+            ro=list(
+                set().union(
+                    d['props']['normal_attr_ro'],
+                    d['props']['dunder_inst_methods_ro'],
+                )
+            )
+        )
+        cp = CheckPredictions(o, p)
+        dp = cp.get_predictions()
+
+        # Run standard checks
+        cp.check(dp)
+
+        self.assertSetEqual(
+            set().union(
+                methods,
+                attrs,
+                d['props']['normal_attr_ro'],
+                d['props']['dunder_inst_methods_ro'],
+                d['props']['ro_attr'],
+                # special_attributes part of ro_data
+                # Why not always_frozen?
+            ),
+            dp['predictions']['addl_ro']
+        )
+
+        #  ---------- ro_data, ro_method, ro PLUS rw ----------
+        p = protect(
+            o, ro_method=True, ro_data=True,
+            ro=list(
+                set().union(
+                    d['props']['normal_attr_ro'],
+                    d['props']['dunder_inst_methods_ro'],
+                )
+            ),
+            rw=list(
+                set().union(
+                    d['props']['normal_attr_rw_over'],
+                    d['props']['dunder_inst_methods_rw_over'],
+                )
+            )
+        )
+        cp = CheckPredictions(o, p)
+        dp = cp.get_predictions()
+
+        # Run standard checks
+        cp.check(dp)
+
+        self.assertSetEqual(
+            set().union(
+                methods,
+                attrs,
+                d['props']['normal_attr_ro'],
+                d['props']['dunder_inst_methods_ro'],
+                d['props']['ro_attr'],
+                # special_attributes part of ro_data
+                # Why not always_frozen?
+            ).difference(set().union(
+                d['props']['normal_attr_rw_over'],
+                d['props']['dunder_inst_methods_rw_over'],
+            )),
+            dp['predictions']['addl_ro']
+        )
 
     def test_19_help(self):
         for o in gen_test_objects():
