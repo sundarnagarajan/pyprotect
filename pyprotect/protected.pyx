@@ -575,7 +575,9 @@ cdef object mangled_private_attr_regex_fmt = '^_%s__[^_](.*?[^_]|)[_]{0,1}$'
 # ------------------------------------------------------------------------
 # From: https://docs.python.org/3/reference/datamodel.html
 
-# m_block is used (only) in Wrapped.__getatribute__
+# Members of m_safe, m_numeric, m_block are implemented in Wrapped
+
+# m_block used in Wrapped.wrapped_getattr and Protected.protected_getattr
 cdef set m_block = set([
     # If MutableMapping:
     '__setitem__', '__delitem__',
@@ -590,8 +592,6 @@ cdef set m_block = set([
     'remove', 'reverse', 'setdefault', 'sort', 'update',
 ])
 #
-# m_compare, m_safe, and m_numeric are not USED anywhere
-# Members of m_safe, m_numeric, m_block are implemented in Wrapped
 
 cdef set m_numeric = set([
     # Emulating numeric types - return immutable
@@ -607,6 +607,8 @@ cdef set m_numeric = set([
     '__complex__', '__int__', '__float__', '__index__',
     '__round__', '__trunc__', '__floor__', '__ceil__',
 ])
+
+# m_compare not used anywhere
 cdef set m_compare = set([
     # Comparisons - non-mutating, returning immutable bool
     # These are automatically implemented by Cython because we
@@ -615,7 +617,9 @@ cdef set m_compare = set([
     # Python2 only - returns negative int / 0 / positive int (immutable)
     '__cmp__',
 ])
-# These definitely do not mutate. If present, pass to wrapped
+
+# m_safe not used anywhere
+# m_safe definitely do not mutate. If present, pass to wrapped
 cdef set m_safe = set([
     # Representations - return immutable
     '__format__',
@@ -641,6 +645,7 @@ cdef set m_safe = set([
 cdef dict m_block_d =  {
 }
 # These attributes of FunctionType are writable only in PY2
+# TODO: Make such objects read-only in Private/Protected
 if PY2:
     m_block_d[types.FunctionType] = set([
         '__doc__', '__name__', '__module__',
@@ -1328,10 +1333,14 @@ cdef class Wrapped(object):
             return self.protected_attribute
         # Next 2 lines are CRITICAL to avoid access through
         # object.__getattribute__, object.__setattr__, object.__delattr__
+        '''
         if a in overridden_always:
             raise AttributeError(
                 "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
             )
+        '''
+        if a in overridden_always:
+            return functools.partial(getattr(Wrapped, a), self)
 
         # PREVENT pickling - doesn't work even if methods are implemented,
         if a in pickle_attributes:
@@ -1342,7 +1351,7 @@ cdef class Wrapped(object):
             return delegated
 
         # Container mutating methods - implemented and selectively blocked
-        if a in m_block:
+        if a in m_block and hasattr(Wrapped, a):
             return functools.partial(getattr(Wrapped, a), self)
         # Any non-method or missing attribute or special callable method
         # that is not delegated or blocked
@@ -2251,6 +2260,13 @@ cdef class Private(Wrapped):
             raise AttributeError(
                 "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
             )
+        # Next 2 lines are CRITICAL to avoid access through
+        # object.__getattribute__, object.__setattr__, object.__delattr__
+        if a in overridden_always:
+            raise AttributeError(
+                "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
+            )
+
         if a in always_frozen:
             x = getattr(self.pvt_o, a)
             if a == '__dict__':

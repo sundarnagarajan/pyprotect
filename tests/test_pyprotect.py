@@ -644,9 +644,13 @@ class test_pyprotect(unittest.TestCase):
         s1 = dw['predictions']['addl_hide']
         s2 = dp['predictions']['addl_hide']
         self.assertSetEqual(
-            s2.difference(s1), set([
-                '_NewStyleClassInPY2__pvt'
-            ])
+            s2.difference(s1),
+            set().union(
+                set([
+                    '_NewStyleClassInPY2__pvt',
+                ]),
+                overridden_always
+            )
         )
         s1 = dw['predictions']['addl_ro']
         s2 = dp['predictions']['addl_ro']
@@ -676,10 +680,15 @@ class test_pyprotect(unittest.TestCase):
         s1 = dw['predictions']['addl_hide']
         s2 = dp['predictions']['addl_hide']
         self.assertSetEqual(
-            s2.difference(s1), set([
-                '_NewStyleClassInPY2__pvt'
-            ])
+            s2.difference(s1),
+            set().union(
+                set([
+                    '_NewStyleClassInPY2__pvt',
+                ]),
+                overridden_always
+            )
         )
+
         s1 = dw['predictions']['addl_ro']
         s2 = dp['predictions']['addl_ro']
         self.assertSetEqual(
@@ -721,19 +730,26 @@ class test_pyprotect(unittest.TestCase):
         s2 = dp['predictions']['addl_hide']
         if PY2:
             self.assertSetEqual(
-                s2.difference(s1), set([
-                    '_OldStyleClassInPY2__pvt',
-                    # Following 2 are additionally hidden in old-style CLASSES
-                    # (not INSTANCES of old-style classes) in PY2
-                    '_ShouldBeVisible__abc',
-                    '_ShouldBeVisible__def_',
-                ])
+                s2.difference(s1), set().union(
+                    set([
+                        '_OldStyleClassInPY2__pvt',
+                        # Following additionally hidden in old-style CLASSES
+                        # (not INSTANCES of old-style classes) in PY2
+                        '_ShouldBeVisible__abc',
+                        '_ShouldBeVisible__def_',
+                    ]),
+                    # TODO: Why not in PY2
+                    # overridden_always
+                )
             )
         else:
             self.assertSetEqual(
-                s2.difference(s1), set([
-                    '_OldStyleClassInPY2__pvt'
-                ])
+                s2.difference(s1), set().union(
+                    set([
+                        '_OldStyleClassInPY2__pvt',
+                    ]),
+                    overridden_always,
+                )
             )
         s1 = dw['predictions']['addl_ro']
         s2 = dp['predictions']['addl_ro']
@@ -770,11 +786,25 @@ class test_pyprotect(unittest.TestCase):
         # Check the Private-related predictions
         s1 = dw['predictions']['addl_hide']
         s2 = dp['predictions']['addl_hide']
-        self.assertSetEqual(
-            s2.difference(s1), set([
-                '_OldStyleClassInPY2__pvt'
-            ])
-        )
+        if PY2:
+            self.assertSetEqual(
+                s2.difference(s1), set().union(
+                    set([
+                        '_OldStyleClassInPY2__pvt',
+                    ]),
+                    # TODO: Why not in PY2
+                    # overridden_always
+                )
+            )
+        else:
+            self.assertSetEqual(
+                s2.difference(s1), set().union(
+                    set([
+                        '_OldStyleClassInPY2__pvt',
+                    ]),
+                    overridden_always,
+                )
+            )
         s1 = dw['predictions']['addl_ro']
         s2 = dp['predictions']['addl_ro']
         self.assertSetEqual(
@@ -909,8 +939,8 @@ class test_pyprotect(unittest.TestCase):
             set().union(
                 d['props']['ro_attr'],
                 methods,
-                # Why not special_attributes?
-                # Why not always_frozen?
+                # special_attributes in 'addl_visible' and in 'addl_ro'
+                # TODO: Why not always_frozen?
             ),
             dp['predictions']['addl_ro']
         )
@@ -926,8 +956,8 @@ class test_pyprotect(unittest.TestCase):
             set().union(
                 d['props']['ro_attr'],
                 attrs,
-                # Why not special_attributes?
-                # Why not always_frozen?
+                # special_attributes in 'addl_visible' and in 'addl_ro'
+                # TODO: Why not always_frozen?
             ),
             dp['predictions']['addl_ro']
         )
@@ -951,8 +981,8 @@ class test_pyprotect(unittest.TestCase):
         self.assertSetEqual(
             set().union(
                 d['props']['ro_attr'],
-                # Why not special_attributes?
-                # Why not always_frozen?
+                # special_attributes in 'addl_visible' and in 'addl_ro'
+                # TODO: Why not always_frozen?
                 d['props']['normal_attr_ro'],
                 d['props']['dunder_inst_methods_ro'],
             ),
@@ -983,7 +1013,7 @@ class test_pyprotect(unittest.TestCase):
                 d['props']['dunder_inst_methods_ro'],
                 d['props']['ro_attr'],
                 # special_attributes part of ro_data
-                # Why not always_frozen?
+                # TODO: Why not always_frozen?
             ),
             dp['predictions']['addl_ro']
         )
@@ -1018,7 +1048,7 @@ class test_pyprotect(unittest.TestCase):
                 d['props']['dunder_inst_methods_ro'],
                 d['props']['ro_attr'],
                 # special_attributes part of ro_data
-                # Why not always_frozen?
+                # TODO: Why not always_frozen?
             ).difference(set().union(
                 d['props']['normal_attr_rw_over'],
                 d['props']['dunder_inst_methods_rw_over'],

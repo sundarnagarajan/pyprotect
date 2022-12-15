@@ -356,13 +356,8 @@ class CheckPredictions:
             'addl_visible': set(),
         }
         # All existing attributes are visible, except pickle_attributes
-        # and overridden_always
-        # overridden_always are never visible, to prevent use of
-        # object.__{getattribute|setattr|delattr}__()
         for a in self.__o_readable:
             if a in pickle_attributes:
-                d['addl_hide'].add(a)
-            if a in overridden_always:
                 d['addl_hide'].add(a)
 
         # All attributes are writeable, unless frozen or 'o' is a module
@@ -395,10 +390,14 @@ class CheckPredictions:
             if self.hidden_private_attr.match(a):
                 d['addl_hide'].add(a)
 
-        # Single '_' attributes are read-only
         for a in self.__o_readable:
+            # overridden_always are never visible in Private, to prevent use of
+            # object.__{getattribute|setattr|delattr}__()
+            if a in overridden_always:
+                d['addl_hide'].add(a)
             # Hidden attributes are not read-only
             if a not in d['addl_hide']:
+                # Single '_' attributes are read-only
                 if a.startswith('_') and not a.endswith('_'):
                     d['addl_ro'].add(a)
         return d
