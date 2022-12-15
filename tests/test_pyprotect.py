@@ -871,10 +871,11 @@ class test_pyprotect(unittest.TestCase):
         # Run standard checks
         cp.check(dp)
 
+        pickle_present = dp['o']['readable'].intersection(pickle_attributes)
         self.assertSetEqual(
             set().union(
                 d['props']['ro_attr'],
-                pickle_attributes,
+                pickle_present,
                 hp,
             ),
             dp['predictions']['addl_hide']
@@ -888,9 +889,10 @@ class test_pyprotect(unittest.TestCase):
         # Run standard checks
         cp.check(dp)
 
+        pickle_present = dp['o']['readable'].intersection(pickle_attributes)
         self.assertSetEqual(
             set().union(
-                pickle_attributes,
+                pickle_present,
                 hp,
                 set(d['props']['normal_attr']),
             ),
@@ -910,9 +912,10 @@ class test_pyprotect(unittest.TestCase):
         # Run standard checks
         cp.check(dp)
 
+        pickle_present = dp['o']['readable'].intersection(pickle_attributes)
         self.assertSetEqual(
             set().union(
-                pickle_attributes,
+                pickle_present,
                 hp,
                 set(d['props']['normal_attr']),
                 d['props']['ro_attr'],
