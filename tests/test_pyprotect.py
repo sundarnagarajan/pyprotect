@@ -5,6 +5,7 @@ sys.dont_write_bytecode = True
 from math import ceil, floor, trunc
 from functools import partial
 import pickle
+from itertools import permutations
 import unittest
 import warnings
 warnings.simplefilter("ignore")
@@ -20,7 +21,7 @@ from test_utils import (
     pickle_attributes,
     always_delegated,
     always_frozen,
-    isfrozen,
+    isfrozen, isprotected, isprivate, isimmutable,
 )
 if not PY2:
     import numpy
@@ -1304,7 +1305,58 @@ class test_pyprotect(unittest.TestCase):
                     exc2 = True
                 assert(exc1 == exc2)
 
-    def test_24_help(self):
+    def test_24_multiwrap_explicit(self):
+        # Test rewrap logic explicitly
+        class C1(object):
+            __pvt1 = 1
+            _ro1 = 2
+            a = 3
+
+            def __init__(self):
+                self.__pvt2 = 4
+                self.__ro2 = 5
+                self.b = 6
+
+        o1 = C1()
+
+        test_objects = (
+            1,                     # immutable
+            frozenset([1, 2, 3]),  # immutable
+            [1, 2, 3],             # mutable
+            C1, o1
+        )
+
+        ops = [wrap, freeze, private, protect]
+        seqs = permutations(ops, r=2)
+
+        for (op1, op2) in seqs:
+            for o in test_objects:
+                w1 = op1(o)
+                w2 = op2(w1)
+
+                if op1 == op2:
+                    assert(w1 is w2)
+                if freeze in (op1, op2):
+                    if isimmutable(o):
+                        if op1 is freeze:
+                            assert(w1 is o)
+                        if (op1, op2) == (freeze, freeze):
+                            assert(w2 is o)
+                    else:
+                        if op1 is freeze:
+                            assert(isfrozen(w1))
+                            assert(isfrozen(w2))
+                        else:
+                            assert(isfrozen(w2))
+                elif protect in (op1, op2):
+                    assert(isprotected(w2))
+                elif private in (op1, op2):
+                    assert(isprivate(w2))
+                else:
+                    assert(iswrapped(w2))
+                    assert(w1 is w2)
+
+    def test_25_help(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 w = op(o)

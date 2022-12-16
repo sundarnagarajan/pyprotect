@@ -391,6 +391,8 @@ def private(o: object, frozen: bool = False) -> object:
     if frozen or isfrozen(o):
         frozen = True
     if iswrapped(o):
+        if isprotected(o):
+            return protect(o, frozen=True)
         return getattr(o, PROT_ATTR_NAME).private()
     else:
         if frozen:
