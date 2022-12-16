@@ -2263,11 +2263,6 @@ cdef class Private(Wrapped):
             return False
         if a in always_frozen:
             return False
-        # These attributes of FunctionType are writable only in PY2
-        # Make such objects read-only in Private/Protected
-        if PY2 and isinstance(self.pvt_o, types.FunctionType):
-            if a in py2_function_attrs_rw:
-                return False
         return True
 
     cdef visible(self, a):
