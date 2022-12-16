@@ -19635,6 +19635,8 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   int __pyx_t_4;
+  int __pyx_t_5;
+  int __pyx_t_6;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -19694,7 +19696,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
  *             raise RuntimeError('Double-wrapped!')
  * 
  *         x = self.pvt_o(*args, **kwargs)             # <<<<<<<<<<<<<<
- *         if self.frozen:
+ *         if self.frozen and not isimmutable(x):
  *             x = Frozen(x)
  */
   __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1474, __pyx_L1_error)
@@ -19708,16 +19710,43 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
   /* "pyprotect/protected.pyx":1475
  * 
  *         x = self.pvt_o(*args, **kwargs)
- *         if self.frozen:             # <<<<<<<<<<<<<<
+ *         if self.frozen and not isimmutable(x):             # <<<<<<<<<<<<<<
  *             x = Frozen(x)
  *         return x
  */
-  __pyx_t_4 = (__pyx_v_self->frozen != 0);
+  __pyx_t_5 = (__pyx_v_self->frozen != 0);
+  if (__pyx_t_5) {
+  } else {
+    __pyx_t_4 = __pyx_t_5;
+    goto __pyx_L5_bool_binop_done;
+  }
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_isimmutable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1475, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_1, function);
+    }
+  }
+  __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_x);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1475, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1475, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_6 = ((!__pyx_t_5) != 0);
+  __pyx_t_4 = __pyx_t_6;
+  __pyx_L5_bool_binop_done:;
   if (__pyx_t_4) {
 
     /* "pyprotect/protected.pyx":1476
  *         x = self.pvt_o(*args, **kwargs)
- *         if self.frozen:
+ *         if self.frozen and not isimmutable(x):
  *             x = Frozen(x)             # <<<<<<<<<<<<<<
  *         return x
  * 
@@ -19730,14 +19759,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
     /* "pyprotect/protected.pyx":1475
  * 
  *         x = self.pvt_o(*args, **kwargs)
- *         if self.frozen:             # <<<<<<<<<<<<<<
+ *         if self.frozen and not isimmutable(x):             # <<<<<<<<<<<<<<
  *             x = Frozen(x)
  *         return x
  */
   }
 
   /* "pyprotect/protected.pyx":1477
- *         if self.frozen:
+ *         if self.frozen and not isimmutable(x):
  *             x = Frozen(x)
  *         return x             # <<<<<<<<<<<<<<
  * 

@@ -1472,7 +1472,7 @@ cdef class Wrapped(object):
             raise RuntimeError('Double-wrapped!')
 
         x = self.pvt_o(*args, **kwargs)
-        if self.frozen:
+        if self.frozen and not isimmutable(x):
             x = Frozen(x)
         return x
 
