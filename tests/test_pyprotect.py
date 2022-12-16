@@ -1208,7 +1208,103 @@ class test_pyprotect(unittest.TestCase):
             except:
                 pass
 
-    def test_22_help(self):
+    def test_22_str_repr(self):
+        for o in gen_test_objects():
+            for op in (wrap, freeze, private, protect):
+                '''
+                We assume that __str__ or __repr__ of wrapped object MAY
+                raise an exception (perhaps too deeply nested ....
+                '''
+                w = op(o)
+
+                exc1 = None
+                r1 = None
+                s1 = None
+                try:
+                    r1 = repr(o)
+                    s1 = str(o)
+                except:
+                    exc1 = True
+
+                exc2 = None
+                r2 = None
+                s2 = None
+                try:
+                    r2 = repr(w)
+                    s2 = str(w)
+                except:
+                    exc2 = True
+
+                assert(exc1 == exc2)
+                assert(r1 == r2)
+                assert(s1 == s2)
+
+    def test_23_hashable_if_wrapped_is(self):
+        # non-objtect-derived, no __hash__
+        class C1:
+            pass
+
+        class C2(object):
+            pass
+
+        class C3:
+            def __init__(self):
+                self.__a = 1
+
+            def __hash__(self):
+                return hash(self.__a)
+
+        class C4(object):
+            def __init__(self):
+                self.__a = 1
+
+            def __hash__(self):
+                return hash(self.__a)
+
+        hashable_tuple = (1, 2, 3)
+        unhashable_list = [1, 2, 3]
+        unhashable_dict = {'a': 1, 'b': 2}
+        unhashable_set = set([1, 2, 3])
+        hashable_frozenset = frozenset(unhashable_set)
+
+        for o in gen_test_objects():
+            for op in (wrap, freeze, private, protect):
+                w = op(o)
+
+                exc1 = None
+                exc2 = None
+                try:
+                    hash(o)
+                except:
+                    exc1 = True
+                try:
+                    hash(w)
+                except:
+                    exc2 = True
+                assert(exc1 == exc2)
+
+        for o in (
+            C1, C2, C3, C4, C1(), C2(), C3(), C4(),
+            hashable_tuple,
+            unhashable_list, unhashable_dict, unhashable_set,
+            hashable_frozenset,
+        ):
+            for op in (wrap, freeze, private, protect):
+                w = op(o)
+
+                exc1 = None
+                exc2 = None
+                try:
+                    hash(o)
+                except:
+                    exc1 = True
+                try:
+                    hash(w)
+                except:
+                    exc2 = True
+                assert(exc1 == exc2)
+
+    def test_24_help(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 w = op(o)

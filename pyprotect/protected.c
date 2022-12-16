@@ -19261,10 +19261,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10__richcmp__(struct __
 
 /* "pyprotect/protected.pyx":1445
  *     # Needs to be class-specific
- *     # Depends on pbt_o being hashable
+ *     # Depends on pvt_o being hashable
  *     def __hash__(self):             # <<<<<<<<<<<<<<
  *         return hash((
- *             id(self.__class__),
+ *             id(type(self)),
  */
 
 /* Python wrapper */
@@ -19297,38 +19297,35 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_7Wrapped_12__hash__(struct __pyx
   /* "pyprotect/protected.pyx":1447
  *     def __hash__(self):
  *         return hash((
- *             id(self.__class__),             # <<<<<<<<<<<<<<
+ *             id(type(self)),             # <<<<<<<<<<<<<<
  *             str(self.get_rules()),
  *             id(self.pvt_o),
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_class); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1447, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self)))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1447, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1447, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyprotect/protected.pyx":1448
  *         return hash((
- *             id(self.__class__),
+ *             id(type(self)),
  *             str(self.get_rules()),             # <<<<<<<<<<<<<<
  *             id(self.pvt_o),
  *             hash(self.pvt_o)
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->get_rules(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1448, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1448, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->get_rules(__pyx_v_self); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1448, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1448, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "pyprotect/protected.pyx":1449
- *             id(self.__class__),
+ *             id(type(self)),
  *             str(self.get_rules()),
  *             id(self.pvt_o),             # <<<<<<<<<<<<<<
  *             hash(self.pvt_o)
  *         ))
  */
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1449, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1449, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
 
   /* "pyprotect/protected.pyx":1450
  *             str(self.get_rules()),
@@ -19347,30 +19344,30 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_7Wrapped_12__hash__(struct __pyx
   /* "pyprotect/protected.pyx":1447
  *     def __hash__(self):
  *         return hash((
- *             id(self.__class__),             # <<<<<<<<<<<<<<
+ *             id(type(self)),             # <<<<<<<<<<<<<<
  *             str(self.get_rules()),
  *             id(self.pvt_o),
  */
   __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1447, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_6, 2, __pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_6, 3, __pyx_t_4);
-  __pyx_t_2 = 0;
-  __pyx_t_3 = 0;
   __pyx_t_1 = 0;
+  __pyx_t_3 = 0;
+  __pyx_t_2 = 0;
   __pyx_t_4 = 0;
 
   /* "pyprotect/protected.pyx":1446
- *     # Depends on pbt_o being hashable
+ *     # Depends on pvt_o being hashable
  *     def __hash__(self):
  *         return hash((             # <<<<<<<<<<<<<<
- *             id(self.__class__),
+ *             id(type(self)),
  *             str(self.get_rules()),
  */
   __pyx_t_5 = PyObject_Hash(__pyx_t_6); if (unlikely(__pyx_t_5 == ((Py_hash_t)-1))) __PYX_ERR(0, 1446, __pyx_L1_error)
@@ -19380,10 +19377,10 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_7Wrapped_12__hash__(struct __pyx
 
   /* "pyprotect/protected.pyx":1445
  *     # Needs to be class-specific
- *     # Depends on pbt_o being hashable
+ *     # Depends on pvt_o being hashable
  *     def __hash__(self):             # <<<<<<<<<<<<<<
  *         return hash((
- *             id(self.__class__),
+ *             id(type(self)),
  */
 
   /* function exit code */

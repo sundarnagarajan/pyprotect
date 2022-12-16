@@ -1441,10 +1441,10 @@ cdef class Wrapped(object):
         return self.comparator(other, op)
 
     # Needs to be class-specific
-    # Depends on pbt_o being hashable
+    # Depends on pvt_o being hashable
     def __hash__(self):
         return hash((
-            id(self.__class__),
+            id(type(self)),
             str(self.get_rules()),
             id(self.pvt_o),
             hash(self.pvt_o)
