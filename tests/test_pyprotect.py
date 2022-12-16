@@ -4,6 +4,7 @@ import sys
 sys.dont_write_bytecode = True
 from math import ceil, floor, trunc
 from functools import partial
+import pickle
 import unittest
 import warnings
 warnings.simplefilter("ignore")
@@ -19,7 +20,10 @@ from test_utils import (
     pickle_attributes,
     always_delegated,
     always_frozen,
+    isfrozen,
 )
+if not PY2:
+    import numpy
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
     freeze, private, protect, wrap,
@@ -111,6 +115,49 @@ class test_pyprotect(unittest.TestCase):
             assert(trunc(w1) == 100)
             assert(round(w1) == 100)
 
+        for op in (wrap, freeze, private, protect):
+            # Unary numeric operations - __neg__, __pos__, abs, bool, ~
+            # __invert__ is just ~ (not)
+            n1 = CI(1)
+            n2 = CI(0)
+            n3 = CI(-3)
+            w1 = op(n1)
+            w2 = op(n2)
+            w3 = op(n3)
+
+            assert(-w1 == -n1)
+            assert(+w1 == +n1)
+            assert(abs(w1) == abs(n1))
+            assert(bool(w1) == bool(n1))
+            assert(~w1 == ~n1)
+
+            assert(-w2 == -n2)
+            assert(+w2 == +n2)
+            assert(abs(w2) == abs(n2))
+            assert(bool(w2) == bool(n2))
+            assert(~w2 == ~n2)
+
+            assert(-w3 == -n3)
+            assert(+w3 == +n3)
+            assert(abs(w3) == abs(n3))
+            assert(bool(w3) == bool(n3))
+            assert(~w3 == ~n3)
+
+            # pow, divmod
+            n1 = CI(2)
+            n2 = CI(3)
+            n3 = CI(25)
+            w1 = op(n1)
+            w2 = op(n2)
+            w3 = op(n3)
+            assert(pow(w1, n2) == pow(n1, n2))
+            assert(divmod(w3, n2) == divmod(n3, n2))
+
+            # Now __format__
+            n1 = CI(170)
+            w1 = op(n1)
+            assert(format(w1, '02x') == format(n1, '02x'))
+
     def test_06_numeric_ops_float(self):
         class CF(float):
             pass
@@ -155,6 +202,33 @@ class test_pyprotect(unittest.TestCase):
             # PY2 does not have truediv
             if not PY2:
                 assert((w1 / i3) == 3.363)
+
+        for op in (wrap, freeze, private, protect):
+            # Unary numeric operations - __neg__, __pos__, abs, bool
+            n1 = CF(2.52167)
+            n2 = CF(0)
+            n3 = CF(-3.75167)
+            w1 = op(n1)
+            w2 = op(n2)
+            w3 = op(n3)
+
+            assert(-w1 == -n1)
+            assert(+w1 == +n1)
+            assert(abs(w1) == abs(n1))
+            assert(bool(w1) == bool(n1))
+            assert(format(w1, '.2f') == format(n1, '.2f'))
+
+            assert(-w2 == -n2)
+            assert(+w2 == +n2)
+            assert(abs(w2) == abs(n2))
+            assert(bool(w2) == bool(n2))
+            assert(format(w2, '.2f') == format(n2, '.2f'))
+
+            assert(-w3 == -n3)
+            assert(+w3 == +n3)
+            assert(abs(w3) == abs(n3))
+            assert(bool(w3) == bool(n3))
+            assert(format(w3, '.2f') == format(n3, '.2f'))
 
     def test_07_mutating_numeric_ops_int(self):
         class CI(int):
@@ -1057,7 +1131,84 @@ class test_pyprotect(unittest.TestCase):
             dp['predictions']['addl_ro']
         )
 
-    def test_19_help(self):
+    def test_19_matmul(self):
+        # __matmul__ came in PEP 465 dated 20-Feb-2014 only for python 3.5+
+        # https://peps.python.org/pep-0465/
+        if PY2 or (
+            sys.version_info.major == 3 and sys.version_info.minor < 5
+        ):
+            return
+        else:
+            n1 = numpy.ones((2, 2))
+            n2 = numpy.ones((2, 2))
+            for op in wrap, freeze, private, protect:
+                w = op(n1)
+                comparison = (w.__matmul__(n2) == n1.__matmul__(n2))
+                # comparison = (w @ n2) == (n1 @ n2)
+                assert(comparison.all())
+
+    def test_20_protect_frozen_functions(self):
+        class C(object):
+            def instfn(self):
+                def inner1():
+                    def inner2():
+                        return C
+
+                    return inner2
+
+                return inner1
+
+            @classmethod
+            def clsfn(cls):
+                def inner1():
+                    def inner2():
+                        return C
+
+                    return inner2
+
+                return inner1
+
+        # First test the INSTANCE of C
+        o = C()
+        w1 = protect(o, ro_method=False, ro=['instfn', 'clsfn'])
+        x = w1.instfn
+        assert(isfrozen(x))
+        x = x()    # inner1
+        assert(isfrozen(x))
+        x = x()    # inner2
+        assert(isfrozen(x))
+        x = x()    # C
+        assert(isfrozen(x))
+
+        # First test wrapping the class C
+        w1 = protect(C, ro_method=False, ro=['instfn', 'clsfn'])
+        x = w1.clsfn
+        assert(isfrozen(x))
+        x = x()    # inner1
+        assert(isfrozen(x))
+        x = x()    # inner2
+        assert(isfrozen(x))
+        x = x()    # C
+        assert(isfrozen(x))
+
+    def test_21_pickling_disabled(self):
+        o = [1, 2, 3]
+        # Show that pickling works for 'o'
+        pb = pickle.dumps(o)
+        po = pickle.loads(pb)
+        assert(o == po)
+
+        for op in wrap, freeze, private, protect:
+            w = op(o)
+            try:
+                pb = pickle.dumps(w)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+    def test_22_help(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 w = op(o)
