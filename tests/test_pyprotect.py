@@ -74,636 +74,7 @@ class test_pyprotect(unittest.TestCase):
             w = protect(o, frozen=True)
             check_predictions(o, w)
 
-    def test_05_numeric_ops_int(self):
-        class CI(int):
-            pass
-
-        n1 = CI(100)
-        n2 = CI(100)
-        i1 = 10
-        i2 = 200
-        i3 = 30
-        for op in (wrap, freeze, private, protect):
-            w1 = op(n1)
-            w2 = op(n1)
-            w3 = op(n2)
-
-            # Equality works wrapped to wrapped
-            assert(w1 == n1)
-            assert(n1 == w1)
-            assert(w1 == w2)
-            # id(wrapped object) is not the same
-            assert(w1 != w3)
-
-            # For inequalities one of the objects must not be wrapped
-            assert(i1 < w1)
-            assert(i1 <= w1)
-            assert(w1 > i1)
-            assert(w1 >= i1)
-
-            # For numeric operations, one of the operands must not be wrapped
-            assert((i1 + w1) == 110)
-            assert((w1 + i1) == 110)
-            assert((w1 - i1) == 90)
-            assert((i2 - w1) == 100)
-            assert((i1 * w1) == 1000)
-            assert((w1 * i1) == 1000)
-            assert((w1 // i3) == 3)
-            assert((w1 % i3) == 10)
-
-            assert(ceil(w1) == 100)
-            assert(floor(w1) == 100)
-            assert(trunc(w1) == 100)
-            assert(round(w1) == 100)
-
-        for op in (wrap, freeze, private, protect):
-            # Unary numeric operations - __neg__, __pos__, abs, bool, ~
-            # __invert__ is just ~ (not)
-            n1 = CI(1)
-            n2 = CI(0)
-            n3 = CI(-3)
-            w1 = op(n1)
-            w2 = op(n2)
-            w3 = op(n3)
-
-            assert(-w1 == -n1)
-            assert(+w1 == +n1)
-            assert(abs(w1) == abs(n1))
-            assert(bool(w1) == bool(n1))
-            assert(~w1 == ~n1)
-
-            assert(-w2 == -n2)
-            assert(+w2 == +n2)
-            assert(abs(w2) == abs(n2))
-            assert(bool(w2) == bool(n2))
-            assert(~w2 == ~n2)
-
-            assert(-w3 == -n3)
-            assert(+w3 == +n3)
-            assert(abs(w3) == abs(n3))
-            assert(bool(w3) == bool(n3))
-            assert(~w3 == ~n3)
-
-            # pow, divmod
-            n1 = CI(2)
-            n2 = CI(3)
-            n3 = CI(25)
-            w1 = op(n1)
-            w2 = op(n2)
-            w3 = op(n3)
-            assert(pow(w1, n2) == pow(n1, n2))
-            assert(divmod(w3, n2) == divmod(n3, n2))
-
-            # Now __format__
-            n1 = CI(170)
-            w1 = op(n1)
-            assert(format(w1, '02x') == format(n1, '02x'))
-
-    def test_06_numeric_ops_float(self):
-        class CF(float):
-            pass
-
-        n1 = CF(100.89)
-        n2 = CF(100.89)
-        f1 = 10.5
-        f2 = 200.6
-        i3 = 30
-        for op in (wrap, freeze, private, protect):
-            w1 = op(n1)
-            w2 = op(n1)
-            w3 = op(n2)
-
-            # Equality works wrapped to wrapped
-            assert(w1 == n1)
-            assert(n1 == w1)
-            assert(w1 == w2)
-            # id(wrapped object) is not the same
-            assert(w1 != w3)
-
-            # For inequalities one of the objects must not be wrapped
-            assert(f1 < w1)
-            assert(f1 <= w1)
-            assert(w1 > f1)
-            assert(w1 >= f1)
-
-            # For numeric operations, one of the operands must not be wrapped
-            assert((f1 + w1) == 111.39)
-            assert((w1 + f1) == 111.39)
-            assert((w1 - f1) == 90.39)
-            assert((f2 - w1) == 99.71)
-            assert((f1 * w1) == 1059.345)
-            assert((w1 * f1) == 1059.345)
-            assert((w1 // i3) == 3.0)
-            assert((w1 % i3) == 10.89)
-
-            assert(ceil(w1) == 101)
-            assert(floor(w1) == 100)
-            assert(trunc(w1) == 100)
-            assert(round(w1) == 101)
-            # PY2 does not have truediv
-            if not PY2:
-                assert((w1 / i3) == 3.363)
-
-        for op in (wrap, freeze, private, protect):
-            # Unary numeric operations - __neg__, __pos__, abs, bool
-            n1 = CF(2.52167)
-            n2 = CF(0)
-            n3 = CF(-3.75167)
-            w1 = op(n1)
-            w2 = op(n2)
-            w3 = op(n3)
-
-            assert(-w1 == -n1)
-            assert(+w1 == +n1)
-            assert(abs(w1) == abs(n1))
-            assert(bool(w1) == bool(n1))
-            assert(format(w1, '.2f') == format(n1, '.2f'))
-
-            assert(-w2 == -n2)
-            assert(+w2 == +n2)
-            assert(abs(w2) == abs(n2))
-            assert(bool(w2) == bool(n2))
-            assert(format(w2, '.2f') == format(n2, '.2f'))
-
-            assert(-w3 == -n3)
-            assert(+w3 == +n3)
-            assert(abs(w3) == abs(n3))
-            assert(bool(w3) == bool(n3))
-            assert(format(w3, '.2f') == format(n3, '.2f'))
-
-    def test_07_mutating_numeric_ops_int(self):
-        class CI(int):
-            pass
-
-        n1 = CI(100)
-        i1 = 10
-        i2 = 30
-        for op in (wrap, private, protect):
-            w1 = op(n1)
-
-            w1 += i1
-            assert(w1 == (n1 + i1))
-            w1 -= i1
-            assert(w1 == n1)
-            w1 *= i1
-            assert(w1 == (n1 * i1))
-            w1 //= i1
-            assert(w1 == n1)
-            w1 *= i1
-            # PY2 does not have truediv
-            if not PY2:
-                w1 /= i1
-                assert(w1 == n1)
-            w1 %= i2
-            assert(w1 == 10)
-
-    def test_08_mutating_numeric_ops_float(self):
-        class CF(float):
-            pass
-
-        n1 = CF(100.0)
-        i1 = 10.0
-        i2 = 30.0
-        for op in (wrap, private, protect):
-            w1 = op(n1)
-
-            w1 += i1
-            assert(w1 == (n1 + i1))
-            w1 -= i1
-            assert(w1 == n1)
-            w1 *= i1
-            assert(w1 == (n1 * i1))
-            w1 //= i1
-            assert(w1 == n1)
-            w1 *= i1
-            # PY2 does not have truediv
-            if not PY2:
-                w1 /= i1
-                assert(w1 == n1)
-            w1 %= i2
-            assert(w1 == 10)
-
-    def test_09_mutating_numeric_ops_int_frozen(self):
-        class CI(int):
-            pass
-
-        n1 = CI(100)
-        i1 = 10
-        i2 = 30
-        w1 = freeze(n1)
-
-        try:
-            w1 += i1
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        try:
-            w1 -= i1
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        try:
-            w1 *= i1
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        try:
-            w1 //= i1
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        # PY2 does not have truediv
-        if not PY2:
-            try:
-                w1 /= i1
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-        try:
-            w1 %= i2
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-    def test_10_logical_ops(self):
-        class CI(int):
-            pass
-
-        n1 = CI(0b10101010)
-        n2 = CI(0b01010101)
-        for op in (wrap, freeze, private, protect):
-            w = op(n1)
-            assert((w & n2) == 0)
-            assert((w | n2) == 255)
-            assert((w ^ n2) == 255)
-            assert((w ^ n1) == 0)
-
-            assert((n2 & w) == 0)
-            assert((n2 | w) == 255)
-            assert((n2 ^ w) == 255)
-            assert((n1 ^ w) == 0)
-
-    def test_11_mutating_logical_ops(self):
-        class CI(int):
-            pass
-
-        n2 = CI(0b01010101)
-        for op in (wrap, private, protect):
-
-            n1 = CI(0b10101010)
-            w = op(n1)
-            w &= n2
-            assert(w == 0)
-
-            n1 = CI(0b10101010)
-            w = op(n1)
-            w |= n2
-            assert(w == 255)
-
-            n1 = CI(0b10101010)
-            w = op(n1)
-            w ^= n2
-            assert(w == 255)
-
-            n1 = CI(0b10101010)
-            w = op(n1)
-            w ^= n1
-            assert(w == 0)
-
-    def test_12_mutating_logical_ops_frozen(self):
-        class CI(int):
-            pass
-
-        op = freeze
-        n2 = CI(0b01010101)
-
-        n1 = CI(0b10101010)
-        w = op(n1)
-        try:
-            w &= n2
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        n1 = CI(0b10101010)
-        w = op(n1)
-        try:
-            w |= n2
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        n1 = CI(0b10101010)
-        w = op(n1)
-        try:
-            w ^= n2
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-    def test_13_containers(self):
-        l1 = [1, 2, 3]
-        l2 = [3, 4, 5]
-        s1 = set(l1)
-        s2 = set(l2)
-        d1 = {'a': 1, 'b': 2}
-
-        for op in (wrap, private, protect, freeze):
-            w = op(l1)
-            assert(list(w + l2) == [1, 2, 3, 3, 4, 5])
-            assert(w[1] == 2)
-            assert(w[1:] == [2, 3])
-            assert(w[:-1] == [1, 2])
-            assert(w[-2:] == [2, 3])
-
-            w = op(s1)
-            assert(w.union(s2) == s1.union(s2))
-            assert(w.intersection(s2) == s1.intersection(s2))
-            assert(w.symmetric_difference(s2) == s1.symmetric_difference(s2))
-            assert((w & s2) == (s1 & s2))
-            assert((w | s2) == (s1 | s2))
-            assert((w ^ s2) == (s1 ^ s2))
-            assert((set(w & s2)) == set(w.intersection(s2)))
-            assert(set(w | s2) == set(w.union(s2)))
-            assert(set(w ^ s2) == set(w.symmetric_difference(s2)))
-
-            w = op(d1)
-            assert(w['a'] == 1)
-
-            assert(
-                set(list(w.items())) == set([
-                    ('a', 1), ('b', 2),
-                ])
-            )
-
-            # Test __len__ and __contains
-            w = op(l1)
-            assert(len(w) == len(l1))
-            for item in [1, 4]:
-                assert((item in w) == (item in l1))
-            w = op(s1)
-            assert(len(w) == len(s1))
-            for item in [1, 4]:
-                assert((item in w) == (item in s1))
-            w = op(d1)
-            assert(len(w) == len(d1))
-            for item in ['a', 'c']:
-                assert((item in w) == (item in d1))
-
-    def test_14_mutating_containers(self):
-        l1 = [1, 2, 3]
-        l2 = [3, 4, 5]
-        s1 = set(l1)
-        s2 = set(l2)
-        d2 = {'b': 20, 'c': 3}
-
-        for op in (wrap, private, protect):
-            # Mutating operations
-            w = op([1, 2, 3])
-            w += l2
-            assert(w == [1, 2, 3, 3, 4, 5])
-
-            w = op([1, 2, 3])
-            del w[1]
-            assert(list(w) == [1, 3])
-
-            w = op([1, 2, 3])
-            w *= 3
-            assert(w == [1, 2, 3, 1, 2, 3, 1, 2, 3])
-
-            w = op([1, 2, 3])
-            # pop(ind) pops out item at pos -ind
-            w.pop(1)
-            assert(list(w) == [1, 3])
-
-            w = op([1, 2, 3])
-            w.remove(3)
-            assert(list(w) == [1, 2])
-
-            w = op([1, 2, 3])
-            w.reverse()
-            assert(w == [3, 2, 1])
-
-            w = op([1, 2, 3])
-            w.sort()
-            assert(w == [1, 2, 3])
-
-            w = op(set([1, 2, 3]))
-            w &= s2
-            assert(w == (s1 & s2))
-
-            w = op(set([1, 2, 3]))
-            w |= s2
-            assert(w == (s1 | s2))
-
-            w = op(set([1, 2, 3]))
-            w ^= s2
-
-            w = op({'a': 1, 'b': 2})
-            w.clear()
-            assert(w == {})
-
-            w = op({'a': 1, 'b': 2})
-            assert(w.pop('a') == 1)
-
-            w = op({'a': 1, 'b': 2})
-            w.update(d2)
-            assert(w == {'a': 1, 'b': 20, 'c': 3})
-
-            w = op({'a': 1, 'b': 2})
-            x = w.popitem()
-            # popitem is non-deterministic in PY2 (like dict order)
-            if PY2:
-                assert(len(x) == 2)
-            else:
-                assert(x == ('b', 2))
-
-            w = op({'a': 1, 'b': 2})
-            assert(w.setdefault('c', None) is None)
-
-            x = w.setdefault('d', 4)
-            assert(x == 4)
-            x = w.setdefault('d')
-            assert(x == 4)
-
-    def test_15_mutating_containers_frozen(self):
-        l1 = [1, 2, 3]
-        l2 = [3, 4, 5]
-        s1 = set(l1)
-        s2 = set(l2)
-        d2 = {'b': 20, 'c': 3}
-
-        ops = (
-            freeze,
-            partial(private, frozen=True),
-            partial(protect, frozen=True),
-        )
-        for op in ops:
-            # Mutating operations
-            w = op([1, 2, 3])
-            try:
-                w += l2
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                del w[1]
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w *= 3
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                # pop(ind) pops out item at pos -ind
-                w.pop(1)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.remove(3)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.reverse()
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.sort()
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            w = op(s1)
-            try:
-                w &= s2
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w |= s2
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w ^= s2
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            w = op({'a': 1, 'b': 2})
-            try:
-                w.clear()
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.pop('a')
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.update(d2)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.popitem()
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.setdefault('c', None)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.setdefault('d', 4)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
-                w.setdefault('d')
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-    def test_16_private_vs_wrapped(self):
+    def test_05_private_vs_wrapped(self):
         # In PY2, this is a 'new style class', and will behave just like
         # classes in PY3 when wrapped
         class NewStyleClassInPY2(object):
@@ -788,7 +159,7 @@ class test_pyprotect(unittest.TestCase):
             ]).union(frozen_present)
         )
 
-    def test_17_private_vs_wrapped_py2_oldstyle(self):
+    def test_06_private_vs_wrapped_py2_oldstyle(self):
         # In PY3, this class behaves as usual when wrapped
         # In PY2 INSTANCES of this class behave as usual
         class OldStyleClassInPY2:
@@ -900,7 +271,7 @@ class test_pyprotect(unittest.TestCase):
             ]).union(frozen_present)
         )
 
-    def test_18_protected_options(self):
+    def test_07_protected_options(self):
         d = generate(obj_derived=True, nested=False)
         cls = d['class']
         o = cls()
@@ -1146,23 +517,7 @@ class test_pyprotect(unittest.TestCase):
             dp['predictions']['addl_ro']
         )
 
-    def test_19_matmul(self):
-        # __matmul__ came in PEP 465 dated 20-Feb-2014 only for python 3.5+
-        # https://peps.python.org/pep-0465/
-        if PY2 or (
-            sys.version_info.major == 3 and sys.version_info.minor < 5
-        ):
-            return
-        else:
-            n1 = numpy.ones((2, 2))
-            n2 = numpy.ones((2, 2))
-            for op in wrap, freeze, private, protect:
-                w = op(n1)
-                comparison = (w.__matmul__(n2) == n1.__matmul__(n2))
-                # comparison = (w @ n2) == (n1 @ n2)
-                assert(comparison.all())
-
-    def test_20_protect_frozen_functions(self):
+    def test_08_protect_frozen_functions(self):
         class C(object):
             def instfn(self):
                 def inner1():
@@ -1206,7 +561,7 @@ class test_pyprotect(unittest.TestCase):
         x = x()    # C
         assert(isfrozen(x))
 
-    def test_21_pickling_disabled(self):
+    def test_09_pickling_disabled(self):
         o = [1, 2, 3]
         # Show that pickling works for 'o'
         pb = pickle.dumps(o)
@@ -1223,7 +578,7 @@ class test_pyprotect(unittest.TestCase):
             except:
                 pass
 
-    def test_22_str_repr(self):
+    def test_10_str_repr(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 '''
@@ -1254,7 +609,7 @@ class test_pyprotect(unittest.TestCase):
                 assert(r1 == r2)
                 assert(s1 == s2)
 
-    def test_23_hashable_if_wrapped_is(self):
+    def test_11_hashable_if_wrapped_is(self):
         # non-objtect-derived, no __hash__
         class C1:
             pass
@@ -1319,7 +674,7 @@ class test_pyprotect(unittest.TestCase):
                     exc2 = True
                 assert(exc1 == exc2)
 
-    def test_24_multiwrap_explicit(self):
+    def test_12_multiwrap_explicit(self):
         # Test rewrap logic explicitly
         class C1(object):
             __pvt1 = 1
@@ -1370,7 +725,7 @@ class test_pyprotect(unittest.TestCase):
                     assert(iswrapped(w2))
                     assert(w1 is w2)
 
-    def test_25_help(self):
+    def test_13_help(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 w = op(o)
@@ -1380,6 +735,651 @@ class test_pyprotect(unittest.TestCase):
                 p = getattr(w, PROT_ATTR)
                 h2 = p.help_str()
                 assert(h1 == h2)
+
+    def test_14_numeric_ops_int(self):
+        class CI(int):
+            pass
+
+        n1 = CI(100)
+        n2 = CI(100)
+        i1 = 10
+        i2 = 200
+        i3 = 30
+        for op in (wrap, freeze, private, protect):
+            w1 = op(n1)
+            w2 = op(n1)
+            w3 = op(n2)
+
+            # Equality works wrapped to wrapped
+            assert(w1 == n1)
+            assert(n1 == w1)
+            assert(w1 == w2)
+            # id(wrapped object) is not the same
+            assert(w1 != w3)
+
+            # For inequalities one of the objects must not be wrapped
+            assert(i1 < w1)
+            assert(i1 <= w1)
+            assert(w1 > i1)
+            assert(w1 >= i1)
+
+            # For numeric operations, one of the operands must not be wrapped
+            assert((i1 + w1) == 110)
+            assert((w1 + i1) == 110)
+            assert((w1 - i1) == 90)
+            assert((i2 - w1) == 100)
+            assert((i1 * w1) == 1000)
+            assert((w1 * i1) == 1000)
+            assert((w1 // i3) == 3)
+            assert((w1 % i3) == 10)
+
+            assert(ceil(w1) == 100)
+            assert(floor(w1) == 100)
+            assert(trunc(w1) == 100)
+            assert(round(w1) == 100)
+
+        for op in (wrap, freeze, private, protect):
+            # Unary numeric operations - __neg__, __pos__, abs, bool, ~
+            # __invert__ is just ~ (not)
+            n1 = CI(1)
+            n2 = CI(0)
+            n3 = CI(-3)
+            w1 = op(n1)
+            w2 = op(n2)
+            w3 = op(n3)
+
+            assert(-w1 == -n1)
+            assert(+w1 == +n1)
+            assert(abs(w1) == abs(n1))
+            assert(bool(w1) == bool(n1))
+            assert(~w1 == ~n1)
+
+            assert(-w2 == -n2)
+            assert(+w2 == +n2)
+            assert(abs(w2) == abs(n2))
+            assert(bool(w2) == bool(n2))
+            assert(~w2 == ~n2)
+
+            assert(-w3 == -n3)
+            assert(+w3 == +n3)
+            assert(abs(w3) == abs(n3))
+            assert(bool(w3) == bool(n3))
+            assert(~w3 == ~n3)
+
+            # pow, divmod
+            n1 = CI(2)
+            n2 = CI(3)
+            n3 = CI(25)
+            w1 = op(n1)
+            w2 = op(n2)
+            w3 = op(n3)
+            assert(pow(w1, n2) == pow(n1, n2))
+            assert(divmod(w3, n2) == divmod(n3, n2))
+
+            # Now __format__
+            n1 = CI(170)
+            w1 = op(n1)
+            assert(format(w1, '02x') == format(n1, '02x'))
+
+    def test_15_numeric_ops_float(self):
+        class CF(float):
+            pass
+
+        n1 = CF(100.89)
+        n2 = CF(100.89)
+        f1 = 10.5
+        f2 = 200.6
+        i3 = 30
+        for op in (wrap, freeze, private, protect):
+            w1 = op(n1)
+            w2 = op(n1)
+            w3 = op(n2)
+
+            # Equality works wrapped to wrapped
+            assert(w1 == n1)
+            assert(n1 == w1)
+            assert(w1 == w2)
+            # id(wrapped object) is not the same
+            assert(w1 != w3)
+
+            # For inequalities one of the objects must not be wrapped
+            assert(f1 < w1)
+            assert(f1 <= w1)
+            assert(w1 > f1)
+            assert(w1 >= f1)
+
+            # For numeric operations, one of the operands must not be wrapped
+            assert((f1 + w1) == 111.39)
+            assert((w1 + f1) == 111.39)
+            assert((w1 - f1) == 90.39)
+            assert((f2 - w1) == 99.71)
+            assert((f1 * w1) == 1059.345)
+            assert((w1 * f1) == 1059.345)
+            assert((w1 // i3) == 3.0)
+            assert((w1 % i3) == 10.89)
+
+            assert(ceil(w1) == 101)
+            assert(floor(w1) == 100)
+            assert(trunc(w1) == 100)
+            assert(round(w1) == 101)
+            # PY2 does not have truediv
+            if not PY2:
+                assert((w1 / i3) == 3.363)
+
+        for op in (wrap, freeze, private, protect):
+            # Unary numeric operations - __neg__, __pos__, abs, bool
+            n1 = CF(2.52167)
+            n2 = CF(0)
+            n3 = CF(-3.75167)
+            w1 = op(n1)
+            w2 = op(n2)
+            w3 = op(n3)
+
+            assert(-w1 == -n1)
+            assert(+w1 == +n1)
+            assert(abs(w1) == abs(n1))
+            assert(bool(w1) == bool(n1))
+            assert(format(w1, '.2f') == format(n1, '.2f'))
+
+            assert(-w2 == -n2)
+            assert(+w2 == +n2)
+            assert(abs(w2) == abs(n2))
+            assert(bool(w2) == bool(n2))
+            assert(format(w2, '.2f') == format(n2, '.2f'))
+
+            assert(-w3 == -n3)
+            assert(+w3 == +n3)
+            assert(abs(w3) == abs(n3))
+            assert(bool(w3) == bool(n3))
+            assert(format(w3, '.2f') == format(n3, '.2f'))
+
+    def test_16_mutating_numeric_ops_int(self):
+        class CI(int):
+            pass
+
+        n1 = CI(100)
+        i1 = 10
+        i2 = 30
+        for op in (wrap, private, protect):
+            w1 = op(n1)
+
+            w1 += i1
+            assert(w1 == (n1 + i1))
+            w1 -= i1
+            assert(w1 == n1)
+            w1 *= i1
+            assert(w1 == (n1 * i1))
+            w1 //= i1
+            assert(w1 == n1)
+            w1 *= i1
+            # PY2 does not have truediv
+            if not PY2:
+                w1 /= i1
+                assert(w1 == n1)
+            w1 %= i2
+            assert(w1 == 10)
+
+    def test_17_mutating_numeric_ops_float(self):
+        class CF(float):
+            pass
+
+        n1 = CF(100.0)
+        i1 = 10.0
+        i2 = 30.0
+        for op in (wrap, private, protect):
+            w1 = op(n1)
+
+            w1 += i1
+            assert(w1 == (n1 + i1))
+            w1 -= i1
+            assert(w1 == n1)
+            w1 *= i1
+            assert(w1 == (n1 * i1))
+            w1 //= i1
+            assert(w1 == n1)
+            w1 *= i1
+            # PY2 does not have truediv
+            if not PY2:
+                w1 /= i1
+                assert(w1 == n1)
+            w1 %= i2
+            assert(w1 == 10)
+
+    def test_18_mutating_numeric_ops_int_frozen(self):
+        class CI(int):
+            pass
+
+        n1 = CI(100)
+        i1 = 10
+        i2 = 30
+        w1 = freeze(n1)
+
+        try:
+            w1 += i1
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+
+        try:
+            w1 -= i1
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+
+        try:
+            w1 *= i1
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+
+        try:
+            w1 //= i1
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+
+        # PY2 does not have truediv
+        if not PY2:
+            try:
+                w1 /= i1
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+        try:
+            w1 %= i2
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+
+    def test_19_logical_ops(self):
+        class CI(int):
+            pass
+
+        n1 = CI(0b10101010)
+        n2 = CI(0b01010101)
+        for op in (wrap, freeze, private, protect):
+            w = op(n1)
+            assert((w & n2) == 0)
+            assert((w | n2) == 255)
+            assert((w ^ n2) == 255)
+            assert((w ^ n1) == 0)
+
+            assert((n2 & w) == 0)
+            assert((n2 | w) == 255)
+            assert((n2 ^ w) == 255)
+            assert((n1 ^ w) == 0)
+
+    def test_20_mutating_logical_ops(self):
+        class CI(int):
+            pass
+
+        n2 = CI(0b01010101)
+        for op in (wrap, private, protect):
+
+            n1 = CI(0b10101010)
+            w = op(n1)
+            w &= n2
+            assert(w == 0)
+
+            n1 = CI(0b10101010)
+            w = op(n1)
+            w |= n2
+            assert(w == 255)
+
+            n1 = CI(0b10101010)
+            w = op(n1)
+            w ^= n2
+            assert(w == 255)
+
+            n1 = CI(0b10101010)
+            w = op(n1)
+            w ^= n1
+            assert(w == 0)
+
+    def test_21_mutating_logical_ops_frozen(self):
+        class CI(int):
+            pass
+
+        op = freeze
+        n2 = CI(0b01010101)
+
+        n1 = CI(0b10101010)
+        w = op(n1)
+        try:
+            w &= n2
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+
+        n1 = CI(0b10101010)
+        w = op(n1)
+        try:
+            w |= n2
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+
+        n1 = CI(0b10101010)
+        w = op(n1)
+        try:
+            w ^= n2
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+
+    def test_22_containers(self):
+        l1 = [1, 2, 3]
+        l2 = [3, 4, 5]
+        s1 = set(l1)
+        s2 = set(l2)
+        d1 = {'a': 1, 'b': 2}
+
+        for op in (wrap, private, protect, freeze):
+            w = op(l1)
+            assert(list(w + l2) == [1, 2, 3, 3, 4, 5])
+            assert(w[1] == 2)
+            assert(w[1:] == [2, 3])
+            assert(w[:-1] == [1, 2])
+            assert(w[-2:] == [2, 3])
+
+            w = op(s1)
+            assert(w.union(s2) == s1.union(s2))
+            assert(w.intersection(s2) == s1.intersection(s2))
+            assert(w.symmetric_difference(s2) == s1.symmetric_difference(s2))
+            assert((w & s2) == (s1 & s2))
+            assert((w | s2) == (s1 | s2))
+            assert((w ^ s2) == (s1 ^ s2))
+            assert((set(w & s2)) == set(w.intersection(s2)))
+            assert(set(w | s2) == set(w.union(s2)))
+            assert(set(w ^ s2) == set(w.symmetric_difference(s2)))
+
+            w = op(d1)
+            assert(w['a'] == 1)
+
+            assert(
+                set(list(w.items())) == set([
+                    ('a', 1), ('b', 2),
+                ])
+            )
+
+            # Test __len__ and __contains
+            w = op(l1)
+            assert(len(w) == len(l1))
+            for item in [1, 4]:
+                assert((item in w) == (item in l1))
+            w = op(s1)
+            assert(len(w) == len(s1))
+            for item in [1, 4]:
+                assert((item in w) == (item in s1))
+            w = op(d1)
+            assert(len(w) == len(d1))
+            for item in ['a', 'c']:
+                assert((item in w) == (item in d1))
+
+    def test_23_mutating_containers(self):
+        l1 = [1, 2, 3]
+        l2 = [3, 4, 5]
+        s1 = set(l1)
+        s2 = set(l2)
+        d2 = {'b': 20, 'c': 3}
+
+        for op in (wrap, private, protect):
+            # Mutating operations
+            w = op([1, 2, 3])
+            w += l2
+            assert(w == [1, 2, 3, 3, 4, 5])
+
+            w = op([1, 2, 3])
+            del w[1]
+            assert(list(w) == [1, 3])
+
+            w = op([1, 2, 3])
+            w *= 3
+            assert(w == [1, 2, 3, 1, 2, 3, 1, 2, 3])
+
+            w = op([1, 2, 3])
+            # pop(ind) pops out item at pos -ind
+            w.pop(1)
+            assert(list(w) == [1, 3])
+
+            w = op([1, 2, 3])
+            w.remove(3)
+            assert(list(w) == [1, 2])
+
+            w = op([1, 2, 3])
+            w.reverse()
+            assert(w == [3, 2, 1])
+
+            w = op([1, 2, 3])
+            w.sort()
+            assert(w == [1, 2, 3])
+
+            w = op(set([1, 2, 3]))
+            w &= s2
+            assert(w == (s1 & s2))
+
+            w = op(set([1, 2, 3]))
+            w |= s2
+            assert(w == (s1 | s2))
+
+            w = op(set([1, 2, 3]))
+            w ^= s2
+
+            w = op({'a': 1, 'b': 2})
+            w.clear()
+            assert(w == {})
+
+            w = op({'a': 1, 'b': 2})
+            assert(w.pop('a') == 1)
+
+            w = op({'a': 1, 'b': 2})
+            w.update(d2)
+            assert(w == {'a': 1, 'b': 20, 'c': 3})
+
+            w = op({'a': 1, 'b': 2})
+            x = w.popitem()
+            # popitem is non-deterministic in PY2 (like dict order)
+            if PY2:
+                assert(len(x) == 2)
+            else:
+                assert(x == ('b', 2))
+
+            w = op({'a': 1, 'b': 2})
+            assert(w.setdefault('c', None) is None)
+
+            x = w.setdefault('d', 4)
+            assert(x == 4)
+            x = w.setdefault('d')
+            assert(x == 4)
+
+    def test_24_mutating_containers_frozen(self):
+        l1 = [1, 2, 3]
+        l2 = [3, 4, 5]
+        s1 = set(l1)
+        s2 = set(l2)
+        d2 = {'b': 20, 'c': 3}
+
+        ops = (
+            freeze,
+            partial(private, frozen=True),
+            partial(protect, frozen=True),
+        )
+        for op in ops:
+            # Mutating operations
+            w = op([1, 2, 3])
+            try:
+                w += l2
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                del w[1]
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w *= 3
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                # pop(ind) pops out item at pos -ind
+                w.pop(1)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.remove(3)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.reverse()
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.sort()
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            w = op(s1)
+            try:
+                w &= s2
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w |= s2
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w ^= s2
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            w = op({'a': 1, 'b': 2})
+            try:
+                w.clear()
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.pop('a')
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.update(d2)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.popitem()
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.setdefault('c', None)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.setdefault('d', 4)
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+            try:
+                w.setdefault('d')
+                raise MissingExceptionError('Expected Exception not raised')
+            except MissingExceptionError:
+                raise
+            except:
+                pass
+
+    def test_25_matmul(self):
+        # __matmul__ came in PEP 465 dated 20-Feb-2014 only for python 3.5+
+        # https://peps.python.org/pep-0465/
+        if PY2 or (
+            sys.version_info.major == 3 and sys.version_info.minor < 5
+        ):
+            return
+        else:
+            n1 = numpy.ones((2, 2))
+            n2 = numpy.ones((2, 2))
+            for op in wrap, freeze, private, protect:
+                w = op(n1)
+                comparison = (w.__matmul__(n2) == n1.__matmul__(n2))
+                # comparison = (w @ n2) == (n1 @ n2)
+                assert(comparison.all())
 
 
 if __name__ == '__main__':
