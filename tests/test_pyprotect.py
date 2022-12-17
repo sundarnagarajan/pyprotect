@@ -725,7 +725,442 @@ class test_pyprotect(unittest.TestCase):
                     assert(iswrapped(w2))
                     assert(w1 is w2)
 
-    def test_13_help(self):
+    def test_13_wrapping_module(self):
+
+        # --------------- wrap      ---------------
+        try:
+            del sys.modules['test_module']
+        except KeyError:
+            pass
+        import test_module
+        t = wrap(test_module)
+        sys.modules['t'] = t
+        del test_module
+        del t
+        import t
+
+        # Hidden private attrs visible
+        # Hidden private attrs and RO private attrs can be modified
+        a = '__module_private_invisible'
+        t.__dict__[a]
+        t.__dict__[a] = t.__dict__[a]
+        t._module_ro = t._module_ro
+        # Attributes not in dir(mod) can be accessed and set
+        t.module_attr_not_in_dir = t.module_attr_not_in_dir
+        t.meth_not_in_dir = t.meth_not_in_dir
+
+        # --------------- freeze    ---------------
+        try:
+            del sys.modules['test_module']
+        except KeyError:
+            pass
+        import test_module
+        t = freeze(test_module)
+        del test_module
+        sys.modules['t'] = t
+
+        # Hidden private attrs visible
+        # Hidden private attrs and RO private attrs can be accessed but not set
+        a = '__module_private_invisible'
+        t.__dict__[a]
+        t._module_ro
+        try:
+            t.__dict__[a] = t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t._module_ro = t._module_ro
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Attributes not in dir(mod) can be accessed but not set
+        t.module_attr_not_in_dir
+        t.meth_not_in_dir
+        try:
+            t.module_attr_not_in_dir = t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir = t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Objects from frozen module are NOT frozen
+        assert(not isfrozen(t._module_ro))
+        assert(not isfrozen(t.module_attr_not_in_dir))
+        assert(not isfrozen(t.meth_not_in_dir))
+        assert(not isfrozen(t.C))
+        assert(not isfrozen(t.module_meth_return_cls))
+        assert(not isfrozen(t.module_meth_return_cls_meth))
+        assert(not isfrozen(t.module_meth_return_inst_meth))
+        assert(not isfrozen(t.C.clsfn))
+        assert(not isfrozen(t.C.clsfn()))
+        assert(not isfrozen(t.C.clsfn()()))
+        assert(not isfrozen(t.C.clsfn()()()))
+        o = t.C()
+        assert(not isfrozen(o))
+        assert(not isfrozen(o.instfn))
+        assert(not isfrozen(o.instfn()))
+        assert(not isfrozen(o.instfn()()))
+        assert(not isfrozen(o.instfn()()()))
+        # mod.__dict__ IS frozen, but may not be present in PY2 modules
+        if hasattr(t, '__dict__'):
+            assert(isfrozen(t.__dict__))
+
+        # --------------- private (not frozen) ----
+        try:
+            del sys.modules['test_module']
+        except KeyError:
+            pass
+        import test_module
+        t = private(test_module, frozen=False)
+        del test_module
+        sys.modules['t'] = t
+
+        # Hidden private attrs are NOT visible and CANNOT be set
+        a = '__module_private_invisible'
+        try:
+            t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.__dict__[a] = t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Private single '_' attributes can be accessed but not set
+        t._module_ro
+        try:
+            t._module_ro = t._module_ro
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Attributes not in dir(mod) are not visible and CANNOT be set
+        try:
+            t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.module_attr_not_in_dir = t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir = t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Objects from frozen module are NOT frozen
+        assert(not isfrozen(t._module_ro))
+        assert(not isfrozen(t.C))
+        assert(not isfrozen(t.module_meth_return_cls))
+        assert(not isfrozen(t.module_meth_return_cls_meth))
+        assert(not isfrozen(t.module_meth_return_inst_meth))
+        assert(not isfrozen(t.C.clsfn))
+        assert(not isfrozen(t.C.clsfn()))
+        assert(not isfrozen(t.C.clsfn()()))
+        assert(not isfrozen(t.C.clsfn()()()))
+        o = t.C()
+        assert(not isfrozen(o))
+        assert(not isfrozen(o.instfn))
+        assert(not isfrozen(o.instfn()))
+        assert(not isfrozen(o.instfn()()))
+        assert(not isfrozen(o.instfn()()()))
+        # mod.__dict__ IS frozen, but may not be present in PY2 modules
+        if hasattr(t, '__dict__'):
+            assert(isfrozen(t.__dict__))
+
+        # --------------- protect (not frozen) ----
+        try:
+            del sys.modules['test_module']
+        except KeyError:
+            pass
+        import test_module
+        t = protect(test_module, ro_method=False, frozen=False)
+        del test_module
+        sys.modules['t'] = t
+
+        # Hidden private attrs are NOT visible and CANNOT be set
+        a = '__module_private_invisible'
+        try:
+            t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.__dict__[a] = t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Private single '_' attributes can be accessed but not set
+        t._module_ro
+        try:
+            t._module_ro = t._module_ro
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Attributes not in dir(mod) are not visible and CANNOT be set
+        try:
+            t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.module_attr_not_in_dir = t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir = t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Objects from frozen module are NOT frozen
+        assert(not isfrozen(t._module_ro))
+        assert(not isfrozen(t.C))
+        assert(not isfrozen(t.module_meth_return_cls))
+        assert(not isfrozen(t.module_meth_return_cls_meth))
+        assert(not isfrozen(t.module_meth_return_inst_meth))
+        assert(not isfrozen(t.C.clsfn))
+        assert(not isfrozen(t.C.clsfn()))
+        assert(not isfrozen(t.C.clsfn()()))
+        assert(not isfrozen(t.C.clsfn()()()))
+        o = t.C()
+        assert(not isfrozen(o))
+        assert(not isfrozen(o.instfn))
+        assert(not isfrozen(o.instfn()))
+        assert(not isfrozen(o.instfn()()))
+        assert(not isfrozen(o.instfn()()()))
+        # mod.__dict__ IS frozen, but may not be present in PY2 modules
+        if hasattr(t, '__dict__'):
+            assert(isfrozen(t.__dict__))
+
+        # --------------- private frozen ----------
+        try:
+            del sys.modules['test_module']
+        except KeyError:
+            pass
+        import test_module
+        t = private(test_module, frozen=True)
+        del test_module
+        sys.modules['t'] = t
+
+        # Hidden private attrs are NOT visible and CANNOT be set
+        a = '__module_private_invisible'
+        try:
+            t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.__dict__[a] = t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Private single '_' attributes can be accessed but not set
+        t._module_ro
+        try:
+            t._module_ro = t._module_ro
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Attributes not in dir(mod) are not visible and CANNOT be set
+        try:
+            t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.module_attr_not_in_dir = t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir = t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Objects from frozen module are NOT frozen
+        assert(not isfrozen(t._module_ro))
+        assert(not isfrozen(t.C))
+        assert(not isfrozen(t.module_meth_return_cls))
+        assert(not isfrozen(t.module_meth_return_cls_meth))
+        assert(not isfrozen(t.module_meth_return_inst_meth))
+        assert(not isfrozen(t.C.clsfn))
+        assert(not isfrozen(t.C.clsfn()))
+        assert(not isfrozen(t.C.clsfn()()))
+        assert(not isfrozen(t.C.clsfn()()()))
+        o = t.C()
+        assert(not isfrozen(o))
+        assert(not isfrozen(o.instfn))
+        assert(not isfrozen(o.instfn()))
+        assert(not isfrozen(o.instfn()()))
+        assert(not isfrozen(o.instfn()()()))
+        # mod.__dict__ IS frozen, but may not be present in PY2 modules
+        if hasattr(t, '__dict__'):
+            assert(isfrozen(t.__dict__))
+
+        # --------------- protect frozen ----------
+        try:
+            del sys.modules['test_module']
+        except KeyError:
+            pass
+        import test_module
+        t = protect(test_module, ro_method=False, frozen=True)
+        del test_module
+        sys.modules['t'] = t
+
+        # Hidden private attrs are NOT visible and CANNOT be set
+        a = '__module_private_invisible'
+        try:
+            t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.__dict__[a] = t.__dict__[a]
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Private single '_' attributes can be accessed but not set
+        t._module_ro
+        try:
+            t._module_ro = t._module_ro
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Attributes not in dir(mod) are not visible and CANNOT be set
+        try:
+            t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.module_attr_not_in_dir = t.module_attr_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        try:
+            t.meth_not_in_dir = t.meth_not_in_dir
+            raise MissingExceptionError('Expected Exception not raised')
+        except MissingExceptionError:
+            raise
+        except:
+            pass
+        # Objects from frozen module ARE frozen
+        assert(isfrozen(t._module_ro) or isimmutable(t._module_ro))
+        try:
+            assert(isfrozen(t.C))
+        except AssertionError:
+            print(
+                'DEBUG: ',
+                type(t), type(t.C)
+            )
+            raise
+        assert(isfrozen(t.module_meth_return_cls))
+        assert(isfrozen(t.module_meth_return_cls_meth))
+        assert(isfrozen(t.module_meth_return_inst_meth))
+        assert(isfrozen(t.C.clsfn))
+        assert(isfrozen(t.C.clsfn()))
+        assert(isfrozen(t.C.clsfn()()))
+        assert(isfrozen(t.C.clsfn()()()))
+        o = t.C()
+        assert(isfrozen(o))
+        assert(isfrozen(o.instfn))
+        assert(isfrozen(o.instfn()))
+        assert(isfrozen(o.instfn()()))
+        assert(isfrozen(o.instfn()()()))
+        # mod.__dict__ IS frozen, but may not be present in PY2 modules
+        if hasattr(t, '__dict__'):
+            assert(isfrozen(t.__dict__))
+
+    def test_30_help(self):
         for o in gen_test_objects():
             for op in (wrap, freeze, private, protect):
                 w = op(o)
@@ -736,7 +1171,7 @@ class test_pyprotect(unittest.TestCase):
                 h2 = p.help_str()
                 assert(h1 == h2)
 
-    def test_14_numeric_ops_int(self):
+    def test_51_numeric_ops_int(self):
         class CI(int):
             pass
 
@@ -821,7 +1256,7 @@ class test_pyprotect(unittest.TestCase):
             w1 = op(n1)
             assert(format(w1, '02x') == format(n1, '02x'))
 
-    def test_15_numeric_ops_float(self):
+    def test_52_numeric_ops_float(self):
         class CF(float):
             pass
 
@@ -893,7 +1328,7 @@ class test_pyprotect(unittest.TestCase):
             assert(bool(w3) == bool(n3))
             assert(format(w3, '.2f') == format(n3, '.2f'))
 
-    def test_16_mutating_numeric_ops_int(self):
+    def test_53_mutating_numeric_ops_int(self):
         class CI(int):
             pass
 
@@ -919,7 +1354,7 @@ class test_pyprotect(unittest.TestCase):
             w1 %= i2
             assert(w1 == 10)
 
-    def test_17_mutating_numeric_ops_float(self):
+    def test_54_mutating_numeric_ops_float(self):
         class CF(float):
             pass
 
@@ -945,7 +1380,7 @@ class test_pyprotect(unittest.TestCase):
             w1 %= i2
             assert(w1 == 10)
 
-    def test_18_mutating_numeric_ops_int_frozen(self):
+    def test_55_mutating_numeric_ops_int_frozen(self):
         class CI(int):
             pass
 
@@ -1004,7 +1439,7 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
 
-    def test_19_logical_ops(self):
+    def test_56_logical_ops(self):
         class CI(int):
             pass
 
@@ -1022,7 +1457,7 @@ class test_pyprotect(unittest.TestCase):
             assert((n2 ^ w) == 255)
             assert((n1 ^ w) == 0)
 
-    def test_20_mutating_logical_ops(self):
+    def test_57_mutating_logical_ops(self):
         class CI(int):
             pass
 
@@ -1049,7 +1484,7 @@ class test_pyprotect(unittest.TestCase):
             w ^= n1
             assert(w == 0)
 
-    def test_21_mutating_logical_ops_frozen(self):
+    def test_58_mutating_logical_ops_frozen(self):
         class CI(int):
             pass
 
@@ -1086,7 +1521,7 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
 
-    def test_22_containers(self):
+    def test_59_containers(self):
         l1 = [1, 2, 3]
         l2 = [3, 4, 5]
         s1 = set(l1)
@@ -1135,7 +1570,7 @@ class test_pyprotect(unittest.TestCase):
             for item in ['a', 'c']:
                 assert((item in w) == (item in d1))
 
-    def test_23_mutating_containers(self):
+    def test_60_mutating_containers(self):
         l1 = [1, 2, 3]
         l2 = [3, 4, 5]
         s1 = set(l1)
@@ -1211,7 +1646,7 @@ class test_pyprotect(unittest.TestCase):
             x = w.setdefault('d')
             assert(x == 4)
 
-    def test_24_mutating_containers_frozen(self):
+    def test_61_mutating_containers_frozen(self):
         l1 = [1, 2, 3]
         l2 = [3, 4, 5]
         s1 = set(l1)
@@ -1365,7 +1800,7 @@ class test_pyprotect(unittest.TestCase):
             except:
                 pass
 
-    def test_25_matmul(self):
+    def test_62_matmul(self):
         # __matmul__ came in PEP 465 dated 20-Feb-2014 only for python 3.5+
         # https://peps.python.org/pep-0465/
         if PY2 or (
