@@ -459,6 +459,20 @@ class test_pyprotect(unittest.TestCase):
                 ])
             )
 
+            # Test __len__ and __contains
+            w = op(l1)
+            assert(len(w) == len(l1))
+            for item in [1, 4]:
+                assert((item in w) == (item in l1))
+            w = op(s1)
+            assert(len(w) == len(s1))
+            for item in [1, 4]:
+                assert((item in w) == (item in s1))
+            w = op(d1)
+            assert(len(w) == len(d1))
+            for item in ['a', 'c']:
+                assert((item in w) == (item in d1))
+
     def test_14_mutating_containers(self):
         l1 = [1, 2, 3]
         l2 = [3, 4, 5]
