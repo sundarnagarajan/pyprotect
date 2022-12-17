@@ -1816,6 +1816,21 @@ class test_pyprotect(unittest.TestCase):
                 # comparison = (w @ n2) == (n1 @ n2)
                 assert(comparison.all())
 
+    def test_63_complex(self):
+        class CN(object):
+            def __complex__(self):
+                return 1 + 2j
+
+        o = CN()
+
+        for op in wrap, freeze, private, protect:
+            w = op(o)
+            # Run standard checks
+            cp = CheckPredictions(o, w)
+            dp = cp.get_predictions()
+            cp.check(dp)
+            assert(type(complex(w)) is complex)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)
