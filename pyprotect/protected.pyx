@@ -1389,7 +1389,8 @@ cdef class Wrapped(object):
             # object behave closest to a python module:
             #   Module object ITSELF is frozen, but objects returned
             #   FROM the module by methods, classes are not
-            if not isinstance(self.pvt_o, types.ModuleType):
+            # However module's __dict__ is still frozen
+            if a == '__dict__' or not isinstance(self.pvt_o, types.ModuleType):
                 delegated = freeze(delegated)
         return delegated
 
@@ -2485,6 +2486,8 @@ cdef class Protected(Private):
             ):
                 return False
         elif op == 'w':
+            if self.frozen:
+                return False
             # special_attributes never writeable
             if a in special_attributes:
                 return False
