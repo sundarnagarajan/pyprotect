@@ -543,12 +543,15 @@ __all__ = [
     'help_protected', 'attribute_protected',
     '__file__', 'never_writeable', 'never_writeable_private',
     'hidden_pickle_attributes', 'always_delegated_attributes',
+    'ProtectionError',
 ]
 
 
 def __dir__():
     return __all__
 
+class ProtectionError(Exception):
+    pass
 
 # ------------------------------------------------------------------------
 # End of python-accesssible methods
@@ -691,8 +694,12 @@ py2_function_attrs_rw = frozenset([
 # See: https://github.com/cython/cython/issues/1416
 # But you CAN cdef intermediate classes and derive from them
 # ------------------------------------------------------------------------
+'''
 @cython.internal
 cdef class ProtectionError(Exception):
+    pass
+'''
+class ProtectionError(Exception):
     pass
 # ------------------------------------------------------------------------
 
