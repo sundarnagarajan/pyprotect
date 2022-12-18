@@ -34,6 +34,47 @@ from testcases import gen_test_objects
 from cls_gen import generate
 
 
+def protected_merge_kwargs(kw1, kw2):
+    '''
+    Merges kw1 and kw2 to return dict with most restrictive options
+    kw1, kw2: dict
+    Returns: dict
+    Called once by protect() before Protected class initialization
+    '''
+    (kw1, kw2) = (dict(kw1), dict(kw2))
+    d = {}
+    # Permissive bool options - must be 'and-ed'
+    # dynamic defaults to True
+    a = 'dynamic'
+    d[a] = (kw1.get(a, True) and kw2.get(a, True))
+
+    # Restrictive bool options must be 'or-ed'
+    for a in (
+        'frozen', 'hide_private', 'ro_data', 'ro_method',
+    ):
+        d[a] = (kw1.get(a, False) or kw2.get(a, False))
+
+    # Restrictive lists (non-bool) are unioned
+    for a in (
+        'ro', 'hide',
+    ):
+        s1 = set(list(kw1.get(a, [])))
+        s2 = set(list(kw2.get(a, [])))
+        d[a] = list(
+            s1.union(s2)
+        )
+    # Permissive lists (non-bool) are intersected
+    for a in (
+        'rw',
+    ):
+        s1 = set(list(kw1.get(a, [])))
+        s2 = set(list(kw2.get(a, [])))
+        d[a] = list(
+            s1.intersection(s2)
+        )
+    return d
+
+
 class test_pyprotect(unittest.TestCase):
     def test_01_multiwrap_1300_tests(self):
         # 1300 sequences of freeze, wrap, private, protect for each 'o'

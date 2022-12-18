@@ -931,23 +931,34 @@ cdef protected_merge_kwargs(kw1: dict, kw2: dict):
     '''
     (kw1, kw2) = (dict(kw1), dict(kw2))
     d = {}
-    # Permissive options - must be 'and-ed'
+    # Permissive bool options - must be 'and-ed'
     # dynamic defaults to True while add defaults to False
     a = 'dynamic'
     d[a] = (kw1.get(a, True) and kw2.get(a, True))
 
-    # Restrictive options must be 'or-ed'
+    # Restrictive bool options must be 'or-ed'
     for a in (
         'frozen', 'hide_private', 'ro_data', 'ro_method',
     ):
         d[a] = (kw1.get(a, False) or kw2.get(a, False))
 
-    # Restrictive lists are unioned
+    # Restrictive lists (non-bool) are unioned
     for a in (
         'ro', 'hide',
     ):
+        s1 = set(list(kw1.get(a, [])))
+        s2 = set(list(kw2.get(a, [])))
         d[a] = list(
-            set(list(kw1.get(a, []))).union(set(list(kw2.get(a, []))))
+            s1.union(s2)
+        )
+    # Permissive lists (non-bool) are intersected
+    for a in (
+        'rw',
+    ):
+        s1 = set(list(kw1.get(a, [])))
+        s2 = set(list(kw2.get(a, [])))
+        d[a] = list(
+            s1.intersection(s2)
         )
     return d
 
