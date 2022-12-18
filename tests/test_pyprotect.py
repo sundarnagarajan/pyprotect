@@ -727,6 +727,26 @@ class test_pyprotect(unittest.TestCase):
 
     def test_13_wrapping_module(self):
 
+        def local_test_m_o(_m, _o, _b):
+            if _b:
+                assert(isimmutable(_m._module_ro) is _b)
+            else:
+                assert(isfrozen(_m._module_ro) is _b)
+            assert(isfrozen(_m.C) is _b)
+            assert(isfrozen(_m.module_meth_return_cls) is _b)
+            assert(isfrozen(_m.module_meth_return_cls_meth) is _b)
+            assert(isfrozen(_m.module_meth_return_inst_meth) is _b)
+            assert(isfrozen(_m.C.clsfn) is _b)
+            assert(isfrozen(_m.C.clsfn()) is _b)
+            assert(isfrozen(_m.C.clsfn()()) is _b)
+            assert(isfrozen(_m.C.clsfn()()()) is _b)
+
+            assert(isfrozen(_o) is _b)
+            assert(isfrozen(_o.instfn) is _b)
+            assert(isfrozen(_o.instfn()) is _b)
+            assert(isfrozen(_o.instfn()()) is _b)
+            assert(isfrozen(_o.instfn()()()) is _b)
+
         # --------------- wrap      ---------------
         try:
             del sys.modules['test_module']
@@ -795,24 +815,11 @@ class test_pyprotect(unittest.TestCase):
             raise
         except:
             pass
+
         # Objects from frozen module are NOT frozen
-        assert(not isfrozen(t._module_ro))
-        assert(not isfrozen(t.module_attr_not_in_dir))
-        assert(not isfrozen(t.meth_not_in_dir))
-        assert(not isfrozen(t.C))
-        assert(not isfrozen(t.module_meth_return_cls))
-        assert(not isfrozen(t.module_meth_return_cls_meth))
-        assert(not isfrozen(t.module_meth_return_inst_meth))
-        assert(not isfrozen(t.C.clsfn))
-        assert(not isfrozen(t.C.clsfn()))
-        assert(not isfrozen(t.C.clsfn()()))
-        assert(not isfrozen(t.C.clsfn()()()))
-        o = t.C()
-        assert(not isfrozen(o))
-        assert(not isfrozen(o.instfn))
-        assert(not isfrozen(o.instfn()))
-        assert(not isfrozen(o.instfn()()))
-        assert(not isfrozen(o.instfn()()()))
+        assert(isfrozen(t.module_attr_not_in_dir) is False)
+        assert(isfrozen(t.meth_not_in_dir) is False)
+        local_test_m_o(t, t.C(), False)
         # mod.__dict__ IS frozen, but may not be present in PY2 modules
         if hasattr(t, '__dict__'):
             assert(isfrozen(t.__dict__))
@@ -882,21 +889,7 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
         # Objects from frozen module are NOT frozen
-        assert(not isfrozen(t._module_ro))
-        assert(not isfrozen(t.C))
-        assert(not isfrozen(t.module_meth_return_cls))
-        assert(not isfrozen(t.module_meth_return_cls_meth))
-        assert(not isfrozen(t.module_meth_return_inst_meth))
-        assert(not isfrozen(t.C.clsfn))
-        assert(not isfrozen(t.C.clsfn()))
-        assert(not isfrozen(t.C.clsfn()()))
-        assert(not isfrozen(t.C.clsfn()()()))
-        o = t.C()
-        assert(not isfrozen(o))
-        assert(not isfrozen(o.instfn))
-        assert(not isfrozen(o.instfn()))
-        assert(not isfrozen(o.instfn()()))
-        assert(not isfrozen(o.instfn()()()))
+        local_test_m_o(t, t.C(), False)
         # mod.__dict__ IS frozen, but may not be present in PY2 modules
         if hasattr(t, '__dict__'):
             assert(isfrozen(t.__dict__))
@@ -966,21 +959,7 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
         # Objects from frozen module are NOT frozen
-        assert(not isfrozen(t._module_ro))
-        assert(not isfrozen(t.C))
-        assert(not isfrozen(t.module_meth_return_cls))
-        assert(not isfrozen(t.module_meth_return_cls_meth))
-        assert(not isfrozen(t.module_meth_return_inst_meth))
-        assert(not isfrozen(t.C.clsfn))
-        assert(not isfrozen(t.C.clsfn()))
-        assert(not isfrozen(t.C.clsfn()()))
-        assert(not isfrozen(t.C.clsfn()()()))
-        o = t.C()
-        assert(not isfrozen(o))
-        assert(not isfrozen(o.instfn))
-        assert(not isfrozen(o.instfn()))
-        assert(not isfrozen(o.instfn()()))
-        assert(not isfrozen(o.instfn()()()))
+        local_test_m_o(t, t.C(), False)
         # mod.__dict__ IS frozen, but may not be present in PY2 modules
         if hasattr(t, '__dict__'):
             assert(isfrozen(t.__dict__))
@@ -1050,21 +1029,7 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
         # Objects from frozen module are NOT frozen
-        assert(not isfrozen(t._module_ro))
-        assert(not isfrozen(t.C))
-        assert(not isfrozen(t.module_meth_return_cls))
-        assert(not isfrozen(t.module_meth_return_cls_meth))
-        assert(not isfrozen(t.module_meth_return_inst_meth))
-        assert(not isfrozen(t.C.clsfn))
-        assert(not isfrozen(t.C.clsfn()))
-        assert(not isfrozen(t.C.clsfn()()))
-        assert(not isfrozen(t.C.clsfn()()()))
-        o = t.C()
-        assert(not isfrozen(o))
-        assert(not isfrozen(o.instfn))
-        assert(not isfrozen(o.instfn()))
-        assert(not isfrozen(o.instfn()()))
-        assert(not isfrozen(o.instfn()()()))
+        local_test_m_o(t, t.C(), False)
         # mod.__dict__ IS frozen, but may not be present in PY2 modules
         if hasattr(t, '__dict__'):
             assert(isfrozen(t.__dict__))
@@ -1134,15 +1099,10 @@ class test_pyprotect(unittest.TestCase):
         except:
             pass
         # Objects from frozen module ARE frozen
-        assert(isfrozen(t._module_ro) or isimmutable(t._module_ro))
-        try:
-            assert(isfrozen(t.C))
-        except AssertionError:
-            print(
-                'DEBUG: ',
-                type(t), type(t.C)
-            )
-            raise
+        local_test_m_o(t, t.C(), True)
+        '''
+        # Objects from frozen module ARE frozen
+        assert(isfrozen(t.C))
         assert(isfrozen(t.module_meth_return_cls))
         assert(isfrozen(t.module_meth_return_cls_meth))
         assert(isfrozen(t.module_meth_return_inst_meth))
@@ -1156,6 +1116,7 @@ class test_pyprotect(unittest.TestCase):
         assert(isfrozen(o.instfn()))
         assert(isfrozen(o.instfn()()))
         assert(isfrozen(o.instfn()()()))
+        '''
         # mod.__dict__ IS frozen, but may not be present in PY2 modules
         if hasattr(t, '__dict__'):
             assert(isfrozen(t.__dict__))
