@@ -34,10 +34,6 @@ from testcases import gen_test_objects
 from cls_gen import generate
 
 
-class MissingExceptionError(Exception):
-    pass
-
-
 class test_pyprotect(unittest.TestCase):
     def test_01_multiwrap_1300_tests(self):
         # 1300 sequences of freeze, wrap, private, protect for each 'o'
@@ -1172,55 +1168,20 @@ class test_pyprotect(unittest.TestCase):
         i2 = 30
         w1 = freeze(n1)
 
-        try:
+        with self.assertRaises(Exception):
             w1 += i1
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        try:
+        with self.assertRaises(Exception):
             w1 -= i1
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        try:
+        with self.assertRaises(Exception):
             w1 *= i1
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        try:
+        with self.assertRaises(Exception):
             w1 //= i1
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
+        with self.assertRaises(Exception):
+            w1 %= i2
         # PY2 does not have truediv
         if not PY2:
-            try:
+            with self.assertRaises(Exception):
                 w1 /= i1
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-        try:
-            w1 %= i2
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
 
     def test_56_logical_ops(self):
         class CI(int):
@@ -1276,33 +1237,13 @@ class test_pyprotect(unittest.TestCase):
 
         n1 = CI(0b10101010)
         w = op(n1)
-        try:
+
+        with self.assertRaises(Exception):
             w &= n2
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        n1 = CI(0b10101010)
-        w = op(n1)
-        try:
+        with self.assertRaises(Exception):
             w |= n2
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
-
-        n1 = CI(0b10101010)
-        w = op(n1)
-        try:
+        with self.assertRaises(Exception):
             w ^= n2
-            raise MissingExceptionError('Expected Exception not raised')
-        except MissingExceptionError:
-            raise
-        except:
-            pass
 
     def test_59_containers(self):
         l1 = [1, 2, 3]
@@ -1444,144 +1385,46 @@ class test_pyprotect(unittest.TestCase):
         for op in ops:
             # Mutating operations
             w = op([1, 2, 3])
-            try:
+
+            with self.assertRaises(Exception):
                 w += l2
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 del w[1]
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w *= 3
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 # pop(ind) pops out item at pos -ind
                 w.pop(1)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.remove(3)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.reverse()
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.sort()
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
 
             w = op(s1)
-            try:
+            with self.assertRaises(Exception):
                 w &= s2
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w |= s2
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w ^= s2
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
 
             w = op({'a': 1, 'b': 2})
-            try:
+            with self.assertRaises(Exception):
                 w.clear()
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.pop('a')
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.update(d2)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.popitem()
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.setdefault('c', None)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.setdefault('d', 4)
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
-
-            try:
+            with self.assertRaises(Exception):
                 w.setdefault('d')
-                raise MissingExceptionError('Expected Exception not raised')
-            except MissingExceptionError:
-                raise
-            except:
-                pass
 
     def test_62_matmul(self):
         # __matmul__ came in PEP 465 dated 20-Feb-2014 only for python 3.5+
