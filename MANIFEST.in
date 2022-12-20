@@ -1,2 +1,11 @@
 global-include protected.pyx
 global-include protected.c
+global-include doc.pxi
+global-include global_cdefs.pxi
+global-include global_c_functions.pxi
+global-include PrivacyDict_FrozenPrivacyDict.pxi
+global-include Private_FrozenPrivate.pxi
+global-include Protected_FrozenProtected.pxi
+global-include ProtectionData.pxi
+global-include python_visible.pxi
+global-include Wrapped_Frozen.pxi
