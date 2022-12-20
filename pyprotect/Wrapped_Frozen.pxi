@@ -180,6 +180,8 @@ cdef class Wrapped(object):
 
     cdef writeable(self, a):
         # Needs to be FAST - called in __setattr__, __delattr__
+        if a in special_attributes or a in overridden_always:
+            return False
         return not self.frozen
 
     cdef testop(self, a, op):
@@ -337,17 +339,13 @@ cdef class Wrapped(object):
     cdef wrapped_check_setattr(self, a, val):
         if self.frozen:
             raise frozen_error
-        if a in overridden_always:
-            raise ProtectionError('Cannot modify attribute: %s' % (a,))
-        if a in special_attributes:
+        if a in overridden_always or a in special_attributes:
             raise ProtectionError('Cannot modify attribute: %s' % (a,))
 
     cdef wrapped_check_delattr(self, a):
         if self.frozen:
             raise frozen_error
-        if a in overridden_always:
-            raise ProtectionError('Cannot delete attribute: %s' % (a,))
-        if a in special_attributes:
+        if a in overridden_always or a in special_attributes:
             raise ProtectionError('Cannot delete attribute: %s' % (a,))
         if not hasattr(self.pvt_o, a) and a in self.__dir__():
             raise ProtectionError('Cannot delete attribute: %s' % (a,))
