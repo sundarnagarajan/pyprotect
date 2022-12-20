@@ -2653,6 +2653,7 @@ static const char __pyx_k_pyx_unpickle_FrozenProtected[] = "__pyx_unpickle_Froze
 static const char __pyx_k_pyx_unpickle__ProtectionData[] = "__pyx_unpickle__ProtectionData";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped_2[] = "__Pyx_CFunc_object____Wrapped____object___to_py.<locals>.wrap";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped_3[] = "__Pyx_CFunc_object____Wrapped____object____object___to_py.<locals>.wrap";
+static const char __pyx_k_Module_with_methods_to_wrap_an[] = "\nModule with methods to wrap an object controlling visibility\nand mutability of attributes\n\nVISIBILITY or READABILITY: Whether the attribute VALUE can be read\n\n- Applies to wrapped object - NOT original object\n- Should not be affected when using wrap()\n- IS affected if you use private / protect\n- Objects wrapped with private / protect do not expose getattr,\n  __getattribute__, __setattr__ or __delattr__\n\nMUTABILITY: Ability to CHANGE or DELETE an attribute\n\n- Protected object will not allow CHANGING OR DELETING an attribute\n  that is not VISIBLE\n- Objects wrapped with private / protect do not allow modification\n  of __class__, __dict__ or __slots attributes\n- When using protect(o, **kwargs), writeability depends on kwargs\n\nWhat kind of python objects can be wrapped?\n\n- Any object that supports getattr, setattri, delattr and __class__\n- Python2 'old-style' classes (without '__class__' attribute) are\n  not supported. INSTANCES of such classes CAN be wrapped.\n- Pickling / unpickling of wrapped objects is not supported\n    Even if / when enabled, after a pickle-unpickle cycle,\n    - Frozen objects will no longer be frozen\n    - Private objects will no longer have visibility / mutability\n      restrictions\n    - Protected objects will no longer have custom protections\n\nCan I wrap an object from a python C extension?\nYES. See answer to 'What kind of python objects can be wrapped?'\n\nCheck if a wrapped object is frozen (immutable):\nUse 'isimmutable(o)'.  Also works on objects that are not wrapped\n\nFreeze an object only if it is mutable:\nJust use 'freeze'. 'freeze' already checks, and wraps only if mutable\n\nWill wrapper detect attributes that my object adds, changes or deletes\nat RUN-TIME?\n\nwrap / freeze / private: YES !\n\nprotect:\n    If 'dynamic' is True (default): YES !\n\n    If 'dynamic' is False, dir(wrapped_object) will not\n    accurately reflect attributes added or deleted at run-time\n\n    Note that the above caveats a""re UNAFFECTED by 'frozen'\n    'frozen' only controls whether object can be modified from OUTSIDE\n    the wrapped object\n\nWill I need to change the code for my object / class?\nONLY in the following cases fnd ONLY if wrapped using private / protect:\n\n- If your object DEPENDS on external visibility of traditionally\n  'private' mangled object attributes, you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on external writeability of traditionally\n  'private' attributes of the form '_var', you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on EXTERNAL modifability of __class__,\n  __dict__ or __slots__, you will need to change the behavior\n  of your object (change the code) - since this contradicts the\n  basic objective of private / protect.\n\nCode changes required when USING a wrapped object vs. using original object:\nPickling / unpickling of wrapped objects is not supported\n\nIf 'o' is your original object, and 'w' is the wrapped object:\nOne difference across wrap / freeze / private / protect:\ndir(w) will necessarily be different from dir(o):\n  Additional attributes in 'w': '_Protected_____'\n  'private':\n      Traditionally 'private' mangled attributes will not appear\n  'protect':\n      Traditionally 'private' mangled attributes will not appear\n      Further differences depending on keyword arguments to 'protect'\n\nFollowing applies only to wrapping with wrap / private / protect:\n- Change calls to w.__getattribute__(a) to getattr(w, a)\n- Change calls to w.__delattr__ to delattr(w, a)\n- Change calls to w.__setattr(a, val) to setattr(w, a, val)\n- Change isinstance(w, Mytypes) to isinstance_protected(w, MyTypes)\n    isinstance_protected can also be used transparently on objects\n    that have NOT been wrapped\n    Can also (even) alias isinstance to isinstance_protected\n- Change ""id(w) to id_protected(w). id_protected can also be used\n    transparently on objects that have NOT been wrapped\n    Can also (even) alias id to id_protected\n- Change 'w is x' to id_protected(w) == id_protected(x)\n- Change type(w) to w.__class__ if you want to use the CLASS of w\n    but safely - not allowing class modifications\n- Getting interactive help on an object\n    Instead of help(o), use help_protected(o)\n    Can also (even) alias help to help_protected\n\nObject equality:\nTwo objects returned by wrap / freeze / private / protect are equal\nIF AND ONLY IF all the following conditions are met:\n- They wrap the SAME object - id(o1) == id(o2)\n- They were wrapped using the same method\n- For private: both were wrapped with the same value for 'frozen'\n- For protect: the EFFECTIVE visibility and writeability implied\n  by keyword arguments provided to 'protect' for the two objects\n  is identical\n\n\nCan a Frozen / Private / Protected class instance be wrapped again\nusing freeze / private / protect?\nYES ! Objects are guaranteed to end up being wrapped at most once.\n\nChecking at run-time whether an attribute is visible:\nAssuming 'o' is the object, whether wrapped or not and 'a is attribute:\nJust use hasattr(o, a).  Works on any object, wrapped or not\n\nChecking at run-time whether an attribute is writeable:\nAssuming 'o' is the object, whether wrapped or not and you want to set\nattribute 'a' to value 'val':\n\nPythonic way - optimistic - try and handle exception\n\ntry:\n    setattr(o, a, val)\nexcept Exception:\n    # Do something if attribute cannot be set\n    # Should (hopefully) work on any object, wrapped or not\n    pass\n\nNon-pythonic way - 'check and hope'\nif isreadonly(o, a):\n    # Do something if attribute is read-only\n    pass\nelse:\n    # Do something else if attribute is writeable\n    pass\n\nChecking at run-time whether an attribute can be deleted:\nAssuming 'o' is the object, whether wrapped or not and you want to delete\natt""ribute 'a':\n\ntry:\n    delattr(o, a)\nexcept Exception:\n    # Do something if attribute cannot be deleted\n    # Should (hopefully) work on any object, wrapped or not\n    pass\n\n";
 static const char __pyx_k_pyx_unpickle_FrozenPrivacyDict[] = "__pyx_unpickle_FrozenPrivacyDict";
 static const char __pyx_k_Cannot_delete_private_attribute[] = "Cannot delete private attribute: %s.%s";
 static const char __pyx_k_Cannot_set_private_attribute_s_s[] = "Cannot set private attribute: %s.%s";
@@ -51461,7 +51462,7 @@ static PyModuleDef_Slot __pyx_moduledef_slots[] = {
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
     "protected",
-    0, /* m_doc */
+    __pyx_k_Module_with_methods_to_wrap_an, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
   #else
@@ -53063,7 +53064,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("protected", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("protected", __pyx_methods, __pyx_k_Module_with_methods_to_wrap_an, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -53109,40 +53110,40 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(8, 1, __pyx_L1_error)
   #endif
 
-  /* "pyprotect/protected.pyx":3
- * include "doc.pxi"
+  /* "pyprotect/protected.pyx":157
+ * '''
  * 
  * import sys             # <<<<<<<<<<<<<<
  * cdef bint PY2
  * cdef object builtin_module
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 3, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 157, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(8, 157, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":6
+  /* "pyprotect/protected.pyx":160
  * cdef bint PY2
  * cdef object builtin_module
  * if sys.version_info.major > 2:             # <<<<<<<<<<<<<<
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 6, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_version_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 6, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_version_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_major); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 6, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_major); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 160, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_2, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 6, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_2, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 160, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(8, 6, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(8, 160, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/protected.pyx":7
+    /* "pyprotect/protected.pyx":161
  * cdef object builtin_module
  * if sys.version_info.major > 2:
  *     PY2 = False             # <<<<<<<<<<<<<<
@@ -53151,19 +53152,19 @@ if (!__Pyx_RefNanny) {
  */
     __pyx_v_9pyprotect_9protected_PY2 = 0;
 
-    /* "pyprotect/protected.pyx":8
+    /* "pyprotect/protected.pyx":162
  * if sys.version_info.major > 2:
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']             # <<<<<<<<<<<<<<
  *     import collections.abc as CollectionsABC
  * else:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_sys); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 8, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_sys); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modules); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 8, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modules); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_builtins); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 8, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_builtins); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_v_9pyprotect_9protected_builtin_module);
@@ -53171,25 +53172,25 @@ if (!__Pyx_RefNanny) {
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pyprotect/protected.pyx":9
+    /* "pyprotect/protected.pyx":163
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']
  *     import collections.abc as CollectionsABC             # <<<<<<<<<<<<<<
  * else:
  *     PY2 = True
  */
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 9, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 163, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_n_s__33);
     __Pyx_GIVEREF(__pyx_n_s__33);
     PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s__33);
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections_abc, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 9, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections_abc, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 163, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 9, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 163, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pyprotect/protected.pyx":6
+    /* "pyprotect/protected.pyx":160
  * cdef bint PY2
  * cdef object builtin_module
  * if sys.version_info.major > 2:             # <<<<<<<<<<<<<<
@@ -53199,7 +53200,7 @@ if (!__Pyx_RefNanny) {
     goto __pyx_L2;
   }
 
-  /* "pyprotect/protected.pyx":11
+  /* "pyprotect/protected.pyx":165
  *     import collections.abc as CollectionsABC
  * else:
  *     PY2 = True             # <<<<<<<<<<<<<<
@@ -53209,19 +53210,19 @@ if (!__Pyx_RefNanny) {
   /*else*/ {
     __pyx_v_9pyprotect_9protected_PY2 = 1;
 
-    /* "pyprotect/protected.pyx":12
+    /* "pyprotect/protected.pyx":166
  * else:
  *     PY2 = True
  *     builtin_module = sys.modules['__builtin__']             # <<<<<<<<<<<<<<
  *     import collections as CollectionsABC
  * import os
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 12, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modules); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 12, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modules); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_n_s_builtin); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 12, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_n_s_builtin); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 166, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_XGOTREF(__pyx_v_9pyprotect_9protected_builtin_module);
@@ -53229,78 +53230,78 @@ if (!__Pyx_RefNanny) {
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/protected.pyx":13
+    /* "pyprotect/protected.pyx":167
  *     PY2 = True
  *     builtin_module = sys.modules['__builtin__']
  *     import collections as CollectionsABC             # <<<<<<<<<<<<<<
  * import os
  * import re
  */
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 13, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 13, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 167, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L2:;
 
-  /* "pyprotect/protected.pyx":14
+  /* "pyprotect/protected.pyx":168
  *     builtin_module = sys.modules['__builtin__']
  *     import collections as CollectionsABC
  * import os             # <<<<<<<<<<<<<<
  * import re
  * import types
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 14, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(8, 14, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(8, 168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":15
+  /* "pyprotect/protected.pyx":169
  *     import collections as CollectionsABC
  * import os
  * import re             # <<<<<<<<<<<<<<
  * import types
  * import functools
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_re, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 15, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_re, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 169, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_re, __pyx_t_1) < 0) __PYX_ERR(8, 15, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_re, __pyx_t_1) < 0) __PYX_ERR(8, 169, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":16
+  /* "pyprotect/protected.pyx":170
  * import os
  * import re
  * import types             # <<<<<<<<<<<<<<
  * import functools
  * import pydoc
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_types, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 16, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_types, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_types, __pyx_t_1) < 0) __PYX_ERR(8, 16, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_types, __pyx_t_1) < 0) __PYX_ERR(8, 170, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":17
+  /* "pyprotect/protected.pyx":171
  * import re
  * import types
  * import functools             # <<<<<<<<<<<<<<
  * import pydoc
  * 
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_functools, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 17, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_functools, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_functools, __pyx_t_1) < 0) __PYX_ERR(8, 17, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_functools, __pyx_t_1) < 0) __PYX_ERR(8, 171, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":18
+  /* "pyprotect/protected.pyx":172
  * import types
  * import functools
  * import pydoc             # <<<<<<<<<<<<<<
  * 
  * include "python_visible.pxi"
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pydoc, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 18, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pydoc, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pydoc, __pyx_t_1) < 0) __PYX_ERR(8, 18, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pydoc, __pyx_t_1) < 0) __PYX_ERR(8, 172, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyprotect/python_visible.pxi":6
@@ -54244,9 +54245,9 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "pyprotect/protected.pyx":1
- * include "doc.pxi"             # <<<<<<<<<<<<<<
- * 
- * import sys
+ * '''             # <<<<<<<<<<<<<<
+ * Module with methods to wrap an object controlling visibility
+ * and mutability of attributes
  */
   __pyx_t_5 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(8, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);

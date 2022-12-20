@@ -1,6 +1,5 @@
 global-include protected.pyx
 global-include protected.c
-global-include doc.pxi
 global-include global_cdefs.pxi
 global-include global_c_functions.pxi
 global-include PrivacyDict_FrozenPrivacyDict.pxi
