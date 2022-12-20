@@ -145,6 +145,22 @@ def isreadonly(o: object, a: str) -> bool:
         return False
 
 
+def isvisible(o: object, a: str) -> bool:
+    '''
+    isvisible(o: object, a: str) -> bool:
+    Returns-->bool: False IFF 'o' is wrapped AND 'o' makes arribute 'a'
+        invisible if present in wrapped object
+    This represents RULE of wrapped object - does not guarantee
+    that WRAPPED OBJECT has attribute 'a' or that accessing attribute
+    'a' in object 'o' will not raise any exception
+
+    If 'o' is not a wrapped object, unconditionally returns False
+    '''
+    if not iswrapped(o):
+        return False
+    return getattr(o, PROT_ATTR_NAME).testop(a, 'r')
+
+
 # ------------------------------------------------------------------------
 # Methods to created Wrapped objects
 # ------------------------------------------------------------------------
@@ -367,7 +383,7 @@ __all__ = [
     'contains', 'freeze', 'id_protected', 'immutable_builtin_attributes',
     'isfrozen', 'isimmutable', 'isinstance_protected', 'isprivate',
     'isprotected', 'isreadonly', 'iswrapped', 'private', 'protect', 'wrap',
-    'help_protected', 'attribute_protected',
+    'help_protected', 'attribute_protected', 'isvisible',
     '__file__', 'never_writeable', 'never_writeable_private',
     'hidden_pickle_attributes', 'always_delegated_attributes',
     'ProtectionError',
