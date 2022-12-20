@@ -25,6 +25,8 @@ from pyprotect import (
     never_writeable_private,
     hidden_pickle_attributes,
     always_delegated_attributes,
+    isreadonly,
+    isvisible,
 )
 
 
@@ -276,7 +278,7 @@ class CheckPredictions:
         w_readable and w_writeable are ONLY used in asserts
         '''
         o_readable = d['o']['readable']
-        # o_writeable = d['o']['writeable']
+        o_writeable = d['o']['writeable']
         w_readable = d['w']['readable']
         w_writeable = d['w']['writeable']
 
@@ -297,6 +299,25 @@ class CheckPredictions:
         # None of addl_ro are writeable
         w_w = d['predictions']['addl_ro'].intersection(w_writeable)
         assert(w_w == set())
+
+        # Test isreadonly(): None of w_writeable return False for isreadonly
+        for a in w_writeable:
+            assert(isreadonly(self.__w, a) is False)
+        # Test isreadonly(): Anything in w_readable and not in w_writeable
+        # has isreadonly() == True
+        for a in w_readable:
+            if a not in w_writeable and a in o_writeable:
+                if a not in overridden_always:
+                    assert(isreadonly(self.__w, a) is True)
+
+        # Test isvisible(): All of w_readable return True for isvisible
+        for a in w_readable:
+            assert(isvisible(self.__w, a) is True)
+        # Test isvisible(): All of o_readable that is not in w_readable
+        # have isvisible() == False
+        for a in o_readable:
+            if a not in w_readable:
+                assert(isvisible(self.__w, a) is False)
 
         # Check the special module hack - if o is a module, when it is frozen
         # none of the attributes must be frozen
