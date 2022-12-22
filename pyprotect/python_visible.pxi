@@ -40,6 +40,7 @@ def isinstance_protected(o: object, c: type) -> bool:
 
 def issubclass_protected(o: type, c: type) -> bool:
     '''
+    issubclass_protected(o: object, c: type) -> bool:
     Returns: issubclass(wrapped_object, c) if iswrapped(o);
         issubclass(o, c) otherwise
     '''
@@ -386,7 +387,7 @@ __all__ = [
     'help_protected', 'attribute_protected', 'isvisible',
     '__file__', 'never_writeable', 'never_writeable_private',
     'hidden_pickle_attributes', 'always_delegated_attributes',
-    'ProtectionError',
+    'ProtectionError', 'issubclass_protected',
 ]
 
 
