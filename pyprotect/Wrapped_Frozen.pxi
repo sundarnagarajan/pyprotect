@@ -95,12 +95,19 @@ cdef class Wrapped(object):
         else:
             protect_class = Protected
             private_class = Private
+        if isinstance(self.pvt_o, type):
+            id_class = id(self.pvt_o)
+        else:
+            id_class = id(type(self.pvt_o))
 
         self.protected_attribute = _ProtectionData(
             id_val=id(self.pvt_o),
+            id_class=id_class,
             hash_val=functools.partial(self.hash_protected, self),
             isinstance_val=functools.partial(self.isinstance_protected, self),
             issubclass_val=functools.partial(self.issubclass_protected, self),
+            instanceof=functools.partial(self.instanceof_protected, self),
+            subclassof=functools.partial(self.subclassof_protected, self),
             help_val=functools.partial(self.help_protected, self),
             help_str=functools.partial(self.help_str_protected, self),
             testop=functools.partial(self.testop, self),
@@ -165,7 +172,22 @@ cdef class Wrapped(object):
         return isinstance(self.pvt_o, c)
 
     cdef issubclass_protected(self, c):
-        return issubclass(self.pvt_o.__class__, c)
+        if isinstance(self.pvt_o, type):
+            return issubclass(self.pvt_o, c)
+        else:
+            return issubclass(type(self.pvt_o), c)
+
+    cdef instanceof_protected(self, c):
+        if isinstance(self.pvt_o, type):
+            return isinstance(c, self.pvt_o)
+        else:
+            return isinstance(c, type(self.pvt_o))
+
+    cdef subclassof_protected(self, c):
+        if isinstance(self.pvt_o, type):
+            return issubclass(c, self.pvt_o)
+        else:
+            return issubclass(c, type(self.pvt_o))
 
     cdef help_protected(self):
         return help(self.pvt_o)

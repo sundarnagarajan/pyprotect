@@ -49,6 +49,39 @@ def issubclass_protected(o: type, c: type) -> bool:
     return issubclass(o, c)
 
 
+def instance_of_protected(x: object, w: object) -> bool:
+    '''
+    If iswrapped(w) and w wraps 'o':
+        Returns isinstance(x, type(o))
+    Else: returns isinstance(x, w)
+    '''
+    if iswrapped(w):
+        return getattr(w, PROT_ATTR_NAME).instanceof(x)
+    return isinstance(x, w)
+
+
+def subclass_of_protected(x: object, w: object) -> bool:
+    '''
+    If iswrapped(w) and w wraps 'o':
+        Returns issubclass(x, type(o))
+    Else: returns issubclass(x, w)
+    '''
+    if iswrapped(w):
+        return getattr(w, PROT_ATTR_NAME).subclassof(x)
+    return issubclass(x, w)
+
+
+def same_class_protected(c: type, w: object) -> bool:
+    '''
+    If iswrapped(w) and w wraps 'o':
+        Returns (c is type(o))
+    Else: returns (c is type(w))
+    '''
+    if iswrapped(w):
+        return id(c) == getattr(w, PROT_ATTR_NAME).id_class
+    return c is type(w)
+
+
 def help_protected(o: object) -> None:
     '''
     Calls help(wrapped_object) if iswrapped(o); help(o) otherwise
@@ -388,6 +421,7 @@ __all__ = [
     '__file__', 'never_writeable', 'never_writeable_private',
     'hidden_pickle_attributes', 'always_delegated_attributes',
     'ProtectionError', 'issubclass_protected',
+    'instance_of_protected', 'subclass_of_protected', 'same_class_protected',
 ]
 
 
