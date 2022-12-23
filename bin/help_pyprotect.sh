@@ -12,11 +12,5 @@ command -v $PYDOC_CMD 1>/dev/null 2>&1 || {
     >&2 echo "$PYDOC_CMD not found"
     exit 1
 }
-export __Protected_NOFREEZE_MODULE_____=yes
-$PYTHON_CMD -c "import pyprotect" 2>/dev/null && exec "$PYDOC_CMD" pyprotect || {
-    cd "$PROG_DIR" && \
-    $PYTHON_CMD -c "import pyprotect" 2>/dev/null && exec "$PYDOC_CMD" pyprotect || {
-        >&2 echo "pyprotect module not found"
-        exit 1
-    }
-}
+# export __Protected_NOFREEZE_MODULE_____=yes
+$PYTHON_CMD -c "import pyprotect; help(pyprotect);"
