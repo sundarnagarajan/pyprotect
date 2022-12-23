@@ -5,9 +5,10 @@ and mutability of attributes
 VISIBILITY or READABILITY: Whether the attribute VALUE can be read
 
 - Applies to wrapped object - NOT original object
-- Should not be affected when using wrap()
-- IS affected if you use private / protect
-- Objects wrapped with private / protect do not expose getattr,
+- Visibility Should not be affected when using wrap()
+- Visibility IS affected if you use private / protect
+- Objects wrapped with private / protect do not allow following
+  special methods to be set or deleted:
   __getattribute__, __setattr__ or __delattr__
 
 MUTABILITY: Ability to CHANGE or DELETE an attribute
@@ -18,11 +19,83 @@ MUTABILITY: Ability to CHANGE or DELETE an attribute
   of __class__, __dict__ or __slots attributes
 - When using protect(o, **kwargs), writeability depends on kwargs
 
+Key methods in the module API:
+
+freeze(o: object) -> object:
+    Returns: Instance of Frozen | FrozenPrivacyDict | FrozenPrivate |
+        FrozenProtected, depending on what 'o' is
+
+    Object returned prevents modification of ANY attribute
+
+private(o: object, frozen: bool = False) -> object:
+    Returns: Instance of FrozenPrivate if frozen; Private otherwise
+
+    Private:
+        - Cannot access traditionally 'private' mangled python attributes
+        - Cannot access any attribute not exported by dir(o)
+        - Cannot access any unmangled double '_' attributes
+        - Cannot modify traditionally private attributes (form '_var')
+        - Cannot modify __class__ of wrapped object
+        - Cannot modify __dict__ of wrapped object
+        - Cannot modify __slots__ of wrapped object
+        - Cannot add or delete attributes
+
+   FrozenPrivate:
+        Features of Private PLUS prevents modification of ANY attribute
+
+protect(
+    o: object,
+    frozen: bool = False, dynamic: bool = True,
+    hide_private: bool = False,
+    ro_data: bool = False, ro_method: bool = True,
+    ro=[], rw=[], hide=[],
+):
+    o: object to be wrapped
+    frozen: bool: No attribute can be modified
+        PLUS: if 'o' is NOT a module, results returned by methods,
+        including __call__ will be frozen
+    dynamic: bool: Attribute additions, deletions, type changes in wrapped
+        object are automatically considered by hide_private, ro_data,
+        ro_method, ro, rw, hide
+        If dynamic is False, it is a pledge that attributes of wrapped
+        object will not change, and visibility and mutability rules of
+        WRAPPING object use a cache to make them faster.
+        Rules imposed by Private() are always dynamic
+    hide_private: bool: Private vars (_var) will be hidden
+    ro_data: bool: Data attributes cannot be deleted or assigned to
+    ro_method: bool: Method attributes cannot be deleted or assigned to
+    ro: list of str: attributes that will be read-only
+    rw: list of str: attributes that will be read-write
+        Overrides 'ro_*'
+    hide: list of str: attributes that will be hidden
+
+    Returns-->Instance of FrozenProtected if frozen; Protected otherwise
+
+    Protected:
+        Features of Private PLUS additional restrictions on:
+            - Which attributes are VISIBLE
+            - Which attributes are WRITEABLE
+
+    FrozenProtected:
+        Features of Protected PLUS prevents modification of ANY attribute
+
+    Default settings:
+    Features of Private:
+        - Cannot access traditionally 'private' mangled python attributes
+        - Cannot access any attribute not exported by dir(o)
+        - Cannot access any unmangled double '_' attributes
+        - Cannot modify traditionally private attributes (form '_var')
+        - Cannot modify __class__ of wrapped object
+        - Cannot modify __dict__ of wrapped object
+        - Cannot modify __slots__ of wrapped object
+        - Cannot add or delete attributes
+    PLUS:
+        - Methods are readonly - cannot be deleted or assigned to
+
+
 What kind of python objects can be wrapped?
 
-- Any object that supports getattr, setattri, delattr and __class__
-- Python2 'old-style' classes (without '__class__' attribute) are
-  not supported. INSTANCES of such classes CAN be wrapped.
+- Any object that supports getattr, setattr, delattr and __class__
 - Pickling / unpickling of wrapped objects is not supported
     Even if / when enabled, after a pickle-unpickle cycle,
     - Frozen objects will no longer be frozen
@@ -114,44 +187,83 @@ IF AND ONLY IF all the following conditions are met:
 
 Can a Frozen / Private / Protected class instance be wrapped again
 using freeze / private / protect?
-YES ! Objects are guaranteed to end up being wrapped at most once.
+
+YES ! Objects are guaranteed to end up being wrapped AT MOST ONCE.
+
+==============================================================================================
+Wrap operation ----->   wrap        freeze      private     private     protect     protect
+Starting with                                               + frozen                + frozen
+==============================================================================================
+
+wrap                    UNCH        freeze      private     private     protect     protect
+                        [2]         [2]                     + frozen                + frozen
+----------------------------------------------------------------------------------------------
+freeze                  wrap        UNCH        private     private     protect     protect
+                        [2]         [2]         + frozen    + frozen    + frozen    + frozen
+----------------------------------------------------------------------------------------------
+private                 private     private     private     private     protect     protect
+                                    +frozen                 + frozen                + frozen
+----------------------------------------------------------------------------------------------
+protect                 protect     protect     protect     protect     protect     protect
+                                    + frozen                + frozen    [1]         + frozen
+                                                                                    [1]
+----------------------------------------------------------------------------------------------
+protect                 protect     protect     protect     protect     protect     protect
++ frozen                + frozen    + frozen    + frozen    + frozen    + frozen    + frozen
+                                                                        [1]         [1]
+==============================================================================================
+[1]: protect applied twice, will merge the protect() rules, enforcing the most restrictive
+     combination among the two sets of protect() options:
+     - 'hide' and 'hide_private' are OR-ed
+     - 'ro_method', 'ro_data' and 'ro' are OR-ed
+     - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect
+       but not the first protect.
+
+    In short, by calling protect() a second time (or multiple times):
+        - Additoinal attributes can be hidden
+        - Additional attributes can be made read-only
+    but:
+        - No hidden attribute will become visible
+        - No read-only attribute will become mutable
+
+[2]: If 'x' is an immutable object (e.g. int, str ...) having isimmutable(x) is True,
+     freeze(x) returns x and iswrappedfreeze(x) will be False.
+     For such an 'x', wrap(x) will return Wrapped object with iswrapped(wrap(x)) == True
+     but freeze(wrapx)) will return x unchanged, because wrap(x) does not add any behavior.
+     These cases are depicted with 'UNCH' in the table above
+
+     For all other objects 'x', having isimmutable(x) == False, freeze(x) will return
+     a Frozen object having iswrapped(freeze(x)) == True, and freeze(wrap(x)) will also
+     return a Frozen object having iswrapped(freeze(wrap(x))) == True.
+
+    For all other wrapped objects 'w', created with private(x) or protect(x), freeze(w)
+    will always return a Wrapped object with iswrapped(w) == True, because private and
+    protect impose additional behavior.
 
 Checking at run-time whether an attribute is visible:
+
 Assuming 'o' is the object, whether wrapped or not and 'a is attribute:
-Just use hasattr(o, a).  Works on any object, wrapped or not
+Just use hasattr(o, a).  Works on any object, wrapped or not.
+Can also use isvisible(w, a) if 'w' is a wrapped object and 'a' is an attribute.
+'isvisible' return value (ONLY) represents whether type of wrapping imposes
+specific visibility rules (i.e. hides visibility). 
 
 Checking at run-time whether an attribute is writeable:
+
 Assuming 'o' is the object, whether wrapped or not and you want to set
 attribute 'a' to value 'val':
-
-Pythonic way - optimistic - try and handle exception
-
-try:
-    setattr(o, a, val)
-except Exception:
-    # Do something if attribute cannot be set
-    # Should (hopefully) work on any object, wrapped or not
-    pass
-
-Non-pythonic way - 'check and hope'
-if isreadonly(o, a):
-    # Do something if attribute is read-only
-    pass
-else:
-    # Do something else if attribute is writeable
-    pass
+Can use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.
+'isreadonly' return value (ONLY) represents whether type of wrapping imposes
+specific mutability rules (i.e. limits mutabiity).
 
 Checking at run-time whether an attribute can be deleted:
+
 Assuming 'o' is the object, whether wrapped or not and you want to delete
 attribute 'a':
 
-try:
-    delattr(o, a)
-except Exception:
-    # Do something if attribute cannot be deleted
-    # Should (hopefully) work on any object, wrapped or not
-    pass
-
+Can use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.
+'isreadonly' return value (ONLY) represents whether type of wrapping imposes
+specific mutability rules (i.e. limits mutabiity).
 '''
 
 import sys
