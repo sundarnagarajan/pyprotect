@@ -54,4 +54,4 @@ if not in_sys_path:
         pass
     except:
         pass
-del in_sys_path, module_dir, os, sys
+del PY2, in_sys_path, module_dir, os, sys
