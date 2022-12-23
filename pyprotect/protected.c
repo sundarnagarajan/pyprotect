@@ -2668,7 +2668,7 @@ static const char __pyx_k_pyx_unpickle_FrozenProtected[] = "__pyx_unpickle_Froze
 static const char __pyx_k_pyx_unpickle__ProtectionData[] = "__pyx_unpickle__ProtectionData";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped_2[] = "__Pyx_CFunc_object____Wrapped____object___to_py.<locals>.wrap";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped_3[] = "__Pyx_CFunc_object____Wrapped____object____object___to_py.<locals>.wrap";
-static const char __pyx_k_Module_with_methods_to_wrap_an[] = "\nModule with methods to wrap an object controlling visibility\nand mutability of attributes\n\nVISIBILITY or READABILITY: Whether the attribute VALUE can be read\n\n- Applies to wrapped object - NOT original object\n- Visibility Should not be affected when using wrap()\n- Visibility IS affected if you use private / protect\n- Objects wrapped with private / protect do not allow following\n  special methods to be set or deleted:\n  __getattribute__, __setattr__ or __delattr__\n\nMUTABILITY: Ability to CHANGE or DELETE an attribute\n\n- Protected object will not allow CHANGING OR DELETING an attribute\n  that is not VISIBLE\n- Objects wrapped with private / protect do not allow modification\n  of __class__, __dict__ or __slots attributes\n- When using protect(o, **kwargs), writeability depends on kwargs\n\nKey methods in the module API:\n\nfreeze(o: object) -> object:\n    Returns: Instance of Frozen | FrozenPrivacyDict | FrozenPrivate |\n        FrozenProtected, depending on what 'o' is\n\n    Object returned prevents modification of ANY attribute\n\nprivate(o: object, frozen: bool = False) -> object:\n    Returns: Instance of FrozenPrivate if frozen; Private otherwise\n\n    Private:\n        - Cannot access traditionally 'private' mangled python attributes\n        - Cannot access any attribute not exported by dir(o)\n        - Cannot access any unmangled double '_' attributes\n        - Cannot modify traditionally private attributes (form '_var')\n        - Cannot modify __class__ of wrapped object\n        - Cannot modify __dict__ of wrapped object\n        - Cannot modify __slots__ of wrapped object\n        - Cannot add or delete attributes\n\n   FrozenPrivate:\n        Features of Private PLUS prevents modification of ANY attribute\n\nprotect(\n    o: object,\n    frozen: bool = False, dynamic: bool = True,\n    hide_private: bool = False,\n    ro_data: bool = False, ro_method: bool = True,\n    ro=[], rw=[], hide=[],\n):\n    o: object to be wrapped\n    froz""en: bool: No attribute can be modified\n        PLUS: if 'o' is NOT a module, results returned by methods,\n        including __call__ will be frozen\n    dynamic: bool: Attribute additions, deletions, type changes in wrapped\n        object are automatically considered by hide_private, ro_data,\n        ro_method, ro, rw, hide\n        If dynamic is False, it is a pledge that attributes of wrapped\n        object will not change, and visibility and mutability rules of\n        WRAPPING object use a cache to make them faster.\n        Rules imposed by Private() are always dynamic\n    hide_private: bool: Private vars (_var) will be hidden\n    ro_data: bool: Data attributes cannot be deleted or assigned to\n    ro_method: bool: Method attributes cannot be deleted or assigned to\n    ro: list of str: attributes that will be read-only\n    rw: list of str: attributes that will be read-write\n        Overrides 'ro_*'\n    hide: list of str: attributes that will be hidden\n\n    Returns-->Instance of FrozenProtected if frozen; Protected otherwise\n\n    Protected:\n        Features of Private PLUS additional restrictions on:\n            - Which attributes are VISIBLE\n            - Which attributes are WRITEABLE\n\n    FrozenProtected:\n        Features of Protected PLUS prevents modification of ANY attribute\n\n    Default settings:\n    Features of Private:\n        - Cannot access traditionally 'private' mangled python attributes\n        - Cannot access any attribute not exported by dir(o)\n        - Cannot access any unmangled double '_' attributes\n        - Cannot modify traditionally private attributes (form '_var')\n        - Cannot modify __class__ of wrapped object\n        - Cannot modify __dict__ of wrapped object\n        - Cannot modify __slots__ of wrapped object\n        - Cannot add or delete attributes\n    PLUS:\n        - Methods are readonly - cannot be deleted or assigned to\n\n\nWhat kind of python objects can be wrapped?\n\n- Any object that su""pports getattr, setattr, delattr and __class__\n- Pickling / unpickling of wrapped objects is not supported\n    Even if / when enabled, after a pickle-unpickle cycle,\n    - Frozen objects will no longer be frozen\n    - Private objects will no longer have visibility / mutability\n      restrictions\n    - Protected objects will no longer have custom protections\n\nCan I wrap an object from a python C extension?\nYES. See answer to 'What kind of python objects can be wrapped?'\n\nCheck if a wrapped object is frozen (immutable):\nUse 'isimmutable(o)'.  Also works on objects that are not wrapped\n\nFreeze an object only if it is mutable:\nJust use 'freeze'. 'freeze' already checks, and wraps only if mutable\n\nWill wrapper detect attributes that my object adds, changes or deletes\nat RUN-TIME?\n\nwrap / freeze / private: YES !\n\nprotect:\n    If 'dynamic' is True (default): YES !\n\n    If 'dynamic' is False, dir(wrapped_object) will not\n    accurately reflect attributes added or deleted at run-time\n\n    Note that the above caveats are UNAFFECTED by 'frozen'\n    'frozen' only controls whether object can be modified from OUTSIDE\n    the wrapped object\n\nWill I need to change the code for my object / class?\nONLY in the following cases fnd ONLY if wrapped using private / protect:\n\n- If your object DEPENDS on external visibility of traditionally\n  'private' mangled object attributes, you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on external writeability of traditionally\n  'private' attributes of the form '_var', you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on EXTERNAL modifability of __class__,\n  __dict__ or __slots__, you will need to change the behavior\n  of your object (change the code) - since this contradicts the\n  basic objective of private / protect.\n\nCode changes require""d when USING a wrapped object vs. using original object:\nPickling / unpickling of wrapped objects is not supported\n\nIf 'o' is your original object, and 'w' is the wrapped object:\nOne difference across wrap / freeze / private / protect:\ndir(w) will necessarily be different from dir(o):\n  Additional attributes in 'w': '_Protected_____'\n  'private':\n      Traditionally 'private' mangled attributes will not appear\n  'protect':\n      Traditionally 'private' mangled attributes will not appear\n      Further differences depending on keyword arguments to 'protect'\n\nFollowing applies only to wrapping with wrap / private / protect:\n- Change calls to w.__getattribute__(a) to getattr(w, a)\n- Change calls to w.__delattr__ to delattr(w, a)\n- Change calls to w.__setattr(a, val) to setattr(w, a, val)\n- Change isinstance(w, Mytypes) to isinstance_protected(w, MyTypes)\n    isinstance_protected can also be used transparently on objects\n    that have NOT been wrapped\n    Can also (even) alias isinstance to isinstance_protected\n- Change id(w) to id_protected(w). id_protected can also be used\n    transparently on objects that have NOT been wrapped\n    Can also (even) alias id to id_protected\n- Change 'w is x' to id_protected(w) == id_protected(x)\n- Change type(w) to w.__class__ if you want to use the CLASS of w\n    but safely - not allowing class modifications\n- Getting interactive help on an object\n    Instead of help(o), use help_protected(o)\n    Can also (even) alias help to help_protected\n\nObject equality:\nTwo objects returned by wrap / freeze / private / protect are equal\nIF AND ONLY IF all the following conditions are met:\n- They wrap the SAME object - id(o1) == id(o2)\n- They were wrapped using the same method\n- For private: both were wrapped with the same value for 'frozen'\n- For protect: the EFFECTIVE visibility and writeability implied\n  by keyword arguments provided to 'protect' for the two objects\n  is identical\n\n\nCan a Frozen / Private"" / Protected class instance be wrapped again\nusing freeze / private / protect?\n\nYES ! Objects are guaranteed to end up being wrapped AT MOST ONCE.\n\n==============================================================================================\nWrap operation ----->   wrap        freeze      private     private     protect     protect\nStarting with                                               + frozen                + frozen\n==============================================================================================\n\nwrap                    UNCH        freeze      private     private     protect     protect\n                        [2]         [2]                     + frozen                + frozen\n----------------------------------------------------------------------------------------------\nfreeze                  wrap        UNCH        private     private     protect     protect\n                        [2]         [2]         + frozen    + frozen    + frozen    + frozen\n----------------------------------------------------------------------------------------------\nprivate                 private     private     private     private     protect     protect\n                                    +frozen                 + frozen                + frozen\n----------------------------------------------------------------------------------------------\nprotect                 protect     protect     protect     protect     protect     protect\n                                    + frozen                + frozen    [1]         + frozen\n                                                                                    [1]\n----------------------------------------------------------------------------------------------\nprotect                 protect     protect     protect     protect     protect     protect\n+ frozen                + frozen    + frozen    + frozen    + frozen    + frozen    + frozen\n                                                          ""              [1]         [1]\n==============================================================================================\n[1]: protect applied twice, will merge the protect() rules, enforcing the most restrictive\n     combination among the two sets of protect() options:\n     - 'hide' and 'hide_private' are OR-ed\n     - 'ro_method', 'ro_data' and 'ro' are OR-ed\n     - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n       but not the first protect.\n\n    In short, by calling protect() a second time (or multiple times):\n        - Additoinal attributes can be hidden\n        - Additional attributes can be made read-only\n    but:\n        - No hidden attribute will become visible\n        - No read-only attribute will become mutable\n\n[2]: If 'x' is an immutable object (e.g. int, str ...) having isimmutable(x) is True,\n     freeze(x) returns x and iswrappedfreeze(x) will be False.\n     For such an 'x', wrap(x) will return Wrapped object with iswrapped(wrap(x)) == True\n     but freeze(wrapx)) will return x unchanged, because wrap(x) does not add any behavior.\n     These cases are depicted with 'UNCH' in the table above\n\n     For all other objects 'x', having isimmutable(x) == False, freeze(x) will return\n     a Frozen object having iswrapped(freeze(x)) == True, and freeze(wrap(x)) will also\n     return a Frozen object having iswrapped(freeze(wrap(x))) == True.\n\n    For all other wrapped objects 'w', created with private(x) or protect(x), freeze(w)\n    will always return a Wrapped object with iswrapped(w) == True, because private and\n    protect impose additional behavior.\n\nChecking at run-time whether an attribute is visible:\n\nAssuming 'o' is the object, whether wrapped or not and 'a is attribute:\nJust use hasattr(o, a).  Works on any object, wrapped or not.\nCan also use isvisible(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isvisible' return value (ONLY) represents whether type of wrapping impo""ses\nspecific visibility rules (i.e. hides visibility). \n\nChecking at run-time whether an attribute is writeable:\n\nAssuming 'o' is the object, whether wrapped or not and you want to set\nattribute 'a' to value 'val':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether type of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n\nChecking at run-time whether an attribute can be deleted:\n\nAssuming 'o' is the object, whether wrapped or not and you want to delete\nattribute 'a':\n\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether type of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n";
+static const char __pyx_k_Module_with_methods_to_wrap_an[] = "\nModule with methods to wrap an object and additionally restrict\nvisibility and mutability of attributes\n\nVISIBILITY or READABILITY: Whether the attribute VALUE can be read\n\n- Objects wrapped with private / protect do not allow following\n  special methods to be set or deleted:\n    __getattribute__\n    __setattr__\n    __delattr__\n\nMUTABILITY or WRITEABILITY: Ability to CHANGE or DELETE an attribute\n\n- Protected object will not allow CHANGING OR DELETING an attribute\n  that is not VISIBLE\n- Objects wrapped with private / protect do not allow modification\n  of __class__, __dict__ or __slots attributes\n- When using protect(o, **kwargs), writeability depends on kwargs\n\nClasses\n=======\n\nNot directly exported by this module:\n\n                                Wrapped\n                                   |\n                                   |\n    |------------------------------|-----------|\n    |                                          |\n    Frozen                                  Private\n                                               |\n                                               |\n         |------------------------|------------|---------------|\n         |                        |                            |\n    PrivacyDict                   |                        Protected\n         |                        |                            |\n         |                        |                            |\n    FrozenPrivacyDict         FrozenPrivate            FrozenProtected\n\n\n    Wrapped:\n        - Visibility: No restrictions\n        - Mutability: No restrictions\n\n    Frozen: subclass of Wrapped\n        - Visibility: No restrictions\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    Private: subclass of Wrapped\n        - Visibility:\n            - Cannot access traditionally 'private' mangled python attributes\n            - Cannot access any unmangled double '_' attributes\n            - Cannot access any at""tribute not exported by dir(o)\n        - Mutability:\n            - Cannot modify traditionally private attributes (form '_var')\n            - Cannot modify __class__ of wrapped object\n            - Cannot modify __dict__ of wrapped object\n            - Cannot modify __slots__ of wrapped object\n            - Cannot add or delete attributes\n\n    FrozenPrivate: subclass of Private\n        - Created by calling private(o, frozen=True) on an object 'o'\n        - Also created by calling freeze(private(o, frozen=False))\n          on an object 'o'\n        - Features of Private PLUS prevents modification of ANY attribute\n        - Visibility: Same as Private\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    Protected: subclass of Private\n        - Created by calling protect(o, frozen=False) on an object 'o'\n        - Features of Private PLUS additional restrictions on:\n            - ADDITIONAL attributes that are NOT visible\n            - ADDITIONAL attributes that are NOT writeable\n\n    FrozenProtected: subclass of Protected\n        - Created by calling protect(o, frozen=True) on an object 'o'\n        - Also created by calling freeze(protect(o, frozen=False))\n          on an object 'o'\n        - Features of Protected PLUS prevents modification of ANY attribute\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    PrivacyDict: subclass of Private\n        - Not created directly\n\n    FrozenPrivacyDict: subclass of Private\n        - Created internally when accessing 'dict' attribute of a\n          Private object\n\nKey methods in the module API:\n=============================\n\nwrap(o: object) -> Wrapped:\n\nfreeze(o: object) -> object:\n    - If 'o' is immutable (e.g. int , string), returns 'o' UNCHANGED\n    - If 'o' is Wrapped, returns 'o' UNCHANGED if object WRAPPPED INSIDE\n      'o' is immutable, returns Frozen otherwise\n    - If 'o' is Frozen, returns 'o UNCHANGED\n    - If 'o' is FrozenPrivate, FrozenProte""cted or FrozenPrivacyDict,\n      returns 'o' UNCHANGED\n    - If 'o' is Private, returns FrozenPrivate\n    - If 'o' is Protected, returns FrozenProtected\n    - Otherwise, returns Frozen\n\n    Object returned prevents modification of ANY attribute\n\nprivate(o: object, frozen: bool = False) -> object:\n    - If 'frozen' is False:\n        - If 'o' is an instance of Private, returns 'o' UNCHANGED\n        - If 'o' is an instance of Protected, returns 'o' UNCHANGED\n    - If 'frozen' is True:\n        - If 'o' is an instance of Private, returns freeze(o) --> FrozenPrivate\n        - If 'o' is an instance of Protected, returns freeze(o) --> FrozenProtected\n    - Otherwise:\n        If frozen is True, returns FrozenPrivate; returns Private otherwise\n\nprotect(\n    o: object,\n    frozen: bool = False, dynamic: bool = True,\n    hide_private: bool = False,\n    ro_data: bool = False, ro_method: bool = True,\n    ro=[], rw=[], hide=[],\n):\n    o: object to be wrapped\n    frozen: bool: No attribute can be modified\n        PLUS: if 'o' is NOT a module, results returned by methods,\n        including __call__ will be frozen\n    dynamic: bool: Attribute additions, deletions, type changes in wrapped\n        object are automatically considered by hide_private, ro_data,\n        ro_method, ro, rw, hide\n        If dynamic is False, it is a pledge that attributes of wrapped\n        object will not change, and visibility and mutability rules of\n        WRAPPING object use a cache to make them faster.\n        Rules imposed by Private() are always dynamic\n    hide_private: bool: Private vars (_var) will be hidden\n    ro_data: bool: Data attributes cannot be deleted or assigned to\n    ro_method: bool: Method attributes cannot be deleted or assigned to\n    ro: list of str: attributes that will be read-only\n    rw: list of str: attributes that will be read-write\n        Overrides 'ro_*'\n    hide: list of str: attributes that will be hidden\n\n    Returns-->Instance"" of FrozenProtected if frozen; Protected otherwise\n\n    Default settings:\n    Features of Private:\n    PLUS:\n        - Methods are readonly - cannot be deleted or assigned to\n\n    If protect() is called on an object 'o' that is an instance of\n    Protected:\n        protect() will merge the protect() rules, enforcing the most restrictive\n        combination among the two sets of protect() options:\n         - 'hide' and 'hide_private' are OR-ed\n         - 'ro_method', 'ro_data' and 'ro' are OR-ed\n         - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n           but not the first protect.\n\n        In short, by calling protect() a second time (or multiple times):\n            - Additoinal attributes can be hidden\n            - Additional attributes can be made read-only\n        but:\n            - No previously hidden attribute will become visible\n            - No previously read-only attribute will become mutable\n\n\nCalling wrap operations multiple times\n======================================\n\nIn the table below, the left-most column shows starting state.\nThe top row shows operation applied to the starting state.\nThe intersecting cell shows the result.\n\n==============================================================================================\nOperation ----> wrap        freeze      private     private     protect     protect\nStarting with                                       + frozen                + frozen\n==============================================================================================\n\nWrapped         UNCH        Frozen      Private     Frozen      Protected   FrozenProtected\n                [2]         [2]                     Private\n----------------------------------------------------------------------------------------------\nFrozen          Wrapped     UNCH        Frozen      Frozen      Frozen      Frozen\n                [2]         [2]         Private     Private     Protec""ted   Protected\n----------------------------------------------------------------------------------------------\nPrivate         UNCH        Frozen      UNCH        Frozen      Protected   Frozen\n                            Private                 Private                 Protected\n----------------------------------------------------------------------------------------------\nFrozenPrivate   UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected\n                                                                Protected\n----------------------------------------------------------------------------------------------\nProtected       UNCH        Frozen      UNCH        Frozen      Protected   FrozenProtected\n                            Protected               Protected   [1]         [1]\n----------------------------------------------------------------------------------------------\nFrozenProtected UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected\n                                                                Protected   [1]\n                                                                [1]\n==============================================================================================\n\n[1]: protect applied twice, will merge the protect() rules, enforcing the most restrictive\n     combination among the two sets of protect() options:\n     - 'hide' and 'hide_private' are OR-ed\n     - 'ro_method', 'ro_data' and 'ro' are OR-ed\n     - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n       but not the first protect.\n\n    In short, by calling protect() a second time (or multiple times):\n        - Additoinal attributes can be hidden\n        - Additional attributes can be made read-only\n    but:\n        - No previously hidden attribute will become visible\n        - No previously read-only attribute will become mutable\n\n[2]: If 'x' is an immutable object (e.g. int, str ...) having isi""mmutable(x) is True,\n     freeze(x) returns x and iswrapped(freeze(x)) will be False.\n\n     For all other objects 'x', having isimmutable(x) == False, freeze(x) will return\n     a Frozen object having iswrapped(freeze(x)) == True\n\n    For all other wrapped objects 'w', created with private(x) or protect(x), freeze(w)\n    will always return a Wrapped object with iswrapped(w) == True\n\nChecking whether an object is wrapped:\n=====================================\n\niswrapped(w) -> bool: True IFF 'w' was was wrapped using\n    wrap(), freeze(), private() or protect()\n    See Note for output of freeze()\n\nisfrozen(w) -> bool: True IFF 'w' is an instance of Frozen,\nFrozenPrivate, ProzenPrivacyDict or FrozenProtected\n\nisprivate(w) -> bool: True IFF 'w' is an instance of Private,\nFrozenPrivate, Protected or FrozenProtected\n\nisprotected(w) -> bool: True IFF 'w' is an instance of Protected,\nFrozenProtected\n\n\nWhat kind of python objects can be wrapped?\n==========================================\n\n- Any object that supports getattr, setattr, delattr and __class__\n- Pickling / unpickling of wrapped objects is not supported\n    Even if / when enabled, after a pickle-unpickle cycle,\n    - Frozen objects will no longer be frozen\n    - Private objects will no longer have visibility / mutability\n      restrictions\n    - Protected objects will no longer have custom protections\n\nCan I wrap an object from a python C extension?\nYES. See answer to 'What kind of python objects can be wrapped?'\n\nWill wrapper detect attributes deleted, added or changed at RUN-TIME?\n====================================================================\nwrap / freeze / private: YES !\n\nprotect:\n    If 'dynamic' is True (default): YES !\n\n    If 'dynamic' is False, dir(wrapped_object) will not\n    accurately reflect attributes added or deleted at run-time\n\n    Note that the above caveats are UNAFFECTED by 'frozen'\n    'frozen' only controls whether object can be modified"" from OUTSIDE\n    the wrapped object\n\nWill I need to change the code for my object / class?\n====================================================\nONLY in the following cases fnd ONLY if wrapped using private / protect:\n\n- If your object DEPENDS on external visibility of traditionally\n  'private' mangled object attributes, you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on external writeability of traditionally\n  'private' attributes of the form '_var', you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on EXTERNAL modifability of __class__,\n  __dict__ or __slots__, you will need to change the behavior\n  of your object (change the code) - since this contradicts the\n  basic objective of private / protect.\n\nCode changes required when USING a wrapped object:\n=================================================\n\nPickling / unpickling of wrapped objects is not supported\n\nIf 'o' is your original object, and 'w' is the wrapped object:\nOne difference across wrap / freeze / private / protect:\ndir(w) will necessarily be different from dir(o):\n  Additional attributes in 'w': '_Protected_____'\n  'private':\n      Traditionally 'private' mangled attributes will not appear\n  'protect':\n      Traditionally 'private' mangled attributes will not appear\n      Further differences depending on keyword arguments to 'protect'\n\nFollowing applies only to wrapping with wrap / private / protect:\n- Change calls to w.__getattribute__(a) to getattr(w, a)\n- Change calls to w.__delattr__ to delattr(w, a)\n- Change calls to w.__setattr(a, val) to setattr(w, a, val)\n- Change isinstance(w, Mytypes) to isinstance_protected(w, MyTypes)\n    isinstance_protected can also be used transparently on objects\n    that have NOT been wrapped\n    Can also (even) alias isinstance to isinstance_protected\n- Change id(""w) to id_protected(w). id_protected can also be used\n    transparently on objects that have NOT been wrapped\n    Can also (even) alias id to id_protected\n- Change 'w is x' to id_protected(w) == id_protected(x)\n- Change type(w) to w.__class__ if you want to use the CLASS of w\n    but safely - not allowing class modifications\n- Getting interactive help on an object\n    Instead of help(o), use help_protected(o)\n    Can also (even) alias help to help_protected\n\nObject equality:\nTwo objects returned by wrap / freeze / private / protect are equal\nIF AND ONLY IF all the following conditions are met:\n- They wrap the SAME object - id(o1) == id(o2)\n- They were wrapped using the same method\n- For private: both were wrapped with the same value for 'frozen'\n- For protect: the EFFECTIVE visibility and writeability implied\n  by keyword arguments provided to 'protect' for the two objects\n  is identical\n\n\nChecking at run-time whether an attribute is visible:\n====================================================\n\nAssuming 'o' is the object, whether wrapped or not and 'a is attribute:\nJust use hasattr(o, a).  Works on any object, wrapped or not.\nCan also use isvisible(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isvisible' return value (ONLY) represents whether type of wrapping imposes\nspecific visibility rules (i.e. hides visibility). \n\nChecking at run-time whether an attribute is writeable:\n======================================================\n\nAssuming 'o' is the object, whether wrapped or not and you want to set\nattribute 'a' to value 'val':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether type of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n\nChecking at run-time whether an attribute can be deleted:\n========================================================\n\nAssuming 'o' is the object, whether wrapped or not and you want to de""lete\nattribute 'a':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether type of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n";
 static const char __pyx_k_pyx_unpickle_FrozenPrivacyDict[] = "__pyx_unpickle_FrozenPrivacyDict";
 static const char __pyx_k_Cannot_delete_private_attribute[] = "Cannot delete private attribute: %s.%s";
 static const char __pyx_k_Cannot_set_private_attribute_s_s[] = "Cannot set private attribute: %s.%s";
@@ -54905,40 +54905,40 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(8, 1, __pyx_L1_error)
   #endif
 
-  /* "pyprotect/protected.pyx":269
+  /* "pyprotect/protected.pyx":357
  * '''
  * 
  * import sys             # <<<<<<<<<<<<<<
  * cdef bint PY2
  * cdef object builtin_module
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 269, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 357, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(8, 269, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(8, 357, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":272
+  /* "pyprotect/protected.pyx":360
  * cdef bint PY2
  * cdef object builtin_module
  * if sys.version_info.major > 2:             # <<<<<<<<<<<<<<
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 272, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_version_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 272, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_version_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_major); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 272, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_major); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_2, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 272, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_2, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 360, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(8, 272, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(8, 360, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/protected.pyx":273
+    /* "pyprotect/protected.pyx":361
  * cdef object builtin_module
  * if sys.version_info.major > 2:
  *     PY2 = False             # <<<<<<<<<<<<<<
@@ -54947,19 +54947,19 @@ if (!__Pyx_RefNanny) {
  */
     __pyx_v_9pyprotect_9protected_PY2 = 0;
 
-    /* "pyprotect/protected.pyx":274
+    /* "pyprotect/protected.pyx":362
  * if sys.version_info.major > 2:
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']             # <<<<<<<<<<<<<<
  *     import collections.abc as CollectionsABC
  * else:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_sys); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 274, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_sys); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 362, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modules); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 274, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modules); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 362, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_builtins); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 274, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_builtins); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 362, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_v_9pyprotect_9protected_builtin_module);
@@ -54967,25 +54967,25 @@ if (!__Pyx_RefNanny) {
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pyprotect/protected.pyx":275
+    /* "pyprotect/protected.pyx":363
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']
  *     import collections.abc as CollectionsABC             # <<<<<<<<<<<<<<
  * else:
  *     PY2 = True
  */
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 275, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 363, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_n_s__33);
     __Pyx_GIVEREF(__pyx_n_s__33);
     PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s__33);
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections_abc, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 275, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections_abc, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 363, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 275, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 363, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pyprotect/protected.pyx":272
+    /* "pyprotect/protected.pyx":360
  * cdef bint PY2
  * cdef object builtin_module
  * if sys.version_info.major > 2:             # <<<<<<<<<<<<<<
@@ -54995,7 +54995,7 @@ if (!__Pyx_RefNanny) {
     goto __pyx_L2;
   }
 
-  /* "pyprotect/protected.pyx":277
+  /* "pyprotect/protected.pyx":365
  *     import collections.abc as CollectionsABC
  * else:
  *     PY2 = True             # <<<<<<<<<<<<<<
@@ -55005,19 +55005,19 @@ if (!__Pyx_RefNanny) {
   /*else*/ {
     __pyx_v_9pyprotect_9protected_PY2 = 1;
 
-    /* "pyprotect/protected.pyx":278
+    /* "pyprotect/protected.pyx":366
  * else:
  *     PY2 = True
  *     builtin_module = sys.modules['__builtin__']             # <<<<<<<<<<<<<<
  *     import collections as CollectionsABC
  * import os
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 278, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 366, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modules); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 278, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modules); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 366, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_n_s_builtin); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 278, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_n_s_builtin); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 366, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_XGOTREF(__pyx_v_9pyprotect_9protected_builtin_module);
@@ -55025,78 +55025,78 @@ if (!__Pyx_RefNanny) {
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/protected.pyx":279
+    /* "pyprotect/protected.pyx":367
  *     PY2 = True
  *     builtin_module = sys.modules['__builtin__']
  *     import collections as CollectionsABC             # <<<<<<<<<<<<<<
  * import os
  * import re
  */
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 279, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 367, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 279, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 367, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L2:;
 
-  /* "pyprotect/protected.pyx":280
+  /* "pyprotect/protected.pyx":368
  *     builtin_module = sys.modules['__builtin__']
  *     import collections as CollectionsABC
  * import os             # <<<<<<<<<<<<<<
  * import re
  * import types
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 280, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(8, 280, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(8, 368, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":281
+  /* "pyprotect/protected.pyx":369
  *     import collections as CollectionsABC
  * import os
  * import re             # <<<<<<<<<<<<<<
  * import types
  * import functools
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_re, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 281, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_re, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_re, __pyx_t_1) < 0) __PYX_ERR(8, 281, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_re, __pyx_t_1) < 0) __PYX_ERR(8, 369, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":282
+  /* "pyprotect/protected.pyx":370
  * import os
  * import re
  * import types             # <<<<<<<<<<<<<<
  * import functools
  * import pydoc
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_types, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 282, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_types, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 370, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_types, __pyx_t_1) < 0) __PYX_ERR(8, 282, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_types, __pyx_t_1) < 0) __PYX_ERR(8, 370, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":283
+  /* "pyprotect/protected.pyx":371
  * import re
  * import types
  * import functools             # <<<<<<<<<<<<<<
  * import pydoc
  * 
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_functools, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 283, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_functools, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_functools, __pyx_t_1) < 0) __PYX_ERR(8, 283, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_functools, __pyx_t_1) < 0) __PYX_ERR(8, 371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":284
+  /* "pyprotect/protected.pyx":372
  * import types
  * import functools
  * import pydoc             # <<<<<<<<<<<<<<
  * 
  * include "python_visible.pxi"
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pydoc, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 284, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pydoc, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 372, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pydoc, __pyx_t_1) < 0) __PYX_ERR(8, 284, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pydoc, __pyx_t_1) < 0) __PYX_ERR(8, 372, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyprotect/python_visible.pxi":6
@@ -56104,8 +56104,8 @@ if (!__Pyx_RefNanny) {
 
   /* "pyprotect/protected.pyx":1
  * '''             # <<<<<<<<<<<<<<
- * Module with methods to wrap an object controlling visibility
- * and mutability of attributes
+ * Module with methods to wrap an object and additionally restrict
+ * visibility and mutability of attributes
  */
   __pyx_t_5 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(8, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
