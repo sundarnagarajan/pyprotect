@@ -16,7 +16,7 @@ from cpython.object cimport (
     Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
 )
 cdef object overridden_always = frozenset([
-    '__getattr__', '__getattribute__', '__delattr__', '__setattr__',
+    '__getattribute__', '__delattr__', '__setattr__',
     '__hash__',
 ])
 cdef object pickle_attributes = frozenset([
