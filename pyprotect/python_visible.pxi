@@ -124,7 +124,14 @@ def isimmutable(o: object) -> bool:
     if isfrozen(o):
         return True
     if type(o) in immutable_types_set:
-        return True
+        # Although 'tuple' is immutable in python, for our purposes, 'tuple' does
+        # NOT prevent modification to MEMBERS of the tuple that may be mutable
+        # Hence, check if 'o' has a stable hash - python hash() does this for us
+        try:
+            hash(o)
+            return True
+        except TypeError:
+            pass
     return False
 
 
