@@ -71,7 +71,7 @@ cdef class Private(Wrapped):
                 "Object Private('%s') has no attribute '%s'" % (self.cn, a)
             )
         if a in overridden_always:
-            return HiddenPartial(getattr(Private, a), self)
+            return functools.partial(getattr(Private, a), self)
 
         if a in always_frozen:
             x = getattr(self.pvt_o, a)
