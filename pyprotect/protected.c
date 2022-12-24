@@ -908,7 +908,7 @@ static const char *__pyx_f[] = {
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_9pyprotect_9protected__ProtectionData;
+struct __pyx_obj_9pyprotect_9protected___ProtectionData;
 struct __pyx_obj_9pyprotect_9protected_Wrapped;
 struct __pyx_obj_9pyprotect_9protected_Frozen;
 struct __pyx_obj_9pyprotect_9protected_PrivacyDict;
@@ -917,7 +917,7 @@ struct __pyx_obj_9pyprotect_9protected_Private;
 struct __pyx_obj_9pyprotect_9protected_FrozenPrivate;
 struct __pyx_obj_9pyprotect_9protected_Protected;
 struct __pyx_obj_9pyprotect_9protected_FrozenProtected;
-struct __pyx_obj_9pyprotect_9protected_HiddenPartial;
+struct __pyx_obj_9pyprotect_9protected___HiddenPartial;
 struct __pyx_obj_9pyprotect_9protected___pyx_scope_struct__comparator;
 struct __pyx_obj_9pyprotect_9protected___pyx_scope_struct_1___iter__;
 struct __pyx_obj_9pyprotect_9protected___pyx_scope_struct_2_keys;
@@ -986,11 +986,11 @@ struct __pyx_opt_args_9pyprotect_9protected_9Protected_protected_writeable {
 /* "pyprotect/ProtectionData.pxi":4
  * @cython.final
  * @cython.internal
- * cdef class _ProtectionData(object):             # <<<<<<<<<<<<<<
+ * cdef class __ProtectionData(object):             # <<<<<<<<<<<<<<
  *     '''
  *     Attributes:
  */
-struct __pyx_obj_9pyprotect_9protected__ProtectionData {
+struct __pyx_obj_9pyprotect_9protected___ProtectionData {
   PyObject_HEAD
   PyObject *id;
   PyObject *id_class;
@@ -1023,7 +1023,7 @@ struct __pyx_obj_9pyprotect_9protected_Wrapped {
   struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *__pyx_vtab;
   PyObject *pvt_o;
   int frozen;
-  struct __pyx_obj_9pyprotect_9protected__ProtectionData *protected_attribute;
+  struct __pyx_obj_9pyprotect_9protected___ProtectionData *protected_attribute;
   PyObject *cn;
   PyObject *rules;
   int oldstyle_class;
@@ -1120,13 +1120,13 @@ struct __pyx_obj_9pyprotect_9protected_FrozenProtected {
 /* "pyprotect/HiddenPartial.pxi":3
  * 
  * # @cython.internal
- * cdef class HiddenPartial(object):             # <<<<<<<<<<<<<<
+ * cdef class __HiddenPartial(object):             # <<<<<<<<<<<<<<
  *     '''
  *     This is an object wrapper / proxy for functools.partial
  */
-struct __pyx_obj_9pyprotect_9protected_HiddenPartial {
+struct __pyx_obj_9pyprotect_9protected___HiddenPartial {
   PyObject_HEAD
-  struct __pyx_vtabstruct_9pyprotect_9protected_HiddenPartial *__pyx_vtab;
+  struct __pyx_vtabstruct_9pyprotect_9protected___HiddenPartial *__pyx_vtab;
   PyObject *args;
   PyObject *kwargs;
 };
@@ -1450,15 +1450,15 @@ static struct __pyx_vtabstruct_9pyprotect_9protected_FrozenProtected *__pyx_vtab
 /* "pyprotect/HiddenPartial.pxi":3
  * 
  * # @cython.internal
- * cdef class HiddenPartial(object):             # <<<<<<<<<<<<<<
+ * cdef class __HiddenPartial(object):             # <<<<<<<<<<<<<<
  *     '''
  *     This is an object wrapper / proxy for functools.partial
  */
 
-struct __pyx_vtabstruct_9pyprotect_9protected_HiddenPartial {
-  PyObject *(*wrapped_getattr)(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *, PyObject *);
+struct __pyx_vtabstruct_9pyprotect_9protected___HiddenPartial {
+  PyObject *(*wrapped_getattr)(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *, PyObject *);
 };
-static struct __pyx_vtabstruct_9pyprotect_9protected_HiddenPartial *__pyx_vtabptr_9pyprotect_9protected_HiddenPartial;
+static struct __pyx_vtabstruct_9pyprotect_9protected___HiddenPartial *__pyx_vtabptr_9pyprotect_9protected___HiddenPartial;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -2257,7 +2257,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_9Protected_protected_check_delatt
 static PyObject *__pyx_f_9pyprotect_9protected_9Protected_protected_dir(struct __pyx_obj_9pyprotect_9protected_Protected *__pyx_v_self); /* proto*/
 static PyObject *__pyx_f_9pyprotect_9protected_9Protected_visible(struct __pyx_obj_9pyprotect_9protected_Protected *__pyx_v_self, PyObject *__pyx_v_a); /* proto*/
 static PyObject *__pyx_f_9pyprotect_9protected_9Protected_writeable(struct __pyx_obj_9pyprotect_9protected_Protected *__pyx_v_self, PyObject *__pyx_v_a); /* proto*/
-static PyObject *__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a); /* proto*/
+static PyObject *__pyx_f_9pyprotect_9protected_15__HiddenPartial_wrapped_getattr(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a); /* proto*/
 
 /* Module declarations from 'cython' */
 
@@ -2275,7 +2275,7 @@ static PyTypeObject *__pyx_ptype_7cpython_4type_type = 0;
 /* Module declarations from 'cpython.object' */
 
 /* Module declarations from 'pyprotect.protected' */
-static PyTypeObject *__pyx_ptype_9pyprotect_9protected__ProtectionData = 0;
+static PyTypeObject *__pyx_ptype_9pyprotect_9protected___ProtectionData = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected_Wrapped = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected_Frozen = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected_PrivacyDict = 0;
@@ -2284,7 +2284,7 @@ static PyTypeObject *__pyx_ptype_9pyprotect_9protected_Private = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected_FrozenPrivate = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected_Protected = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected_FrozenProtected = 0;
-static PyTypeObject *__pyx_ptype_9pyprotect_9protected_HiddenPartial = 0;
+static PyTypeObject *__pyx_ptype_9pyprotect_9protected___HiddenPartial = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected___pyx_scope_struct__comparator = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected___pyx_scope_struct_1___iter__ = 0;
 static PyTypeObject *__pyx_ptype_9pyprotect_9protected___pyx_scope_struct_2_keys = 0;
@@ -2323,7 +2323,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void); /*proto*/
 static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObject *); /*proto*/
 static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *, PyObject *); /*proto*/
 static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *, PyObject *, struct __pyx_opt_args_9pyprotect_9protected_privatedict *__pyx_optional_args); /*proto*/
-static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__set_state(struct __pyx_obj_9pyprotect_9protected__ProtectionData *, PyObject *); /*proto*/
+static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle___ProtectionData__set_state(struct __pyx_obj_9pyprotect_9protected___ProtectionData *, PyObject *); /*proto*/
 static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_Wrapped__set_state(struct __pyx_obj_9pyprotect_9protected_Wrapped *, PyObject *); /*proto*/
 static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_Frozen__set_state(struct __pyx_obj_9pyprotect_9protected_Frozen *, PyObject *); /*proto*/
 static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_PrivacyDict__set_state(struct __pyx_obj_9pyprotect_9protected_PrivacyDict *, PyObject *); /*proto*/
@@ -2332,7 +2332,7 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_Private__set_state
 static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_FrozenPrivate__set_state(struct __pyx_obj_9pyprotect_9protected_FrozenPrivate *, PyObject *); /*proto*/
 static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_Protected__set_state(struct __pyx_obj_9pyprotect_9protected_Protected *, PyObject *); /*proto*/
 static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_FrozenProtected__set_state(struct __pyx_obj_9pyprotect_9protected_FrozenProtected *, PyObject *); /*proto*/
-static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set_state(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *, PyObject *); /*proto*/
+static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle___HiddenPartial__set_state(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *, PyObject *); /*proto*/
 static PyObject *__Pyx_CFunc_object____Wrapped___to_py(PyObject *(*)(struct __pyx_obj_9pyprotect_9protected_Wrapped *)); /*proto*/
 static PyObject *__Pyx_CFunc_object____Wrapped____object___to_py(PyObject *(*)(struct __pyx_obj_9pyprotect_9protected_Wrapped *, PyObject *)); /*proto*/
 static PyObject *__Pyx_CFunc_object____Wrapped____object____object___to_py(PyObject *(*)(struct __pyx_obj_9pyprotect_9protected_Wrapped *, PyObject *, PyObject *)); /*proto*/
@@ -2637,7 +2637,7 @@ static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_version_info[] = "version_info";
 static const char __pyx_k_FrozenPrivate[] = "FrozenPrivate";
-static const char __pyx_k_HiddenPartial[] = "HiddenPartial";
+static const char __pyx_k_HiddenPartial[] = "__HiddenPartial";
 static const char __pyx_k_init_subclass[] = "__init_subclass__";
 static const char __pyx_k_instancecheck[] = "__instancecheck__";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
@@ -2648,7 +2648,7 @@ static const char __pyx_k_CollectionsABC[] = "CollectionsABC";
 static const char __pyx_k_Double_wrapped[] = "Double-wrapped!";
 static const char __pyx_k_MutableMapping[] = "MutableMapping";
 static const char __pyx_k_NotImplemented[] = "NotImplemented";
-static const char __pyx_k_ProtectionData[] = "_ProtectionData";
+static const char __pyx_k_ProtectionData[] = "__ProtectionData";
 static const char __pyx_k_RecursionError[] = "RecursionError";
 static const char __pyx_k_Wrapped___iter[] = "Wrapped.__iter__";
 static const char __pyx_k_hash_protected[] = "hash_protected";
@@ -2700,7 +2700,6 @@ static const char __pyx_k_pyx_unpickle_PrivacyDict[] = "__pyx_unpickle_PrivacyDi
 static const char __pyx_k_Cannot_delete_attribute_s[] = "Cannot delete attribute: %s";
 static const char __pyx_k_Cannot_modify_attribute_s[] = "Cannot modify attribute: %s";
 static const char __pyx_k_pyx_unpickle_FrozenPrivate[] = "__pyx_unpickle_FrozenPrivate";
-static const char __pyx_k_pyx_unpickle_HiddenPartial[] = "__pyx_unpickle_HiddenPartial";
 static const char __pyx_k_Cannot_delete_attribute_s_s[] = "Cannot delete attribute: %s.%s";
 static const char __pyx_k_Object_s_has_no_attribute_s[] = "Object '%s' has no attribute '%s'";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped[] = "__Pyx_CFunc_object____Wrapped___to_py.<locals>.wrap";
@@ -2709,9 +2708,10 @@ static const char __pyx_k_immutable_builtin_attributes[] = "immutable_builtin_at
 static const char __pyx_k_pyprotect_Wrapped_Frozen_pxi[] = "pyprotect/Wrapped_Frozen.pxi";
 static const char __pyx_k_pyprotect_python_visible_pxi[] = "pyprotect/python_visible.pxi";
 static const char __pyx_k_pyx_unpickle_FrozenProtected[] = "__pyx_unpickle_FrozenProtected";
-static const char __pyx_k_pyx_unpickle__ProtectionData[] = "__pyx_unpickle__ProtectionData";
+static const char __pyx_k_pyx_unpickle___HiddenPartial[] = "__pyx_unpickle___HiddenPartial";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped_2[] = "__Pyx_CFunc_object____Wrapped____object___to_py.<locals>.wrap";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped_3[] = "__Pyx_CFunc_object____Wrapped____object____object___to_py.<locals>.wrap";
+static const char __pyx_k_pyx_unpickle___ProtectionData[] = "__pyx_unpickle___ProtectionData";
 static const char __pyx_k_Module_with_methods_to_wrap_an[] = "\nModule with methods to wrap an object and additionally restrict\nvisibility and mutability of attributes\n\nVISIBILITY or READABILITY: Whether the attribute VALUE can be read\n\n- Objects wrapped with private / protect do not allow following\n  special methods to be set or deleted:\n    __getattribute__\n    __setattr__\n    __delattr__\n\nMUTABILITY or WRITEABILITY: Ability to CHANGE or DELETE an attribute\n\n- Protected object will not allow CHANGING OR DELETING an attribute\n  that is not VISIBLE\n- Objects wrapped with private / protect do not allow modification\n  of __class__, __dict__ or __slots attributes\n- When using protect(o, **kwargs), writeability depends on kwargs\n\nClasses\n=======\n\nThese classes are not directly exported by the module so as to not\nclutter the pydoc documentation for the module.\n\n                                Wrapped\n                                   \342\224\202\n                                   \342\224\202\n    \342\224\214\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\264\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\220\n    \342\224\202                                          \342\224\202\n    Frozen                                  Private\n                                               \342\224\202\n                                               \342\224\202\n         \342\224\214\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224""\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\254\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\264\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\220\n         \342\224\202                        \342\224\202                            \342\224\202\n    PrivacyDict                   \342\224\202                        Protected\n         \342\224\202                        \342\224\202                            \342\224\202\n         \342\224\202                        \342\224\202                            \342\224\202\n    FrozenPrivacyDict         FrozenPrivate            FrozenProtected\n\n\n    Wrapped:\n        - Visibility: No restrictions\n        - Mutability: No restrictions\n\n    Frozen: subclass of Wrapped\n        - Visibility: No restrictions\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    Private: subclass of Wrapped\n        - Visibility:\n            - Cannot access traditionally 'private' mangled python attributes\n            - Cannot access any unmangled double '_' attributes\n            - Cannot access any attribute not exported by dir(o)\n        - Mutability:\n            - Cannot modify traditionally private attributes (form '_var')\n            - Cannot modify __class__ of wrapped object\n            - Cannot modify __dict__ of wrapped object\n            - Cannot modify __slots__ of wrapped object\n            - Cannot add or delete attributes\n\n    FrozenPrivate: subclass of Private\n        - Created by calling private(o, frozen=True) on an object 'o'\n        - Also created by calling freeze(private(o, frozen=False))\n          on an object 'o'\n        - Features of Private PLUS prevents modification of ANY attribute\n        - Visibility: ""Same as Private\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    Protected: subclass of Private\n        - Created by calling protect(o, frozen=False) on an object 'o'\n        - Features of Private PLUS additional restrictions on:\n            - ADDITIONAL attributes that are NOT visible\n            - ADDITIONAL attributes that are NOT writeable\n\n    FrozenProtected: subclass of Protected\n        - Created by calling protect(o, frozen=True) on an object 'o'\n        - Also created by calling freeze(protect(o, frozen=False))\n          on an object 'o'\n        - Features of Protected PLUS prevents modification of ANY attribute\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    PrivacyDict: subclass of Private\n        - Not created directly\n\n    FrozenPrivacyDict: subclass of Private\n        - Created internally when accessing 'dict' attribute of a\n          Private object\n\nKey methods in the module API:\n=============================\n\nwrap(o: object) -> Wrapped:\n\nfreeze(o: object) -> object:\n    - If 'o' is immutable (e.g. int , string), returns 'o' UNCHANGED\n    - If 'o' is Wrapped, returns 'o' UNCHANGED if object WRAPPPED INSIDE\n      'o' is immutable, returns Frozen otherwise\n    - If 'o' is Frozen, returns 'o UNCHANGED\n    - If 'o' is FrozenPrivate, FrozenProtected or FrozenPrivacyDict,\n      returns 'o' UNCHANGED\n    - If 'o' is Private, returns FrozenPrivate\n    - If 'o' is Protected, returns FrozenProtected\n    - Otherwise, returns Frozen\n\n    Object returned prevents modification of ANY attribute\n\nprivate(o: object, frozen: bool = False) -> object:\n    - If 'frozen' is False:\n        - If 'o' is an instance of Private, returns 'o' UNCHANGED\n        - If 'o' is an instance of Protected, returns 'o' UNCHANGED\n    - If 'frozen' is True:\n        - If 'o' is an instance of Private, returns freeze(o) --> FrozenPrivate\n        - If 'o' is an instance of Protected, returns freeze(o) --> Froze""nProtected\n    - Otherwise:\n        If frozen is True, returns FrozenPrivate; returns Private otherwise\n\nprotect(\n    o: object,\n    frozen: bool = False, dynamic: bool = True,\n    hide_private: bool = False,\n    ro_data: bool = False, ro_method: bool = True,\n    ro=[], rw=[], hide=[],\n):\n    o: object to be wrapped\n    frozen: bool: No attribute can be modified\n        PLUS: if 'o' is NOT a module, results returned by methods,\n        including __call__ will be frozen\n    dynamic: bool: Attribute additions, deletions, type changes in wrapped\n        object are automatically considered by hide_private, ro_data,\n        ro_method, ro, rw, hide\n        If dynamic is False, it is a pledge that attributes of wrapped\n        object will not change, and visibility and mutability rules of\n        WRAPPING object use a cache to make them faster.\n        Rules imposed by Private() are always dynamic\n    hide_private: bool: Private vars (_var) will be hidden\n    ro_data: bool: Data attributes cannot be deleted or assigned to\n    ro_method: bool: Method attributes cannot be deleted or assigned to\n    ro: list of str: attributes that will be read-only\n    rw: list of str: attributes that will be read-write\n        Overrides 'ro_*'\n    hide: list of str: attributes that will be hidden\n\n    Returns-->Instance of FrozenProtected if frozen; Protected otherwise\n\n    Default settings:\n    Features of Private:\n    PLUS:\n        - Methods are readonly - cannot be deleted or assigned to\n\n    If protect() is called on an object 'o' that is an instance of\n    Protected:\n        protect() will merge the protect() rules, enforcing the most restrictive\n        combination among the two sets of protect() options:\n         - 'hide' and 'hide_private' are OR-ed\n         - 'ro_method', 'ro_data' and 'ro' are OR-ed\n         - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n           but not the first protect.\n\n        In"" short, by calling protect() a second time (or multiple times):\n            - Additoinal attributes can be hidden\n            - Additional attributes can be made read-only\n        but:\n            - No previously hidden attribute will become visible\n            - No previously read-only attribute will become mutable\n\n\nCalling wrap operations multiple times\n======================================\n\nIn the table below, the left-most column shows starting state.\nThe top row shows operation applied to the starting state.\nThe intersecting cell shows the result.\n\n\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\244\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\nOperation  \360\237\241\206   \342\224\202 wrap        freeze      private     private     protect     protect\n\360\237\241\207  with        \342\224\202                                     + frozen                + frozen\n\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342""\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\252\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\nWrapped        \342\224\202 UNCH        Frozen      Private     Frozen      Protected   FrozenProtected\n               \342\224\202 [2]         [2]                     Private\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224""\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nFrozen         \342\224\202 Wrapped     UNCH        Frozen      Frozen      Frozen      Frozen\n               \342\224\202 [2]         [2]         Private     Private     Protected   Protected\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nPrivate        \342\224\202 UNCH        Frozen      UNCH        Frozen      Protected   Frozen\n               \342\224\202             Private                 Private                 Protected\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342""\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nFrozenPrivate  \342\224\202 UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected\n               \342\224\202                                                 Protected\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224""\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nProtected      \342\224\202 UNCH        Frozen      UNCH        Frozen      Protected   FrozenProtected\n               \342\224\202             Protected               Protected   [1]         [1]\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nFrozenProtected\342\224\202 UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected\n               \342\224\202                                                 Protected   [1]\n               \342\224\202                                                 [1]\n\342\225\220\342\225\220\342\225\220""\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\247\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\n\n[1]: protect applied twice, will merge the protect() rules, enforcing the most restrictive\n     combination among the two sets of protect() options:\n     - 'hide' and 'hide_private' are OR-ed\n     - 'ro_method', 'ro_data' and 'ro' are OR-ed\n     - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n       but not the first protect.\n\n    In short, by calling protect() a second time (or multiple times):\n        - Additoinal attributes can be hidden\n        - Additional attributes can be made read-only\n    but:\n        - No previously hidden attribute will become visible\n        - No previously read-only attribute will become mutable\n\n[2]: If 'x' is an immutable object (e.g. int, str ...) having isimmutable(x) is True,\n     freeze(x) returns x and iswrapped(freeze(x)) will be False.\n\n     For all other objects 'x', having isimmutable(x) == False, freez""e(x) will return\n     a Frozen object having iswrapped(freeze(x)) == True\n\n    For all other wrapped objects 'w', created with private(x) or protect(x), freeze(w)\n    will always return a Wrapped object with iswrapped(w) == True\n\nChecking whether an object is wrapped:\n=====================================\n\niswrapped(w) -> bool: True IFF 'w' was was wrapped using\n    wrap(), freeze(), private() or protect()\n    See Note for output of freeze()\n\nisfrozen(w) -> bool: True IFF 'w' is an instance of Frozen,\nFrozenPrivate, ProzenPrivacyDict or FrozenProtected\n\nisprivate(w) -> bool: True IFF 'w' is an instance of Private,\nFrozenPrivate, Protected or FrozenProtected\n\nisprotected(w) -> bool: True IFF 'w' is an instance of Protected,\nFrozenProtected\n\n\nWhat kind of python objects can be wrapped?\n==========================================\n\n- Any object that supports getattr, setattr, delattr and __class__\n- Pickling / unpickling of wrapped objects is not supported\n    Even if / when enabled, after a pickle-unpickle cycle,\n    - Frozen objects will no longer be frozen\n    - Private objects will no longer have visibility / mutability\n      restrictions\n    - Protected objects will no longer have custom protections\n\nCan I wrap an object from a python C extension?\nYES. See answer to 'What kind of python objects can be wrapped?'\n\nWill wrapper detect attributes deleted, added or changed at RUN-TIME?\n====================================================================\nwrap / freeze / private: YES !\n\nprotect:\n    If 'dynamic' is True (default): YES !\n\n    If 'dynamic' is False, dir(wrapped_object) will not\n    accurately reflect attributes added or deleted at run-time\n\n    Note that the above caveats are UNAFFECTED by 'frozen'\n    'frozen' only controls whether object can be modified from OUTSIDE\n    the wrapped object\n\nWill I need to change the code for my object / class?\n====================================================\nONLY in t""he following cases fnd ONLY if wrapped using private / protect:\n\n- If your object DEPENDS on external visibility of traditionally\n  'private' mangled object attributes, you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on external writeability of traditionally\n  'private' attributes of the form '_var', you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on EXTERNAL modifability of __class__,\n  __dict__ or __slots__, you will need to change the behavior\n  of your object (change the code) - since this contradicts the\n  basic objective of private / protect.\n\nCode changes required when USING a wrapped object:\n=================================================\n\nPickling / unpickling of wrapped objects is not supported\n\nIf 'o' is your original object, and 'w' is the wrapped object:\nOne difference across wrap / freeze / private / protect:\ndir(w) will necessarily be different from dir(o):\n  Additional attributes in 'w': '_Protected_____'\n  'private':\n      Traditionally 'private' mangled attributes will not appear\n  'protect':\n      Traditionally 'private' mangled attributes will not appear\n      Further differences depending on keyword arguments to 'protect'\n\nFollowing applies only to wrapping with wrap / private / protect:\n- Change calls to w.__getattribute__(a) to getattr(w, a)\n- Change calls to w.__delattr__ to delattr(w, a)\n- Change calls to w.__setattr(a, val) to setattr(w, a, val)\n- Change isinstance(w, Mytypes) to isinstance_protected(w, MyTypes)\n    isinstance_protected can also be used transparently on objects\n    that have NOT been wrapped\n    Can also (even) alias isinstance to isinstance_protected\n- Change id(w) to id_protected(w). id_protected can also be used\n    transparently on objects that have NOT been wrapped\n    Can also (even) alias id to id_protected""\n- Change 'w is x' to id_protected(w) == id_protected(x)\n- Change type(w) to w.__class__ if you want to use the CLASS of w\n    but safely - not allowing class modifications\n- Getting interactive help on an object\n    Instead of help(o), use help_protected(o)\n    Can also (even) alias help to help_protected\n\nObject equality:\nTwo objects returned by wrap / freeze / private / protect are equal\nIF AND ONLY IF all the following conditions are met:\n- They wrap the SAME object - id(o1) == id(o2)\n- They were wrapped using the same method\n- For private: both were wrapped with the same value for 'frozen'\n- For protect: the EFFECTIVE visibility and writeability implied\n  by keyword arguments provided to 'protect' for the two objects\n  is identical\n\n\nChecking at run-time whether an attribute is visible:\n====================================================\n\nAssuming 'o' is the object, whether wrapped or not and 'a is attribute:\nJust use hasattr(o, a).  Works on any object, wrapped or not.\nCan also use isvisible(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isvisible' return value (ONLY) represents whether type of wrapping imposes\nspecific visibility rules (i.e. hides visibility). \n\nChecking at run-time whether an attribute is writeable:\n======================================================\n\nAssuming 'o' is the object, whether wrapped or not and you want to set\nattribute 'a' to value 'val':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether type of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n\nChecking at run-time whether an attribute can be deleted:\n========================================================\n\nAssuming 'o' is the object, whether wrapped or not and you want to delete\nattribute 'a':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether typ""e of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n\n\nViewing help for the classes:\n============================\nYou can see the help for each of the classes below - EXCEPT\nPrivacyDict as follows:\n\n    Wrapped         : help(type(wrap(None)))\n    Frozen          : help(type(freeze([])))\n    Private         : help(type(private(None)))\n    Protected       : help(type(protect(None)))\n    FrozenPrivate   : help(type(private(None, frozen=True)))\n    FrozenProtected : help(type(protect(None, frozen=True)))\n\nTo see help for FrozenPrivacyDict:\n    class C(object):\n        pass\n\n    help(type(private(C()).__dict__))\n\nPrivacyDict is not exposed directly.\n";
 static const char __pyx_k_pyx_unpickle_FrozenPrivacyDict[] = "__pyx_unpickle_FrozenPrivacyDict";
 static const char __pyx_k_Cannot_delete_private_attribute[] = "Cannot delete private attribute: %s.%s";
@@ -2720,10 +2720,10 @@ static const char __pyx_k_Incompatible_checksums_s_vs_0x05[] = "Incompatible che
 static const char __pyx_k_Incompatible_checksums_s_vs_0x12[] = "Incompatible checksums (%s vs 0x12e646a = (attributes_map, freeze, hash, help, help_str, id, id_class, instanceof, isinstance, issubclass, multiwrapped, private, protect, rules, subclassof, testop))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x4a[] = "Incompatible checksums (%s vs 0x4a83031 = (acl_cache, cn, dir_out, frozen, hidden_private_attr, oldstyle_class, protected_attribute, pvt_o, rules))";
 static const char __pyx_k_Incompatible_checksums_s_vs_0xf0[] = "Incompatible checksums (%s vs 0xf0cf4c1 = (args, kwargs))";
-static const char __pyx_k_Object_HiddenPartial_has_no_attr[] = "Object HiddenPartial has no attribute '%s'";
 static const char __pyx_k_Object_Private_s_has_no_attribut[] = "Object Private('%s') has no attribute '%s'";
 static const char __pyx_k_Object_Protected_s_has_no_attrib[] = "Object Protected('%s') has no attribute '%s'";
 static const char __pyx_k_Object_Wrapped_s_has_no_attribut[] = "Object Wrapped('%s') has no attribute '%s'";
+static const char __pyx_k_Object___HiddenPartial_has_no_at[] = "Object __HiddenPartial has no attribute '%s'";
 static const char __pyx_k_Wrapped_comparator_locals_pass_t[] = "Wrapped.comparator.<locals>.pass_to_wrapped";
 static const char __pyx_k_Wrapped_object_cannot_be_pickled[] = "Wrapped object cannot be pickled";
 static const char __pyx_k_protected_rules_from_kwargs_loca[] = "protected_rules_from_kwargs.<locals>._build_regex";
@@ -2757,10 +2757,10 @@ static PyObject *__pyx_n_s_MutableMapping;
 static PyObject *__pyx_n_s_MutableSequence;
 static PyObject *__pyx_n_s_MutableSet;
 static PyObject *__pyx_n_s_NotImplemented;
-static PyObject *__pyx_kp_s_Object_HiddenPartial_has_no_attr;
 static PyObject *__pyx_kp_s_Object_Private_s_has_no_attribut;
 static PyObject *__pyx_kp_s_Object_Protected_s_has_no_attrib;
 static PyObject *__pyx_kp_s_Object_Wrapped_s_has_no_attribut;
+static PyObject *__pyx_kp_s_Object___HiddenPartial_has_no_at;
 static PyObject *__pyx_kp_s_Object_is_read_only;
 static PyObject *__pyx_kp_s_Object_s_has_no_attribute_s;
 static PyObject *__pyx_n_s_PickleError;
@@ -3011,12 +3011,12 @@ static PyObject *__pyx_n_s_pyx_unpickle_Frozen;
 static PyObject *__pyx_n_s_pyx_unpickle_FrozenPrivacyDict;
 static PyObject *__pyx_n_s_pyx_unpickle_FrozenPrivate;
 static PyObject *__pyx_n_s_pyx_unpickle_FrozenProtected;
-static PyObject *__pyx_n_s_pyx_unpickle_HiddenPartial;
 static PyObject *__pyx_n_s_pyx_unpickle_PrivacyDict;
 static PyObject *__pyx_n_s_pyx_unpickle_Private;
 static PyObject *__pyx_n_s_pyx_unpickle_Protected;
 static PyObject *__pyx_n_s_pyx_unpickle_Wrapped;
-static PyObject *__pyx_n_s_pyx_unpickle__ProtectionData;
+static PyObject *__pyx_n_s_pyx_unpickle___HiddenPartial;
+static PyObject *__pyx_n_s_pyx_unpickle___ProtectionData;
 static PyObject *__pyx_n_s_pyx_vtable;
 static PyObject *__pyx_n_s_qualname;
 static PyObject *__pyx_n_s_r;
@@ -3134,58 +3134,58 @@ static PyObject *__pyx_pf_9pyprotect_9protected_48always_delegated_attributes(CY
 static PyObject *__pyx_pf_9pyprotect_9protected_50immutable_builtin_attributes(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_52__dir__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__build_regex(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_alist); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData___init__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_id_val, PyObject *__pyx_v_id_class, PyObject *__pyx_v_hash_val, PyObject *__pyx_v_isinstance_val, PyObject *__pyx_v_issubclass_val, PyObject *__pyx_v_instanceof, PyObject *__pyx_v_subclassof, PyObject *__pyx_v_help_val, PyObject *__pyx_v_help_str, PyObject *__pyx_v_testop, PyObject *__pyx_v_rules, PyObject *__pyx_v_freeze, PyObject *__pyx_v_private, PyObject *__pyx_v_protect, PyObject *__pyx_v_multiwrapped); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribute__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_a); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4__setattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_a, CYTHON_UNUSED PyObject *__pyx_v_val); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6__delattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_a); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8__dir__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2id___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_4help___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_7private___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cython__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_12__setstate_cython__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData___init__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_id_val, PyObject *__pyx_v_id_class, PyObject *__pyx_v_hash_val, PyObject *__pyx_v_isinstance_val, PyObject *__pyx_v_issubclass_val, PyObject *__pyx_v_instanceof, PyObject *__pyx_v_subclassof, PyObject *__pyx_v_help_val, PyObject *__pyx_v_help_str, PyObject *__pyx_v_testop, PyObject *__pyx_v_rules, PyObject *__pyx_v_freeze, PyObject *__pyx_v_private, PyObject *__pyx_v_protect, PyObject *__pyx_v_multiwrapped); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_2__getattribute__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_a); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4__setattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_a, CYTHON_UNUSED PyObject *__pyx_v_val); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6__delattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_a); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_8__dir__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_2id___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_2id_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_2id_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_4help___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4help_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4help_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_7private___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_7private_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_7private_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value); /* proto */
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10__reduce_cython__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_12__setstate_cython__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9pyprotect_9protected_Wrapped *__pyx_v_self, PyObject *__pyx_v_o, PyObject *__pyx_v_frozen, PyObject *__pyx_v_rules, PyObject *__pyx_v_oldstyle_class); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wrapped(PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_2__getattribute__(struct __pyx_obj_9pyprotect_9protected_Wrapped *__pyx_v_self, PyObject *__pyx_v_a); /* proto */
@@ -3352,19 +3352,19 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_15FrozenProtected_2__hash__(stru
 static PyObject *__pyx_pf_9pyprotect_9protected_15FrozenProtected_4__richcmp__(struct __pyx_obj_9pyprotect_9protected_FrozenProtected *__pyx_v_self, PyObject *__pyx_v_other, int __pyx_v_op); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_15FrozenProtected_6__reduce_cython__(struct __pyx_obj_9pyprotect_9protected_FrozenProtected *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_15FrozenProtected_8__setstate_cython__(struct __pyx_obj_9pyprotect_9protected_FrozenProtected *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static int __pyx_pf_9pyprotect_9protected_13HiddenPartial___init__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_2__getattribute__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a); /* proto */
-static int __pyx_pf_9pyprotect_9protected_13HiddenPartial_4__setattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a, CYTHON_UNUSED PyObject *__pyx_v_val); /* proto */
-static int __pyx_pf_9pyprotect_9protected_13HiddenPartial_6__delattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_8__dir__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self); /* proto */
-static Py_hash_t __pyx_pf_9pyprotect_9protected_13HiddenPartial_10__hash__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_12__repr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_14__str__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_16__bytes__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_18__call__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cython__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_22__setstate_cython__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static int __pyx_pf_9pyprotect_9protected_15__HiddenPartial___init__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_2__getattribute__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a); /* proto */
+static int __pyx_pf_9pyprotect_9protected_15__HiddenPartial_4__setattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a, CYTHON_UNUSED PyObject *__pyx_v_val); /* proto */
+static int __pyx_pf_9pyprotect_9protected_15__HiddenPartial_6__delattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_8__dir__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self); /* proto */
+static Py_hash_t __pyx_pf_9pyprotect_9protected_15__HiddenPartial_10__hash__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_12__repr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_14__str__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_16__bytes__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_18__call__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_20__reduce_cython__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_22__setstate_cython__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle___ProtectionData(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_56__pyx_unpickle_Wrapped(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_58__pyx_unpickle_Frozen(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_60__pyx_unpickle_PrivacyDict(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
@@ -3373,11 +3373,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_64__pyx_unpickle_Private(CYTHON_
 static PyObject *__pyx_pf_9pyprotect_9protected_66__pyx_unpickle_FrozenPrivate(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_68__pyx_unpickle_Protected(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_9pyprotect_9protected_70__pyx_unpickle_FrozenProtected(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle___HiddenPartial(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_11cfunc_dot_to_py_37__Pyx_CFunc_object____Wrapped___to_py_wrap(PyObject *__pyx_self, struct __pyx_obj_9pyprotect_9protected_Wrapped *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_11cfunc_dot_to_py_47__Pyx_CFunc_object____Wrapped____object___to_py_wrap(PyObject *__pyx_self, struct __pyx_obj_9pyprotect_9protected_Wrapped *__pyx_v_self, PyObject *__pyx_v_c); /* proto */
 static PyObject *__pyx_pf_11cfunc_dot_to_py_57__Pyx_CFunc_object____Wrapped____object____object___to_py_wrap(PyObject *__pyx_self, struct __pyx_obj_9pyprotect_9protected_Wrapped *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_op); /* proto */
-static PyObject *__pyx_tp_new_9pyprotect_9protected__ProtectionData(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_9pyprotect_9protected___ProtectionData(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9pyprotect_9protected_Wrapped(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9pyprotect_9protected_Frozen(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9pyprotect_9protected_PrivacyDict(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -3386,7 +3386,7 @@ static PyObject *__pyx_tp_new_9pyprotect_9protected_Private(PyTypeObject *t, PyO
 static PyObject *__pyx_tp_new_9pyprotect_9protected_FrozenPrivate(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9pyprotect_9protected_Protected(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9pyprotect_9protected_FrozenProtected(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_9pyprotect_9protected_HiddenPartial(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_9pyprotect_9protected___HiddenPartial(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9pyprotect_9protected___pyx_scope_struct__comparator(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9pyprotect_9protected___pyx_scope_struct_1___iter__(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9pyprotect_9protected___pyx_scope_struct_2_keys(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
@@ -12037,8 +12037,8 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
  */
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_id_val = 0;
   PyObject *__pyx_v_id_class = 0;
   PyObject *__pyx_v_hash_val = 0;
@@ -12232,18 +12232,18 @@ static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_1__init__(PyObject *
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 1, 15, 15, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 39, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyprotect.protected._ProtectionData.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__ProtectionData.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData___init__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), __pyx_v_id_val, __pyx_v_id_class, __pyx_v_hash_val, __pyx_v_isinstance_val, __pyx_v_issubclass_val, __pyx_v_instanceof, __pyx_v_subclassof, __pyx_v_help_val, __pyx_v_help_str, __pyx_v_testop, __pyx_v_rules, __pyx_v_freeze, __pyx_v_private, __pyx_v_protect, __pyx_v_multiwrapped);
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData___init__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), __pyx_v_id_val, __pyx_v_id_class, __pyx_v_hash_val, __pyx_v_isinstance_val, __pyx_v_issubclass_val, __pyx_v_instanceof, __pyx_v_subclassof, __pyx_v_help_val, __pyx_v_help_str, __pyx_v_testop, __pyx_v_rules, __pyx_v_freeze, __pyx_v_private, __pyx_v_protect, __pyx_v_multiwrapped);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData___init__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_id_val, PyObject *__pyx_v_id_class, PyObject *__pyx_v_hash_val, PyObject *__pyx_v_isinstance_val, PyObject *__pyx_v_issubclass_val, PyObject *__pyx_v_instanceof, PyObject *__pyx_v_subclassof, PyObject *__pyx_v_help_val, PyObject *__pyx_v_help_str, PyObject *__pyx_v_testop, PyObject *__pyx_v_rules, PyObject *__pyx_v_freeze, PyObject *__pyx_v_private, PyObject *__pyx_v_protect, PyObject *__pyx_v_multiwrapped) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData___init__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_id_val, PyObject *__pyx_v_id_class, PyObject *__pyx_v_hash_val, PyObject *__pyx_v_isinstance_val, PyObject *__pyx_v_issubclass_val, PyObject *__pyx_v_instanceof, PyObject *__pyx_v_subclassof, PyObject *__pyx_v_help_val, PyObject *__pyx_v_help_str, PyObject *__pyx_v_testop, PyObject *__pyx_v_rules, PyObject *__pyx_v_freeze, PyObject *__pyx_v_private, PyObject *__pyx_v_protect, PyObject *__pyx_v_multiwrapped) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -12571,7 +12571,7 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData___init__(struct __py
  *             'private': self.private,
  *             'protect': self.protect,             # <<<<<<<<<<<<<<
  *             'multiwrapped': self.multiwrapped,
- *             '__class__': _ProtectionData,
+ *             '__class__': __ProtectionData,
  */
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_protect, __pyx_v_self->protect) < 0) __PYX_ERR(1, 74, __pyx_L1_error)
 
@@ -12579,7 +12579,7 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData___init__(struct __py
  *             'private': self.private,
  *             'protect': self.protect,
  *             'multiwrapped': self.multiwrapped,             # <<<<<<<<<<<<<<
- *             '__class__': _ProtectionData,
+ *             '__class__': __ProtectionData,
  *         }
  */
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_multiwrapped, __pyx_v_self->multiwrapped) < 0) __PYX_ERR(1, 74, __pyx_L1_error)
@@ -12587,11 +12587,11 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData___init__(struct __py
   /* "pyprotect/ProtectionData.pxi":89
  *             'protect': self.protect,
  *             'multiwrapped': self.multiwrapped,
- *             '__class__': _ProtectionData,             # <<<<<<<<<<<<<<
+ *             '__class__': __ProtectionData,             # <<<<<<<<<<<<<<
  *         }
  * 
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_class, ((PyObject *)__pyx_ptype_9pyprotect_9protected__ProtectionData)) < 0) __PYX_ERR(1, 74, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_class, ((PyObject *)__pyx_ptype_9pyprotect_9protected___ProtectionData)) < 0) __PYX_ERR(1, 74, __pyx_L1_error)
 
   /* "pyprotect/ProtectionData.pxi":73
  *         self.protect = protect
@@ -12619,7 +12619,7 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData___init__(struct __py
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pyprotect.protected._ProtectionData.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__ProtectionData.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -12635,19 +12635,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData___init__(struct __py
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_3__getattribute__(PyObject *__pyx_v_self, PyObject *__pyx_v_a); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_3__getattribute__(PyObject *__pyx_v_self, PyObject *__pyx_v_a) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_3__getattribute__(PyObject *__pyx_v_self, PyObject *__pyx_v_a); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_3__getattribute__(PyObject *__pyx_v_self, PyObject *__pyx_v_a) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__getattribute__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribute__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_a));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_2__getattribute__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_a));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribute__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_a) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_2__getattribute__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_a) {
   PyObject *__pyx_v_missing_msg = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -12677,7 +12677,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribut
  *         if a in self.attributes_map:
  *             return self.attributes_map.get(a)             # <<<<<<<<<<<<<<
  *         missing_msg = "Object '%s' has no attribute '%s'" % (
- *             '_ProtectionData',
+ *             '__ProtectionData',
  */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->attributes_map, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 94, __pyx_L1_error)
@@ -12712,7 +12712,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribut
 
   /* "pyprotect/ProtectionData.pxi":97
  *         missing_msg = "Object '%s' has no attribute '%s'" % (
- *             '_ProtectionData',
+ *             '__ProtectionData',
  *             str(a)             # <<<<<<<<<<<<<<
  *         )
  *         raise AttributeError(missing_msg)
@@ -12723,7 +12723,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribut
   /* "pyprotect/ProtectionData.pxi":96
  *             return self.attributes_map.get(a)
  *         missing_msg = "Object '%s' has no attribute '%s'" % (
- *             '_ProtectionData',             # <<<<<<<<<<<<<<
+ *             '__ProtectionData',             # <<<<<<<<<<<<<<
  *             str(a)
  *         )
  */
@@ -12740,7 +12740,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribut
  *         if a in self.attributes_map:
  *             return self.attributes_map.get(a)
  *         missing_msg = "Object '%s' has no attribute '%s'" % (             # <<<<<<<<<<<<<<
- *             '_ProtectionData',
+ *             '__ProtectionData',
  *             str(a)
  */
   __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_Object_s_has_no_attribute_s, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 95, __pyx_L1_error)
@@ -12775,7 +12775,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribut
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("pyprotect.protected._ProtectionData.__getattribute__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__ProtectionData.__getattribute__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_missing_msg);
@@ -12793,19 +12793,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2__getattribut
  */
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_5__setattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_val); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_5__setattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_val) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_5__setattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_val); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_5__setattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_val) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setattr__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_4__setattr__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_a), ((PyObject *)__pyx_v_val));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_4__setattr__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_a), ((PyObject *)__pyx_v_val));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4__setattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_a, CYTHON_UNUSED PyObject *__pyx_v_val) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4__setattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_a, CYTHON_UNUSED PyObject *__pyx_v_val) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -12857,7 +12857,7 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4__setattr__(CYTHON_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pyprotect.protected._ProtectionData.__setattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__ProtectionData.__setattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -12872,19 +12872,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4__setattr__(CYTHON_
  */
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7__delattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7__delattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7__delattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7__delattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__delattr__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_6__delattr__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_a));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_6__delattr__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_a));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6__delattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_a) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6__delattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_a) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -12936,7 +12936,7 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6__delattr__(CYTHON_
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pyprotect.protected._ProtectionData.__delattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__ProtectionData.__delattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -12951,19 +12951,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6__delattr__(CYTHON_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_9__dir__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_9__dir__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_9__dir__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_9__dir__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dir__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_8__dir__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_8__dir__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8__dir__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_8__dir__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -13018,7 +13018,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8__dir__(struc
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("pyprotect.protected._ProtectionData.__dir__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__ProtectionData.__dir__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -13035,19 +13035,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8__dir__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_2id___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2id___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_2id___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13064,19 +13064,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_2id___get__(st
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_2id_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_2id_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13093,19 +13093,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id_2__set__(struct 
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_2id_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_2id_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13130,19 +13130,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_2id_4__del__(struct 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13159,19 +13159,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class___ge
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13188,19 +13188,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class_2__set__(s
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_8id_class_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13225,19 +13225,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8id_class_4__del__(s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13254,19 +13254,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash___get__(
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13283,19 +13283,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash_2__set__(struc
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4hash_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13320,19 +13320,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4hash_4__del__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13349,19 +13349,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance__
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13378,19 +13378,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance_2__set_
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10isinstance_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13415,19 +13415,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10isinstance_4__del_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13444,19 +13444,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass__
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13473,19 +13473,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass_2__set_
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10issubclass_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13510,19 +13510,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10issubclass_4__del_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13539,19 +13539,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof__
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13568,19 +13568,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof_2__set_
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10instanceof_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13605,19 +13605,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10instanceof_4__del_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13634,19 +13634,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof__
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13663,19 +13663,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof_2__set_
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_10subclassof_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13700,19 +13700,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_10subclassof_4__del_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_4help___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_4help___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_4help___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13729,19 +13729,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_4help___get__(
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_4help_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4help_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13758,19 +13758,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help_2__set__(struc
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_4help_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_4help_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13795,19 +13795,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_4help_4__del__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13824,19 +13824,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str___ge
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13853,19 +13853,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str_2__set__(s
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_8help_str_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13890,19 +13890,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_8help_str_4__del__(s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -13919,19 +13919,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop___get_
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -13948,19 +13948,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop_2__set__(str
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6testop_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -13985,19 +13985,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6testop_4__del__(str
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -14014,19 +14014,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules___get__
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -14043,19 +14043,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules_2__set__(stru
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_5rules_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -14080,19 +14080,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_5rules_4__del__(stru
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -14109,19 +14109,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze___get_
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -14138,19 +14138,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze_2__set__(str
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_6freeze_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -14175,19 +14175,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_6freeze_4__del__(str
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_7private___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_7private___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_7private___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -14204,19 +14204,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_7private___get
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_7private_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_7private_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -14233,19 +14233,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private_2__set__(st
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_7private_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_7private_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -14270,19 +14270,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7private_4__del__(st
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -14299,19 +14299,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect___get
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -14328,19 +14328,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect_2__set__(st
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_7protect_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -14365,19 +14365,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_7protect_4__del__(st
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped___get__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped___get__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped___get__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped___get__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
@@ -14394,19 +14394,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped_2__set__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped_2__set__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped_2__set__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped_2__set__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__", 0);
@@ -14423,19 +14423,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped_2__se
 }
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_5__del__(PyObject *__pyx_v_self); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_5__del__(PyObject *__pyx_v_self) {
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_5__del__(PyObject *__pyx_v_self); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_5__del__(PyObject *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped_4__del__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped_4__del__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped_4__del__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static int __pyx_pf_9pyprotect_9protected_16__ProtectionData_12multiwrapped_4__del__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__del__", 0);
@@ -14458,19 +14458,19 @@ static int __pyx_pf_9pyprotect_9protected_15_ProtectionData_12multiwrapped_4__de
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_11__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cython__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_10__reduce_cython__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cython__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_10__reduce_cython__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -14612,7 +14612,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cyt
  *     else:
  *         use_setstate = self.attributes_map is not None or self.freeze is not None or self.hash is not None or self.help is not None or self.help_str is not None or self.id is not None or self.id_class is not None or self.instanceof is not None or self.isinstance is not None or self.issubclass is not None or self.multiwrapped is not None or self.private is not None or self.protect is not None or self.rules is not None or self.subclassof is not None or self.testop is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, None), state
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, None), state
  */
   /*else*/ {
     __pyx_t_2 = (__pyx_v_self->attributes_map != Py_None);
@@ -14732,7 +14732,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cyt
  *     else:
  *         use_setstate = self.attributes_map is not None or self.freeze is not None or self.hash is not None or self.help is not None or self.help_str is not None or self.id is not None or self.id_class is not None or self.instanceof is not None or self.isinstance is not None or self.issubclass is not None or self.multiwrapped is not None or self.private is not None or self.protect is not None or self.rules is not None or self.subclassof is not None or self.testop is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, None), state
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, None), state
  *     else:
  */
   __pyx_t_3 = (__pyx_v_use_setstate != 0);
@@ -14741,12 +14741,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cyt
     /* "(tree fragment)":13
  *         use_setstate = self.attributes_map is not None or self.freeze is not None or self.hash is not None or self.help is not None or self.help_str is not None or self.id is not None or self.id_class is not None or self.instanceof is not None or self.isinstance is not None or self.issubclass is not None or self.multiwrapped is not None or self.private is not None or self.protect is not None or self.rules is not None or self.subclassof is not None or self.testop is not None
  *     if use_setstate:
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, state)
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle__ProtectionData); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle___ProtectionData); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -14778,21 +14778,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cyt
  *     else:
  *         use_setstate = self.attributes_map is not None or self.freeze is not None or self.hash is not None or self.help is not None or self.help_str is not None or self.id is not None or self.id_class is not None or self.instanceof is not None or self.isinstance is not None or self.issubclass is not None or self.multiwrapped is not None or self.private is not None or self.protect is not None or self.rules is not None or self.subclassof is not None or self.testop is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, None), state
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, None), state
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, None), state
  *     else:
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle__ProtectionData__set_state(self, __pyx_state)
+ *     __pyx_unpickle___ProtectionData__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pyx_unpickle__ProtectionData); if (unlikely(!__pyx_t_6)) __PYX_ERR(5, 15, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pyx_unpickle___ProtectionData); if (unlikely(!__pyx_t_6)) __PYX_ERR(5, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -14829,7 +14829,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cyt
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("pyprotect.protected._ProtectionData.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__ProtectionData.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -14841,25 +14841,25 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_10__reduce_cyt
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, state)
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle__ProtectionData__set_state(self, __pyx_state)
+ *     __pyx_unpickle___ProtectionData__set_state(self, __pyx_state)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_15_ProtectionData_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_16__ProtectionData_13__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_15_ProtectionData_12__setstate_cython__(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_16__ProtectionData_12__setstate_cython__(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_12__setstate_cython__(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_9pyprotect_9protected_16__ProtectionData_12__setstate_cython__(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -14869,20 +14869,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_12__setstate_c
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, state)
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, state)
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle__ProtectionData__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle___ProtectionData__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(5, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_9pyprotect_9protected___pyx_unpickle___ProtectionData__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle__ProtectionData, (type(self), 0x12e646a, state)
+ *         return __pyx_unpickle___ProtectionData, (type(self), 0x12e646a, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle__ProtectionData__set_state(self, __pyx_state)
+ *     __pyx_unpickle___ProtectionData__set_state(self, __pyx_state)
  */
 
   /* function exit code */
@@ -14890,7 +14890,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_12__setstate_c
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pyprotect.protected._ProtectionData.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__ProtectionData.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -15728,7 +15728,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  *         else:
  *             id_class = id(type(self.pvt_o))             # <<<<<<<<<<<<<<
  * 
- *         self.protected_attribute = _ProtectionData(
+ *         self.protected_attribute = __ProtectionData(
  */
   /*else*/ {
     __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, ((PyObject *)Py_TYPE(__pyx_v_self->pvt_o))); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 100, __pyx_L1_error)
@@ -15740,10 +15740,10 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
 
   /* "pyprotect/Wrapped_Frozen.pxi":103
  * 
- *         self.protected_attribute = _ProtectionData(
+ *         self.protected_attribute = __ProtectionData(
  *             id_val=id(self.pvt_o),             # <<<<<<<<<<<<<<
  *             id_class=id_class,
- *             hash_val=HiddenPartial(self.hash_protected, self),
+ *             hash_val=__HiddenPartial(self.hash_protected, self),
  */
   __pyx_t_6 = __Pyx_PyDict_NewPresized(15); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
@@ -15753,20 +15753,20 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":104
- *         self.protected_attribute = _ProtectionData(
+ *         self.protected_attribute = __ProtectionData(
  *             id_val=id(self.pvt_o),
  *             id_class=id_class,             # <<<<<<<<<<<<<<
- *             hash_val=HiddenPartial(self.hash_protected, self),
- *             isinstance_val=HiddenPartial(self.isinstance_protected, self),
+ *             hash_val=__HiddenPartial(self.hash_protected, self),
+ *             isinstance_val=__HiddenPartial(self.isinstance_protected, self),
  */
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_id_class, __pyx_v_id_class) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
 
   /* "pyprotect/Wrapped_Frozen.pxi":105
  *             id_val=id(self.pvt_o),
  *             id_class=id_class,
- *             hash_val=HiddenPartial(self.hash_protected, self),             # <<<<<<<<<<<<<<
- *             isinstance_val=HiddenPartial(self.isinstance_protected, self),
- *             issubclass_val=HiddenPartial(self.issubclass_protected, self),
+ *             hash_val=__HiddenPartial(self.hash_protected, self),             # <<<<<<<<<<<<<<
+ *             isinstance_val=__HiddenPartial(self.isinstance_protected, self),
+ *             issubclass_val=__HiddenPartial(self.issubclass_protected, self),
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->hash_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15778,7 +15778,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 105, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_hash_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
@@ -15786,10 +15786,10 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
 
   /* "pyprotect/Wrapped_Frozen.pxi":106
  *             id_class=id_class,
- *             hash_val=HiddenPartial(self.hash_protected, self),
- *             isinstance_val=HiddenPartial(self.isinstance_protected, self),             # <<<<<<<<<<<<<<
- *             issubclass_val=HiddenPartial(self.issubclass_protected, self),
- *             instanceof=HiddenPartial(self.instanceof_protected, self),
+ *             hash_val=__HiddenPartial(self.hash_protected, self),
+ *             isinstance_val=__HiddenPartial(self.isinstance_protected, self),             # <<<<<<<<<<<<<<
+ *             issubclass_val=__HiddenPartial(self.issubclass_protected, self),
+ *             instanceof=__HiddenPartial(self.instanceof_protected, self),
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->isinstance_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15801,18 +15801,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_isinstance_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":107
- *             hash_val=HiddenPartial(self.hash_protected, self),
- *             isinstance_val=HiddenPartial(self.isinstance_protected, self),
- *             issubclass_val=HiddenPartial(self.issubclass_protected, self),             # <<<<<<<<<<<<<<
- *             instanceof=HiddenPartial(self.instanceof_protected, self),
- *             subclassof=HiddenPartial(self.subclassof_protected, self),
+ *             hash_val=__HiddenPartial(self.hash_protected, self),
+ *             isinstance_val=__HiddenPartial(self.isinstance_protected, self),
+ *             issubclass_val=__HiddenPartial(self.issubclass_protected, self),             # <<<<<<<<<<<<<<
+ *             instanceof=__HiddenPartial(self.instanceof_protected, self),
+ *             subclassof=__HiddenPartial(self.subclassof_protected, self),
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->issubclass_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15824,18 +15824,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_issubclass_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":108
- *             isinstance_val=HiddenPartial(self.isinstance_protected, self),
- *             issubclass_val=HiddenPartial(self.issubclass_protected, self),
- *             instanceof=HiddenPartial(self.instanceof_protected, self),             # <<<<<<<<<<<<<<
- *             subclassof=HiddenPartial(self.subclassof_protected, self),
- *             help_val=HiddenPartial(self.help_protected, self),
+ *             isinstance_val=__HiddenPartial(self.isinstance_protected, self),
+ *             issubclass_val=__HiddenPartial(self.issubclass_protected, self),
+ *             instanceof=__HiddenPartial(self.instanceof_protected, self),             # <<<<<<<<<<<<<<
+ *             subclassof=__HiddenPartial(self.subclassof_protected, self),
+ *             help_val=__HiddenPartial(self.help_protected, self),
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->instanceof_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15847,18 +15847,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_instanceof, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":109
- *             issubclass_val=HiddenPartial(self.issubclass_protected, self),
- *             instanceof=HiddenPartial(self.instanceof_protected, self),
- *             subclassof=HiddenPartial(self.subclassof_protected, self),             # <<<<<<<<<<<<<<
- *             help_val=HiddenPartial(self.help_protected, self),
- *             help_str=HiddenPartial(self.help_str_protected, self),
+ *             issubclass_val=__HiddenPartial(self.issubclass_protected, self),
+ *             instanceof=__HiddenPartial(self.instanceof_protected, self),
+ *             subclassof=__HiddenPartial(self.subclassof_protected, self),             # <<<<<<<<<<<<<<
+ *             help_val=__HiddenPartial(self.help_protected, self),
+ *             help_str=__HiddenPartial(self.help_str_protected, self),
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->subclassof_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15870,18 +15870,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_subclassof, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":110
- *             instanceof=HiddenPartial(self.instanceof_protected, self),
- *             subclassof=HiddenPartial(self.subclassof_protected, self),
- *             help_val=HiddenPartial(self.help_protected, self),             # <<<<<<<<<<<<<<
- *             help_str=HiddenPartial(self.help_str_protected, self),
- *             testop=HiddenPartial(self.testop, self),
+ *             instanceof=__HiddenPartial(self.instanceof_protected, self),
+ *             subclassof=__HiddenPartial(self.subclassof_protected, self),
+ *             help_val=__HiddenPartial(self.help_protected, self),             # <<<<<<<<<<<<<<
+ *             help_str=__HiddenPartial(self.help_str_protected, self),
+ *             testop=__HiddenPartial(self.testop, self),
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->help_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15893,17 +15893,17 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_help_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":111
- *             subclassof=HiddenPartial(self.subclassof_protected, self),
- *             help_val=HiddenPartial(self.help_protected, self),
- *             help_str=HiddenPartial(self.help_str_protected, self),             # <<<<<<<<<<<<<<
- *             testop=HiddenPartial(self.testop, self),
+ *             subclassof=__HiddenPartial(self.subclassof_protected, self),
+ *             help_val=__HiddenPartial(self.help_protected, self),
+ *             help_str=__HiddenPartial(self.help_str_protected, self),             # <<<<<<<<<<<<<<
+ *             testop=__HiddenPartial(self.testop, self),
  *             rules=rules,
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->help_str_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
@@ -15916,18 +15916,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_help_str, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":112
- *             help_val=HiddenPartial(self.help_protected, self),
- *             help_str=HiddenPartial(self.help_str_protected, self),
- *             testop=HiddenPartial(self.testop, self),             # <<<<<<<<<<<<<<
+ *             help_val=__HiddenPartial(self.help_protected, self),
+ *             help_str=__HiddenPartial(self.help_str_protected, self),
+ *             testop=__HiddenPartial(self.testop, self),             # <<<<<<<<<<<<<<
  *             rules=rules,
- *             freeze=HiddenPartial(self.freeze, self),
+ *             freeze=__HiddenPartial(self.freeze, self),
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped____object____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->testop); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15939,27 +15939,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_testop, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":113
- *             help_str=HiddenPartial(self.help_str_protected, self),
- *             testop=HiddenPartial(self.testop, self),
+ *             help_str=__HiddenPartial(self.help_str_protected, self),
+ *             testop=__HiddenPartial(self.testop, self),
  *             rules=rules,             # <<<<<<<<<<<<<<
- *             freeze=HiddenPartial(self.freeze, self),
- *             private=HiddenPartial(private_class, self.pvt_o),
+ *             freeze=__HiddenPartial(self.freeze, self),
+ *             private=__HiddenPartial(private_class, self.pvt_o),
  */
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_rules, __pyx_v_rules) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
 
   /* "pyprotect/Wrapped_Frozen.pxi":114
- *             testop=HiddenPartial(self.testop, self),
+ *             testop=__HiddenPartial(self.testop, self),
  *             rules=rules,
- *             freeze=HiddenPartial(self.freeze, self),             # <<<<<<<<<<<<<<
- *             private=HiddenPartial(private_class, self.pvt_o),
- *             protect=HiddenPartial(protect_class, self.pvt_o),
+ *             freeze=__HiddenPartial(self.freeze, self),             # <<<<<<<<<<<<<<
+ *             private=__HiddenPartial(private_class, self.pvt_o),
+ *             protect=__HiddenPartial(protect_class, self.pvt_o),
  */
   __pyx_t_3 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->freeze); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15971,7 +15971,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 114, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_freeze, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
@@ -15979,10 +15979,10 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
 
   /* "pyprotect/Wrapped_Frozen.pxi":115
  *             rules=rules,
- *             freeze=HiddenPartial(self.freeze, self),
- *             private=HiddenPartial(private_class, self.pvt_o),             # <<<<<<<<<<<<<<
- *             protect=HiddenPartial(protect_class, self.pvt_o),
- *             multiwrapped=HiddenPartial(self.multiwrapped, self),
+ *             freeze=__HiddenPartial(self.freeze, self),
+ *             private=__HiddenPartial(private_class, self.pvt_o),             # <<<<<<<<<<<<<<
+ *             protect=__HiddenPartial(protect_class, self.pvt_o),
+ *             multiwrapped=__HiddenPartial(self.multiwrapped, self),
  */
   __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -15992,17 +15992,17 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_INCREF(__pyx_v_self->pvt_o);
   __Pyx_GIVEREF(__pyx_v_self->pvt_o);
   PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_self->pvt_o);
-  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 115, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_private, __pyx_t_4) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":116
- *             freeze=HiddenPartial(self.freeze, self),
- *             private=HiddenPartial(private_class, self.pvt_o),
- *             protect=HiddenPartial(protect_class, self.pvt_o),             # <<<<<<<<<<<<<<
- *             multiwrapped=HiddenPartial(self.multiwrapped, self),
+ *             freeze=__HiddenPartial(self.freeze, self),
+ *             private=__HiddenPartial(private_class, self.pvt_o),
+ *             protect=__HiddenPartial(protect_class, self.pvt_o),             # <<<<<<<<<<<<<<
+ *             multiwrapped=__HiddenPartial(self.multiwrapped, self),
  *         )
  */
   __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 116, __pyx_L1_error)
@@ -16013,16 +16013,16 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_INCREF(__pyx_v_self->pvt_o);
   __Pyx_GIVEREF(__pyx_v_self->pvt_o);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_v_self->pvt_o);
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 116, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_protect, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":117
- *             private=HiddenPartial(private_class, self.pvt_o),
- *             protect=HiddenPartial(protect_class, self.pvt_o),
- *             multiwrapped=HiddenPartial(self.multiwrapped, self),             # <<<<<<<<<<<<<<
+ *             private=__HiddenPartial(private_class, self.pvt_o),
+ *             protect=__HiddenPartial(protect_class, self.pvt_o),
+ *             multiwrapped=__HiddenPartial(self.multiwrapped, self),             # <<<<<<<<<<<<<<
  *         )
  * 
  */
@@ -16036,7 +16036,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 117, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_multiwrapped, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
@@ -16045,17 +16045,17 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   /* "pyprotect/Wrapped_Frozen.pxi":102
  *             id_class = id(type(self.pvt_o))
  * 
- *         self.protected_attribute = _ProtectionData(             # <<<<<<<<<<<<<<
+ *         self.protected_attribute = __ProtectionData(             # <<<<<<<<<<<<<<
  *             id_val=id(self.pvt_o),
  *             id_class=id_class,
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected__ProtectionData), __pyx_empty_tuple, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 102, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___ProtectionData), __pyx_empty_tuple, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_GIVEREF(__pyx_t_3);
   __Pyx_GOTREF(__pyx_v_self->protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->protected_attribute));
-  __pyx_v_self->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_3);
+  __pyx_v_self->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_3);
   __pyx_t_3 = 0;
 
   /* "pyprotect/Wrapped_Frozen.pxi":25
@@ -19208,7 +19208,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  *         if a == PROT_ATTR_NAME:
  *             return self.protected_attribute             # <<<<<<<<<<<<<<
  *         if a in overridden_always:
- *             return HiddenPartial(getattr(Wrapped, a), self)
+ *             return __HiddenPartial(getattr(Wrapped, a), self)
  */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_INCREF(((PyObject *)__pyx_v_self->protected_attribute));
@@ -19228,7 +19228,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  *         if a == PROT_ATTR_NAME:
  *             return self.protected_attribute
  *         if a in overridden_always:             # <<<<<<<<<<<<<<
- *             return HiddenPartial(getattr(Wrapped, a), self)
+ *             return __HiddenPartial(getattr(Wrapped, a), self)
  * 
  */
   __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 327, __pyx_L1_error)
@@ -19238,7 +19238,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     /* "pyprotect/Wrapped_Frozen.pxi":328
  *             return self.protected_attribute
  *         if a in overridden_always:
- *             return HiddenPartial(getattr(Wrapped, a), self)             # <<<<<<<<<<<<<<
+ *             return __HiddenPartial(getattr(Wrapped, a), self)             # <<<<<<<<<<<<<<
  * 
  *         # PREVENT pickling - doesn't work even if methods are implemented,
  */
@@ -19253,7 +19253,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 328, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_3;
@@ -19264,7 +19264,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  *         if a == PROT_ATTR_NAME:
  *             return self.protected_attribute
  *         if a in overridden_always:             # <<<<<<<<<<<<<<
- *             return HiddenPartial(getattr(Wrapped, a), self)
+ *             return __HiddenPartial(getattr(Wrapped, a), self)
  * 
  */
   }
@@ -19353,7 +19353,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  * 
  *         # Container mutating methods - implemented and selectively blocked
  *         if a in m_block and hasattr(Wrapped, a):             # <<<<<<<<<<<<<<
- *             return HiddenPartial(getattr(Wrapped, a), self)
+ *             return __HiddenPartial(getattr(Wrapped, a), self)
  *         # Any non-method or missing attribute or special callable method
  */
   if (unlikely(__pyx_v_9pyprotect_9protected_m_block == Py_None)) {
@@ -19376,7 +19376,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     /* "pyprotect/Wrapped_Frozen.pxi":340
  *         # Container mutating methods - implemented and selectively blocked
  *         if a in m_block and hasattr(Wrapped, a):
- *             return HiddenPartial(getattr(Wrapped, a), self)             # <<<<<<<<<<<<<<
+ *             return __HiddenPartial(getattr(Wrapped, a), self)             # <<<<<<<<<<<<<<
  *         # Any non-method or missing attribute or special callable method
  *         # that is not delegated or blocked
  */
@@ -19391,7 +19391,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_3, 1, ((PyObject *)__pyx_v_self));
     __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 340, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_4;
@@ -19402,7 +19402,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  * 
  *         # Container mutating methods - implemented and selectively blocked
  *         if a in m_block and hasattr(Wrapped, a):             # <<<<<<<<<<<<<<
- *             return HiddenPartial(getattr(Wrapped, a), self)
+ *             return __HiddenPartial(getattr(Wrapped, a), self)
  *         # Any non-method or missing attribute or special callable method
  */
   }
@@ -33004,7 +33004,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
     /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":53
  *             'viewkeys', 'viewitems', 'viewvalues',
  *         ]):
- *             return HiddenPartial(getattr(PrivacyDict, a), self)             # <<<<<<<<<<<<<<
+ *             return __HiddenPartial(getattr(PrivacyDict, a), self)             # <<<<<<<<<<<<<<
  *         if a in set([
  *             'keys', 'items', 'values', 'copy',
  */
@@ -33019,7 +33019,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_3, 1, ((PyObject *)__pyx_v_self));
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 53, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 53, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_1;
@@ -33037,7 +33037,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
 
   /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":54
  *         ]):
- *             return HiddenPartial(getattr(PrivacyDict, a), self)
+ *             return __HiddenPartial(getattr(PrivacyDict, a), self)
  *         if a in set([             # <<<<<<<<<<<<<<
  *             'keys', 'items', 'values', 'copy',
  *         ]):
@@ -33056,9 +33056,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
     /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":58
  *         ]):
  *             py2_map = {
- *                 'keys': HiddenPartial(getattr(PrivacyDict, 'keys_py2'), self),             # <<<<<<<<<<<<<<
- *                 'items': HiddenPartial(getattr(PrivacyDict, 'items_py2'), self),
- *                 'values': HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
+ *                 'keys': __HiddenPartial(getattr(PrivacyDict, 'keys_py2'), self),             # <<<<<<<<<<<<<<
+ *                 'items': __HiddenPartial(getattr(PrivacyDict, 'items_py2'), self),
+ *                 'values': __HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
  */
     __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 58, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -33072,7 +33072,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(3, 58, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(3, 58, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_keys, __pyx_t_3) < 0) __PYX_ERR(3, 58, __pyx_L1_error)
@@ -33080,9 +33080,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
 
     /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":59
  *             py2_map = {
- *                 'keys': HiddenPartial(getattr(PrivacyDict, 'keys_py2'), self),
- *                 'items': HiddenPartial(getattr(PrivacyDict, 'items_py2'), self),             # <<<<<<<<<<<<<<
- *                 'values': HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
+ *                 'keys': __HiddenPartial(getattr(PrivacyDict, 'keys_py2'), self),
+ *                 'items': __HiddenPartial(getattr(PrivacyDict, 'items_py2'), self),             # <<<<<<<<<<<<<<
+ *                 'values': __HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
  *             }
  */
     __pyx_t_3 = __Pyx_GetAttr(((PyObject *)__pyx_ptype_9pyprotect_9protected_PrivacyDict), __pyx_n_s_items_py2); if (unlikely(!__pyx_t_3)) __PYX_ERR(3, 59, __pyx_L1_error)
@@ -33095,16 +33095,16 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(3, 59, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(3, 59, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_items, __pyx_t_3) < 0) __PYX_ERR(3, 58, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":60
- *                 'keys': HiddenPartial(getattr(PrivacyDict, 'keys_py2'), self),
- *                 'items': HiddenPartial(getattr(PrivacyDict, 'items_py2'), self),
- *                 'values': HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),             # <<<<<<<<<<<<<<
+ *                 'keys': __HiddenPartial(getattr(PrivacyDict, 'keys_py2'), self),
+ *                 'items': __HiddenPartial(getattr(PrivacyDict, 'items_py2'), self),
+ *                 'values': __HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),             # <<<<<<<<<<<<<<
  *             }
  *             if PY2 and a in py2_map:
  */
@@ -33118,7 +33118,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_v_self));
     __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(3, 60, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(3, 60, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_values, __pyx_t_3) < 0) __PYX_ERR(3, 58, __pyx_L1_error)
@@ -33127,11 +33127,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
     __pyx_t_1 = 0;
 
     /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":62
- *                 'values': HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
+ *                 'values': __HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
  *             }
  *             if PY2 and a in py2_map:             # <<<<<<<<<<<<<<
  *                 return py2_map[a]
- *             return HiddenPartial(getattr(PrivacyDict, a), self)
+ *             return __HiddenPartial(getattr(PrivacyDict, a), self)
  */
     __pyx_t_6 = (__pyx_v_9pyprotect_9protected_PY2 != 0);
     if (__pyx_t_6) {
@@ -33149,7 +33149,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
  *             }
  *             if PY2 and a in py2_map:
  *                 return py2_map[a]             # <<<<<<<<<<<<<<
- *             return HiddenPartial(getattr(PrivacyDict, a), self)
+ *             return __HiddenPartial(getattr(PrivacyDict, a), self)
  * 
  */
       __Pyx_XDECREF(__pyx_r);
@@ -33160,18 +33160,18 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
       goto __pyx_L0;
 
       /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":62
- *                 'values': HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
+ *                 'values': __HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
  *             }
  *             if PY2 and a in py2_map:             # <<<<<<<<<<<<<<
  *                 return py2_map[a]
- *             return HiddenPartial(getattr(PrivacyDict, a), self)
+ *             return __HiddenPartial(getattr(PrivacyDict, a), self)
  */
     }
 
     /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":64
  *             if PY2 and a in py2_map:
  *                 return py2_map[a]
- *             return HiddenPartial(getattr(PrivacyDict, a), self)             # <<<<<<<<<<<<<<
+ *             return __HiddenPartial(getattr(PrivacyDict, a), self)             # <<<<<<<<<<<<<<
  * 
  *         # If frozen, freeze all the way down
  */
@@ -33186,7 +33186,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_3, 1, ((PyObject *)__pyx_v_self));
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 64, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_1;
@@ -33195,7 +33195,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_11PrivacyDict_2__getattribute__(
 
     /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":54
  *         ]):
- *             return HiddenPartial(getattr(PrivacyDict, a), self)
+ *             return __HiddenPartial(getattr(PrivacyDict, a), self)
  *         if a in set([             # <<<<<<<<<<<<<<
  *             'keys', 'items', 'values', 'copy',
  *         ]):
@@ -44810,12 +44810,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15FrozenProtected_8__setstate_cy
  */
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_13HiddenPartial_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_9pyprotect_9protected_13HiddenPartial___init__[] = "\n        args, kwargs: passed to functools.partial\n        ";
+static int __pyx_pw_9pyprotect_9protected_15__HiddenPartial_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_9pyprotect_9protected_15__HiddenPartial___init__[] = "\n        args, kwargs: passed to functools.partial\n        ";
 #if CYTHON_COMPILING_IN_CPYTHON
-struct wrapperbase __pyx_wrapperbase_9pyprotect_9protected_13HiddenPartial___init__;
+struct wrapperbase __pyx_wrapperbase_9pyprotect_9protected_15__HiddenPartial___init__;
 #endif
-static int __pyx_pw_9pyprotect_9protected_13HiddenPartial_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_9pyprotect_9protected_15__HiddenPartial_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_args = 0;
   PyObject *__pyx_v_kwargs = 0;
   int __pyx_r;
@@ -44826,7 +44826,7 @@ static int __pyx_pw_9pyprotect_9protected_13HiddenPartial_1__init__(PyObject *__
   __Pyx_GOTREF(__pyx_v_kwargs);
   __Pyx_INCREF(__pyx_args);
   __pyx_v_args = __pyx_args;
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial___init__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self), __pyx_v_args, __pyx_v_kwargs);
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial___init__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self), __pyx_v_args, __pyx_v_kwargs);
 
   /* function exit code */
   __Pyx_XDECREF(__pyx_v_args);
@@ -44835,7 +44835,7 @@ static int __pyx_pw_9pyprotect_9protected_13HiddenPartial_1__init__(PyObject *__
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_13HiddenPartial___init__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs) {
+static int __pyx_pf_9pyprotect_9protected_15__HiddenPartial___init__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__", 0);
@@ -44888,7 +44888,7 @@ static int __pyx_pf_9pyprotect_9protected_13HiddenPartial___init__(struct __pyx_
  *             return functools.partial(getattr(Wrapped, a), self)
  */
 
-static PyObject *__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a) {
+static PyObject *__pyx_f_9pyprotect_9protected_15__HiddenPartial_wrapped_getattr(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -44923,7 +44923,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr(s
  *         if a in ['__call__']:
  *             return functools.partial(getattr(Wrapped, a), self)             # <<<<<<<<<<<<<<
  *         raise AttributeError(
- *             "Object HiddenPartial has no attribute '%s'" % (a,)
+ *             "Object __HiddenPartial has no attribute '%s'" % (a,)
  */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(8, 19, __pyx_L1_error)
@@ -44996,7 +44996,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr(s
   /* "pyprotect/HiddenPartial.pxi":21
  *             return functools.partial(getattr(Wrapped, a), self)
  *         raise AttributeError(
- *             "Object HiddenPartial has no attribute '%s'" % (a,)             # <<<<<<<<<<<<<<
+ *             "Object __HiddenPartial has no attribute '%s'" % (a,)             # <<<<<<<<<<<<<<
  *         )
  * 
  */
@@ -45005,7 +45005,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr(s
   __Pyx_INCREF(__pyx_v_a);
   __Pyx_GIVEREF(__pyx_v_a);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_a);
-  __pyx_t_5 = __Pyx_PyString_Format(__pyx_kp_s_Object_HiddenPartial_has_no_attr, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(8, 21, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyString_Format(__pyx_kp_s_Object___HiddenPartial_has_no_at, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(8, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
@@ -45013,7 +45013,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr(s
  *         if a in ['__call__']:
  *             return functools.partial(getattr(Wrapped, a), self)
  *         raise AttributeError(             # <<<<<<<<<<<<<<
- *             "Object HiddenPartial has no attribute '%s'" % (a,)
+ *             "Object __HiddenPartial has no attribute '%s'" % (a,)
  *         )
  */
   __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_AttributeError, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 20, __pyx_L1_error)
@@ -45038,7 +45038,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr(s
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.wrapped_getattr", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.wrapped_getattr", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -45055,19 +45055,19 @@ static PyObject *__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr(s
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_3__getattribute__(PyObject *__pyx_v_self, PyObject *__pyx_v_a); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_3__getattribute__(PyObject *__pyx_v_self, PyObject *__pyx_v_a) {
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_3__getattribute__(PyObject *__pyx_v_self, PyObject *__pyx_v_a); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_3__getattribute__(PyObject *__pyx_v_self, PyObject *__pyx_v_a) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__getattribute__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_2__getattribute__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self), ((PyObject *)__pyx_v_a));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_2__getattribute__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self), ((PyObject *)__pyx_v_a));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_2__getattribute__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a) {
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_2__getattribute__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -45084,7 +45084,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_2__getattribute_
  *     def __setattr__(self, a, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_HiddenPartial *)__pyx_v_self->__pyx_vtab)->wrapped_getattr(__pyx_v_self, __pyx_v_a); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 29, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected___HiddenPartial *)__pyx_v_self->__pyx_vtab)->wrapped_getattr(__pyx_v_self, __pyx_v_a); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -45101,7 +45101,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_2__getattribute_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__getattribute__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__getattribute__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -45118,19 +45118,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_2__getattribute_
  */
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_13HiddenPartial_5__setattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_val); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_13HiddenPartial_5__setattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_val) {
+static int __pyx_pw_9pyprotect_9protected_15__HiddenPartial_5__setattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_val); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_15__HiddenPartial_5__setattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a, PyObject *__pyx_v_val) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setattr__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_4__setattr__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self), ((PyObject *)__pyx_v_a), ((PyObject *)__pyx_v_val));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_4__setattr__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self), ((PyObject *)__pyx_v_a), ((PyObject *)__pyx_v_val));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_13HiddenPartial_4__setattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a, CYTHON_UNUSED PyObject *__pyx_v_val) {
+static int __pyx_pf_9pyprotect_9protected_15__HiddenPartial_4__setattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a, CYTHON_UNUSED PyObject *__pyx_v_val) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -45193,7 +45193,7 @@ static int __pyx_pf_9pyprotect_9protected_13HiddenPartial_4__setattr__(CYTHON_UN
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__setattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__setattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -45208,19 +45208,19 @@ static int __pyx_pf_9pyprotect_9protected_13HiddenPartial_4__setattr__(CYTHON_UN
  */
 
 /* Python wrapper */
-static int __pyx_pw_9pyprotect_9protected_13HiddenPartial_7__delattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a); /*proto*/
-static int __pyx_pw_9pyprotect_9protected_13HiddenPartial_7__delattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a) {
+static int __pyx_pw_9pyprotect_9protected_15__HiddenPartial_7__delattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a); /*proto*/
+static int __pyx_pw_9pyprotect_9protected_15__HiddenPartial_7__delattr__(PyObject *__pyx_v_self, PyObject *__pyx_v_a) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__delattr__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_6__delattr__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self), ((PyObject *)__pyx_v_a));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_6__delattr__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self), ((PyObject *)__pyx_v_a));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_9pyprotect_9protected_13HiddenPartial_6__delattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a) {
+static int __pyx_pf_9pyprotect_9protected_15__HiddenPartial_6__delattr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_a) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -45283,7 +45283,7 @@ static int __pyx_pf_9pyprotect_9protected_13HiddenPartial_6__delattr__(CYTHON_UN
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__delattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__delattr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
@@ -45298,19 +45298,19 @@ static int __pyx_pf_9pyprotect_9protected_13HiddenPartial_6__delattr__(CYTHON_UN
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_9__dir__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_9__dir__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_9__dir__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_9__dir__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__dir__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_8__dir__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_8__dir__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_8__dir__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_8__dir__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -45347,7 +45347,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_8__dir__(CYTHON_
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__dir__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__dir__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -45364,19 +45364,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_8__dir__(CYTHON_
  */
 
 /* Python wrapper */
-static Py_hash_t __pyx_pw_9pyprotect_9protected_13HiddenPartial_11__hash__(PyObject *__pyx_v_self); /*proto*/
-static Py_hash_t __pyx_pw_9pyprotect_9protected_13HiddenPartial_11__hash__(PyObject *__pyx_v_self) {
+static Py_hash_t __pyx_pw_9pyprotect_9protected_15__HiddenPartial_11__hash__(PyObject *__pyx_v_self); /*proto*/
+static Py_hash_t __pyx_pw_9pyprotect_9protected_15__HiddenPartial_11__hash__(PyObject *__pyx_v_self) {
   Py_hash_t __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__hash__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_10__hash__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_10__hash__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static Py_hash_t __pyx_pf_9pyprotect_9protected_13HiddenPartial_10__hash__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self) {
+static Py_hash_t __pyx_pf_9pyprotect_9protected_15__HiddenPartial_10__hash__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self) {
   Py_hash_t __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -45453,7 +45453,7 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_13HiddenPartial_10__hash__(struc
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__hash__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__hash__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   if (unlikely(__pyx_r == -1) && !PyErr_Occurred()) __pyx_r = -2;
@@ -45470,19 +45470,19 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_13HiddenPartial_10__hash__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_13__repr__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_13__repr__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_13__repr__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_13__repr__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__repr__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_12__repr__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_12__repr__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_12__repr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_12__repr__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -45524,7 +45524,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_12__repr__(CYTHO
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__repr__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -45541,19 +45541,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_12__repr__(CYTHO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_15__str__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_15__str__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_15__str__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_15__str__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__str__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_14__str__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_14__str__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_14__str__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_14__str__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -45595,7 +45595,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_14__str__(CYTHON
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__str__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__str__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -45612,19 +45612,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_14__str__(CYTHON
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_17__bytes__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_17__bytes__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_17__bytes__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_17__bytes__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__bytes__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_16__bytes__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_16__bytes__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_16__bytes__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_16__bytes__(CYTHON_UNUSED struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -45666,7 +45666,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_16__bytes__(CYTH
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__bytes__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__bytes__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -45683,8 +45683,8 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_16__bytes__(CYTH
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_19__call__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_19__call__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_19__call__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_19__call__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_args = 0;
   PyObject *__pyx_v_kwargs = 0;
   PyObject *__pyx_r = 0;
@@ -45695,7 +45695,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_19__call__(PyObj
   __Pyx_GOTREF(__pyx_v_kwargs);
   __Pyx_INCREF(__pyx_args);
   __pyx_v_args = __pyx_args;
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_18__call__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self), __pyx_v_args, __pyx_v_kwargs);
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_18__call__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self), __pyx_v_args, __pyx_v_kwargs);
 
   /* function exit code */
   __Pyx_XDECREF(__pyx_v_args);
@@ -45704,7 +45704,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_19__call__(PyObj
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_18__call__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs) {
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_18__call__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v_args, PyObject *__pyx_v_kwargs) {
   PyObject *__pyx_v_f = NULL;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -45778,7 +45778,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_18__call__(struc
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__call__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_f);
@@ -45794,19 +45794,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_18__call__(struc
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_21__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_21__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_21__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_21__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cython__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_20__reduce_cython__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cython__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self) {
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_20__reduce_cython__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -45906,7 +45906,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cytho
  *     else:
  *         use_setstate = self.args is not None or self.kwargs is not None             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, None), state
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, None), state
  */
   /*else*/ {
     __pyx_t_2 = (__pyx_v_self->args != Py_None);
@@ -45928,7 +45928,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cytho
  *     else:
  *         use_setstate = self.args is not None or self.kwargs is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, None), state
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, None), state
  *     else:
  */
   __pyx_t_3 = (__pyx_v_use_setstate != 0);
@@ -45937,12 +45937,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cytho
     /* "(tree fragment)":13
  *         use_setstate = self.args is not None or self.kwargs is not None
  *     if use_setstate:
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, state)
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, state)
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle_HiddenPartial); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 13, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pyx_unpickle___HiddenPartial); if (unlikely(!__pyx_t_4)) __PYX_ERR(5, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 13, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -45974,21 +45974,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cytho
  *     else:
  *         use_setstate = self.args is not None or self.kwargs is not None
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, None), state
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, None), state
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, None), state
  *     else:
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_HiddenPartial__set_state(self, __pyx_state)
+ *     __pyx_unpickle___HiddenPartial__set_state(self, __pyx_state)
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pyx_unpickle_HiddenPartial); if (unlikely(!__pyx_t_6)) __PYX_ERR(5, 15, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_pyx_unpickle___HiddenPartial); if (unlikely(!__pyx_t_6)) __PYX_ERR(5, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 15, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
@@ -46025,7 +46025,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cytho
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -46037,25 +46037,25 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_20__reduce_cytho
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, state)
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_HiddenPartial__set_state(self, __pyx_state)
+ *     __pyx_unpickle___HiddenPartial__set_state(self, __pyx_state)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_23__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_9pyprotect_9protected_13HiddenPartial_23__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_23__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_9pyprotect_9protected_15__HiddenPartial_23__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_9pyprotect_9protected_13HiddenPartial_22__setstate_cython__(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_9pyprotect_9protected_15__HiddenPartial_22__setstate_cython__(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_22__setstate_cython__(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_9pyprotect_9protected_15__HiddenPartial_22__setstate_cython__(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -46065,20 +46065,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_22__setstate_cyt
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, state)
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, state)
  * def __setstate_cython__(self, __pyx_state):
- *     __pyx_unpickle_HiddenPartial__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
+ *     __pyx_unpickle___HiddenPartial__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(5, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_9pyprotect_9protected___pyx_unpickle___HiddenPartial__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_HiddenPartial, (type(self), 0xf0cf4c1, state)
+ *         return __pyx_unpickle___HiddenPartial, (type(self), 0xf0cf4c1, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_unpickle_HiddenPartial__set_state(self, __pyx_state)
+ *     __pyx_unpickle___HiddenPartial__set_state(self, __pyx_state)
  */
 
   /* function exit code */
@@ -46086,7 +46086,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_22__setstate_cyt
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("pyprotect.protected.HiddenPartial.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__HiddenPartial.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -46095,15 +46095,15 @@ static PyObject *__pyx_pf_9pyprotect_9protected_13HiddenPartial_22__setstate_cyt
 }
 
 /* "(tree fragment)":1
- * def __pyx_unpickle__ProtectionData(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle___ProtectionData(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_55__pyx_unpickle__ProtectionData(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_9pyprotect_9protected_55__pyx_unpickle__ProtectionData = {"__pyx_unpickle__ProtectionData", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9pyprotect_9protected_55__pyx_unpickle__ProtectionData, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9pyprotect_9protected_55__pyx_unpickle__ProtectionData(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9pyprotect_9protected_55__pyx_unpickle___ProtectionData(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9pyprotect_9protected_55__pyx_unpickle___ProtectionData = {"__pyx_unpickle___ProtectionData", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9pyprotect_9protected_55__pyx_unpickle___ProtectionData, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9pyprotect_9protected_55__pyx_unpickle___ProtectionData(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
@@ -46112,7 +46112,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_55__pyx_unpickle__ProtectionData
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__pyx_unpickle__ProtectionData (wrapper)", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle___ProtectionData (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
     PyObject* values[3] = {0,0,0};
@@ -46138,17 +46138,17 @@ static PyObject *__pyx_pw_9pyprotect_9protected_55__pyx_unpickle__ProtectionData
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle__ProtectionData", 1, 3, 3, 1); __PYX_ERR(5, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle___ProtectionData", 1, 3, 3, 1); __PYX_ERR(5, 1, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle__ProtectionData", 1, 3, 3, 2); __PYX_ERR(5, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle___ProtectionData", 1, 3, 3, 2); __PYX_ERR(5, 1, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle__ProtectionData") < 0)) __PYX_ERR(5, 1, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle___ProtectionData") < 0)) __PYX_ERR(5, 1, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -46163,20 +46163,20 @@ static PyObject *__pyx_pw_9pyprotect_9protected_55__pyx_unpickle__ProtectionData
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle__ProtectionData", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(5, 1, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle___ProtectionData", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(5, 1, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle__ProtectionData", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle___ProtectionData", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_9pyprotect_9protected_54__pyx_unpickle___ProtectionData(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle___ProtectionData(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = 0;
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
@@ -46190,7 +46190,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_unpickle__ProtectionData", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle___ProtectionData", 0);
 
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
@@ -46207,7 +46207,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
  *     if __pyx_checksum != 0x12e646a:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x12e646a = (attributes_map, freeze, hash, help, help_str, id, id_class, instanceof, isinstance, issubclass, multiwrapped, private, protect, rules, subclassof, testop))" % __pyx_checksum)
- *     __pyx_result = _ProtectionData.__new__(__pyx_type)
+ *     __pyx_result = __ProtectionData.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(5, 5, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -46228,7 +46228,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
  *     if __pyx_checksum != 0x12e646a:
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x12e646a = (attributes_map, freeze, hash, help, help_str, id, id_class, instanceof, isinstance, issubclass, multiwrapped, private, protect, rules, subclassof, testop))" % __pyx_checksum)             # <<<<<<<<<<<<<<
- *     __pyx_result = _ProtectionData.__new__(__pyx_type)
+ *     __pyx_result = __ProtectionData.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(5, 6, __pyx_L1_error)
@@ -46269,11 +46269,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x12e646a = (attributes_map, freeze, hash, help, help_str, id, id_class, instanceof, isinstance, issubclass, multiwrapped, private, protect, rules, subclassof, testop))" % __pyx_checksum)
- *     __pyx_result = _ProtectionData.__new__(__pyx_type)             # <<<<<<<<<<<<<<
+ *     __pyx_result = __ProtectionData.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
- *         __pyx_unpickle__ProtectionData__set_state(<_ProtectionData> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___ProtectionData__set_state(<__ProtectionData> __pyx_result, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9pyprotect_9protected__ProtectionData), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(5, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9pyprotect_9protected___ProtectionData), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(5, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -46295,9 +46295,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
 
   /* "(tree fragment)":8
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x12e646a = (attributes_map, freeze, hash, help, help_str, id, id_class, instanceof, isinstance, issubclass, multiwrapped, private, protect, rules, subclassof, testop))" % __pyx_checksum)
- *     __pyx_result = _ProtectionData.__new__(__pyx_type)
+ *     __pyx_result = __ProtectionData.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle__ProtectionData__set_state(<_ProtectionData> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___ProtectionData__set_state(<__ProtectionData> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   __pyx_t_1 = (__pyx_v___pyx_state != Py_None);
@@ -46305,31 +46305,31 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
   if (__pyx_t_6) {
 
     /* "(tree fragment)":9
- *     __pyx_result = _ProtectionData.__new__(__pyx_type)
+ *     __pyx_result = __ProtectionData.__new__(__pyx_type)
  *     if __pyx_state is not None:
- *         __pyx_unpickle__ProtectionData__set_state(<_ProtectionData> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle___ProtectionData__set_state(<__ProtectionData> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
  *     return __pyx_result
- * cdef __pyx_unpickle__ProtectionData__set_state(_ProtectionData __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___ProtectionData__set_state(__ProtectionData __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(5, 9, __pyx_L1_error)
-    __pyx_t_3 = __pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__set_state(((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(5, 9, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_9pyprotect_9protected___pyx_unpickle___ProtectionData__set_state(((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(5, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x12e646a = (attributes_map, freeze, hash, help, help_str, id, id_class, instanceof, isinstance, issubclass, multiwrapped, private, protect, rules, subclassof, testop))" % __pyx_checksum)
- *     __pyx_result = _ProtectionData.__new__(__pyx_type)
+ *     __pyx_result = __ProtectionData.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle__ProtectionData__set_state(<_ProtectionData> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___ProtectionData__set_state(<__ProtectionData> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   }
 
   /* "(tree fragment)":10
  *     if __pyx_state is not None:
- *         __pyx_unpickle__ProtectionData__set_state(<_ProtectionData> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___ProtectionData__set_state(<__ProtectionData> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
- * cdef __pyx_unpickle__ProtectionData__set_state(_ProtectionData __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___ProtectionData__set_state(__ProtectionData __pyx_result, tuple __pyx_state):
  *     __pyx_result.attributes_map = __pyx_state[0]; __pyx_result.freeze = __pyx_state[1]; __pyx_result.hash = __pyx_state[2]; __pyx_result.help = __pyx_state[3]; __pyx_result.help_str = __pyx_state[4]; __pyx_result.id = __pyx_state[5]; __pyx_result.id_class = __pyx_state[6]; __pyx_result.instanceof = __pyx_state[7]; __pyx_result.isinstance = __pyx_state[8]; __pyx_result.issubclass = __pyx_state[9]; __pyx_result.multiwrapped = __pyx_state[10]; __pyx_result.private = __pyx_state[11]; __pyx_result.protect = __pyx_state[12]; __pyx_result.rules = __pyx_state[13]; __pyx_result.subclassof = __pyx_state[14]; __pyx_result.testop = __pyx_state[15]
  */
   __Pyx_XDECREF(__pyx_r);
@@ -46338,7 +46338,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
   goto __pyx_L0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle__ProtectionData(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle___ProtectionData(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
@@ -46349,7 +46349,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle__ProtectionData", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle___ProtectionData", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -46360,14 +46360,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_54__pyx_unpickle__ProtectionData
 }
 
 /* "(tree fragment)":11
- *         __pyx_unpickle__ProtectionData__set_state(<_ProtectionData> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___ProtectionData__set_state(<__ProtectionData> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle__ProtectionData__set_state(_ProtectionData __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle___ProtectionData__set_state(__ProtectionData __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.attributes_map = __pyx_state[0]; __pyx_result.freeze = __pyx_state[1]; __pyx_result.hash = __pyx_state[2]; __pyx_result.help = __pyx_state[3]; __pyx_result.help_str = __pyx_state[4]; __pyx_result.id = __pyx_state[5]; __pyx_result.id_class = __pyx_state[6]; __pyx_result.instanceof = __pyx_state[7]; __pyx_result.isinstance = __pyx_state[8]; __pyx_result.issubclass = __pyx_state[9]; __pyx_result.multiwrapped = __pyx_state[10]; __pyx_result.private = __pyx_state[11]; __pyx_result.protect = __pyx_state[12]; __pyx_result.rules = __pyx_state[13]; __pyx_result.subclassof = __pyx_state[14]; __pyx_result.testop = __pyx_state[15]
  *     if len(__pyx_state) > 16 and hasattr(__pyx_result, '__dict__'):
  */
 
-static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__set_state(struct __pyx_obj_9pyprotect_9protected__ProtectionData *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle___ProtectionData__set_state(struct __pyx_obj_9pyprotect_9protected___ProtectionData *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -46381,11 +46381,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__s
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_unpickle__ProtectionData__set_state", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle___ProtectionData__set_state", 0);
 
   /* "(tree fragment)":12
  *     return __pyx_result
- * cdef __pyx_unpickle__ProtectionData__set_state(_ProtectionData __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___ProtectionData__set_state(__ProtectionData __pyx_result, tuple __pyx_state):
  *     __pyx_result.attributes_map = __pyx_state[0]; __pyx_result.freeze = __pyx_state[1]; __pyx_result.hash = __pyx_state[2]; __pyx_result.help = __pyx_state[3]; __pyx_result.help_str = __pyx_state[4]; __pyx_result.id = __pyx_state[5]; __pyx_result.id_class = __pyx_state[6]; __pyx_result.instanceof = __pyx_state[7]; __pyx_result.isinstance = __pyx_state[8]; __pyx_result.issubclass = __pyx_state[9]; __pyx_result.multiwrapped = __pyx_state[10]; __pyx_result.private = __pyx_state[11]; __pyx_result.protect = __pyx_state[12]; __pyx_result.rules = __pyx_state[13]; __pyx_result.subclassof = __pyx_state[14]; __pyx_result.testop = __pyx_state[15]             # <<<<<<<<<<<<<<
  *     if len(__pyx_state) > 16 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[16])
@@ -46568,7 +46568,7 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__s
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":13
- * cdef __pyx_unpickle__ProtectionData__set_state(_ProtectionData __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___ProtectionData__set_state(__ProtectionData __pyx_result, tuple __pyx_state):
  *     __pyx_result.attributes_map = __pyx_state[0]; __pyx_result.freeze = __pyx_state[1]; __pyx_result.hash = __pyx_state[2]; __pyx_result.help = __pyx_state[3]; __pyx_result.help_str = __pyx_state[4]; __pyx_result.id = __pyx_state[5]; __pyx_result.id_class = __pyx_state[6]; __pyx_result.instanceof = __pyx_state[7]; __pyx_result.isinstance = __pyx_state[8]; __pyx_result.issubclass = __pyx_state[9]; __pyx_result.multiwrapped = __pyx_state[10]; __pyx_result.private = __pyx_state[11]; __pyx_result.protect = __pyx_state[12]; __pyx_result.rules = __pyx_state[13]; __pyx_result.subclassof = __pyx_state[14]; __pyx_result.testop = __pyx_state[15]
  *     if len(__pyx_state) > 16 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[16])
@@ -46625,7 +46625,7 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__s
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "(tree fragment)":13
- * cdef __pyx_unpickle__ProtectionData__set_state(_ProtectionData __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___ProtectionData__set_state(__ProtectionData __pyx_result, tuple __pyx_state):
  *     __pyx_result.attributes_map = __pyx_state[0]; __pyx_result.freeze = __pyx_state[1]; __pyx_result.hash = __pyx_state[2]; __pyx_result.help = __pyx_state[3]; __pyx_result.help_str = __pyx_state[4]; __pyx_result.id = __pyx_state[5]; __pyx_result.id_class = __pyx_state[6]; __pyx_result.instanceof = __pyx_state[7]; __pyx_result.isinstance = __pyx_state[8]; __pyx_result.issubclass = __pyx_state[9]; __pyx_result.multiwrapped = __pyx_state[10]; __pyx_result.private = __pyx_state[11]; __pyx_result.protect = __pyx_state[12]; __pyx_result.rules = __pyx_state[13]; __pyx_result.subclassof = __pyx_state[14]; __pyx_result.testop = __pyx_state[15]
  *     if len(__pyx_state) > 16 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[16])
@@ -46633,9 +46633,9 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__s
   }
 
   /* "(tree fragment)":11
- *         __pyx_unpickle__ProtectionData__set_state(<_ProtectionData> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___ProtectionData__set_state(<__ProtectionData> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle__ProtectionData__set_state(_ProtectionData __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle___ProtectionData__set_state(__ProtectionData __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.attributes_map = __pyx_state[0]; __pyx_result.freeze = __pyx_state[1]; __pyx_result.hash = __pyx_state[2]; __pyx_result.help = __pyx_state[3]; __pyx_result.help_str = __pyx_state[4]; __pyx_result.id = __pyx_state[5]; __pyx_result.id_class = __pyx_state[6]; __pyx_result.instanceof = __pyx_state[7]; __pyx_result.isinstance = __pyx_state[8]; __pyx_result.issubclass = __pyx_state[9]; __pyx_result.multiwrapped = __pyx_state[10]; __pyx_result.private = __pyx_state[11]; __pyx_result.protect = __pyx_state[12]; __pyx_result.rules = __pyx_state[13]; __pyx_result.subclassof = __pyx_state[14]; __pyx_result.testop = __pyx_state[15]
  *     if len(__pyx_state) > 16 and hasattr(__pyx_result, '__dict__'):
  */
@@ -46648,7 +46648,7 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle__ProtectionData__s
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle__ProtectionData__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle___ProtectionData__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -46999,11 +46999,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_Wrapped__set_state
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected__ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected___ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->protected_attribute));
-  __pyx_v___pyx_result->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_1);
+  __pyx_v___pyx_result->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -47461,11 +47461,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_Frozen__set_state(
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected__ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected___ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base.protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->__pyx_base.protected_attribute));
-  __pyx_v___pyx_result->__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_1);
+  __pyx_v___pyx_result->__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -47923,11 +47923,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_PrivacyDict__set_s
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected__ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected___ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base.protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->__pyx_base.protected_attribute));
-  __pyx_v___pyx_result->__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_1);
+  __pyx_v___pyx_result->__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -48385,11 +48385,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_FrozenPrivacyDict_
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected__ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected___ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute));
-  __pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_1);
+  __pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -48847,11 +48847,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_Private__set_state
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected__ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected___ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base.protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->__pyx_base.protected_attribute));
-  __pyx_v___pyx_result->__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_1);
+  __pyx_v___pyx_result->__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -49309,11 +49309,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_FrozenPrivate__set
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected__ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected___ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute));
-  __pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_1);
+  __pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -49795,11 +49795,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_Protected__set_sta
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 6, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected__ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected___ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute));
-  __pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_1);
+  __pyx_v___pyx_result->__pyx_base.__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -50281,11 +50281,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_FrozenProtected__s
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 6, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected__ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9pyprotect_9protected___ProtectionData))))) __PYX_ERR(5, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->__pyx_base.__pyx_base.__pyx_base.protected_attribute);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->__pyx_base.__pyx_base.__pyx_base.protected_attribute));
-  __pyx_v___pyx_result->__pyx_base.__pyx_base.__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_1);
+  __pyx_v___pyx_result->__pyx_base.__pyx_base.__pyx_base.protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -50401,15 +50401,15 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_FrozenProtected__s
 }
 
 /* "(tree fragment)":1
- * def __pyx_unpickle_HiddenPartial(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle___HiddenPartial(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9pyprotect_9protected_73__pyx_unpickle_HiddenPartial(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_9pyprotect_9protected_73__pyx_unpickle_HiddenPartial = {"__pyx_unpickle_HiddenPartial", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9pyprotect_9protected_73__pyx_unpickle_HiddenPartial, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9pyprotect_9protected_73__pyx_unpickle_HiddenPartial(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_9pyprotect_9protected_73__pyx_unpickle___HiddenPartial(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_9pyprotect_9protected_73__pyx_unpickle___HiddenPartial = {"__pyx_unpickle___HiddenPartial", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9pyprotect_9protected_73__pyx_unpickle___HiddenPartial, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9pyprotect_9protected_73__pyx_unpickle___HiddenPartial(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
@@ -50418,7 +50418,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_73__pyx_unpickle_HiddenPartial(P
   int __pyx_clineno = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("__pyx_unpickle_HiddenPartial (wrapper)", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle___HiddenPartial (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_pyx_type,&__pyx_n_s_pyx_checksum,&__pyx_n_s_pyx_state,0};
     PyObject* values[3] = {0,0,0};
@@ -50444,17 +50444,17 @@ static PyObject *__pyx_pw_9pyprotect_9protected_73__pyx_unpickle_HiddenPartial(P
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_checksum)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_HiddenPartial", 1, 3, 3, 1); __PYX_ERR(5, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle___HiddenPartial", 1, 3, 3, 1); __PYX_ERR(5, 1, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_pyx_state)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_HiddenPartial", 1, 3, 3, 2); __PYX_ERR(5, 1, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__pyx_unpickle___HiddenPartial", 1, 3, 3, 2); __PYX_ERR(5, 1, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle_HiddenPartial") < 0)) __PYX_ERR(5, 1, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__pyx_unpickle___HiddenPartial") < 0)) __PYX_ERR(5, 1, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -50469,20 +50469,20 @@ static PyObject *__pyx_pw_9pyprotect_9protected_73__pyx_unpickle_HiddenPartial(P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_HiddenPartial", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(5, 1, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__pyx_unpickle___HiddenPartial", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(5, 1, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle_HiddenPartial", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle___HiddenPartial", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_9pyprotect_9protected_72__pyx_unpickle___HiddenPartial(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle___HiddenPartial(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = 0;
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
@@ -50496,7 +50496,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_HiddenPartial", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle___HiddenPartial", 0);
 
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
@@ -50513,7 +50513,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
  *     if __pyx_checksum != 0xf0cf4c1:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf0cf4c1 = (args, kwargs))" % __pyx_checksum)
- *     __pyx_result = HiddenPartial.__new__(__pyx_type)
+ *     __pyx_result = __HiddenPartial.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(5, 5, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -50534,7 +50534,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
  *     if __pyx_checksum != 0xf0cf4c1:
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf0cf4c1 = (args, kwargs))" % __pyx_checksum)             # <<<<<<<<<<<<<<
- *     __pyx_result = HiddenPartial.__new__(__pyx_type)
+ *     __pyx_result = __HiddenPartial.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(5, 6, __pyx_L1_error)
@@ -50575,11 +50575,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf0cf4c1 = (args, kwargs))" % __pyx_checksum)
- *     __pyx_result = HiddenPartial.__new__(__pyx_type)             # <<<<<<<<<<<<<<
+ *     __pyx_result = __HiddenPartial.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
- *         __pyx_unpickle_HiddenPartial__set_state(<HiddenPartial> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___HiddenPartial__set_state(<__HiddenPartial> __pyx_result, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9pyprotect_9protected_HiddenPartial), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(5, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9pyprotect_9protected___HiddenPartial), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(5, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -50601,9 +50601,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
 
   /* "(tree fragment)":8
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf0cf4c1 = (args, kwargs))" % __pyx_checksum)
- *     __pyx_result = HiddenPartial.__new__(__pyx_type)
+ *     __pyx_result = __HiddenPartial.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_HiddenPartial__set_state(<HiddenPartial> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___HiddenPartial__set_state(<__HiddenPartial> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   __pyx_t_1 = (__pyx_v___pyx_state != Py_None);
@@ -50611,31 +50611,31 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
   if (__pyx_t_6) {
 
     /* "(tree fragment)":9
- *     __pyx_result = HiddenPartial.__new__(__pyx_type)
+ *     __pyx_result = __HiddenPartial.__new__(__pyx_type)
  *     if __pyx_state is not None:
- *         __pyx_unpickle_HiddenPartial__set_state(<HiddenPartial> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
+ *         __pyx_unpickle___HiddenPartial__set_state(<__HiddenPartial> __pyx_result, __pyx_state)             # <<<<<<<<<<<<<<
  *     return __pyx_result
- * cdef __pyx_unpickle_HiddenPartial__set_state(HiddenPartial __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___HiddenPartial__set_state(__HiddenPartial __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(5, 9, __pyx_L1_error)
-    __pyx_t_3 = __pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set_state(((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(5, 9, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_9pyprotect_9protected___pyx_unpickle___HiddenPartial__set_state(((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(5, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
  *         raise __pyx_PickleError("Incompatible checksums (%s vs 0xf0cf4c1 = (args, kwargs))" % __pyx_checksum)
- *     __pyx_result = HiddenPartial.__new__(__pyx_type)
+ *     __pyx_result = __HiddenPartial.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
- *         __pyx_unpickle_HiddenPartial__set_state(<HiddenPartial> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___HiddenPartial__set_state(<__HiddenPartial> __pyx_result, __pyx_state)
  *     return __pyx_result
  */
   }
 
   /* "(tree fragment)":10
  *     if __pyx_state is not None:
- *         __pyx_unpickle_HiddenPartial__set_state(<HiddenPartial> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___HiddenPartial__set_state(<__HiddenPartial> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
- * cdef __pyx_unpickle_HiddenPartial__set_state(HiddenPartial __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___HiddenPartial__set_state(__HiddenPartial __pyx_result, tuple __pyx_state):
  *     __pyx_result.args = __pyx_state[0]; __pyx_result.kwargs = __pyx_state[1]
  */
   __Pyx_XDECREF(__pyx_r);
@@ -50644,7 +50644,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
   goto __pyx_L0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle_HiddenPartial(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle___HiddenPartial(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
@@ -50655,7 +50655,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle_HiddenPartial", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle___HiddenPartial", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -50666,14 +50666,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_72__pyx_unpickle_HiddenPartial(C
 }
 
 /* "(tree fragment)":11
- *         __pyx_unpickle_HiddenPartial__set_state(<HiddenPartial> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___HiddenPartial__set_state(<__HiddenPartial> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_HiddenPartial__set_state(HiddenPartial __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle___HiddenPartial__set_state(__HiddenPartial __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.args = __pyx_state[0]; __pyx_result.kwargs = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  */
 
-static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set_state(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle___HiddenPartial__set_state(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -50687,11 +50687,11 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("__pyx_unpickle_HiddenPartial__set_state", 0);
+  __Pyx_RefNannySetupContext("__pyx_unpickle___HiddenPartial__set_state", 0);
 
   /* "(tree fragment)":12
  *     return __pyx_result
- * cdef __pyx_unpickle_HiddenPartial__set_state(HiddenPartial __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___HiddenPartial__set_state(__HiddenPartial __pyx_result, tuple __pyx_state):
  *     __pyx_result.args = __pyx_state[0]; __pyx_result.kwargs = __pyx_state[1]             # <<<<<<<<<<<<<<
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[2])
@@ -50720,7 +50720,7 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":13
- * cdef __pyx_unpickle_HiddenPartial__set_state(HiddenPartial __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___HiddenPartial__set_state(__HiddenPartial __pyx_result, tuple __pyx_state):
  *     __pyx_result.args = __pyx_state[0]; __pyx_result.kwargs = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[2])
@@ -50777,7 +50777,7 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
     /* "(tree fragment)":13
- * cdef __pyx_unpickle_HiddenPartial__set_state(HiddenPartial __pyx_result, tuple __pyx_state):
+ * cdef __pyx_unpickle___HiddenPartial__set_state(__HiddenPartial __pyx_result, tuple __pyx_state):
  *     __pyx_result.args = __pyx_state[0]; __pyx_result.kwargs = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[2])
@@ -50785,9 +50785,9 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set
   }
 
   /* "(tree fragment)":11
- *         __pyx_unpickle_HiddenPartial__set_state(<HiddenPartial> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___HiddenPartial__set_state(<__HiddenPartial> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle_HiddenPartial__set_state(HiddenPartial __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle___HiddenPartial__set_state(__HiddenPartial __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.args = __pyx_state[0]; __pyx_result.kwargs = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  */
@@ -50800,7 +50800,7 @@ static PyObject *__pyx_f_9pyprotect_9protected___pyx_unpickle_HiddenPartial__set
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle_HiddenPartial__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyprotect.protected.__pyx_unpickle___HiddenPartial__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -51365,12 +51365,12 @@ static PyObject *__Pyx_CFunc_object____Wrapped____object____object___to_py(PyObj
   return __pyx_r;
 }
 
-static PyObject *__pyx_tp_new_9pyprotect_9protected__ProtectionData(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_9pyprotect_9protected__ProtectionData *p;
+static PyObject *__pyx_tp_new_9pyprotect_9protected___ProtectionData(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_9pyprotect_9protected___ProtectionData *p;
   PyObject *o;
   o = (*t->tp_alloc)(t, 0);
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)o);
+  p = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)o);
   p->id = Py_None; Py_INCREF(Py_None);
   p->id_class = Py_None; Py_INCREF(Py_None);
   p->hash = Py_None; Py_INCREF(Py_None);
@@ -51390,8 +51390,8 @@ static PyObject *__pyx_tp_new_9pyprotect_9protected__ProtectionData(PyTypeObject
   return o;
 }
 
-static void __pyx_tp_dealloc_9pyprotect_9protected__ProtectionData(PyObject *o) {
-  struct __pyx_obj_9pyprotect_9protected__ProtectionData *p = (struct __pyx_obj_9pyprotect_9protected__ProtectionData *)o;
+static void __pyx_tp_dealloc_9pyprotect_9protected___ProtectionData(PyObject *o) {
+  struct __pyx_obj_9pyprotect_9protected___ProtectionData *p = (struct __pyx_obj_9pyprotect_9protected___ProtectionData *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->id);
   Py_CLEAR(p->id_class);
@@ -51412,9 +51412,9 @@ static void __pyx_tp_dealloc_9pyprotect_9protected__ProtectionData(PyObject *o) 
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static int __pyx_tp_traverse_9pyprotect_9protected__ProtectionData(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_9pyprotect_9protected___ProtectionData(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_9pyprotect_9protected__ProtectionData *p = (struct __pyx_obj_9pyprotect_9protected__ProtectionData *)o;
+  struct __pyx_obj_9pyprotect_9protected___ProtectionData *p = (struct __pyx_obj_9pyprotect_9protected___ProtectionData *)o;
   if (p->id) {
     e = (*v)(p->id, a); if (e) return e;
   }
@@ -51466,9 +51466,9 @@ static int __pyx_tp_traverse_9pyprotect_9protected__ProtectionData(PyObject *o, 
   return 0;
 }
 
-static int __pyx_tp_clear_9pyprotect_9protected__ProtectionData(PyObject *o) {
+static int __pyx_tp_clear_9pyprotect_9protected___ProtectionData(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_9pyprotect_9protected__ProtectionData *p = (struct __pyx_obj_9pyprotect_9protected__ProtectionData *)o;
+  struct __pyx_obj_9pyprotect_9protected___ProtectionData *p = (struct __pyx_obj_9pyprotect_9protected___ProtectionData *)o;
   tmp = ((PyObject*)p->id);
   p->id = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
@@ -51520,247 +51520,247 @@ static int __pyx_tp_clear_9pyprotect_9protected__ProtectionData(PyObject *o) {
   return 0;
 }
 
-static PyObject *__pyx_tp_getattro_9pyprotect_9protected__ProtectionData(PyObject *o, PyObject *n) {
-  PyObject *v = __pyx_pw_9pyprotect_9protected_15_ProtectionData_3__getattribute__(o, n);
+static PyObject *__pyx_tp_getattro_9pyprotect_9protected___ProtectionData(PyObject *o, PyObject *n) {
+  PyObject *v = __pyx_pw_9pyprotect_9protected_16__ProtectionData_3__getattribute__(o, n);
   return v;
 }
 
-static int __pyx_tp_setattro_9pyprotect_9protected__ProtectionData(PyObject *o, PyObject *n, PyObject *v) {
+static int __pyx_tp_setattro_9pyprotect_9protected___ProtectionData(PyObject *o, PyObject *n, PyObject *v) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_5__setattr__(o, n, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_5__setattr__(o, n, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_7__delattr__(o, n);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_7__delattr__(o, n);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_id(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_id(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_id(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_id(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_2id_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_2id_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_id_class(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_id_class(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_id_class(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_id_class(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_8id_class_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_8id_class_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_hash(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_hash(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_hash(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_hash(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_4hash_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_4hash_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_isinstance(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_isinstance(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_isinstance(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_isinstance(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10isinstance_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10isinstance_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_issubclass(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_issubclass(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_issubclass(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_issubclass(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10issubclass_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10issubclass_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_instanceof(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_instanceof(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_instanceof(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_instanceof(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10instanceof_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10instanceof_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_subclassof(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_subclassof(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_subclassof(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_subclassof(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_10subclassof_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_10subclassof_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_help(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_help(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_help(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_help(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_4help_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_4help_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_help_str(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_help_str(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_help_str(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_help_str(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_8help_str_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_8help_str_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_testop(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_testop(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_testop(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_testop(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_6testop_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_6testop_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_rules(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_rules(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_rules(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_rules(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_5rules_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_5rules_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_freeze(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_freeze(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_freeze(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_freeze(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_6freeze_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_6freeze_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_private(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_private(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_private(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_private(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_7private_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_7private_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_protect(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_protect(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_protect(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_protect(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_7protect_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_7protect_5__del__(o);
   }
 }
 
-static PyObject *__pyx_getprop_9pyprotect_9protected_15_ProtectionData_multiwrapped(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_1__get__(o);
+static PyObject *__pyx_getprop_9pyprotect_9protected_16__ProtectionData_multiwrapped(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_1__get__(o);
 }
 
-static int __pyx_setprop_9pyprotect_9protected_15_ProtectionData_multiwrapped(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_9pyprotect_9protected_16__ProtectionData_multiwrapped(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_3__set__(o, v);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_3__set__(o, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_15_ProtectionData_12multiwrapped_5__del__(o);
+    return __pyx_pw_9pyprotect_9protected_16__ProtectionData_12multiwrapped_5__del__(o);
   }
 }
 
-static PyMethodDef __pyx_methods_9pyprotect_9protected__ProtectionData[] = {
-  {"__dir__", (PyCFunction)__pyx_pw_9pyprotect_9protected_15_ProtectionData_9__dir__, METH_NOARGS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_9pyprotect_9protected_15_ProtectionData_11__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_9pyprotect_9protected_15_ProtectionData_13__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_9pyprotect_9protected___ProtectionData[] = {
+  {"__dir__", (PyCFunction)__pyx_pw_9pyprotect_9protected_16__ProtectionData_9__dir__, METH_NOARGS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_9pyprotect_9protected_16__ProtectionData_11__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_9pyprotect_9protected_16__ProtectionData_13__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_9pyprotect_9protected__ProtectionData[] = {
-  {(char *)"id", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_id, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_id, (char *)0, 0},
-  {(char *)"id_class", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_id_class, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_id_class, (char *)0, 0},
-  {(char *)"hash", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_hash, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_hash, (char *)0, 0},
-  {(char *)"isinstance", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_isinstance, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_isinstance, (char *)0, 0},
-  {(char *)"issubclass", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_issubclass, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_issubclass, (char *)0, 0},
-  {(char *)"instanceof", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_instanceof, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_instanceof, (char *)0, 0},
-  {(char *)"subclassof", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_subclassof, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_subclassof, (char *)0, 0},
-  {(char *)"help", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_help, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_help, (char *)0, 0},
-  {(char *)"help_str", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_help_str, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_help_str, (char *)0, 0},
-  {(char *)"testop", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_testop, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_testop, (char *)0, 0},
-  {(char *)"rules", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_rules, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_rules, (char *)0, 0},
-  {(char *)"freeze", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_freeze, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_freeze, (char *)0, 0},
-  {(char *)"private", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_private, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_private, (char *)0, 0},
-  {(char *)"protect", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_protect, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_protect, (char *)0, 0},
-  {(char *)"multiwrapped", __pyx_getprop_9pyprotect_9protected_15_ProtectionData_multiwrapped, __pyx_setprop_9pyprotect_9protected_15_ProtectionData_multiwrapped, (char *)0, 0},
+static struct PyGetSetDef __pyx_getsets_9pyprotect_9protected___ProtectionData[] = {
+  {(char *)"id", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_id, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_id, (char *)0, 0},
+  {(char *)"id_class", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_id_class, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_id_class, (char *)0, 0},
+  {(char *)"hash", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_hash, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_hash, (char *)0, 0},
+  {(char *)"isinstance", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_isinstance, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_isinstance, (char *)0, 0},
+  {(char *)"issubclass", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_issubclass, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_issubclass, (char *)0, 0},
+  {(char *)"instanceof", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_instanceof, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_instanceof, (char *)0, 0},
+  {(char *)"subclassof", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_subclassof, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_subclassof, (char *)0, 0},
+  {(char *)"help", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_help, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_help, (char *)0, 0},
+  {(char *)"help_str", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_help_str, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_help_str, (char *)0, 0},
+  {(char *)"testop", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_testop, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_testop, (char *)0, 0},
+  {(char *)"rules", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_rules, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_rules, (char *)0, 0},
+  {(char *)"freeze", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_freeze, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_freeze, (char *)0, 0},
+  {(char *)"private", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_private, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_private, (char *)0, 0},
+  {(char *)"protect", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_protect, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_protect, (char *)0, 0},
+  {(char *)"multiwrapped", __pyx_getprop_9pyprotect_9protected_16__ProtectionData_multiwrapped, __pyx_setprop_9pyprotect_9protected_16__ProtectionData_multiwrapped, (char *)0, 0},
   {0, 0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_9pyprotect_9protected__ProtectionData = {
+static PyTypeObject __pyx_type_9pyprotect_9protected___ProtectionData = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pyprotect.protected._ProtectionData", /*tp_name*/
-  sizeof(struct __pyx_obj_9pyprotect_9protected__ProtectionData), /*tp_basicsize*/
+  "pyprotect.protected.__ProtectionData", /*tp_name*/
+  sizeof(struct __pyx_obj_9pyprotect_9protected___ProtectionData), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9pyprotect_9protected__ProtectionData, /*tp_dealloc*/
+  __pyx_tp_dealloc_9pyprotect_9protected___ProtectionData, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -51782,28 +51782,28 @@ static PyTypeObject __pyx_type_9pyprotect_9protected__ProtectionData = {
   0, /*tp_hash*/
   0, /*tp_call*/
   0, /*tp_str*/
-  __pyx_tp_getattro_9pyprotect_9protected__ProtectionData, /*tp_getattro*/
-  __pyx_tp_setattro_9pyprotect_9protected__ProtectionData, /*tp_setattro*/
+  __pyx_tp_getattro_9pyprotect_9protected___ProtectionData, /*tp_getattro*/
+  __pyx_tp_setattro_9pyprotect_9protected___ProtectionData, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   "\n    Attributes:\n        id: int\n        id_class: int\n        hash: method (no args) -> int\n        isinstance: method: isinstance(o)\n        issubclass: method: issubclass(o)\n        instanceof: method: instanceof(o)\n        subclassof: method: subclassof(o)\n        help: method (no args)\n        help_str: method (no args) -> str\n        testop: method: testop(a: str, op: str) -> bool\n        rules: dict\n        freeze: method (no args) -> Wrapped\n        private: method (no args) -> Private\n        multiwrapped: method (no args) -> bool\n    ", /*tp_doc*/
-  __pyx_tp_traverse_9pyprotect_9protected__ProtectionData, /*tp_traverse*/
-  __pyx_tp_clear_9pyprotect_9protected__ProtectionData, /*tp_clear*/
+  __pyx_tp_traverse_9pyprotect_9protected___ProtectionData, /*tp_traverse*/
+  __pyx_tp_clear_9pyprotect_9protected___ProtectionData, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_9pyprotect_9protected__ProtectionData, /*tp_methods*/
+  __pyx_methods_9pyprotect_9protected___ProtectionData, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_9pyprotect_9protected__ProtectionData, /*tp_getset*/
+  __pyx_getsets_9pyprotect_9protected___ProtectionData, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_9pyprotect_9protected_15_ProtectionData_1__init__, /*tp_init*/
+  __pyx_pw_9pyprotect_9protected_16__ProtectionData_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_9pyprotect_9protected__ProtectionData, /*tp_new*/
+  __pyx_tp_new_9pyprotect_9protected___ProtectionData, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -51840,7 +51840,7 @@ static PyObject *__pyx_tp_new_9pyprotect_9protected_Wrapped(PyTypeObject *t, CYT
   p = ((struct __pyx_obj_9pyprotect_9protected_Wrapped *)o);
   p->__pyx_vtab = __pyx_vtabptr_9pyprotect_9protected_Wrapped;
   p->pvt_o = Py_None; Py_INCREF(Py_None);
-  p->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)Py_None); Py_INCREF(Py_None);
+  p->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)Py_None); Py_INCREF(Py_None);
   p->cn = ((PyObject*)Py_None); Py_INCREF(Py_None);
   p->rules = ((PyObject*)Py_None); Py_INCREF(Py_None);
   p->hidden_private_attr = Py_None; Py_INCREF(Py_None);
@@ -51888,7 +51888,7 @@ static int __pyx_tp_clear_9pyprotect_9protected_Wrapped(PyObject *o) {
   p->pvt_o = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->protected_attribute);
-  p->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)Py_None); Py_INCREF(Py_None);
+  p->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected___ProtectionData *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->rules);
   p->rules = ((PyObject*)Py_None); Py_INCREF(Py_None);
@@ -52998,10 +52998,10 @@ static PyTypeObject __pyx_type_9pyprotect_9protected_FrozenProtected = {
   0, /*tp_pypy_flags*/
   #endif
 };
-static struct __pyx_vtabstruct_9pyprotect_9protected_HiddenPartial __pyx_vtable_9pyprotect_9protected_HiddenPartial;
+static struct __pyx_vtabstruct_9pyprotect_9protected___HiddenPartial __pyx_vtable_9pyprotect_9protected___HiddenPartial;
 
-static PyObject *__pyx_tp_new_9pyprotect_9protected_HiddenPartial(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_9pyprotect_9protected_HiddenPartial *p;
+static PyObject *__pyx_tp_new_9pyprotect_9protected___HiddenPartial(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_9pyprotect_9protected___HiddenPartial *p;
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -53009,15 +53009,15 @@ static PyObject *__pyx_tp_new_9pyprotect_9protected_HiddenPartial(PyTypeObject *
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)o);
-  p->__pyx_vtab = __pyx_vtabptr_9pyprotect_9protected_HiddenPartial;
+  p = ((struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)o);
+  p->__pyx_vtab = __pyx_vtabptr_9pyprotect_9protected___HiddenPartial;
   p->args = Py_None; Py_INCREF(Py_None);
   p->kwargs = Py_None; Py_INCREF(Py_None);
   return o;
 }
 
-static void __pyx_tp_dealloc_9pyprotect_9protected_HiddenPartial(PyObject *o) {
-  struct __pyx_obj_9pyprotect_9protected_HiddenPartial *p = (struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)o;
+static void __pyx_tp_dealloc_9pyprotect_9protected___HiddenPartial(PyObject *o) {
+  struct __pyx_obj_9pyprotect_9protected___HiddenPartial *p = (struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && !_PyGC_FINALIZED(o)) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -53029,9 +53029,9 @@ static void __pyx_tp_dealloc_9pyprotect_9protected_HiddenPartial(PyObject *o) {
   (*Py_TYPE(o)->tp_free)(o);
 }
 
-static int __pyx_tp_traverse_9pyprotect_9protected_HiddenPartial(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_9pyprotect_9protected___HiddenPartial(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_9pyprotect_9protected_HiddenPartial *p = (struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)o;
+  struct __pyx_obj_9pyprotect_9protected___HiddenPartial *p = (struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)o;
   if (p->args) {
     e = (*v)(p->args, a); if (e) return e;
   }
@@ -53041,9 +53041,9 @@ static int __pyx_tp_traverse_9pyprotect_9protected_HiddenPartial(PyObject *o, vi
   return 0;
 }
 
-static int __pyx_tp_clear_9pyprotect_9protected_HiddenPartial(PyObject *o) {
+static int __pyx_tp_clear_9pyprotect_9protected___HiddenPartial(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_9pyprotect_9protected_HiddenPartial *p = (struct __pyx_obj_9pyprotect_9protected_HiddenPartial *)o;
+  struct __pyx_obj_9pyprotect_9protected___HiddenPartial *p = (struct __pyx_obj_9pyprotect_9protected___HiddenPartial *)o;
   tmp = ((PyObject*)p->args);
   p->args = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
@@ -53053,34 +53053,34 @@ static int __pyx_tp_clear_9pyprotect_9protected_HiddenPartial(PyObject *o) {
   return 0;
 }
 
-static PyObject *__pyx_tp_getattro_9pyprotect_9protected_HiddenPartial(PyObject *o, PyObject *n) {
-  PyObject *v = __pyx_pw_9pyprotect_9protected_13HiddenPartial_3__getattribute__(o, n);
+static PyObject *__pyx_tp_getattro_9pyprotect_9protected___HiddenPartial(PyObject *o, PyObject *n) {
+  PyObject *v = __pyx_pw_9pyprotect_9protected_15__HiddenPartial_3__getattribute__(o, n);
   return v;
 }
 
-static int __pyx_tp_setattro_9pyprotect_9protected_HiddenPartial(PyObject *o, PyObject *n, PyObject *v) {
+static int __pyx_tp_setattro_9pyprotect_9protected___HiddenPartial(PyObject *o, PyObject *n, PyObject *v) {
   if (v) {
-    return __pyx_pw_9pyprotect_9protected_13HiddenPartial_5__setattr__(o, n, v);
+    return __pyx_pw_9pyprotect_9protected_15__HiddenPartial_5__setattr__(o, n, v);
   }
   else {
-    return __pyx_pw_9pyprotect_9protected_13HiddenPartial_7__delattr__(o, n);
+    return __pyx_pw_9pyprotect_9protected_15__HiddenPartial_7__delattr__(o, n);
   }
 }
 
-static PyMethodDef __pyx_methods_9pyprotect_9protected_HiddenPartial[] = {
-  {"__dir__", (PyCFunction)__pyx_pw_9pyprotect_9protected_13HiddenPartial_9__dir__, METH_NOARGS, 0},
-  {"__bytes__", (PyCFunction)__pyx_pw_9pyprotect_9protected_13HiddenPartial_17__bytes__, METH_NOARGS, 0},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_9pyprotect_9protected_13HiddenPartial_21__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_9pyprotect_9protected_13HiddenPartial_23__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_9pyprotect_9protected___HiddenPartial[] = {
+  {"__dir__", (PyCFunction)__pyx_pw_9pyprotect_9protected_15__HiddenPartial_9__dir__, METH_NOARGS, 0},
+  {"__bytes__", (PyCFunction)__pyx_pw_9pyprotect_9protected_15__HiddenPartial_17__bytes__, METH_NOARGS, 0},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_9pyprotect_9protected_15__HiddenPartial_21__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_9pyprotect_9protected_15__HiddenPartial_23__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static PyTypeObject __pyx_type_9pyprotect_9protected_HiddenPartial = {
+static PyTypeObject __pyx_type_9pyprotect_9protected___HiddenPartial = {
   PyVarObject_HEAD_INIT(0, 0)
-  "pyprotect.protected.HiddenPartial", /*tp_name*/
-  sizeof(struct __pyx_obj_9pyprotect_9protected_HiddenPartial), /*tp_basicsize*/
+  "pyprotect.protected.__HiddenPartial", /*tp_name*/
+  sizeof(struct __pyx_obj_9pyprotect_9protected___HiddenPartial), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9pyprotect_9protected_HiddenPartial, /*tp_dealloc*/
+  __pyx_tp_dealloc_9pyprotect_9protected___HiddenPartial, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -53095,25 +53095,25 @@ static PyTypeObject __pyx_type_9pyprotect_9protected_HiddenPartial = {
   #if PY_MAJOR_VERSION >= 3
   0, /*tp_as_async*/
   #endif
-  __pyx_pw_9pyprotect_9protected_13HiddenPartial_13__repr__, /*tp_repr*/
+  __pyx_pw_9pyprotect_9protected_15__HiddenPartial_13__repr__, /*tp_repr*/
   0, /*tp_as_number*/
   0, /*tp_as_sequence*/
   0, /*tp_as_mapping*/
-  __pyx_pw_9pyprotect_9protected_13HiddenPartial_11__hash__, /*tp_hash*/
-  __pyx_pw_9pyprotect_9protected_13HiddenPartial_19__call__, /*tp_call*/
-  __pyx_pw_9pyprotect_9protected_13HiddenPartial_15__str__, /*tp_str*/
-  __pyx_tp_getattro_9pyprotect_9protected_HiddenPartial, /*tp_getattro*/
-  __pyx_tp_setattro_9pyprotect_9protected_HiddenPartial, /*tp_setattro*/
+  __pyx_pw_9pyprotect_9protected_15__HiddenPartial_11__hash__, /*tp_hash*/
+  __pyx_pw_9pyprotect_9protected_15__HiddenPartial_19__call__, /*tp_call*/
+  __pyx_pw_9pyprotect_9protected_15__HiddenPartial_15__str__, /*tp_str*/
+  __pyx_tp_getattro_9pyprotect_9protected___HiddenPartial, /*tp_getattro*/
+  __pyx_tp_setattro_9pyprotect_9protected___HiddenPartial, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   "\n    This is an object wrapper / proxy for functools.partial\n    ", /*tp_doc*/
-  __pyx_tp_traverse_9pyprotect_9protected_HiddenPartial, /*tp_traverse*/
-  __pyx_tp_clear_9pyprotect_9protected_HiddenPartial, /*tp_clear*/
+  __pyx_tp_traverse_9pyprotect_9protected___HiddenPartial, /*tp_traverse*/
+  __pyx_tp_clear_9pyprotect_9protected___HiddenPartial, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_9pyprotect_9protected_HiddenPartial, /*tp_methods*/
+  __pyx_methods_9pyprotect_9protected___HiddenPartial, /*tp_methods*/
   0, /*tp_members*/
   0, /*tp_getset*/
   0, /*tp_base*/
@@ -53121,9 +53121,9 @@ static PyTypeObject __pyx_type_9pyprotect_9protected_HiddenPartial = {
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_9pyprotect_9protected_13HiddenPartial_1__init__, /*tp_init*/
+  __pyx_pw_9pyprotect_9protected_15__HiddenPartial_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_9pyprotect_9protected_HiddenPartial, /*tp_new*/
+  __pyx_tp_new_9pyprotect_9protected___HiddenPartial, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -54473,10 +54473,10 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_MutableSequence, __pyx_k_MutableSequence, sizeof(__pyx_k_MutableSequence), 0, 0, 1, 1},
   {&__pyx_n_s_MutableSet, __pyx_k_MutableSet, sizeof(__pyx_k_MutableSet), 0, 0, 1, 1},
   {&__pyx_n_s_NotImplemented, __pyx_k_NotImplemented, sizeof(__pyx_k_NotImplemented), 0, 0, 1, 1},
-  {&__pyx_kp_s_Object_HiddenPartial_has_no_attr, __pyx_k_Object_HiddenPartial_has_no_attr, sizeof(__pyx_k_Object_HiddenPartial_has_no_attr), 0, 0, 1, 0},
   {&__pyx_kp_s_Object_Private_s_has_no_attribut, __pyx_k_Object_Private_s_has_no_attribut, sizeof(__pyx_k_Object_Private_s_has_no_attribut), 0, 0, 1, 0},
   {&__pyx_kp_s_Object_Protected_s_has_no_attrib, __pyx_k_Object_Protected_s_has_no_attrib, sizeof(__pyx_k_Object_Protected_s_has_no_attrib), 0, 0, 1, 0},
   {&__pyx_kp_s_Object_Wrapped_s_has_no_attribut, __pyx_k_Object_Wrapped_s_has_no_attribut, sizeof(__pyx_k_Object_Wrapped_s_has_no_attribut), 0, 0, 1, 0},
+  {&__pyx_kp_s_Object___HiddenPartial_has_no_at, __pyx_k_Object___HiddenPartial_has_no_at, sizeof(__pyx_k_Object___HiddenPartial_has_no_at), 0, 0, 1, 0},
   {&__pyx_kp_s_Object_is_read_only, __pyx_k_Object_is_read_only, sizeof(__pyx_k_Object_is_read_only), 0, 0, 1, 0},
   {&__pyx_kp_s_Object_s_has_no_attribute_s, __pyx_k_Object_s_has_no_attribute_s, sizeof(__pyx_k_Object_s_has_no_attribute_s), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
@@ -54727,12 +54727,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_pyx_unpickle_FrozenPrivacyDict, __pyx_k_pyx_unpickle_FrozenPrivacyDict, sizeof(__pyx_k_pyx_unpickle_FrozenPrivacyDict), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_FrozenPrivate, __pyx_k_pyx_unpickle_FrozenPrivate, sizeof(__pyx_k_pyx_unpickle_FrozenPrivate), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_FrozenProtected, __pyx_k_pyx_unpickle_FrozenProtected, sizeof(__pyx_k_pyx_unpickle_FrozenProtected), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_unpickle_HiddenPartial, __pyx_k_pyx_unpickle_HiddenPartial, sizeof(__pyx_k_pyx_unpickle_HiddenPartial), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_PrivacyDict, __pyx_k_pyx_unpickle_PrivacyDict, sizeof(__pyx_k_pyx_unpickle_PrivacyDict), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Private, __pyx_k_pyx_unpickle_Private, sizeof(__pyx_k_pyx_unpickle_Private), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Protected, __pyx_k_pyx_unpickle_Protected, sizeof(__pyx_k_pyx_unpickle_Protected), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_unpickle_Wrapped, __pyx_k_pyx_unpickle_Wrapped, sizeof(__pyx_k_pyx_unpickle_Wrapped), 0, 0, 1, 1},
-  {&__pyx_n_s_pyx_unpickle__ProtectionData, __pyx_k_pyx_unpickle__ProtectionData, sizeof(__pyx_k_pyx_unpickle__ProtectionData), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_unpickle___HiddenPartial, __pyx_k_pyx_unpickle___HiddenPartial, sizeof(__pyx_k_pyx_unpickle___HiddenPartial), 0, 0, 1, 1},
+  {&__pyx_n_s_pyx_unpickle___ProtectionData, __pyx_k_pyx_unpickle___ProtectionData, sizeof(__pyx_k_pyx_unpickle___ProtectionData), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_vtable, __pyx_k_pyx_vtable, sizeof(__pyx_k_pyx_vtable), 0, 0, 1, 1},
   {&__pyx_n_s_qualname, __pyx_k_qualname, sizeof(__pyx_k_qualname), 0, 0, 1, 1},
   {&__pyx_n_s_r, __pyx_k_r, sizeof(__pyx_k_r), 0, 0, 1, 1},
@@ -55451,14 +55451,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__90);
 
   /* "(tree fragment)":1
- * def __pyx_unpickle__ProtectionData(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle___ProtectionData(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
   __pyx_tuple__91 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__91)) __PYX_ERR(5, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__91);
   __Pyx_GIVEREF(__pyx_tuple__91);
-  __pyx_codeobj__92 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__91, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle__ProtectionData, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__92)) __PYX_ERR(5, 1, __pyx_L1_error)
+  __pyx_codeobj__92 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__91, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle___ProtectionData, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__92)) __PYX_ERR(5, 1, __pyx_L1_error)
   __pyx_tuple__93 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__93)) __PYX_ERR(5, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__93);
   __Pyx_GIVEREF(__pyx_tuple__93);
@@ -55494,7 +55494,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __pyx_tuple__109 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__109)) __PYX_ERR(5, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__109);
   __Pyx_GIVEREF(__pyx_tuple__109);
-  __pyx_codeobj__110 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__109, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_HiddenPartial, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__110)) __PYX_ERR(5, 1, __pyx_L1_error)
+  __pyx_codeobj__110 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__109, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle___HiddenPartial, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__110)) __PYX_ERR(5, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -55577,12 +55577,12 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_9pyprotect_9protected__ProtectionData) < 0) __PYX_ERR(1, 4, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_9pyprotect_9protected___ProtectionData) < 0) __PYX_ERR(1, 4, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_9pyprotect_9protected__ProtectionData.tp_print = 0;
+  __pyx_type_9pyprotect_9protected___ProtectionData.tp_print = 0;
   #endif
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected__ProtectionData) < 0) __PYX_ERR(1, 4, __pyx_L1_error)
-  __pyx_ptype_9pyprotect_9protected__ProtectionData = &__pyx_type_9pyprotect_9protected__ProtectionData;
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected___ProtectionData) < 0) __PYX_ERR(1, 4, __pyx_L1_error)
+  __pyx_ptype_9pyprotect_9protected___ProtectionData = &__pyx_type_9pyprotect_9protected___ProtectionData;
   __pyx_vtabptr_9pyprotect_9protected_Wrapped = &__pyx_vtable_9pyprotect_9protected_Wrapped;
   __pyx_vtable_9pyprotect_9protected_Wrapped.attr_hidden = (PyObject *(*)(struct __pyx_obj_9pyprotect_9protected_Wrapped *, PyObject *))__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden;
   __pyx_vtable_9pyprotect_9protected_Wrapped.fif = (PyObject *(*)(struct __pyx_obj_9pyprotect_9protected_Wrapped *, PyObject *))__pyx_f_9pyprotect_9protected_7Wrapped_fif;
@@ -55803,26 +55803,26 @@ static int __Pyx_modinit_type_init_code(void) {
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FrozenProtected, (PyObject *)&__pyx_type_9pyprotect_9protected_FrozenProtected) < 0) __PYX_ERR(7, 279, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_FrozenProtected) < 0) __PYX_ERR(7, 279, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_FrozenProtected = &__pyx_type_9pyprotect_9protected_FrozenProtected;
-  __pyx_vtabptr_9pyprotect_9protected_HiddenPartial = &__pyx_vtable_9pyprotect_9protected_HiddenPartial;
-  __pyx_vtable_9pyprotect_9protected_HiddenPartial.wrapped_getattr = (PyObject *(*)(struct __pyx_obj_9pyprotect_9protected_HiddenPartial *, PyObject *))__pyx_f_9pyprotect_9protected_13HiddenPartial_wrapped_getattr;
-  if (PyType_Ready(&__pyx_type_9pyprotect_9protected_HiddenPartial) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
+  __pyx_vtabptr_9pyprotect_9protected___HiddenPartial = &__pyx_vtable_9pyprotect_9protected___HiddenPartial;
+  __pyx_vtable_9pyprotect_9protected___HiddenPartial.wrapped_getattr = (PyObject *(*)(struct __pyx_obj_9pyprotect_9protected___HiddenPartial *, PyObject *))__pyx_f_9pyprotect_9protected_15__HiddenPartial_wrapped_getattr;
+  if (PyType_Ready(&__pyx_type_9pyprotect_9protected___HiddenPartial) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
-  __pyx_type_9pyprotect_9protected_HiddenPartial.tp_print = 0;
+  __pyx_type_9pyprotect_9protected___HiddenPartial.tp_print = 0;
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_9pyprotect_9protected_HiddenPartial, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(8, 3, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_9pyprotect_9protected___HiddenPartial, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(8, 3, __pyx_L1_error)
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
-      __pyx_wrapperbase_9pyprotect_9protected_13HiddenPartial___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
-      __pyx_wrapperbase_9pyprotect_9protected_13HiddenPartial___init__.doc = __pyx_doc_9pyprotect_9protected_13HiddenPartial___init__;
-      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_9pyprotect_9protected_13HiddenPartial___init__;
+      __pyx_wrapperbase_9pyprotect_9protected_15__HiddenPartial___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
+      __pyx_wrapperbase_9pyprotect_9protected_15__HiddenPartial___init__.doc = __pyx_doc_9pyprotect_9protected_15__HiddenPartial___init__;
+      ((PyWrapperDescrObject *)wrapper)->d_base = &__pyx_wrapperbase_9pyprotect_9protected_15__HiddenPartial___init__;
     }
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_HiddenPartial.tp_dict, __pyx_vtabptr_9pyprotect_9protected_HiddenPartial) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_HiddenPartial, (PyObject *)&__pyx_type_9pyprotect_9protected_HiddenPartial) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_HiddenPartial) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
-  __pyx_ptype_9pyprotect_9protected_HiddenPartial = &__pyx_type_9pyprotect_9protected_HiddenPartial;
+  if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected___HiddenPartial.tp_dict, __pyx_vtabptr_9pyprotect_9protected___HiddenPartial) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_HiddenPartial, (PyObject *)&__pyx_type_9pyprotect_9protected___HiddenPartial) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected___HiddenPartial) < 0) __PYX_ERR(8, 3, __pyx_L1_error)
+  __pyx_ptype_9pyprotect_9protected___HiddenPartial = &__pyx_type_9pyprotect_9protected___HiddenPartial;
   if (PyType_Ready(&__pyx_type_9pyprotect_9protected___pyx_scope_struct__comparator) < 0) __PYX_ERR(2, 225, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_9pyprotect_9protected___pyx_scope_struct__comparator.tp_print = 0;
@@ -57267,19 +57267,19 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
- * def __pyx_unpickle__ProtectionData(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
+ * def __pyx_unpickle___ProtectionData(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_5 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_55__pyx_unpickle__ProtectionData, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 1, __pyx_L1_error)
+  __pyx_t_5 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_55__pyx_unpickle___ProtectionData, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle__ProtectionData, __pyx_t_5) < 0) __PYX_ERR(5, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle___ProtectionData, __pyx_t_5) < 0) __PYX_ERR(5, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":11
- *         __pyx_unpickle__ProtectionData__set_state(<_ProtectionData> __pyx_result, __pyx_state)
+ *         __pyx_unpickle___ProtectionData__set_state(<__ProtectionData> __pyx_result, __pyx_state)
  *     return __pyx_result
- * cdef __pyx_unpickle__ProtectionData__set_state(_ProtectionData __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
+ * cdef __pyx_unpickle___ProtectionData__set_state(__ProtectionData __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_result.attributes_map = __pyx_state[0]; __pyx_result.freeze = __pyx_state[1]; __pyx_result.hash = __pyx_state[2]; __pyx_result.help = __pyx_state[3]; __pyx_result.help_str = __pyx_state[4]; __pyx_result.id = __pyx_state[5]; __pyx_result.id_class = __pyx_state[6]; __pyx_result.instanceof = __pyx_state[7]; __pyx_result.isinstance = __pyx_state[8]; __pyx_result.issubclass = __pyx_state[9]; __pyx_result.multiwrapped = __pyx_state[10]; __pyx_result.private = __pyx_state[11]; __pyx_result.protect = __pyx_state[12]; __pyx_result.rules = __pyx_state[13]; __pyx_result.subclassof = __pyx_state[14]; __pyx_result.testop = __pyx_state[15]
  *     if len(__pyx_state) > 16 and hasattr(__pyx_result, '__dict__'):
  */
@@ -57371,9 +57371,9 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result.acl_cache = __pyx_state[0]; __pyx_result.cn = __pyx_state[1]; __pyx_result.dir_out = __pyx_state[2]; __pyx_result.frozen = __pyx_state[3]; __pyx_result.hidden_private_attr = __pyx_state[4]; __pyx_result.oldstyle_class = __pyx_state[5]; __pyx_result.protected_attribute = __pyx_state[6]; __pyx_result.pvt_o = __pyx_state[7]; __pyx_result.rules = __pyx_state[8]
  *     if len(__pyx_state) > 9 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_5 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_73__pyx_unpickle_HiddenPartial, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 1, __pyx_L1_error)
+  __pyx_t_5 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_73__pyx_unpickle___HiddenPartial, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_5)) __PYX_ERR(5, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_HiddenPartial, __pyx_t_5) < 0) __PYX_ERR(5, 1, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle___HiddenPartial, __pyx_t_5) < 0) __PYX_ERR(5, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "pyprotect/protected.pyx":1

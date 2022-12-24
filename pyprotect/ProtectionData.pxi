@@ -1,7 +1,7 @@
 
 @cython.final
 @cython.internal
-cdef class _ProtectionData(object):
+cdef class __ProtectionData(object):
     '''
     Attributes:
         id: int
@@ -86,14 +86,14 @@ cdef class _ProtectionData(object):
             'private': self.private,
             'protect': self.protect,
             'multiwrapped': self.multiwrapped,
-            '__class__': _ProtectionData,
+            '__class__': __ProtectionData,
         }
 
     def __getattribute__(self, a):
         if a in self.attributes_map:
             return self.attributes_map.get(a)
         missing_msg = "Object '%s' has no attribute '%s'" % (
-            '_ProtectionData',
+            '__ProtectionData',
             str(a)
         )
         raise AttributeError(missing_msg)

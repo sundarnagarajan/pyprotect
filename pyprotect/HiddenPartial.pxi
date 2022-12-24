@@ -1,6 +1,6 @@
 
 # @cython.internal
-cdef class HiddenPartial(object):
+cdef class __HiddenPartial(object):
     '''
     This is an object wrapper / proxy for functools.partial
     '''
@@ -18,7 +18,7 @@ cdef class HiddenPartial(object):
         if a in ['__call__']:
             return functools.partial(getattr(Wrapped, a), self)
         raise AttributeError(
-            "Object HiddenPartial has no attribute '%s'" % (a,)
+            "Object __HiddenPartial has no attribute '%s'" % (a,)
         )
 
     # --------------------------------------------------------------------
