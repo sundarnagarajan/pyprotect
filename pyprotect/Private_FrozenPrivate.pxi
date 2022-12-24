@@ -1,5 +1,5 @@
 
-@cython.internal
+# @cython.internal
 cdef class Private(Wrapped):
     '''
     Subclass of Wrapped with following additional functionality:
@@ -133,7 +133,7 @@ cdef class Private(Wrapped):
         return self.comparator(other, op)
 
 
-@cython.internal
+# @cython.internal
 @cython.final
 cdef class FrozenPrivate(Private):
     '''

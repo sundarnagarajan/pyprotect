@@ -1,5 +1,5 @@
 
-@cython.internal
+# @cython.internal
 cdef class Protected(Private):
     '''
     Subclass of Private that further restriction of:
@@ -275,7 +275,7 @@ cdef class Protected(Private):
         return self.comparator(other, op)
 
 
-@cython.internal
+# @cython.internal
 cdef class FrozenProtected(Protected):
     '''
     Subclass of Protected that is automatically frozen

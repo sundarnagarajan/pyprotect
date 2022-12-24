@@ -1,12 +1,11 @@
 
-@cython.internal
+# @cython.internal
 cdef class Wrapped(object):
     '''
     This is an object wrapper / proxy that adds the 'frozen' parameter
     If frozen is False, should behave just like the wrapped object, except
     following attributes cannot be modified:
-        '__getattr__', '__getattribute__',
-        '__delattr__', '__setattr__', '__slots__',
+        '__getattribute__', '__delattr__', '__setattr__', '__slots__',
     If frozen is True, prevents modification of ANY attribute
     WITHOUT frozen == True:
         - Does NOT protect CLASS of wrapped object from modification
@@ -931,7 +930,7 @@ cdef class Wrapped(object):
     # --------------------------------------------------------------------
 
 
-@cython.internal
+# @cython.internal
 @cython.final
 cdef class Frozen(Wrapped):
     '''

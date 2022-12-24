@@ -1,5 +1,5 @@
 
-@cython.internal
+# @cython.internal
 cdef class PrivacyDict(Wrapped):
     '''
     Like types.MappingProxyType - with following additional functionality:
@@ -199,7 +199,7 @@ cdef class PrivacyDict(Wrapped):
         return self.comparator(other, op)
 
 
-@cython.internal
+# @cython.internal
 @cython.final
 cdef class FrozenPrivacyDict(PrivacyDict):
     '''

@@ -4,7 +4,9 @@
 # ------------------------------------------------------------------------
 
 def attribute_protected():
-    '''Returns: str: name of special attribute in Wrapped objects'''
+    '''
+    attribute_protected() -> str: name of special attribute in Wrapped objects
+    '''
     return PROT_ATTR_NAME
 
 def id_protected(o: object) -> int:
@@ -51,6 +53,7 @@ def issubclass_protected(o: type, c: type) -> bool:
 
 def instance_of_protected(x: object, w: object) -> bool:
     '''
+    instance_of_protected(x: object, w: object) -> bool
     If iswrapped(w) and w wraps 'o':
         Returns isinstance(x, type(o))
     Else: returns isinstance(x, w)
@@ -62,6 +65,7 @@ def instance_of_protected(x: object, w: object) -> bool:
 
 def subclass_of_protected(x: object, w: object) -> bool:
     '''
+    subclass_of_protected(x: object, w: object) -> bool
     If iswrapped(w) and w wraps 'o':
         Returns issubclass(x, type(o))
     Else: returns issubclass(x, w)
@@ -73,6 +77,7 @@ def subclass_of_protected(x: object, w: object) -> bool:
 
 def same_class_protected(c: type, w: object) -> bool:
     '''
+    same_class_protected(c: type, w: object) -> bool
     If iswrapped(w) and w wraps 'o':
         Returns (c is type(o))
     Else: returns (c is type(w))
@@ -84,6 +89,7 @@ def same_class_protected(c: type, w: object) -> bool:
 
 def help_protected(o: object) -> None:
     '''
+    help_protected(o: object) -> None
     Calls help(wrapped_object) if iswrapped(o); help(o) otherwise
     '''
     if isinstance(o, Wrapped):
@@ -409,7 +415,8 @@ def always_delegated_attributes():
 
 def immutable_builtin_attributes():
     '''
-    Returns: frozenset of str: attributes in builtins that are immutable
+    immutable_builtin_attributes() -> frozenset(str)
+    Returns: attributes in builtins that are immutable
     '''
     return builtin_module_immutable_attributes
 
@@ -422,6 +429,8 @@ __all__ = [
     'hidden_pickle_attributes', 'always_delegated_attributes',
     'ProtectionError', 'issubclass_protected',
     'instance_of_protected', 'subclass_of_protected', 'same_class_protected',
+    # 'Wrapped', 'Private', 'Protected', 'PrivacyDict',
+    # 'Frozen', 'FrozenPrivate', 'FrozenProtected', 'FrozenPrivacyDict',
 ]
 
 
