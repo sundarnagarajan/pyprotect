@@ -102,19 +102,19 @@ cdef class Wrapped(object):
         self.protected_attribute = _ProtectionData(
             id_val=id(self.pvt_o),
             id_class=id_class,
-            hash_val=functools.partial(self.hash_protected, self),
-            isinstance_val=functools.partial(self.isinstance_protected, self),
-            issubclass_val=functools.partial(self.issubclass_protected, self),
-            instanceof=functools.partial(self.instanceof_protected, self),
-            subclassof=functools.partial(self.subclassof_protected, self),
-            help_val=functools.partial(self.help_protected, self),
-            help_str=functools.partial(self.help_str_protected, self),
-            testop=functools.partial(self.testop, self),
+            hash_val=HiddenPartial(self.hash_protected, self),
+            isinstance_val=HiddenPartial(self.isinstance_protected, self),
+            issubclass_val=HiddenPartial(self.issubclass_protected, self),
+            instanceof=HiddenPartial(self.instanceof_protected, self),
+            subclassof=HiddenPartial(self.subclassof_protected, self),
+            help_val=HiddenPartial(self.help_protected, self),
+            help_str=HiddenPartial(self.help_str_protected, self),
+            testop=HiddenPartial(self.testop, self),
             rules=rules,
-            freeze=functools.partial(self.freeze, self),
-            private=functools.partial(private_class, self.pvt_o),
-            protect=functools.partial(protect_class, self.pvt_o),
-            multiwrapped=functools.partial(self.multiwrapped, self),
+            freeze=HiddenPartial(self.freeze, self),
+            private=HiddenPartial(private_class, self.pvt_o),
+            protect=HiddenPartial(protect_class, self.pvt_o),
+            multiwrapped=HiddenPartial(self.multiwrapped, self),
         )
 
     # --------------------------------------------------------------------
@@ -325,7 +325,7 @@ cdef class Wrapped(object):
         if a == PROT_ATTR_NAME:
             return self.protected_attribute
         if a in overridden_always:
-            return functools.partial(getattr(Wrapped, a), self)
+            return HiddenPartial(getattr(Wrapped, a), self)
 
         # PREVENT pickling - doesn't work even if methods are implemented,
         if a in pickle_attributes:
@@ -337,7 +337,7 @@ cdef class Wrapped(object):
 
         # Container mutating methods - implemented and selectively blocked
         if a in m_block and hasattr(Wrapped, a):
-            return functools.partial(getattr(Wrapped, a), self)
+            return HiddenPartial(getattr(Wrapped, a), self)
         # Any non-method or missing attribute or special callable method
         # that is not delegated or blocked
         if delegated is None:

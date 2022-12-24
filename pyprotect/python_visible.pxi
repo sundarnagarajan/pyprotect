@@ -438,6 +438,7 @@ __all__ = [
     'instance_of_protected', 'subclass_of_protected', 'same_class_protected',
     # 'Wrapped', 'Private', 'Protected', 'PrivacyDict',
     # 'Frozen', 'FrozenPrivate', 'FrozenProtected', 'FrozenPrivacyDict',
+    'HiddenPartial',
 ]
 
 

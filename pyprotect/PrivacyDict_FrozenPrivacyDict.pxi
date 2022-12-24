@@ -50,18 +50,18 @@ cdef class PrivacyDict(Wrapped):
             'iterkeys', 'iteritems', 'itervalues',
             'viewkeys', 'viewitems', 'viewvalues',
         ]):
-            return functools.partial(getattr(PrivacyDict, a), self)
+            return HiddenPartial(getattr(PrivacyDict, a), self)
         if a in set([
             'keys', 'items', 'values', 'copy',
         ]):
             py2_map = {
-                'keys': functools.partial(getattr(PrivacyDict, 'keys_py2'), self),
-                'items': functools.partial(getattr(PrivacyDict, 'items_py2'), self),
-                'values': functools.partial(getattr(PrivacyDict, 'values_py2'), self),
+                'keys': HiddenPartial(getattr(PrivacyDict, 'keys_py2'), self),
+                'items': HiddenPartial(getattr(PrivacyDict, 'items_py2'), self),
+                'values': HiddenPartial(getattr(PrivacyDict, 'values_py2'), self),
             }
             if PY2 and a in py2_map:
                 return py2_map[a]
-            return functools.partial(getattr(PrivacyDict, a), self)
+            return HiddenPartial(getattr(PrivacyDict, a), self)
 
         # If frozen, freeze all the way down
         return self.wrapped_getattr(a)

@@ -2,6 +2,7 @@ include pyprotect/protected.pyx
 include pyprotect/protected.c
 include pyprotect/global_cdefs.pxi
 include pyprotect/global_c_functions.pxi
+include pyprotect/HiddenPartial.pxi
 include pyprotect/PrivacyDict_FrozenPrivacyDict.pxi
 include pyprotect/Private_FrozenPrivate.pxi
 include pyprotect/Protected_FrozenProtected.pxi
