@@ -1011,7 +1011,7 @@ struct __pyx_obj_9pyprotect_9protected__ProtectionData {
 
 /* "pyprotect/Wrapped_Frozen.pxi":3
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class Wrapped(object):             # <<<<<<<<<<<<<<
  *     '''
  *     This is an object wrapper / proxy that adds the 'frozen' parameter
@@ -1029,8 +1029,8 @@ struct __pyx_obj_9pyprotect_9protected_Wrapped {
 };
 
 
-/* "pyprotect/Wrapped_Frozen.pxi":936
- * @cython.internal
+/* "pyprotect/Wrapped_Frozen.pxi":935
+ * # @cython.internal
  * @cython.final
  * cdef class Frozen(Wrapped):             # <<<<<<<<<<<<<<
  *     '''
@@ -1043,7 +1043,7 @@ struct __pyx_obj_9pyprotect_9protected_Frozen {
 
 /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":3
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class PrivacyDict(Wrapped):             # <<<<<<<<<<<<<<
  *     '''
  *     Like types.MappingProxyType - with following additional functionality:
@@ -1054,7 +1054,7 @@ struct __pyx_obj_9pyprotect_9protected_PrivacyDict {
 
 
 /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":204
- * @cython.internal
+ * # @cython.internal
  * @cython.final
  * cdef class FrozenPrivacyDict(PrivacyDict):             # <<<<<<<<<<<<<<
  *     '''
@@ -1067,7 +1067,7 @@ struct __pyx_obj_9pyprotect_9protected_FrozenPrivacyDict {
 
 /* "pyprotect/Private_FrozenPrivate.pxi":3
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class Private(Wrapped):             # <<<<<<<<<<<<<<
  *     '''
  *     Subclass of Wrapped with following additional functionality:
@@ -1078,7 +1078,7 @@ struct __pyx_obj_9pyprotect_9protected_Private {
 
 
 /* "pyprotect/Private_FrozenPrivate.pxi":138
- * @cython.internal
+ * # @cython.internal
  * @cython.final
  * cdef class FrozenPrivate(Private):             # <<<<<<<<<<<<<<
  *     '''
@@ -1091,7 +1091,7 @@ struct __pyx_obj_9pyprotect_9protected_FrozenPrivate {
 
 /* "pyprotect/Protected_FrozenProtected.pxi":3
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class Protected(Private):             # <<<<<<<<<<<<<<
  *     '''
  *     Subclass of Private that further restriction of:
@@ -1105,7 +1105,7 @@ struct __pyx_obj_9pyprotect_9protected_Protected {
 
 /* "pyprotect/Protected_FrozenProtected.pxi":279
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class FrozenProtected(Protected):             # <<<<<<<<<<<<<<
  *     '''
  *     Subclass of Protected that is automatically frozen
@@ -1115,7 +1115,7 @@ struct __pyx_obj_9pyprotect_9protected_FrozenProtected {
 };
 
 
-/* "pyprotect/Wrapped_Frozen.pxi":226
+/* "pyprotect/Wrapped_Frozen.pxi":225
  *         return dict()
  * 
  *     cdef comparator(self, other, op):             # <<<<<<<<<<<<<<
@@ -1130,7 +1130,7 @@ struct __pyx_obj_9pyprotect_9protected___pyx_scope_struct__comparator {
 };
 
 
-/* "pyprotect/Wrapped_Frozen.pxi":442
+/* "pyprotect/Wrapped_Frozen.pxi":441
  *         return x
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -1284,7 +1284,7 @@ struct __pyx_obj___pyx_scope_struct____Pyx_CFunc_object____Wrapped____object____
 
 /* "pyprotect/Wrapped_Frozen.pxi":3
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class Wrapped(object):             # <<<<<<<<<<<<<<
  *     '''
  *     This is an object wrapper / proxy that adds the 'frozen' parameter
@@ -1316,8 +1316,8 @@ struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped {
 static struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *__pyx_vtabptr_9pyprotect_9protected_Wrapped;
 
 
-/* "pyprotect/Wrapped_Frozen.pxi":936
- * @cython.internal
+/* "pyprotect/Wrapped_Frozen.pxi":935
+ * # @cython.internal
  * @cython.final
  * cdef class Frozen(Wrapped):             # <<<<<<<<<<<<<<
  *     '''
@@ -1332,7 +1332,7 @@ static struct __pyx_vtabstruct_9pyprotect_9protected_Frozen *__pyx_vtabptr_9pypr
 
 /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":3
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class PrivacyDict(Wrapped):             # <<<<<<<<<<<<<<
  *     '''
  *     Like types.MappingProxyType - with following additional functionality:
@@ -1345,7 +1345,7 @@ static struct __pyx_vtabstruct_9pyprotect_9protected_PrivacyDict *__pyx_vtabptr_
 
 
 /* "pyprotect/PrivacyDict_FrozenPrivacyDict.pxi":204
- * @cython.internal
+ * # @cython.internal
  * @cython.final
  * cdef class FrozenPrivacyDict(PrivacyDict):             # <<<<<<<<<<<<<<
  *     '''
@@ -1360,7 +1360,7 @@ static struct __pyx_vtabstruct_9pyprotect_9protected_FrozenPrivacyDict *__pyx_vt
 
 /* "pyprotect/Private_FrozenPrivate.pxi":3
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class Private(Wrapped):             # <<<<<<<<<<<<<<
  *     '''
  *     Subclass of Wrapped with following additional functionality:
@@ -1379,7 +1379,7 @@ static struct __pyx_vtabstruct_9pyprotect_9protected_Private *__pyx_vtabptr_9pyp
 
 
 /* "pyprotect/Private_FrozenPrivate.pxi":138
- * @cython.internal
+ * # @cython.internal
  * @cython.final
  * cdef class FrozenPrivate(Private):             # <<<<<<<<<<<<<<
  *     '''
@@ -1394,7 +1394,7 @@ static struct __pyx_vtabstruct_9pyprotect_9protected_FrozenPrivate *__pyx_vtabpt
 
 /* "pyprotect/Protected_FrozenProtected.pxi":3
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class Protected(Private):             # <<<<<<<<<<<<<<
  *     '''
  *     Subclass of Private that further restriction of:
@@ -1418,7 +1418,7 @@ static struct __pyx_vtabstruct_9pyprotect_9protected_Protected *__pyx_vtabptr_9p
 
 /* "pyprotect/Protected_FrozenProtected.pxi":279
  * 
- * @cython.internal
+ * # @cython.internal
  * cdef class FrozenProtected(Protected):             # <<<<<<<<<<<<<<
  *     '''
  *     Subclass of Protected that is automatically frozen
@@ -2447,6 +2447,7 @@ static const char __pyx_k_trunc[] = "__trunc__";
 static const char __pyx_k_tuple[] = "tuple";
 static const char __pyx_k_types[] = "types";
 static const char __pyx_k_union[] = "union";
+static const char __pyx_k_Frozen[] = "Frozen";
 static const char __pyx_k_aenter[] = "__aenter__";
 static const char __pyx_k_append[] = "append";
 static const char __pyx_k_bool_2[] = "__bool__";
@@ -2479,6 +2480,8 @@ static const char __pyx_k_unichr[] = "unichr";
 static const char __pyx_k_update[] = "update";
 static const char __pyx_k_values[] = "values";
 static const char __pyx_k_Mapping[] = "Mapping";
+static const char __pyx_k_Private[] = "Private";
+static const char __pyx_k_Wrapped[] = "Wrapped";
 static const char __pyx_k_aexit_2[] = "__aexit__";
 static const char __pyx_k_builtin[] = "__builtin__";
 static const char __pyx_k_compile[] = "compile";
@@ -2489,7 +2492,6 @@ static const char __pyx_k_discard[] = "discard";
 static const char __pyx_k_dynamic[] = "dynamic";
 static const char __pyx_k_environ[] = "environ";
 static const char __pyx_k_float_2[] = "__float__";
-static const char __pyx_k_getattr[] = "__getattr__";
 static const char __pyx_k_getitem[] = "__getitem__";
 static const char __pyx_k_getsate[] = "__getsate__";
 static const char __pyx_k_ilshift[] = "__ilshift__";
@@ -2581,6 +2583,8 @@ static const char __pyx_k_subclassof[] = "subclassof";
 static const char __pyx_k_values_py2[] = "values_py2";
 static const char __pyx_k_viewvalues[] = "viewvalues";
 static const char __pyx_k_PickleError[] = "PickleError";
+static const char __pyx_k_PrivacyDict[] = "PrivacyDict";
+static const char __pyx_k_Protected_2[] = "Protected";
 static const char __pyx_k_build_regex[] = "_build_regex";
 static const char __pyx_k_cfunc_to_py[] = "cfunc.to_py";
 static const char __pyx_k_collections[] = "collections";
@@ -2597,6 +2601,7 @@ static const char __pyx_k_multiwrapped[] = "multiwrapped";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_version_info[] = "version_info";
+static const char __pyx_k_FrozenPrivate[] = "FrozenPrivate";
 static const char __pyx_k_init_subclass[] = "__init_subclass__";
 static const char __pyx_k_instancecheck[] = "__instancecheck__";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
@@ -2615,6 +2620,7 @@ static const char __pyx_k_help_protected[] = "help_protected";
 static const char __pyx_k_isinstance_val[] = "isinstance_val";
 static const char __pyx_k_issubclass_val[] = "issubclass_val";
 static const char __pyx_k_oldstyle_class[] = "oldstyle_class";
+static const char __pyx_k_FrozenProtected[] = "FrozenProtected";
 static const char __pyx_k_MutableSequence[] = "MutableSequence";
 static const char __pyx_k_ProtectionError[] = "ProtectionError";
 static const char __pyx_k_attr_type_check[] = "attr_type_check";
@@ -2627,6 +2633,7 @@ static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_PrivacyDict_keys[] = "PrivacyDict.keys";
 static const char __pyx_k_a_zA_Z_a_zA_Z0_9[] = "^[_a-zA-Z][a-zA-Z0-9_]*$";
 static const char __pyx_k_o_Invalid_type_s[] = "o: Invalid type: %s";
+static const char __pyx_k_FrozenPrivacyDict[] = "FrozenPrivacyDict";
 static const char __pyx_k_PrivacyDict_items[] = "PrivacyDict.items";
 static const char __pyx_k_PrivacyDict_values[] = "PrivacyDict.values";
 static const char __pyx_k_a_zA_Z_a_zA_Z0_9_2[] = "[a-zA-Z][a-zA-Z0-9]*";
@@ -2668,7 +2675,7 @@ static const char __pyx_k_pyx_unpickle_FrozenProtected[] = "__pyx_unpickle_Froze
 static const char __pyx_k_pyx_unpickle__ProtectionData[] = "__pyx_unpickle__ProtectionData";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped_2[] = "__Pyx_CFunc_object____Wrapped____object___to_py.<locals>.wrap";
 static const char __pyx_k_Pyx_CFunc_object____Wrapped_3[] = "__Pyx_CFunc_object____Wrapped____object____object___to_py.<locals>.wrap";
-static const char __pyx_k_Module_with_methods_to_wrap_an[] = "\nModule with methods to wrap an object and additionally restrict\nvisibility and mutability of attributes\n\nVISIBILITY or READABILITY: Whether the attribute VALUE can be read\n\n- Objects wrapped with private / protect do not allow following\n  special methods to be set or deleted:\n    __getattribute__\n    __setattr__\n    __delattr__\n\nMUTABILITY or WRITEABILITY: Ability to CHANGE or DELETE an attribute\n\n- Protected object will not allow CHANGING OR DELETING an attribute\n  that is not VISIBLE\n- Objects wrapped with private / protect do not allow modification\n  of __class__, __dict__ or __slots attributes\n- When using protect(o, **kwargs), writeability depends on kwargs\n\nClasses\n=======\n\nNot directly exported by this module:\n\n                                Wrapped\n                                   |\n                                   |\n    |------------------------------|-----------|\n    |                                          |\n    Frozen                                  Private\n                                               |\n                                               |\n         |------------------------|------------|---------------|\n         |                        |                            |\n    PrivacyDict                   |                        Protected\n         |                        |                            |\n         |                        |                            |\n    FrozenPrivacyDict         FrozenPrivate            FrozenProtected\n\n\n    Wrapped:\n        - Visibility: No restrictions\n        - Mutability: No restrictions\n\n    Frozen: subclass of Wrapped\n        - Visibility: No restrictions\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    Private: subclass of Wrapped\n        - Visibility:\n            - Cannot access traditionally 'private' mangled python attributes\n            - Cannot access any unmangled double '_' attributes\n            - Cannot access any at""tribute not exported by dir(o)\n        - Mutability:\n            - Cannot modify traditionally private attributes (form '_var')\n            - Cannot modify __class__ of wrapped object\n            - Cannot modify __dict__ of wrapped object\n            - Cannot modify __slots__ of wrapped object\n            - Cannot add or delete attributes\n\n    FrozenPrivate: subclass of Private\n        - Created by calling private(o, frozen=True) on an object 'o'\n        - Also created by calling freeze(private(o, frozen=False))\n          on an object 'o'\n        - Features of Private PLUS prevents modification of ANY attribute\n        - Visibility: Same as Private\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    Protected: subclass of Private\n        - Created by calling protect(o, frozen=False) on an object 'o'\n        - Features of Private PLUS additional restrictions on:\n            - ADDITIONAL attributes that are NOT visible\n            - ADDITIONAL attributes that are NOT writeable\n\n    FrozenProtected: subclass of Protected\n        - Created by calling protect(o, frozen=True) on an object 'o'\n        - Also created by calling freeze(protect(o, frozen=False))\n          on an object 'o'\n        - Features of Protected PLUS prevents modification of ANY attribute\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    PrivacyDict: subclass of Private\n        - Not created directly\n\n    FrozenPrivacyDict: subclass of Private\n        - Created internally when accessing 'dict' attribute of a\n          Private object\n\nKey methods in the module API:\n=============================\n\nwrap(o: object) -> Wrapped:\n\nfreeze(o: object) -> object:\n    - If 'o' is immutable (e.g. int , string), returns 'o' UNCHANGED\n    - If 'o' is Wrapped, returns 'o' UNCHANGED if object WRAPPPED INSIDE\n      'o' is immutable, returns Frozen otherwise\n    - If 'o' is Frozen, returns 'o UNCHANGED\n    - If 'o' is FrozenPrivate, FrozenProte""cted or FrozenPrivacyDict,\n      returns 'o' UNCHANGED\n    - If 'o' is Private, returns FrozenPrivate\n    - If 'o' is Protected, returns FrozenProtected\n    - Otherwise, returns Frozen\n\n    Object returned prevents modification of ANY attribute\n\nprivate(o: object, frozen: bool = False) -> object:\n    - If 'frozen' is False:\n        - If 'o' is an instance of Private, returns 'o' UNCHANGED\n        - If 'o' is an instance of Protected, returns 'o' UNCHANGED\n    - If 'frozen' is True:\n        - If 'o' is an instance of Private, returns freeze(o) --> FrozenPrivate\n        - If 'o' is an instance of Protected, returns freeze(o) --> FrozenProtected\n    - Otherwise:\n        If frozen is True, returns FrozenPrivate; returns Private otherwise\n\nprotect(\n    o: object,\n    frozen: bool = False, dynamic: bool = True,\n    hide_private: bool = False,\n    ro_data: bool = False, ro_method: bool = True,\n    ro=[], rw=[], hide=[],\n):\n    o: object to be wrapped\n    frozen: bool: No attribute can be modified\n        PLUS: if 'o' is NOT a module, results returned by methods,\n        including __call__ will be frozen\n    dynamic: bool: Attribute additions, deletions, type changes in wrapped\n        object are automatically considered by hide_private, ro_data,\n        ro_method, ro, rw, hide\n        If dynamic is False, it is a pledge that attributes of wrapped\n        object will not change, and visibility and mutability rules of\n        WRAPPING object use a cache to make them faster.\n        Rules imposed by Private() are always dynamic\n    hide_private: bool: Private vars (_var) will be hidden\n    ro_data: bool: Data attributes cannot be deleted or assigned to\n    ro_method: bool: Method attributes cannot be deleted or assigned to\n    ro: list of str: attributes that will be read-only\n    rw: list of str: attributes that will be read-write\n        Overrides 'ro_*'\n    hide: list of str: attributes that will be hidden\n\n    Returns-->Instance"" of FrozenProtected if frozen; Protected otherwise\n\n    Default settings:\n    Features of Private:\n    PLUS:\n        - Methods are readonly - cannot be deleted or assigned to\n\n    If protect() is called on an object 'o' that is an instance of\n    Protected:\n        protect() will merge the protect() rules, enforcing the most restrictive\n        combination among the two sets of protect() options:\n         - 'hide' and 'hide_private' are OR-ed\n         - 'ro_method', 'ro_data' and 'ro' are OR-ed\n         - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n           but not the first protect.\n\n        In short, by calling protect() a second time (or multiple times):\n            - Additoinal attributes can be hidden\n            - Additional attributes can be made read-only\n        but:\n            - No previously hidden attribute will become visible\n            - No previously read-only attribute will become mutable\n\n\nCalling wrap operations multiple times\n======================================\n\nIn the table below, the left-most column shows starting state.\nThe top row shows operation applied to the starting state.\nThe intersecting cell shows the result.\n\n==============================================================================================\nOperation ----> wrap        freeze      private     private     protect     protect\nStarting with                                       + frozen                + frozen\n==============================================================================================\n\nWrapped         UNCH        Frozen      Private     Frozen      Protected   FrozenProtected\n                [2]         [2]                     Private\n----------------------------------------------------------------------------------------------\nFrozen          Wrapped     UNCH        Frozen      Frozen      Frozen      Frozen\n                [2]         [2]         Private     Private     Protec""ted   Protected\n----------------------------------------------------------------------------------------------\nPrivate         UNCH        Frozen      UNCH        Frozen      Protected   Frozen\n                            Private                 Private                 Protected\n----------------------------------------------------------------------------------------------\nFrozenPrivate   UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected\n                                                                Protected\n----------------------------------------------------------------------------------------------\nProtected       UNCH        Frozen      UNCH        Frozen      Protected   FrozenProtected\n                            Protected               Protected   [1]         [1]\n----------------------------------------------------------------------------------------------\nFrozenProtected UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected\n                                                                Protected   [1]\n                                                                [1]\n==============================================================================================\n\n[1]: protect applied twice, will merge the protect() rules, enforcing the most restrictive\n     combination among the two sets of protect() options:\n     - 'hide' and 'hide_private' are OR-ed\n     - 'ro_method', 'ro_data' and 'ro' are OR-ed\n     - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n       but not the first protect.\n\n    In short, by calling protect() a second time (or multiple times):\n        - Additoinal attributes can be hidden\n        - Additional attributes can be made read-only\n    but:\n        - No previously hidden attribute will become visible\n        - No previously read-only attribute will become mutable\n\n[2]: If 'x' is an immutable object (e.g. int, str ...) having isi""mmutable(x) is True,\n     freeze(x) returns x and iswrapped(freeze(x)) will be False.\n\n     For all other objects 'x', having isimmutable(x) == False, freeze(x) will return\n     a Frozen object having iswrapped(freeze(x)) == True\n\n    For all other wrapped objects 'w', created with private(x) or protect(x), freeze(w)\n    will always return a Wrapped object with iswrapped(w) == True\n\nChecking whether an object is wrapped:\n=====================================\n\niswrapped(w) -> bool: True IFF 'w' was was wrapped using\n    wrap(), freeze(), private() or protect()\n    See Note for output of freeze()\n\nisfrozen(w) -> bool: True IFF 'w' is an instance of Frozen,\nFrozenPrivate, ProzenPrivacyDict or FrozenProtected\n\nisprivate(w) -> bool: True IFF 'w' is an instance of Private,\nFrozenPrivate, Protected or FrozenProtected\n\nisprotected(w) -> bool: True IFF 'w' is an instance of Protected,\nFrozenProtected\n\n\nWhat kind of python objects can be wrapped?\n==========================================\n\n- Any object that supports getattr, setattr, delattr and __class__\n- Pickling / unpickling of wrapped objects is not supported\n    Even if / when enabled, after a pickle-unpickle cycle,\n    - Frozen objects will no longer be frozen\n    - Private objects will no longer have visibility / mutability\n      restrictions\n    - Protected objects will no longer have custom protections\n\nCan I wrap an object from a python C extension?\nYES. See answer to 'What kind of python objects can be wrapped?'\n\nWill wrapper detect attributes deleted, added or changed at RUN-TIME?\n====================================================================\nwrap / freeze / private: YES !\n\nprotect:\n    If 'dynamic' is True (default): YES !\n\n    If 'dynamic' is False, dir(wrapped_object) will not\n    accurately reflect attributes added or deleted at run-time\n\n    Note that the above caveats are UNAFFECTED by 'frozen'\n    'frozen' only controls whether object can be modified"" from OUTSIDE\n    the wrapped object\n\nWill I need to change the code for my object / class?\n====================================================\nONLY in the following cases fnd ONLY if wrapped using private / protect:\n\n- If your object DEPENDS on external visibility of traditionally\n  'private' mangled object attributes, you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on external writeability of traditionally\n  'private' attributes of the form '_var', you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on EXTERNAL modifability of __class__,\n  __dict__ or __slots__, you will need to change the behavior\n  of your object (change the code) - since this contradicts the\n  basic objective of private / protect.\n\nCode changes required when USING a wrapped object:\n=================================================\n\nPickling / unpickling of wrapped objects is not supported\n\nIf 'o' is your original object, and 'w' is the wrapped object:\nOne difference across wrap / freeze / private / protect:\ndir(w) will necessarily be different from dir(o):\n  Additional attributes in 'w': '_Protected_____'\n  'private':\n      Traditionally 'private' mangled attributes will not appear\n  'protect':\n      Traditionally 'private' mangled attributes will not appear\n      Further differences depending on keyword arguments to 'protect'\n\nFollowing applies only to wrapping with wrap / private / protect:\n- Change calls to w.__getattribute__(a) to getattr(w, a)\n- Change calls to w.__delattr__ to delattr(w, a)\n- Change calls to w.__setattr(a, val) to setattr(w, a, val)\n- Change isinstance(w, Mytypes) to isinstance_protected(w, MyTypes)\n    isinstance_protected can also be used transparently on objects\n    that have NOT been wrapped\n    Can also (even) alias isinstance to isinstance_protected\n- Change id(""w) to id_protected(w). id_protected can also be used\n    transparently on objects that have NOT been wrapped\n    Can also (even) alias id to id_protected\n- Change 'w is x' to id_protected(w) == id_protected(x)\n- Change type(w) to w.__class__ if you want to use the CLASS of w\n    but safely - not allowing class modifications\n- Getting interactive help on an object\n    Instead of help(o), use help_protected(o)\n    Can also (even) alias help to help_protected\n\nObject equality:\nTwo objects returned by wrap / freeze / private / protect are equal\nIF AND ONLY IF all the following conditions are met:\n- They wrap the SAME object - id(o1) == id(o2)\n- They were wrapped using the same method\n- For private: both were wrapped with the same value for 'frozen'\n- For protect: the EFFECTIVE visibility and writeability implied\n  by keyword arguments provided to 'protect' for the two objects\n  is identical\n\n\nChecking at run-time whether an attribute is visible:\n====================================================\n\nAssuming 'o' is the object, whether wrapped or not and 'a is attribute:\nJust use hasattr(o, a).  Works on any object, wrapped or not.\nCan also use isvisible(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isvisible' return value (ONLY) represents whether type of wrapping imposes\nspecific visibility rules (i.e. hides visibility). \n\nChecking at run-time whether an attribute is writeable:\n======================================================\n\nAssuming 'o' is the object, whether wrapped or not and you want to set\nattribute 'a' to value 'val':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether type of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n\nChecking at run-time whether an attribute can be deleted:\n========================================================\n\nAssuming 'o' is the object, whether wrapped or not and you want to de""lete\nattribute 'a':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether type of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n";
+static const char __pyx_k_Module_with_methods_to_wrap_an[] = "\nModule with methods to wrap an object and additionally restrict\nvisibility and mutability of attributes\n\nVISIBILITY or READABILITY: Whether the attribute VALUE can be read\n\n- Objects wrapped with private / protect do not allow following\n  special methods to be set or deleted:\n    __getattribute__\n    __setattr__\n    __delattr__\n\nMUTABILITY or WRITEABILITY: Ability to CHANGE or DELETE an attribute\n\n- Protected object will not allow CHANGING OR DELETING an attribute\n  that is not VISIBLE\n- Objects wrapped with private / protect do not allow modification\n  of __class__, __dict__ or __slots attributes\n- When using protect(o, **kwargs), writeability depends on kwargs\n\nClasses\n=======\n\nThese classes are not directly exported by the module so as to not\nclutter the pydoc documentation for the module.\n\n                                Wrapped\n                                   \342\224\202\n                                   \342\224\202\n    \342\224\214\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\264\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\220\n    \342\224\202                                          \342\224\202\n    Frozen                                  Private\n                                               \342\224\202\n                                               \342\224\202\n         \342\224\214\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224""\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\254\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\264\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\220\n         \342\224\202                        \342\224\202                            \342\224\202\n    PrivacyDict                   \342\224\202                        Protected\n         \342\224\202                        \342\224\202                            \342\224\202\n         \342\224\202                        \342\224\202                            \342\224\202\n    FrozenPrivacyDict         FrozenPrivate            FrozenProtected\n\n\n    Wrapped:\n        - Visibility: No restrictions\n        - Mutability: No restrictions\n\n    Frozen: subclass of Wrapped\n        - Visibility: No restrictions\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    Private: subclass of Wrapped\n        - Visibility:\n            - Cannot access traditionally 'private' mangled python attributes\n            - Cannot access any unmangled double '_' attributes\n            - Cannot access any attribute not exported by dir(o)\n        - Mutability:\n            - Cannot modify traditionally private attributes (form '_var')\n            - Cannot modify __class__ of wrapped object\n            - Cannot modify __dict__ of wrapped object\n            - Cannot modify __slots__ of wrapped object\n            - Cannot add or delete attributes\n\n    FrozenPrivate: subclass of Private\n        - Created by calling private(o, frozen=True) on an object 'o'\n        - Also created by calling freeze(private(o, frozen=False))\n          on an object 'o'\n        - Features of Private PLUS prevents modification of ANY attribute\n        - Visibility: ""Same as Private\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    Protected: subclass of Private\n        - Created by calling protect(o, frozen=False) on an object 'o'\n        - Features of Private PLUS additional restrictions on:\n            - ADDITIONAL attributes that are NOT visible\n            - ADDITIONAL attributes that are NOT writeable\n\n    FrozenProtected: subclass of Protected\n        - Created by calling protect(o, frozen=True) on an object 'o'\n        - Also created by calling freeze(protect(o, frozen=False))\n          on an object 'o'\n        - Features of Protected PLUS prevents modification of ANY attribute\n        - Mutability: NO ATTRIBUTES can be changed or deleted\n\n    PrivacyDict: subclass of Private\n        - Not created directly\n\n    FrozenPrivacyDict: subclass of Private\n        - Created internally when accessing 'dict' attribute of a\n          Private object\n\nKey methods in the module API:\n=============================\n\nwrap(o: object) -> Wrapped:\n\nfreeze(o: object) -> object:\n    - If 'o' is immutable (e.g. int , string), returns 'o' UNCHANGED\n    - If 'o' is Wrapped, returns 'o' UNCHANGED if object WRAPPPED INSIDE\n      'o' is immutable, returns Frozen otherwise\n    - If 'o' is Frozen, returns 'o UNCHANGED\n    - If 'o' is FrozenPrivate, FrozenProtected or FrozenPrivacyDict,\n      returns 'o' UNCHANGED\n    - If 'o' is Private, returns FrozenPrivate\n    - If 'o' is Protected, returns FrozenProtected\n    - Otherwise, returns Frozen\n\n    Object returned prevents modification of ANY attribute\n\nprivate(o: object, frozen: bool = False) -> object:\n    - If 'frozen' is False:\n        - If 'o' is an instance of Private, returns 'o' UNCHANGED\n        - If 'o' is an instance of Protected, returns 'o' UNCHANGED\n    - If 'frozen' is True:\n        - If 'o' is an instance of Private, returns freeze(o) --> FrozenPrivate\n        - If 'o' is an instance of Protected, returns freeze(o) --> Froze""nProtected\n    - Otherwise:\n        If frozen is True, returns FrozenPrivate; returns Private otherwise\n\nprotect(\n    o: object,\n    frozen: bool = False, dynamic: bool = True,\n    hide_private: bool = False,\n    ro_data: bool = False, ro_method: bool = True,\n    ro=[], rw=[], hide=[],\n):\n    o: object to be wrapped\n    frozen: bool: No attribute can be modified\n        PLUS: if 'o' is NOT a module, results returned by methods,\n        including __call__ will be frozen\n    dynamic: bool: Attribute additions, deletions, type changes in wrapped\n        object are automatically considered by hide_private, ro_data,\n        ro_method, ro, rw, hide\n        If dynamic is False, it is a pledge that attributes of wrapped\n        object will not change, and visibility and mutability rules of\n        WRAPPING object use a cache to make them faster.\n        Rules imposed by Private() are always dynamic\n    hide_private: bool: Private vars (_var) will be hidden\n    ro_data: bool: Data attributes cannot be deleted or assigned to\n    ro_method: bool: Method attributes cannot be deleted or assigned to\n    ro: list of str: attributes that will be read-only\n    rw: list of str: attributes that will be read-write\n        Overrides 'ro_*'\n    hide: list of str: attributes that will be hidden\n\n    Returns-->Instance of FrozenProtected if frozen; Protected otherwise\n\n    Default settings:\n    Features of Private:\n    PLUS:\n        - Methods are readonly - cannot be deleted or assigned to\n\n    If protect() is called on an object 'o' that is an instance of\n    Protected:\n        protect() will merge the protect() rules, enforcing the most restrictive\n        combination among the two sets of protect() options:\n         - 'hide' and 'hide_private' are OR-ed\n         - 'ro_method', 'ro_data' and 'ro' are OR-ed\n         - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n           but not the first protect.\n\n        In"" short, by calling protect() a second time (or multiple times):\n            - Additoinal attributes can be hidden\n            - Additional attributes can be made read-only\n        but:\n            - No previously hidden attribute will become visible\n            - No previously read-only attribute will become mutable\n\n\nCalling wrap operations multiple times\n======================================\n\nIn the table below, the left-most column shows starting state.\nThe top row shows operation applied to the starting state.\nThe intersecting cell shows the result.\n\n\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\244\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\nOperation  \360\237\241\206   \342\224\202 wrap        freeze      private     private     protect     protect\n\360\237\241\207  with        \342\224\202                                     + frozen                + frozen\n\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342""\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\252\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\nWrapped        \342\224\202 UNCH        Frozen      Private     Frozen      Protected   FrozenProtected\n               \342\224\202 [2]         [2]                     Private\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224""\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nFrozen         \342\224\202 Wrapped     UNCH        Frozen      Frozen      Frozen      Frozen\n               \342\224\202 [2]         [2]         Private     Private     Protected   Protected\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nPrivate        \342\224\202 UNCH        Frozen      UNCH        Frozen      Protected   Frozen\n               \342\224\202             Private                 Private                 Protected\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342""\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nFrozenPrivate  \342\224\202 UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected\n               \342\224\202                                                 Protected\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224""\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nProtected      \342\224\202 UNCH        Frozen      UNCH        Frozen      Protected   FrozenProtected\n               \342\224\202             Protected               Protected   [1]         [1]\n\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\274\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\342\224\200\nFrozenProtected\342\224\202 UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected\n               \342\224\202                                                 Protected   [1]\n               \342\224\202                                                 [1]\n\342\225\220\342\225\220\342\225\220""\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\247\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\342\225\220\n\n[1]: protect applied twice, will merge the protect() rules, enforcing the most restrictive\n     combination among the two sets of protect() options:\n     - 'hide' and 'hide_private' are OR-ed\n     - 'ro_method', 'ro_data' and 'ro' are OR-ed\n     - 'rw' is AND-ed, but 'rw' of second protect overrides 'ro_*' of SECOND protect\n       but not the first protect.\n\n    In short, by calling protect() a second time (or multiple times):\n        - Additoinal attributes can be hidden\n        - Additional attributes can be made read-only\n    but:\n        - No previously hidden attribute will become visible\n        - No previously read-only attribute will become mutable\n\n[2]: If 'x' is an immutable object (e.g. int, str ...) having isimmutable(x) is True,\n     freeze(x) returns x and iswrapped(freeze(x)) will be False.\n\n     For all other objects 'x', having isimmutable(x) == False, freez""e(x) will return\n     a Frozen object having iswrapped(freeze(x)) == True\n\n    For all other wrapped objects 'w', created with private(x) or protect(x), freeze(w)\n    will always return a Wrapped object with iswrapped(w) == True\n\nChecking whether an object is wrapped:\n=====================================\n\niswrapped(w) -> bool: True IFF 'w' was was wrapped using\n    wrap(), freeze(), private() or protect()\n    See Note for output of freeze()\n\nisfrozen(w) -> bool: True IFF 'w' is an instance of Frozen,\nFrozenPrivate, ProzenPrivacyDict or FrozenProtected\n\nisprivate(w) -> bool: True IFF 'w' is an instance of Private,\nFrozenPrivate, Protected or FrozenProtected\n\nisprotected(w) -> bool: True IFF 'w' is an instance of Protected,\nFrozenProtected\n\n\nWhat kind of python objects can be wrapped?\n==========================================\n\n- Any object that supports getattr, setattr, delattr and __class__\n- Pickling / unpickling of wrapped objects is not supported\n    Even if / when enabled, after a pickle-unpickle cycle,\n    - Frozen objects will no longer be frozen\n    - Private objects will no longer have visibility / mutability\n      restrictions\n    - Protected objects will no longer have custom protections\n\nCan I wrap an object from a python C extension?\nYES. See answer to 'What kind of python objects can be wrapped?'\n\nWill wrapper detect attributes deleted, added or changed at RUN-TIME?\n====================================================================\nwrap / freeze / private: YES !\n\nprotect:\n    If 'dynamic' is True (default): YES !\n\n    If 'dynamic' is False, dir(wrapped_object) will not\n    accurately reflect attributes added or deleted at run-time\n\n    Note that the above caveats are UNAFFECTED by 'frozen'\n    'frozen' only controls whether object can be modified from OUTSIDE\n    the wrapped object\n\nWill I need to change the code for my object / class?\n====================================================\nONLY in t""he following cases fnd ONLY if wrapped using private / protect:\n\n- If your object DEPENDS on external visibility of traditionally\n  'private' mangled object attributes, you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on external writeability of traditionally\n  'private' attributes of the form '_var', you will need to change\n  the names of those attributes - this is a basic objective of\n  private / protect\n- If your object DEPENDS on EXTERNAL modifability of __class__,\n  __dict__ or __slots__, you will need to change the behavior\n  of your object (change the code) - since this contradicts the\n  basic objective of private / protect.\n\nCode changes required when USING a wrapped object:\n=================================================\n\nPickling / unpickling of wrapped objects is not supported\n\nIf 'o' is your original object, and 'w' is the wrapped object:\nOne difference across wrap / freeze / private / protect:\ndir(w) will necessarily be different from dir(o):\n  Additional attributes in 'w': '_Protected_____'\n  'private':\n      Traditionally 'private' mangled attributes will not appear\n  'protect':\n      Traditionally 'private' mangled attributes will not appear\n      Further differences depending on keyword arguments to 'protect'\n\nFollowing applies only to wrapping with wrap / private / protect:\n- Change calls to w.__getattribute__(a) to getattr(w, a)\n- Change calls to w.__delattr__ to delattr(w, a)\n- Change calls to w.__setattr(a, val) to setattr(w, a, val)\n- Change isinstance(w, Mytypes) to isinstance_protected(w, MyTypes)\n    isinstance_protected can also be used transparently on objects\n    that have NOT been wrapped\n    Can also (even) alias isinstance to isinstance_protected\n- Change id(w) to id_protected(w). id_protected can also be used\n    transparently on objects that have NOT been wrapped\n    Can also (even) alias id to id_protected""\n- Change 'w is x' to id_protected(w) == id_protected(x)\n- Change type(w) to w.__class__ if you want to use the CLASS of w\n    but safely - not allowing class modifications\n- Getting interactive help on an object\n    Instead of help(o), use help_protected(o)\n    Can also (even) alias help to help_protected\n\nObject equality:\nTwo objects returned by wrap / freeze / private / protect are equal\nIF AND ONLY IF all the following conditions are met:\n- They wrap the SAME object - id(o1) == id(o2)\n- They were wrapped using the same method\n- For private: both were wrapped with the same value for 'frozen'\n- For protect: the EFFECTIVE visibility and writeability implied\n  by keyword arguments provided to 'protect' for the two objects\n  is identical\n\n\nChecking at run-time whether an attribute is visible:\n====================================================\n\nAssuming 'o' is the object, whether wrapped or not and 'a is attribute:\nJust use hasattr(o, a).  Works on any object, wrapped or not.\nCan also use isvisible(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isvisible' return value (ONLY) represents whether type of wrapping imposes\nspecific visibility rules (i.e. hides visibility). \n\nChecking at run-time whether an attribute is writeable:\n======================================================\n\nAssuming 'o' is the object, whether wrapped or not and you want to set\nattribute 'a' to value 'val':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether type of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n\nChecking at run-time whether an attribute can be deleted:\n========================================================\n\nAssuming 'o' is the object, whether wrapped or not and you want to delete\nattribute 'a':\nCan use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.\n'isreadonly' return value (ONLY) represents whether typ""e of wrapping imposes\nspecific mutability rules (i.e. limits mutabiity).\n\n\nViewing help for the classes:\n============================\nYou can see the help for each of the classes below - EXCEPT\nPrivacyDict as follows:\n\n    Wrapped         : help(type(wrap(None)))\n    Frozen          : help(type(freeze([])))\n    Private         : help(type(private(None)))\n    Protected       : help(type(protect(None)))\n    FrozenPrivate   : help(type(private(None, frozen=True)))\n    FrozenProtected : help(type(protect(None, frozen=True)))\n\nTo see help for FrozenPrivacyDict:\n    class C(object):\n        pass\n\n    help(type(private(C()).__dict__))\n\nPrivacyDict is not exposed directly.\n";
 static const char __pyx_k_pyx_unpickle_FrozenPrivacyDict[] = "__pyx_unpickle_FrozenPrivacyDict";
 static const char __pyx_k_Cannot_delete_private_attribute[] = "Cannot delete private attribute: %s.%s";
 static const char __pyx_k_Cannot_set_private_attribute_s_s[] = "Cannot set private attribute: %s.%s";
@@ -2695,6 +2702,10 @@ static PyObject *__pyx_kp_s_Cannot_set_private_attribute_s_s;
 static PyObject *__pyx_n_s_CollectionsABC;
 static PyObject *__pyx_kp_s_Double_wrapped;
 static PyObject *__pyx_n_s_FrameType;
+static PyObject *__pyx_n_s_Frozen;
+static PyObject *__pyx_n_s_FrozenPrivacyDict;
+static PyObject *__pyx_n_s_FrozenPrivate;
+static PyObject *__pyx_n_s_FrozenProtected;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x05;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x12;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x4a;
@@ -2711,13 +2722,16 @@ static PyObject *__pyx_kp_s_Object_Wrapped_s_has_no_attribut;
 static PyObject *__pyx_kp_s_Object_is_read_only;
 static PyObject *__pyx_kp_s_Object_s_has_no_attribute_s;
 static PyObject *__pyx_n_s_PickleError;
+static PyObject *__pyx_n_s_PrivacyDict;
 static PyObject *__pyx_n_s_PrivacyDict_items;
 static PyObject *__pyx_n_s_PrivacyDict_iteritems;
 static PyObject *__pyx_n_s_PrivacyDict_iterkeys;
 static PyObject *__pyx_n_s_PrivacyDict_itervalues;
 static PyObject *__pyx_n_s_PrivacyDict_keys;
 static PyObject *__pyx_n_s_PrivacyDict_values;
+static PyObject *__pyx_n_s_Private;
 static PyObject *__pyx_n_s_Protected;
+static PyObject *__pyx_n_s_Protected_2;
 static PyObject *__pyx_n_s_ProtectionData;
 static PyObject *__pyx_n_s_ProtectionError;
 static PyObject *__pyx_n_s_Pyx_CFunc_object____Wrapped;
@@ -2730,6 +2744,7 @@ static PyObject *__pyx_n_s_Sequence;
 static PyObject *__pyx_n_s_Set;
 static PyObject *__pyx_n_s_TypeError;
 static PyObject *__pyx_n_s_Unknown_OldStyle_Class;
+static PyObject *__pyx_n_s_Wrapped;
 static PyObject *__pyx_n_s_Wrapped___iter;
 static PyObject *__pyx_n_s_Wrapped_comparator_locals_pass_t;
 static PyObject *__pyx_kp_s_Wrapped_object_cannot_be_pickled;
@@ -2817,7 +2832,6 @@ static PyObject *__pyx_n_s_frozenset;
 static PyObject *__pyx_n_s_functools;
 static PyObject *__pyx_n_s_ge;
 static PyObject *__pyx_n_s_get;
-static PyObject *__pyx_n_s_getattr;
 static PyObject *__pyx_n_s_getattribute;
 static PyObject *__pyx_n_s_getitem;
 static PyObject *__pyx_n_s_getsate;
@@ -3441,13 +3455,13 @@ static PyObject *__pyx_codeobj__108;
  * # ------------------------------------------------------------------------
  * 
  * def attribute_protected():             # <<<<<<<<<<<<<<
- *     '''Returns: str: name of special attribute in Wrapped objects'''
- *     return PROT_ATTR_NAME
+ *     '''
+ *     attribute_protected() -> str: name of special attribute in Wrapped objects
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_9pyprotect_9protected_1attribute_protected(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_9pyprotect_9protected_attribute_protected[] = "Returns: str: name of special attribute in Wrapped objects";
+static char __pyx_doc_9pyprotect_9protected_attribute_protected[] = "\n    attribute_protected() -> str: name of special attribute in Wrapped objects\n    ";
 static PyMethodDef __pyx_mdef_9pyprotect_9protected_1attribute_protected = {"attribute_protected", (PyCFunction)__pyx_pw_9pyprotect_9protected_1attribute_protected, METH_NOARGS, __pyx_doc_9pyprotect_9protected_attribute_protected};
 static PyObject *__pyx_pw_9pyprotect_9protected_1attribute_protected(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
@@ -3465,9 +3479,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_attribute_protected(CYTHON_UNUSE
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("attribute_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":8
- * def attribute_protected():
- *     '''Returns: str: name of special attribute in Wrapped objects'''
+  /* "pyprotect/python_visible.pxi":10
+ *     attribute_protected() -> str: name of special attribute in Wrapped objects
+ *     '''
  *     return PROT_ATTR_NAME             # <<<<<<<<<<<<<<
  * 
  * def id_protected(o: object) -> int:
@@ -3481,8 +3495,8 @@ static PyObject *__pyx_pf_9pyprotect_9protected_attribute_protected(CYTHON_UNUSE
  * # ------------------------------------------------------------------------
  * 
  * def attribute_protected():             # <<<<<<<<<<<<<<
- *     '''Returns: str: name of special attribute in Wrapped objects'''
- *     return PROT_ATTR_NAME
+ *     '''
+ *     attribute_protected() -> str: name of special attribute in Wrapped objects
  */
 
   /* function exit code */
@@ -3492,7 +3506,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_attribute_protected(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":10
+/* "pyprotect/python_visible.pxi":12
  *     return PROT_ATTR_NAME
  * 
  * def id_protected(o: object) -> int:             # <<<<<<<<<<<<<<
@@ -3527,7 +3541,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_2id_protected(CYTHON_UNUSED PyOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("id_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":15
+  /* "pyprotect/python_visible.pxi":17
  *     id of wrapped object if iswrapped(o); id of 'o' otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -3538,7 +3552,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_2id_protected(CYTHON_UNUSED PyOb
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/python_visible.pxi":16
+    /* "pyprotect/python_visible.pxi":18
  *     '''
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).id             # <<<<<<<<<<<<<<
@@ -3548,17 +3562,17 @@ static PyObject *__pyx_pf_9pyprotect_9protected_2id_protected(CYTHON_UNUSED PyOb
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 16, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_id); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 16, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_id); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":15
+    /* "pyprotect/python_visible.pxi":17
  *     id of wrapped object if iswrapped(o); id of 'o' otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -3567,7 +3581,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_2id_protected(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "pyprotect/python_visible.pxi":17
+  /* "pyprotect/python_visible.pxi":19
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).id
  *     return id(o)             # <<<<<<<<<<<<<<
@@ -3575,13 +3589,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_2id_protected(CYTHON_UNUSED PyOb
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_o); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_o); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":10
+  /* "pyprotect/python_visible.pxi":12
  *     return PROT_ATTR_NAME
  * 
  * def id_protected(o: object) -> int:             # <<<<<<<<<<<<<<
@@ -3601,7 +3615,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_2id_protected(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":20
+/* "pyprotect/python_visible.pxi":22
  * 
  * 
  * def hash_protected(o: object) -> int:             # <<<<<<<<<<<<<<
@@ -3638,7 +3652,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_4hash_protected(CYTHON_UNUSED Py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("hash_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":25
+  /* "pyprotect/python_visible.pxi":27
  *     hash of wrapped object if iswrapped(o); hash of 'o' otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -3649,7 +3663,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_4hash_protected(CYTHON_UNUSED Py
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/python_visible.pxi":26
+    /* "pyprotect/python_visible.pxi":28
  *     '''
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).hash()             # <<<<<<<<<<<<<<
@@ -3659,10 +3673,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_4hash_protected(CYTHON_UNUSED Py
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 26, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_hash); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_hash); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -3677,14 +3691,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_4hash_protected(CYTHON_UNUSED Py
     }
     __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":25
+    /* "pyprotect/python_visible.pxi":27
  *     hash of wrapped object if iswrapped(o); hash of 'o' otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -3693,7 +3707,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_4hash_protected(CYTHON_UNUSED Py
  */
   }
 
-  /* "pyprotect/python_visible.pxi":27
+  /* "pyprotect/python_visible.pxi":29
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).hash()
  *     return hash(o)             # <<<<<<<<<<<<<<
@@ -3701,14 +3715,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_4hash_protected(CYTHON_UNUSED Py
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_6 = PyObject_Hash(__pyx_v_o); if (unlikely(__pyx_t_6 == ((Py_hash_t)-1))) __PYX_ERR(0, 27, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_FromHash_t(__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_6 = PyObject_Hash(__pyx_v_o); if (unlikely(__pyx_t_6 == ((Py_hash_t)-1))) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_FromHash_t(__pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 29, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":20
+  /* "pyprotect/python_visible.pxi":22
  * 
  * 
  * def hash_protected(o: object) -> int:             # <<<<<<<<<<<<<<
@@ -3729,7 +3743,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_4hash_protected(CYTHON_UNUSED Py
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":30
+/* "pyprotect/python_visible.pxi":32
  * 
  * 
  * def isinstance_protected(o: object, c: type) -> bool:             # <<<<<<<<<<<<<<
@@ -3773,11 +3787,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_7isinstance_protected(PyObject *
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_c)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("isinstance_protected", 1, 2, 2, 1); __PYX_ERR(0, 30, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("isinstance_protected", 1, 2, 2, 1); __PYX_ERR(0, 32, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "isinstance_protected") < 0)) __PYX_ERR(0, 30, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "isinstance_protected") < 0)) __PYX_ERR(0, 32, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3790,13 +3804,13 @@ static PyObject *__pyx_pw_9pyprotect_9protected_7isinstance_protected(PyObject *
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("isinstance_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 30, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("isinstance_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 32, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.isinstance_protected", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_c), (&PyType_Type), 1, "c", 1))) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_c), (&PyType_Type), 1, "c", 1))) __PYX_ERR(0, 32, __pyx_L1_error)
   __pyx_r = __pyx_pf_9pyprotect_9protected_6isinstance_protected(__pyx_self, __pyx_v_o, __pyx_v_c);
 
   /* function exit code */
@@ -3821,7 +3835,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_6isinstance_protected(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isinstance_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":36
+  /* "pyprotect/python_visible.pxi":38
  *         isinstance(o, c) otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -3832,7 +3846,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_6isinstance_protected(CYTHON_UNU
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/python_visible.pxi":37
+    /* "pyprotect/python_visible.pxi":39
  *     '''
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).isinstance(c)             # <<<<<<<<<<<<<<
@@ -3842,10 +3856,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_6isinstance_protected(CYTHON_UNU
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_isinstance); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_isinstance); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -3860,14 +3874,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_6isinstance_protected(CYTHON_UNU
     }
     __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, ((PyObject *)__pyx_v_c)) : __Pyx_PyObject_CallOneArg(__pyx_t_4, ((PyObject *)__pyx_v_c));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 39, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":36
+    /* "pyprotect/python_visible.pxi":38
  *         isinstance(o, c) otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -3876,7 +3890,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_6isinstance_protected(CYTHON_UNU
  */
   }
 
-  /* "pyprotect/python_visible.pxi":38
+  /* "pyprotect/python_visible.pxi":40
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).isinstance(c)
  *     return isinstance(o, c)             # <<<<<<<<<<<<<<
@@ -3885,13 +3899,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_6isinstance_protected(CYTHON_UNU
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = __Pyx_TypeCheck(__pyx_v_o, __pyx_v_c); 
-  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":30
+  /* "pyprotect/python_visible.pxi":32
  * 
  * 
  * def isinstance_protected(o: object, c: type) -> bool:             # <<<<<<<<<<<<<<
@@ -3912,7 +3926,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_6isinstance_protected(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":41
+/* "pyprotect/python_visible.pxi":43
  * 
  * 
  * def issubclass_protected(o: type, c: type) -> bool:             # <<<<<<<<<<<<<<
@@ -3956,11 +3970,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_9issubclass_protected(PyObject *
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_c)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("issubclass_protected", 1, 2, 2, 1); __PYX_ERR(0, 41, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("issubclass_protected", 1, 2, 2, 1); __PYX_ERR(0, 43, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "issubclass_protected") < 0)) __PYX_ERR(0, 41, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "issubclass_protected") < 0)) __PYX_ERR(0, 43, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3973,14 +3987,14 @@ static PyObject *__pyx_pw_9pyprotect_9protected_9issubclass_protected(PyObject *
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("issubclass_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 41, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("issubclass_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 43, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.issubclass_protected", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_o), (&PyType_Type), 1, "o", 1))) __PYX_ERR(0, 41, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_c), (&PyType_Type), 1, "c", 1))) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_o), (&PyType_Type), 1, "o", 1))) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_c), (&PyType_Type), 1, "c", 1))) __PYX_ERR(0, 43, __pyx_L1_error)
   __pyx_r = __pyx_pf_9pyprotect_9protected_8issubclass_protected(__pyx_self, __pyx_v_o, __pyx_v_c);
 
   /* function exit code */
@@ -4005,7 +4019,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_8issubclass_protected(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("issubclass_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":47
+  /* "pyprotect/python_visible.pxi":49
  *         issubclass(o, c) otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -4016,7 +4030,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_8issubclass_protected(CYTHON_UNU
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/python_visible.pxi":48
+    /* "pyprotect/python_visible.pxi":50
  *     '''
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).issubclass(c)             # <<<<<<<<<<<<<<
@@ -4026,10 +4040,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_8issubclass_protected(CYTHON_UNU
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_GetAttr(((PyObject *)__pyx_v_o), __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetAttr(((PyObject *)__pyx_v_o), __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_issubclass); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_issubclass); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -4044,14 +4058,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_8issubclass_protected(CYTHON_UNU
     }
     __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, ((PyObject *)__pyx_v_c)) : __Pyx_PyObject_CallOneArg(__pyx_t_4, ((PyObject *)__pyx_v_c));
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":47
+    /* "pyprotect/python_visible.pxi":49
  *         issubclass(o, c) otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -4060,7 +4074,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_8issubclass_protected(CYTHON_UNU
  */
   }
 
-  /* "pyprotect/python_visible.pxi":49
+  /* "pyprotect/python_visible.pxi":51
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).issubclass(c)
  *     return issubclass(o, c)             # <<<<<<<<<<<<<<
@@ -4068,14 +4082,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_8issubclass_protected(CYTHON_UNU
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = PyObject_IsSubclass(((PyObject *)__pyx_v_o), ((PyObject *)__pyx_v_c)); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 49, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsSubclass(((PyObject *)__pyx_v_o), ((PyObject *)__pyx_v_c)); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":41
+  /* "pyprotect/python_visible.pxi":43
  * 
  * 
  * def issubclass_protected(o: type, c: type) -> bool:             # <<<<<<<<<<<<<<
@@ -4096,17 +4110,17 @@ static PyObject *__pyx_pf_9pyprotect_9protected_8issubclass_protected(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":52
+/* "pyprotect/python_visible.pxi":54
  * 
  * 
  * def instance_of_protected(x: object, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     instance_of_protected(x: object, w: object) -> bool
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_9pyprotect_9protected_11instance_of_protected(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_9pyprotect_9protected_10instance_of_protected[] = "\n    If iswrapped(w) and w wraps 'o':\n        Returns isinstance(x, type(o))\n    Else: returns isinstance(x, w)\n    ";
+static char __pyx_doc_9pyprotect_9protected_10instance_of_protected[] = "\n    instance_of_protected(x: object, w: object) -> bool\n    If iswrapped(w) and w wraps 'o':\n        Returns isinstance(x, type(o))\n    Else: returns isinstance(x, w)\n    ";
 static PyMethodDef __pyx_mdef_9pyprotect_9protected_11instance_of_protected = {"instance_of_protected", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9pyprotect_9protected_11instance_of_protected, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9pyprotect_9protected_10instance_of_protected};
 static PyObject *__pyx_pw_9pyprotect_9protected_11instance_of_protected(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_x = 0;
@@ -4140,11 +4154,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_11instance_of_protected(PyObject
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_w)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("instance_of_protected", 1, 2, 2, 1); __PYX_ERR(0, 52, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("instance_of_protected", 1, 2, 2, 1); __PYX_ERR(0, 54, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "instance_of_protected") < 0)) __PYX_ERR(0, 52, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "instance_of_protected") < 0)) __PYX_ERR(0, 54, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4157,7 +4171,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_11instance_of_protected(PyObject
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("instance_of_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 52, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("instance_of_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 54, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.instance_of_protected", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4182,14 +4196,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_10instance_of_protected(CYTHON_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("instance_of_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":58
+  /* "pyprotect/python_visible.pxi":61
  *     Else: returns isinstance(x, w)
  *     '''
  *     if iswrapped(w):             # <<<<<<<<<<<<<<
  *         return getattr(w, PROT_ATTR_NAME).instanceof(x)
  *     return isinstance(x, w)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -4203,14 +4217,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_10instance_of_protected(CYTHON_U
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_w) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_w);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 58, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":59
+    /* "pyprotect/python_visible.pxi":62
  *     '''
  *     if iswrapped(w):
  *         return getattr(w, PROT_ATTR_NAME).instanceof(x)             # <<<<<<<<<<<<<<
@@ -4220,10 +4234,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_10instance_of_protected(CYTHON_U
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_2 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_w, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_w, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_instanceof); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 59, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_instanceof); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -4238,14 +4252,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_10instance_of_protected(CYTHON_U
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_x);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":58
+    /* "pyprotect/python_visible.pxi":61
  *     Else: returns isinstance(x, w)
  *     '''
  *     if iswrapped(w):             # <<<<<<<<<<<<<<
@@ -4254,7 +4268,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_10instance_of_protected(CYTHON_U
  */
   }
 
-  /* "pyprotect/python_visible.pxi":60
+  /* "pyprotect/python_visible.pxi":63
  *     if iswrapped(w):
  *         return getattr(w, PROT_ATTR_NAME).instanceof(x)
  *     return isinstance(x, w)             # <<<<<<<<<<<<<<
@@ -4262,19 +4276,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_10instance_of_protected(CYTHON_U
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = PyObject_IsInstance(__pyx_v_x, __pyx_v_w); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 60, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 60, __pyx_L1_error)
+  __pyx_t_4 = PyObject_IsInstance(__pyx_v_x, __pyx_v_w); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":52
+  /* "pyprotect/python_visible.pxi":54
  * 
  * 
  * def instance_of_protected(x: object, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     instance_of_protected(x: object, w: object) -> bool
  */
 
   /* function exit code */
@@ -4290,17 +4304,17 @@ static PyObject *__pyx_pf_9pyprotect_9protected_10instance_of_protected(CYTHON_U
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":63
+/* "pyprotect/python_visible.pxi":66
  * 
  * 
  * def subclass_of_protected(x: object, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     subclass_of_protected(x: object, w: object) -> bool
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_9pyprotect_9protected_13subclass_of_protected(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_9pyprotect_9protected_12subclass_of_protected[] = "\n    If iswrapped(w) and w wraps 'o':\n        Returns issubclass(x, type(o))\n    Else: returns issubclass(x, w)\n    ";
+static char __pyx_doc_9pyprotect_9protected_12subclass_of_protected[] = "\n    subclass_of_protected(x: object, w: object) -> bool\n    If iswrapped(w) and w wraps 'o':\n        Returns issubclass(x, type(o))\n    Else: returns issubclass(x, w)\n    ";
 static PyMethodDef __pyx_mdef_9pyprotect_9protected_13subclass_of_protected = {"subclass_of_protected", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9pyprotect_9protected_13subclass_of_protected, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9pyprotect_9protected_12subclass_of_protected};
 static PyObject *__pyx_pw_9pyprotect_9protected_13subclass_of_protected(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_x = 0;
@@ -4334,11 +4348,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_13subclass_of_protected(PyObject
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_w)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("subclass_of_protected", 1, 2, 2, 1); __PYX_ERR(0, 63, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("subclass_of_protected", 1, 2, 2, 1); __PYX_ERR(0, 66, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "subclass_of_protected") < 0)) __PYX_ERR(0, 63, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "subclass_of_protected") < 0)) __PYX_ERR(0, 66, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4351,7 +4365,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_13subclass_of_protected(PyObject
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("subclass_of_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 63, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("subclass_of_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 66, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.subclass_of_protected", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4376,14 +4390,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_12subclass_of_protected(CYTHON_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("subclass_of_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":69
+  /* "pyprotect/python_visible.pxi":73
  *     Else: returns issubclass(x, w)
  *     '''
  *     if iswrapped(w):             # <<<<<<<<<<<<<<
  *         return getattr(w, PROT_ATTR_NAME).subclassof(x)
  *     return issubclass(x, w)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -4397,14 +4411,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_12subclass_of_protected(CYTHON_U
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_w) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_w);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 69, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 69, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":70
+    /* "pyprotect/python_visible.pxi":74
  *     '''
  *     if iswrapped(w):
  *         return getattr(w, PROT_ATTR_NAME).subclassof(x)             # <<<<<<<<<<<<<<
@@ -4414,10 +4428,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_12subclass_of_protected(CYTHON_U
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_2 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_w, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_w, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_subclassof); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 70, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_subclassof); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -4432,14 +4446,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_12subclass_of_protected(CYTHON_U
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_x);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 70, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":69
+    /* "pyprotect/python_visible.pxi":73
  *     Else: returns issubclass(x, w)
  *     '''
  *     if iswrapped(w):             # <<<<<<<<<<<<<<
@@ -4448,7 +4462,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_12subclass_of_protected(CYTHON_U
  */
   }
 
-  /* "pyprotect/python_visible.pxi":71
+  /* "pyprotect/python_visible.pxi":75
  *     if iswrapped(w):
  *         return getattr(w, PROT_ATTR_NAME).subclassof(x)
  *     return issubclass(x, w)             # <<<<<<<<<<<<<<
@@ -4456,19 +4470,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_12subclass_of_protected(CYTHON_U
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = PyObject_IsSubclass(__pyx_v_x, __pyx_v_w); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 71, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_4 = PyObject_IsSubclass(__pyx_v_x, __pyx_v_w); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":63
+  /* "pyprotect/python_visible.pxi":66
  * 
  * 
  * def subclass_of_protected(x: object, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     subclass_of_protected(x: object, w: object) -> bool
  */
 
   /* function exit code */
@@ -4484,17 +4498,17 @@ static PyObject *__pyx_pf_9pyprotect_9protected_12subclass_of_protected(CYTHON_U
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":74
+/* "pyprotect/python_visible.pxi":78
  * 
  * 
  * def same_class_protected(c: type, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     same_class_protected(c: type, w: object) -> bool
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_9pyprotect_9protected_15same_class_protected(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_9pyprotect_9protected_14same_class_protected[] = "\n    If iswrapped(w) and w wraps 'o':\n        Returns (c is type(o))\n    Else: returns (c is type(w))\n    ";
+static char __pyx_doc_9pyprotect_9protected_14same_class_protected[] = "\n    same_class_protected(c: type, w: object) -> bool\n    If iswrapped(w) and w wraps 'o':\n        Returns (c is type(o))\n    Else: returns (c is type(w))\n    ";
 static PyMethodDef __pyx_mdef_9pyprotect_9protected_15same_class_protected = {"same_class_protected", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_9pyprotect_9protected_15same_class_protected, METH_VARARGS|METH_KEYWORDS, __pyx_doc_9pyprotect_9protected_14same_class_protected};
 static PyObject *__pyx_pw_9pyprotect_9protected_15same_class_protected(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyTypeObject *__pyx_v_c = 0;
@@ -4528,11 +4542,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_15same_class_protected(PyObject 
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_w)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("same_class_protected", 1, 2, 2, 1); __PYX_ERR(0, 74, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("same_class_protected", 1, 2, 2, 1); __PYX_ERR(0, 78, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "same_class_protected") < 0)) __PYX_ERR(0, 74, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "same_class_protected") < 0)) __PYX_ERR(0, 78, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4545,13 +4559,13 @@ static PyObject *__pyx_pw_9pyprotect_9protected_15same_class_protected(PyObject 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("same_class_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 74, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("same_class_protected", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 78, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.same_class_protected", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_c), (&PyType_Type), 1, "c", 1))) __PYX_ERR(0, 74, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_c), (&PyType_Type), 1, "c", 1))) __PYX_ERR(0, 78, __pyx_L1_error)
   __pyx_r = __pyx_pf_9pyprotect_9protected_14same_class_protected(__pyx_self, __pyx_v_c, __pyx_v_w);
 
   /* function exit code */
@@ -4575,14 +4589,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_14same_class_protected(CYTHON_UN
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("same_class_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":80
+  /* "pyprotect/python_visible.pxi":85
  *     Else: returns (c is type(w))
  *     '''
  *     if iswrapped(w):             # <<<<<<<<<<<<<<
  *         return id(c) == getattr(w, PROT_ATTR_NAME).id_class
  *     return c is type(w)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -4596,14 +4610,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_14same_class_protected(CYTHON_UN
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_w) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_w);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":81
+    /* "pyprotect/python_visible.pxi":86
  *     '''
  *     if iswrapped(w):
  *         return id(c) == getattr(w, PROT_ATTR_NAME).id_class             # <<<<<<<<<<<<<<
@@ -4611,24 +4625,24 @@ static PyObject *__pyx_pf_9pyprotect_9protected_14same_class_protected(CYTHON_UN
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, ((PyObject *)__pyx_v_c)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, ((PyObject *)__pyx_v_c)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_2 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_w, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_w, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_id_class); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_id_class); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 81, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":80
+    /* "pyprotect/python_visible.pxi":85
  *     Else: returns (c is type(w))
  *     '''
  *     if iswrapped(w):             # <<<<<<<<<<<<<<
@@ -4637,7 +4651,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_14same_class_protected(CYTHON_UN
  */
   }
 
-  /* "pyprotect/python_visible.pxi":82
+  /* "pyprotect/python_visible.pxi":87
  *     if iswrapped(w):
  *         return id(c) == getattr(w, PROT_ATTR_NAME).id_class
  *     return c is type(w)             # <<<<<<<<<<<<<<
@@ -4646,18 +4660,18 @@ static PyObject *__pyx_pf_9pyprotect_9protected_14same_class_protected(CYTHON_UN
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_4 = (__pyx_v_c == ((PyTypeObject*)((PyObject *)Py_TYPE(__pyx_v_w))));
-  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyBool_FromLong(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":74
+  /* "pyprotect/python_visible.pxi":78
  * 
  * 
  * def same_class_protected(c: type, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     same_class_protected(c: type, w: object) -> bool
  */
 
   /* function exit code */
@@ -4673,17 +4687,17 @@ static PyObject *__pyx_pf_9pyprotect_9protected_14same_class_protected(CYTHON_UN
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":85
+/* "pyprotect/python_visible.pxi":90
  * 
  * 
  * def help_protected(o: object) -> None:             # <<<<<<<<<<<<<<
  *     '''
- *     Calls help(wrapped_object) if iswrapped(o); help(o) otherwise
+ *     help_protected(o: object) -> None
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_9pyprotect_9protected_17help_protected(PyObject *__pyx_self, PyObject *__pyx_v_o); /*proto*/
-static char __pyx_doc_9pyprotect_9protected_16help_protected[] = "\n    Calls help(wrapped_object) if iswrapped(o); help(o) otherwise\n    ";
+static char __pyx_doc_9pyprotect_9protected_16help_protected[] = "\n    help_protected(o: object) -> None\n    Calls help(wrapped_object) if iswrapped(o); help(o) otherwise\n    ";
 static PyMethodDef __pyx_mdef_9pyprotect_9protected_17help_protected = {"help_protected", (PyCFunction)__pyx_pw_9pyprotect_9protected_17help_protected, METH_O, __pyx_doc_9pyprotect_9protected_16help_protected};
 static PyObject *__pyx_pw_9pyprotect_9protected_17help_protected(PyObject *__pyx_self, PyObject *__pyx_v_o) {
   PyObject *__pyx_r = 0;
@@ -4709,7 +4723,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_16help_protected(CYTHON_UNUSED P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("help_protected", 0);
 
-  /* "pyprotect/python_visible.pxi":89
+  /* "pyprotect/python_visible.pxi":95
  *     Calls help(wrapped_object) if iswrapped(o); help(o) otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -4720,7 +4734,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_16help_protected(CYTHON_UNUSED P
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/python_visible.pxi":90
+    /* "pyprotect/python_visible.pxi":96
  *     '''
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).help()             # <<<<<<<<<<<<<<
@@ -4730,10 +4744,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_16help_protected(CYTHON_UNUSED P
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 96, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_help); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 90, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_help); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -4748,14 +4762,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_16help_protected(CYTHON_UNUSED P
     }
     __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 90, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_3;
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":89
+    /* "pyprotect/python_visible.pxi":95
  *     Calls help(wrapped_object) if iswrapped(o); help(o) otherwise
  *     '''
  *     if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -4764,7 +4778,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_16help_protected(CYTHON_UNUSED P
  */
   }
 
-  /* "pyprotect/python_visible.pxi":91
+  /* "pyprotect/python_visible.pxi":97
  *     if isinstance(o, Wrapped):
  *         return getattr(o, PROT_ATTR_NAME).help()
  *     return help(o)             # <<<<<<<<<<<<<<
@@ -4772,18 +4786,18 @@ static PyObject *__pyx_pf_9pyprotect_9protected_16help_protected(CYTHON_UNUSED P
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_help, __pyx_v_o); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_help, __pyx_v_o); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":85
+  /* "pyprotect/python_visible.pxi":90
  * 
  * 
  * def help_protected(o: object) -> None:             # <<<<<<<<<<<<<<
  *     '''
- *     Calls help(wrapped_object) if iswrapped(o); help(o) otherwise
+ *     help_protected(o: object) -> None
  */
 
   /* function exit code */
@@ -4799,7 +4813,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_16help_protected(CYTHON_UNUSED P
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":94
+/* "pyprotect/python_visible.pxi":100
  * 
  * 
  * def contains(p: object, o: object):             # <<<<<<<<<<<<<<
@@ -4843,11 +4857,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_19contains(PyObject *__pyx_self,
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_o)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("contains", 1, 2, 2, 1); __PYX_ERR(0, 94, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("contains", 1, 2, 2, 1); __PYX_ERR(0, 100, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "contains") < 0)) __PYX_ERR(0, 94, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "contains") < 0)) __PYX_ERR(0, 100, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4860,7 +4874,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_19contains(PyObject *__pyx_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("contains", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 94, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("contains", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 100, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.contains", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -4886,7 +4900,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_18contains(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("contains", 0);
 
-  /* "pyprotect/python_visible.pxi":98
+  /* "pyprotect/python_visible.pxi":104
  *     contains(p: object, o: object): bool: whether 'p' wraps 'o'
  *     '''
  *     if isinstance(p, Wrapped):             # <<<<<<<<<<<<<<
@@ -4897,7 +4911,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_18contains(CYTHON_UNUSED PyObjec
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/python_visible.pxi":99
+    /* "pyprotect/python_visible.pxi":105
  *     '''
  *     if isinstance(p, Wrapped):
  *         return getattr(p, PROT_ATTR_NAME).id == id(o)             # <<<<<<<<<<<<<<
@@ -4907,22 +4921,22 @@ static PyObject *__pyx_pf_9pyprotect_9protected_18contains(CYTHON_UNUSED PyObjec
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_3 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_GetAttr(__pyx_v_p, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetAttr(__pyx_v_p, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_id); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_id); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_o); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_o); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyObject_RichCompare(__pyx_t_3, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 99, __pyx_L1_error)
+    __pyx_t_5 = PyObject_RichCompare(__pyx_t_3, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 105, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":98
+    /* "pyprotect/python_visible.pxi":104
  *     contains(p: object, o: object): bool: whether 'p' wraps 'o'
  *     '''
  *     if isinstance(p, Wrapped):             # <<<<<<<<<<<<<<
@@ -4931,7 +4945,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_18contains(CYTHON_UNUSED PyObjec
  */
   }
 
-  /* "pyprotect/python_visible.pxi":100
+  /* "pyprotect/python_visible.pxi":106
  *     if isinstance(p, Wrapped):
  *         return getattr(p, PROT_ATTR_NAME).id == id(o)
  *     return False             # <<<<<<<<<<<<<<
@@ -4943,7 +4957,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_18contains(CYTHON_UNUSED PyObjec
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":94
+  /* "pyprotect/python_visible.pxi":100
  * 
  * 
  * def contains(p: object, o: object):             # <<<<<<<<<<<<<<
@@ -4964,7 +4978,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_18contains(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":108
+/* "pyprotect/python_visible.pxi":114
  * 
  * 
  * def isimmutable(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5001,21 +5015,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isimmutable", 0);
 
-  /* "pyprotect/python_visible.pxi":113
+  /* "pyprotect/python_visible.pxi":119
  *     '''
  *     # Everything in builtin module is immutable
  *     if id(o) in builtins_ids:             # <<<<<<<<<<<<<<
  *         return True
  *     # None and NotImplemented are immutable
  */
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_v_9pyprotect_9protected_builtins_ids, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 113, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_v_9pyprotect_9protected_builtins_ids, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 119, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
 
-    /* "pyprotect/python_visible.pxi":114
+    /* "pyprotect/python_visible.pxi":120
  *     # Everything in builtin module is immutable
  *     if id(o) in builtins_ids:
  *         return True             # <<<<<<<<<<<<<<
@@ -5027,7 +5041,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":113
+    /* "pyprotect/python_visible.pxi":119
  *     '''
  *     # Everything in builtin module is immutable
  *     if id(o) in builtins_ids:             # <<<<<<<<<<<<<<
@@ -5036,7 +5050,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "pyprotect/python_visible.pxi":116
+  /* "pyprotect/python_visible.pxi":122
  *         return True
  *     # None and NotImplemented are immutable
  *     if o is None or o is NotImplemented:             # <<<<<<<<<<<<<<
@@ -5056,7 +5070,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_3) {
 
-    /* "pyprotect/python_visible.pxi":117
+    /* "pyprotect/python_visible.pxi":123
  *     # None and NotImplemented are immutable
  *     if o is None or o is NotImplemented:
  *         return True             # <<<<<<<<<<<<<<
@@ -5068,7 +5082,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":116
+    /* "pyprotect/python_visible.pxi":122
  *         return True
  *     # None and NotImplemented are immutable
  *     if o is None or o is NotImplemented:             # <<<<<<<<<<<<<<
@@ -5077,14 +5091,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "pyprotect/python_visible.pxi":118
+  /* "pyprotect/python_visible.pxi":124
  *     if o is None or o is NotImplemented:
  *         return True
  *     if isfrozen(o):             # <<<<<<<<<<<<<<
  *         return True
  *     if type(o) in immutable_types_set:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
@@ -5098,14 +5112,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
   }
   __pyx_t_1 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 124, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/python_visible.pxi":119
+    /* "pyprotect/python_visible.pxi":125
  *         return True
  *     if isfrozen(o):
  *         return True             # <<<<<<<<<<<<<<
@@ -5117,7 +5131,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":118
+    /* "pyprotect/python_visible.pxi":124
  *     if o is None or o is NotImplemented:
  *         return True
  *     if isfrozen(o):             # <<<<<<<<<<<<<<
@@ -5126,18 +5140,18 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "pyprotect/python_visible.pxi":120
+  /* "pyprotect/python_visible.pxi":126
  *     if isfrozen(o):
  *         return True
  *     if type(o) in immutable_types_set:             # <<<<<<<<<<<<<<
  *         return True
  *     return False
  */
-  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(((PyObject *)Py_TYPE(__pyx_v_o)), __pyx_v_9pyprotect_9protected_immutable_types_set, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(((PyObject *)Py_TYPE(__pyx_v_o)), __pyx_v_9pyprotect_9protected_immutable_types_set, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 126, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_3 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/python_visible.pxi":121
+    /* "pyprotect/python_visible.pxi":127
  *         return True
  *     if type(o) in immutable_types_set:
  *         return True             # <<<<<<<<<<<<<<
@@ -5149,7 +5163,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":120
+    /* "pyprotect/python_visible.pxi":126
  *     if isfrozen(o):
  *         return True
  *     if type(o) in immutable_types_set:             # <<<<<<<<<<<<<<
@@ -5158,7 +5172,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
  */
   }
 
-  /* "pyprotect/python_visible.pxi":122
+  /* "pyprotect/python_visible.pxi":128
  *     if type(o) in immutable_types_set:
  *         return True
  *     return False             # <<<<<<<<<<<<<<
@@ -5170,7 +5184,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":108
+  /* "pyprotect/python_visible.pxi":114
  * 
  * 
  * def isimmutable(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5191,7 +5205,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_20isimmutable(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":125
+/* "pyprotect/python_visible.pxi":131
  * 
  * 
  * def iswrapped(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5224,7 +5238,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_22iswrapped(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("iswrapped", 0);
 
-  /* "pyprotect/python_visible.pxi":130
+  /* "pyprotect/python_visible.pxi":136
  *     'o' was created using wrap / freeze / private / protect
  *     '''
  *     return isinstance(o, Wrapped)             # <<<<<<<<<<<<<<
@@ -5233,13 +5247,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_22iswrapped(CYTHON_UNUSED PyObje
  */
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __Pyx_TypeCheck(__pyx_v_o, __pyx_ptype_9pyprotect_9protected_Wrapped); 
-  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":125
+  /* "pyprotect/python_visible.pxi":131
  * 
  * 
  * def iswrapped(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5258,7 +5272,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_22iswrapped(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":133
+/* "pyprotect/python_visible.pxi":139
  * 
  * 
  * def isfrozen(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5293,7 +5307,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isfrozen", 0);
 
-  /* "pyprotect/python_visible.pxi":137
+  /* "pyprotect/python_visible.pxi":143
  *     isfrozen(o: object) -> bool: 'o' was created using freeze()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
@@ -5302,7 +5316,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "pyprotect/python_visible.pxi":138
+  /* "pyprotect/python_visible.pxi":144
  *     '''
  *     return isinstance(o, (
  *         Frozen, FrozenPrivate, FrozenPrivacyDict, FrozenProtected,             # <<<<<<<<<<<<<<
@@ -5317,7 +5331,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
     goto __pyx_L3_bool_binop_done;
   }
 
-  /* "pyprotect/python_visible.pxi":137
+  /* "pyprotect/python_visible.pxi":143
  *     isfrozen(o: object) -> bool: 'o' was created using freeze()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
@@ -5326,7 +5340,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
  */
   __pyx_t_3 = __Pyx_TypeCheck(__pyx_v_o, __pyx_ptype_9pyprotect_9protected_FrozenPrivate); 
 
-  /* "pyprotect/python_visible.pxi":138
+  /* "pyprotect/python_visible.pxi":144
  *     '''
  *     return isinstance(o, (
  *         Frozen, FrozenPrivate, FrozenPrivacyDict, FrozenProtected,             # <<<<<<<<<<<<<<
@@ -5340,7 +5354,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
     goto __pyx_L3_bool_binop_done;
   }
 
-  /* "pyprotect/python_visible.pxi":137
+  /* "pyprotect/python_visible.pxi":143
  *     isfrozen(o: object) -> bool: 'o' was created using freeze()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
@@ -5349,7 +5363,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
  */
   __pyx_t_2 = __Pyx_TypeCheck(__pyx_v_o, __pyx_ptype_9pyprotect_9protected_FrozenPrivacyDict); 
 
-  /* "pyprotect/python_visible.pxi":138
+  /* "pyprotect/python_visible.pxi":144
  *     '''
  *     return isinstance(o, (
  *         Frozen, FrozenPrivate, FrozenPrivacyDict, FrozenProtected,             # <<<<<<<<<<<<<<
@@ -5363,7 +5377,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
     goto __pyx_L3_bool_binop_done;
   }
 
-  /* "pyprotect/python_visible.pxi":137
+  /* "pyprotect/python_visible.pxi":143
  *     isfrozen(o: object) -> bool: 'o' was created using freeze()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
@@ -5372,7 +5386,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
  */
   __pyx_t_3 = __Pyx_TypeCheck(__pyx_v_o, __pyx_ptype_9pyprotect_9protected_FrozenProtected); 
 
-  /* "pyprotect/python_visible.pxi":138
+  /* "pyprotect/python_visible.pxi":144
  *     '''
  *     return isinstance(o, (
  *         Frozen, FrozenPrivate, FrozenPrivacyDict, FrozenProtected,             # <<<<<<<<<<<<<<
@@ -5383,20 +5397,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
   __pyx_t_1 = __pyx_t_2;
   __pyx_L3_bool_binop_done:;
 
-  /* "pyprotect/python_visible.pxi":137
+  /* "pyprotect/python_visible.pxi":143
  *     isfrozen(o: object) -> bool: 'o' was created using freeze()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
  *         Frozen, FrozenPrivate, FrozenPrivacyDict, FrozenProtected,
  *     ))
  */
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":133
+  /* "pyprotect/python_visible.pxi":139
  * 
  * 
  * def isfrozen(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5415,7 +5429,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_24isfrozen(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":142
+/* "pyprotect/python_visible.pxi":148
  * 
  * 
  * def isprivate(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5450,7 +5464,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_26isprivate(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isprivate", 0);
 
-  /* "pyprotect/python_visible.pxi":146
+  /* "pyprotect/python_visible.pxi":152
  *     isprivate(o: object) -> bool: 'o' was created using private()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
@@ -5459,7 +5473,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_26isprivate(CYTHON_UNUSED PyObje
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "pyprotect/python_visible.pxi":147
+  /* "pyprotect/python_visible.pxi":153
  *     '''
  *     return isinstance(o, (
  *         Private,             # <<<<<<<<<<<<<<
@@ -5474,7 +5488,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_26isprivate(CYTHON_UNUSED PyObje
     goto __pyx_L3_bool_binop_done;
   }
 
-  /* "pyprotect/python_visible.pxi":148
+  /* "pyprotect/python_visible.pxi":154
  *     return isinstance(o, (
  *         Private,
  *         FrozenPrivate,             # <<<<<<<<<<<<<<
@@ -5486,20 +5500,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_26isprivate(CYTHON_UNUSED PyObje
   __pyx_t_1 = __pyx_t_2;
   __pyx_L3_bool_binop_done:;
 
-  /* "pyprotect/python_visible.pxi":146
+  /* "pyprotect/python_visible.pxi":152
  *     isprivate(o: object) -> bool: 'o' was created using private()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
  *         Private,
  *         FrozenPrivate,
  */
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 146, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 152, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":142
+  /* "pyprotect/python_visible.pxi":148
  * 
  * 
  * def isprivate(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5518,7 +5532,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_26isprivate(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":152
+/* "pyprotect/python_visible.pxi":158
  * 
  * 
  * def isprotected(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5553,7 +5567,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_28isprotected(CYTHON_UNUSED PyOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isprotected", 0);
 
-  /* "pyprotect/python_visible.pxi":156
+  /* "pyprotect/python_visible.pxi":162
  *     isprotected(o: object) -> bool: 'o' was created using protect()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
@@ -5562,7 +5576,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_28isprotected(CYTHON_UNUSED PyOb
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "pyprotect/python_visible.pxi":157
+  /* "pyprotect/python_visible.pxi":163
  *     '''
  *     return isinstance(o, (
  *         Protected,             # <<<<<<<<<<<<<<
@@ -5577,7 +5591,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_28isprotected(CYTHON_UNUSED PyOb
     goto __pyx_L3_bool_binop_done;
   }
 
-  /* "pyprotect/python_visible.pxi":158
+  /* "pyprotect/python_visible.pxi":164
  *     return isinstance(o, (
  *         Protected,
  *         FrozenProtected,             # <<<<<<<<<<<<<<
@@ -5589,20 +5603,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_28isprotected(CYTHON_UNUSED PyOb
   __pyx_t_1 = __pyx_t_2;
   __pyx_L3_bool_binop_done:;
 
-  /* "pyprotect/python_visible.pxi":156
+  /* "pyprotect/python_visible.pxi":162
  *     isprotected(o: object) -> bool: 'o' was created using protect()
  *     '''
  *     return isinstance(o, (             # <<<<<<<<<<<<<<
  *         Protected,
  *         FrozenProtected,
  */
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 156, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":152
+  /* "pyprotect/python_visible.pxi":158
  * 
  * 
  * def isprotected(o: object) -> bool:             # <<<<<<<<<<<<<<
@@ -5621,7 +5635,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_28isprotected(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":162
+/* "pyprotect/python_visible.pxi":168
  * 
  * 
  * def isreadonly(o: object, a: str) -> bool:             # <<<<<<<<<<<<<<
@@ -5665,11 +5679,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_31isreadonly(PyObject *__pyx_sel
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_a)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("isreadonly", 1, 2, 2, 1); __PYX_ERR(0, 162, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("isreadonly", 1, 2, 2, 1); __PYX_ERR(0, 168, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "isreadonly") < 0)) __PYX_ERR(0, 162, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "isreadonly") < 0)) __PYX_ERR(0, 168, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -5682,13 +5696,13 @@ static PyObject *__pyx_pw_9pyprotect_9protected_31isreadonly(PyObject *__pyx_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("isreadonly", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 162, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("isreadonly", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 168, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.isreadonly", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), (&PyString_Type), 1, "a", 1))) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), (&PyString_Type), 1, "a", 1))) __PYX_ERR(0, 168, __pyx_L1_error)
   __pyx_r = __pyx_pf_9pyprotect_9protected_30isreadonly(__pyx_self, __pyx_v_o, __pyx_v_a);
 
   /* function exit code */
@@ -5718,7 +5732,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isreadonly", 0);
 
-  /* "pyprotect/python_visible.pxi":171
+  /* "pyprotect/python_visible.pxi":177
  *     'a' in object 'o' will not raise any exception
  *     '''
  *     try:             # <<<<<<<<<<<<<<
@@ -5734,14 +5748,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
     __Pyx_XGOTREF(__pyx_t_3);
     /*try:*/ {
 
-      /* "pyprotect/python_visible.pxi":172
+      /* "pyprotect/python_visible.pxi":178
  *     '''
  *     try:
  *         if isimmutable(o):             # <<<<<<<<<<<<<<
  *             return True
  *     except:
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_isimmutable); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 172, __pyx_L3_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_isimmutable); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 178, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
@@ -5755,14 +5769,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
       }
       __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_o);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 172, __pyx_L3_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 178, __pyx_L3_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 172, __pyx_L3_error)
+      __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 178, __pyx_L3_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_7) {
 
-        /* "pyprotect/python_visible.pxi":173
+        /* "pyprotect/python_visible.pxi":179
  *     try:
  *         if isimmutable(o):
  *             return True             # <<<<<<<<<<<<<<
@@ -5774,7 +5788,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
         __pyx_r = Py_True;
         goto __pyx_L7_try_return;
 
-        /* "pyprotect/python_visible.pxi":172
+        /* "pyprotect/python_visible.pxi":178
  *     '''
  *     try:
  *         if isimmutable(o):             # <<<<<<<<<<<<<<
@@ -5783,7 +5797,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
  */
       }
 
-      /* "pyprotect/python_visible.pxi":171
+      /* "pyprotect/python_visible.pxi":177
  *     'a' in object 'o' will not raise any exception
  *     '''
  *     try:             # <<<<<<<<<<<<<<
@@ -5800,7 +5814,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "pyprotect/python_visible.pxi":174
+    /* "pyprotect/python_visible.pxi":180
  *         if isimmutable(o):
  *             return True
  *     except:             # <<<<<<<<<<<<<<
@@ -5813,7 +5827,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
     }
     __pyx_L7_try_return:;
 
-    /* "pyprotect/python_visible.pxi":171
+    /* "pyprotect/python_visible.pxi":177
  *     'a' in object 'o' will not raise any exception
  *     '''
  *     try:             # <<<<<<<<<<<<<<
@@ -5833,14 +5847,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
     __pyx_L8_try_end:;
   }
 
-  /* "pyprotect/python_visible.pxi":176
+  /* "pyprotect/python_visible.pxi":182
  *     except:
  *         pass
  *     if isprivate(o) or isprotected(o):             # <<<<<<<<<<<<<<
  *         return not getattr(o, PROT_ATTR_NAME).testop(a, 'w')
  *     else:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_isprivate); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_isprivate); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
@@ -5854,17 +5868,17 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
   }
   __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (!__pyx_t_8) {
   } else {
     __pyx_t_7 = __pyx_t_8;
     goto __pyx_L11_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_isprotected); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_isprotected); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_5))) {
@@ -5878,16 +5892,16 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
   }
   __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 176, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 176, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_7 = __pyx_t_8;
   __pyx_L11_bool_binop_done:;
   if (__pyx_t_7) {
 
-    /* "pyprotect/python_visible.pxi":177
+    /* "pyprotect/python_visible.pxi":183
  *         pass
  *     if isprivate(o) or isprotected(o):
  *         return not getattr(o, PROT_ATTR_NAME).testop(a, 'w')             # <<<<<<<<<<<<<<
@@ -5897,10 +5911,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_5 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_testop); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_testop); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
@@ -5918,7 +5932,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_5)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_a, __pyx_n_s_w};
-      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_4);
     } else
@@ -5926,13 +5940,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_a, __pyx_n_s_w};
-      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_4);
     } else
     #endif
     {
-      __pyx_t_10 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 177, __pyx_L1_error)
+      __pyx_t_10 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 183, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       if (__pyx_t_6) {
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -5943,20 +5957,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
       __Pyx_INCREF(__pyx_n_s_w);
       __Pyx_GIVEREF(__pyx_n_s_w);
       PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_9, __pyx_n_s_w);
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_10, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_10, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyBool_FromLong((!__pyx_t_7)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 177, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyBool_FromLong((!__pyx_t_7)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":176
+    /* "pyprotect/python_visible.pxi":182
  *     except:
  *         pass
  *     if isprivate(o) or isprotected(o):             # <<<<<<<<<<<<<<
@@ -5965,7 +5979,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
  */
   }
 
-  /* "pyprotect/python_visible.pxi":179
+  /* "pyprotect/python_visible.pxi":185
  *         return not getattr(o, PROT_ATTR_NAME).testop(a, 'w')
  *     else:
  *         return False             # <<<<<<<<<<<<<<
@@ -5979,7 +5993,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
     goto __pyx_L0;
   }
 
-  /* "pyprotect/python_visible.pxi":162
+  /* "pyprotect/python_visible.pxi":168
  * 
  * 
  * def isreadonly(o: object, a: str) -> bool:             # <<<<<<<<<<<<<<
@@ -6001,7 +6015,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_30isreadonly(CYTHON_UNUSED PyObj
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":182
+/* "pyprotect/python_visible.pxi":188
  * 
  * 
  * def isvisible(o: object, a: str) -> bool:             # <<<<<<<<<<<<<<
@@ -6045,11 +6059,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_33isvisible(PyObject *__pyx_self
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_a)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("isvisible", 1, 2, 2, 1); __PYX_ERR(0, 182, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("isvisible", 1, 2, 2, 1); __PYX_ERR(0, 188, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "isvisible") < 0)) __PYX_ERR(0, 182, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "isvisible") < 0)) __PYX_ERR(0, 188, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6062,13 +6076,13 @@ static PyObject *__pyx_pw_9pyprotect_9protected_33isvisible(PyObject *__pyx_self
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("isvisible", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 182, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("isvisible", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 188, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.isvisible", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), (&PyString_Type), 1, "a", 1))) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_a), (&PyString_Type), 1, "a", 1))) __PYX_ERR(0, 188, __pyx_L1_error)
   __pyx_r = __pyx_pf_9pyprotect_9protected_32isvisible(__pyx_self, __pyx_v_o, __pyx_v_a);
 
   /* function exit code */
@@ -6095,14 +6109,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isvisible", 0);
 
-  /* "pyprotect/python_visible.pxi":193
+  /* "pyprotect/python_visible.pxi":199
  *     If 'o' is not a wrapped object, unconditionally returns False
  *     '''
  *     if not iswrapped(o):             # <<<<<<<<<<<<<<
  *         return False
  *     return getattr(o, PROT_ATTR_NAME).testop(a, 'r')
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -6116,15 +6130,15 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "pyprotect/python_visible.pxi":194
+    /* "pyprotect/python_visible.pxi":200
  *     '''
  *     if not iswrapped(o):
  *         return False             # <<<<<<<<<<<<<<
@@ -6136,7 +6150,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
     __pyx_r = Py_False;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":193
+    /* "pyprotect/python_visible.pxi":199
  *     If 'o' is not a wrapped object, unconditionally returns False
  *     '''
  *     if not iswrapped(o):             # <<<<<<<<<<<<<<
@@ -6145,7 +6159,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
  */
   }
 
-  /* "pyprotect/python_visible.pxi":195
+  /* "pyprotect/python_visible.pxi":201
  *     if not iswrapped(o):
  *         return False
  *     return getattr(o, PROT_ATTR_NAME).testop(a, 'r')             # <<<<<<<<<<<<<<
@@ -6155,10 +6169,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_2 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
   __Pyx_INCREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_testop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_testop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -6176,7 +6190,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_a, __pyx_n_s_r};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 201, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -6184,13 +6198,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_a, __pyx_n_s_r};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 201, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 201, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -6201,7 +6215,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
     __Pyx_INCREF(__pyx_n_s_r);
     __Pyx_GIVEREF(__pyx_n_s_r);
     PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_n_s_r);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 201, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
@@ -6210,7 +6224,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":182
+  /* "pyprotect/python_visible.pxi":188
  * 
  * 
  * def isvisible(o: object, a: str) -> bool:             # <<<<<<<<<<<<<<
@@ -6232,7 +6246,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_32isvisible(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":203
+/* "pyprotect/python_visible.pxi":209
  * 
  * 
  * def wrap(o: object) -> object:             # <<<<<<<<<<<<<<
@@ -6267,14 +6281,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_34wrap(CYTHON_UNUSED PyObject *_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("wrap", 0);
 
-  /* "pyprotect/python_visible.pxi":220
+  /* "pyprotect/python_visible.pxi":226
  *     Useful for testing if wrapping is failing for a particular type of object
  *     '''
  *     if iswrapped(o):             # <<<<<<<<<<<<<<
  *         # Do not wrap twice
  *         return o
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -6288,14 +6302,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_34wrap(CYTHON_UNUSED PyObject *_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 226, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":222
+    /* "pyprotect/python_visible.pxi":228
  *     if iswrapped(o):
  *         # Do not wrap twice
  *         return o             # <<<<<<<<<<<<<<
@@ -6307,7 +6321,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_34wrap(CYTHON_UNUSED PyObject *_
     __pyx_r = __pyx_v_o;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":220
+    /* "pyprotect/python_visible.pxi":226
  *     Useful for testing if wrapping is failing for a particular type of object
  *     '''
  *     if iswrapped(o):             # <<<<<<<<<<<<<<
@@ -6316,7 +6330,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_34wrap(CYTHON_UNUSED PyObject *_
  */
   }
 
-  /* "pyprotect/python_visible.pxi":223
+  /* "pyprotect/python_visible.pxi":229
  *         # Do not wrap twice
  *         return o
  *     return Wrapped(o, frozen=False)             # <<<<<<<<<<<<<<
@@ -6324,15 +6338,15 @@ static PyObject *__pyx_pf_9pyprotect_9protected_34wrap(CYTHON_UNUSED PyObject *_
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_o);
   __Pyx_GIVEREF(__pyx_v_o);
   PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_v_o);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 223, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_frozen, Py_False) < 0) __PYX_ERR(0, 223, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 223, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_frozen, Py_False) < 0) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6340,7 +6354,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_34wrap(CYTHON_UNUSED PyObject *_
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":203
+  /* "pyprotect/python_visible.pxi":209
  * 
  * 
  * def wrap(o: object) -> object:             # <<<<<<<<<<<<<<
@@ -6361,7 +6375,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_34wrap(CYTHON_UNUSED PyObject *_
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":226
+/* "pyprotect/python_visible.pxi":232
  * 
  * 
  * def freeze(o: object) -> object:             # <<<<<<<<<<<<<<
@@ -6396,14 +6410,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("freeze", 0);
 
-  /* "pyprotect/python_visible.pxi":234
+  /* "pyprotect/python_visible.pxi":240
  *     Object returned prevents modification of ANY attribute
  *     '''
  *     if isfrozen(o):             # <<<<<<<<<<<<<<
  *         # Never freeze twice
  *         return o
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 240, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -6417,14 +6431,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 240, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 240, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":236
+    /* "pyprotect/python_visible.pxi":242
  *     if isfrozen(o):
  *         # Never freeze twice
  *         return o             # <<<<<<<<<<<<<<
@@ -6436,7 +6450,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
     __pyx_r = __pyx_v_o;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":234
+    /* "pyprotect/python_visible.pxi":240
  *     Object returned prevents modification of ANY attribute
  *     '''
  *     if isfrozen(o):             # <<<<<<<<<<<<<<
@@ -6445,63 +6459,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
  */
   }
 
-  /* "pyprotect/python_visible.pxi":237
- *         # Never freeze twice
- *         return o
- *     elif isimmutable(o):             # <<<<<<<<<<<<<<
- *         # Object is KNOWN to be immutable - return as-is
- *         return o
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_isimmutable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_2, function);
-    }
-  }
-  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_o);
-  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 237, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__pyx_t_4) {
-
-    /* "pyprotect/python_visible.pxi":239
- *     elif isimmutable(o):
- *         # Object is KNOWN to be immutable - return as-is
- *         return o             # <<<<<<<<<<<<<<
- *     # Must freeze
- * 
- */
-    __Pyx_XDECREF(__pyx_r);
-    __Pyx_INCREF(__pyx_v_o);
-    __pyx_r = __pyx_v_o;
-    goto __pyx_L0;
-
-    /* "pyprotect/python_visible.pxi":237
- *         # Never freeze twice
- *         return o
- *     elif isimmutable(o):             # <<<<<<<<<<<<<<
- *         # Object is KNOWN to be immutable - return as-is
- *         return o
- */
-  }
-
   /* "pyprotect/python_visible.pxi":243
- * 
- *     # If Wrapped, avoid double wrapping
- *     if iswrapped(o):             # <<<<<<<<<<<<<<
- *         return getattr(o, PROT_ATTR_NAME).freeze()
- *     return Frozen(o)
+ *         # Never freeze twice
+ *         return o
+ *     elif isimmutable(o):             # <<<<<<<<<<<<<<
+ *         # Object is KNOWN to be immutable - return as-is
+ *         return o
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_isimmutable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -6522,7 +6487,56 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":244
+    /* "pyprotect/python_visible.pxi":245
+ *     elif isimmutable(o):
+ *         # Object is KNOWN to be immutable - return as-is
+ *         return o             # <<<<<<<<<<<<<<
+ *     # Must freeze
+ * 
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(__pyx_v_o);
+    __pyx_r = __pyx_v_o;
+    goto __pyx_L0;
+
+    /* "pyprotect/python_visible.pxi":243
+ *         # Never freeze twice
+ *         return o
+ *     elif isimmutable(o):             # <<<<<<<<<<<<<<
+ *         # Object is KNOWN to be immutable - return as-is
+ *         return o
+ */
+  }
+
+  /* "pyprotect/python_visible.pxi":249
+ * 
+ *     # If Wrapped, avoid double wrapping
+ *     if iswrapped(o):             # <<<<<<<<<<<<<<
+ *         return getattr(o, PROT_ATTR_NAME).freeze()
+ *     return Frozen(o)
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
+      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_2, function);
+    }
+  }
+  __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_o);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 249, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__pyx_t_4) {
+
+    /* "pyprotect/python_visible.pxi":250
  *     # If Wrapped, avoid double wrapping
  *     if iswrapped(o):
  *         return getattr(o, PROT_ATTR_NAME).freeze()             # <<<<<<<<<<<<<<
@@ -6532,10 +6546,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_2 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_freeze); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_freeze); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -6550,14 +6564,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 244, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 250, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":243
+    /* "pyprotect/python_visible.pxi":249
  * 
  *     # If Wrapped, avoid double wrapping
  *     if iswrapped(o):             # <<<<<<<<<<<<<<
@@ -6566,7 +6580,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
  */
   }
 
-  /* "pyprotect/python_visible.pxi":245
+  /* "pyprotect/python_visible.pxi":251
  *     if iswrapped(o):
  *         return getattr(o, PROT_ATTR_NAME).freeze()
  *     return Frozen(o)             # <<<<<<<<<<<<<<
@@ -6574,13 +6588,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_Frozen), __pyx_v_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 245, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_Frozen), __pyx_v_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":226
+  /* "pyprotect/python_visible.pxi":232
  * 
  * 
  * def freeze(o: object) -> object:             # <<<<<<<<<<<<<<
@@ -6601,7 +6615,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_36freeze(CYTHON_UNUSED PyObject 
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":248
+/* "pyprotect/python_visible.pxi":254
  * 
  * 
  * def private(o: object, frozen: bool = False) -> object:             # <<<<<<<<<<<<<<
@@ -6650,7 +6664,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_39private(PyObject *__pyx_self, 
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "private") < 0)) __PYX_ERR(0, 248, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "private") < 0)) __PYX_ERR(0, 254, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -6666,7 +6680,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_39private(PyObject *__pyx_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("private", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 248, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("private", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 254, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.private", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -6694,20 +6708,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
   __Pyx_RefNannySetupContext("private", 0);
   __Pyx_INCREF(__pyx_v_frozen);
 
-  /* "pyprotect/python_visible.pxi":268
+  /* "pyprotect/python_visible.pxi":274
  *     '''
  *     # Avoid double-wrapping
  *     if frozen or isfrozen(o):             # <<<<<<<<<<<<<<
  *         frozen = True
  *     if iswrapped(o):
  */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_frozen); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_frozen); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
   if (!__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
     goto __pyx_L4_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -6721,16 +6735,16 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 268, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 274, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_1 = __pyx_t_2;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pyprotect/python_visible.pxi":269
+    /* "pyprotect/python_visible.pxi":275
  *     # Avoid double-wrapping
  *     if frozen or isfrozen(o):
  *         frozen = True             # <<<<<<<<<<<<<<
@@ -6740,7 +6754,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
     __Pyx_INCREF(Py_True);
     __Pyx_DECREF_SET(__pyx_v_frozen, Py_True);
 
-    /* "pyprotect/python_visible.pxi":268
+    /* "pyprotect/python_visible.pxi":274
  *     '''
  *     # Avoid double-wrapping
  *     if frozen or isfrozen(o):             # <<<<<<<<<<<<<<
@@ -6749,14 +6763,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "pyprotect/python_visible.pxi":270
+  /* "pyprotect/python_visible.pxi":276
  *     if frozen or isfrozen(o):
  *         frozen = True
  *     if iswrapped(o):             # <<<<<<<<<<<<<<
  *         if isprotected(o):
  *             return protect(o, frozen=True)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -6770,21 +6784,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 276, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_1) {
 
-    /* "pyprotect/python_visible.pxi":271
+    /* "pyprotect/python_visible.pxi":277
  *         frozen = True
  *     if iswrapped(o):
  *         if isprotected(o):             # <<<<<<<<<<<<<<
  *             return protect(o, frozen=True)
  *         return getattr(o, PROT_ATTR_NAME).private()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_isprotected); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_isprotected); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -6798,14 +6812,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
     }
     __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_o);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 271, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 271, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 277, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_1) {
 
-      /* "pyprotect/python_visible.pxi":272
+      /* "pyprotect/python_visible.pxi":278
  *     if iswrapped(o):
  *         if isprotected(o):
  *             return protect(o, frozen=True)             # <<<<<<<<<<<<<<
@@ -6813,17 +6827,17 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
  *     else:
  */
       __Pyx_XDECREF(__pyx_r);
-      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_protect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 272, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_protect); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 272, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 278, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_INCREF(__pyx_v_o);
       __Pyx_GIVEREF(__pyx_v_o);
       PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_o);
-      __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 272, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 278, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_frozen, Py_True) < 0) __PYX_ERR(0, 272, __pyx_L1_error)
-      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 272, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_frozen, Py_True) < 0) __PYX_ERR(0, 278, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 278, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -6832,7 +6846,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
       __pyx_t_6 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/python_visible.pxi":271
+      /* "pyprotect/python_visible.pxi":277
  *         frozen = True
  *     if iswrapped(o):
  *         if isprotected(o):             # <<<<<<<<<<<<<<
@@ -6841,7 +6855,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
  */
     }
 
-    /* "pyprotect/python_visible.pxi":273
+    /* "pyprotect/python_visible.pxi":279
  *         if isprotected(o):
  *             return protect(o, frozen=True)
  *         return getattr(o, PROT_ATTR_NAME).private()             # <<<<<<<<<<<<<<
@@ -6851,10 +6865,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_5 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_private); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 273, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_private); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -6869,14 +6883,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
     }
     __pyx_t_6 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 273, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 279, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_r = __pyx_t_6;
     __pyx_t_6 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":270
+    /* "pyprotect/python_visible.pxi":276
  *     if frozen or isfrozen(o):
  *         frozen = True
  *     if iswrapped(o):             # <<<<<<<<<<<<<<
@@ -6885,7 +6899,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "pyprotect/python_visible.pxi":275
+  /* "pyprotect/python_visible.pxi":281
  *         return getattr(o, PROT_ATTR_NAME).private()
  *     else:
  *         if frozen:             # <<<<<<<<<<<<<<
@@ -6893,10 +6907,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
  *         else:
  */
   /*else*/ {
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_frozen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 275, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_frozen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 281, __pyx_L1_error)
     if (__pyx_t_1) {
 
-      /* "pyprotect/python_visible.pxi":276
+      /* "pyprotect/python_visible.pxi":282
  *     else:
  *         if frozen:
  *             return FrozenPrivate(o)             # <<<<<<<<<<<<<<
@@ -6904,13 +6918,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
  *             return Private(o)
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivate), __pyx_v_o); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 276, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivate), __pyx_v_o); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 282, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_r = __pyx_t_6;
       __pyx_t_6 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/python_visible.pxi":275
+      /* "pyprotect/python_visible.pxi":281
  *         return getattr(o, PROT_ATTR_NAME).private()
  *     else:
  *         if frozen:             # <<<<<<<<<<<<<<
@@ -6919,7 +6933,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
  */
     }
 
-    /* "pyprotect/python_visible.pxi":278
+    /* "pyprotect/python_visible.pxi":284
  *             return FrozenPrivate(o)
  *         else:
  *             return Private(o)             # <<<<<<<<<<<<<<
@@ -6928,7 +6942,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
  */
     /*else*/ {
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_Private), __pyx_v_o); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 278, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_Private), __pyx_v_o); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 284, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_r = __pyx_t_6;
       __pyx_t_6 = 0;
@@ -6936,7 +6950,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
     }
   }
 
-  /* "pyprotect/python_visible.pxi":248
+  /* "pyprotect/python_visible.pxi":254
  * 
  * 
  * def private(o: object, frozen: bool = False) -> object:             # <<<<<<<<<<<<<<
@@ -6959,7 +6973,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_38private(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":281
+/* "pyprotect/python_visible.pxi":287
  * 
  * 
  * def protect(             # <<<<<<<<<<<<<<
@@ -6991,7 +7005,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_41protect(PyObject *__pyx_self, 
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_o,&__pyx_n_s_frozen,&__pyx_n_s_dynamic,&__pyx_n_s_hide_private,&__pyx_n_s_ro_data,&__pyx_n_s_ro_method,&__pyx_n_s_ro,&__pyx_n_s_rw,&__pyx_n_s_hide,0};
     PyObject* values[9] = {0,0,0,0,0,0,0,0,0};
 
-    /* "pyprotect/python_visible.pxi":283
+    /* "pyprotect/python_visible.pxi":289
  * def protect(
  *     o: object,
  *     frozen: bool = False, dynamic: bool = True,             # <<<<<<<<<<<<<<
@@ -7001,7 +7015,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_41protect(PyObject *__pyx_self, 
     values[1] = ((PyObject *)Py_False);
     values[2] = ((PyObject *)Py_True);
 
-    /* "pyprotect/python_visible.pxi":284
+    /* "pyprotect/python_visible.pxi":290
  *     o: object,
  *     frozen: bool = False, dynamic: bool = True,
  *     hide_private: bool = False,             # <<<<<<<<<<<<<<
@@ -7010,7 +7024,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_41protect(PyObject *__pyx_self, 
  */
     values[3] = ((PyObject *)Py_False);
 
-    /* "pyprotect/python_visible.pxi":285
+    /* "pyprotect/python_visible.pxi":291
  *     frozen: bool = False, dynamic: bool = True,
  *     hide_private: bool = False,
  *     ro_data: bool = False, ro_method: bool = True,             # <<<<<<<<<<<<<<
@@ -7102,7 +7116,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_41protect(PyObject *__pyx_self, 
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "protect") < 0)) __PYX_ERR(0, 281, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "protect") < 0)) __PYX_ERR(0, 287, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -7139,7 +7153,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_41protect(PyObject *__pyx_self, 
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("protect", 0, 1, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 281, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("protect", 0, 1, 9, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 287, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.protect", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -7147,7 +7161,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_41protect(PyObject *__pyx_self, 
   __pyx_L4_argument_unpacking_done:;
   __pyx_r = __pyx_pf_9pyprotect_9protected_40protect(__pyx_self, __pyx_v_o, __pyx_v_frozen, __pyx_v_dynamic, __pyx_v_hide_private, __pyx_v_ro_data, __pyx_v_ro_method, __pyx_v_ro, __pyx_v_rw, __pyx_v_hide);
 
-  /* "pyprotect/python_visible.pxi":281
+  /* "pyprotect/python_visible.pxi":287
  * 
  * 
  * def protect(             # <<<<<<<<<<<<<<
@@ -7188,90 +7202,90 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("protect", 0);
 
-  /* "pyprotect/python_visible.pxi":340
+  /* "pyprotect/python_visible.pxi":346
  *     '''
  *     kwargs = {
  *         'frozen': frozen,             # <<<<<<<<<<<<<<
  *         'hide_private': hide_private,
  *         'ro_data': ro_data,
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_frozen, __pyx_v_frozen) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_frozen, __pyx_v_frozen) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":341
+  /* "pyprotect/python_visible.pxi":347
  *     kwargs = {
  *         'frozen': frozen,
  *         'hide_private': hide_private,             # <<<<<<<<<<<<<<
  *         'ro_data': ro_data,
  *         'ro_method': ro_method,
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_hide_private, __pyx_v_hide_private) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_hide_private, __pyx_v_hide_private) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":342
+  /* "pyprotect/python_visible.pxi":348
  *         'frozen': frozen,
  *         'hide_private': hide_private,
  *         'ro_data': ro_data,             # <<<<<<<<<<<<<<
  *         'ro_method': ro_method,
  *         'ro': ro,
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ro_data, __pyx_v_ro_data) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ro_data, __pyx_v_ro_data) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":343
+  /* "pyprotect/python_visible.pxi":349
  *         'hide_private': hide_private,
  *         'ro_data': ro_data,
  *         'ro_method': ro_method,             # <<<<<<<<<<<<<<
  *         'ro': ro,
  *         'rw': rw,
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ro_method, __pyx_v_ro_method) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ro_method, __pyx_v_ro_method) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":344
+  /* "pyprotect/python_visible.pxi":350
  *         'ro_data': ro_data,
  *         'ro_method': ro_method,
  *         'ro': ro,             # <<<<<<<<<<<<<<
  *         'rw': rw,
  *         'hide': hide,
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ro, __pyx_v_ro) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_ro, __pyx_v_ro) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":345
+  /* "pyprotect/python_visible.pxi":351
  *         'ro_method': ro_method,
  *         'ro': ro,
  *         'rw': rw,             # <<<<<<<<<<<<<<
  *         'hide': hide,
  *         'dynamic': dynamic,
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_rw, __pyx_v_rw) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_rw, __pyx_v_rw) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":346
+  /* "pyprotect/python_visible.pxi":352
  *         'ro': ro,
  *         'rw': rw,
  *         'hide': hide,             # <<<<<<<<<<<<<<
  *         'dynamic': dynamic,
  *     }
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_hide, __pyx_v_hide) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_hide, __pyx_v_hide) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":347
+  /* "pyprotect/python_visible.pxi":353
  *         'rw': rw,
  *         'hide': hide,
  *         'dynamic': dynamic,             # <<<<<<<<<<<<<<
  *     }
  * 
  */
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dynamic, __pyx_v_dynamic) < 0) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dynamic, __pyx_v_dynamic) < 0) __PYX_ERR(0, 346, __pyx_L1_error)
   __pyx_v_kwargs = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":351
+  /* "pyprotect/python_visible.pxi":357
  * 
  *     # Avoid double-wrapping
  *     if isprotected(o):             # <<<<<<<<<<<<<<
  *         kw1 = getattr(o, PROT_ATTR_NAME).rules.get('kwargs', {})
  *         d = {}
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_isprotected); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 351, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_isprotected); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 357, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -7285,14 +7299,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 351, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 357, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 351, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 357, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":352
+    /* "pyprotect/python_visible.pxi":358
  *     # Avoid double-wrapping
  *     if isprotected(o):
  *         kw1 = getattr(o, PROT_ATTR_NAME).rules.get('kwargs', {})             # <<<<<<<<<<<<<<
@@ -7301,16 +7315,16 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
  */
     __pyx_t_2 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 352, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_rules); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 352, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_rules); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_get); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 352, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_get); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 352, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 358, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_5 = NULL;
     __pyx_t_6 = 0;
@@ -7327,7 +7341,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_n_s_kwargs, __pyx_t_2};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 358, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -7336,14 +7350,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_n_s_kwargs, __pyx_t_2};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_6, 2+__pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 358, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else
     #endif
     {
-      __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(2+__pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 358, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -7354,7 +7368,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_6, __pyx_t_2);
       __pyx_t_2 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 352, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 358, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
@@ -7362,19 +7376,19 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     __pyx_v_kw1 = __pyx_t_1;
     __pyx_t_1 = 0;
 
-    /* "pyprotect/python_visible.pxi":353
+    /* "pyprotect/python_visible.pxi":359
  *     if isprotected(o):
  *         kw1 = getattr(o, PROT_ATTR_NAME).rules.get('kwargs', {})
  *         d = {}             # <<<<<<<<<<<<<<
  *         for (k, v) in kw1.items():
  *             d[k] = v
  */
-    __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 353, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 359, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_d = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/python_visible.pxi":354
+    /* "pyprotect/python_visible.pxi":360
  *         kw1 = getattr(o, PROT_ATTR_NAME).rules.get('kwargs', {})
  *         d = {}
  *         for (k, v) in kw1.items():             # <<<<<<<<<<<<<<
@@ -7384,9 +7398,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     __pyx_t_8 = 0;
     if (unlikely(__pyx_v_kw1 == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-      __PYX_ERR(0, 354, __pyx_L1_error)
+      __PYX_ERR(0, 360, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_dict_iterator(__pyx_v_kw1, 0, __pyx_n_s_items, (&__pyx_t_9), (&__pyx_t_6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 354, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_dict_iterator(__pyx_v_kw1, 0, __pyx_n_s_items, (&__pyx_t_9), (&__pyx_t_6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 360, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_1);
     __pyx_t_1 = __pyx_t_3;
@@ -7394,7 +7408,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     while (1) {
       __pyx_t_10 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_9, &__pyx_t_8, &__pyx_t_3, &__pyx_t_7, NULL, __pyx_t_6);
       if (unlikely(__pyx_t_10 == 0)) break;
-      if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 354, __pyx_L1_error)
+      if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 360, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_XDECREF_SET(__pyx_v_k, __pyx_t_3);
@@ -7402,18 +7416,18 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
       __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "pyprotect/python_visible.pxi":355
+      /* "pyprotect/python_visible.pxi":361
  *         d = {}
  *         for (k, v) in kw1.items():
  *             d[k] = v             # <<<<<<<<<<<<<<
  *         kw1 = d
  *         kw2 = dict(kwargs)
  */
-      if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_k, __pyx_v_v) < 0)) __PYX_ERR(0, 355, __pyx_L1_error)
+      if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_k, __pyx_v_v) < 0)) __PYX_ERR(0, 361, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pyprotect/python_visible.pxi":356
+    /* "pyprotect/python_visible.pxi":362
  *         for (k, v) in kw1.items():
  *             d[k] = v
  *         kw1 = d             # <<<<<<<<<<<<<<
@@ -7423,32 +7437,32 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     __Pyx_INCREF(__pyx_v_d);
     __Pyx_DECREF_SET(__pyx_v_kw1, __pyx_v_d);
 
-    /* "pyprotect/python_visible.pxi":357
+    /* "pyprotect/python_visible.pxi":363
  *             d[k] = v
  *         kw1 = d
  *         kw2 = dict(kwargs)             # <<<<<<<<<<<<<<
  *         kwargs = protected_merge_kwargs(kw1, kw2)
  *         assert(isinstance(kwargs, dict))
  */
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 357, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 363, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_kw2 = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/python_visible.pxi":358
+    /* "pyprotect/python_visible.pxi":364
  *         kw1 = d
  *         kw2 = dict(kwargs)
  *         kwargs = protected_merge_kwargs(kw1, kw2)             # <<<<<<<<<<<<<<
  *         assert(isinstance(kwargs, dict))
  *     rules = dict(protected_rules_from_kwargs(kwargs))
  */
-    if (!(likely(PyDict_CheckExact(__pyx_v_kw1))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "dict", Py_TYPE(__pyx_v_kw1)->tp_name), 0))) __PYX_ERR(0, 358, __pyx_L1_error)
-    __pyx_t_1 = __pyx_f_9pyprotect_9protected_protected_merge_kwargs(((PyObject*)__pyx_v_kw1), __pyx_v_kw2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 358, __pyx_L1_error)
+    if (!(likely(PyDict_CheckExact(__pyx_v_kw1))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "dict", Py_TYPE(__pyx_v_kw1)->tp_name), 0))) __PYX_ERR(0, 364, __pyx_L1_error)
+    __pyx_t_1 = __pyx_f_9pyprotect_9protected_protected_merge_kwargs(((PyObject*)__pyx_v_kw1), __pyx_v_kw2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 364, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF_SET(__pyx_v_kwargs, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/python_visible.pxi":359
+    /* "pyprotect/python_visible.pxi":365
  *         kw2 = dict(kwargs)
  *         kwargs = protected_merge_kwargs(kw1, kw2)
  *         assert(isinstance(kwargs, dict))             # <<<<<<<<<<<<<<
@@ -7460,12 +7474,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
       __pyx_t_4 = PyDict_Check(__pyx_v_kwargs); 
       if (unlikely(!(__pyx_t_4 != 0))) {
         PyErr_SetNone(PyExc_AssertionError);
-        __PYX_ERR(0, 359, __pyx_L1_error)
+        __PYX_ERR(0, 365, __pyx_L1_error)
       }
     }
     #endif
 
-    /* "pyprotect/python_visible.pxi":351
+    /* "pyprotect/python_visible.pxi":357
  * 
  *     # Avoid double-wrapping
  *     if isprotected(o):             # <<<<<<<<<<<<<<
@@ -7474,22 +7488,22 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "pyprotect/python_visible.pxi":360
+  /* "pyprotect/python_visible.pxi":366
  *         kwargs = protected_merge_kwargs(kw1, kw2)
  *         assert(isinstance(kwargs, dict))
  *     rules = dict(protected_rules_from_kwargs(kwargs))             # <<<<<<<<<<<<<<
  *     assert(isinstance(rules, dict))
  *     want_frozen = bool(rules.get('frozen', False)) or isfrozen(o)
  */
-  __pyx_t_1 = __pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 360, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 366, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_7 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 360, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 366, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_rules = ((PyObject*)__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "pyprotect/python_visible.pxi":361
+  /* "pyprotect/python_visible.pxi":367
  *         assert(isinstance(kwargs, dict))
  *     rules = dict(protected_rules_from_kwargs(kwargs))
  *     assert(isinstance(rules, dict))             # <<<<<<<<<<<<<<
@@ -7501,25 +7515,25 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     __pyx_t_4 = PyDict_Check(__pyx_v_rules); 
     if (unlikely(!(__pyx_t_4 != 0))) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 361, __pyx_L1_error)
+      __PYX_ERR(0, 367, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "pyprotect/python_visible.pxi":362
+  /* "pyprotect/python_visible.pxi":368
  *     rules = dict(protected_rules_from_kwargs(kwargs))
  *     assert(isinstance(rules, dict))
  *     want_frozen = bool(rules.get('frozen', False)) or isfrozen(o)             # <<<<<<<<<<<<<<
  *     if want_frozen and not isfrozen(o):
  *         # Frozen objects remain frozen
  */
-  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_rules, __pyx_n_s_frozen, Py_False); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 362, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_rules, __pyx_n_s_frozen, Py_False); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 362, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 362, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_4))); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 362, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 368, __pyx_L1_error)
   if (!__pyx_t_4) {
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
@@ -7528,7 +7542,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     goto __pyx_L6_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 362, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -7542,7 +7556,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_2, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 362, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_INCREF(__pyx_t_1);
@@ -7552,20 +7566,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
   __pyx_v_want_frozen = __pyx_t_7;
   __pyx_t_7 = 0;
 
-  /* "pyprotect/python_visible.pxi":363
+  /* "pyprotect/python_visible.pxi":369
  *     assert(isinstance(rules, dict))
  *     want_frozen = bool(rules.get('frozen', False)) or isfrozen(o)
  *     if want_frozen and not isfrozen(o):             # <<<<<<<<<<<<<<
  *         # Frozen objects remain frozen
  *         rules['frozen'] = True
  */
-  __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_v_want_frozen); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 363, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_v_want_frozen); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 369, __pyx_L1_error)
   if (__pyx_t_11) {
   } else {
     __pyx_t_4 = __pyx_t_11;
     goto __pyx_L9_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 363, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_isfrozen); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -7579,26 +7593,26 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
   }
   __pyx_t_7 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 363, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 363, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(0, 369, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_12 = ((!__pyx_t_11) != 0);
   __pyx_t_4 = __pyx_t_12;
   __pyx_L9_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":365
+    /* "pyprotect/python_visible.pxi":371
  *     if want_frozen and not isfrozen(o):
  *         # Frozen objects remain frozen
  *         rules['frozen'] = True             # <<<<<<<<<<<<<<
  *     if iswrapped(o):
  *         return getattr(o, PROT_ATTR_NAME).protect(rules)
  */
-    if (unlikely(PyDict_SetItem(__pyx_v_rules, __pyx_n_s_frozen, Py_True) < 0)) __PYX_ERR(0, 365, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_rules, __pyx_n_s_frozen, Py_True) < 0)) __PYX_ERR(0, 371, __pyx_L1_error)
 
-    /* "pyprotect/python_visible.pxi":363
+    /* "pyprotect/python_visible.pxi":369
  *     assert(isinstance(rules, dict))
  *     want_frozen = bool(rules.get('frozen', False)) or isfrozen(o)
  *     if want_frozen and not isfrozen(o):             # <<<<<<<<<<<<<<
@@ -7607,14 +7621,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "pyprotect/python_visible.pxi":366
+  /* "pyprotect/python_visible.pxi":372
  *         # Frozen objects remain frozen
  *         rules['frozen'] = True
  *     if iswrapped(o):             # <<<<<<<<<<<<<<
  *         return getattr(o, PROT_ATTR_NAME).protect(rules)
  *     else:
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 366, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -7628,14 +7642,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
   }
   __pyx_t_7 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_o);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 366, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 372, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 366, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_7); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 372, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/python_visible.pxi":367
+    /* "pyprotect/python_visible.pxi":373
  *         rules['frozen'] = True
  *     if iswrapped(o):
  *         return getattr(o, PROT_ATTR_NAME).protect(rules)             # <<<<<<<<<<<<<<
@@ -7645,10 +7659,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_1 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr(__pyx_v_o, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 373, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_protect); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 367, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_protect); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 373, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = NULL;
@@ -7663,14 +7677,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     }
     __pyx_t_7 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_v_rules) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_rules);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 367, __pyx_L1_error)
+    if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 373, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_r = __pyx_t_7;
     __pyx_t_7 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/python_visible.pxi":366
+    /* "pyprotect/python_visible.pxi":372
  *         # Frozen objects remain frozen
  *         rules['frozen'] = True
  *     if iswrapped(o):             # <<<<<<<<<<<<<<
@@ -7679,7 +7693,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
  */
   }
 
-  /* "pyprotect/python_visible.pxi":369
+  /* "pyprotect/python_visible.pxi":375
  *         return getattr(o, PROT_ATTR_NAME).protect(rules)
  *     else:
  *         if want_frozen:             # <<<<<<<<<<<<<<
@@ -7687,10 +7701,10 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
  *         else:
  */
   /*else*/ {
-    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_want_frozen); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 369, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_v_want_frozen); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 375, __pyx_L1_error)
     if (__pyx_t_4) {
 
-      /* "pyprotect/python_visible.pxi":370
+      /* "pyprotect/python_visible.pxi":376
  *     else:
  *         if want_frozen:
  *             return FrozenProtected(o, rules)             # <<<<<<<<<<<<<<
@@ -7698,7 +7712,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
  *             return Protected(o, rules)
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 370, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 376, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_INCREF(__pyx_v_o);
       __Pyx_GIVEREF(__pyx_v_o);
@@ -7706,14 +7720,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
       __Pyx_INCREF(__pyx_v_rules);
       __Pyx_GIVEREF(__pyx_v_rules);
       PyTuple_SET_ITEM(__pyx_t_7, 1, __pyx_v_rules);
-      __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenProtected), __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 370, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenProtected), __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 376, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_r = __pyx_t_1;
       __pyx_t_1 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/python_visible.pxi":369
+      /* "pyprotect/python_visible.pxi":375
  *         return getattr(o, PROT_ATTR_NAME).protect(rules)
  *     else:
  *         if want_frozen:             # <<<<<<<<<<<<<<
@@ -7722,7 +7736,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
  */
     }
 
-    /* "pyprotect/python_visible.pxi":372
+    /* "pyprotect/python_visible.pxi":378
  *             return FrozenProtected(o, rules)
  *         else:
  *             return Protected(o, rules)             # <<<<<<<<<<<<<<
@@ -7731,7 +7745,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
  */
     /*else*/ {
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 372, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 378, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_INCREF(__pyx_v_o);
       __Pyx_GIVEREF(__pyx_v_o);
@@ -7739,7 +7753,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
       __Pyx_INCREF(__pyx_v_rules);
       __Pyx_GIVEREF(__pyx_v_rules);
       PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_v_rules);
-      __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_Protected), __pyx_t_1, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 372, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_Protected), __pyx_t_1, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 378, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_r = __pyx_t_7;
@@ -7748,7 +7762,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
     }
   }
 
-  /* "pyprotect/python_visible.pxi":281
+  /* "pyprotect/python_visible.pxi":287
  * 
  * 
  * def protect(             # <<<<<<<<<<<<<<
@@ -7779,7 +7793,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_40protect(CYTHON_UNUSED PyObject
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":379
+/* "pyprotect/python_visible.pxi":385
  * # ------------------------------------------------------------------------
  * 
  * def never_writeable():             # <<<<<<<<<<<<<<
@@ -7807,7 +7821,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_42never_writeable(CYTHON_UNUSED 
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("never_writeable", 0);
 
-  /* "pyprotect/python_visible.pxi":384
+  /* "pyprotect/python_visible.pxi":390
  *     in object 'o' if iswrapped(o)
  *     '''
  *     return overridden_always             # <<<<<<<<<<<<<<
@@ -7819,7 +7833,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_42never_writeable(CYTHON_UNUSED 
   __pyx_r = __pyx_v_9pyprotect_9protected_overridden_always;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":379
+  /* "pyprotect/python_visible.pxi":385
  * # ------------------------------------------------------------------------
  * 
  * def never_writeable():             # <<<<<<<<<<<<<<
@@ -7834,7 +7848,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_42never_writeable(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":386
+/* "pyprotect/python_visible.pxi":392
  *     return overridden_always
  * 
  * def never_writeable_private():             # <<<<<<<<<<<<<<
@@ -7870,7 +7884,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_44never_writeable_private(CYTHON
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("never_writeable_private", 0);
 
-  /* "pyprotect/python_visible.pxi":391
+  /* "pyprotect/python_visible.pxi":397
  *     writeable in object 'o' if isprivate(o)
  *     '''
  *     return frozenset(set().union(             # <<<<<<<<<<<<<<
@@ -7878,13 +7892,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_44never_writeable_private(CYTHON
  *         always_frozen
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 391, __pyx_L1_error)
+  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_union); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 391, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_union); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/python_visible.pxi":393
+  /* "pyprotect/python_visible.pxi":399
  *     return frozenset(set().union(
  *         overridden_always,
  *         always_frozen             # <<<<<<<<<<<<<<
@@ -7906,7 +7920,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_44never_writeable_private(CYTHON
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_9pyprotect_9protected_overridden_always, __pyx_v_9pyprotect_9protected_always_frozen};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 391, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -7914,13 +7928,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_44never_writeable_private(CYTHON
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_9pyprotect_9protected_overridden_always, __pyx_v_9pyprotect_9protected_always_frozen};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 391, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 391, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -7931,27 +7945,27 @@ static PyObject *__pyx_pf_9pyprotect_9protected_44never_writeable_private(CYTHON
     __Pyx_INCREF(__pyx_v_9pyprotect_9protected_always_frozen);
     __Pyx_GIVEREF(__pyx_v_9pyprotect_9protected_always_frozen);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_9pyprotect_9protected_always_frozen);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 391, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 397, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/python_visible.pxi":391
+  /* "pyprotect/python_visible.pxi":397
  *     writeable in object 'o' if isprivate(o)
  *     '''
  *     return frozenset(set().union(             # <<<<<<<<<<<<<<
  *         overridden_always,
  *         always_frozen
  */
-  __pyx_t_3 = __Pyx_PyFrozenSet_New(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 391, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyFrozenSet_New(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 397, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":386
+  /* "pyprotect/python_visible.pxi":392
  *     return overridden_always
  * 
  * def never_writeable_private():             # <<<<<<<<<<<<<<
@@ -7973,7 +7987,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_44never_writeable_private(CYTHON
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":396
+/* "pyprotect/python_visible.pxi":402
  *     ))
  * 
  * def hidden_pickle_attributes():             # <<<<<<<<<<<<<<
@@ -8001,7 +8015,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_46hidden_pickle_attributes(CYTHO
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("hidden_pickle_attributes", 0);
 
-  /* "pyprotect/python_visible.pxi":401
+  /* "pyprotect/python_visible.pxi":407
  *     visible in object 'o' if iswrapped(o) - to disallow pickling
  *     '''
  *     return pickle_attributes             # <<<<<<<<<<<<<<
@@ -8013,7 +8027,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_46hidden_pickle_attributes(CYTHO
   __pyx_r = __pyx_v_9pyprotect_9protected_pickle_attributes;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":396
+  /* "pyprotect/python_visible.pxi":402
  *     ))
  * 
  * def hidden_pickle_attributes():             # <<<<<<<<<<<<<<
@@ -8028,7 +8042,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_46hidden_pickle_attributes(CYTHO
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":403
+/* "pyprotect/python_visible.pxi":409
  *     return pickle_attributes
  * 
  * def always_delegated_attributes():             # <<<<<<<<<<<<<<
@@ -8056,7 +8070,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_48always_delegated_attributes(CY
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("always_delegated_attributes", 0);
 
-  /* "pyprotect/python_visible.pxi":408
+  /* "pyprotect/python_visible.pxi":414
  *     always delegated to wrapped object
  *     '''
  *     return always_delegated             # <<<<<<<<<<<<<<
@@ -8068,7 +8082,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_48always_delegated_attributes(CY
   __pyx_r = __pyx_v_9pyprotect_9protected_always_delegated;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":403
+  /* "pyprotect/python_visible.pxi":409
  *     return pickle_attributes
  * 
  * def always_delegated_attributes():             # <<<<<<<<<<<<<<
@@ -8083,17 +8097,17 @@ static PyObject *__pyx_pf_9pyprotect_9protected_48always_delegated_attributes(CY
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":410
+/* "pyprotect/python_visible.pxi":416
  *     return always_delegated
  * 
  * def immutable_builtin_attributes():             # <<<<<<<<<<<<<<
  *     '''
- *     Returns: frozenset of str: attributes in builtins that are immutable
+ *     immutable_builtin_attributes() -> frozenset(str)
  */
 
 /* Python wrapper */
 static PyObject *__pyx_pw_9pyprotect_9protected_51immutable_builtin_attributes(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_9pyprotect_9protected_50immutable_builtin_attributes[] = "\n    Returns: frozenset of str: attributes in builtins that are immutable\n    ";
+static char __pyx_doc_9pyprotect_9protected_50immutable_builtin_attributes[] = "\n    immutable_builtin_attributes() -> frozenset(str)\n    Returns: attributes in builtins that are immutable\n    ";
 static PyMethodDef __pyx_mdef_9pyprotect_9protected_51immutable_builtin_attributes = {"immutable_builtin_attributes", (PyCFunction)__pyx_pw_9pyprotect_9protected_51immutable_builtin_attributes, METH_NOARGS, __pyx_doc_9pyprotect_9protected_50immutable_builtin_attributes};
 static PyObject *__pyx_pw_9pyprotect_9protected_51immutable_builtin_attributes(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
@@ -8111,8 +8125,8 @@ static PyObject *__pyx_pf_9pyprotect_9protected_50immutable_builtin_attributes(C
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("immutable_builtin_attributes", 0);
 
-  /* "pyprotect/python_visible.pxi":414
- *     Returns: frozenset of str: attributes in builtins that are immutable
+  /* "pyprotect/python_visible.pxi":421
+ *     Returns: attributes in builtins that are immutable
  *     '''
  *     return builtin_module_immutable_attributes             # <<<<<<<<<<<<<<
  * 
@@ -8123,12 +8137,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_50immutable_builtin_attributes(C
   __pyx_r = __pyx_v_9pyprotect_9protected_builtin_module_immutable_attributes;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":410
+  /* "pyprotect/python_visible.pxi":416
  *     return always_delegated
  * 
  * def immutable_builtin_attributes():             # <<<<<<<<<<<<<<
  *     '''
- *     Returns: frozenset of str: attributes in builtins that are immutable
+ *     immutable_builtin_attributes() -> frozenset(str)
  */
 
   /* function exit code */
@@ -8138,7 +8152,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_50immutable_builtin_attributes(C
   return __pyx_r;
 }
 
-/* "pyprotect/python_visible.pxi":428
+/* "pyprotect/python_visible.pxi":437
  * 
  * 
  * def __dir__():             # <<<<<<<<<<<<<<
@@ -8169,7 +8183,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_52__dir__(CYTHON_UNUSED PyObject
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__dir__", 0);
 
-  /* "pyprotect/python_visible.pxi":429
+  /* "pyprotect/python_visible.pxi":438
  * 
  * def __dir__():
  *     return __all__             # <<<<<<<<<<<<<<
@@ -8177,13 +8191,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_52__dir__(CYTHON_UNUSED PyObject
  * class ProtectionError(Exception):
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_all); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 429, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_all); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/python_visible.pxi":428
+  /* "pyprotect/python_visible.pxi":437
  * 
  * 
  * def __dir__():             # <<<<<<<<<<<<<<
@@ -14740,7 +14754,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_15_ProtectionData_12__setstate_c
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":26
+/* "pyprotect/Wrapped_Frozen.pxi":25
  *     cdef object hidden_private_attr
  * 
  *     def __init__(self, o, frozen=False, rules=None, oldstyle_class=None):             # <<<<<<<<<<<<<<
@@ -14811,7 +14825,7 @@ static int __pyx_pw_9pyprotect_9protected_7Wrapped_1__init__(PyObject *__pyx_v_s
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(2, 26, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(2, 25, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -14833,7 +14847,7 @@ static int __pyx_pw_9pyprotect_9protected_7Wrapped_1__init__(PyObject *__pyx_v_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 26, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 25, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.Wrapped.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -14867,7 +14881,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_RefNannySetupContext("__init__", 0);
   __Pyx_INCREF(__pyx_v_rules);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":32
+  /* "pyprotect/Wrapped_Frozen.pxi":31
  *         rules: dict (if called from Protected.__init__) or None
  *         '''
  *         if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -14878,20 +14892,20 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (unlikely(__pyx_t_2)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":35
+    /* "pyprotect/Wrapped_Frozen.pxi":34
  *             # We claim to be avoiding double-wrapping, so this exception
  *             # should never be raised
  *             raise RuntimeError('Double-wrapped!')             # <<<<<<<<<<<<<<
  * 
  *         self.pvt_o = o
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 35, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 34, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(2, 35, __pyx_L1_error)
+    __PYX_ERR(2, 34, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":32
+    /* "pyprotect/Wrapped_Frozen.pxi":31
  *         rules: dict (if called from Protected.__init__) or None
  *         '''
  *         if isinstance(o, Wrapped):             # <<<<<<<<<<<<<<
@@ -14900,7 +14914,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":37
+  /* "pyprotect/Wrapped_Frozen.pxi":36
  *             raise RuntimeError('Double-wrapped!')
  * 
  *         self.pvt_o = o             # <<<<<<<<<<<<<<
@@ -14913,17 +14927,17 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __Pyx_DECREF(__pyx_v_self->pvt_o);
   __pyx_v_self->pvt_o = __pyx_v_o;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":38
+  /* "pyprotect/Wrapped_Frozen.pxi":37
  * 
  *         self.pvt_o = o
  *         self.frozen = bool(frozen)             # <<<<<<<<<<<<<<
  *         if oldstyle_class is None:
  *             self.oldstyle_class = False
  */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_frozen); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 38, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_frozen); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 37, __pyx_L1_error)
   __pyx_v_self->frozen = (!(!__pyx_t_2));
 
-  /* "pyprotect/Wrapped_Frozen.pxi":39
+  /* "pyprotect/Wrapped_Frozen.pxi":38
  *         self.pvt_o = o
  *         self.frozen = bool(frozen)
  *         if oldstyle_class is None:             # <<<<<<<<<<<<<<
@@ -14934,7 +14948,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":40
+    /* "pyprotect/Wrapped_Frozen.pxi":39
  *         self.frozen = bool(frozen)
  *         if oldstyle_class is None:
  *             self.oldstyle_class = False             # <<<<<<<<<<<<<<
@@ -14943,7 +14957,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  */
     __pyx_v_self->oldstyle_class = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":39
+    /* "pyprotect/Wrapped_Frozen.pxi":38
  *         self.pvt_o = o
  *         self.frozen = bool(frozen)
  *         if oldstyle_class is None:             # <<<<<<<<<<<<<<
@@ -14953,7 +14967,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     goto __pyx_L4;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":42
+  /* "pyprotect/Wrapped_Frozen.pxi":41
  *             self.oldstyle_class = False
  *         else:
  *             self.oldstyle_class = oldstyle_class             # <<<<<<<<<<<<<<
@@ -14961,12 +14975,12 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  *             # In PY2 old-style classes don't have __class__ attribute !
  */
   /*else*/ {
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_oldstyle_class); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 42, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_oldstyle_class); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 41, __pyx_L1_error)
     __pyx_v_self->oldstyle_class = __pyx_t_1;
   }
   __pyx_L4:;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":43
+  /* "pyprotect/Wrapped_Frozen.pxi":42
  *         else:
  *             self.oldstyle_class = oldstyle_class
  *         if PY2:             # <<<<<<<<<<<<<<
@@ -14976,18 +14990,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __pyx_t_1 = (__pyx_v_9pyprotect_9protected_PY2 != 0);
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":53
+    /* "pyprotect/Wrapped_Frozen.pxi":52
  *             # CCC is self.cn
  *             # Instances of such classes CAN be wrapped normally.
  *             if hasattr(o, '__class__'):             # <<<<<<<<<<<<<<
  *                 if type(o) is type:
  *                     if self.cn is None:
  */
-    __pyx_t_1 = __Pyx_HasAttr(__pyx_v_o, __pyx_n_s_class); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(2, 53, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_HasAttr(__pyx_v_o, __pyx_n_s_class); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(2, 52, __pyx_L1_error)
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (__pyx_t_2) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":54
+      /* "pyprotect/Wrapped_Frozen.pxi":53
  *             # Instances of such classes CAN be wrapped normally.
  *             if hasattr(o, '__class__'):
  *                 if type(o) is type:             # <<<<<<<<<<<<<<
@@ -14998,7 +15012,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
       __pyx_t_1 = (__pyx_t_2 != 0);
       if (__pyx_t_1) {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":55
+        /* "pyprotect/Wrapped_Frozen.pxi":54
  *             if hasattr(o, '__class__'):
  *                 if type(o) is type:
  *                     if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15009,23 +15023,23 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
         __pyx_t_2 = (__pyx_t_1 != 0);
         if (__pyx_t_2) {
 
-          /* "pyprotect/Wrapped_Frozen.pxi":56
+          /* "pyprotect/Wrapped_Frozen.pxi":55
  *                 if type(o) is type:
  *                     if self.cn is None:
  *                         self.cn = o.__name__             # <<<<<<<<<<<<<<
  *                 else:
  *                     if self.cn is None:
  */
-          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_o, __pyx_n_s_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 56, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_o, __pyx_n_s_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 55, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(2, 56, __pyx_L1_error)
+          if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(2, 55, __pyx_L1_error)
           __Pyx_GIVEREF(__pyx_t_3);
           __Pyx_GOTREF(__pyx_v_self->cn);
           __Pyx_DECREF(__pyx_v_self->cn);
           __pyx_v_self->cn = ((PyObject*)__pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "pyprotect/Wrapped_Frozen.pxi":55
+          /* "pyprotect/Wrapped_Frozen.pxi":54
  *             if hasattr(o, '__class__'):
  *                 if type(o) is type:
  *                     if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15034,7 +15048,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  */
         }
 
-        /* "pyprotect/Wrapped_Frozen.pxi":54
+        /* "pyprotect/Wrapped_Frozen.pxi":53
  *             # Instances of such classes CAN be wrapped normally.
  *             if hasattr(o, '__class__'):
  *                 if type(o) is type:             # <<<<<<<<<<<<<<
@@ -15044,7 +15058,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
         goto __pyx_L7;
       }
 
-      /* "pyprotect/Wrapped_Frozen.pxi":58
+      /* "pyprotect/Wrapped_Frozen.pxi":57
  *                         self.cn = o.__name__
  *                 else:
  *                     if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15056,29 +15070,29 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
         __pyx_t_1 = (__pyx_t_2 != 0);
         if (__pyx_t_1) {
 
-          /* "pyprotect/Wrapped_Frozen.pxi":59
+          /* "pyprotect/Wrapped_Frozen.pxi":58
  *                 else:
  *                     if self.cn is None:
  *                         self.cn = str(o.__class__.__name__)             # <<<<<<<<<<<<<<
  *             else:
  *                 if self.cn is None:
  */
-          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_o, __pyx_n_s_class); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 59, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_o, __pyx_n_s_class); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 58, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 59, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 58, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 59, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 58, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(2, 59, __pyx_L1_error)
+          if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(2, 58, __pyx_L1_error)
           __Pyx_GIVEREF(__pyx_t_3);
           __Pyx_GOTREF(__pyx_v_self->cn);
           __Pyx_DECREF(__pyx_v_self->cn);
           __pyx_v_self->cn = ((PyObject*)__pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "pyprotect/Wrapped_Frozen.pxi":58
+          /* "pyprotect/Wrapped_Frozen.pxi":57
  *                         self.cn = o.__name__
  *                 else:
  *                     if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15089,7 +15103,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
       }
       __pyx_L7:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":53
+      /* "pyprotect/Wrapped_Frozen.pxi":52
  *             # CCC is self.cn
  *             # Instances of such classes CAN be wrapped normally.
  *             if hasattr(o, '__class__'):             # <<<<<<<<<<<<<<
@@ -15099,7 +15113,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
       goto __pyx_L6;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":61
+    /* "pyprotect/Wrapped_Frozen.pxi":60
  *                         self.cn = str(o.__class__.__name__)
  *             else:
  *                 if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15111,7 +15125,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
       __pyx_t_2 = (__pyx_t_1 != 0);
       if (__pyx_t_2) {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":62
+        /* "pyprotect/Wrapped_Frozen.pxi":61
  *             else:
  *                 if self.cn is None:
  *                     self.cn = 'Unknown_OldStyle_Class'             # <<<<<<<<<<<<<<
@@ -15124,7 +15138,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
         __Pyx_DECREF(__pyx_v_self->cn);
         __pyx_v_self->cn = __pyx_n_s_Unknown_OldStyle_Class;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":61
+        /* "pyprotect/Wrapped_Frozen.pxi":60
  *                         self.cn = str(o.__class__.__name__)
  *             else:
  *                 if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15133,7 +15147,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  */
       }
 
-      /* "pyprotect/Wrapped_Frozen.pxi":63
+      /* "pyprotect/Wrapped_Frozen.pxi":62
  *                 if self.cn is None:
  *                     self.cn = 'Unknown_OldStyle_Class'
  *                 if oldstyle_class is None:             # <<<<<<<<<<<<<<
@@ -15144,7 +15158,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
       __pyx_t_1 = (__pyx_t_2 != 0);
       if (__pyx_t_1) {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":64
+        /* "pyprotect/Wrapped_Frozen.pxi":63
  *                     self.cn = 'Unknown_OldStyle_Class'
  *                 if oldstyle_class is None:
  *                     self.oldstyle_class = True             # <<<<<<<<<<<<<<
@@ -15153,7 +15167,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  */
         __pyx_v_self->oldstyle_class = 1;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":63
+        /* "pyprotect/Wrapped_Frozen.pxi":62
  *                 if self.cn is None:
  *                     self.cn = 'Unknown_OldStyle_Class'
  *                 if oldstyle_class is None:             # <<<<<<<<<<<<<<
@@ -15164,7 +15178,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     }
     __pyx_L6:;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":43
+    /* "pyprotect/Wrapped_Frozen.pxi":42
  *         else:
  *             self.oldstyle_class = oldstyle_class
  *         if PY2:             # <<<<<<<<<<<<<<
@@ -15174,7 +15188,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     goto __pyx_L5;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":66
+  /* "pyprotect/Wrapped_Frozen.pxi":65
  *                     self.oldstyle_class = True
  *         else:
  *             if type(o) is type:             # <<<<<<<<<<<<<<
@@ -15186,7 +15200,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (__pyx_t_2) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":67
+      /* "pyprotect/Wrapped_Frozen.pxi":66
  *         else:
  *             if type(o) is type:
  *                 if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15197,23 +15211,23 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
       __pyx_t_1 = (__pyx_t_2 != 0);
       if (__pyx_t_1) {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":68
+        /* "pyprotect/Wrapped_Frozen.pxi":67
  *             if type(o) is type:
  *                 if self.cn is None:
  *                     self.cn = o.__name__             # <<<<<<<<<<<<<<
  *             else:
  *                 if self.cn is None:
  */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_o, __pyx_n_s_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 68, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_o, __pyx_n_s_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 67, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(2, 68, __pyx_L1_error)
+        if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(2, 67, __pyx_L1_error)
         __Pyx_GIVEREF(__pyx_t_3);
         __Pyx_GOTREF(__pyx_v_self->cn);
         __Pyx_DECREF(__pyx_v_self->cn);
         __pyx_v_self->cn = ((PyObject*)__pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":67
+        /* "pyprotect/Wrapped_Frozen.pxi":66
  *         else:
  *             if type(o) is type:
  *                 if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15222,7 +15236,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  */
       }
 
-      /* "pyprotect/Wrapped_Frozen.pxi":66
+      /* "pyprotect/Wrapped_Frozen.pxi":65
  *                     self.oldstyle_class = True
  *         else:
  *             if type(o) is type:             # <<<<<<<<<<<<<<
@@ -15232,7 +15246,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
       goto __pyx_L12;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":70
+    /* "pyprotect/Wrapped_Frozen.pxi":69
  *                     self.cn = o.__name__
  *             else:
  *                 if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15244,29 +15258,29 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
       __pyx_t_2 = (__pyx_t_1 != 0);
       if (__pyx_t_2) {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":71
+        /* "pyprotect/Wrapped_Frozen.pxi":70
  *             else:
  *                 if self.cn is None:
  *                     self.cn = str(o.__class__.__name__)             # <<<<<<<<<<<<<<
  * 
  *         # self.hidden_private_attr is set in Wrapped.__init__ but
  */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_o, __pyx_n_s_class); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 71, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_o, __pyx_n_s_class); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 70, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 71, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 70, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 71, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 70, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(2, 71, __pyx_L1_error)
+        if (!(likely(PyString_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "str", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(2, 70, __pyx_L1_error)
         __Pyx_GIVEREF(__pyx_t_3);
         __Pyx_GOTREF(__pyx_v_self->cn);
         __Pyx_DECREF(__pyx_v_self->cn);
         __pyx_v_self->cn = ((PyObject*)__pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":70
+        /* "pyprotect/Wrapped_Frozen.pxi":69
  *                     self.cn = o.__name__
  *             else:
  *                 if self.cn is None:             # <<<<<<<<<<<<<<
@@ -15279,7 +15293,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   }
   __pyx_L5:;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":75
+  /* "pyprotect/Wrapped_Frozen.pxi":74
  *         # self.hidden_private_attr is set in Wrapped.__init__ but
  *         # only used in Private and descendants
  *         if self.oldstyle_class:             # <<<<<<<<<<<<<<
@@ -15289,40 +15303,40 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __pyx_t_2 = (__pyx_v_self->oldstyle_class != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":76
+    /* "pyprotect/Wrapped_Frozen.pxi":75
  *         # only used in Private and descendants
  *         if self.oldstyle_class:
  *             self.hidden_private_attr = re.compile(             # <<<<<<<<<<<<<<
  *                 mangled_private_attr_regex_fmt % (
  *                     mangled_private_attr_classname_regex,
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_re); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 76, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_re); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_compile); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 76, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_compile); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":78
+    /* "pyprotect/Wrapped_Frozen.pxi":77
  *             self.hidden_private_attr = re.compile(
  *                 mangled_private_attr_regex_fmt % (
  *                     mangled_private_attr_classname_regex,             # <<<<<<<<<<<<<<
  *                 )
  *             )
  */
-    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 78, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 77, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_9pyprotect_9protected_mangled_private_attr_classname_regex);
     __Pyx_GIVEREF(__pyx_v_9pyprotect_9protected_mangled_private_attr_classname_regex);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_9pyprotect_9protected_mangled_private_attr_classname_regex);
 
-    /* "pyprotect/Wrapped_Frozen.pxi":77
+    /* "pyprotect/Wrapped_Frozen.pxi":76
  *         if self.oldstyle_class:
  *             self.hidden_private_attr = re.compile(
  *                 mangled_private_attr_regex_fmt % (             # <<<<<<<<<<<<<<
  *                     mangled_private_attr_classname_regex,
  *                 )
  */
-    __pyx_t_6 = PyNumber_Remainder(__pyx_v_9pyprotect_9protected_mangled_private_attr_regex_fmt, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 77, __pyx_L1_error)
+    __pyx_t_6 = PyNumber_Remainder(__pyx_v_9pyprotect_9protected_mangled_private_attr_regex_fmt, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -15338,11 +15352,11 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_4, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 76, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 75, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":76
+    /* "pyprotect/Wrapped_Frozen.pxi":75
  *         # only used in Private and descendants
  *         if self.oldstyle_class:
  *             self.hidden_private_attr = re.compile(             # <<<<<<<<<<<<<<
@@ -15355,7 +15369,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __pyx_v_self->hidden_private_attr = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":75
+    /* "pyprotect/Wrapped_Frozen.pxi":74
  *         # self.hidden_private_attr is set in Wrapped.__init__ but
  *         # only used in Private and descendants
  *         if self.oldstyle_class:             # <<<<<<<<<<<<<<
@@ -15365,7 +15379,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     goto __pyx_L15;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":82
+  /* "pyprotect/Wrapped_Frozen.pxi":81
  *             )
  *         else:
  *             self.hidden_private_attr = re.compile(             # <<<<<<<<<<<<<<
@@ -15373,33 +15387,33 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  *                     self.cn,
  */
   /*else*/ {
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_re); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 82, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_re); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_compile); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 82, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_compile); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":84
+    /* "pyprotect/Wrapped_Frozen.pxi":83
  *             self.hidden_private_attr = re.compile(
  *                 mangled_private_attr_regex_fmt % (
  *                     self.cn,             # <<<<<<<<<<<<<<
  *                 )
  *             )
  */
-    __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 84, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 83, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_v_self->cn);
     __Pyx_GIVEREF(__pyx_v_self->cn);
     PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v_self->cn);
 
-    /* "pyprotect/Wrapped_Frozen.pxi":83
+    /* "pyprotect/Wrapped_Frozen.pxi":82
  *         else:
  *             self.hidden_private_attr = re.compile(
  *                 mangled_private_attr_regex_fmt % (             # <<<<<<<<<<<<<<
  *                     self.cn,
  *                 )
  */
-    __pyx_t_4 = PyNumber_Remainder(__pyx_v_9pyprotect_9protected_mangled_private_attr_regex_fmt, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 83, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Remainder(__pyx_v_9pyprotect_9protected_mangled_private_attr_regex_fmt, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 82, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = NULL;
@@ -15415,11 +15429,11 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_4);
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 82, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 81, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":82
+    /* "pyprotect/Wrapped_Frozen.pxi":81
  *             )
  *         else:
  *             self.hidden_private_attr = re.compile(             # <<<<<<<<<<<<<<
@@ -15434,7 +15448,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   }
   __pyx_L15:;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":89
+  /* "pyprotect/Wrapped_Frozen.pxi":88
  * 
  *         # Special code to avoid double-wrapping of Protected
  *         if rules is None:             # <<<<<<<<<<<<<<
@@ -15445,22 +15459,22 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":90
+    /* "pyprotect/Wrapped_Frozen.pxi":89
  *         # Special code to avoid double-wrapping of Protected
  *         if rules is None:
  *             rules = dict(self.get_rules())             # <<<<<<<<<<<<<<
  * 
  *         if self.frozen:
  */
-    __pyx_t_3 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->get_rules(__pyx_v_self); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 90, __pyx_L1_error)
+    __pyx_t_3 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->get_rules(__pyx_v_self); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 90, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_t_3); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF_SET(__pyx_v_rules, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":89
+    /* "pyprotect/Wrapped_Frozen.pxi":88
  * 
  *         # Special code to avoid double-wrapping of Protected
  *         if rules is None:             # <<<<<<<<<<<<<<
@@ -15469,7 +15483,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":92
+  /* "pyprotect/Wrapped_Frozen.pxi":91
  *             rules = dict(self.get_rules())
  * 
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -15479,7 +15493,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":93
+    /* "pyprotect/Wrapped_Frozen.pxi":92
  * 
  *         if self.frozen:
  *             protect_class = FrozenProtected             # <<<<<<<<<<<<<<
@@ -15489,7 +15503,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_INCREF(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenProtected));
     __pyx_v_protect_class = __pyx_ptype_9pyprotect_9protected_FrozenProtected;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":94
+    /* "pyprotect/Wrapped_Frozen.pxi":93
  *         if self.frozen:
  *             protect_class = FrozenProtected
  *             private_class = FrozenPrivate             # <<<<<<<<<<<<<<
@@ -15499,7 +15513,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_INCREF(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivate));
     __pyx_v_private_class = __pyx_ptype_9pyprotect_9protected_FrozenPrivate;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":92
+    /* "pyprotect/Wrapped_Frozen.pxi":91
  *             rules = dict(self.get_rules())
  * 
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -15509,7 +15523,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     goto __pyx_L17;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":96
+  /* "pyprotect/Wrapped_Frozen.pxi":95
  *             private_class = FrozenPrivate
  *         else:
  *             protect_class = Protected             # <<<<<<<<<<<<<<
@@ -15520,7 +15534,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_INCREF(((PyObject *)__pyx_ptype_9pyprotect_9protected_Protected));
     __pyx_v_protect_class = __pyx_ptype_9pyprotect_9protected_Protected;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":97
+    /* "pyprotect/Wrapped_Frozen.pxi":96
  *         else:
  *             protect_class = Protected
  *             private_class = Private             # <<<<<<<<<<<<<<
@@ -15532,7 +15546,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   }
   __pyx_L17:;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":98
+  /* "pyprotect/Wrapped_Frozen.pxi":97
  *             protect_class = Protected
  *             private_class = Private
  *         if isinstance(self.pvt_o, type):             # <<<<<<<<<<<<<<
@@ -15546,19 +15560,19 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":99
+    /* "pyprotect/Wrapped_Frozen.pxi":98
  *             private_class = Private
  *         if isinstance(self.pvt_o, type):
  *             id_class = id(self.pvt_o)             # <<<<<<<<<<<<<<
  *         else:
  *             id_class = id(type(self.pvt_o))
  */
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 99, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 98, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_v_id_class = __pyx_t_6;
     __pyx_t_6 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":98
+    /* "pyprotect/Wrapped_Frozen.pxi":97
  *             protect_class = Protected
  *             private_class = Private
  *         if isinstance(self.pvt_o, type):             # <<<<<<<<<<<<<<
@@ -15568,7 +15582,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     goto __pyx_L18;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":101
+  /* "pyprotect/Wrapped_Frozen.pxi":100
  *             id_class = id(self.pvt_o)
  *         else:
  *             id_class = id(type(self.pvt_o))             # <<<<<<<<<<<<<<
@@ -15576,49 +15590,49 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
  *         self.protected_attribute = _ProtectionData(
  */
   /*else*/ {
-    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, ((PyObject *)Py_TYPE(__pyx_v_self->pvt_o))); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 101, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, ((PyObject *)Py_TYPE(__pyx_v_self->pvt_o))); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 100, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_v_id_class = __pyx_t_6;
     __pyx_t_6 = 0;
   }
   __pyx_L18:;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":104
+  /* "pyprotect/Wrapped_Frozen.pxi":103
  * 
  *         self.protected_attribute = _ProtectionData(
  *             id_val=id(self.pvt_o),             # <<<<<<<<<<<<<<
  *             id_class=id_class,
  *             hash_val=functools.partial(self.hash_protected, self),
  */
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(15); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 104, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(15); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 104, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_id_val, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_id_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":105
+  /* "pyprotect/Wrapped_Frozen.pxi":104
  *         self.protected_attribute = _ProtectionData(
  *             id_val=id(self.pvt_o),
  *             id_class=id_class,             # <<<<<<<<<<<<<<
  *             hash_val=functools.partial(self.hash_protected, self),
  *             isinstance_val=functools.partial(self.isinstance_protected, self),
  */
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_id_class, __pyx_v_id_class) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_id_class, __pyx_v_id_class) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
 
-  /* "pyprotect/Wrapped_Frozen.pxi":106
+  /* "pyprotect/Wrapped_Frozen.pxi":105
  *             id_val=id(self.pvt_o),
  *             id_class=id_class,
  *             hash_val=functools.partial(self.hash_protected, self),             # <<<<<<<<<<<<<<
  *             isinstance_val=functools.partial(self.isinstance_protected, self),
  *             issubclass_val=functools.partial(self.issubclass_protected, self),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 106, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 106, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->hash_protected); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 106, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->hash_protected); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 105, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -15635,7 +15649,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 105, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -15644,14 +15658,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 105, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else
   #endif
   {
-    __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 106, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_7) {
       __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -15662,27 +15676,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 105, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_hash_val, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_hash_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":107
+  /* "pyprotect/Wrapped_Frozen.pxi":106
  *             id_class=id_class,
  *             hash_val=functools.partial(self.hash_protected, self),
  *             isinstance_val=functools.partial(self.isinstance_protected, self),             # <<<<<<<<<<<<<<
  *             issubclass_val=functools.partial(self.issubclass_protected, self),
  *             instanceof=functools.partial(self.instanceof_protected, self),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_functools); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 107, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_functools); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_partial); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 107, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_partial); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->isinstance_protected); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 107, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->isinstance_protected); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 106, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_4 = NULL;
   __pyx_t_8 = 0;
@@ -15699,7 +15713,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_5, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -15708,14 +15722,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_5, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else
   #endif
   {
-    __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 107, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 106, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -15726,27 +15740,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_5 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 106, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_isinstance_val, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_isinstance_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":108
+  /* "pyprotect/Wrapped_Frozen.pxi":107
  *             hash_val=functools.partial(self.hash_protected, self),
  *             isinstance_val=functools.partial(self.isinstance_protected, self),
  *             issubclass_val=functools.partial(self.issubclass_protected, self),             # <<<<<<<<<<<<<<
  *             instanceof=functools.partial(self.instanceof_protected, self),
  *             subclassof=functools.partial(self.subclassof_protected, self),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_functools); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 108, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_functools); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_partial); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 108, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_partial); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->issubclass_protected); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 108, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->issubclass_protected); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_5 = NULL;
   __pyx_t_8 = 0;
@@ -15763,7 +15777,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_7)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_9, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -15772,14 +15786,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_9, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 108, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -15790,27 +15804,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_9 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 107, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_issubclass_val, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_issubclass_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":109
+  /* "pyprotect/Wrapped_Frozen.pxi":108
  *             isinstance_val=functools.partial(self.isinstance_protected, self),
  *             issubclass_val=functools.partial(self.issubclass_protected, self),
  *             instanceof=functools.partial(self.instanceof_protected, self),             # <<<<<<<<<<<<<<
  *             subclassof=functools.partial(self.subclassof_protected, self),
  *             help_val=functools.partial(self.help_protected, self),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_functools); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 109, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_functools); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_partial); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 109, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_partial); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->instanceof_protected); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 109, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->instanceof_protected); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_9 = NULL;
   __pyx_t_8 = 0;
@@ -15827,7 +15841,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_7, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -15836,14 +15850,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_7, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 109, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 108, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_9) {
       __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -15854,27 +15868,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_7 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 108, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_instanceof, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_instanceof, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":110
+  /* "pyprotect/Wrapped_Frozen.pxi":109
  *             issubclass_val=functools.partial(self.issubclass_protected, self),
  *             instanceof=functools.partial(self.instanceof_protected, self),
  *             subclassof=functools.partial(self.subclassof_protected, self),             # <<<<<<<<<<<<<<
  *             help_val=functools.partial(self.help_protected, self),
  *             help_str=functools.partial(self.help_str_protected, self),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 110, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 110, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->subclassof_protected); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 110, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CFunc_object____Wrapped____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->subclassof_protected); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -15891,7 +15905,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -15900,14 +15914,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else
   #endif
   {
-    __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 110, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 109, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_7) {
       __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -15918,27 +15932,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 109, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_subclassof, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_subclassof, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":111
+  /* "pyprotect/Wrapped_Frozen.pxi":110
  *             instanceof=functools.partial(self.instanceof_protected, self),
  *             subclassof=functools.partial(self.subclassof_protected, self),
  *             help_val=functools.partial(self.help_protected, self),             # <<<<<<<<<<<<<<
  *             help_str=functools.partial(self.help_str_protected, self),
  *             testop=functools.partial(self.testop, self),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_functools); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 111, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_functools); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_partial); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 111, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_partial); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->help_protected); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 111, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->help_protected); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_4 = NULL;
   __pyx_t_8 = 0;
@@ -15955,7 +15969,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_5, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -15964,14 +15978,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_5, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else
   #endif
   {
-    __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 111, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 110, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -15982,27 +15996,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_5 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 110, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_help_val, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_help_val, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":112
+  /* "pyprotect/Wrapped_Frozen.pxi":111
  *             subclassof=functools.partial(self.subclassof_protected, self),
  *             help_val=functools.partial(self.help_protected, self),
  *             help_str=functools.partial(self.help_str_protected, self),             # <<<<<<<<<<<<<<
  *             testop=functools.partial(self.testop, self),
  *             rules=rules,
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_functools); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 112, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_functools); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_partial); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 112, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_partial); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->help_str_protected); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 112, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->help_str_protected); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_5 = NULL;
   __pyx_t_8 = 0;
@@ -16019,7 +16033,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_7)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_9, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
@@ -16028,14 +16042,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_t_9, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 112, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 111, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -16046,27 +16060,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_9 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 111, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_help_str, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_help_str, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":113
+  /* "pyprotect/Wrapped_Frozen.pxi":112
  *             help_val=functools.partial(self.help_protected, self),
  *             help_str=functools.partial(self.help_str_protected, self),
  *             testop=functools.partial(self.testop, self),             # <<<<<<<<<<<<<<
  *             rules=rules,
  *             freeze=functools.partial(self.freeze, self),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_functools); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 113, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_functools); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_partial); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 113, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_partial); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_CFunc_object____Wrapped____object____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->testop); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 113, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CFunc_object____Wrapped____object____object___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->testop); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __pyx_t_9 = NULL;
   __pyx_t_8 = 0;
@@ -16083,7 +16097,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_7, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 113, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -16092,14 +16106,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_7, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 113, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 113, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 112, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_9) {
       __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -16110,36 +16124,36 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_7 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 113, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 112, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_testop, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_testop, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":114
+  /* "pyprotect/Wrapped_Frozen.pxi":113
  *             help_str=functools.partial(self.help_str_protected, self),
  *             testop=functools.partial(self.testop, self),
  *             rules=rules,             # <<<<<<<<<<<<<<
  *             freeze=functools.partial(self.freeze, self),
  *             private=functools.partial(private_class, self.pvt_o),
  */
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_rules, __pyx_v_rules) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_rules, __pyx_v_rules) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
 
-  /* "pyprotect/Wrapped_Frozen.pxi":115
+  /* "pyprotect/Wrapped_Frozen.pxi":114
  *             testop=functools.partial(self.testop, self),
  *             rules=rules,
  *             freeze=functools.partial(self.freeze, self),             # <<<<<<<<<<<<<<
  *             private=functools.partial(private_class, self.pvt_o),
  *             protect=functools.partial(protect_class, self.pvt_o),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 115, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 115, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->freeze); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 115, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->freeze); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -16156,7 +16170,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 115, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 114, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -16165,14 +16179,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_7, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 115, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 114, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else
   #endif
   {
-    __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 115, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_7) {
       __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -16183,24 +16197,24 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 115, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 114, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_freeze, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_freeze, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":116
+  /* "pyprotect/Wrapped_Frozen.pxi":115
  *             rules=rules,
  *             freeze=functools.partial(self.freeze, self),
  *             private=functools.partial(private_class, self.pvt_o),             # <<<<<<<<<<<<<<
  *             protect=functools.partial(protect_class, self.pvt_o),
  *             multiwrapped=functools.partial(self.multiwrapped, self),
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_functools); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 116, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_functools); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_partial); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 116, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_partial); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 115, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -16218,7 +16232,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_private_class), __pyx_v_self->pvt_o};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 116, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 115, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -16226,13 +16240,13 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
     PyObject *__pyx_temp[3] = {__pyx_t_5, ((PyObject *)__pyx_v_private_class), __pyx_v_self->pvt_o};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 116, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 115, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 116, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 115, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_5) {
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -16243,24 +16257,24 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_INCREF(__pyx_v_self->pvt_o);
     __Pyx_GIVEREF(__pyx_v_self->pvt_o);
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_8, __pyx_v_self->pvt_o);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 116, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 115, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_private, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_private, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":117
+  /* "pyprotect/Wrapped_Frozen.pxi":116
  *             freeze=functools.partial(self.freeze, self),
  *             private=functools.partial(private_class, self.pvt_o),
  *             protect=functools.partial(protect_class, self.pvt_o),             # <<<<<<<<<<<<<<
  *             multiwrapped=functools.partial(self.multiwrapped, self),
  *         )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_functools); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 117, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_functools); if (unlikely(!__pyx_t_9)) __PYX_ERR(2, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_partial); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 117, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_9, __pyx_n_s_partial); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 116, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __pyx_t_9 = NULL;
@@ -16278,7 +16292,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, ((PyObject *)__pyx_v_protect_class), __pyx_v_self->pvt_o};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 117, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 116, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
@@ -16286,13 +16300,13 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, ((PyObject *)__pyx_v_protect_class), __pyx_v_self->pvt_o};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 117, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 116, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_3);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 117, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 116, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_9) {
       __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -16303,27 +16317,27 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_INCREF(__pyx_v_self->pvt_o);
     __Pyx_GIVEREF(__pyx_v_self->pvt_o);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_8, __pyx_v_self->pvt_o);
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 117, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 116, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_protect, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_protect, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":118
+  /* "pyprotect/Wrapped_Frozen.pxi":117
  *             private=functools.partial(private_class, self.pvt_o),
  *             protect=functools.partial(protect_class, self.pvt_o),
  *             multiwrapped=functools.partial(self.multiwrapped, self),             # <<<<<<<<<<<<<<
  *         )
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 118, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 118, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->multiwrapped); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 118, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CFunc_object____Wrapped___to_py(((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->multiwrapped); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 117, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_9 = NULL;
   __pyx_t_8 = 0;
@@ -16340,7 +16354,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 118, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 117, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -16349,14 +16363,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
     PyObject *__pyx_temp[3] = {__pyx_t_9, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 118, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_8, 2+__pyx_t_8); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 117, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else
   #endif
   {
-    __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 118, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 117, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     if (__pyx_t_9) {
       __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -16367,22 +16381,22 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
     __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
     PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_8, ((PyObject *)__pyx_v_self));
     __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 118, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 117, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_multiwrapped, __pyx_t_3) < 0) __PYX_ERR(2, 104, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_multiwrapped, __pyx_t_3) < 0) __PYX_ERR(2, 103, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":103
+  /* "pyprotect/Wrapped_Frozen.pxi":102
  *             id_class = id(type(self.pvt_o))
  * 
  *         self.protected_attribute = _ProtectionData(             # <<<<<<<<<<<<<<
  *             id_val=id(self.pvt_o),
  *             id_class=id_class,
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected__ProtectionData), __pyx_empty_tuple, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 103, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected__ProtectionData), __pyx_empty_tuple, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_GIVEREF(__pyx_t_3);
@@ -16391,7 +16405,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   __pyx_v_self->protected_attribute = ((struct __pyx_obj_9pyprotect_9protected__ProtectionData *)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":26
+  /* "pyprotect/Wrapped_Frozen.pxi":25
  *     cdef object hidden_private_attr
  * 
  *     def __init__(self, o, frozen=False, rules=None, oldstyle_class=None):             # <<<<<<<<<<<<<<
@@ -16420,7 +16434,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped___init__(struct __pyx_obj_9py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":125
+/* "pyprotect/Wrapped_Frozen.pxi":124
  *     # --------------------------------------------------------------------
  * 
  *     cdef attr_hidden(self, attr):             # <<<<<<<<<<<<<<
@@ -16440,14 +16454,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("attr_hidden", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":130
+  /* "pyprotect/Wrapped_Frozen.pxi":129
  *         PrivacyDict is hidden
  *         '''
  *         if unmangled_private_attr.match(attr):             # <<<<<<<<<<<<<<
  *             return True
  *         if self.hidden_private_attr.match(attr):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_unmangled_private_attr, __pyx_n_s_match); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 130, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_unmangled_private_attr, __pyx_n_s_match); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 129, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -16461,14 +16475,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_attr) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_attr);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 130, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 129, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 130, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 129, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":131
+    /* "pyprotect/Wrapped_Frozen.pxi":130
  *         '''
  *         if unmangled_private_attr.match(attr):
  *             return True             # <<<<<<<<<<<<<<
@@ -16480,7 +16494,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden(struct __pyx
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":130
+    /* "pyprotect/Wrapped_Frozen.pxi":129
  *         PrivacyDict is hidden
  *         '''
  *         if unmangled_private_attr.match(attr):             # <<<<<<<<<<<<<<
@@ -16489,14 +16503,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden(struct __pyx
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":132
+  /* "pyprotect/Wrapped_Frozen.pxi":131
  *         if unmangled_private_attr.match(attr):
  *             return True
  *         if self.hidden_private_attr.match(attr):             # <<<<<<<<<<<<<<
  *             return True
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->hidden_private_attr, __pyx_n_s_match); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 132, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->hidden_private_attr, __pyx_n_s_match); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -16510,14 +16524,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_attr) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_attr);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 132, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 132, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 131, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_4) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":133
+    /* "pyprotect/Wrapped_Frozen.pxi":132
  *             return True
  *         if self.hidden_private_attr.match(attr):
  *             return True             # <<<<<<<<<<<<<<
@@ -16529,7 +16543,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden(struct __pyx
     __pyx_r = Py_True;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":132
+    /* "pyprotect/Wrapped_Frozen.pxi":131
  *         if unmangled_private_attr.match(attr):
  *             return True
  *         if self.hidden_private_attr.match(attr):             # <<<<<<<<<<<<<<
@@ -16538,7 +16552,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden(struct __pyx
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":125
+  /* "pyprotect/Wrapped_Frozen.pxi":124
  *     # --------------------------------------------------------------------
  * 
  *     cdef attr_hidden(self, attr):             # <<<<<<<<<<<<<<
@@ -16561,7 +16575,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_attr_hidden(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":135
+/* "pyprotect/Wrapped_Frozen.pxi":134
  *             return True
  * 
  *     cdef fif(self, o):             # <<<<<<<<<<<<<<
@@ -16581,7 +16595,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_fif(struct __pyx_obj_9py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fif", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":141
+  /* "pyprotect/Wrapped_Frozen.pxi":140
  *         Returns-->o or Frozen(o)
  *         '''
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -16591,7 +16605,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_fif(struct __pyx_obj_9py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":142
+    /* "pyprotect/Wrapped_Frozen.pxi":141
  *         '''
  *         if self.frozen:
  *             return freeze(o)             # <<<<<<<<<<<<<<
@@ -16599,7 +16613,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_fif(struct __pyx_obj_9py
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_freeze); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 142, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_freeze); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_4 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -16613,14 +16627,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_fif(struct __pyx_obj_9py
     }
     __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_o) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_o);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 142, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 141, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":141
+    /* "pyprotect/Wrapped_Frozen.pxi":140
  *         Returns-->o or Frozen(o)
  *         '''
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -16629,7 +16643,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_fif(struct __pyx_obj_9py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":143
+  /* "pyprotect/Wrapped_Frozen.pxi":142
  *         if self.frozen:
  *             return freeze(o)
  *         return o             # <<<<<<<<<<<<<<
@@ -16641,7 +16655,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_fif(struct __pyx_obj_9py
   __pyx_r = __pyx_v_o;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":135
+  /* "pyprotect/Wrapped_Frozen.pxi":134
  *             return True
  * 
  *     cdef fif(self, o):             # <<<<<<<<<<<<<<
@@ -16662,7 +16676,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_fif(struct __pyx_obj_9py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":145
+/* "pyprotect/Wrapped_Frozen.pxi":144
  *         return o
  * 
  *     cdef freeze(self):             # <<<<<<<<<<<<<<
@@ -16684,7 +16698,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("freeze", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":147
+  /* "pyprotect/Wrapped_Frozen.pxi":146
  *     cdef freeze(self):
  *         '''Smartly avoid double wrapping when freezing a Wrapped object'''
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -16694,7 +16708,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":148
+    /* "pyprotect/Wrapped_Frozen.pxi":147
  *         '''Smartly avoid double wrapping when freezing a Wrapped object'''
  *         if self.frozen:
  *             return self             # <<<<<<<<<<<<<<
@@ -16706,7 +16720,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
     __pyx_r = ((PyObject *)__pyx_v_self);
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":147
+    /* "pyprotect/Wrapped_Frozen.pxi":146
  *     cdef freeze(self):
  *         '''Smartly avoid double wrapping when freezing a Wrapped object'''
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -16715,7 +16729,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":149
+  /* "pyprotect/Wrapped_Frozen.pxi":148
  *         if self.frozen:
  *             return self
  *         if isinstance(self, Protected):             # <<<<<<<<<<<<<<
@@ -16726,39 +16740,39 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":150
+    /* "pyprotect/Wrapped_Frozen.pxi":149
  *             return self
  *         if isinstance(self, Protected):
  *             d = {}             # <<<<<<<<<<<<<<
  *             d.update(self.rules)
  *             d['frozen'] = True
  */
-    __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 150, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 149, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_v_d = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":151
+    /* "pyprotect/Wrapped_Frozen.pxi":150
  *         if isinstance(self, Protected):
  *             d = {}
  *             d.update(self.rules)             # <<<<<<<<<<<<<<
  *             d['frozen'] = True
  *             return FrozenProtected(self.pvt_o, d)
  */
-    __pyx_t_3 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyDict_Type_update, __pyx_v_d, __pyx_v_self->rules); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 151, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyDict_Type_update, __pyx_v_d, __pyx_v_self->rules); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 150, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":152
+    /* "pyprotect/Wrapped_Frozen.pxi":151
  *             d = {}
  *             d.update(self.rules)
  *             d['frozen'] = True             # <<<<<<<<<<<<<<
  *             return FrozenProtected(self.pvt_o, d)
  *         elif isinstance(self, Private):
  */
-    if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_frozen, Py_True) < 0)) __PYX_ERR(2, 152, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_frozen, Py_True) < 0)) __PYX_ERR(2, 151, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":153
+    /* "pyprotect/Wrapped_Frozen.pxi":152
  *             d.update(self.rules)
  *             d['frozen'] = True
  *             return FrozenProtected(self.pvt_o, d)             # <<<<<<<<<<<<<<
@@ -16766,7 +16780,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
  *             return FrozenPrivate(self.pvt_o)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 153, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 152, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_self->pvt_o);
     __Pyx_GIVEREF(__pyx_v_self->pvt_o);
@@ -16774,14 +16788,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
     __Pyx_INCREF(__pyx_v_d);
     __Pyx_GIVEREF(__pyx_v_d);
     PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_v_d);
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenProtected), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 153, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenProtected), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 152, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":149
+    /* "pyprotect/Wrapped_Frozen.pxi":148
  *         if self.frozen:
  *             return self
  *         if isinstance(self, Protected):             # <<<<<<<<<<<<<<
@@ -16790,7 +16804,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":154
+  /* "pyprotect/Wrapped_Frozen.pxi":153
  *             d['frozen'] = True
  *             return FrozenProtected(self.pvt_o, d)
  *         elif isinstance(self, Private):             # <<<<<<<<<<<<<<
@@ -16801,7 +16815,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":155
+    /* "pyprotect/Wrapped_Frozen.pxi":154
  *             return FrozenProtected(self.pvt_o, d)
  *         elif isinstance(self, Private):
  *             return FrozenPrivate(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -16809,13 +16823,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
  *             return FrozenPrivacyDict(self.pvt_o, cn=self.cn)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivate), __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 155, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivate), __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 154, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":154
+    /* "pyprotect/Wrapped_Frozen.pxi":153
  *             d['frozen'] = True
  *             return FrozenProtected(self.pvt_o, d)
  *         elif isinstance(self, Private):             # <<<<<<<<<<<<<<
@@ -16824,7 +16838,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":156
+  /* "pyprotect/Wrapped_Frozen.pxi":155
  *         elif isinstance(self, Private):
  *             return FrozenPrivate(self.pvt_o)
  *         if isinstance(self, PrivacyDict):             # <<<<<<<<<<<<<<
@@ -16835,7 +16849,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":157
+    /* "pyprotect/Wrapped_Frozen.pxi":156
  *             return FrozenPrivate(self.pvt_o)
  *         if isinstance(self, PrivacyDict):
  *             return FrozenPrivacyDict(self.pvt_o, cn=self.cn)             # <<<<<<<<<<<<<<
@@ -16843,15 +16857,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
  *             return Frozen(self.pvt_o)
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 157, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_self->pvt_o);
     __Pyx_GIVEREF(__pyx_v_self->pvt_o);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_v_self->pvt_o);
-    __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 157, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_cn, __pyx_v_self->cn) < 0) __PYX_ERR(2, 157, __pyx_L1_error)
-    __pyx_t_5 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivacyDict), __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 157, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_cn, __pyx_v_self->cn) < 0) __PYX_ERR(2, 156, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivacyDict), __pyx_t_4, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 156, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -16859,7 +16873,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":156
+    /* "pyprotect/Wrapped_Frozen.pxi":155
  *         elif isinstance(self, Private):
  *             return FrozenPrivate(self.pvt_o)
  *         if isinstance(self, PrivacyDict):             # <<<<<<<<<<<<<<
@@ -16868,7 +16882,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":159
+  /* "pyprotect/Wrapped_Frozen.pxi":158
  *             return FrozenPrivacyDict(self.pvt_o, cn=self.cn)
  *         else:
  *             return Frozen(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -16877,14 +16891,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_Frozen), __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 159, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_Frozen), __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_r = __pyx_t_5;
     __pyx_t_5 = 0;
     goto __pyx_L0;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":145
+  /* "pyprotect/Wrapped_Frozen.pxi":144
  *         return o
  * 
  *     cdef freeze(self):             # <<<<<<<<<<<<<<
@@ -16906,7 +16920,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_freeze(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":161
+/* "pyprotect/Wrapped_Frozen.pxi":160
  *             return Frozen(self.pvt_o)
  * 
  *     cdef multiwrapped(self):             # <<<<<<<<<<<<<<
@@ -16924,7 +16938,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_multiwrapped(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("multiwrapped", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":163
+  /* "pyprotect/Wrapped_Frozen.pxi":162
  *     cdef multiwrapped(self):
  *         '''For testing'''
  *         return isinstance(self.pvt_o, Wrapped)             # <<<<<<<<<<<<<<
@@ -16936,13 +16950,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_multiwrapped(struct __py
   __Pyx_INCREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_TypeCheck(__pyx_t_1, __pyx_ptype_9pyprotect_9protected_Wrapped); 
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 163, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":161
+  /* "pyprotect/Wrapped_Frozen.pxi":160
  *             return Frozen(self.pvt_o)
  * 
  *     cdef multiwrapped(self):             # <<<<<<<<<<<<<<
@@ -16961,7 +16975,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_multiwrapped(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":165
+/* "pyprotect/Wrapped_Frozen.pxi":164
  *         return isinstance(self.pvt_o, Wrapped)
  * 
  *     cdef id_protected(self):             # <<<<<<<<<<<<<<
@@ -16978,7 +16992,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_id_protected(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("id_protected", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":166
+  /* "pyprotect/Wrapped_Frozen.pxi":165
  * 
  *     cdef id_protected(self):
  *         return id(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -16986,13 +17000,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_id_protected(struct __py
  *     cdef hash_protected(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 166, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":165
+  /* "pyprotect/Wrapped_Frozen.pxi":164
  *         return isinstance(self.pvt_o, Wrapped)
  * 
  *     cdef id_protected(self):             # <<<<<<<<<<<<<<
@@ -17011,7 +17025,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_id_protected(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":168
+/* "pyprotect/Wrapped_Frozen.pxi":167
  *         return id(self.pvt_o)
  * 
  *     cdef hash_protected(self):             # <<<<<<<<<<<<<<
@@ -17029,7 +17043,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_hash_protected(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("hash_protected", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":169
+  /* "pyprotect/Wrapped_Frozen.pxi":168
  * 
  *     cdef hash_protected(self):
  *         return hash(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -17039,15 +17053,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_hash_protected(struct __
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_Hash(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_hash_t)-1))) __PYX_ERR(2, 169, __pyx_L1_error)
+  __pyx_t_2 = PyObject_Hash(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_hash_t)-1))) __PYX_ERR(2, 168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyInt_FromHash_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 169, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_FromHash_t(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":168
+  /* "pyprotect/Wrapped_Frozen.pxi":167
  *         return id(self.pvt_o)
  * 
  *     cdef hash_protected(self):             # <<<<<<<<<<<<<<
@@ -17066,7 +17080,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_hash_protected(struct __
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":171
+/* "pyprotect/Wrapped_Frozen.pxi":170
  *         return hash(self.pvt_o)
  * 
  *     cdef isinstance_protected(self, c):             # <<<<<<<<<<<<<<
@@ -17084,7 +17098,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_isinstance_protected(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("isinstance_protected", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":172
+  /* "pyprotect/Wrapped_Frozen.pxi":171
  * 
  *     cdef isinstance_protected(self, c):
  *         return isinstance(self.pvt_o, c)             # <<<<<<<<<<<<<<
@@ -17094,15 +17108,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_isinstance_protected(str
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_1, __pyx_v_c); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 172, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_1, __pyx_v_c); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 171, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 172, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":171
+  /* "pyprotect/Wrapped_Frozen.pxi":170
  *         return hash(self.pvt_o)
  * 
  *     cdef isinstance_protected(self, c):             # <<<<<<<<<<<<<<
@@ -17121,7 +17135,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_isinstance_protected(str
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":174
+/* "pyprotect/Wrapped_Frozen.pxi":173
  *         return isinstance(self.pvt_o, c)
  * 
  *     cdef issubclass_protected(self, c):             # <<<<<<<<<<<<<<
@@ -17140,7 +17154,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_issubclass_protected(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("issubclass_protected", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":175
+  /* "pyprotect/Wrapped_Frozen.pxi":174
  * 
  *     cdef issubclass_protected(self, c):
  *         if isinstance(self.pvt_o, type):             # <<<<<<<<<<<<<<
@@ -17154,7 +17168,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_issubclass_protected(str
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":176
+    /* "pyprotect/Wrapped_Frozen.pxi":175
  *     cdef issubclass_protected(self, c):
  *         if isinstance(self.pvt_o, type):
  *             return issubclass(self.pvt_o, c)             # <<<<<<<<<<<<<<
@@ -17164,15 +17178,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_issubclass_protected(str
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_1 = __pyx_v_self->pvt_o;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_IsSubclass(__pyx_t_1, __pyx_v_c); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 176, __pyx_L1_error)
+    __pyx_t_3 = PyObject_IsSubclass(__pyx_t_1, __pyx_v_c); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 175, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 176, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 175, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":175
+    /* "pyprotect/Wrapped_Frozen.pxi":174
  * 
  *     cdef issubclass_protected(self, c):
  *         if isinstance(self.pvt_o, type):             # <<<<<<<<<<<<<<
@@ -17181,7 +17195,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_issubclass_protected(str
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":178
+  /* "pyprotect/Wrapped_Frozen.pxi":177
  *             return issubclass(self.pvt_o, c)
  *         else:
  *             return issubclass(type(self.pvt_o), c)             # <<<<<<<<<<<<<<
@@ -17190,15 +17204,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_issubclass_protected(str
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyObject_IsSubclass(((PyObject *)Py_TYPE(__pyx_v_self->pvt_o)), __pyx_v_c); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 178, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 178, __pyx_L1_error)
+    __pyx_t_3 = PyObject_IsSubclass(((PyObject *)Py_TYPE(__pyx_v_self->pvt_o)), __pyx_v_c); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 177, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 177, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":174
+  /* "pyprotect/Wrapped_Frozen.pxi":173
  *         return isinstance(self.pvt_o, c)
  * 
  *     cdef issubclass_protected(self, c):             # <<<<<<<<<<<<<<
@@ -17217,7 +17231,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_issubclass_protected(str
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":180
+/* "pyprotect/Wrapped_Frozen.pxi":179
  *             return issubclass(type(self.pvt_o), c)
  * 
  *     cdef instanceof_protected(self, c):             # <<<<<<<<<<<<<<
@@ -17236,7 +17250,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_instanceof_protected(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("instanceof_protected", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":181
+  /* "pyprotect/Wrapped_Frozen.pxi":180
  * 
  *     cdef instanceof_protected(self, c):
  *         if isinstance(self.pvt_o, type):             # <<<<<<<<<<<<<<
@@ -17250,7 +17264,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_instanceof_protected(str
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":182
+    /* "pyprotect/Wrapped_Frozen.pxi":181
  *     cdef instanceof_protected(self, c):
  *         if isinstance(self.pvt_o, type):
  *             return isinstance(c, self.pvt_o)             # <<<<<<<<<<<<<<
@@ -17260,15 +17274,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_instanceof_protected(str
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_1 = __pyx_v_self->pvt_o;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_IsInstance(__pyx_v_c, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 182, __pyx_L1_error)
+    __pyx_t_3 = PyObject_IsInstance(__pyx_v_c, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 181, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 182, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":181
+    /* "pyprotect/Wrapped_Frozen.pxi":180
  * 
  *     cdef instanceof_protected(self, c):
  *         if isinstance(self.pvt_o, type):             # <<<<<<<<<<<<<<
@@ -17277,7 +17291,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_instanceof_protected(str
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":184
+  /* "pyprotect/Wrapped_Frozen.pxi":183
  *             return isinstance(c, self.pvt_o)
  *         else:
  *             return isinstance(c, type(self.pvt_o))             # <<<<<<<<<<<<<<
@@ -17286,15 +17300,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_instanceof_protected(str
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyObject_IsInstance(__pyx_v_c, ((PyObject *)Py_TYPE(__pyx_v_self->pvt_o))); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 184, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 184, __pyx_L1_error)
+    __pyx_t_3 = PyObject_IsInstance(__pyx_v_c, ((PyObject *)Py_TYPE(__pyx_v_self->pvt_o))); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 183, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":180
+  /* "pyprotect/Wrapped_Frozen.pxi":179
  *             return issubclass(type(self.pvt_o), c)
  * 
  *     cdef instanceof_protected(self, c):             # <<<<<<<<<<<<<<
@@ -17313,7 +17327,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_instanceof_protected(str
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":186
+/* "pyprotect/Wrapped_Frozen.pxi":185
  *             return isinstance(c, type(self.pvt_o))
  * 
  *     cdef subclassof_protected(self, c):             # <<<<<<<<<<<<<<
@@ -17332,7 +17346,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_subclassof_protected(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("subclassof_protected", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":187
+  /* "pyprotect/Wrapped_Frozen.pxi":186
  * 
  *     cdef subclassof_protected(self, c):
  *         if isinstance(self.pvt_o, type):             # <<<<<<<<<<<<<<
@@ -17346,7 +17360,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_subclassof_protected(str
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":188
+    /* "pyprotect/Wrapped_Frozen.pxi":187
  *     cdef subclassof_protected(self, c):
  *         if isinstance(self.pvt_o, type):
  *             return issubclass(c, self.pvt_o)             # <<<<<<<<<<<<<<
@@ -17356,15 +17370,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_subclassof_protected(str
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_1 = __pyx_v_self->pvt_o;
     __Pyx_INCREF(__pyx_t_1);
-    __pyx_t_3 = PyObject_IsSubclass(__pyx_v_c, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 188, __pyx_L1_error)
+    __pyx_t_3 = PyObject_IsSubclass(__pyx_v_c, __pyx_t_1); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 187, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 188, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 187, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":187
+    /* "pyprotect/Wrapped_Frozen.pxi":186
  * 
  *     cdef subclassof_protected(self, c):
  *         if isinstance(self.pvt_o, type):             # <<<<<<<<<<<<<<
@@ -17373,7 +17387,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_subclassof_protected(str
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":190
+  /* "pyprotect/Wrapped_Frozen.pxi":189
  *             return issubclass(c, self.pvt_o)
  *         else:
  *             return issubclass(c, type(self.pvt_o))             # <<<<<<<<<<<<<<
@@ -17382,15 +17396,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_subclassof_protected(str
  */
   /*else*/ {
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyObject_IsSubclass(__pyx_v_c, ((PyObject *)Py_TYPE(__pyx_v_self->pvt_o))); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 190, __pyx_L1_error)
-    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 190, __pyx_L1_error)
+    __pyx_t_3 = PyObject_IsSubclass(__pyx_v_c, ((PyObject *)Py_TYPE(__pyx_v_self->pvt_o))); if (unlikely(__pyx_t_3 == ((int)-1))) __PYX_ERR(2, 189, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 189, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":186
+  /* "pyprotect/Wrapped_Frozen.pxi":185
  *             return isinstance(c, type(self.pvt_o))
  * 
  *     cdef subclassof_protected(self, c):             # <<<<<<<<<<<<<<
@@ -17409,7 +17423,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_subclassof_protected(str
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":192
+/* "pyprotect/Wrapped_Frozen.pxi":191
  *             return issubclass(c, type(self.pvt_o))
  * 
  *     cdef help_protected(self):             # <<<<<<<<<<<<<<
@@ -17426,7 +17440,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_protected(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("help_protected", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":193
+  /* "pyprotect/Wrapped_Frozen.pxi":192
  * 
  *     cdef help_protected(self):
  *         return help(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -17434,13 +17448,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_protected(struct __
  *     cdef help_str_protected(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_help, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 193, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_help, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":192
+  /* "pyprotect/Wrapped_Frozen.pxi":191
  *             return issubclass(c, type(self.pvt_o))
  * 
  *     cdef help_protected(self):             # <<<<<<<<<<<<<<
@@ -17459,7 +17473,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_protected(struct __
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":195
+/* "pyprotect/Wrapped_Frozen.pxi":194
  *         return help(self.pvt_o)
  * 
  *     cdef help_str_protected(self):             # <<<<<<<<<<<<<<
@@ -17480,7 +17494,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_str_protected(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("help_str_protected", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":196
+  /* "pyprotect/Wrapped_Frozen.pxi":195
  * 
  *     cdef help_str_protected(self):
  *         return '\n'.join(             # <<<<<<<<<<<<<<
@@ -17489,16 +17503,16 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_str_protected(struc
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":197
+  /* "pyprotect/Wrapped_Frozen.pxi":196
  *     cdef help_str_protected(self):
  *         return '\n'.join(
  *             pydoc.render_doc(self.pvt_o).splitlines()[2:]             # <<<<<<<<<<<<<<
  *         ).rstrip('\n') + '\n'
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pydoc); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 197, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_pydoc); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_render_doc); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 197, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_render_doc); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -17513,10 +17527,10 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_str_protected(struc
   }
   __pyx_t_3 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_4, __pyx_v_self->pvt_o) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_self->pvt_o);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 197, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_splitlines); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 197, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_splitlines); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -17531,32 +17545,32 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_str_protected(struc
   }
   __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 197, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetSlice(__pyx_t_2, 2, 0, NULL, NULL, &__pyx_slice__21, 1, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 197, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetSlice(__pyx_t_2, 2, 0, NULL, NULL, &__pyx_slice__21, 1, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":196
+  /* "pyprotect/Wrapped_Frozen.pxi":195
  * 
  *     cdef help_str_protected(self):
  *         return '\n'.join(             # <<<<<<<<<<<<<<
  *             pydoc.render_doc(self.pvt_o).splitlines()[2:]
  *         ).rstrip('\n') + '\n'
  */
-  __pyx_t_2 = __Pyx_PyString_Join(__pyx_kp_s__20, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 196, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyString_Join(__pyx_kp_s__20, __pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":198
+  /* "pyprotect/Wrapped_Frozen.pxi":197
  *         return '\n'.join(
  *             pydoc.render_doc(self.pvt_o).splitlines()[2:]
  *         ).rstrip('\n') + '\n'             # <<<<<<<<<<<<<<
  * 
  *     cdef visible(self, a):
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_rstrip); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 198, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_rstrip); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -17571,17 +17585,17 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_str_protected(struc
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_2, __pyx_kp_s__20) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_kp_s__20);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 198, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_kp_s__20); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 198, __pyx_L1_error)
+  __pyx_t_5 = PyNumber_Add(__pyx_t_1, __pyx_kp_s__20); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 197, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":195
+  /* "pyprotect/Wrapped_Frozen.pxi":194
  *         return help(self.pvt_o)
  * 
  *     cdef help_str_protected(self):             # <<<<<<<<<<<<<<
@@ -17604,7 +17618,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_help_str_protected(struc
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":200
+/* "pyprotect/Wrapped_Frozen.pxi":199
  *         ).rstrip('\n') + '\n'
  * 
  *     cdef visible(self, a):             # <<<<<<<<<<<<<<
@@ -17617,7 +17631,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_visible(CYTHON_UNUSED st
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("visible", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":201
+  /* "pyprotect/Wrapped_Frozen.pxi":200
  * 
  *     cdef visible(self, a):
  *         return True             # <<<<<<<<<<<<<<
@@ -17629,7 +17643,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_visible(CYTHON_UNUSED st
   __pyx_r = Py_True;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":200
+  /* "pyprotect/Wrapped_Frozen.pxi":199
  *         ).rstrip('\n') + '\n'
  * 
  *     cdef visible(self, a):             # <<<<<<<<<<<<<<
@@ -17644,7 +17658,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_visible(CYTHON_UNUSED st
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":203
+/* "pyprotect/Wrapped_Frozen.pxi":202
  *         return True
  * 
  *     cdef writeable(self, a):             # <<<<<<<<<<<<<<
@@ -17664,27 +17678,27 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_writeable(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("writeable", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":205
+  /* "pyprotect/Wrapped_Frozen.pxi":204
  *     cdef writeable(self, a):
  *         # Needs to be FAST - called in __setattr__, __delattr__
  *         if a in special_attributes or a in overridden_always:             # <<<<<<<<<<<<<<
  *             return False
  *         return not self.frozen
  */
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_special_attributes, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 205, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_special_attributes, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 204, __pyx_L1_error)
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (!__pyx_t_3) {
   } else {
     __pyx_t_1 = __pyx_t_3;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 205, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 204, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_3 != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":206
+    /* "pyprotect/Wrapped_Frozen.pxi":205
  *         # Needs to be FAST - called in __setattr__, __delattr__
  *         if a in special_attributes or a in overridden_always:
  *             return False             # <<<<<<<<<<<<<<
@@ -17696,7 +17710,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_writeable(struct __pyx_o
     __pyx_r = Py_False;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":205
+    /* "pyprotect/Wrapped_Frozen.pxi":204
  *     cdef writeable(self, a):
  *         # Needs to be FAST - called in __setattr__, __delattr__
  *         if a in special_attributes or a in overridden_always:             # <<<<<<<<<<<<<<
@@ -17705,7 +17719,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_writeable(struct __pyx_o
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":207
+  /* "pyprotect/Wrapped_Frozen.pxi":206
  *         if a in special_attributes or a in overridden_always:
  *             return False
  *         return not self.frozen             # <<<<<<<<<<<<<<
@@ -17713,13 +17727,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_writeable(struct __pyx_o
  *     cdef testop(self, a, op):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyBool_FromLong((!(__pyx_v_self->frozen != 0))); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 207, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong((!(__pyx_v_self->frozen != 0))); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":203
+  /* "pyprotect/Wrapped_Frozen.pxi":202
  *         return True
  * 
  *     cdef writeable(self, a):             # <<<<<<<<<<<<<<
@@ -17738,7 +17752,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_writeable(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":209
+/* "pyprotect/Wrapped_Frozen.pxi":208
  *         return not self.frozen
  * 
  *     cdef testop(self, a, op):             # <<<<<<<<<<<<<<
@@ -17757,17 +17771,17 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("testop", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":215
+  /* "pyprotect/Wrapped_Frozen.pxi":214
  *         Returns-->bool
  *         '''
  *         if op == 'r':             # <<<<<<<<<<<<<<
  *             return hasattr(self, a)
  *         elif op == 'w':
  */
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_op, __pyx_n_s_r, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 215, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_op, __pyx_n_s_r, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 214, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":216
+    /* "pyprotect/Wrapped_Frozen.pxi":215
  *         '''
  *         if op == 'r':
  *             return hasattr(self, a)             # <<<<<<<<<<<<<<
@@ -17775,14 +17789,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
  *             if not self.writeable(a):
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __Pyx_HasAttr(((PyObject *)__pyx_v_self), __pyx_v_a); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(2, 216, __pyx_L1_error)
-    __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 216, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_HasAttr(((PyObject *)__pyx_v_self), __pyx_v_a); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(2, 215, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 215, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":215
+    /* "pyprotect/Wrapped_Frozen.pxi":214
  *         Returns-->bool
  *         '''
  *         if op == 'r':             # <<<<<<<<<<<<<<
@@ -17791,31 +17805,31 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":217
+  /* "pyprotect/Wrapped_Frozen.pxi":216
  *         if op == 'r':
  *             return hasattr(self, a)
  *         elif op == 'w':             # <<<<<<<<<<<<<<
  *             if not self.writeable(a):
  *                 return False
  */
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_op, __pyx_n_s_w, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 217, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_op, __pyx_n_s_w, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 216, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":218
+    /* "pyprotect/Wrapped_Frozen.pxi":217
  *             return hasattr(self, a)
  *         elif op == 'w':
  *             if not self.writeable(a):             # <<<<<<<<<<<<<<
  *                 return False
  *             return not self.frozen
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->writeable(__pyx_v_self, __pyx_v_a); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 218, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->writeable(__pyx_v_self, __pyx_v_a); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 217, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 218, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 217, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_3 = ((!__pyx_t_1) != 0);
     if (__pyx_t_3) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":219
+      /* "pyprotect/Wrapped_Frozen.pxi":218
  *         elif op == 'w':
  *             if not self.writeable(a):
  *                 return False             # <<<<<<<<<<<<<<
@@ -17827,7 +17841,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
       __pyx_r = Py_False;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":218
+      /* "pyprotect/Wrapped_Frozen.pxi":217
  *             return hasattr(self, a)
  *         elif op == 'w':
  *             if not self.writeable(a):             # <<<<<<<<<<<<<<
@@ -17836,7 +17850,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":220
+    /* "pyprotect/Wrapped_Frozen.pxi":219
  *             if not self.writeable(a):
  *                 return False
  *             return not self.frozen             # <<<<<<<<<<<<<<
@@ -17844,13 +17858,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = __Pyx_PyBool_FromLong((!(__pyx_v_self->frozen != 0))); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 220, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyBool_FromLong((!(__pyx_v_self->frozen != 0))); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 219, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = __pyx_t_2;
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":217
+    /* "pyprotect/Wrapped_Frozen.pxi":216
  *         if op == 'r':
  *             return hasattr(self, a)
  *         elif op == 'w':             # <<<<<<<<<<<<<<
@@ -17859,7 +17873,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":221
+  /* "pyprotect/Wrapped_Frozen.pxi":220
  *                 return False
  *             return not self.frozen
  *         return False             # <<<<<<<<<<<<<<
@@ -17871,7 +17885,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":209
+  /* "pyprotect/Wrapped_Frozen.pxi":208
  *         return not self.frozen
  * 
  *     cdef testop(self, a, op):             # <<<<<<<<<<<<<<
@@ -17890,7 +17904,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_testop(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":223
+/* "pyprotect/Wrapped_Frozen.pxi":222
  *         return False
  * 
  *     cdef get_rules(self):             # <<<<<<<<<<<<<<
@@ -17907,7 +17921,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_get_rules(CYTHON_UNUSED 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_rules", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":224
+  /* "pyprotect/Wrapped_Frozen.pxi":223
  * 
  *     cdef get_rules(self):
  *         return dict()             # <<<<<<<<<<<<<<
@@ -17915,13 +17929,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_get_rules(CYTHON_UNUSED 
  *     cdef comparator(self, other, op):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 224, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 223, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":223
+  /* "pyprotect/Wrapped_Frozen.pxi":222
  *         return False
  * 
  *     cdef get_rules(self):             # <<<<<<<<<<<<<<
@@ -17940,7 +17954,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_get_rules(CYTHON_UNUSED 
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":254
+/* "pyprotect/Wrapped_Frozen.pxi":253
  * 
  *         '''
  *         def pass_to_wrapped():             # <<<<<<<<<<<<<<
@@ -17984,23 +17998,23 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
   __pyx_outer_scope = (struct __pyx_obj_9pyprotect_9protected___pyx_scope_struct__comparator *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":256
+  /* "pyprotect/Wrapped_Frozen.pxi":255
  *         def pass_to_wrapped():
  *             '''Trap RecursionError if object is too deeply nested'''
  *             if op == Py_LT:             # <<<<<<<<<<<<<<
  *                 try:
  *                     return self.pvt_o < other
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 256, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int(Py_LT); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 256, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 255, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int(Py_LT); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 255, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 256, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 255, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 256, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 255, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":257
+    /* "pyprotect/Wrapped_Frozen.pxi":256
  *             '''Trap RecursionError if object is too deeply nested'''
  *             if op == Py_LT:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18016,7 +18030,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XGOTREF(__pyx_t_6);
       /*try:*/ {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":258
+        /* "pyprotect/Wrapped_Frozen.pxi":257
  *             if op == Py_LT:
  *                 try:
  *                     return self.pvt_o < other             # <<<<<<<<<<<<<<
@@ -18024,14 +18038,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *                     return NotImplemented
  */
         __Pyx_XDECREF(__pyx_r);
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 258, __pyx_L4_error) }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 258, __pyx_L4_error) }
-        __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 258, __pyx_L4_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 257, __pyx_L4_error) }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 257, __pyx_L4_error) }
+        __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_LT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 257, __pyx_L4_error)
         __pyx_r = __pyx_t_2;
         __pyx_t_2 = 0;
         goto __pyx_L8_try_return;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":257
+        /* "pyprotect/Wrapped_Frozen.pxi":256
  *             '''Trap RecursionError if object is too deeply nested'''
  *             if op == Py_LT:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18043,7 +18057,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":259
+      /* "pyprotect/Wrapped_Frozen.pxi":258
  *                 try:
  *                     return self.pvt_o < other
  *                 except RecursionError:             # <<<<<<<<<<<<<<
@@ -18051,7 +18065,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *             elif op == Py_EQ:
  */
       __Pyx_ErrFetch(&__pyx_t_2, &__pyx_t_1, &__pyx_t_7);
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 259, __pyx_L6_except_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 258, __pyx_L6_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_2, __pyx_t_8);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -18059,12 +18073,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_7 = 0;
       if (__pyx_t_9) {
         __Pyx_AddTraceback("pyprotect.protected.Wrapped.comparator.pass_to_wrapped", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_1, &__pyx_t_2) < 0) __PYX_ERR(2, 259, __pyx_L6_except_error)
+        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_1, &__pyx_t_2) < 0) __PYX_ERR(2, 258, __pyx_L6_except_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_GOTREF(__pyx_t_2);
 
-        /* "pyprotect/Wrapped_Frozen.pxi":260
+        /* "pyprotect/Wrapped_Frozen.pxi":259
  *                     return self.pvt_o < other
  *                 except RecursionError:
  *                     return NotImplemented             # <<<<<<<<<<<<<<
@@ -18082,7 +18096,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L6_except_error;
       __pyx_L6_except_error:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":257
+      /* "pyprotect/Wrapped_Frozen.pxi":256
  *             '''Trap RecursionError if object is too deeply nested'''
  *             if op == Py_LT:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18108,7 +18122,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":256
+    /* "pyprotect/Wrapped_Frozen.pxi":255
  *         def pass_to_wrapped():
  *             '''Trap RecursionError if object is too deeply nested'''
  *             if op == Py_LT:             # <<<<<<<<<<<<<<
@@ -18117,23 +18131,23 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":261
+  /* "pyprotect/Wrapped_Frozen.pxi":260
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_EQ:             # <<<<<<<<<<<<<<
  *                 try:
  *                     return self.pvt_o == other
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 261, __pyx_L1_error) }
-  __pyx_t_2 = __Pyx_PyInt_From_int(Py_EQ); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 261, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 260, __pyx_L1_error) }
+  __pyx_t_2 = __Pyx_PyInt_From_int(Py_EQ); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 260, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 261, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 260, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 261, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 260, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":262
+    /* "pyprotect/Wrapped_Frozen.pxi":261
  *                     return NotImplemented
  *             elif op == Py_EQ:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18149,7 +18163,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XGOTREF(__pyx_t_4);
       /*try:*/ {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":263
+        /* "pyprotect/Wrapped_Frozen.pxi":262
  *             elif op == Py_EQ:
  *                 try:
  *                     return self.pvt_o == other             # <<<<<<<<<<<<<<
@@ -18157,14 +18171,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *                     return NotImplemented
  */
         __Pyx_XDECREF(__pyx_r);
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 263, __pyx_L12_error) }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 263, __pyx_L12_error) }
-        __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 263, __pyx_L12_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 262, __pyx_L12_error) }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 262, __pyx_L12_error) }
+        __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 262, __pyx_L12_error)
         __pyx_r = __pyx_t_1;
         __pyx_t_1 = 0;
         goto __pyx_L16_try_return;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":262
+        /* "pyprotect/Wrapped_Frozen.pxi":261
  *                     return NotImplemented
  *             elif op == Py_EQ:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18178,7 +18192,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":264
+      /* "pyprotect/Wrapped_Frozen.pxi":263
  *                 try:
  *                     return self.pvt_o == other
  *                 except RecursionError:             # <<<<<<<<<<<<<<
@@ -18186,7 +18200,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *             elif op == Py_GT:
  */
       __Pyx_ErrFetch(&__pyx_t_1, &__pyx_t_2, &__pyx_t_7);
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 264, __pyx_L14_except_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 263, __pyx_L14_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_1, __pyx_t_8);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -18194,12 +18208,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __pyx_t_1 = 0; __pyx_t_2 = 0; __pyx_t_7 = 0;
       if (__pyx_t_9) {
         __Pyx_AddTraceback("pyprotect.protected.Wrapped.comparator.pass_to_wrapped", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_2, &__pyx_t_1) < 0) __PYX_ERR(2, 264, __pyx_L14_except_error)
+        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_2, &__pyx_t_1) < 0) __PYX_ERR(2, 263, __pyx_L14_except_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_GOTREF(__pyx_t_1);
 
-        /* "pyprotect/Wrapped_Frozen.pxi":265
+        /* "pyprotect/Wrapped_Frozen.pxi":264
  *                     return self.pvt_o == other
  *                 except RecursionError:
  *                     return NotImplemented             # <<<<<<<<<<<<<<
@@ -18217,7 +18231,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L14_except_error;
       __pyx_L14_except_error:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":262
+      /* "pyprotect/Wrapped_Frozen.pxi":261
  *                     return NotImplemented
  *             elif op == Py_EQ:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18243,7 +18257,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":261
+    /* "pyprotect/Wrapped_Frozen.pxi":260
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_EQ:             # <<<<<<<<<<<<<<
@@ -18252,23 +18266,23 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":266
+  /* "pyprotect/Wrapped_Frozen.pxi":265
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_GT:             # <<<<<<<<<<<<<<
  *                 try:
  *                     return self.pvt_o > other
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 266, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int(Py_GT); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 266, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 265, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int(Py_GT); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 266, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 265, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 266, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 265, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":267
+    /* "pyprotect/Wrapped_Frozen.pxi":266
  *                     return NotImplemented
  *             elif op == Py_GT:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18284,7 +18298,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XGOTREF(__pyx_t_6);
       /*try:*/ {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":268
+        /* "pyprotect/Wrapped_Frozen.pxi":267
  *             elif op == Py_GT:
  *                 try:
  *                     return self.pvt_o > other             # <<<<<<<<<<<<<<
@@ -18292,14 +18306,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *                     return NotImplemented
  */
         __Pyx_XDECREF(__pyx_r);
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 268, __pyx_L20_error) }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 268, __pyx_L20_error) }
-        __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 268, __pyx_L20_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 267, __pyx_L20_error) }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 267, __pyx_L20_error) }
+        __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 267, __pyx_L20_error)
         __pyx_r = __pyx_t_2;
         __pyx_t_2 = 0;
         goto __pyx_L24_try_return;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":267
+        /* "pyprotect/Wrapped_Frozen.pxi":266
  *                     return NotImplemented
  *             elif op == Py_GT:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18313,7 +18327,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":269
+      /* "pyprotect/Wrapped_Frozen.pxi":268
  *                 try:
  *                     return self.pvt_o > other
  *                 except RecursionError:             # <<<<<<<<<<<<<<
@@ -18321,7 +18335,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *             elif op == Py_LE:
  */
       __Pyx_ErrFetch(&__pyx_t_2, &__pyx_t_1, &__pyx_t_7);
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 269, __pyx_L22_except_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 268, __pyx_L22_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_2, __pyx_t_8);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -18329,12 +18343,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_7 = 0;
       if (__pyx_t_9) {
         __Pyx_AddTraceback("pyprotect.protected.Wrapped.comparator.pass_to_wrapped", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_1, &__pyx_t_2) < 0) __PYX_ERR(2, 269, __pyx_L22_except_error)
+        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_1, &__pyx_t_2) < 0) __PYX_ERR(2, 268, __pyx_L22_except_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_GOTREF(__pyx_t_2);
 
-        /* "pyprotect/Wrapped_Frozen.pxi":270
+        /* "pyprotect/Wrapped_Frozen.pxi":269
  *                     return self.pvt_o > other
  *                 except RecursionError:
  *                     return NotImplemented             # <<<<<<<<<<<<<<
@@ -18352,7 +18366,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L22_except_error;
       __pyx_L22_except_error:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":267
+      /* "pyprotect/Wrapped_Frozen.pxi":266
  *                     return NotImplemented
  *             elif op == Py_GT:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18378,7 +18392,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":266
+    /* "pyprotect/Wrapped_Frozen.pxi":265
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_GT:             # <<<<<<<<<<<<<<
@@ -18387,23 +18401,23 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":271
+  /* "pyprotect/Wrapped_Frozen.pxi":270
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_LE:             # <<<<<<<<<<<<<<
  *                 try:
  *                     return self.pvt_o <= other
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 271, __pyx_L1_error) }
-  __pyx_t_2 = __Pyx_PyInt_From_int(Py_LE); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 271, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 270, __pyx_L1_error) }
+  __pyx_t_2 = __Pyx_PyInt_From_int(Py_LE); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 271, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 271, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":272
+    /* "pyprotect/Wrapped_Frozen.pxi":271
  *                     return NotImplemented
  *             elif op == Py_LE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18419,7 +18433,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XGOTREF(__pyx_t_4);
       /*try:*/ {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":273
+        /* "pyprotect/Wrapped_Frozen.pxi":272
  *             elif op == Py_LE:
  *                 try:
  *                     return self.pvt_o <= other             # <<<<<<<<<<<<<<
@@ -18427,14 +18441,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *                     return NotImplemented
  */
         __Pyx_XDECREF(__pyx_r);
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 273, __pyx_L28_error) }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 273, __pyx_L28_error) }
-        __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 273, __pyx_L28_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 272, __pyx_L28_error) }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 272, __pyx_L28_error) }
+        __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_LE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 272, __pyx_L28_error)
         __pyx_r = __pyx_t_1;
         __pyx_t_1 = 0;
         goto __pyx_L32_try_return;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":272
+        /* "pyprotect/Wrapped_Frozen.pxi":271
  *                     return NotImplemented
  *             elif op == Py_LE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18448,7 +18462,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":274
+      /* "pyprotect/Wrapped_Frozen.pxi":273
  *                 try:
  *                     return self.pvt_o <= other
  *                 except RecursionError:             # <<<<<<<<<<<<<<
@@ -18456,7 +18470,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *             elif op == Py_NE:
  */
       __Pyx_ErrFetch(&__pyx_t_1, &__pyx_t_2, &__pyx_t_7);
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 274, __pyx_L30_except_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 273, __pyx_L30_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_1, __pyx_t_8);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -18464,12 +18478,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __pyx_t_1 = 0; __pyx_t_2 = 0; __pyx_t_7 = 0;
       if (__pyx_t_9) {
         __Pyx_AddTraceback("pyprotect.protected.Wrapped.comparator.pass_to_wrapped", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_2, &__pyx_t_1) < 0) __PYX_ERR(2, 274, __pyx_L30_except_error)
+        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_2, &__pyx_t_1) < 0) __PYX_ERR(2, 273, __pyx_L30_except_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_GOTREF(__pyx_t_1);
 
-        /* "pyprotect/Wrapped_Frozen.pxi":275
+        /* "pyprotect/Wrapped_Frozen.pxi":274
  *                     return self.pvt_o <= other
  *                 except RecursionError:
  *                     return NotImplemented             # <<<<<<<<<<<<<<
@@ -18487,7 +18501,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L30_except_error;
       __pyx_L30_except_error:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":272
+      /* "pyprotect/Wrapped_Frozen.pxi":271
  *                     return NotImplemented
  *             elif op == Py_LE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18513,7 +18527,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":271
+    /* "pyprotect/Wrapped_Frozen.pxi":270
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_LE:             # <<<<<<<<<<<<<<
@@ -18522,23 +18536,23 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":276
+  /* "pyprotect/Wrapped_Frozen.pxi":275
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_NE:             # <<<<<<<<<<<<<<
  *                 try:
  *                     return self.pvt_o != other
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 276, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyInt_From_int(Py_NE); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 276, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 275, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyInt_From_int(Py_NE); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 276, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 275, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 276, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 275, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":277
+    /* "pyprotect/Wrapped_Frozen.pxi":276
  *                     return NotImplemented
  *             elif op == Py_NE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18554,7 +18568,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XGOTREF(__pyx_t_6);
       /*try:*/ {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":278
+        /* "pyprotect/Wrapped_Frozen.pxi":277
  *             elif op == Py_NE:
  *                 try:
  *                     return self.pvt_o != other             # <<<<<<<<<<<<<<
@@ -18562,14 +18576,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *                     return NotImplemented
  */
         __Pyx_XDECREF(__pyx_r);
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 278, __pyx_L36_error) }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 278, __pyx_L36_error) }
-        __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 278, __pyx_L36_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 277, __pyx_L36_error) }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 277, __pyx_L36_error) }
+        __pyx_t_2 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 277, __pyx_L36_error)
         __pyx_r = __pyx_t_2;
         __pyx_t_2 = 0;
         goto __pyx_L40_try_return;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":277
+        /* "pyprotect/Wrapped_Frozen.pxi":276
  *                     return NotImplemented
  *             elif op == Py_NE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18583,7 +18597,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":279
+      /* "pyprotect/Wrapped_Frozen.pxi":278
  *                 try:
  *                     return self.pvt_o != other
  *                 except RecursionError:             # <<<<<<<<<<<<<<
@@ -18591,7 +18605,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *             elif op == Py_GE:
  */
       __Pyx_ErrFetch(&__pyx_t_2, &__pyx_t_1, &__pyx_t_7);
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 279, __pyx_L38_except_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 278, __pyx_L38_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_2, __pyx_t_8);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -18599,12 +18613,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __pyx_t_2 = 0; __pyx_t_1 = 0; __pyx_t_7 = 0;
       if (__pyx_t_9) {
         __Pyx_AddTraceback("pyprotect.protected.Wrapped.comparator.pass_to_wrapped", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_1, &__pyx_t_2) < 0) __PYX_ERR(2, 279, __pyx_L38_except_error)
+        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_1, &__pyx_t_2) < 0) __PYX_ERR(2, 278, __pyx_L38_except_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_GOTREF(__pyx_t_2);
 
-        /* "pyprotect/Wrapped_Frozen.pxi":280
+        /* "pyprotect/Wrapped_Frozen.pxi":279
  *                     return self.pvt_o != other
  *                 except RecursionError:
  *                     return NotImplemented             # <<<<<<<<<<<<<<
@@ -18622,7 +18636,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L38_except_error;
       __pyx_L38_except_error:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":277
+      /* "pyprotect/Wrapped_Frozen.pxi":276
  *                     return NotImplemented
  *             elif op == Py_NE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18648,7 +18662,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":276
+    /* "pyprotect/Wrapped_Frozen.pxi":275
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_NE:             # <<<<<<<<<<<<<<
@@ -18657,23 +18671,23 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":281
+  /* "pyprotect/Wrapped_Frozen.pxi":280
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_GE:             # <<<<<<<<<<<<<<
  *                 try:
  *                     return self.pvt_o >= other
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 281, __pyx_L1_error) }
-  __pyx_t_2 = __Pyx_PyInt_From_int(Py_GE); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 281, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_op)) { __Pyx_RaiseClosureNameError("op"); __PYX_ERR(2, 280, __pyx_L1_error) }
+  __pyx_t_2 = __Pyx_PyInt_From_int(Py_GE); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 280, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 281, __pyx_L1_error)
+  __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_2, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 280, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 281, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 280, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":282
+    /* "pyprotect/Wrapped_Frozen.pxi":281
  *                     return NotImplemented
  *             elif op == Py_GE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18689,7 +18703,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XGOTREF(__pyx_t_4);
       /*try:*/ {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":283
+        /* "pyprotect/Wrapped_Frozen.pxi":282
  *             elif op == Py_GE:
  *                 try:
  *                     return self.pvt_o >= other             # <<<<<<<<<<<<<<
@@ -18697,14 +18711,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *                     return NotImplemented
  */
         __Pyx_XDECREF(__pyx_r);
-        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 283, __pyx_L44_error) }
-        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 283, __pyx_L44_error) }
-        __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 283, __pyx_L44_error)
+        if (unlikely(!__pyx_cur_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(2, 282, __pyx_L44_error) }
+        if (unlikely(!__pyx_cur_scope->__pyx_v_other)) { __Pyx_RaiseClosureNameError("other"); __PYX_ERR(2, 282, __pyx_L44_error) }
+        __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_self->pvt_o, __pyx_cur_scope->__pyx_v_other, Py_GE); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 282, __pyx_L44_error)
         __pyx_r = __pyx_t_1;
         __pyx_t_1 = 0;
         goto __pyx_L48_try_return;
 
-        /* "pyprotect/Wrapped_Frozen.pxi":282
+        /* "pyprotect/Wrapped_Frozen.pxi":281
  *                     return NotImplemented
  *             elif op == Py_GE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18718,7 +18732,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":284
+      /* "pyprotect/Wrapped_Frozen.pxi":283
  *                 try:
  *                     return self.pvt_o >= other
  *                 except RecursionError:             # <<<<<<<<<<<<<<
@@ -18726,7 +18740,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  *             else:
  */
       __Pyx_ErrFetch(&__pyx_t_1, &__pyx_t_2, &__pyx_t_7);
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 284, __pyx_L46_except_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_RecursionError); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 283, __pyx_L46_except_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = __Pyx_PyErr_GivenExceptionMatches(__pyx_t_1, __pyx_t_8);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -18734,12 +18748,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       __pyx_t_1 = 0; __pyx_t_2 = 0; __pyx_t_7 = 0;
       if (__pyx_t_9) {
         __Pyx_AddTraceback("pyprotect.protected.Wrapped.comparator.pass_to_wrapped", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_2, &__pyx_t_1) < 0) __PYX_ERR(2, 284, __pyx_L46_except_error)
+        if (__Pyx_GetException(&__pyx_t_7, &__pyx_t_2, &__pyx_t_1) < 0) __PYX_ERR(2, 283, __pyx_L46_except_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_GOTREF(__pyx_t_1);
 
-        /* "pyprotect/Wrapped_Frozen.pxi":285
+        /* "pyprotect/Wrapped_Frozen.pxi":284
  *                     return self.pvt_o >= other
  *                 except RecursionError:
  *                     return NotImplemented             # <<<<<<<<<<<<<<
@@ -18757,7 +18771,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L46_except_error;
       __pyx_L46_except_error:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":282
+      /* "pyprotect/Wrapped_Frozen.pxi":281
  *                     return NotImplemented
  *             elif op == Py_GE:
  *                 try:             # <<<<<<<<<<<<<<
@@ -18783,7 +18797,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":281
+    /* "pyprotect/Wrapped_Frozen.pxi":280
  *                 except RecursionError:
  *                     return NotImplemented
  *             elif op == Py_GE:             # <<<<<<<<<<<<<<
@@ -18792,7 +18806,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":287
+  /* "pyprotect/Wrapped_Frozen.pxi":286
  *                     return NotImplemented
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -18806,7 +18820,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
     goto __pyx_L0;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":254
+  /* "pyprotect/Wrapped_Frozen.pxi":253
  * 
  *         '''
  *         def pass_to_wrapped():             # <<<<<<<<<<<<<<
@@ -18828,7 +18842,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wr
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":226
+/* "pyprotect/Wrapped_Frozen.pxi":225
  *         return dict()
  * 
  *     cdef comparator(self, other, op):             # <<<<<<<<<<<<<<
@@ -18863,7 +18877,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_9pyprotect_9protected___pyx_scope_struct__comparator *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(2, 226, __pyx_L1_error)
+    __PYX_ERR(2, 225, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -18877,26 +18891,26 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_op);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_op);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":254
+  /* "pyprotect/Wrapped_Frozen.pxi":253
  * 
  *         '''
  *         def pass_to_wrapped():             # <<<<<<<<<<<<<<
  *             '''Trap RecursionError if object is too deeply nested'''
  *             if op == Py_LT:
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9pyprotect_9protected_7Wrapped_10comparator_1pass_to_wrapped, 0, __pyx_n_s_Wrapped_comparator_locals_pass_t, ((PyObject*)__pyx_cur_scope), __pyx_n_s_pyprotect_protected, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 254, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9pyprotect_9protected_7Wrapped_10comparator_1pass_to_wrapped, 0, __pyx_n_s_Wrapped_comparator_locals_pass_t, ((PyObject*)__pyx_cur_scope), __pyx_n_s_pyprotect_protected, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 253, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_pass_to_wrapped = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":289
+  /* "pyprotect/Wrapped_Frozen.pxi":288
  *                 return NotImplemented
  * 
  *         if not iswrapped(other):             # <<<<<<<<<<<<<<
  *             return pass_to_wrapped()
  *         # If we got here, other is Wrapped
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 289, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -18910,15 +18924,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_cur_scope->__pyx_v_other) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_cur_scope->__pyx_v_other);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 289, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 288, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 289, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 288, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":290
+    /* "pyprotect/Wrapped_Frozen.pxi":289
  * 
  *         if not iswrapped(other):
  *             return pass_to_wrapped()             # <<<<<<<<<<<<<<
@@ -18926,13 +18940,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  *         # Only equality / inequality are supported. Neither object
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_1 = __pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wrapped(__pyx_v_pass_to_wrapped); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 290, __pyx_L1_error)
+    __pyx_t_1 = __pyx_pf_9pyprotect_9protected_7Wrapped_10comparator_pass_to_wrapped(__pyx_v_pass_to_wrapped); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 289, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":289
+    /* "pyprotect/Wrapped_Frozen.pxi":288
  *                 return NotImplemented
  * 
  *         if not iswrapped(other):             # <<<<<<<<<<<<<<
@@ -18941,7 +18955,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":294
+  /* "pyprotect/Wrapped_Frozen.pxi":293
  *         # Only equality / inequality are supported. Neither object
  *         # can access object wrapped by the other for other comparisons.
  *         if op not in (Py_NE, Py_EQ):             # <<<<<<<<<<<<<<
@@ -18950,22 +18964,22 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  */
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_op);
   __pyx_t_1 = __pyx_cur_scope->__pyx_v_op;
-  __pyx_t_2 = __Pyx_PyInt_From_int(Py_NE); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 294, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(Py_NE); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 294, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_t_1, __pyx_t_2, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 293, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 294, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 293, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (__pyx_t_4) {
   } else {
     __pyx_t_5 = __pyx_t_4;
     goto __pyx_L5_bool_binop_done;
   }
-  __pyx_t_3 = __Pyx_PyInt_From_int(Py_EQ); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 294, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(Py_EQ); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 293, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 294, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_t_3, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 293, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 294, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 293, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_5 = __pyx_t_4;
   __pyx_L5_bool_binop_done:;
@@ -18973,7 +18987,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   __pyx_t_4 = (__pyx_t_5 != 0);
   if (__pyx_t_4) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":295
+    /* "pyprotect/Wrapped_Frozen.pxi":294
  *         # can access object wrapped by the other for other comparisons.
  *         if op not in (Py_NE, Py_EQ):
  *             return NotImplemented             # <<<<<<<<<<<<<<
@@ -18985,7 +18999,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
     __pyx_r = __pyx_builtin_NotImplemented;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":294
+    /* "pyprotect/Wrapped_Frozen.pxi":293
  *         # Only equality / inequality are supported. Neither object
  *         # can access object wrapped by the other for other comparisons.
  *         if op not in (Py_NE, Py_EQ):             # <<<<<<<<<<<<<<
@@ -18994,15 +19008,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":297
+  /* "pyprotect/Wrapped_Frozen.pxi":296
  *             return NotImplemented
  *         res = (
  *             type(self) == type(other) and             # <<<<<<<<<<<<<<
  *             id_protected(self) == id_protected(other)
  *         )
  */
-  __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(((PyObject *)__pyx_cur_scope->__pyx_v_self))), ((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_other)), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 297, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 297, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(((PyObject *)Py_TYPE(((PyObject *)__pyx_cur_scope->__pyx_v_self))), ((PyObject *)Py_TYPE(__pyx_cur_scope->__pyx_v_other)), Py_EQ); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 296, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 296, __pyx_L1_error)
   if (__pyx_t_4) {
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
@@ -19012,14 +19026,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
     goto __pyx_L7_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":298
+  /* "pyprotect/Wrapped_Frozen.pxi":297
  *         res = (
  *             type(self) == type(other) and
  *             id_protected(self) == id_protected(other)             # <<<<<<<<<<<<<<
  *         )
  *         if not isprotected(self):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_id_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 298, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_id_protected); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_6 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -19033,10 +19047,10 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   }
   __pyx_t_2 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_6, ((PyObject *)__pyx_cur_scope->__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_cur_scope->__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 298, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_id_protected); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 298, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_id_protected); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_7 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
@@ -19050,10 +19064,10 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   }
   __pyx_t_3 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_cur_scope->__pyx_v_other) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_cur_scope->__pyx_v_other);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 298, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 298, __pyx_L1_error)
+  __pyx_t_6 = PyObject_RichCompare(__pyx_t_2, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 297, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_INCREF(__pyx_t_6);
@@ -19063,14 +19077,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   __pyx_v_res = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":300
+  /* "pyprotect/Wrapped_Frozen.pxi":299
  *             id_protected(self) == id_protected(other)
  *         )
  *         if not isprotected(self):             # <<<<<<<<<<<<<<
  *             if op == Py_EQ:
  *                 return res
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_isprotected); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 300, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_isprotected); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
@@ -19084,30 +19098,30 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_3, ((PyObject *)__pyx_cur_scope->__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_6, ((PyObject *)__pyx_cur_scope->__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 300, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 300, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 299, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = ((!__pyx_t_4) != 0);
   if (__pyx_t_5) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":301
+    /* "pyprotect/Wrapped_Frozen.pxi":300
  *         )
  *         if not isprotected(self):
  *             if op == Py_EQ:             # <<<<<<<<<<<<<<
  *                 return res
  *             elif op == Py_NE:
  */
-    __pyx_t_1 = __Pyx_PyInt_From_int(Py_EQ); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 301, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(Py_EQ); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 300, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_6 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 301, __pyx_L1_error)
+    __pyx_t_6 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_1, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 300, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 301, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 300, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (__pyx_t_5) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":302
+      /* "pyprotect/Wrapped_Frozen.pxi":301
  *         if not isprotected(self):
  *             if op == Py_EQ:
  *                 return res             # <<<<<<<<<<<<<<
@@ -19119,7 +19133,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       __pyx_r = __pyx_v_res;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":301
+      /* "pyprotect/Wrapped_Frozen.pxi":300
  *         )
  *         if not isprotected(self):
  *             if op == Py_EQ:             # <<<<<<<<<<<<<<
@@ -19128,22 +19142,22 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":303
+    /* "pyprotect/Wrapped_Frozen.pxi":302
  *             if op == Py_EQ:
  *                 return res
  *             elif op == Py_NE:             # <<<<<<<<<<<<<<
  *                 return not res
  *         else:
  */
-    __pyx_t_6 = __Pyx_PyInt_From_int(Py_NE); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 303, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_From_int(Py_NE); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 302, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 303, __pyx_L1_error)
+    __pyx_t_1 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 302, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 303, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 302, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_5) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":304
+      /* "pyprotect/Wrapped_Frozen.pxi":303
  *                 return res
  *             elif op == Py_NE:
  *                 return not res             # <<<<<<<<<<<<<<
@@ -19151,14 +19165,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  *             # Protected
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_res); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 304, __pyx_L1_error)
-      __pyx_t_1 = __Pyx_PyBool_FromLong((!__pyx_t_5)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 304, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_res); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 303, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyBool_FromLong((!__pyx_t_5)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 303, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_r = __pyx_t_1;
       __pyx_t_1 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":303
+      /* "pyprotect/Wrapped_Frozen.pxi":302
  *             if op == Py_EQ:
  *                 return res
  *             elif op == Py_NE:             # <<<<<<<<<<<<<<
@@ -19167,7 +19181,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":300
+    /* "pyprotect/Wrapped_Frozen.pxi":299
  *             id_protected(self) == id_protected(other)
  *         )
  *         if not isprotected(self):             # <<<<<<<<<<<<<<
@@ -19177,7 +19191,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
     goto __pyx_L9;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":307
+  /* "pyprotect/Wrapped_Frozen.pxi":306
  *         else:
  *             # Protected
  *             d1 = dict(self.rules)             # <<<<<<<<<<<<<<
@@ -19187,14 +19201,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   /*else*/ {
     if (unlikely(__pyx_cur_scope->__pyx_v_self->rules == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' is not iterable");
-      __PYX_ERR(2, 307, __pyx_L1_error)
+      __PYX_ERR(2, 306, __pyx_L1_error)
     }
-    __pyx_t_1 = PyDict_Copy(__pyx_cur_scope->__pyx_v_self->rules); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 307, __pyx_L1_error)
+    __pyx_t_1 = PyDict_Copy(__pyx_cur_scope->__pyx_v_self->rules); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_d1 = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":308
+    /* "pyprotect/Wrapped_Frozen.pxi":307
  *             # Protected
  *             d1 = dict(self.rules)
  *             d2 = dict(getattr(other, PROT_ATTR_NAME).rules)             # <<<<<<<<<<<<<<
@@ -19205,20 +19219,20 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
     __Pyx_INCREF(__pyx_t_1);
     __pyx_t_6 = __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME;
     __Pyx_INCREF(__pyx_t_6);
-    __pyx_t_3 = __Pyx_GetAttr(__pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 308, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr(__pyx_t_1, __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 307, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 308, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_rules); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 307, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 308, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyDict_Type)), __pyx_t_6); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 307, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_v_d2 = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":310
+    /* "pyprotect/Wrapped_Frozen.pxi":309
  *             d2 = dict(getattr(other, PROT_ATTR_NAME).rules)
  *             # Don't consider kwargs, just the rules
  *             try:             # <<<<<<<<<<<<<<
@@ -19234,16 +19248,16 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       __Pyx_XGOTREF(__pyx_t_10);
       /*try:*/ {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":311
+        /* "pyprotect/Wrapped_Frozen.pxi":310
  *             # Don't consider kwargs, just the rules
  *             try:
  *                 del d1['kwargs']             # <<<<<<<<<<<<<<
  *             except KeyError:
  *                 pass
  */
-        if (unlikely(PyDict_DelItem(__pyx_v_d1, __pyx_n_s_kwargs) < 0)) __PYX_ERR(2, 311, __pyx_L11_error)
+        if (unlikely(PyDict_DelItem(__pyx_v_d1, __pyx_n_s_kwargs) < 0)) __PYX_ERR(2, 310, __pyx_L11_error)
 
-        /* "pyprotect/Wrapped_Frozen.pxi":310
+        /* "pyprotect/Wrapped_Frozen.pxi":309
  *             d2 = dict(getattr(other, PROT_ATTR_NAME).rules)
  *             # Don't consider kwargs, just the rules
  *             try:             # <<<<<<<<<<<<<<
@@ -19262,7 +19276,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":312
+      /* "pyprotect/Wrapped_Frozen.pxi":311
  *             try:
  *                 del d1['kwargs']
  *             except KeyError:             # <<<<<<<<<<<<<<
@@ -19277,7 +19291,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       goto __pyx_L13_except_error;
       __pyx_L13_except_error:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":310
+      /* "pyprotect/Wrapped_Frozen.pxi":309
  *             d2 = dict(getattr(other, PROT_ATTR_NAME).rules)
  *             # Don't consider kwargs, just the rules
  *             try:             # <<<<<<<<<<<<<<
@@ -19297,7 +19311,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       __pyx_L16_try_end:;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":314
+    /* "pyprotect/Wrapped_Frozen.pxi":313
  *             except KeyError:
  *                 pass
  *             try:             # <<<<<<<<<<<<<<
@@ -19313,16 +19327,16 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       __Pyx_XGOTREF(__pyx_t_8);
       /*try:*/ {
 
-        /* "pyprotect/Wrapped_Frozen.pxi":315
+        /* "pyprotect/Wrapped_Frozen.pxi":314
  *                 pass
  *             try:
  *                 del d2['kwargs']             # <<<<<<<<<<<<<<
  *             except KeyError:
  *                 pass
  */
-        if (unlikely(PyDict_DelItem(__pyx_v_d2, __pyx_n_s_kwargs) < 0)) __PYX_ERR(2, 315, __pyx_L17_error)
+        if (unlikely(PyDict_DelItem(__pyx_v_d2, __pyx_n_s_kwargs) < 0)) __PYX_ERR(2, 314, __pyx_L17_error)
 
-        /* "pyprotect/Wrapped_Frozen.pxi":314
+        /* "pyprotect/Wrapped_Frozen.pxi":313
  *             except KeyError:
  *                 pass
  *             try:             # <<<<<<<<<<<<<<
@@ -19341,7 +19355,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":316
+      /* "pyprotect/Wrapped_Frozen.pxi":315
  *             try:
  *                 del d2['kwargs']
  *             except KeyError:             # <<<<<<<<<<<<<<
@@ -19356,7 +19370,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       goto __pyx_L19_except_error;
       __pyx_L19_except_error:;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":314
+      /* "pyprotect/Wrapped_Frozen.pxi":313
  *             except KeyError:
  *                 pass
  *             try:             # <<<<<<<<<<<<<<
@@ -19376,21 +19390,21 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       __pyx_L22_try_end:;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":318
+    /* "pyprotect/Wrapped_Frozen.pxi":317
  *             except KeyError:
  *                 pass
  *             res = res and d1 == d2             # <<<<<<<<<<<<<<
  *             if op == Py_EQ:
  *                 return res
  */
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_res); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 318, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_res); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 317, __pyx_L1_error)
     if (__pyx_t_5) {
     } else {
       __Pyx_INCREF(__pyx_v_res);
       __pyx_t_3 = __pyx_v_res;
       goto __pyx_L23_bool_binop_done;
     }
-    __pyx_t_6 = PyObject_RichCompare(__pyx_v_d1, __pyx_v_d2, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 318, __pyx_L1_error)
+    __pyx_t_6 = PyObject_RichCompare(__pyx_v_d1, __pyx_v_d2, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 317, __pyx_L1_error)
     __Pyx_INCREF(__pyx_t_6);
     __pyx_t_3 = __pyx_t_6;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -19398,22 +19412,22 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
     __Pyx_DECREF_SET(__pyx_v_res, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":319
+    /* "pyprotect/Wrapped_Frozen.pxi":318
  *                 pass
  *             res = res and d1 == d2
  *             if op == Py_EQ:             # <<<<<<<<<<<<<<
  *                 return res
  *             elif op == Py_NE:
  */
-    __pyx_t_3 = __Pyx_PyInt_From_int(Py_EQ); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 319, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_int(Py_EQ); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 318, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 319, __pyx_L1_error)
+    __pyx_t_6 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_3, Py_EQ); __Pyx_XGOTREF(__pyx_t_6); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 318, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 319, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_6); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 318, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     if (__pyx_t_5) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":320
+      /* "pyprotect/Wrapped_Frozen.pxi":319
  *             res = res and d1 == d2
  *             if op == Py_EQ:
  *                 return res             # <<<<<<<<<<<<<<
@@ -19425,7 +19439,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
       __pyx_r = __pyx_v_res;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":319
+      /* "pyprotect/Wrapped_Frozen.pxi":318
  *                 pass
  *             res = res and d1 == d2
  *             if op == Py_EQ:             # <<<<<<<<<<<<<<
@@ -19434,22 +19448,22 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":321
+    /* "pyprotect/Wrapped_Frozen.pxi":320
  *             if op == Py_EQ:
  *                 return res
  *             elif op == Py_NE:             # <<<<<<<<<<<<<<
  *                 return not res
  * 
  */
-    __pyx_t_6 = __Pyx_PyInt_From_int(Py_NE); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 321, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_From_int(Py_NE); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 320, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 321, __pyx_L1_error)
+    __pyx_t_3 = PyObject_RichCompare(__pyx_cur_scope->__pyx_v_op, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 320, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 321, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 320, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_5) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":322
+      /* "pyprotect/Wrapped_Frozen.pxi":321
  *                 return res
  *             elif op == Py_NE:
  *                 return not res             # <<<<<<<<<<<<<<
@@ -19457,14 +19471,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
  *     cdef wrapped_getattr(self, a):
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_res); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 322, __pyx_L1_error)
-      __pyx_t_3 = __Pyx_PyBool_FromLong((!__pyx_t_5)); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 322, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_v_res); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 321, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyBool_FromLong((!__pyx_t_5)); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 321, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":321
+      /* "pyprotect/Wrapped_Frozen.pxi":320
  *             if op == Py_EQ:
  *                 return res
  *             elif op == Py_NE:             # <<<<<<<<<<<<<<
@@ -19475,7 +19489,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   }
   __pyx_L9:;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":226
+  /* "pyprotect/Wrapped_Frozen.pxi":225
  *         return dict()
  * 
  *     cdef comparator(self, other, op):             # <<<<<<<<<<<<<<
@@ -19505,7 +19519,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_comparator(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":324
+/* "pyprotect/Wrapped_Frozen.pxi":323
  *                 return not res
  * 
  *     cdef wrapped_getattr(self, a):             # <<<<<<<<<<<<<<
@@ -19531,17 +19545,17 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("wrapped_getattr", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":326
+  /* "pyprotect/Wrapped_Frozen.pxi":325
  *     cdef wrapped_getattr(self, a):
  *         # protected_attribute
  *         if a == PROT_ATTR_NAME:             # <<<<<<<<<<<<<<
  *             return self.protected_attribute
  *         if a in overridden_always:
  */
-  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_a, __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 326, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_a, __pyx_v_9pyprotect_9protected_PROT_ATTR_NAME, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 325, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":327
+    /* "pyprotect/Wrapped_Frozen.pxi":326
  *         # protected_attribute
  *         if a == PROT_ATTR_NAME:
  *             return self.protected_attribute             # <<<<<<<<<<<<<<
@@ -19553,7 +19567,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     __pyx_r = ((PyObject *)__pyx_v_self->protected_attribute);
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":326
+    /* "pyprotect/Wrapped_Frozen.pxi":325
  *     cdef wrapped_getattr(self, a):
  *         # protected_attribute
  *         if a == PROT_ATTR_NAME:             # <<<<<<<<<<<<<<
@@ -19562,18 +19576,18 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":328
+  /* "pyprotect/Wrapped_Frozen.pxi":327
  *         if a == PROT_ATTR_NAME:
  *             return self.protected_attribute
  *         if a in overridden_always:             # <<<<<<<<<<<<<<
  *             return functools.partial(getattr(Wrapped, a), self)
  * 
  */
-  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 328, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 327, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":329
+    /* "pyprotect/Wrapped_Frozen.pxi":328
  *             return self.protected_attribute
  *         if a in overridden_always:
  *             return functools.partial(getattr(Wrapped, a), self)             # <<<<<<<<<<<<<<
@@ -19581,12 +19595,12 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  *         # PREVENT pickling - doesn't work even if methods are implemented,
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 329, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_functools); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 329, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_partial); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_GetAttr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_v_a); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 329, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetAttr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_v_a); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 328, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_6 = NULL;
     __pyx_t_7 = 0;
@@ -19603,7 +19617,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_5)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 329, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 328, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -19612,14 +19626,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_t_4, ((PyObject *)__pyx_v_self)};
-      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 329, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 328, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     } else
     #endif
     {
-      __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 329, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 328, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       if (__pyx_t_6) {
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -19630,7 +19644,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
       __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
       PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, ((PyObject *)__pyx_v_self));
       __pyx_t_4 = 0;
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 329, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 328, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
@@ -19639,7 +19653,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":328
+    /* "pyprotect/Wrapped_Frozen.pxi":327
  *         if a == PROT_ATTR_NAME:
  *             return self.protected_attribute
  *         if a in overridden_always:             # <<<<<<<<<<<<<<
@@ -19648,31 +19662,31 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":332
+  /* "pyprotect/Wrapped_Frozen.pxi":331
  * 
  *         # PREVENT pickling - doesn't work even if methods are implemented,
  *         if a in pickle_attributes:             # <<<<<<<<<<<<<<
  *             raise AttributeError('Wrapped object cannot be pickled')
  * 
  */
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_pickle_attributes, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 332, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_pickle_attributes, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 331, __pyx_L1_error)
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":333
+    /* "pyprotect/Wrapped_Frozen.pxi":332
  *         # PREVENT pickling - doesn't work even if methods are implemented,
  *         if a in pickle_attributes:
  *             raise AttributeError('Wrapped object cannot be pickled')             # <<<<<<<<<<<<<<
  * 
  *         delegated = getattr(self.pvt_o, a, None)
  */
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_AttributeError, __pyx_tuple__23, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 333, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_AttributeError, __pyx_tuple__23, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 332, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_Raise(__pyx_t_3, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __PYX_ERR(2, 333, __pyx_L1_error)
+    __PYX_ERR(2, 332, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":332
+    /* "pyprotect/Wrapped_Frozen.pxi":331
  * 
  *         # PREVENT pickling - doesn't work even if methods are implemented,
  *         if a in pickle_attributes:             # <<<<<<<<<<<<<<
@@ -19681,7 +19695,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":335
+  /* "pyprotect/Wrapped_Frozen.pxi":334
  *             raise AttributeError('Wrapped object cannot be pickled')
  * 
  *         delegated = getattr(self.pvt_o, a, None)             # <<<<<<<<<<<<<<
@@ -19690,24 +19704,24 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_GetAttr3(__pyx_t_3, __pyx_v_a, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 335, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetAttr3(__pyx_t_3, __pyx_v_a, Py_None); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 334, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_delegated = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":336
+  /* "pyprotect/Wrapped_Frozen.pxi":335
  * 
  *         delegated = getattr(self.pvt_o, a, None)
  *         if a in always_delegated:             # <<<<<<<<<<<<<<
  *             return delegated
  * 
  */
-  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_always_delegated, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 336, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_always_delegated, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 335, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_1 != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":337
+    /* "pyprotect/Wrapped_Frozen.pxi":336
  *         delegated = getattr(self.pvt_o, a, None)
  *         if a in always_delegated:
  *             return delegated             # <<<<<<<<<<<<<<
@@ -19719,7 +19733,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     __pyx_r = __pyx_v_delegated;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":336
+    /* "pyprotect/Wrapped_Frozen.pxi":335
  * 
  *         delegated = getattr(self.pvt_o, a, None)
  *         if a in always_delegated:             # <<<<<<<<<<<<<<
@@ -19728,7 +19742,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":340
+  /* "pyprotect/Wrapped_Frozen.pxi":339
  * 
  *         # Container mutating methods - implemented and selectively blocked
  *         if a in m_block and hasattr(Wrapped, a):             # <<<<<<<<<<<<<<
@@ -19737,22 +19751,22 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   if (unlikely(__pyx_v_9pyprotect_9protected_m_block == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(2, 340, __pyx_L1_error)
+    __PYX_ERR(2, 339, __pyx_L1_error)
   }
-  __pyx_t_1 = (__Pyx_PySet_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_m_block, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 340, __pyx_L1_error)
+  __pyx_t_1 = (__Pyx_PySet_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_m_block, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 339, __pyx_L1_error)
   __pyx_t_9 = (__pyx_t_1 != 0);
   if (__pyx_t_9) {
   } else {
     __pyx_t_2 = __pyx_t_9;
     goto __pyx_L8_bool_binop_done;
   }
-  __pyx_t_9 = __Pyx_HasAttr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_v_a); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(2, 340, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_HasAttr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_v_a); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(2, 339, __pyx_L1_error)
   __pyx_t_1 = (__pyx_t_9 != 0);
   __pyx_t_2 = __pyx_t_1;
   __pyx_L8_bool_binop_done:;
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":341
+    /* "pyprotect/Wrapped_Frozen.pxi":340
  *         # Container mutating methods - implemented and selectively blocked
  *         if a in m_block and hasattr(Wrapped, a):
  *             return functools.partial(getattr(Wrapped, a), self)             # <<<<<<<<<<<<<<
@@ -19760,12 +19774,12 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  *         # that is not delegated or blocked
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_functools); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 341, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_functools); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_partial); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 341, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_partial); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_GetAttr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_v_a); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 341, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_v_a); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 340, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_4 = NULL;
     __pyx_t_7 = 0;
@@ -19782,7 +19796,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_8)) {
       PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_3, ((PyObject *)__pyx_v_self)};
-      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 341, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 340, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -19791,14 +19805,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
       PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_3, ((PyObject *)__pyx_v_self)};
-      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 341, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 340, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     {
-      __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 341, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 340, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       if (__pyx_t_4) {
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -19809,7 +19823,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
       __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
       PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_7, ((PyObject *)__pyx_v_self));
       __pyx_t_3 = 0;
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 341, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_6, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 340, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
@@ -19818,7 +19832,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     __pyx_t_5 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":340
+    /* "pyprotect/Wrapped_Frozen.pxi":339
  * 
  *         # Container mutating methods - implemented and selectively blocked
  *         if a in m_block and hasattr(Wrapped, a):             # <<<<<<<<<<<<<<
@@ -19827,7 +19841,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":344
+  /* "pyprotect/Wrapped_Frozen.pxi":343
  *         # Any non-method or missing attribute or special callable method
  *         # that is not delegated or blocked
  *         if delegated is None:             # <<<<<<<<<<<<<<
@@ -19838,7 +19852,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
   __pyx_t_1 = (__pyx_t_2 != 0);
   if (__pyx_t_1) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":345
+    /* "pyprotect/Wrapped_Frozen.pxi":344
  *         # that is not delegated or blocked
  *         if delegated is None:
  *             if delegated in dir(self.pvt_o):             # <<<<<<<<<<<<<<
@@ -19847,15 +19861,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
     __pyx_t_5 = __pyx_v_self->pvt_o;
     __Pyx_INCREF(__pyx_t_5);
-    __pyx_t_8 = PyObject_Dir(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 345, __pyx_L1_error)
+    __pyx_t_8 = PyObject_Dir(__pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_delegated, __pyx_t_8, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 345, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_delegated, __pyx_t_8, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 344, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (__pyx_t_2) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":346
+      /* "pyprotect/Wrapped_Frozen.pxi":345
  *         if delegated is None:
  *             if delegated in dir(self.pvt_o):
  *                 return delegated             # <<<<<<<<<<<<<<
@@ -19867,7 +19881,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
       __pyx_r = __pyx_v_delegated;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":345
+      /* "pyprotect/Wrapped_Frozen.pxi":344
  *         # that is not delegated or blocked
  *         if delegated is None:
  *             if delegated in dir(self.pvt_o):             # <<<<<<<<<<<<<<
@@ -19876,14 +19890,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":348
+    /* "pyprotect/Wrapped_Frozen.pxi":347
  *                 return delegated
  *             raise AttributeError(
  *                 "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)             # <<<<<<<<<<<<<<
  *             )
  *         # If frozen, freeze all the way down
  */
-    __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 348, __pyx_L1_error)
+    __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 347, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_INCREF(__pyx_v_self->cn);
     __Pyx_GIVEREF(__pyx_v_self->cn);
@@ -19891,25 +19905,25 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     __Pyx_INCREF(__pyx_v_a);
     __Pyx_GIVEREF(__pyx_v_a);
     PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_v_a);
-    __pyx_t_5 = __Pyx_PyString_Format(__pyx_kp_s_Object_Wrapped_s_has_no_attribut, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 348, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyString_Format(__pyx_kp_s_Object_Wrapped_s_has_no_attribut, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 347, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":347
+    /* "pyprotect/Wrapped_Frozen.pxi":346
  *             if delegated in dir(self.pvt_o):
  *                 return delegated
  *             raise AttributeError(             # <<<<<<<<<<<<<<
  *                 "Object Wrapped('%s') has no attribute '%s'" % (self.cn, a)
  *             )
  */
-    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_AttributeError, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 347, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_CallOneArg(__pyx_builtin_AttributeError, __pyx_t_5); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_Raise(__pyx_t_8, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __PYX_ERR(2, 347, __pyx_L1_error)
+    __PYX_ERR(2, 346, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":344
+    /* "pyprotect/Wrapped_Frozen.pxi":343
  *         # Any non-method or missing attribute or special callable method
  *         # that is not delegated or blocked
  *         if delegated is None:             # <<<<<<<<<<<<<<
@@ -19918,7 +19932,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":351
+  /* "pyprotect/Wrapped_Frozen.pxi":350
  *             )
  *         # If frozen, freeze all the way down
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -19928,14 +19942,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
   __pyx_t_2 = (__pyx_v_self->frozen != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":357
+    /* "pyprotect/Wrapped_Frozen.pxi":356
  *             #   FROM the module by methods, classes are not
  *             # However module's __dict__ is still frozen
  *             if a == '__dict__' or not isinstance(self.pvt_o, types.ModuleType):             # <<<<<<<<<<<<<<
  *                 delegated = freeze(delegated)
  *         return delegated
  */
-    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_a, __pyx_n_s_dict_2, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 357, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PyString_Equals(__pyx_v_a, __pyx_n_s_dict_2, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 356, __pyx_L1_error)
     if (!__pyx_t_1) {
     } else {
       __pyx_t_2 = __pyx_t_1;
@@ -19943,12 +19957,12 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     }
     __pyx_t_8 = __pyx_v_self->pvt_o;
     __Pyx_INCREF(__pyx_t_8);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_types); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 357, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_types); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 356, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_ModuleType); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 357, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_ModuleType); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 356, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_1 = PyObject_IsInstance(__pyx_t_8, __pyx_t_6); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(2, 357, __pyx_L1_error)
+    __pyx_t_1 = PyObject_IsInstance(__pyx_t_8, __pyx_t_6); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(2, 356, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_9 = ((!(__pyx_t_1 != 0)) != 0);
@@ -19956,14 +19970,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
     __pyx_L14_bool_binop_done:;
     if (__pyx_t_2) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":358
+      /* "pyprotect/Wrapped_Frozen.pxi":357
  *             # However module's __dict__ is still frozen
  *             if a == '__dict__' or not isinstance(self.pvt_o, types.ModuleType):
  *                 delegated = freeze(delegated)             # <<<<<<<<<<<<<<
  *         return delegated
  * 
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_freeze); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 358, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_freeze); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 357, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_8))) {
@@ -19977,13 +19991,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
       }
       __pyx_t_6 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_5, __pyx_v_delegated) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_v_delegated);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 358, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 357, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF_SET(__pyx_v_delegated, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":357
+      /* "pyprotect/Wrapped_Frozen.pxi":356
  *             #   FROM the module by methods, classes are not
  *             # However module's __dict__ is still frozen
  *             if a == '__dict__' or not isinstance(self.pvt_o, types.ModuleType):             # <<<<<<<<<<<<<<
@@ -19992,7 +20006,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":351
+    /* "pyprotect/Wrapped_Frozen.pxi":350
  *             )
  *         # If frozen, freeze all the way down
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -20001,7 +20015,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":359
+  /* "pyprotect/Wrapped_Frozen.pxi":358
  *             if a == '__dict__' or not isinstance(self.pvt_o, types.ModuleType):
  *                 delegated = freeze(delegated)
  *         return delegated             # <<<<<<<<<<<<<<
@@ -20013,7 +20027,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
   __pyx_r = __pyx_v_delegated;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":324
+  /* "pyprotect/Wrapped_Frozen.pxi":323
  *                 return not res
  * 
  *     cdef wrapped_getattr(self, a):             # <<<<<<<<<<<<<<
@@ -20037,7 +20051,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_getattr(struct _
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":361
+/* "pyprotect/Wrapped_Frozen.pxi":360
  *         return delegated
  * 
  *     cdef wrapped_check_setattr(self, a, val):             # <<<<<<<<<<<<<<
@@ -20060,7 +20074,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_setattr(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("wrapped_check_setattr", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":362
+  /* "pyprotect/Wrapped_Frozen.pxi":361
  * 
  *     cdef wrapped_check_setattr(self, a, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -20070,7 +20084,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_setattr(st
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":363
+    /* "pyprotect/Wrapped_Frozen.pxi":362
  *     cdef wrapped_check_setattr(self, a, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -20078,9 +20092,9 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_setattr(st
  *             raise ProtectionError('Cannot modify attribute: %s' % (a,))
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 363, __pyx_L1_error)
+    __PYX_ERR(2, 362, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":362
+    /* "pyprotect/Wrapped_Frozen.pxi":361
  * 
  *     cdef wrapped_check_setattr(self, a, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -20089,41 +20103,41 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_setattr(st
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":364
+  /* "pyprotect/Wrapped_Frozen.pxi":363
  *         if self.frozen:
  *             raise frozen_error
  *         if a in overridden_always or a in special_attributes:             # <<<<<<<<<<<<<<
  *             raise ProtectionError('Cannot modify attribute: %s' % (a,))
  * 
  */
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 364, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 363, __pyx_L1_error)
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (!__pyx_t_3) {
   } else {
     __pyx_t_1 = __pyx_t_3;
     goto __pyx_L5_bool_binop_done;
   }
-  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_special_attributes, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 364, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_special_attributes, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 363, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_3 != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L5_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":365
+    /* "pyprotect/Wrapped_Frozen.pxi":364
  *             raise frozen_error
  *         if a in overridden_always or a in special_attributes:
  *             raise ProtectionError('Cannot modify attribute: %s' % (a,))             # <<<<<<<<<<<<<<
  * 
  *     cdef wrapped_check_delattr(self, a):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ProtectionError); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 365, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ProtectionError); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 364, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 365, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 364, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_INCREF(__pyx_v_a);
     __Pyx_GIVEREF(__pyx_v_a);
     PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_v_a);
-    __pyx_t_7 = __Pyx_PyString_Format(__pyx_kp_s_Cannot_modify_attribute_s, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 365, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyString_Format(__pyx_kp_s_Cannot_modify_attribute_s, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 364, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
@@ -20139,14 +20153,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_setattr(st
     __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 365, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 364, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(2, 365, __pyx_L1_error)
+    __PYX_ERR(2, 364, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":364
+    /* "pyprotect/Wrapped_Frozen.pxi":363
  *         if self.frozen:
  *             raise frozen_error
  *         if a in overridden_always or a in special_attributes:             # <<<<<<<<<<<<<<
@@ -20155,7 +20169,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_setattr(st
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":361
+  /* "pyprotect/Wrapped_Frozen.pxi":360
  *         return delegated
  * 
  *     cdef wrapped_check_setattr(self, a, val):             # <<<<<<<<<<<<<<
@@ -20179,7 +20193,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_setattr(st
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":367
+/* "pyprotect/Wrapped_Frozen.pxi":366
  *             raise ProtectionError('Cannot modify attribute: %s' % (a,))
  * 
  *     cdef wrapped_check_delattr(self, a):             # <<<<<<<<<<<<<<
@@ -20202,7 +20216,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("wrapped_check_delattr", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":368
+  /* "pyprotect/Wrapped_Frozen.pxi":367
  * 
  *     cdef wrapped_check_delattr(self, a):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -20212,7 +20226,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":369
+    /* "pyprotect/Wrapped_Frozen.pxi":368
  *     cdef wrapped_check_delattr(self, a):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -20220,9 +20234,9 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 369, __pyx_L1_error)
+    __PYX_ERR(2, 368, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":368
+    /* "pyprotect/Wrapped_Frozen.pxi":367
  * 
  *     cdef wrapped_check_delattr(self, a):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -20231,41 +20245,41 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":370
+  /* "pyprotect/Wrapped_Frozen.pxi":369
  *         if self.frozen:
  *             raise frozen_error
  *         if a in overridden_always or a in special_attributes:             # <<<<<<<<<<<<<<
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))
  *         if not hasattr(self.pvt_o, a) and a in self.__dir__():
  */
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 370, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_overridden_always, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(2, 369, __pyx_L1_error)
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (!__pyx_t_3) {
   } else {
     __pyx_t_1 = __pyx_t_3;
     goto __pyx_L5_bool_binop_done;
   }
-  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_special_attributes, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 370, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_v_9pyprotect_9protected_special_attributes, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 369, __pyx_L1_error)
   __pyx_t_2 = (__pyx_t_3 != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L5_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":371
+    /* "pyprotect/Wrapped_Frozen.pxi":370
  *             raise frozen_error
  *         if a in overridden_always or a in special_attributes:
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))             # <<<<<<<<<<<<<<
  *         if not hasattr(self.pvt_o, a) and a in self.__dir__():
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ProtectionError); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 371, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ProtectionError); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 370, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 371, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 370, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_INCREF(__pyx_v_a);
     __Pyx_GIVEREF(__pyx_v_a);
     PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_v_a);
-    __pyx_t_7 = __Pyx_PyString_Format(__pyx_kp_s_Cannot_delete_attribute_s, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 371, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyString_Format(__pyx_kp_s_Cannot_delete_attribute_s, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 370, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_6 = NULL;
@@ -20281,14 +20295,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
     __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_t_7) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 371, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 370, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(2, 371, __pyx_L1_error)
+    __PYX_ERR(2, 370, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":370
+    /* "pyprotect/Wrapped_Frozen.pxi":369
  *         if self.frozen:
  *             raise frozen_error
  *         if a in overridden_always or a in special_attributes:             # <<<<<<<<<<<<<<
@@ -20297,7 +20311,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":372
+  /* "pyprotect/Wrapped_Frozen.pxi":371
  *         if a in overridden_always or a in special_attributes:
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))
  *         if not hasattr(self.pvt_o, a) and a in self.__dir__():             # <<<<<<<<<<<<<<
@@ -20306,7 +20320,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
  */
   __pyx_t_4 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_4);
-  __pyx_t_2 = __Pyx_HasAttr(__pyx_t_4, __pyx_v_a); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 372, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_HasAttr(__pyx_t_4, __pyx_v_a); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_3 = ((!(__pyx_t_2 != 0)) != 0);
   if (__pyx_t_3) {
@@ -20314,7 +20328,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
     __pyx_t_1 = __pyx_t_3;
     goto __pyx_L8_bool_binop_done;
   }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_dir); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 372, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_dir); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_7 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -20328,31 +20342,31 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
   }
   __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 372, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 371, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_t_4, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 372, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_v_a, __pyx_t_4, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(2, 371, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_2 = (__pyx_t_3 != 0);
   __pyx_t_1 = __pyx_t_2;
   __pyx_L8_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":373
+    /* "pyprotect/Wrapped_Frozen.pxi":372
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))
  *         if not hasattr(self.pvt_o, a) and a in self.__dir__():
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))             # <<<<<<<<<<<<<<
  * 
  *     cdef wrapped_dir(self):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ProtectionError); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 373, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ProtectionError); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 372, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 373, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(2, 372, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_INCREF(__pyx_v_a);
     __Pyx_GIVEREF(__pyx_v_a);
     PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_v_a);
-    __pyx_t_6 = __Pyx_PyString_Format(__pyx_kp_s_Cannot_delete_attribute_s, __pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 373, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyString_Format(__pyx_kp_s_Cannot_delete_attribute_s, __pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 372, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_7 = NULL;
@@ -20368,14 +20382,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
     __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_7, __pyx_t_6) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 373, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 372, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(2, 373, __pyx_L1_error)
+    __PYX_ERR(2, 372, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":372
+    /* "pyprotect/Wrapped_Frozen.pxi":371
  *         if a in overridden_always or a in special_attributes:
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))
  *         if not hasattr(self.pvt_o, a) and a in self.__dir__():             # <<<<<<<<<<<<<<
@@ -20384,7 +20398,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":367
+  /* "pyprotect/Wrapped_Frozen.pxi":366
  *             raise ProtectionError('Cannot modify attribute: %s' % (a,))
  * 
  *     cdef wrapped_check_delattr(self, a):             # <<<<<<<<<<<<<<
@@ -20408,7 +20422,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_check_delattr(st
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":375
+/* "pyprotect/Wrapped_Frozen.pxi":374
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))
  * 
  *     cdef wrapped_dir(self):             # <<<<<<<<<<<<<<
@@ -20429,7 +20443,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_dir(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("wrapped_dir", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":376
+  /* "pyprotect/Wrapped_Frozen.pxi":375
  * 
  *     cdef wrapped_dir(self):
  *         res_set = special_attributes             # <<<<<<<<<<<<<<
@@ -20439,7 +20453,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_dir(struct __pyx
   __Pyx_INCREF(__pyx_v_9pyprotect_9protected_special_attributes);
   __pyx_v_res_set = __pyx_v_9pyprotect_9protected_special_attributes;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":377
+  /* "pyprotect/Wrapped_Frozen.pxi":376
  *     cdef wrapped_dir(self):
  *         res_set = special_attributes
  *         delegated = set(dir(self.pvt_o))             # <<<<<<<<<<<<<<
@@ -20448,23 +20462,23 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_dir(struct __pyx
  */
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_Dir(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 377, __pyx_L1_error)
+  __pyx_t_2 = PyObject_Dir(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PySet_New(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 377, __pyx_L1_error)
+  __pyx_t_1 = PySet_New(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 376, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_delegated = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":378
+  /* "pyprotect/Wrapped_Frozen.pxi":377
  *         res_set = special_attributes
  *         delegated = set(dir(self.pvt_o))
  *         res_set = res_set.union(delegated)             # <<<<<<<<<<<<<<
  *         res_set = res_set.difference(pickle_attributes)
  *         return list(res_set)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_res_set, __pyx_n_s_union); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 378, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_res_set, __pyx_n_s_union); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 377, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -20478,20 +20492,20 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_dir(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_delegated) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_delegated);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 378, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 377, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_res_set, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":379
+  /* "pyprotect/Wrapped_Frozen.pxi":378
  *         delegated = set(dir(self.pvt_o))
  *         res_set = res_set.union(delegated)
  *         res_set = res_set.difference(pickle_attributes)             # <<<<<<<<<<<<<<
  *         return list(res_set)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_res_set, __pyx_n_s_difference); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 379, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_res_set, __pyx_n_s_difference); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -20505,13 +20519,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_dir(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_9pyprotect_9protected_pickle_attributes) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_9pyprotect_9protected_pickle_attributes);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 379, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF_SET(__pyx_v_res_set, __pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":380
+  /* "pyprotect/Wrapped_Frozen.pxi":379
  *         res_set = res_set.union(delegated)
  *         res_set = res_set.difference(pickle_attributes)
  *         return list(res_set)             # <<<<<<<<<<<<<<
@@ -20519,13 +20533,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_dir(struct __pyx
  *     # --------------------------------------------------------------------
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PySequence_List(__pyx_v_res_set); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 380, __pyx_L1_error)
+  __pyx_t_1 = PySequence_List(__pyx_v_res_set); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 379, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":375
+  /* "pyprotect/Wrapped_Frozen.pxi":374
  *             raise ProtectionError('Cannot delete attribute: %s' % (a,))
  * 
  *     cdef wrapped_dir(self):             # <<<<<<<<<<<<<<
@@ -20548,7 +20562,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_7Wrapped_wrapped_dir(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":386
+/* "pyprotect/Wrapped_Frozen.pxi":385
  *     # --------------------------------------------------------------------
  * 
  *     def __getattribute__(self, a):             # <<<<<<<<<<<<<<
@@ -20578,7 +20592,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_2__getattribute__(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__getattribute__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":387
+  /* "pyprotect/Wrapped_Frozen.pxi":386
  * 
  *     def __getattribute__(self, a):
  *         return self.wrapped_getattr(a)             # <<<<<<<<<<<<<<
@@ -20586,13 +20600,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_2__getattribute__(struc
  *     def __setattr__(self, a, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->wrapped_getattr(__pyx_v_self, __pyx_v_a); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 387, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->wrapped_getattr(__pyx_v_self, __pyx_v_a); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 386, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":386
+  /* "pyprotect/Wrapped_Frozen.pxi":385
  *     # --------------------------------------------------------------------
  * 
  *     def __getattribute__(self, a):             # <<<<<<<<<<<<<<
@@ -20611,7 +20625,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_2__getattribute__(struc
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":389
+/* "pyprotect/Wrapped_Frozen.pxi":388
  *         return self.wrapped_getattr(a)
  * 
  *     def __setattr__(self, a, val):             # <<<<<<<<<<<<<<
@@ -20642,18 +20656,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_4__setattr__(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__setattr__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":391
+  /* "pyprotect/Wrapped_Frozen.pxi":390
  *     def __setattr__(self, a, val):
  *         # Only checks and raises exceptions
  *         self.wrapped_check_setattr(a, val)             # <<<<<<<<<<<<<<
  *         setattr(self.pvt_o, a, val)
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->wrapped_check_setattr(__pyx_v_self, __pyx_v_a, __pyx_v_val); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 391, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->wrapped_check_setattr(__pyx_v_self, __pyx_v_a, __pyx_v_val); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":392
+  /* "pyprotect/Wrapped_Frozen.pxi":391
  *         # Only checks and raises exceptions
  *         self.wrapped_check_setattr(a, val)
  *         setattr(self.pvt_o, a, val)             # <<<<<<<<<<<<<<
@@ -20662,10 +20676,10 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_4__setattr__(struct __pyx_obj
  */
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_SetAttr(__pyx_t_1, __pyx_v_a, __pyx_v_val); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 392, __pyx_L1_error)
+  __pyx_t_2 = PyObject_SetAttr(__pyx_t_1, __pyx_v_a, __pyx_v_val); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 391, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":389
+  /* "pyprotect/Wrapped_Frozen.pxi":388
  *         return self.wrapped_getattr(a)
  * 
  *     def __setattr__(self, a, val):             # <<<<<<<<<<<<<<
@@ -20685,7 +20699,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_4__setattr__(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":394
+/* "pyprotect/Wrapped_Frozen.pxi":393
  *         setattr(self.pvt_o, a, val)
  * 
  *     def __delattr__(self, a):             # <<<<<<<<<<<<<<
@@ -20716,18 +20730,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_6__delattr__(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__delattr__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":396
+  /* "pyprotect/Wrapped_Frozen.pxi":395
  *     def __delattr__(self, a):
  *         # Only checks and raises exceptions
  *         self.wrapped_check_delattr(a)             # <<<<<<<<<<<<<<
  *         delattr(self.pvt_o, a)
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->wrapped_check_delattr(__pyx_v_self, __pyx_v_a); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 396, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->wrapped_check_delattr(__pyx_v_self, __pyx_v_a); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 395, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":397
+  /* "pyprotect/Wrapped_Frozen.pxi":396
  *         # Only checks and raises exceptions
  *         self.wrapped_check_delattr(a)
  *         delattr(self.pvt_o, a)             # <<<<<<<<<<<<<<
@@ -20736,10 +20750,10 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_6__delattr__(struct __pyx_obj
  */
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_DelAttr(__pyx_t_1, __pyx_v_a); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 397, __pyx_L1_error)
+  __pyx_t_2 = PyObject_DelAttr(__pyx_t_1, __pyx_v_a); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 396, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":394
+  /* "pyprotect/Wrapped_Frozen.pxi":393
  *         setattr(self.pvt_o, a, val)
  * 
  *     def __delattr__(self, a):             # <<<<<<<<<<<<<<
@@ -20759,7 +20773,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_6__delattr__(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":399
+/* "pyprotect/Wrapped_Frozen.pxi":398
  *         delattr(self.pvt_o, a)
  * 
  *     def __dir__(self):             # <<<<<<<<<<<<<<
@@ -20789,7 +20803,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_8__dir__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__dir__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":400
+  /* "pyprotect/Wrapped_Frozen.pxi":399
  * 
  *     def __dir__(self):
  *         return self.wrapped_dir()             # <<<<<<<<<<<<<<
@@ -20797,13 +20811,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_8__dir__(struct __pyx_o
  *     def __richcmp__(self, other, int op):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->wrapped_dir(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 400, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->wrapped_dir(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 399, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":399
+  /* "pyprotect/Wrapped_Frozen.pxi":398
  *         delattr(self.pvt_o, a)
  * 
  *     def __dir__(self):             # <<<<<<<<<<<<<<
@@ -20822,7 +20836,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_8__dir__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":402
+/* "pyprotect/Wrapped_Frozen.pxi":401
  *         return self.wrapped_dir()
  * 
  *     def __richcmp__(self, other, int op):             # <<<<<<<<<<<<<<
@@ -20853,7 +20867,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10__richcmp__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__richcmp__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":404
+  /* "pyprotect/Wrapped_Frozen.pxi":403
  *     def __richcmp__(self, other, int op):
  *         '''Use common method for all Wrapped objects'''
  *         return self.comparator(other, op)             # <<<<<<<<<<<<<<
@@ -20861,16 +20875,16 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10__richcmp__(struct __
  *     # Needs to be class-specific
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_op); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 404, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_op); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->comparator(__pyx_v_self, __pyx_v_other, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 404, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->comparator(__pyx_v_self, __pyx_v_other, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":402
+  /* "pyprotect/Wrapped_Frozen.pxi":401
  *         return self.wrapped_dir()
  * 
  *     def __richcmp__(self, other, int op):             # <<<<<<<<<<<<<<
@@ -20890,7 +20904,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_10__richcmp__(struct __
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":408
+/* "pyprotect/Wrapped_Frozen.pxi":407
  *     # Needs to be class-specific
  *     # Depends on pvt_o being hashable
  *     def __hash__(self):             # <<<<<<<<<<<<<<
@@ -20925,40 +20939,40 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_7Wrapped_12__hash__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__hash__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":410
+  /* "pyprotect/Wrapped_Frozen.pxi":409
  *     def __hash__(self):
  *         return hash((
  *             id(type(self)),             # <<<<<<<<<<<<<<
  *             str(self.get_rules()),
  *             id(self.pvt_o),
  */
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self)))); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 410, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self)))); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":411
+  /* "pyprotect/Wrapped_Frozen.pxi":410
  *         return hash((
  *             id(type(self)),
  *             str(self.get_rules()),             # <<<<<<<<<<<<<<
  *             id(self.pvt_o),
  *             hash(self.pvt_o)
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->get_rules(__pyx_v_self); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 411, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Wrapped *)__pyx_v_self->__pyx_vtab)->get_rules(__pyx_v_self); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 410, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 411, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 410, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":412
+  /* "pyprotect/Wrapped_Frozen.pxi":411
  *             id(type(self)),
  *             str(self.get_rules()),
  *             id(self.pvt_o),             # <<<<<<<<<<<<<<
  *             hash(self.pvt_o)
  *         ))
  */
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 412, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":413
+  /* "pyprotect/Wrapped_Frozen.pxi":412
  *             str(self.get_rules()),
  *             id(self.pvt_o),
  *             hash(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -20967,19 +20981,19 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_7Wrapped_12__hash__(struct __pyx
  */
   __pyx_t_4 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_4);
-  __pyx_t_5 = PyObject_Hash(__pyx_t_4); if (unlikely(__pyx_t_5 == ((Py_hash_t)-1))) __PYX_ERR(2, 413, __pyx_L1_error)
+  __pyx_t_5 = PyObject_Hash(__pyx_t_4); if (unlikely(__pyx_t_5 == ((Py_hash_t)-1))) __PYX_ERR(2, 412, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyInt_FromHash_t(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 413, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_FromHash_t(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":410
+  /* "pyprotect/Wrapped_Frozen.pxi":409
  *     def __hash__(self):
  *         return hash((
  *             id(type(self)),             # <<<<<<<<<<<<<<
  *             str(self.get_rules()),
  *             id(self.pvt_o),
  */
-  __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 410, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(4); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_1);
@@ -20994,19 +21008,19 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_7Wrapped_12__hash__(struct __pyx
   __pyx_t_2 = 0;
   __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":409
+  /* "pyprotect/Wrapped_Frozen.pxi":408
  *     # Depends on pvt_o being hashable
  *     def __hash__(self):
  *         return hash((             # <<<<<<<<<<<<<<
  *             id(type(self)),
  *             str(self.get_rules()),
  */
-  __pyx_t_5 = PyObject_Hash(__pyx_t_6); if (unlikely(__pyx_t_5 == ((Py_hash_t)-1))) __PYX_ERR(2, 409, __pyx_L1_error)
+  __pyx_t_5 = PyObject_Hash(__pyx_t_6); if (unlikely(__pyx_t_5 == ((Py_hash_t)-1))) __PYX_ERR(2, 408, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_r = __pyx_t_5;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":408
+  /* "pyprotect/Wrapped_Frozen.pxi":407
  *     # Needs to be class-specific
  *     # Depends on pvt_o being hashable
  *     def __hash__(self):             # <<<<<<<<<<<<<<
@@ -21029,7 +21043,7 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_7Wrapped_12__hash__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":418
+/* "pyprotect/Wrapped_Frozen.pxi":417
  *     # __repr__, __str__ and __bytes__:
  *     # We do not want the default cython implementations of Wrapped
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -21060,7 +21074,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_14__repr__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__repr__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":419
+  /* "pyprotect/Wrapped_Frozen.pxi":418
  *     # We do not want the default cython implementations of Wrapped
  *     def __repr__(self):
  *         return repr(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -21070,14 +21084,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_14__repr__(struct __pyx
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_Repr(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 419, __pyx_L1_error)
+  __pyx_t_2 = PyObject_Repr(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 418, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":418
+  /* "pyprotect/Wrapped_Frozen.pxi":417
  *     # __repr__, __str__ and __bytes__:
  *     # We do not want the default cython implementations of Wrapped
  *     def __repr__(self):             # <<<<<<<<<<<<<<
@@ -21097,7 +21111,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_14__repr__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":421
+/* "pyprotect/Wrapped_Frozen.pxi":420
  *         return repr(self.pvt_o)
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
@@ -21127,7 +21141,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_16__str__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__str__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":422
+  /* "pyprotect/Wrapped_Frozen.pxi":421
  * 
  *     def __str__(self):
  *         return str(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -21135,13 +21149,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_16__str__(struct __pyx_
  *     def __bytes__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 422, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyString_Type)), __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 421, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":421
+  /* "pyprotect/Wrapped_Frozen.pxi":420
  *         return repr(self.pvt_o)
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
@@ -21160,7 +21174,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_16__str__(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":424
+/* "pyprotect/Wrapped_Frozen.pxi":423
  *         return str(self.pvt_o)
  * 
  *     def __bytes__(self):             # <<<<<<<<<<<<<<
@@ -21190,7 +21204,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_18__bytes__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__bytes__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":425
+  /* "pyprotect/Wrapped_Frozen.pxi":424
  * 
  *     def __bytes__(self):
  *         return bytes(self.pvt_o)             # <<<<<<<<<<<<<<
@@ -21198,13 +21212,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_18__bytes__(struct __py
  *     # --------------------------------------------------------------------
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyBytes_Type)), __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 425, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)(&PyBytes_Type)), __pyx_v_self->pvt_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 424, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":424
+  /* "pyprotect/Wrapped_Frozen.pxi":423
  *         return str(self.pvt_o)
  * 
  *     def __bytes__(self):             # <<<<<<<<<<<<<<
@@ -21223,7 +21237,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_18__bytes__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":431
+/* "pyprotect/Wrapped_Frozen.pxi":430
  *     # --------------------------------------------------------------------
  * 
  *     def __call__(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -21268,14 +21282,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__call__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":432
+  /* "pyprotect/Wrapped_Frozen.pxi":431
  * 
  *     def __call__(self, *args, **kwargs):
  *         if iswrapped(self.pvt_o):             # <<<<<<<<<<<<<<
  *             # We claim to be avoiding double-wrapping, so this code
  *             # should never be reached
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 432, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_iswrapped); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 431, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -21289,27 +21303,27 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_self->pvt_o) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_self->pvt_o);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 432, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 431, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 432, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(2, 431, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (unlikely(__pyx_t_4)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":435
+    /* "pyprotect/Wrapped_Frozen.pxi":434
  *             # We claim to be avoiding double-wrapping, so this code
  *             # should never be reached
  *             raise RuntimeError('Double-wrapped!')             # <<<<<<<<<<<<<<
  * 
  *         x = self.pvt_o(*args, **kwargs)
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 435, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_RuntimeError, __pyx_tuple__19, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 434, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(2, 435, __pyx_L1_error)
+    __PYX_ERR(2, 434, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":432
+    /* "pyprotect/Wrapped_Frozen.pxi":431
  * 
  *     def __call__(self, *args, **kwargs):
  *         if iswrapped(self.pvt_o):             # <<<<<<<<<<<<<<
@@ -21318,22 +21332,22 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":437
+  /* "pyprotect/Wrapped_Frozen.pxi":436
  *             raise RuntimeError('Double-wrapped!')
  * 
  *         x = self.pvt_o(*args, **kwargs)             # <<<<<<<<<<<<<<
  *         if self.frozen and not isimmutable(x):
  *             x = Frozen(x)
  */
-  __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 437, __pyx_L1_error)
+  __pyx_t_1 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_v_self->pvt_o, __pyx_v_args, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 437, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_v_self->pvt_o, __pyx_v_args, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_x = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":438
+  /* "pyprotect/Wrapped_Frozen.pxi":437
  * 
  *         x = self.pvt_o(*args, **kwargs)
  *         if self.frozen and not isimmutable(x):             # <<<<<<<<<<<<<<
@@ -21346,7 +21360,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
     __pyx_t_4 = __pyx_t_5;
     goto __pyx_L5_bool_binop_done;
   }
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_isimmutable); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 438, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_isimmutable); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 437, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
@@ -21360,29 +21374,29 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
   }
   __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_x);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 438, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 437, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 438, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(2, 437, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_6 = ((!__pyx_t_5) != 0);
   __pyx_t_4 = __pyx_t_6;
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_4) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":439
+    /* "pyprotect/Wrapped_Frozen.pxi":438
  *         x = self.pvt_o(*args, **kwargs)
  *         if self.frozen and not isimmutable(x):
  *             x = Frozen(x)             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_Frozen), __pyx_v_x); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 439, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_9pyprotect_9protected_Frozen), __pyx_v_x); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 438, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF_SET(__pyx_v_x, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":438
+    /* "pyprotect/Wrapped_Frozen.pxi":437
  * 
  *         x = self.pvt_o(*args, **kwargs)
  *         if self.frozen and not isimmutable(x):             # <<<<<<<<<<<<<<
@@ -21391,7 +21405,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":440
+  /* "pyprotect/Wrapped_Frozen.pxi":439
  *         if self.frozen and not isimmutable(x):
  *             x = Frozen(x)
  *         return x             # <<<<<<<<<<<<<<
@@ -21403,7 +21417,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
   __pyx_r = __pyx_v_x;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":431
+  /* "pyprotect/Wrapped_Frozen.pxi":430
  *     # --------------------------------------------------------------------
  * 
  *     def __call__(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -21426,7 +21440,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_20__call__(struct __pyx
 }
 static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "pyprotect/Wrapped_Frozen.pxi":442
+/* "pyprotect/Wrapped_Frozen.pxi":441
  *         return x
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -21459,7 +21473,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_22__iter__(struct __pyx
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_9pyprotect_9protected___pyx_scope_struct_1___iter__ *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(2, 442, __pyx_L1_error)
+    __PYX_ERR(2, 441, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -21467,7 +21481,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_22__iter__(struct __pyx
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_9pyprotect_9protected_7Wrapped_24generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_Wrapped___iter, __pyx_n_s_pyprotect_protected); if (unlikely(!gen)) __PYX_ERR(2, 442, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_9pyprotect_9protected_7Wrapped_24generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_Wrapped___iter, __pyx_n_s_pyprotect_protected); if (unlikely(!gen)) __PYX_ERR(2, 441, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -21507,9 +21521,9 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(2, 442, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(2, 441, __pyx_L1_error)
 
-  /* "pyprotect/Wrapped_Frozen.pxi":443
+  /* "pyprotect/Wrapped_Frozen.pxi":442
  * 
  *     def __iter__(self):
  *         for x in iter(self.pvt_o):             # <<<<<<<<<<<<<<
@@ -21518,16 +21532,16 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
  */
   __pyx_t_1 = __pyx_cur_scope->__pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 443, __pyx_L1_error)
+  __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
     __pyx_t_1 = __pyx_t_2; __Pyx_INCREF(__pyx_t_1); __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 443, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 442, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_4 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 443, __pyx_L1_error)
+    __pyx_t_4 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 442, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   for (;;) {
@@ -21535,17 +21549,17 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(2, 443, __pyx_L1_error)
+        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(2, 442, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 443, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 442, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       } else {
         if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(2, 443, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_2); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(2, 442, __pyx_L1_error)
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 443, __pyx_L1_error)
+        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 442, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         #endif
       }
@@ -21555,7 +21569,7 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(2, 443, __pyx_L1_error)
+          else __PYX_ERR(2, 442, __pyx_L1_error)
         }
         break;
       }
@@ -21566,7 +21580,7 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":444
+    /* "pyprotect/Wrapped_Frozen.pxi":443
  *     def __iter__(self):
  *         for x in iter(self.pvt_o):
  *             if self.frozen:             # <<<<<<<<<<<<<<
@@ -21576,14 +21590,14 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
     __pyx_t_5 = (__pyx_cur_scope->__pyx_v_self->frozen != 0);
     if (__pyx_t_5) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":445
+      /* "pyprotect/Wrapped_Frozen.pxi":444
  *         for x in iter(self.pvt_o):
  *             if self.frozen:
  *                 x = freeze(x)             # <<<<<<<<<<<<<<
  *             yield x
  * 
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_freeze); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 445, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_freeze); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 444, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_7 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_6))) {
@@ -21597,7 +21611,7 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
       }
       __pyx_t_2 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_cur_scope->__pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_cur_scope->__pyx_v_x);
       __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-      if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 445, __pyx_L1_error)
+      if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 444, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_x);
@@ -21605,7 +21619,7 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
       __Pyx_GIVEREF(__pyx_t_2);
       __pyx_t_2 = 0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":444
+      /* "pyprotect/Wrapped_Frozen.pxi":443
  *     def __iter__(self):
  *         for x in iter(self.pvt_o):
  *             if self.frozen:             # <<<<<<<<<<<<<<
@@ -21614,7 +21628,7 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":446
+    /* "pyprotect/Wrapped_Frozen.pxi":445
  *             if self.frozen:
  *                 x = freeze(x)
  *             yield x             # <<<<<<<<<<<<<<
@@ -21639,9 +21653,9 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
     __Pyx_XGOTREF(__pyx_t_1);
     __pyx_t_3 = __pyx_cur_scope->__pyx_t_1;
     __pyx_t_4 = __pyx_cur_scope->__pyx_t_2;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(2, 446, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(2, 445, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":443
+    /* "pyprotect/Wrapped_Frozen.pxi":442
  * 
  *     def __iter__(self):
  *         for x in iter(self.pvt_o):             # <<<<<<<<<<<<<<
@@ -21652,7 +21666,7 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":442
+  /* "pyprotect/Wrapped_Frozen.pxi":441
  *         return x
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -21680,7 +21694,7 @@ static PyObject *__pyx_gb_9pyprotect_9protected_7Wrapped_24generator(__pyx_Corou
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":449
+/* "pyprotect/Wrapped_Frozen.pxi":448
  * 
  *     # Representations - return immutable
  *     def __format__(self, val):             # <<<<<<<<<<<<<<
@@ -21712,7 +21726,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_25__format__(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__format__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":450
+  /* "pyprotect/Wrapped_Frozen.pxi":449
  *     # Representations - return immutable
  *     def __format__(self, val):
  *         return self.pvt_o.__format__(val)             # <<<<<<<<<<<<<<
@@ -21720,7 +21734,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_25__format__(struct __p
  *     # Truth value testing - non-mutating, returning immutable bool
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 450, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_format); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -21734,14 +21748,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_25__format__(struct __p
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 450, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":449
+  /* "pyprotect/Wrapped_Frozen.pxi":448
  * 
  *     # Representations - return immutable
  *     def __format__(self, val):             # <<<<<<<<<<<<<<
@@ -21762,7 +21776,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_25__format__(struct __p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":453
+/* "pyprotect/Wrapped_Frozen.pxi":452
  * 
  *     # Truth value testing - non-mutating, returning immutable bool
  *     def __bool__(self):             # <<<<<<<<<<<<<<
@@ -21792,18 +21806,18 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_27__bool__(struct __pyx_obj_9
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__bool__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":454
+  /* "pyprotect/Wrapped_Frozen.pxi":453
  *     # Truth value testing - non-mutating, returning immutable bool
  *     def __bool__(self):
  *         return bool(self.pvt_o)             # <<<<<<<<<<<<<<
  * 
  *     # Emulating container types - non-mutating
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_self->pvt_o); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 454, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_self->pvt_o); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(2, 453, __pyx_L1_error)
   __pyx_r = (!(!__pyx_t_1));
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":453
+  /* "pyprotect/Wrapped_Frozen.pxi":452
  * 
  *     # Truth value testing - non-mutating, returning immutable bool
  *     def __bool__(self):             # <<<<<<<<<<<<<<
@@ -21820,7 +21834,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_27__bool__(struct __pyx_obj_9
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":457
+/* "pyprotect/Wrapped_Frozen.pxi":456
  * 
  *     # Emulating container types - non-mutating
  *     def __getitem__(self, key):             # <<<<<<<<<<<<<<
@@ -21854,14 +21868,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_29__getitem__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__getitem__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":458
+  /* "pyprotect/Wrapped_Frozen.pxi":457
  *     # Emulating container types - non-mutating
  *     def __getitem__(self, key):
  *         x = self.pvt_o.__getitem__(key)             # <<<<<<<<<<<<<<
  *         if self.frozen:
  *             x = freeze(x)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_getitem); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 458, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_getitem); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 457, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -21875,13 +21889,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_29__getitem__(struct __
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_key) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_key);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 458, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 457, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_x = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":459
+  /* "pyprotect/Wrapped_Frozen.pxi":458
  *     def __getitem__(self, key):
  *         x = self.pvt_o.__getitem__(key)
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -21891,14 +21905,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_29__getitem__(struct __
   __pyx_t_4 = (__pyx_v_self->frozen != 0);
   if (__pyx_t_4) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":460
+    /* "pyprotect/Wrapped_Frozen.pxi":459
  *         x = self.pvt_o.__getitem__(key)
  *         if self.frozen:
  *             x = freeze(x)             # <<<<<<<<<<<<<<
  *         return x
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_freeze); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 460, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_freeze); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -21912,13 +21926,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_29__getitem__(struct __
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_x);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 460, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 459, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF_SET(__pyx_v_x, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/Wrapped_Frozen.pxi":459
+    /* "pyprotect/Wrapped_Frozen.pxi":458
  *     def __getitem__(self, key):
  *         x = self.pvt_o.__getitem__(key)
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -21927,7 +21941,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_29__getitem__(struct __
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":461
+  /* "pyprotect/Wrapped_Frozen.pxi":460
  *         if self.frozen:
  *             x = freeze(x)
  *         return x             # <<<<<<<<<<<<<<
@@ -21939,7 +21953,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_29__getitem__(struct __
   __pyx_r = __pyx_v_x;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":457
+  /* "pyprotect/Wrapped_Frozen.pxi":456
  * 
  *     # Emulating container types - non-mutating
  *     def __getitem__(self, key):             # <<<<<<<<<<<<<<
@@ -21961,7 +21975,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_29__getitem__(struct __
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":463
+/* "pyprotect/Wrapped_Frozen.pxi":462
  *         return x
  * 
  *     def __contains__(self, val):             # <<<<<<<<<<<<<<
@@ -21994,14 +22008,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_31__contains__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__contains__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":464
+  /* "pyprotect/Wrapped_Frozen.pxi":463
  * 
  *     def __contains__(self, val):
  *         return self.pvt_o.__contains__(val)             # <<<<<<<<<<<<<<
  * 
  *     def __len__(self):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_contains); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 464, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_contains); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 463, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22015,15 +22029,15 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_31__contains__(struct __pyx_o
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 464, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 463, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 464, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_t_1); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(2, 463, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_4;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":463
+  /* "pyprotect/Wrapped_Frozen.pxi":462
  *         return x
  * 
  *     def __contains__(self, val):             # <<<<<<<<<<<<<<
@@ -22043,7 +22057,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_31__contains__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":466
+/* "pyprotect/Wrapped_Frozen.pxi":465
  *         return self.pvt_o.__contains__(val)
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -22076,14 +22090,14 @@ static Py_ssize_t __pyx_pf_9pyprotect_9protected_7Wrapped_33__len__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__len__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":467
+  /* "pyprotect/Wrapped_Frozen.pxi":466
  * 
  *     def __len__(self):
  *         return self.pvt_o.__len__()             # <<<<<<<<<<<<<<
  * 
  *     def __length_hint__(self):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_len); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 467, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_len); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 466, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22097,15 +22111,15 @@ static Py_ssize_t __pyx_pf_9pyprotect_9protected_7Wrapped_33__len__(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 467, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 466, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_4 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(2, 467, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyIndex_AsSsize_t(__pyx_t_1); if (unlikely((__pyx_t_4 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(2, 466, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_4;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":466
+  /* "pyprotect/Wrapped_Frozen.pxi":465
  *         return self.pvt_o.__contains__(val)
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -22125,7 +22139,7 @@ static Py_ssize_t __pyx_pf_9pyprotect_9protected_7Wrapped_33__len__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":469
+/* "pyprotect/Wrapped_Frozen.pxi":468
  *         return self.pvt_o.__len__()
  * 
  *     def __length_hint__(self):             # <<<<<<<<<<<<<<
@@ -22157,7 +22171,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_35__length_hint__(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__length_hint__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":470
+  /* "pyprotect/Wrapped_Frozen.pxi":469
  * 
  *     def __length_hint__(self):
  *         return self.pvt_o.__length_hint__()             # <<<<<<<<<<<<<<
@@ -22165,7 +22179,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_35__length_hint__(struc
  *     # Unary numeric operations - return immutable
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_length_hint); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 470, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_length_hint); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 469, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22179,14 +22193,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_35__length_hint__(struc
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 470, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 469, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":469
+  /* "pyprotect/Wrapped_Frozen.pxi":468
  *         return self.pvt_o.__len__()
  * 
  *     def __length_hint__(self):             # <<<<<<<<<<<<<<
@@ -22207,7 +22221,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_35__length_hint__(struc
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":473
+/* "pyprotect/Wrapped_Frozen.pxi":472
  * 
  *     # Unary numeric operations - return immutable
  *     def __neg__(self):             # <<<<<<<<<<<<<<
@@ -22239,7 +22253,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_37__neg__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__neg__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":474
+  /* "pyprotect/Wrapped_Frozen.pxi":473
  *     # Unary numeric operations - return immutable
  *     def __neg__(self):
  *         return self.pvt_o.__neg__()             # <<<<<<<<<<<<<<
@@ -22247,7 +22261,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_37__neg__(struct __pyx_
  *     def __pos__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_neg); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 474, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_neg); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22261,14 +22275,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_37__neg__(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 474, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":473
+  /* "pyprotect/Wrapped_Frozen.pxi":472
  * 
  *     # Unary numeric operations - return immutable
  *     def __neg__(self):             # <<<<<<<<<<<<<<
@@ -22289,7 +22303,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_37__neg__(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":476
+/* "pyprotect/Wrapped_Frozen.pxi":475
  *         return self.pvt_o.__neg__()
  * 
  *     def __pos__(self):             # <<<<<<<<<<<<<<
@@ -22321,7 +22335,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_39__pos__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__pos__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":477
+  /* "pyprotect/Wrapped_Frozen.pxi":476
  * 
  *     def __pos__(self):
  *         return self.pvt_o.__pos__()             # <<<<<<<<<<<<<<
@@ -22329,7 +22343,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_39__pos__(struct __pyx_
  *     def __abs__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_pos); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 477, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_pos); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 476, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22343,14 +22357,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_39__pos__(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 477, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 476, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":476
+  /* "pyprotect/Wrapped_Frozen.pxi":475
  *         return self.pvt_o.__neg__()
  * 
  *     def __pos__(self):             # <<<<<<<<<<<<<<
@@ -22371,7 +22385,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_39__pos__(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":479
+/* "pyprotect/Wrapped_Frozen.pxi":478
  *         return self.pvt_o.__pos__()
  * 
  *     def __abs__(self):             # <<<<<<<<<<<<<<
@@ -22403,7 +22417,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_41__abs__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__abs__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":480
+  /* "pyprotect/Wrapped_Frozen.pxi":479
  * 
  *     def __abs__(self):
  *         return self.pvt_o.__abs__()             # <<<<<<<<<<<<<<
@@ -22411,7 +22425,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_41__abs__(struct __pyx_
  *     def __invert__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_abs); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 480, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_abs); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22425,14 +22439,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_41__abs__(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 480, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 479, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":479
+  /* "pyprotect/Wrapped_Frozen.pxi":478
  *         return self.pvt_o.__pos__()
  * 
  *     def __abs__(self):             # <<<<<<<<<<<<<<
@@ -22453,7 +22467,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_41__abs__(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":482
+/* "pyprotect/Wrapped_Frozen.pxi":481
  *         return self.pvt_o.__abs__()
  * 
  *     def __invert__(self):             # <<<<<<<<<<<<<<
@@ -22485,7 +22499,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_43__invert__(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__invert__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":483
+  /* "pyprotect/Wrapped_Frozen.pxi":482
  * 
  *     def __invert__(self):
  *         return self.pvt_o.__invert__()             # <<<<<<<<<<<<<<
@@ -22493,7 +22507,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_43__invert__(struct __p
  *     def __complex__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_invert); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 483, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_invert); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 482, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22507,14 +22521,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_43__invert__(struct __p
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 483, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 482, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":482
+  /* "pyprotect/Wrapped_Frozen.pxi":481
  *         return self.pvt_o.__abs__()
  * 
  *     def __invert__(self):             # <<<<<<<<<<<<<<
@@ -22535,7 +22549,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_43__invert__(struct __p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":485
+/* "pyprotect/Wrapped_Frozen.pxi":484
  *         return self.pvt_o.__invert__()
  * 
  *     def __complex__(self):             # <<<<<<<<<<<<<<
@@ -22567,7 +22581,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_45__complex__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__complex__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":486
+  /* "pyprotect/Wrapped_Frozen.pxi":485
  * 
  *     def __complex__(self):
  *         return self.pvt_o.__complex__()             # <<<<<<<<<<<<<<
@@ -22575,7 +22589,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_45__complex__(struct __
  *     def __int__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_complex_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 486, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_complex_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 485, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22589,14 +22603,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_45__complex__(struct __
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 486, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 485, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":485
+  /* "pyprotect/Wrapped_Frozen.pxi":484
  *         return self.pvt_o.__invert__()
  * 
  *     def __complex__(self):             # <<<<<<<<<<<<<<
@@ -22617,7 +22631,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_45__complex__(struct __
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":488
+/* "pyprotect/Wrapped_Frozen.pxi":487
  *         return self.pvt_o.__complex__()
  * 
  *     def __int__(self):             # <<<<<<<<<<<<<<
@@ -22649,7 +22663,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_47__int__(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__int__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":489
+  /* "pyprotect/Wrapped_Frozen.pxi":488
  * 
  *     def __int__(self):
  *         return self.pvt_o.__int__()             # <<<<<<<<<<<<<<
@@ -22657,7 +22671,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_47__int__(struct __pyx_
  *     def __float__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_int_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 489, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_int_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 488, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22671,14 +22685,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_47__int__(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 489, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 488, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":488
+  /* "pyprotect/Wrapped_Frozen.pxi":487
  *         return self.pvt_o.__complex__()
  * 
  *     def __int__(self):             # <<<<<<<<<<<<<<
@@ -22699,7 +22713,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_47__int__(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":491
+/* "pyprotect/Wrapped_Frozen.pxi":490
  *         return self.pvt_o.__int__()
  * 
  *     def __float__(self):             # <<<<<<<<<<<<<<
@@ -22731,7 +22745,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_49__float__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__float__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":492
+  /* "pyprotect/Wrapped_Frozen.pxi":491
  * 
  *     def __float__(self):
  *         return self.pvt_o.__float__()             # <<<<<<<<<<<<<<
@@ -22739,7 +22753,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_49__float__(struct __py
  *     def __index__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_float_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 492, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_float_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 491, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22753,14 +22767,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_49__float__(struct __py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 492, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 491, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":491
+  /* "pyprotect/Wrapped_Frozen.pxi":490
  *         return self.pvt_o.__int__()
  * 
  *     def __float__(self):             # <<<<<<<<<<<<<<
@@ -22781,7 +22795,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_49__float__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":494
+/* "pyprotect/Wrapped_Frozen.pxi":493
  *         return self.pvt_o.__float__()
  * 
  *     def __index__(self):             # <<<<<<<<<<<<<<
@@ -22813,7 +22827,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_51__index__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__index__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":495
+  /* "pyprotect/Wrapped_Frozen.pxi":494
  * 
  *     def __index__(self):
  *         return self.pvt_o.__index__()             # <<<<<<<<<<<<<<
@@ -22821,7 +22835,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_51__index__(struct __py
  *     def __round__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 495, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_index); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 494, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22835,14 +22849,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_51__index__(struct __py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 495, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 494, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":494
+  /* "pyprotect/Wrapped_Frozen.pxi":493
  *         return self.pvt_o.__float__()
  * 
  *     def __index__(self):             # <<<<<<<<<<<<<<
@@ -22863,7 +22877,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_51__index__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":497
+/* "pyprotect/Wrapped_Frozen.pxi":496
  *         return self.pvt_o.__index__()
  * 
  *     def __round__(self):             # <<<<<<<<<<<<<<
@@ -22895,7 +22909,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_53__round__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__round__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":498
+  /* "pyprotect/Wrapped_Frozen.pxi":497
  * 
  *     def __round__(self):
  *         return self.pvt_o.__round__()             # <<<<<<<<<<<<<<
@@ -22903,7 +22917,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_53__round__(struct __py
  *     def __trunc__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_round); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 498, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_round); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 497, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22917,14 +22931,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_53__round__(struct __py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 498, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 497, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":497
+  /* "pyprotect/Wrapped_Frozen.pxi":496
  *         return self.pvt_o.__index__()
  * 
  *     def __round__(self):             # <<<<<<<<<<<<<<
@@ -22945,7 +22959,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_53__round__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":500
+/* "pyprotect/Wrapped_Frozen.pxi":499
  *         return self.pvt_o.__round__()
  * 
  *     def __trunc__(self):             # <<<<<<<<<<<<<<
@@ -22977,7 +22991,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_55__trunc__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__trunc__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":501
+  /* "pyprotect/Wrapped_Frozen.pxi":500
  * 
  *     def __trunc__(self):
  *         return self.pvt_o.__trunc__()             # <<<<<<<<<<<<<<
@@ -22985,7 +22999,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_55__trunc__(struct __py
  *     def __floor__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_trunc); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 501, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_trunc); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 500, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22999,14 +23013,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_55__trunc__(struct __py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 501, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 500, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":500
+  /* "pyprotect/Wrapped_Frozen.pxi":499
  *         return self.pvt_o.__round__()
  * 
  *     def __trunc__(self):             # <<<<<<<<<<<<<<
@@ -23027,7 +23041,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_55__trunc__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":503
+/* "pyprotect/Wrapped_Frozen.pxi":502
  *         return self.pvt_o.__trunc__()
  * 
  *     def __floor__(self):             # <<<<<<<<<<<<<<
@@ -23059,7 +23073,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_57__floor__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__floor__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":504
+  /* "pyprotect/Wrapped_Frozen.pxi":503
  * 
  *     def __floor__(self):
  *         return self.pvt_o.__floor__()             # <<<<<<<<<<<<<<
@@ -23067,7 +23081,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_57__floor__(struct __py
  *     def __ceil__(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_floor); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 504, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_floor); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -23081,14 +23095,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_57__floor__(struct __py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 504, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 503, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":503
+  /* "pyprotect/Wrapped_Frozen.pxi":502
  *         return self.pvt_o.__trunc__()
  * 
  *     def __floor__(self):             # <<<<<<<<<<<<<<
@@ -23109,7 +23123,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_57__floor__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":506
+/* "pyprotect/Wrapped_Frozen.pxi":505
  *         return self.pvt_o.__floor__()
  * 
  *     def __ceil__(self):             # <<<<<<<<<<<<<<
@@ -23141,7 +23155,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_59__ceil__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ceil__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":507
+  /* "pyprotect/Wrapped_Frozen.pxi":506
  * 
  *     def __ceil__(self):
  *         return self.pvt_o.__ceil__()             # <<<<<<<<<<<<<<
@@ -23149,7 +23163,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_59__ceil__(struct __pyx
  *     # The numeric operations below - including the reversed versions
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_ceil); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 507, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_ceil); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 506, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -23163,14 +23177,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_59__ceil__(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 507, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 506, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":506
+  /* "pyprotect/Wrapped_Frozen.pxi":505
  *         return self.pvt_o.__floor__()
  * 
  *     def __ceil__(self):             # <<<<<<<<<<<<<<
@@ -23191,7 +23205,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_59__ceil__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":514
+/* "pyprotect/Wrapped_Frozen.pxi":513
  * 
  *     # Numeric types - return immutable
  *     def __add__(self, val):             # <<<<<<<<<<<<<<
@@ -23225,7 +23239,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__add__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":515
+  /* "pyprotect/Wrapped_Frozen.pxi":514
  *     # Numeric types - return immutable
  *     def __add__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23236,21 +23250,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":516
+    /* "pyprotect/Wrapped_Frozen.pxi":515
  *     def __add__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__radd__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__radd__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_radd, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 516, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_radd, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 515, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 516, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 515, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":517
+      /* "pyprotect/Wrapped_Frozen.pxi":516
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__radd__', None)):
  *                 return val.__radd__(self)             # <<<<<<<<<<<<<<
@@ -23258,7 +23272,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_radd); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 517, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_radd); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 516, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23272,14 +23286,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 517, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 516, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":516
+      /* "pyprotect/Wrapped_Frozen.pxi":515
  *     def __add__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__radd__', None)):             # <<<<<<<<<<<<<<
@@ -23288,7 +23302,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":519
+    /* "pyprotect/Wrapped_Frozen.pxi":518
  *                 return val.__radd__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -23302,7 +23316,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":515
+    /* "pyprotect/Wrapped_Frozen.pxi":514
  *     # Numeric types - return immutable
  *     def __add__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23311,7 +23325,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":520
+  /* "pyprotect/Wrapped_Frozen.pxi":519
  *             else:
  *                 return NotImplemented
  *         return self.__add__(val)             # <<<<<<<<<<<<<<
@@ -23319,7 +23333,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
  *     def __mul__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_add); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 520, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_add); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 519, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23333,14 +23347,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 520, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 519, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":514
+  /* "pyprotect/Wrapped_Frozen.pxi":513
  * 
  *     # Numeric types - return immutable
  *     def __add__(self, val):             # <<<<<<<<<<<<<<
@@ -23361,7 +23375,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_61__add__(PyObject *__p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":522
+/* "pyprotect/Wrapped_Frozen.pxi":521
  *         return self.__add__(val)
  * 
  *     def __mul__(self, val):             # <<<<<<<<<<<<<<
@@ -23395,7 +23409,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__mul__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":523
+  /* "pyprotect/Wrapped_Frozen.pxi":522
  * 
  *     def __mul__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23406,21 +23420,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":524
+    /* "pyprotect/Wrapped_Frozen.pxi":523
  *     def __mul__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmul__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rmul__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rmul, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 524, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rmul, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 523, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 524, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 523, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":525
+      /* "pyprotect/Wrapped_Frozen.pxi":524
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmul__', None)):
  *                 return val.__rmul__(self)             # <<<<<<<<<<<<<<
@@ -23428,7 +23442,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rmul); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 525, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rmul); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 524, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23442,14 +23456,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 525, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 524, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":524
+      /* "pyprotect/Wrapped_Frozen.pxi":523
  *     def __mul__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmul__', None)):             # <<<<<<<<<<<<<<
@@ -23458,7 +23472,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":527
+    /* "pyprotect/Wrapped_Frozen.pxi":526
  *                 return val.__rmul__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -23472,7 +23486,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":523
+    /* "pyprotect/Wrapped_Frozen.pxi":522
  * 
  *     def __mul__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23481,7 +23495,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":528
+  /* "pyprotect/Wrapped_Frozen.pxi":527
  *             else:
  *                 return NotImplemented
  *         return self.__mul__(val)             # <<<<<<<<<<<<<<
@@ -23489,7 +23503,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
  *     def __sub__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mul); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 528, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mul); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23503,14 +23517,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 528, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 527, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":522
+  /* "pyprotect/Wrapped_Frozen.pxi":521
  *         return self.__add__(val)
  * 
  *     def __mul__(self, val):             # <<<<<<<<<<<<<<
@@ -23531,7 +23545,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_63__mul__(PyObject *__p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":530
+/* "pyprotect/Wrapped_Frozen.pxi":529
  *         return self.__mul__(val)
  * 
  *     def __sub__(self, val):             # <<<<<<<<<<<<<<
@@ -23565,7 +23579,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__sub__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":531
+  /* "pyprotect/Wrapped_Frozen.pxi":530
  * 
  *     def __sub__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23576,21 +23590,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":532
+    /* "pyprotect/Wrapped_Frozen.pxi":531
  *     def __sub__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rsub__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rsub__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rsub, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 532, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rsub, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 531, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 532, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 531, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":533
+      /* "pyprotect/Wrapped_Frozen.pxi":532
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rsub__', None)):
  *                 return val.__rsub__(self)             # <<<<<<<<<<<<<<
@@ -23598,7 +23612,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rsub); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 533, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rsub); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 532, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23612,14 +23626,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 533, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 532, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":532
+      /* "pyprotect/Wrapped_Frozen.pxi":531
  *     def __sub__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rsub__', None)):             # <<<<<<<<<<<<<<
@@ -23628,7 +23642,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":535
+    /* "pyprotect/Wrapped_Frozen.pxi":534
  *                 return val.__rsub__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -23642,7 +23656,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":531
+    /* "pyprotect/Wrapped_Frozen.pxi":530
  * 
  *     def __sub__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23651,7 +23665,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":536
+  /* "pyprotect/Wrapped_Frozen.pxi":535
  *             else:
  *                 return NotImplemented
  *         return self.__sub__(val)             # <<<<<<<<<<<<<<
@@ -23659,7 +23673,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
  *     def __matmul__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_sub); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 536, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_sub); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 535, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23673,14 +23687,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 536, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 535, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":530
+  /* "pyprotect/Wrapped_Frozen.pxi":529
  *         return self.__mul__(val)
  * 
  *     def __sub__(self, val):             # <<<<<<<<<<<<<<
@@ -23701,7 +23715,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_65__sub__(PyObject *__p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":538
+/* "pyprotect/Wrapped_Frozen.pxi":537
  *         return self.__sub__(val)
  * 
  *     def __matmul__(self, val):             # <<<<<<<<<<<<<<
@@ -23738,7 +23752,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__matmul__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":539
+  /* "pyprotect/Wrapped_Frozen.pxi":538
  * 
  *     def __matmul__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23749,21 +23763,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":540
+    /* "pyprotect/Wrapped_Frozen.pxi":539
  *     def __matmul__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmatmul__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rmatmul__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rmatmul, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 540, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rmatmul, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 539, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 540, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 539, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":541
+      /* "pyprotect/Wrapped_Frozen.pxi":540
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmatmul__', None)):
  *                 return val.__rmatmul__(self)             # <<<<<<<<<<<<<<
@@ -23771,7 +23785,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rmatmul); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 541, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rmatmul); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 540, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23785,14 +23799,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 541, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 540, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":540
+      /* "pyprotect/Wrapped_Frozen.pxi":539
  *     def __matmul__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmatmul__', None)):             # <<<<<<<<<<<<<<
@@ -23801,7 +23815,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":543
+    /* "pyprotect/Wrapped_Frozen.pxi":542
  *                 return val.__rmatmul__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -23815,7 +23829,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":539
+    /* "pyprotect/Wrapped_Frozen.pxi":538
  * 
  *     def __matmul__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23824,7 +23838,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":544
+  /* "pyprotect/Wrapped_Frozen.pxi":543
  *             else:
  *                 return NotImplemented
  *         return self.__matmul__(val)             # <<<<<<<<<<<<<<
@@ -23832,7 +23846,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
  *     def __truediv__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_matmul); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 544, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_matmul); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 543, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23846,14 +23860,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 544, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 543, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":538
+  /* "pyprotect/Wrapped_Frozen.pxi":537
  *         return self.__sub__(val)
  * 
  *     def __matmul__(self, val):             # <<<<<<<<<<<<<<
@@ -23875,7 +23889,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_67__matmul__(PyObject *
 }
 #endif /*!(#if PY_VERSION_HEX >= 0x03050000)*/
 
-/* "pyprotect/Wrapped_Frozen.pxi":546
+/* "pyprotect/Wrapped_Frozen.pxi":545
  *         return self.__matmul__(val)
  * 
  *     def __truediv__(self, val):             # <<<<<<<<<<<<<<
@@ -23909,7 +23923,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__truediv__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":547
+  /* "pyprotect/Wrapped_Frozen.pxi":546
  * 
  *     def __truediv__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23920,21 +23934,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":548
+    /* "pyprotect/Wrapped_Frozen.pxi":547
  *     def __truediv__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rtruediv__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rtruediv__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rtruediv, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 548, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rtruediv, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 547, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 548, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 547, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":549
+      /* "pyprotect/Wrapped_Frozen.pxi":548
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rtruediv__', None)):
  *                 return val.__rtruediv__(self)             # <<<<<<<<<<<<<<
@@ -23942,7 +23956,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rtruediv); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 549, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rtruediv); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 548, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -23956,14 +23970,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 549, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 548, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":548
+      /* "pyprotect/Wrapped_Frozen.pxi":547
  *     def __truediv__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rtruediv__', None)):             # <<<<<<<<<<<<<<
@@ -23972,7 +23986,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":551
+    /* "pyprotect/Wrapped_Frozen.pxi":550
  *                 return val.__rtruediv__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -23986,7 +24000,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":547
+    /* "pyprotect/Wrapped_Frozen.pxi":546
  * 
  *     def __truediv__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -23995,7 +24009,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":552
+  /* "pyprotect/Wrapped_Frozen.pxi":551
  *             else:
  *                 return NotImplemented
  *         return self.__truediv__(val)             # <<<<<<<<<<<<<<
@@ -24003,7 +24017,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
  *     def __floordiv__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_truediv); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 552, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_truediv); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24017,14 +24031,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 552, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":546
+  /* "pyprotect/Wrapped_Frozen.pxi":545
  *         return self.__matmul__(val)
  * 
  *     def __truediv__(self, val):             # <<<<<<<<<<<<<<
@@ -24045,7 +24059,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_69__truediv__(PyObject 
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":554
+/* "pyprotect/Wrapped_Frozen.pxi":553
  *         return self.__truediv__(val)
  * 
  *     def __floordiv__(self, val):             # <<<<<<<<<<<<<<
@@ -24079,7 +24093,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__floordiv__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":555
+  /* "pyprotect/Wrapped_Frozen.pxi":554
  * 
  *     def __floordiv__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24090,21 +24104,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":556
+    /* "pyprotect/Wrapped_Frozen.pxi":555
  *     def __floordiv__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rtruediv__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rtruediv__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rtruediv, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 556, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rtruediv, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 555, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 556, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 555, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":557
+      /* "pyprotect/Wrapped_Frozen.pxi":556
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rtruediv__', None)):
  *                 return val.__rtruediv__(self)             # <<<<<<<<<<<<<<
@@ -24112,7 +24126,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rtruediv); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 557, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rtruediv); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 556, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24126,14 +24140,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 557, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 556, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":556
+      /* "pyprotect/Wrapped_Frozen.pxi":555
  *     def __floordiv__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rtruediv__', None)):             # <<<<<<<<<<<<<<
@@ -24142,7 +24156,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":559
+    /* "pyprotect/Wrapped_Frozen.pxi":558
  *                 return val.__rtruediv__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -24156,7 +24170,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":555
+    /* "pyprotect/Wrapped_Frozen.pxi":554
  * 
  *     def __floordiv__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24165,7 +24179,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":560
+  /* "pyprotect/Wrapped_Frozen.pxi":559
  *             else:
  *                 return NotImplemented
  *         return self.__floordiv__(val)             # <<<<<<<<<<<<<<
@@ -24173,7 +24187,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
  *     def __mod__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_floordiv); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 560, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_floordiv); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 559, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24187,14 +24201,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 560, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 559, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":554
+  /* "pyprotect/Wrapped_Frozen.pxi":553
  *         return self.__truediv__(val)
  * 
  *     def __floordiv__(self, val):             # <<<<<<<<<<<<<<
@@ -24215,7 +24229,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_71__floordiv__(PyObject
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":562
+/* "pyprotect/Wrapped_Frozen.pxi":561
  *         return self.__floordiv__(val)
  * 
  *     def __mod__(self, val):             # <<<<<<<<<<<<<<
@@ -24249,7 +24263,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__mod__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":563
+  /* "pyprotect/Wrapped_Frozen.pxi":562
  * 
  *     def __mod__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24260,21 +24274,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":564
+    /* "pyprotect/Wrapped_Frozen.pxi":563
  *     def __mod__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmod__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rmod__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rmod, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 564, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rmod, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 563, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 564, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 563, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":565
+      /* "pyprotect/Wrapped_Frozen.pxi":564
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmod__', None)):
  *                 return val.__rmod__(self)             # <<<<<<<<<<<<<<
@@ -24282,7 +24296,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rmod); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 565, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rmod); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 564, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24296,14 +24310,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 565, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 564, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":564
+      /* "pyprotect/Wrapped_Frozen.pxi":563
  *     def __mod__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rmod__', None)):             # <<<<<<<<<<<<<<
@@ -24312,7 +24326,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":567
+    /* "pyprotect/Wrapped_Frozen.pxi":566
  *                 return val.__rmod__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -24326,7 +24340,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":563
+    /* "pyprotect/Wrapped_Frozen.pxi":562
  * 
  *     def __mod__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24335,7 +24349,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":568
+  /* "pyprotect/Wrapped_Frozen.pxi":567
  *             else:
  *                 return NotImplemented
  *         return self.__mod__(val)             # <<<<<<<<<<<<<<
@@ -24343,7 +24357,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
  *     def __divmod__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mod); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 568, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_mod); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 567, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24357,14 +24371,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 568, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 567, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":562
+  /* "pyprotect/Wrapped_Frozen.pxi":561
  *         return self.__floordiv__(val)
  * 
  *     def __mod__(self, val):             # <<<<<<<<<<<<<<
@@ -24385,7 +24399,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_73__mod__(PyObject *__p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":570
+/* "pyprotect/Wrapped_Frozen.pxi":569
  *         return self.__mod__(val)
  * 
  *     def __divmod__(self, val):             # <<<<<<<<<<<<<<
@@ -24419,7 +24433,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__divmod__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":571
+  /* "pyprotect/Wrapped_Frozen.pxi":570
  * 
  *     def __divmod__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24430,21 +24444,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":572
+    /* "pyprotect/Wrapped_Frozen.pxi":571
  *     def __divmod__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rdivmod__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rdivmod__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rdivmod, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 572, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rdivmod, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 571, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 572, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 571, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":573
+      /* "pyprotect/Wrapped_Frozen.pxi":572
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rdivmod__', None)):
  *                 return val.__rdivmod__(self)             # <<<<<<<<<<<<<<
@@ -24452,7 +24466,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rdivmod); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 573, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rdivmod); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 572, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24466,14 +24480,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 573, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 572, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":572
+      /* "pyprotect/Wrapped_Frozen.pxi":571
  *     def __divmod__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rdivmod__', None)):             # <<<<<<<<<<<<<<
@@ -24482,7 +24496,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":575
+    /* "pyprotect/Wrapped_Frozen.pxi":574
  *                 return val.__rdivmod__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -24496,7 +24510,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":571
+    /* "pyprotect/Wrapped_Frozen.pxi":570
  * 
  *     def __divmod__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24505,7 +24519,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":576
+  /* "pyprotect/Wrapped_Frozen.pxi":575
  *             else:
  *                 return NotImplemented
  *         return self.__divmod__(val)             # <<<<<<<<<<<<<<
@@ -24513,7 +24527,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
  *     def __pow__(self, val, mod):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_divmod); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 576, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_divmod); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 575, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24527,14 +24541,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 576, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 575, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":570
+  /* "pyprotect/Wrapped_Frozen.pxi":569
  *         return self.__mod__(val)
  * 
  *     def __divmod__(self, val):             # <<<<<<<<<<<<<<
@@ -24555,7 +24569,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_75__divmod__(PyObject *
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":578
+/* "pyprotect/Wrapped_Frozen.pxi":577
  *         return self.__divmod__(val)
  * 
  *     def __pow__(self, val, mod):             # <<<<<<<<<<<<<<
@@ -24589,7 +24603,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_77__pow__(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__pow__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":579
+  /* "pyprotect/Wrapped_Frozen.pxi":578
  * 
  *     def __pow__(self, val, mod):
  *         return self.__pow__(val, mod)             # <<<<<<<<<<<<<<
@@ -24597,7 +24611,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_77__pow__(PyObject *__p
  *     def __lshift__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_pow); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 579, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_pow); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 578, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -24614,7 +24628,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_77__pow__(PyObject *__p
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_val, __pyx_v_mod};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 579, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 578, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -24622,13 +24636,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_77__pow__(PyObject *__p
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_val, __pyx_v_mod};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 579, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 578, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 579, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 578, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -24639,7 +24653,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_77__pow__(PyObject *__p
     __Pyx_INCREF(__pyx_v_mod);
     __Pyx_GIVEREF(__pyx_v_mod);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_mod);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 579, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 578, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -24648,7 +24662,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_77__pow__(PyObject *__p
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":578
+  /* "pyprotect/Wrapped_Frozen.pxi":577
  *         return self.__divmod__(val)
  * 
  *     def __pow__(self, val, mod):             # <<<<<<<<<<<<<<
@@ -24670,7 +24684,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_77__pow__(PyObject *__p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":581
+/* "pyprotect/Wrapped_Frozen.pxi":580
  *         return self.__pow__(val, mod)
  * 
  *     def __lshift__(self, val):             # <<<<<<<<<<<<<<
@@ -24704,7 +24718,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__lshift__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":582
+  /* "pyprotect/Wrapped_Frozen.pxi":581
  * 
  *     def __lshift__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24715,21 +24729,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":583
+    /* "pyprotect/Wrapped_Frozen.pxi":582
  *     def __lshift__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rlshift__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rlshift__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rlshift, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 583, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rlshift, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 582, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 583, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 582, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":584
+      /* "pyprotect/Wrapped_Frozen.pxi":583
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rlshift__', None)):
  *                 return val.__rlshift__(self)             # <<<<<<<<<<<<<<
@@ -24737,7 +24751,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rlshift); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 584, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rlshift); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 583, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24751,14 +24765,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 584, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 583, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":583
+      /* "pyprotect/Wrapped_Frozen.pxi":582
  *     def __lshift__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rlshift__', None)):             # <<<<<<<<<<<<<<
@@ -24767,7 +24781,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":586
+    /* "pyprotect/Wrapped_Frozen.pxi":585
  *                 return val.__rlshift__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -24781,7 +24795,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":582
+    /* "pyprotect/Wrapped_Frozen.pxi":581
  * 
  *     def __lshift__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24790,7 +24804,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":587
+  /* "pyprotect/Wrapped_Frozen.pxi":586
  *             else:
  *                 return NotImplemented
  *         return self.__lshift__(val)             # <<<<<<<<<<<<<<
@@ -24798,7 +24812,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
  *     def __rshift__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_lshift); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 587, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_lshift); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 586, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24812,14 +24826,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 587, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 586, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":581
+  /* "pyprotect/Wrapped_Frozen.pxi":580
  *         return self.__pow__(val, mod)
  * 
  *     def __lshift__(self, val):             # <<<<<<<<<<<<<<
@@ -24840,7 +24854,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_79__lshift__(PyObject *
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":589
+/* "pyprotect/Wrapped_Frozen.pxi":588
  *         return self.__lshift__(val)
  * 
  *     def __rshift__(self, val):             # <<<<<<<<<<<<<<
@@ -24874,7 +24888,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rshift__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":590
+  /* "pyprotect/Wrapped_Frozen.pxi":589
  * 
  *     def __rshift__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24885,21 +24899,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":591
+    /* "pyprotect/Wrapped_Frozen.pxi":590
  *     def __rshift__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rrshift__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rrshift__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rrshift, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 591, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rrshift, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 590, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 591, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 590, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":592
+      /* "pyprotect/Wrapped_Frozen.pxi":591
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rrshift__', None)):
  *                 return val.__rrshift__(self)             # <<<<<<<<<<<<<<
@@ -24907,7 +24921,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rrshift); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 592, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rrshift); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24921,14 +24935,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 592, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":591
+      /* "pyprotect/Wrapped_Frozen.pxi":590
  *     def __rshift__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rrshift__', None)):             # <<<<<<<<<<<<<<
@@ -24937,7 +24951,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":594
+    /* "pyprotect/Wrapped_Frozen.pxi":593
  *                 return val.__rrshift__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -24951,7 +24965,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":590
+    /* "pyprotect/Wrapped_Frozen.pxi":589
  * 
  *     def __rshift__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -24960,7 +24974,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":595
+  /* "pyprotect/Wrapped_Frozen.pxi":594
  *             else:
  *                 return NotImplemented
  *         return self.__rshift__(val)             # <<<<<<<<<<<<<<
@@ -24968,7 +24982,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
  *     def __and__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rshift); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 595, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_rshift); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 594, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -24982,14 +24996,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 595, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 594, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":589
+  /* "pyprotect/Wrapped_Frozen.pxi":588
  *         return self.__lshift__(val)
  * 
  *     def __rshift__(self, val):             # <<<<<<<<<<<<<<
@@ -25010,7 +25024,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_81__rshift__(PyObject *
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":597
+/* "pyprotect/Wrapped_Frozen.pxi":596
  *         return self.__rshift__(val)
  * 
  *     def __and__(self, val):             # <<<<<<<<<<<<<<
@@ -25044,7 +25058,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__and__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":598
+  /* "pyprotect/Wrapped_Frozen.pxi":597
  * 
  *     def __and__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -25055,21 +25069,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":599
+    /* "pyprotect/Wrapped_Frozen.pxi":598
  *     def __and__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rand__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rand__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rand, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 599, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rand, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 598, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 599, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 598, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":600
+      /* "pyprotect/Wrapped_Frozen.pxi":599
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rand__', None)):
  *                 return val.__rand__(self)             # <<<<<<<<<<<<<<
@@ -25077,7 +25091,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rand); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 600, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rand); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 599, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -25091,14 +25105,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 600, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 599, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":599
+      /* "pyprotect/Wrapped_Frozen.pxi":598
  *     def __and__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rand__', None)):             # <<<<<<<<<<<<<<
@@ -25107,7 +25121,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":602
+    /* "pyprotect/Wrapped_Frozen.pxi":601
  *                 return val.__rand__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -25121,7 +25135,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":598
+    /* "pyprotect/Wrapped_Frozen.pxi":597
  * 
  *     def __and__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -25130,7 +25144,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":603
+  /* "pyprotect/Wrapped_Frozen.pxi":602
  *             else:
  *                 return NotImplemented
  *         return self.__and__(val)             # <<<<<<<<<<<<<<
@@ -25138,7 +25152,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
  *     def __or__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_and); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 603, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_and); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 602, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -25152,14 +25166,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 603, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 602, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":597
+  /* "pyprotect/Wrapped_Frozen.pxi":596
  *         return self.__rshift__(val)
  * 
  *     def __and__(self, val):             # <<<<<<<<<<<<<<
@@ -25180,7 +25194,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_83__and__(PyObject *__p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":605
+/* "pyprotect/Wrapped_Frozen.pxi":604
  *         return self.__and__(val)
  * 
  *     def __or__(self, val):             # <<<<<<<<<<<<<<
@@ -25214,7 +25228,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__or__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":606
+  /* "pyprotect/Wrapped_Frozen.pxi":605
  * 
  *     def __or__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -25225,21 +25239,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":607
+    /* "pyprotect/Wrapped_Frozen.pxi":606
  *     def __or__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__ror__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__ror__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_ror, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 607, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_ror, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 606, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 607, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 606, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":608
+      /* "pyprotect/Wrapped_Frozen.pxi":607
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__ror__', None)):
  *                 return val.__ror__(self)             # <<<<<<<<<<<<<<
@@ -25247,7 +25261,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_ror); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 608, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_ror); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 607, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -25261,14 +25275,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 608, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 607, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":607
+      /* "pyprotect/Wrapped_Frozen.pxi":606
  *     def __or__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__ror__', None)):             # <<<<<<<<<<<<<<
@@ -25277,7 +25291,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":610
+    /* "pyprotect/Wrapped_Frozen.pxi":609
  *                 return val.__ror__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -25291,7 +25305,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":606
+    /* "pyprotect/Wrapped_Frozen.pxi":605
  * 
  *     def __or__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -25300,7 +25314,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":611
+  /* "pyprotect/Wrapped_Frozen.pxi":610
  *             else:
  *                 return NotImplemented
  *         return self.__or__(val)             # <<<<<<<<<<<<<<
@@ -25308,7 +25322,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
  *     def __xor__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_or); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 611, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_or); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 610, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -25322,14 +25336,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 611, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 610, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":605
+  /* "pyprotect/Wrapped_Frozen.pxi":604
  *         return self.__and__(val)
  * 
  *     def __or__(self, val):             # <<<<<<<<<<<<<<
@@ -25350,7 +25364,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_85__or__(PyObject *__py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":613
+/* "pyprotect/Wrapped_Frozen.pxi":612
  *         return self.__or__(val)
  * 
  *     def __xor__(self, val):             # <<<<<<<<<<<<<<
@@ -25384,7 +25398,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__xor__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":614
+  /* "pyprotect/Wrapped_Frozen.pxi":613
  * 
  *     def __xor__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -25395,21 +25409,21 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
   __pyx_t_2 = ((!(__pyx_t_1 != 0)) != 0);
   if (__pyx_t_2) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":615
+    /* "pyprotect/Wrapped_Frozen.pxi":614
  *     def __xor__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rxor__', None)):             # <<<<<<<<<<<<<<
  *                 return val.__rxor__(self)
  *             else:
  */
-    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rxor, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 615, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetAttr3(__pyx_v_val, __pyx_n_s_rxor, Py_None); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 614, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 615, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCallable_Check(__pyx_t_3); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 614, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":616
+      /* "pyprotect/Wrapped_Frozen.pxi":615
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rxor__', None)):
  *                 return val.__rxor__(self)             # <<<<<<<<<<<<<<
@@ -25417,7 +25431,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
  *                 return NotImplemented
  */
       __Pyx_XDECREF(__pyx_r);
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rxor); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 616, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_val, __pyx_n_s_rxor); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 615, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -25431,14 +25445,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
       }
       __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_self);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 616, __pyx_L1_error)
+      if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 615, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_r = __pyx_t_3;
       __pyx_t_3 = 0;
       goto __pyx_L0;
 
-      /* "pyprotect/Wrapped_Frozen.pxi":615
+      /* "pyprotect/Wrapped_Frozen.pxi":614
  *     def __xor__(self, val):
  *         if not isinstance(self, Wrapped):
  *             if callable(getattr(val, '__rxor__', None)):             # <<<<<<<<<<<<<<
@@ -25447,7 +25461,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":618
+    /* "pyprotect/Wrapped_Frozen.pxi":617
  *                 return val.__rxor__(self)
  *             else:
  *                 return NotImplemented             # <<<<<<<<<<<<<<
@@ -25461,7 +25475,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
       goto __pyx_L0;
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":614
+    /* "pyprotect/Wrapped_Frozen.pxi":613
  * 
  *     def __xor__(self, val):
  *         if not isinstance(self, Wrapped):             # <<<<<<<<<<<<<<
@@ -25470,7 +25484,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":619
+  /* "pyprotect/Wrapped_Frozen.pxi":618
  *             else:
  *                 return NotImplemented
  *         return self.__xor__(val)             # <<<<<<<<<<<<<<
@@ -25478,7 +25492,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
  *     # Numeric types - reversed - - return immutable
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_xor); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 619, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_xor); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -25492,14 +25506,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
   }
   __pyx_t_3 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 619, __pyx_L1_error)
+  if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 618, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":613
+  /* "pyprotect/Wrapped_Frozen.pxi":612
  *         return self.__or__(val)
  * 
  *     def __xor__(self, val):             # <<<<<<<<<<<<<<
@@ -25520,7 +25534,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_87__xor__(PyObject *__p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":622
+/* "pyprotect/Wrapped_Frozen.pxi":621
  * 
  *     # Numeric types - reversed - - return immutable
  *     def __radd__(self, val):             # <<<<<<<<<<<<<<
@@ -25552,7 +25566,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_89__radd__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__radd__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":623
+  /* "pyprotect/Wrapped_Frozen.pxi":622
  *     # Numeric types - reversed - - return immutable
  *     def __radd__(self, val):
  *         return self.__radd__(val)             # <<<<<<<<<<<<<<
@@ -25560,7 +25574,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_89__radd__(struct __pyx
  *     def __rmul__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_radd); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 623, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_radd); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -25574,14 +25588,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_89__radd__(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 623, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":622
+  /* "pyprotect/Wrapped_Frozen.pxi":621
  * 
  *     # Numeric types - reversed - - return immutable
  *     def __radd__(self, val):             # <<<<<<<<<<<<<<
@@ -25602,7 +25616,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_89__radd__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":625
+/* "pyprotect/Wrapped_Frozen.pxi":624
  *         return self.__radd__(val)
  * 
  *     def __rmul__(self, val):             # <<<<<<<<<<<<<<
@@ -25634,7 +25648,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_91__rmul__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rmul__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":626
+  /* "pyprotect/Wrapped_Frozen.pxi":625
  * 
  *     def __rmul__(self, val):
  *         return self.__rmul__(val)             # <<<<<<<<<<<<<<
@@ -25642,7 +25656,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_91__rmul__(struct __pyx
  *     def __rsub__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rmul); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 626, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rmul); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 625, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -25656,14 +25670,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_91__rmul__(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 626, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 625, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":625
+  /* "pyprotect/Wrapped_Frozen.pxi":624
  *         return self.__radd__(val)
  * 
  *     def __rmul__(self, val):             # <<<<<<<<<<<<<<
@@ -25684,7 +25698,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_91__rmul__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":628
+/* "pyprotect/Wrapped_Frozen.pxi":627
  *         return self.__rmul__(val)
  * 
  *     def __rsub__(self, val):             # <<<<<<<<<<<<<<
@@ -25716,7 +25730,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_93__rsub__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rsub__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":629
+  /* "pyprotect/Wrapped_Frozen.pxi":628
  * 
  *     def __rsub__(self, val):
  *         return self.__rsub__(val)             # <<<<<<<<<<<<<<
@@ -25724,7 +25738,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_93__rsub__(struct __pyx
  *     def __rmatmul__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rsub); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 629, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rsub); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 628, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -25738,14 +25752,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_93__rsub__(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 629, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 628, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":628
+  /* "pyprotect/Wrapped_Frozen.pxi":627
  *         return self.__rmul__(val)
  * 
  *     def __rsub__(self, val):             # <<<<<<<<<<<<<<
@@ -25766,7 +25780,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_93__rsub__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":631
+/* "pyprotect/Wrapped_Frozen.pxi":630
  *         return self.__rsub__(val)
  * 
  *     def __rmatmul__(self, val):             # <<<<<<<<<<<<<<
@@ -25798,7 +25812,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_95__rmatmul__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rmatmul__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":632
+  /* "pyprotect/Wrapped_Frozen.pxi":631
  * 
  *     def __rmatmul__(self, val):
  *         return self.__rmatmul__(val)             # <<<<<<<<<<<<<<
@@ -25806,7 +25820,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_95__rmatmul__(struct __
  *     def __rtruediv__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rmatmul); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 632, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rmatmul); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 631, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -25820,14 +25834,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_95__rmatmul__(struct __
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 632, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 631, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":631
+  /* "pyprotect/Wrapped_Frozen.pxi":630
  *         return self.__rsub__(val)
  * 
  *     def __rmatmul__(self, val):             # <<<<<<<<<<<<<<
@@ -25848,7 +25862,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_95__rmatmul__(struct __
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":634
+/* "pyprotect/Wrapped_Frozen.pxi":633
  *         return self.__rmatmul__(val)
  * 
  *     def __rtruediv__(self, val):             # <<<<<<<<<<<<<<
@@ -25880,7 +25894,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_97__rtruediv__(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rtruediv__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":635
+  /* "pyprotect/Wrapped_Frozen.pxi":634
  * 
  *     def __rtruediv__(self, val):
  *         return self.__rtruediv__(val)             # <<<<<<<<<<<<<<
@@ -25888,7 +25902,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_97__rtruediv__(struct _
  *     def __rfloordiv__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rtruediv); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 635, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rtruediv); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 634, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -25902,14 +25916,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_97__rtruediv__(struct _
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 635, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 634, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":634
+  /* "pyprotect/Wrapped_Frozen.pxi":633
  *         return self.__rmatmul__(val)
  * 
  *     def __rtruediv__(self, val):             # <<<<<<<<<<<<<<
@@ -25930,7 +25944,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_97__rtruediv__(struct _
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":637
+/* "pyprotect/Wrapped_Frozen.pxi":636
  *         return self.__rtruediv__(val)
  * 
  *     def __rfloordiv__(self, val):             # <<<<<<<<<<<<<<
@@ -25962,7 +25976,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_99__rfloordiv__(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rfloordiv__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":638
+  /* "pyprotect/Wrapped_Frozen.pxi":637
  * 
  *     def __rfloordiv__(self, val):
  *         return self.__rfloordiv__(val)             # <<<<<<<<<<<<<<
@@ -25970,7 +25984,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_99__rfloordiv__(struct 
  *     def __rmod__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rfloordiv); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 638, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rfloordiv); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 637, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -25984,14 +25998,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_99__rfloordiv__(struct 
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 638, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 637, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":637
+  /* "pyprotect/Wrapped_Frozen.pxi":636
  *         return self.__rtruediv__(val)
  * 
  *     def __rfloordiv__(self, val):             # <<<<<<<<<<<<<<
@@ -26012,7 +26026,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_99__rfloordiv__(struct 
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":640
+/* "pyprotect/Wrapped_Frozen.pxi":639
  *         return self.__rfloordiv__(val)
  * 
  *     def __rmod__(self, val):             # <<<<<<<<<<<<<<
@@ -26044,7 +26058,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_101__rmod__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rmod__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":641
+  /* "pyprotect/Wrapped_Frozen.pxi":640
  * 
  *     def __rmod__(self, val):
  *         return self.__rmod__(val)             # <<<<<<<<<<<<<<
@@ -26052,7 +26066,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_101__rmod__(struct __py
  *     def __rdivmod__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rmod); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 641, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rmod); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 640, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -26066,14 +26080,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_101__rmod__(struct __py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 641, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 640, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":640
+  /* "pyprotect/Wrapped_Frozen.pxi":639
  *         return self.__rfloordiv__(val)
  * 
  *     def __rmod__(self, val):             # <<<<<<<<<<<<<<
@@ -26094,7 +26108,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_101__rmod__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":643
+/* "pyprotect/Wrapped_Frozen.pxi":642
  *         return self.__rmod__(val)
  * 
  *     def __rdivmod__(self, val):             # <<<<<<<<<<<<<<
@@ -26126,7 +26140,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_103__rdivmod__(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rdivmod__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":644
+  /* "pyprotect/Wrapped_Frozen.pxi":643
  * 
  *     def __rdivmod__(self, val):
  *         return self.__rdivmod__(val)             # <<<<<<<<<<<<<<
@@ -26134,7 +26148,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_103__rdivmod__(struct _
  *     def __rpow__(self, val, mod):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rdivmod); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 644, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rdivmod); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 643, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -26148,14 +26162,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_103__rdivmod__(struct _
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 644, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 643, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":643
+  /* "pyprotect/Wrapped_Frozen.pxi":642
  *         return self.__rmod__(val)
  * 
  *     def __rdivmod__(self, val):             # <<<<<<<<<<<<<<
@@ -26176,7 +26190,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_103__rdivmod__(struct _
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":646
+/* "pyprotect/Wrapped_Frozen.pxi":645
  *         return self.__rdivmod__(val)
  * 
  *     def __rpow__(self, val, mod):             # <<<<<<<<<<<<<<
@@ -26218,11 +26232,11 @@ static PyObject *__pyx_pw_9pyprotect_9protected_7Wrapped_106__rpow__(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_mod_2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__rpow__", 1, 2, 2, 1); __PYX_ERR(2, 646, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__rpow__", 1, 2, 2, 1); __PYX_ERR(2, 645, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__rpow__") < 0)) __PYX_ERR(2, 646, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__rpow__") < 0)) __PYX_ERR(2, 645, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -26235,7 +26249,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_7Wrapped_106__rpow__(PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__rpow__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 646, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__rpow__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 645, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.Wrapped.__rpow__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -26261,7 +26275,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_105__rpow__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rpow__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":647
+  /* "pyprotect/Wrapped_Frozen.pxi":646
  * 
  *     def __rpow__(self, val, mod):
  *         return self.__rpow__(val, mod)             # <<<<<<<<<<<<<<
@@ -26269,7 +26283,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_105__rpow__(struct __py
  *     def __rlshift__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rpow); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 647, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rpow); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 646, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -26286,7 +26300,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_105__rpow__(struct __py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_val, __pyx_v_mod};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 647, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 646, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -26294,13 +26308,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_105__rpow__(struct __py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_3, __pyx_v_val, __pyx_v_mod};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 647, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 646, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 647, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 646, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -26311,7 +26325,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_105__rpow__(struct __py
     __Pyx_INCREF(__pyx_v_mod);
     __Pyx_GIVEREF(__pyx_v_mod);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_mod);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 647, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 646, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -26320,7 +26334,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_105__rpow__(struct __py
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":646
+  /* "pyprotect/Wrapped_Frozen.pxi":645
  *         return self.__rdivmod__(val)
  * 
  *     def __rpow__(self, val, mod):             # <<<<<<<<<<<<<<
@@ -26342,7 +26356,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_105__rpow__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":649
+/* "pyprotect/Wrapped_Frozen.pxi":648
  *         return self.__rpow__(val, mod)
  * 
  *     def __rlshift__(self, val):             # <<<<<<<<<<<<<<
@@ -26374,7 +26388,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_107__rlshift__(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rlshift__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":650
+  /* "pyprotect/Wrapped_Frozen.pxi":649
  * 
  *     def __rlshift__(self, val):
  *         return self.__rlshift__(val)             # <<<<<<<<<<<<<<
@@ -26382,7 +26396,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_107__rlshift__(struct _
  *     def __rrshift__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rlshift); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 650, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rlshift); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 649, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -26396,14 +26410,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_107__rlshift__(struct _
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 650, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 649, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":649
+  /* "pyprotect/Wrapped_Frozen.pxi":648
  *         return self.__rpow__(val, mod)
  * 
  *     def __rlshift__(self, val):             # <<<<<<<<<<<<<<
@@ -26424,7 +26438,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_107__rlshift__(struct _
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":652
+/* "pyprotect/Wrapped_Frozen.pxi":651
  *         return self.__rlshift__(val)
  * 
  *     def __rrshift__(self, val):             # <<<<<<<<<<<<<<
@@ -26456,7 +26470,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_109__rrshift__(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rrshift__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":653
+  /* "pyprotect/Wrapped_Frozen.pxi":652
  * 
  *     def __rrshift__(self, val):
  *         return self.__rrshift__(val)             # <<<<<<<<<<<<<<
@@ -26464,7 +26478,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_109__rrshift__(struct _
  *     def __rand__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rrshift); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 653, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rrshift); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 652, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -26478,14 +26492,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_109__rrshift__(struct _
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 653, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 652, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":652
+  /* "pyprotect/Wrapped_Frozen.pxi":651
  *         return self.__rlshift__(val)
  * 
  *     def __rrshift__(self, val):             # <<<<<<<<<<<<<<
@@ -26506,7 +26520,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_109__rrshift__(struct _
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":655
+/* "pyprotect/Wrapped_Frozen.pxi":654
  *         return self.__rrshift__(val)
  * 
  *     def __rand__(self, val):             # <<<<<<<<<<<<<<
@@ -26538,7 +26552,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_111__rand__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rand__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":656
+  /* "pyprotect/Wrapped_Frozen.pxi":655
  * 
  *     def __rand__(self, val):
  *         return self.__rand__(val)             # <<<<<<<<<<<<<<
@@ -26546,7 +26560,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_111__rand__(struct __py
  *     def __ror__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rand); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 656, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rand); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 655, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -26560,14 +26574,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_111__rand__(struct __py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 656, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 655, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":655
+  /* "pyprotect/Wrapped_Frozen.pxi":654
  *         return self.__rrshift__(val)
  * 
  *     def __rand__(self, val):             # <<<<<<<<<<<<<<
@@ -26588,7 +26602,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_111__rand__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":658
+/* "pyprotect/Wrapped_Frozen.pxi":657
  *         return self.__rand__(val)
  * 
  *     def __ror__(self, val):             # <<<<<<<<<<<<<<
@@ -26620,7 +26634,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_113__ror__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ror__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":659
+  /* "pyprotect/Wrapped_Frozen.pxi":658
  * 
  *     def __ror__(self, val):
  *         return self.__ror__(val)             # <<<<<<<<<<<<<<
@@ -26628,7 +26642,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_113__ror__(struct __pyx
  *     def __rxor__(self, val):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ror); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 659, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_ror); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -26642,14 +26656,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_113__ror__(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 659, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 658, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":658
+  /* "pyprotect/Wrapped_Frozen.pxi":657
  *         return self.__rand__(val)
  * 
  *     def __ror__(self, val):             # <<<<<<<<<<<<<<
@@ -26670,7 +26684,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_113__ror__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":661
+/* "pyprotect/Wrapped_Frozen.pxi":660
  *         return self.__ror__(val)
  * 
  *     def __rxor__(self, val):             # <<<<<<<<<<<<<<
@@ -26702,7 +26716,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_115__rxor__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__rxor__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":662
+  /* "pyprotect/Wrapped_Frozen.pxi":661
  * 
  *     def __rxor__(self, val):
  *         return self.__rxor__(val)             # <<<<<<<<<<<<<<
@@ -26710,7 +26724,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_115__rxor__(struct __py
  *     # Numeric types - augmented assignments - mutating
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rxor); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 662, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_rxor); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 661, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -26724,14 +26738,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_115__rxor__(struct __py
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 662, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 661, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":661
+  /* "pyprotect/Wrapped_Frozen.pxi":660
  *         return self.__ror__(val)
  * 
  *     def __rxor__(self, val):             # <<<<<<<<<<<<<<
@@ -26752,7 +26766,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_115__rxor__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":665
+/* "pyprotect/Wrapped_Frozen.pxi":664
  * 
  *     # Numeric types - augmented assignments - mutating
  *     def __iadd__(self, val):             # <<<<<<<<<<<<<<
@@ -26783,7 +26797,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_117__iadd__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__iadd__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":666
+  /* "pyprotect/Wrapped_Frozen.pxi":665
  *     # Numeric types - augmented assignments - mutating
  *     def __iadd__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -26793,7 +26807,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_117__iadd__(struct __py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":667
+    /* "pyprotect/Wrapped_Frozen.pxi":666
  *     def __iadd__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -26801,9 +26815,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_117__iadd__(struct __py
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 667, __pyx_L1_error)
+    __PYX_ERR(2, 666, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":666
+    /* "pyprotect/Wrapped_Frozen.pxi":665
  *     # Numeric types - augmented assignments - mutating
  *     def __iadd__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -26812,14 +26826,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_117__iadd__(struct __py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":668
+  /* "pyprotect/Wrapped_Frozen.pxi":667
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o += val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 668, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceAdd(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 667, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -26827,7 +26841,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_117__iadd__(struct __py
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":669
+  /* "pyprotect/Wrapped_Frozen.pxi":668
  *             raise frozen_error
  *         self.pvt_o += val
  *         return self             # <<<<<<<<<<<<<<
@@ -26839,7 +26853,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_117__iadd__(struct __py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":665
+  /* "pyprotect/Wrapped_Frozen.pxi":664
  * 
  *     # Numeric types - augmented assignments - mutating
  *     def __iadd__(self, val):             # <<<<<<<<<<<<<<
@@ -26858,7 +26872,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_117__iadd__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":671
+/* "pyprotect/Wrapped_Frozen.pxi":670
  *         return self
  * 
  *     def __imul__(self, val):             # <<<<<<<<<<<<<<
@@ -26889,7 +26903,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_119__imul__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__imul__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":672
+  /* "pyprotect/Wrapped_Frozen.pxi":671
  * 
  *     def __imul__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -26899,7 +26913,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_119__imul__(struct __py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":673
+    /* "pyprotect/Wrapped_Frozen.pxi":672
  *     def __imul__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -26907,9 +26921,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_119__imul__(struct __py
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 673, __pyx_L1_error)
+    __PYX_ERR(2, 672, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":672
+    /* "pyprotect/Wrapped_Frozen.pxi":671
  * 
  *     def __imul__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -26918,14 +26932,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_119__imul__(struct __py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":674
+  /* "pyprotect/Wrapped_Frozen.pxi":673
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o *= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceMultiply(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 674, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceMultiply(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 673, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -26933,7 +26947,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_119__imul__(struct __py
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":675
+  /* "pyprotect/Wrapped_Frozen.pxi":674
  *             raise frozen_error
  *         self.pvt_o *= val
  *         return self             # <<<<<<<<<<<<<<
@@ -26945,7 +26959,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_119__imul__(struct __py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":671
+  /* "pyprotect/Wrapped_Frozen.pxi":670
  *         return self
  * 
  *     def __imul__(self, val):             # <<<<<<<<<<<<<<
@@ -26964,7 +26978,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_119__imul__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":677
+/* "pyprotect/Wrapped_Frozen.pxi":676
  *         return self
  * 
  *     def __isub__(self, val):             # <<<<<<<<<<<<<<
@@ -26995,7 +27009,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_121__isub__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__isub__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":678
+  /* "pyprotect/Wrapped_Frozen.pxi":677
  * 
  *     def __isub__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27005,7 +27019,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_121__isub__(struct __py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":679
+    /* "pyprotect/Wrapped_Frozen.pxi":678
  *     def __isub__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27013,9 +27027,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_121__isub__(struct __py
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 679, __pyx_L1_error)
+    __PYX_ERR(2, 678, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":678
+    /* "pyprotect/Wrapped_Frozen.pxi":677
  * 
  *     def __isub__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27024,14 +27038,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_121__isub__(struct __py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":680
+  /* "pyprotect/Wrapped_Frozen.pxi":679
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o -= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceSubtract(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 680, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceSubtract(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 679, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27039,7 +27053,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_121__isub__(struct __py
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":681
+  /* "pyprotect/Wrapped_Frozen.pxi":680
  *             raise frozen_error
  *         self.pvt_o -= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27051,7 +27065,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_121__isub__(struct __py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":677
+  /* "pyprotect/Wrapped_Frozen.pxi":676
  *         return self
  * 
  *     def __isub__(self, val):             # <<<<<<<<<<<<<<
@@ -27070,7 +27084,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_121__isub__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":683
+/* "pyprotect/Wrapped_Frozen.pxi":682
  *         return self
  * 
  *     def __imod__(self, val):             # <<<<<<<<<<<<<<
@@ -27101,7 +27115,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_123__imod__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__imod__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":684
+  /* "pyprotect/Wrapped_Frozen.pxi":683
  * 
  *     def __imod__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27111,7 +27125,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_123__imod__(struct __py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":685
+    /* "pyprotect/Wrapped_Frozen.pxi":684
  *     def __imod__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27119,9 +27133,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_123__imod__(struct __py
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 685, __pyx_L1_error)
+    __PYX_ERR(2, 684, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":684
+    /* "pyprotect/Wrapped_Frozen.pxi":683
  * 
  *     def __imod__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27130,14 +27144,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_123__imod__(struct __py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":686
+  /* "pyprotect/Wrapped_Frozen.pxi":685
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o  %= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceRemainder(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 686, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceRemainder(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 685, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27145,7 +27159,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_123__imod__(struct __py
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":687
+  /* "pyprotect/Wrapped_Frozen.pxi":686
  *             raise frozen_error
  *         self.pvt_o  %= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27157,7 +27171,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_123__imod__(struct __py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":683
+  /* "pyprotect/Wrapped_Frozen.pxi":682
  *         return self
  * 
  *     def __imod__(self, val):             # <<<<<<<<<<<<<<
@@ -27176,7 +27190,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_123__imod__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":689
+/* "pyprotect/Wrapped_Frozen.pxi":688
  *         return self
  * 
  *     def __ilshift__(self, val):             # <<<<<<<<<<<<<<
@@ -27207,7 +27221,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_125__ilshift__(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ilshift__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":690
+  /* "pyprotect/Wrapped_Frozen.pxi":689
  * 
  *     def __ilshift__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27217,7 +27231,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_125__ilshift__(struct _
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":691
+    /* "pyprotect/Wrapped_Frozen.pxi":690
  *     def __ilshift__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27225,9 +27239,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_125__ilshift__(struct _
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 691, __pyx_L1_error)
+    __PYX_ERR(2, 690, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":690
+    /* "pyprotect/Wrapped_Frozen.pxi":689
  * 
  *     def __ilshift__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27236,14 +27250,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_125__ilshift__(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":692
+  /* "pyprotect/Wrapped_Frozen.pxi":691
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o <<= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceLshift(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 692, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceLshift(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 691, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27251,7 +27265,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_125__ilshift__(struct _
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":693
+  /* "pyprotect/Wrapped_Frozen.pxi":692
  *             raise frozen_error
  *         self.pvt_o <<= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27263,7 +27277,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_125__ilshift__(struct _
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":689
+  /* "pyprotect/Wrapped_Frozen.pxi":688
  *         return self
  * 
  *     def __ilshift__(self, val):             # <<<<<<<<<<<<<<
@@ -27282,7 +27296,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_125__ilshift__(struct _
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":695
+/* "pyprotect/Wrapped_Frozen.pxi":694
  *         return self
  * 
  *     def __irshift__(self, val):             # <<<<<<<<<<<<<<
@@ -27313,7 +27327,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_127__irshift__(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__irshift__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":696
+  /* "pyprotect/Wrapped_Frozen.pxi":695
  * 
  *     def __irshift__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27323,7 +27337,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_127__irshift__(struct _
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":697
+    /* "pyprotect/Wrapped_Frozen.pxi":696
  *     def __irshift__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27331,9 +27345,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_127__irshift__(struct _
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 697, __pyx_L1_error)
+    __PYX_ERR(2, 696, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":696
+    /* "pyprotect/Wrapped_Frozen.pxi":695
  * 
  *     def __irshift__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27342,14 +27356,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_127__irshift__(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":698
+  /* "pyprotect/Wrapped_Frozen.pxi":697
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o >>= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceRshift(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 698, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceRshift(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 697, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27357,7 +27371,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_127__irshift__(struct _
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":699
+  /* "pyprotect/Wrapped_Frozen.pxi":698
  *             raise frozen_error
  *         self.pvt_o >>= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27369,7 +27383,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_127__irshift__(struct _
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":695
+  /* "pyprotect/Wrapped_Frozen.pxi":694
  *         return self
  * 
  *     def __irshift__(self, val):             # <<<<<<<<<<<<<<
@@ -27388,7 +27402,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_127__irshift__(struct _
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":701
+/* "pyprotect/Wrapped_Frozen.pxi":700
  *         return self
  * 
  *     def __iand__(self, val):             # <<<<<<<<<<<<<<
@@ -27419,7 +27433,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_129__iand__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__iand__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":702
+  /* "pyprotect/Wrapped_Frozen.pxi":701
  * 
  *     def __iand__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27429,7 +27443,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_129__iand__(struct __py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":703
+    /* "pyprotect/Wrapped_Frozen.pxi":702
  *     def __iand__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27437,9 +27451,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_129__iand__(struct __py
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 703, __pyx_L1_error)
+    __PYX_ERR(2, 702, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":702
+    /* "pyprotect/Wrapped_Frozen.pxi":701
  * 
  *     def __iand__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27448,14 +27462,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_129__iand__(struct __py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":704
+  /* "pyprotect/Wrapped_Frozen.pxi":703
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o &= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceAnd(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 704, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceAnd(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 703, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27463,7 +27477,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_129__iand__(struct __py
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":705
+  /* "pyprotect/Wrapped_Frozen.pxi":704
  *             raise frozen_error
  *         self.pvt_o &= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27475,7 +27489,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_129__iand__(struct __py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":701
+  /* "pyprotect/Wrapped_Frozen.pxi":700
  *         return self
  * 
  *     def __iand__(self, val):             # <<<<<<<<<<<<<<
@@ -27494,7 +27508,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_129__iand__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":707
+/* "pyprotect/Wrapped_Frozen.pxi":706
  *         return self
  * 
  *     def __ior__(self, val):             # <<<<<<<<<<<<<<
@@ -27525,7 +27539,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_131__ior__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ior__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":708
+  /* "pyprotect/Wrapped_Frozen.pxi":707
  * 
  *     def __ior__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27535,7 +27549,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_131__ior__(struct __pyx
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":709
+    /* "pyprotect/Wrapped_Frozen.pxi":708
  *     def __ior__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27543,9 +27557,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_131__ior__(struct __pyx
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 709, __pyx_L1_error)
+    __PYX_ERR(2, 708, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":708
+    /* "pyprotect/Wrapped_Frozen.pxi":707
  * 
  *     def __ior__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27554,14 +27568,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_131__ior__(struct __pyx
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":710
+  /* "pyprotect/Wrapped_Frozen.pxi":709
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o |= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceOr(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 710, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceOr(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 709, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27569,7 +27583,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_131__ior__(struct __pyx
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":711
+  /* "pyprotect/Wrapped_Frozen.pxi":710
  *             raise frozen_error
  *         self.pvt_o |= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27581,7 +27595,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_131__ior__(struct __pyx
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":707
+  /* "pyprotect/Wrapped_Frozen.pxi":706
  *         return self
  * 
  *     def __ior__(self, val):             # <<<<<<<<<<<<<<
@@ -27600,7 +27614,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_131__ior__(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":713
+/* "pyprotect/Wrapped_Frozen.pxi":712
  *         return self
  * 
  *     def __ixor__(self, val):             # <<<<<<<<<<<<<<
@@ -27631,7 +27645,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_133__ixor__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ixor__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":714
+  /* "pyprotect/Wrapped_Frozen.pxi":713
  * 
  *     def __ixor__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27641,7 +27655,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_133__ixor__(struct __py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":715
+    /* "pyprotect/Wrapped_Frozen.pxi":714
  *     def __ixor__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27649,9 +27663,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_133__ixor__(struct __py
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 715, __pyx_L1_error)
+    __PYX_ERR(2, 714, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":714
+    /* "pyprotect/Wrapped_Frozen.pxi":713
  * 
  *     def __ixor__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27660,14 +27674,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_133__ixor__(struct __py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":716
+  /* "pyprotect/Wrapped_Frozen.pxi":715
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o ^= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceXor(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 716, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceXor(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 715, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27675,7 +27689,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_133__ixor__(struct __py
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":717
+  /* "pyprotect/Wrapped_Frozen.pxi":716
  *             raise frozen_error
  *         self.pvt_o ^= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27687,7 +27701,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_133__ixor__(struct __py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":713
+  /* "pyprotect/Wrapped_Frozen.pxi":712
  *         return self
  * 
  *     def __ixor__(self, val):             # <<<<<<<<<<<<<<
@@ -27706,7 +27720,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_133__ixor__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":719
+/* "pyprotect/Wrapped_Frozen.pxi":718
  *         return self
  * 
  *     def __ipow__(self, val):             # <<<<<<<<<<<<<<
@@ -27737,7 +27751,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_135__ipow__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ipow__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":720
+  /* "pyprotect/Wrapped_Frozen.pxi":719
  * 
  *     def __ipow__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27747,7 +27761,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_135__ipow__(struct __py
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":721
+    /* "pyprotect/Wrapped_Frozen.pxi":720
  *     def __ipow__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27755,9 +27769,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_135__ipow__(struct __py
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 721, __pyx_L1_error)
+    __PYX_ERR(2, 720, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":720
+    /* "pyprotect/Wrapped_Frozen.pxi":719
  * 
  *     def __ipow__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27766,14 +27780,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_135__ipow__(struct __py
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":722
+  /* "pyprotect/Wrapped_Frozen.pxi":721
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o **= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlacePower(__pyx_v_self->pvt_o, __pyx_v_val, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 722, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlacePower(__pyx_v_self->pvt_o, __pyx_v_val, Py_None); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 721, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27781,7 +27795,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_135__ipow__(struct __py
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":723
+  /* "pyprotect/Wrapped_Frozen.pxi":722
  *             raise frozen_error
  *         self.pvt_o **= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27793,7 +27807,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_135__ipow__(struct __py
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":719
+  /* "pyprotect/Wrapped_Frozen.pxi":718
  *         return self
  * 
  *     def __ipow__(self, val):             # <<<<<<<<<<<<<<
@@ -27812,7 +27826,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_135__ipow__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":725
+/* "pyprotect/Wrapped_Frozen.pxi":724
  *         return self
  * 
  *     def __itruediv__(self, val):             # <<<<<<<<<<<<<<
@@ -27843,7 +27857,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_137__itruediv__(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__itruediv__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":726
+  /* "pyprotect/Wrapped_Frozen.pxi":725
  * 
  *     def __itruediv__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27853,7 +27867,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_137__itruediv__(struct 
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":727
+    /* "pyprotect/Wrapped_Frozen.pxi":726
  *     def __itruediv__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27861,9 +27875,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_137__itruediv__(struct 
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 727, __pyx_L1_error)
+    __PYX_ERR(2, 726, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":726
+    /* "pyprotect/Wrapped_Frozen.pxi":725
  * 
  *     def __itruediv__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27872,14 +27886,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_137__itruediv__(struct 
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":728
+  /* "pyprotect/Wrapped_Frozen.pxi":727
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o /= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = __Pyx_PyNumber_InPlaceDivide(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 728, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyNumber_InPlaceDivide(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 727, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27887,7 +27901,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_137__itruediv__(struct 
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":729
+  /* "pyprotect/Wrapped_Frozen.pxi":728
  *             raise frozen_error
  *         self.pvt_o /= val
  *         return self             # <<<<<<<<<<<<<<
@@ -27899,7 +27913,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_137__itruediv__(struct 
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":725
+  /* "pyprotect/Wrapped_Frozen.pxi":724
  *         return self
  * 
  *     def __itruediv__(self, val):             # <<<<<<<<<<<<<<
@@ -27918,7 +27932,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_137__itruediv__(struct 
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":731
+/* "pyprotect/Wrapped_Frozen.pxi":730
  *         return self
  * 
  *     def __ifloordiv__(self, val):             # <<<<<<<<<<<<<<
@@ -27949,7 +27963,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_139__ifloordiv__(struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ifloordiv__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":732
+  /* "pyprotect/Wrapped_Frozen.pxi":731
  * 
  *     def __ifloordiv__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27959,7 +27973,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_139__ifloordiv__(struct
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":733
+    /* "pyprotect/Wrapped_Frozen.pxi":732
  *     def __ifloordiv__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -27967,9 +27981,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_139__ifloordiv__(struct
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 733, __pyx_L1_error)
+    __PYX_ERR(2, 732, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":732
+    /* "pyprotect/Wrapped_Frozen.pxi":731
  * 
  *     def __ifloordiv__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -27978,14 +27992,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_139__ifloordiv__(struct
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":734
+  /* "pyprotect/Wrapped_Frozen.pxi":733
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o //= val             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_2 = PyNumber_InPlaceFloorDivide(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 734, __pyx_L1_error)
+  __pyx_t_2 = PyNumber_InPlaceFloorDivide(__pyx_v_self->pvt_o, __pyx_v_val); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->pvt_o);
@@ -27993,7 +28007,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_139__ifloordiv__(struct
   __pyx_v_self->pvt_o = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":735
+  /* "pyprotect/Wrapped_Frozen.pxi":734
  *             raise frozen_error
  *         self.pvt_o //= val
  *         return self             # <<<<<<<<<<<<<<
@@ -28005,7 +28019,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_139__ifloordiv__(struct
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":731
+  /* "pyprotect/Wrapped_Frozen.pxi":730
  *         return self
  * 
  *     def __ifloordiv__(self, val):             # <<<<<<<<<<<<<<
@@ -28024,7 +28038,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_139__ifloordiv__(struct
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":737
+/* "pyprotect/Wrapped_Frozen.pxi":736
  *         return self
  * 
  *     def __imatmul__(self, val):             # <<<<<<<<<<<<<<
@@ -28060,7 +28074,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_141__imatmul__(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__imatmul__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":738
+  /* "pyprotect/Wrapped_Frozen.pxi":737
  * 
  *     def __imatmul__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -28070,7 +28084,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_141__imatmul__(struct _
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":739
+    /* "pyprotect/Wrapped_Frozen.pxi":738
  *     def __imatmul__(self, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -28078,9 +28092,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_141__imatmul__(struct _
  *         return self
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 739, __pyx_L1_error)
+    __PYX_ERR(2, 738, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":738
+    /* "pyprotect/Wrapped_Frozen.pxi":737
  * 
  *     def __imatmul__(self, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -28089,14 +28103,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_141__imatmul__(struct _
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":740
+  /* "pyprotect/Wrapped_Frozen.pxi":739
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o.__imatmul__(val)             # <<<<<<<<<<<<<<
  *         return self
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_imatmul); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 740, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_imatmul); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 739, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -28110,12 +28124,12 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_141__imatmul__(struct _
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_val) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_val);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 740, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 739, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":741
+  /* "pyprotect/Wrapped_Frozen.pxi":740
  *             raise frozen_error
  *         self.pvt_o.__imatmul__(val)
  *         return self             # <<<<<<<<<<<<<<
@@ -28127,7 +28141,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_141__imatmul__(struct _
   __pyx_r = ((PyObject *)__pyx_v_self);
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":737
+  /* "pyprotect/Wrapped_Frozen.pxi":736
  *         return self
  * 
  *     def __imatmul__(self, val):             # <<<<<<<<<<<<<<
@@ -28149,7 +28163,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_141__imatmul__(struct _
 }
 #endif /*!(#if PY_VERSION_HEX >= 0x03050000)*/
 
-/* "pyprotect/Wrapped_Frozen.pxi":744
+/* "pyprotect/Wrapped_Frozen.pxi":743
  * 
  *     # Mutating methods of containers
  *     def __setitem__(self, key, val):             # <<<<<<<<<<<<<<
@@ -28186,33 +28200,33 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__setitem__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":748
+  /* "pyprotect/Wrapped_Frozen.pxi":747
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableMapping,             # <<<<<<<<<<<<<<
  *                 CollectionsABC.MutableSequence,
  *             )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 748, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 747, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 748, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 747, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":749
+  /* "pyprotect/Wrapped_Frozen.pxi":748
  *             (
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
  *             )
  *         ):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 749, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 749, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":746
+  /* "pyprotect/Wrapped_Frozen.pxi":745
  *     def __setitem__(self, key, val):
  *         if isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -28222,7 +28236,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":748
+  /* "pyprotect/Wrapped_Frozen.pxi":747
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableMapping,             # <<<<<<<<<<<<<<
@@ -28238,7 +28252,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":746
+  /* "pyprotect/Wrapped_Frozen.pxi":745
  *     def __setitem__(self, key, val):
  *         if isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -28248,7 +28262,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":749
+  /* "pyprotect/Wrapped_Frozen.pxi":748
  *             (
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
@@ -28263,7 +28277,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":745
+  /* "pyprotect/Wrapped_Frozen.pxi":744
  *     # Mutating methods of containers
  *     def __setitem__(self, key, val):
  *         if isinstance(             # <<<<<<<<<<<<<<
@@ -28273,7 +28287,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":752
+    /* "pyprotect/Wrapped_Frozen.pxi":751
  *             )
  *         ):
  *             if self.frozen:             # <<<<<<<<<<<<<<
@@ -28283,7 +28297,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
     __pyx_t_5 = (__pyx_v_self->frozen != 0);
     if (unlikely(__pyx_t_5)) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":753
+      /* "pyprotect/Wrapped_Frozen.pxi":752
  *         ):
  *             if self.frozen:
  *                 raise frozen_error             # <<<<<<<<<<<<<<
@@ -28291,9 +28305,9 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
  * 
  */
       __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-      __PYX_ERR(2, 753, __pyx_L1_error)
+      __PYX_ERR(2, 752, __pyx_L1_error)
 
-      /* "pyprotect/Wrapped_Frozen.pxi":752
+      /* "pyprotect/Wrapped_Frozen.pxi":751
  *             )
  *         ):
  *             if self.frozen:             # <<<<<<<<<<<<<<
@@ -28302,7 +28316,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":745
+    /* "pyprotect/Wrapped_Frozen.pxi":744
  *     # Mutating methods of containers
  *     def __setitem__(self, key, val):
  *         if isinstance(             # <<<<<<<<<<<<<<
@@ -28311,14 +28325,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":754
+  /* "pyprotect/Wrapped_Frozen.pxi":753
  *             if self.frozen:
  *                 raise frozen_error
  *         self.pvt_o.__setitem__(key, val)             # <<<<<<<<<<<<<<
  * 
  *     def __delitem__(self, key):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_setitem); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 754, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_setitem); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 753, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_1 = NULL;
   __pyx_t_7 = 0;
@@ -28335,7 +28349,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_v_key, __pyx_v_val};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 754, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 753, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
@@ -28343,13 +28357,13 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_1, __pyx_v_key, __pyx_v_val};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 754, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 753, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
   #endif
   {
-    __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 754, __pyx_L1_error)
+    __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(2, 753, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -28360,14 +28374,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
     __Pyx_INCREF(__pyx_v_val);
     __Pyx_GIVEREF(__pyx_v_val);
     PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_v_val);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 754, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_8, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 753, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":744
+  /* "pyprotect/Wrapped_Frozen.pxi":743
  * 
  *     # Mutating methods of containers
  *     def __setitem__(self, key, val):             # <<<<<<<<<<<<<<
@@ -28390,7 +28404,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_143__setitem__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":756
+/* "pyprotect/Wrapped_Frozen.pxi":755
  *         self.pvt_o.__setitem__(key, val)
  * 
  *     def __delitem__(self, key):             # <<<<<<<<<<<<<<
@@ -28425,33 +28439,33 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__delitem__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":760
+  /* "pyprotect/Wrapped_Frozen.pxi":759
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableMapping,             # <<<<<<<<<<<<<<
  *                 CollectionsABC.MutableSequence,
  *             )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 760, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 759, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 760, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 759, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":761
+  /* "pyprotect/Wrapped_Frozen.pxi":760
  *             (
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
  *             )
  *         ):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 761, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 760, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 761, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 760, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":758
+  /* "pyprotect/Wrapped_Frozen.pxi":757
  *     def __delitem__(self, key):
  *         if isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -28461,7 +28475,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":760
+  /* "pyprotect/Wrapped_Frozen.pxi":759
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableMapping,             # <<<<<<<<<<<<<<
@@ -28477,7 +28491,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":758
+  /* "pyprotect/Wrapped_Frozen.pxi":757
  *     def __delitem__(self, key):
  *         if isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -28487,7 +28501,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
   __pyx_t_1 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_1);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":761
+  /* "pyprotect/Wrapped_Frozen.pxi":760
  *             (
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
@@ -28502,7 +28516,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":757
+  /* "pyprotect/Wrapped_Frozen.pxi":756
  * 
  *     def __delitem__(self, key):
  *         if isinstance(             # <<<<<<<<<<<<<<
@@ -28512,7 +28526,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":764
+    /* "pyprotect/Wrapped_Frozen.pxi":763
  *             )
  *         ):
  *             if self.frozen:             # <<<<<<<<<<<<<<
@@ -28522,7 +28536,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
     __pyx_t_5 = (__pyx_v_self->frozen != 0);
     if (unlikely(__pyx_t_5)) {
 
-      /* "pyprotect/Wrapped_Frozen.pxi":765
+      /* "pyprotect/Wrapped_Frozen.pxi":764
  *         ):
  *             if self.frozen:
  *                 raise frozen_error             # <<<<<<<<<<<<<<
@@ -28530,9 +28544,9 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
  * 
  */
       __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-      __PYX_ERR(2, 765, __pyx_L1_error)
+      __PYX_ERR(2, 764, __pyx_L1_error)
 
-      /* "pyprotect/Wrapped_Frozen.pxi":764
+      /* "pyprotect/Wrapped_Frozen.pxi":763
  *             )
  *         ):
  *             if self.frozen:             # <<<<<<<<<<<<<<
@@ -28541,7 +28555,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
  */
     }
 
-    /* "pyprotect/Wrapped_Frozen.pxi":757
+    /* "pyprotect/Wrapped_Frozen.pxi":756
  * 
  *     def __delitem__(self, key):
  *         if isinstance(             # <<<<<<<<<<<<<<
@@ -28550,14 +28564,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":766
+  /* "pyprotect/Wrapped_Frozen.pxi":765
  *             if self.frozen:
  *                 raise frozen_error
  *         self.pvt_o.__delitem__(key)             # <<<<<<<<<<<<<<
  * 
  *     # Just pass to wrapped
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_delitem); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 766, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_delitem); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 765, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -28571,12 +28585,12 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
   }
   __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_1, __pyx_v_key) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_key);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 766, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 765, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":756
+  /* "pyprotect/Wrapped_Frozen.pxi":755
  *         self.pvt_o.__setitem__(key, val)
  * 
  *     def __delitem__(self, key):             # <<<<<<<<<<<<<<
@@ -28598,7 +28612,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_145__delitem__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":769
+/* "pyprotect/Wrapped_Frozen.pxi":768
  * 
  *     # Just pass to wrapped
  *     def __instancecheck__(self, inst):             # <<<<<<<<<<<<<<
@@ -28630,7 +28644,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_147__instancecheck__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__instancecheck__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":770
+  /* "pyprotect/Wrapped_Frozen.pxi":769
  *     # Just pass to wrapped
  *     def __instancecheck__(self, inst):
  *         return self.pvt_o.__instancecheck__(inst)             # <<<<<<<<<<<<<<
@@ -28638,7 +28652,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_147__instancecheck__(st
  *     def __subclasscheck__(self, subclass):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_instancecheck); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 770, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_instancecheck); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 769, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -28652,14 +28666,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_147__instancecheck__(st
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_inst) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_inst);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 770, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 769, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":769
+  /* "pyprotect/Wrapped_Frozen.pxi":768
  * 
  *     # Just pass to wrapped
  *     def __instancecheck__(self, inst):             # <<<<<<<<<<<<<<
@@ -28680,7 +28694,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_147__instancecheck__(st
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":772
+/* "pyprotect/Wrapped_Frozen.pxi":771
  *         return self.pvt_o.__instancecheck__(inst)
  * 
  *     def __subclasscheck__(self, subclass):             # <<<<<<<<<<<<<<
@@ -28712,7 +28726,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_149__subclasscheck__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__subclasscheck__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":773
+  /* "pyprotect/Wrapped_Frozen.pxi":772
  * 
  *     def __subclasscheck__(self, subclass):
  *         return self.pvt_o.__subclasscheck__(subclass)             # <<<<<<<<<<<<<<
@@ -28720,7 +28734,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_149__subclasscheck__(st
  *     # Context managers - intrinsic behavior - pass to wrapped
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_subclasscheck); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 773, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_subclasscheck); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 772, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -28734,14 +28748,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_149__subclasscheck__(st
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_subclass) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_subclass);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 773, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 772, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":772
+  /* "pyprotect/Wrapped_Frozen.pxi":771
  *         return self.pvt_o.__instancecheck__(inst)
  * 
  *     def __subclasscheck__(self, subclass):             # <<<<<<<<<<<<<<
@@ -28762,7 +28776,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_149__subclasscheck__(st
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":776
+/* "pyprotect/Wrapped_Frozen.pxi":775
  * 
  *     # Context managers - intrinsic behavior - pass to wrapped
  *     def __enter__(self):             # <<<<<<<<<<<<<<
@@ -28794,7 +28808,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_151__enter__(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__enter__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":777
+  /* "pyprotect/Wrapped_Frozen.pxi":776
  *     # Context managers - intrinsic behavior - pass to wrapped
  *     def __enter__(self):
  *         return self.pvt_o.__enter__()             # <<<<<<<<<<<<<<
@@ -28802,7 +28816,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_151__enter__(struct __p
  *     def __exit__(self, exc_type, exc_value, tb):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 777, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_enter); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 776, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -28816,14 +28830,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_151__enter__(struct __p
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 777, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 776, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":776
+  /* "pyprotect/Wrapped_Frozen.pxi":775
  * 
  *     # Context managers - intrinsic behavior - pass to wrapped
  *     def __enter__(self):             # <<<<<<<<<<<<<<
@@ -28844,7 +28858,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_151__enter__(struct __p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":779
+/* "pyprotect/Wrapped_Frozen.pxi":778
  *         return self.pvt_o.__enter__()
  * 
  *     def __exit__(self, exc_type, exc_value, tb):             # <<<<<<<<<<<<<<
@@ -28889,17 +28903,17 @@ static PyObject *__pyx_pw_9pyprotect_9protected_7Wrapped_154__exit__(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_exc_value)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 1); __PYX_ERR(2, 779, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 1); __PYX_ERR(2, 778, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_tb)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 2); __PYX_ERR(2, 779, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, 2); __PYX_ERR(2, 778, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__exit__") < 0)) __PYX_ERR(2, 779, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__exit__") < 0)) __PYX_ERR(2, 778, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -28914,7 +28928,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_7Wrapped_154__exit__(PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 779, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__exit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 778, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.Wrapped.__exit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -28940,7 +28954,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_153__exit__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__exit__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":780
+  /* "pyprotect/Wrapped_Frozen.pxi":779
  * 
  *     def __exit__(self, exc_type, exc_value, tb):
  *         return self.pvt_o.__exit(exc_type, exc_value, tb)             # <<<<<<<<<<<<<<
@@ -28948,7 +28962,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_153__exit__(struct __py
  *     # Async context managers - intrinsic behavior - pass to wrapped
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_exit); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 780, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_exit); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 779, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -28965,7 +28979,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_153__exit__(struct __py
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_exc_type, __pyx_v_exc_value, __pyx_v_tb};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 780, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 779, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -28973,13 +28987,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_153__exit__(struct __py
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_exc_type, __pyx_v_exc_value, __pyx_v_tb};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 780, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 779, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 780, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 779, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -28993,7 +29007,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_153__exit__(struct __py
     __Pyx_INCREF(__pyx_v_tb);
     __Pyx_GIVEREF(__pyx_v_tb);
     PyTuple_SET_ITEM(__pyx_t_5, 2+__pyx_t_4, __pyx_v_tb);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 780, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 779, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -29002,7 +29016,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_153__exit__(struct __py
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":779
+  /* "pyprotect/Wrapped_Frozen.pxi":778
  *         return self.pvt_o.__enter__()
  * 
  *     def __exit__(self, exc_type, exc_value, tb):             # <<<<<<<<<<<<<<
@@ -29024,7 +29038,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_153__exit__(struct __py
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":783
+/* "pyprotect/Wrapped_Frozen.pxi":782
  * 
  *     # Async context managers - intrinsic behavior - pass to wrapped
  *     def __aenter__(self):             # <<<<<<<<<<<<<<
@@ -29056,7 +29070,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_155__aenter__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__aenter__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":784
+  /* "pyprotect/Wrapped_Frozen.pxi":783
  *     # Async context managers - intrinsic behavior - pass to wrapped
  *     def __aenter__(self):
  *         return self.pvt_o.__aenter__()             # <<<<<<<<<<<<<<
@@ -29064,7 +29078,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_155__aenter__(struct __
  *     def __aexit__(self, exc_type, exc_value, tb):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_aenter); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 784, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_aenter); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 783, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -29078,14 +29092,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_155__aenter__(struct __
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 784, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 783, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":783
+  /* "pyprotect/Wrapped_Frozen.pxi":782
  * 
  *     # Async context managers - intrinsic behavior - pass to wrapped
  *     def __aenter__(self):             # <<<<<<<<<<<<<<
@@ -29106,7 +29120,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_155__aenter__(struct __
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":786
+/* "pyprotect/Wrapped_Frozen.pxi":785
  *         return self.pvt_o.__aenter__()
  * 
  *     def __aexit__(self, exc_type, exc_value, tb):             # <<<<<<<<<<<<<<
@@ -29151,17 +29165,17 @@ static PyObject *__pyx_pw_9pyprotect_9protected_7Wrapped_158__aexit__(PyObject *
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_exc_value)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, 1); __PYX_ERR(2, 786, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, 1); __PYX_ERR(2, 785, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_tb)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, 2); __PYX_ERR(2, 786, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, 2); __PYX_ERR(2, 785, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__aexit__") < 0)) __PYX_ERR(2, 786, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__aexit__") < 0)) __PYX_ERR(2, 785, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -29176,7 +29190,7 @@ static PyObject *__pyx_pw_9pyprotect_9protected_7Wrapped_158__aexit__(PyObject *
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 786, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__aexit__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 785, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.Wrapped.__aexit__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -29202,7 +29216,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_157__aexit__(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__aexit__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":787
+  /* "pyprotect/Wrapped_Frozen.pxi":786
  * 
  *     def __aexit__(self, exc_type, exc_value, tb):
  *         return self.pvt_o.__aexit(exc_type, exc_value, tb)             # <<<<<<<<<<<<<<
@@ -29210,7 +29224,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_157__aexit__(struct __p
  *     # Customizing positional arguments in class pattern matching
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_aexit); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 787, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_aexit); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 786, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   __pyx_t_4 = 0;
@@ -29227,7 +29241,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_157__aexit__(struct __p
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_exc_type, __pyx_v_exc_value, __pyx_v_tb};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 787, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 786, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -29235,13 +29249,13 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_157__aexit__(struct __p
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[4] = {__pyx_t_3, __pyx_v_exc_type, __pyx_v_exc_value, __pyx_v_tb};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 787, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_4, 3+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 786, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 787, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 786, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_3) {
       __Pyx_GIVEREF(__pyx_t_3); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_3); __pyx_t_3 = NULL;
@@ -29255,7 +29269,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_157__aexit__(struct __p
     __Pyx_INCREF(__pyx_v_tb);
     __Pyx_GIVEREF(__pyx_v_tb);
     PyTuple_SET_ITEM(__pyx_t_5, 2+__pyx_t_4, __pyx_v_tb);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 787, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 786, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
@@ -29264,7 +29278,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_157__aexit__(struct __p
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":786
+  /* "pyprotect/Wrapped_Frozen.pxi":785
  *         return self.pvt_o.__aenter__()
  * 
  *     def __aexit__(self, exc_type, exc_value, tb):             # <<<<<<<<<<<<<<
@@ -29286,7 +29300,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_157__aexit__(struct __p
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":791
+/* "pyprotect/Wrapped_Frozen.pxi":790
  *     # Customizing positional arguments in class pattern matching
  *     # Returns tuple of strings (immutable) - pass to wrapped
  *     def __match_args__(self):             # <<<<<<<<<<<<<<
@@ -29318,7 +29332,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_159__match_args__(struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__match_args__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":792
+  /* "pyprotect/Wrapped_Frozen.pxi":791
  *     # Returns tuple of strings (immutable) - pass to wrapped
  *     def __match_args__(self):
  *         return self.pvt_o.__match_args__()             # <<<<<<<<<<<<<<
@@ -29326,7 +29340,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_159__match_args__(struc
  *     # Coroutine objects - intrinsic behavior - pass to wrapped
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_match_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 792, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_match_args); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 791, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -29340,14 +29354,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_159__match_args__(struc
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 792, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 791, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":791
+  /* "pyprotect/Wrapped_Frozen.pxi":790
  *     # Customizing positional arguments in class pattern matching
  *     # Returns tuple of strings (immutable) - pass to wrapped
  *     def __match_args__(self):             # <<<<<<<<<<<<<<
@@ -29368,7 +29382,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_159__match_args__(struc
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":795
+/* "pyprotect/Wrapped_Frozen.pxi":794
  * 
  *     # Coroutine objects - intrinsic behavior - pass to wrapped
  *     def send(self, value):             # <<<<<<<<<<<<<<
@@ -29400,7 +29414,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_161send(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("send", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":796
+  /* "pyprotect/Wrapped_Frozen.pxi":795
  *     # Coroutine objects - intrinsic behavior - pass to wrapped
  *     def send(self, value):
  *         return self.pvt_o.send(value)             # <<<<<<<<<<<<<<
@@ -29408,7 +29422,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_161send(struct __pyx_ob
  *     def throw(self, value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_send); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 796, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_send); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 795, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -29422,14 +29436,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_161send(struct __pyx_ob
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_value);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 796, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 795, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":795
+  /* "pyprotect/Wrapped_Frozen.pxi":794
  * 
  *     # Coroutine objects - intrinsic behavior - pass to wrapped
  *     def send(self, value):             # <<<<<<<<<<<<<<
@@ -29450,7 +29464,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_161send(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":798
+/* "pyprotect/Wrapped_Frozen.pxi":797
  *         return self.pvt_o.send(value)
  * 
  *     def throw(self, value):             # <<<<<<<<<<<<<<
@@ -29482,7 +29496,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_163throw(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("throw", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":799
+  /* "pyprotect/Wrapped_Frozen.pxi":798
  * 
  *     def throw(self, value):
  *         return self.pvt_o.throw(value)             # <<<<<<<<<<<<<<
@@ -29490,7 +29504,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_163throw(struct __pyx_o
  *     # Implementing descriptors - mutate object
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_throw); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 799, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_throw); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 798, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -29504,14 +29518,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_163throw(struct __pyx_o
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_value) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_value);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 799, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 798, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":798
+  /* "pyprotect/Wrapped_Frozen.pxi":797
  *         return self.pvt_o.send(value)
  * 
  *     def throw(self, value):             # <<<<<<<<<<<<<<
@@ -29532,7 +29546,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_163throw(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":802
+/* "pyprotect/Wrapped_Frozen.pxi":801
  * 
  *     # Implementing descriptors - mutate object
  *     def __set__(self, inst, val):             # <<<<<<<<<<<<<<
@@ -29567,7 +29581,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_165__set__(struct __pyx_obj_9
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":803
+  /* "pyprotect/Wrapped_Frozen.pxi":802
  *     # Implementing descriptors - mutate object
  *     def __set__(self, inst, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -29577,7 +29591,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_165__set__(struct __pyx_obj_9
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":804
+    /* "pyprotect/Wrapped_Frozen.pxi":803
  *     def __set__(self, inst, val):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -29585,9 +29599,9 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_165__set__(struct __pyx_obj_9
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 804, __pyx_L1_error)
+    __PYX_ERR(2, 803, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":803
+    /* "pyprotect/Wrapped_Frozen.pxi":802
  *     # Implementing descriptors - mutate object
  *     def __set__(self, inst, val):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -29596,14 +29610,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_165__set__(struct __pyx_obj_9
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":805
+  /* "pyprotect/Wrapped_Frozen.pxi":804
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o.__set__(inst, val)             # <<<<<<<<<<<<<<
  * 
  *     def __delete__(self, inst):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_set_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 805, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_set_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 804, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -29620,7 +29634,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_165__set__(struct __pyx_obj_9
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_inst, __pyx_v_val};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 805, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 804, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
@@ -29628,13 +29642,13 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_165__set__(struct __pyx_obj_9
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_v_inst, __pyx_v_val};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 805, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 804, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_2);
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 805, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 804, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -29645,14 +29659,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_165__set__(struct __pyx_obj_9
     __Pyx_INCREF(__pyx_v_val);
     __Pyx_GIVEREF(__pyx_v_val);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_v_val);
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 805, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 804, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":802
+  /* "pyprotect/Wrapped_Frozen.pxi":801
  * 
  *     # Implementing descriptors - mutate object
  *     def __set__(self, inst, val):             # <<<<<<<<<<<<<<
@@ -29675,7 +29689,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_165__set__(struct __pyx_obj_9
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":807
+/* "pyprotect/Wrapped_Frozen.pxi":806
  *         self.pvt_o.__set__(inst, val)
  * 
  *     def __delete__(self, inst):             # <<<<<<<<<<<<<<
@@ -29708,7 +29722,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_167__delete__(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__delete__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":808
+  /* "pyprotect/Wrapped_Frozen.pxi":807
  * 
  *     def __delete__(self, inst):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -29718,7 +29732,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_167__delete__(struct __pyx_ob
   __pyx_t_1 = (__pyx_v_self->frozen != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":809
+    /* "pyprotect/Wrapped_Frozen.pxi":808
  *     def __delete__(self, inst):
  *         if self.frozen:
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -29726,9 +29740,9 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_167__delete__(struct __pyx_ob
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 809, __pyx_L1_error)
+    __PYX_ERR(2, 808, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":808
+    /* "pyprotect/Wrapped_Frozen.pxi":807
  * 
  *     def __delete__(self, inst):
  *         if self.frozen:             # <<<<<<<<<<<<<<
@@ -29737,14 +29751,14 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_167__delete__(struct __pyx_ob
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":810
+  /* "pyprotect/Wrapped_Frozen.pxi":809
  *         if self.frozen:
  *             raise frozen_error
  *         self.pvt_o.__delete__(inst)             # <<<<<<<<<<<<<<
  * 
  *     # --------------------------------------------------------------------
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_delete); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 810, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_delete); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 809, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -29758,12 +29772,12 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_167__delete__(struct __pyx_ob
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_inst) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_inst);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 810, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 809, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":807
+  /* "pyprotect/Wrapped_Frozen.pxi":806
  *         self.pvt_o.__set__(inst, val)
  * 
  *     def __delete__(self, inst):             # <<<<<<<<<<<<<<
@@ -29785,7 +29799,7 @@ static int __pyx_pf_9pyprotect_9protected_7Wrapped_167__delete__(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":821
+/* "pyprotect/Wrapped_Frozen.pxi":820
  *     # --------------------------------------------------------------------
  * 
  *     def clear(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -29831,7 +29845,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("clear", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":822
+  /* "pyprotect/Wrapped_Frozen.pxi":821
  * 
  *     def clear(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -29845,46 +29859,46 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":825
+  /* "pyprotect/Wrapped_Frozen.pxi":824
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableMapping,             # <<<<<<<<<<<<<<
  *                 CollectionsABC.MutableSet,
  *                 types.FrameType,
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 825, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 824, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 825, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 824, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":826
+  /* "pyprotect/Wrapped_Frozen.pxi":825
  *             (
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSet,             # <<<<<<<<<<<<<<
  *                 types.FrameType,
  *             )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 826, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 825, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 826, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 825, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":827
+  /* "pyprotect/Wrapped_Frozen.pxi":826
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSet,
  *                 types.FrameType,             # <<<<<<<<<<<<<<
  *             )
  *         ):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_types); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 827, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_types); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 826, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_FrameType); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 827, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_FrameType); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 826, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":823
+  /* "pyprotect/Wrapped_Frozen.pxi":822
  *     def clear(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -29894,7 +29908,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":825
+  /* "pyprotect/Wrapped_Frozen.pxi":824
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableMapping,             # <<<<<<<<<<<<<<
@@ -29910,7 +29924,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
     goto __pyx_L6_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":823
+  /* "pyprotect/Wrapped_Frozen.pxi":822
  *     def clear(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -29920,7 +29934,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":826
+  /* "pyprotect/Wrapped_Frozen.pxi":825
  *             (
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSet,             # <<<<<<<<<<<<<<
@@ -29936,7 +29950,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
     goto __pyx_L6_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":823
+  /* "pyprotect/Wrapped_Frozen.pxi":822
  *     def clear(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -29946,7 +29960,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":827
+  /* "pyprotect/Wrapped_Frozen.pxi":826
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSet,
  *                 types.FrameType,             # <<<<<<<<<<<<<<
@@ -29962,7 +29976,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":822
+  /* "pyprotect/Wrapped_Frozen.pxi":821
  * 
  *     def clear(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -29974,7 +29988,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":830
+    /* "pyprotect/Wrapped_Frozen.pxi":829
  *             )
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -29982,9 +29996,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 830, __pyx_L1_error)
+    __PYX_ERR(2, 829, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":822
+    /* "pyprotect/Wrapped_Frozen.pxi":821
  * 
  *     def clear(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -29993,7 +30007,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":831
+  /* "pyprotect/Wrapped_Frozen.pxi":830
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.clear(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -30001,11 +30015,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
  *     def setdefault(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_clear); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 831, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_clear); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 830, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 831, __pyx_L1_error)
+  __pyx_t_5 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 830, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_v_args, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 831, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_v_args, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 830, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -30013,7 +30027,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":821
+  /* "pyprotect/Wrapped_Frozen.pxi":820
  *     # --------------------------------------------------------------------
  * 
  *     def clear(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30035,7 +30049,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_169clear(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":833
+/* "pyprotect/Wrapped_Frozen.pxi":832
  *         return self.pvt_o.clear(*args, **kwargs)
  * 
  *     def setdefault(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30079,7 +30093,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("setdefault", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":834
+  /* "pyprotect/Wrapped_Frozen.pxi":833
  * 
  *     def setdefault(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30093,7 +30107,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":835
+  /* "pyprotect/Wrapped_Frozen.pxi":834
  *     def setdefault(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,CollectionsABC.MutableMapping             # <<<<<<<<<<<<<<
@@ -30102,20 +30116,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 835, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 834, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 835, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 834, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":834
+  /* "pyprotect/Wrapped_Frozen.pxi":833
  * 
  *     def setdefault(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o,CollectionsABC.MutableMapping
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 834, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 833, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -30123,7 +30137,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":837
+    /* "pyprotect/Wrapped_Frozen.pxi":836
  *             self.pvt_o,CollectionsABC.MutableMapping
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -30131,9 +30145,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 837, __pyx_L1_error)
+    __PYX_ERR(2, 836, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":834
+    /* "pyprotect/Wrapped_Frozen.pxi":833
  * 
  *     def setdefault(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30142,7 +30156,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":838
+  /* "pyprotect/Wrapped_Frozen.pxi":837
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.setdefault(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -30150,11 +30164,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
  *     def pop(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_setdefault); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 838, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_setdefault); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 837, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 838, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 837, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 838, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 837, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -30162,7 +30176,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":833
+  /* "pyprotect/Wrapped_Frozen.pxi":832
  *         return self.pvt_o.clear(*args, **kwargs)
  * 
  *     def setdefault(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30183,7 +30197,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_171setdefault(struct __
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":840
+/* "pyprotect/Wrapped_Frozen.pxi":839
  *         return self.pvt_o.setdefault(*args, **kwargs)
  * 
  *     def pop(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30229,7 +30243,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pop", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":841
+  /* "pyprotect/Wrapped_Frozen.pxi":840
  * 
  *     def pop(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30243,46 +30257,46 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":844
+  /* "pyprotect/Wrapped_Frozen.pxi":843
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableMapping,             # <<<<<<<<<<<<<<
  *                 CollectionsABC.MutableSequence,
  *                 CollectionsABC.MutableSet,
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 844, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 843, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 844, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 843, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":845
+  /* "pyprotect/Wrapped_Frozen.pxi":844
  *             (
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
  *                 CollectionsABC.MutableSet,
  *             )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 845, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 844, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 845, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 844, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":846
+  /* "pyprotect/Wrapped_Frozen.pxi":845
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSequence,
  *                 CollectionsABC.MutableSet,             # <<<<<<<<<<<<<<
  *             )
  *         ):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 846, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 845, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 846, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 845, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":842
+  /* "pyprotect/Wrapped_Frozen.pxi":841
  *     def pop(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -30292,7 +30306,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":844
+  /* "pyprotect/Wrapped_Frozen.pxi":843
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableMapping,             # <<<<<<<<<<<<<<
@@ -30308,7 +30322,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
     goto __pyx_L6_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":842
+  /* "pyprotect/Wrapped_Frozen.pxi":841
  *     def pop(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -30318,7 +30332,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":845
+  /* "pyprotect/Wrapped_Frozen.pxi":844
  *             (
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
@@ -30334,7 +30348,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
     goto __pyx_L6_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":842
+  /* "pyprotect/Wrapped_Frozen.pxi":841
  *     def pop(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -30344,7 +30358,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":846
+  /* "pyprotect/Wrapped_Frozen.pxi":845
  *                 CollectionsABC.MutableMapping,
  *                 CollectionsABC.MutableSequence,
  *                 CollectionsABC.MutableSet,             # <<<<<<<<<<<<<<
@@ -30360,7 +30374,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":841
+  /* "pyprotect/Wrapped_Frozen.pxi":840
  * 
  *     def pop(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30372,7 +30386,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":849
+    /* "pyprotect/Wrapped_Frozen.pxi":848
  *             )
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -30380,9 +30394,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 849, __pyx_L1_error)
+    __PYX_ERR(2, 848, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":841
+    /* "pyprotect/Wrapped_Frozen.pxi":840
  * 
  *     def pop(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30391,7 +30405,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":850
+  /* "pyprotect/Wrapped_Frozen.pxi":849
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.pop(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -30399,11 +30413,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
  *     def popitem(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_pop); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 850, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_pop); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 849, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 850, __pyx_L1_error)
+  __pyx_t_5 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 849, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_v_args, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 850, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_v_args, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(2, 849, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -30411,7 +30425,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
   __pyx_t_6 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":840
+  /* "pyprotect/Wrapped_Frozen.pxi":839
  *         return self.pvt_o.setdefault(*args, **kwargs)
  * 
  *     def pop(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30433,7 +30447,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_173pop(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":852
+/* "pyprotect/Wrapped_Frozen.pxi":851
  *         return self.pvt_o.pop(*args, **kwargs)
  * 
  *     def popitem(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30477,7 +30491,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("popitem", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":853
+  /* "pyprotect/Wrapped_Frozen.pxi":852
  * 
  *     def popitem(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30491,7 +30505,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":854
+  /* "pyprotect/Wrapped_Frozen.pxi":853
  *     def popitem(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o, CollectionsABC.MutableMapping             # <<<<<<<<<<<<<<
@@ -30500,20 +30514,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 854, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 854, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 853, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":853
+  /* "pyprotect/Wrapped_Frozen.pxi":852
  * 
  *     def popitem(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o, CollectionsABC.MutableMapping
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 853, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 852, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -30521,7 +30535,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":856
+    /* "pyprotect/Wrapped_Frozen.pxi":855
  *             self.pvt_o, CollectionsABC.MutableMapping
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -30529,9 +30543,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 856, __pyx_L1_error)
+    __PYX_ERR(2, 855, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":853
+    /* "pyprotect/Wrapped_Frozen.pxi":852
  * 
  *     def popitem(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30540,7 +30554,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":857
+  /* "pyprotect/Wrapped_Frozen.pxi":856
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.popitem(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -30548,11 +30562,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
  *     def update(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_popitem); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 857, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_popitem); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 857, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 857, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 856, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -30560,7 +30574,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":852
+  /* "pyprotect/Wrapped_Frozen.pxi":851
  *         return self.pvt_o.pop(*args, **kwargs)
  * 
  *     def popitem(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30581,7 +30595,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_175popitem(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":859
+/* "pyprotect/Wrapped_Frozen.pxi":858
  *         return self.pvt_o.popitem(*args, **kwargs)
  * 
  *     def update(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30625,7 +30639,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("update", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":860
+  /* "pyprotect/Wrapped_Frozen.pxi":859
  * 
  *     def update(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30639,7 +30653,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":861
+  /* "pyprotect/Wrapped_Frozen.pxi":860
  *     def update(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o, CollectionsABC.MutableMapping             # <<<<<<<<<<<<<<
@@ -30648,20 +30662,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 861, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 861, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableMapping); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":860
+  /* "pyprotect/Wrapped_Frozen.pxi":859
  * 
  *     def update(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o, CollectionsABC.MutableMapping
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 860, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 859, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -30669,7 +30683,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":863
+    /* "pyprotect/Wrapped_Frozen.pxi":862
  *             self.pvt_o, CollectionsABC.MutableMapping
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -30677,9 +30691,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 863, __pyx_L1_error)
+    __PYX_ERR(2, 862, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":860
+    /* "pyprotect/Wrapped_Frozen.pxi":859
  * 
  *     def update(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30688,7 +30702,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":864
+  /* "pyprotect/Wrapped_Frozen.pxi":863
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.update(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -30696,11 +30710,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_update); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 864, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_update); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 864, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 864, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -30708,7 +30722,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":859
+  /* "pyprotect/Wrapped_Frozen.pxi":858
  *         return self.pvt_o.popitem(*args, **kwargs)
  * 
  *     def update(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30729,7 +30743,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_177update(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":867
+/* "pyprotect/Wrapped_Frozen.pxi":866
  * 
  * 
  *     def append(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30773,7 +30787,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("append", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":868
+  /* "pyprotect/Wrapped_Frozen.pxi":867
  * 
  *     def append(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30787,7 +30801,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":869
+  /* "pyprotect/Wrapped_Frozen.pxi":868
  *     def append(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o, CollectionsABC.MutableSequence             # <<<<<<<<<<<<<<
@@ -30796,20 +30810,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 869, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 869, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 868, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":868
+  /* "pyprotect/Wrapped_Frozen.pxi":867
  * 
  *     def append(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o, CollectionsABC.MutableSequence
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 868, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 867, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -30817,7 +30831,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":871
+    /* "pyprotect/Wrapped_Frozen.pxi":870
  *             self.pvt_o, CollectionsABC.MutableSequence
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -30825,9 +30839,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 871, __pyx_L1_error)
+    __PYX_ERR(2, 870, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":868
+    /* "pyprotect/Wrapped_Frozen.pxi":867
  * 
  *     def append(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30836,7 +30850,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":872
+  /* "pyprotect/Wrapped_Frozen.pxi":871
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.append(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -30844,11 +30858,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
  *     def extend(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_append); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 872, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_append); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 872, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 872, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -30856,7 +30870,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":867
+  /* "pyprotect/Wrapped_Frozen.pxi":866
  * 
  * 
  *     def append(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30877,7 +30891,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_179append(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":874
+/* "pyprotect/Wrapped_Frozen.pxi":873
  *         return self.pvt_o.append(*args, **kwargs)
  * 
  *     def extend(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -30921,7 +30935,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("extend", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":875
+  /* "pyprotect/Wrapped_Frozen.pxi":874
  * 
  *     def extend(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30935,7 +30949,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":876
+  /* "pyprotect/Wrapped_Frozen.pxi":875
  *     def extend(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o, CollectionsABC.MutableSequence             # <<<<<<<<<<<<<<
@@ -30944,20 +30958,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 876, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 875, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 876, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 875, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":875
+  /* "pyprotect/Wrapped_Frozen.pxi":874
  * 
  *     def extend(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o, CollectionsABC.MutableSequence
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 875, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 874, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -30965,7 +30979,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":878
+    /* "pyprotect/Wrapped_Frozen.pxi":877
  *             self.pvt_o, CollectionsABC.MutableSequence
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -30973,9 +30987,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 878, __pyx_L1_error)
+    __PYX_ERR(2, 877, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":875
+    /* "pyprotect/Wrapped_Frozen.pxi":874
  * 
  *     def extend(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -30984,7 +30998,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":879
+  /* "pyprotect/Wrapped_Frozen.pxi":878
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.extend(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -30992,11 +31006,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
  *     def insert(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_extend); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 879, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_extend); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 878, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 879, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 878, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 879, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 878, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -31004,7 +31018,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":874
+  /* "pyprotect/Wrapped_Frozen.pxi":873
  *         return self.pvt_o.append(*args, **kwargs)
  * 
  *     def extend(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31025,7 +31039,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_181extend(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":881
+/* "pyprotect/Wrapped_Frozen.pxi":880
  *         return self.pvt_o.extend(*args, **kwargs)
  * 
  *     def insert(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31069,7 +31083,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("insert", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":882
+  /* "pyprotect/Wrapped_Frozen.pxi":881
  * 
  *     def insert(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31083,7 +31097,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":883
+  /* "pyprotect/Wrapped_Frozen.pxi":882
  *     def insert(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o, CollectionsABC.MutableSequence             # <<<<<<<<<<<<<<
@@ -31092,20 +31106,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 883, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 882, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 883, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 882, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":882
+  /* "pyprotect/Wrapped_Frozen.pxi":881
  * 
  *     def insert(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o, CollectionsABC.MutableSequence
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 882, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 881, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -31113,7 +31127,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":885
+    /* "pyprotect/Wrapped_Frozen.pxi":884
  *             self.pvt_o, CollectionsABC.MutableSequence
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -31121,9 +31135,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 885, __pyx_L1_error)
+    __PYX_ERR(2, 884, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":882
+    /* "pyprotect/Wrapped_Frozen.pxi":881
  * 
  *     def insert(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31132,7 +31146,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":886
+  /* "pyprotect/Wrapped_Frozen.pxi":885
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.insert(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -31140,11 +31154,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
  *     def sort(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_insert); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 886, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_insert); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 885, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 886, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 885, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 886, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 885, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -31152,7 +31166,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":881
+  /* "pyprotect/Wrapped_Frozen.pxi":880
  *         return self.pvt_o.extend(*args, **kwargs)
  * 
  *     def insert(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31173,7 +31187,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_183insert(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":888
+/* "pyprotect/Wrapped_Frozen.pxi":887
  *         return self.pvt_o.insert(*args, **kwargs)
  * 
  *     def sort(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31217,7 +31231,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("sort", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":889
+  /* "pyprotect/Wrapped_Frozen.pxi":888
  * 
  *     def sort(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31231,7 +31245,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":890
+  /* "pyprotect/Wrapped_Frozen.pxi":889
  *     def sort(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o, CollectionsABC.MutableSequence             # <<<<<<<<<<<<<<
@@ -31240,20 +31254,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 890, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 889, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 890, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 889, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":889
+  /* "pyprotect/Wrapped_Frozen.pxi":888
  * 
  *     def sort(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o, CollectionsABC.MutableSequence
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 889, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 888, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -31261,7 +31275,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":892
+    /* "pyprotect/Wrapped_Frozen.pxi":891
  *             self.pvt_o, CollectionsABC.MutableSequence
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -31269,9 +31283,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 892, __pyx_L1_error)
+    __PYX_ERR(2, 891, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":889
+    /* "pyprotect/Wrapped_Frozen.pxi":888
  * 
  *     def sort(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31280,7 +31294,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":893
+  /* "pyprotect/Wrapped_Frozen.pxi":892
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.sort(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -31288,11 +31302,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
  *     def add(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_sort); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 893, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_sort); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 892, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 893, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 892, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 893, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 892, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -31300,7 +31314,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":888
+  /* "pyprotect/Wrapped_Frozen.pxi":887
  *         return self.pvt_o.insert(*args, **kwargs)
  * 
  *     def sort(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31321,7 +31335,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_185sort(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":895
+/* "pyprotect/Wrapped_Frozen.pxi":894
  *         return self.pvt_o.sort(*args, **kwargs)
  * 
  *     def add(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31365,7 +31379,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":896
+  /* "pyprotect/Wrapped_Frozen.pxi":895
  * 
  *     def add(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31379,7 +31393,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":897
+  /* "pyprotect/Wrapped_Frozen.pxi":896
  *     def add(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o, CollectionsABC.MutableSet             # <<<<<<<<<<<<<<
@@ -31388,20 +31402,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 897, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 896, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 897, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 896, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":896
+  /* "pyprotect/Wrapped_Frozen.pxi":895
  * 
  *     def add(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o, CollectionsABC.MutableSet
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 896, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 895, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -31409,7 +31423,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":899
+    /* "pyprotect/Wrapped_Frozen.pxi":898
  *             self.pvt_o, CollectionsABC.MutableSet
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -31417,9 +31431,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 899, __pyx_L1_error)
+    __PYX_ERR(2, 898, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":896
+    /* "pyprotect/Wrapped_Frozen.pxi":895
  * 
  *     def add(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31428,7 +31442,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":900
+  /* "pyprotect/Wrapped_Frozen.pxi":899
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.add(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -31436,11 +31450,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
  *     def discard(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_add_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 900, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_add_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 899, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 900, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 899, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 900, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 899, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -31448,7 +31462,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":895
+  /* "pyprotect/Wrapped_Frozen.pxi":894
  *         return self.pvt_o.sort(*args, **kwargs)
  * 
  *     def add(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31469,7 +31483,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_187add(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":902
+/* "pyprotect/Wrapped_Frozen.pxi":901
  *         return self.pvt_o.add(*args, **kwargs)
  * 
  *     def discard(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31513,7 +31527,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("discard", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":903
+  /* "pyprotect/Wrapped_Frozen.pxi":902
  * 
  *     def discard(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31527,7 +31541,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":904
+  /* "pyprotect/Wrapped_Frozen.pxi":903
  *     def discard(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o, CollectionsABC.MutableSet             # <<<<<<<<<<<<<<
@@ -31536,20 +31550,20 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
  */
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 904, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 903, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 904, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 903, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":903
+  /* "pyprotect/Wrapped_Frozen.pxi":902
  * 
  *     def discard(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o, CollectionsABC.MutableSet
  *         ):
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 903, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_5); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 902, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -31557,7 +31571,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":906
+    /* "pyprotect/Wrapped_Frozen.pxi":905
  *             self.pvt_o, CollectionsABC.MutableSet
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -31565,9 +31579,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 906, __pyx_L1_error)
+    __PYX_ERR(2, 905, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":903
+    /* "pyprotect/Wrapped_Frozen.pxi":902
  * 
  *     def discard(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31576,7 +31590,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":907
+  /* "pyprotect/Wrapped_Frozen.pxi":906
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.discard(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -31584,11 +31598,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
  *     def remove(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_discard); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 907, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_discard); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 907, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 907, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 906, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -31596,7 +31610,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":902
+  /* "pyprotect/Wrapped_Frozen.pxi":901
  *         return self.pvt_o.add(*args, **kwargs)
  * 
  *     def discard(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31617,7 +31631,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_189discard(struct __pyx
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":909
+/* "pyprotect/Wrapped_Frozen.pxi":908
  *         return self.pvt_o.discard(*args, **kwargs)
  * 
  *     def remove(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31662,7 +31676,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("remove", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":910
+  /* "pyprotect/Wrapped_Frozen.pxi":909
  * 
  *     def remove(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31676,33 +31690,33 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":913
+  /* "pyprotect/Wrapped_Frozen.pxi":912
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableSet,             # <<<<<<<<<<<<<<
  *                 CollectionsABC.MutableSequence,
  *             )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 913, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 912, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 913, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSet); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 912, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":914
+  /* "pyprotect/Wrapped_Frozen.pxi":913
  *             (
  *                 CollectionsABC.MutableSet,
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
  *             )
  *         ):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 914, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 913, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 914, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 913, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":911
+  /* "pyprotect/Wrapped_Frozen.pxi":910
  *     def remove(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -31712,7 +31726,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":913
+  /* "pyprotect/Wrapped_Frozen.pxi":912
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableSet,             # <<<<<<<<<<<<<<
@@ -31728,7 +31742,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
     goto __pyx_L6_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":911
+  /* "pyprotect/Wrapped_Frozen.pxi":910
  *     def remove(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -31738,7 +31752,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":914
+  /* "pyprotect/Wrapped_Frozen.pxi":913
  *             (
  *                 CollectionsABC.MutableSet,
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
@@ -31753,7 +31767,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":910
+  /* "pyprotect/Wrapped_Frozen.pxi":909
  * 
  *     def remove(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31765,7 +31779,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":917
+    /* "pyprotect/Wrapped_Frozen.pxi":916
  *             )
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -31773,9 +31787,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
  * 
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 917, __pyx_L1_error)
+    __PYX_ERR(2, 916, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":910
+    /* "pyprotect/Wrapped_Frozen.pxi":909
  * 
  *     def remove(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31784,7 +31798,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":918
+  /* "pyprotect/Wrapped_Frozen.pxi":917
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.remove(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -31792,11 +31806,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
  *     def reverse(self, *args, **kwargs):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_remove); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 918, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_remove); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 917, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 918, __pyx_L1_error)
+  __pyx_t_5 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 917, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_v_args, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 918, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_v_args, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 917, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -31804,7 +31818,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":909
+  /* "pyprotect/Wrapped_Frozen.pxi":908
  *         return self.pvt_o.discard(*args, **kwargs)
  * 
  *     def remove(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31825,7 +31839,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_191remove(struct __pyx_
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":920
+/* "pyprotect/Wrapped_Frozen.pxi":919
  *         return self.pvt_o.remove(*args, **kwargs)
  * 
  *     def reverse(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -31869,7 +31883,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_193reverse(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reverse", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":921
+  /* "pyprotect/Wrapped_Frozen.pxi":920
  * 
  *     def reverse(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31883,7 +31897,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_193reverse(struct __pyx
     goto __pyx_L4_bool_binop_done;
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":922
+  /* "pyprotect/Wrapped_Frozen.pxi":921
  *     def reverse(self, *args, **kwargs):
  *         if self.frozen and isinstance(
  *             self.pvt_o,             # <<<<<<<<<<<<<<
@@ -31893,32 +31907,32 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_193reverse(struct __pyx
   __pyx_t_3 = __pyx_v_self->pvt_o;
   __Pyx_INCREF(__pyx_t_3);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":924
+  /* "pyprotect/Wrapped_Frozen.pxi":923
  *             self.pvt_o,
  *             (
  *                 CollectionsABC.MutableSequence,             # <<<<<<<<<<<<<<
  *             )
  *         ):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 924, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_CollectionsABC); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 923, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 924, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_MutableSequence); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 923, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 924, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 923, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_5);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":921
+  /* "pyprotect/Wrapped_Frozen.pxi":920
  * 
  *     def reverse(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
  *             self.pvt_o,
  *             (
  */
-  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 921, __pyx_L1_error)
+  __pyx_t_2 = PyObject_IsInstance(__pyx_t_3, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(2, 920, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_6 = (__pyx_t_2 != 0);
@@ -31926,7 +31940,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_193reverse(struct __pyx
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "pyprotect/Wrapped_Frozen.pxi":927
+    /* "pyprotect/Wrapped_Frozen.pxi":926
  *             )
  *         ):
  *             raise frozen_error             # <<<<<<<<<<<<<<
@@ -31934,9 +31948,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_193reverse(struct __pyx
  *     # --------------------------------------------------------------------
  */
     __Pyx_Raise(__pyx_v_9pyprotect_9protected_frozen_error, 0, 0, 0);
-    __PYX_ERR(2, 927, __pyx_L1_error)
+    __PYX_ERR(2, 926, __pyx_L1_error)
 
-    /* "pyprotect/Wrapped_Frozen.pxi":921
+    /* "pyprotect/Wrapped_Frozen.pxi":920
  * 
  *     def reverse(self, *args, **kwargs):
  *         if self.frozen and isinstance(             # <<<<<<<<<<<<<<
@@ -31945,7 +31959,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_193reverse(struct __pyx
  */
   }
 
-  /* "pyprotect/Wrapped_Frozen.pxi":928
+  /* "pyprotect/Wrapped_Frozen.pxi":927
  *         ):
  *             raise frozen_error
  *         return self.pvt_o.reverse(*args, **kwargs)             # <<<<<<<<<<<<<<
@@ -31953,11 +31967,11 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_193reverse(struct __pyx
  *     # End of mutating methods of containers
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_reverse); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 928, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->pvt_o, __pyx_n_s_reverse); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 927, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 928, __pyx_L1_error)
+  __pyx_t_3 = PyDict_Copy(__pyx_v_kwargs); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 927, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 928, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_v_args, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 927, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -31965,7 +31979,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_193reverse(struct __pyx
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":920
+  /* "pyprotect/Wrapped_Frozen.pxi":919
  *         return self.pvt_o.remove(*args, **kwargs)
  * 
  *     def reverse(self, *args, **kwargs):             # <<<<<<<<<<<<<<
@@ -32333,7 +32347,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_7Wrapped_197__setstate_cython__(
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":940
+/* "pyprotect/Wrapped_Frozen.pxi":939
  *     Subclass of Wrapped that is automatically frozen
  *     '''
  *     def __init__(self, o):             # <<<<<<<<<<<<<<
@@ -32374,7 +32388,7 @@ static int __pyx_pw_9pyprotect_9protected_6Frozen_1__init__(PyObject *__pyx_v_se
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(2, 940, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(2, 939, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -32385,7 +32399,7 @@ static int __pyx_pw_9pyprotect_9protected_6Frozen_1__init__(PyObject *__pyx_v_se
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 940, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(2, 939, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("pyprotect.protected.Frozen.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -32410,16 +32424,16 @@ static int __pyx_pf_9pyprotect_9protected_6Frozen___init__(struct __pyx_obj_9pyp
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":942
+  /* "pyprotect/Wrapped_Frozen.pxi":941
  *     def __init__(self, o):
  *         '''o-->object to be wrapped'''
  *         Wrapped.__init__(self, o, frozen=True)             # <<<<<<<<<<<<<<
  * 
  *     # Python / cython does not automatically use parent __hash__
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 942, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 941, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 942, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 941, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
@@ -32427,17 +32441,17 @@ static int __pyx_pf_9pyprotect_9protected_6Frozen___init__(struct __pyx_obj_9pyp
   __Pyx_INCREF(__pyx_v_o);
   __Pyx_GIVEREF(__pyx_v_o);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_v_o);
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 942, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(2, 941, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_frozen, Py_True) < 0) __PYX_ERR(2, 942, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 942, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_frozen, Py_True) < 0) __PYX_ERR(2, 941, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 941, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":940
+  /* "pyprotect/Wrapped_Frozen.pxi":939
  *     Subclass of Wrapped that is automatically frozen
  *     '''
  *     def __init__(self, o):             # <<<<<<<<<<<<<<
@@ -32460,7 +32474,7 @@ static int __pyx_pf_9pyprotect_9protected_6Frozen___init__(struct __pyx_obj_9pyp
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":945
+/* "pyprotect/Wrapped_Frozen.pxi":944
  * 
  *     # Python / cython does not automatically use parent __hash__
  *     def __hash__(self):             # <<<<<<<<<<<<<<
@@ -32493,14 +32507,14 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_6Frozen_2__hash__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__hash__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":946
+  /* "pyprotect/Wrapped_Frozen.pxi":945
  *     # Python / cython does not automatically use parent __hash__
  *     def __hash__(self):
  *         return Wrapped.__hash__(self)             # <<<<<<<<<<<<<<
  * 
  *     # __richcmp__ needs to be class-specific
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_n_s_hash_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 946, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_9pyprotect_9protected_Wrapped), __pyx_n_s_hash_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 945, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -32514,15 +32528,15 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_6Frozen_2__hash__(struct __pyx_o
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 946, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 945, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyInt_AsHash_t(__pyx_t_1); if (unlikely((__pyx_t_4 == (Py_hash_t)-1) && PyErr_Occurred())) __PYX_ERR(2, 946, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_AsHash_t(__pyx_t_1); if (unlikely((__pyx_t_4 == (Py_hash_t)-1) && PyErr_Occurred())) __PYX_ERR(2, 945, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_4;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":945
+  /* "pyprotect/Wrapped_Frozen.pxi":944
  * 
  *     # Python / cython does not automatically use parent __hash__
  *     def __hash__(self):             # <<<<<<<<<<<<<<
@@ -32543,7 +32557,7 @@ static Py_hash_t __pyx_pf_9pyprotect_9protected_6Frozen_2__hash__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "pyprotect/Wrapped_Frozen.pxi":949
+/* "pyprotect/Wrapped_Frozen.pxi":948
  * 
  *     # __richcmp__ needs to be class-specific
  *     def __richcmp__(self, other, int op):             # <<<<<<<<<<<<<<
@@ -32574,23 +32588,23 @@ static PyObject *__pyx_pf_9pyprotect_9protected_6Frozen_4__richcmp__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__richcmp__", 0);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":951
+  /* "pyprotect/Wrapped_Frozen.pxi":950
  *     def __richcmp__(self, other, int op):
  *         '''Use common method for all Wrapped objects'''
  *         return self.comparator(other, op)             # <<<<<<<<<<<<<<
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_op); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 951, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_op); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 950, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Frozen *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.comparator(((struct __pyx_obj_9pyprotect_9protected_Wrapped *)__pyx_v_self), __pyx_v_other, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 951, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_9pyprotect_9protected_Frozen *)__pyx_v_self->__pyx_base.__pyx_vtab)->__pyx_base.comparator(((struct __pyx_obj_9pyprotect_9protected_Wrapped *)__pyx_v_self), __pyx_v_other, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 950, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/Wrapped_Frozen.pxi":949
+  /* "pyprotect/Wrapped_Frozen.pxi":948
  * 
  *     # __richcmp__ needs to be class-specific
  *     def __richcmp__(self, other, int op):             # <<<<<<<<<<<<<<
@@ -51032,7 +51046,7 @@ static PyTypeObject __pyx_type_9pyprotect_9protected_Wrapped = {
   __pyx_tp_setattro_9pyprotect_9protected_Wrapped, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  "\n    This is an object wrapper / proxy that adds the 'frozen' parameter\n    If frozen is False, should behave just like the wrapped object, except\n    following attributes cannot be modified:\n        '__getattr__', '__getattribute__',\n        '__delattr__', '__setattr__', '__slots__',\n    If frozen is True, prevents modification of ANY attribute\n    WITHOUT frozen == True:\n        - Does NOT protect CLASS of wrapped object from modification\n        - Does NOT protect __dict__ or __slots__\n    Implements all known special methods for classes under collections etc\n    The one difference is that a Wrapped instance explicitly does NOT\n    support pickling, and will raise a ProtectionError\n    ", /*tp_doc*/
+  "\n    This is an object wrapper / proxy that adds the 'frozen' parameter\n    If frozen is False, should behave just like the wrapped object, except\n    following attributes cannot be modified:\n        '__getattribute__', '__delattr__', '__setattr__', '__slots__',\n    If frozen is True, prevents modification of ANY attribute\n    WITHOUT frozen == True:\n        - Does NOT protect CLASS of wrapped object from modification\n        - Does NOT protect __dict__ or __slots__\n    Implements all known special methods for classes under collections etc\n    The one difference is that a Wrapped instance explicitly does NOT\n    support pickling, and will raise a ProtectionError\n    ", /*tp_doc*/
   __pyx_tp_traverse_9pyprotect_9protected_Wrapped, /*tp_traverse*/
   __pyx_tp_clear_9pyprotect_9protected_Wrapped, /*tp_clear*/
   __pyx_pw_9pyprotect_9protected_7Wrapped_11__richcmp__, /*tp_richcompare*/
@@ -53240,6 +53254,10 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_CollectionsABC, __pyx_k_CollectionsABC, sizeof(__pyx_k_CollectionsABC), 0, 0, 1, 1},
   {&__pyx_kp_s_Double_wrapped, __pyx_k_Double_wrapped, sizeof(__pyx_k_Double_wrapped), 0, 0, 1, 0},
   {&__pyx_n_s_FrameType, __pyx_k_FrameType, sizeof(__pyx_k_FrameType), 0, 0, 1, 1},
+  {&__pyx_n_s_Frozen, __pyx_k_Frozen, sizeof(__pyx_k_Frozen), 0, 0, 1, 1},
+  {&__pyx_n_s_FrozenPrivacyDict, __pyx_k_FrozenPrivacyDict, sizeof(__pyx_k_FrozenPrivacyDict), 0, 0, 1, 1},
+  {&__pyx_n_s_FrozenPrivate, __pyx_k_FrozenPrivate, sizeof(__pyx_k_FrozenPrivate), 0, 0, 1, 1},
+  {&__pyx_n_s_FrozenProtected, __pyx_k_FrozenProtected, sizeof(__pyx_k_FrozenProtected), 0, 0, 1, 1},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x05, __pyx_k_Incompatible_checksums_s_vs_0x05, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x05), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x12, __pyx_k_Incompatible_checksums_s_vs_0x12, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x12), 0, 0, 1, 0},
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0x4a, __pyx_k_Incompatible_checksums_s_vs_0x4a, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x4a), 0, 0, 1, 0},
@@ -53256,13 +53274,16 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Object_is_read_only, __pyx_k_Object_is_read_only, sizeof(__pyx_k_Object_is_read_only), 0, 0, 1, 0},
   {&__pyx_kp_s_Object_s_has_no_attribute_s, __pyx_k_Object_s_has_no_attribute_s, sizeof(__pyx_k_Object_s_has_no_attribute_s), 0, 0, 1, 0},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
+  {&__pyx_n_s_PrivacyDict, __pyx_k_PrivacyDict, sizeof(__pyx_k_PrivacyDict), 0, 0, 1, 1},
   {&__pyx_n_s_PrivacyDict_items, __pyx_k_PrivacyDict_items, sizeof(__pyx_k_PrivacyDict_items), 0, 0, 1, 1},
   {&__pyx_n_s_PrivacyDict_iteritems, __pyx_k_PrivacyDict_iteritems, sizeof(__pyx_k_PrivacyDict_iteritems), 0, 0, 1, 1},
   {&__pyx_n_s_PrivacyDict_iterkeys, __pyx_k_PrivacyDict_iterkeys, sizeof(__pyx_k_PrivacyDict_iterkeys), 0, 0, 1, 1},
   {&__pyx_n_s_PrivacyDict_itervalues, __pyx_k_PrivacyDict_itervalues, sizeof(__pyx_k_PrivacyDict_itervalues), 0, 0, 1, 1},
   {&__pyx_n_s_PrivacyDict_keys, __pyx_k_PrivacyDict_keys, sizeof(__pyx_k_PrivacyDict_keys), 0, 0, 1, 1},
   {&__pyx_n_s_PrivacyDict_values, __pyx_k_PrivacyDict_values, sizeof(__pyx_k_PrivacyDict_values), 0, 0, 1, 1},
+  {&__pyx_n_s_Private, __pyx_k_Private, sizeof(__pyx_k_Private), 0, 0, 1, 1},
   {&__pyx_n_s_Protected, __pyx_k_Protected, sizeof(__pyx_k_Protected), 0, 0, 1, 1},
+  {&__pyx_n_s_Protected_2, __pyx_k_Protected_2, sizeof(__pyx_k_Protected_2), 0, 0, 1, 1},
   {&__pyx_n_s_ProtectionData, __pyx_k_ProtectionData, sizeof(__pyx_k_ProtectionData), 0, 0, 1, 1},
   {&__pyx_n_s_ProtectionError, __pyx_k_ProtectionError, sizeof(__pyx_k_ProtectionError), 0, 0, 1, 1},
   {&__pyx_n_s_Pyx_CFunc_object____Wrapped, __pyx_k_Pyx_CFunc_object____Wrapped, sizeof(__pyx_k_Pyx_CFunc_object____Wrapped), 0, 0, 1, 1},
@@ -53275,6 +53296,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_Set, __pyx_k_Set, sizeof(__pyx_k_Set), 0, 0, 1, 1},
   {&__pyx_n_s_TypeError, __pyx_k_TypeError, sizeof(__pyx_k_TypeError), 0, 0, 1, 1},
   {&__pyx_n_s_Unknown_OldStyle_Class, __pyx_k_Unknown_OldStyle_Class, sizeof(__pyx_k_Unknown_OldStyle_Class), 0, 0, 1, 1},
+  {&__pyx_n_s_Wrapped, __pyx_k_Wrapped, sizeof(__pyx_k_Wrapped), 0, 0, 1, 1},
   {&__pyx_n_s_Wrapped___iter, __pyx_k_Wrapped___iter, sizeof(__pyx_k_Wrapped___iter), 0, 0, 1, 1},
   {&__pyx_n_s_Wrapped_comparator_locals_pass_t, __pyx_k_Wrapped_comparator_locals_pass_t, sizeof(__pyx_k_Wrapped_comparator_locals_pass_t), 0, 0, 1, 1},
   {&__pyx_kp_s_Wrapped_object_cannot_be_pickled, __pyx_k_Wrapped_object_cannot_be_pickled, sizeof(__pyx_k_Wrapped_object_cannot_be_pickled), 0, 0, 1, 0},
@@ -53362,7 +53384,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_functools, __pyx_k_functools, sizeof(__pyx_k_functools), 0, 0, 1, 1},
   {&__pyx_n_s_ge, __pyx_k_ge, sizeof(__pyx_k_ge), 0, 0, 1, 1},
   {&__pyx_n_s_get, __pyx_k_get, sizeof(__pyx_k_get), 0, 0, 1, 1},
-  {&__pyx_n_s_getattr, __pyx_k_getattr, sizeof(__pyx_k_getattr), 0, 0, 1, 1},
   {&__pyx_n_s_getattribute, __pyx_k_getattribute, sizeof(__pyx_k_getattribute), 0, 0, 1, 1},
   {&__pyx_n_s_getitem, __pyx_k_getitem, sizeof(__pyx_k_getitem), 0, 0, 1, 1},
   {&__pyx_n_s_getsate, __pyx_k_getsate, sizeof(__pyx_k_getsate), 0, 0, 1, 1},
@@ -53596,12 +53617,12 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_id = __Pyx_GetBuiltinName(__pyx_n_s_id); if (!__pyx_builtin_id) __PYX_ERR(0, 17, __pyx_L1_error)
-  __pyx_builtin_help = __Pyx_GetBuiltinName(__pyx_n_s_help); if (!__pyx_builtin_help) __PYX_ERR(0, 91, __pyx_L1_error)
-  __pyx_builtin_NotImplemented = __Pyx_GetBuiltinName(__pyx_n_s_NotImplemented); if (!__pyx_builtin_NotImplemented) __PYX_ERR(0, 116, __pyx_L1_error)
+  __pyx_builtin_id = __Pyx_GetBuiltinName(__pyx_n_s_id); if (!__pyx_builtin_id) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_builtin_help = __Pyx_GetBuiltinName(__pyx_n_s_help); if (!__pyx_builtin_help) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_builtin_NotImplemented = __Pyx_GetBuiltinName(__pyx_n_s_NotImplemented); if (!__pyx_builtin_NotImplemented) __PYX_ERR(0, 122, __pyx_L1_error)
   __pyx_builtin_AttributeError = __Pyx_GetBuiltinName(__pyx_n_s_AttributeError); if (!__pyx_builtin_AttributeError) __PYX_ERR(1, 99, __pyx_L1_error)
-  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 35, __pyx_L1_error)
-  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(2, 312, __pyx_L1_error)
+  __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 34, __pyx_L1_error)
+  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(2, 311, __pyx_L1_error)
   __pyx_builtin_object = __Pyx_GetBuiltinName(__pyx_n_s_object); if (!__pyx_builtin_object) __PYX_ERR(3, 20, __pyx_L1_error)
   __pyx_builtin_TypeError = __Pyx_GetBuiltinName(__pyx_n_s_TypeError); if (!__pyx_builtin_TypeError) __PYX_ERR(3, 27, __pyx_L1_error)
   return 0;
@@ -53724,45 +53745,45 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":35
+  /* "pyprotect/Wrapped_Frozen.pxi":34
  *             # We claim to be avoiding double-wrapping, so this exception
  *             # should never be raised
  *             raise RuntimeError('Double-wrapped!')             # <<<<<<<<<<<<<<
  * 
  *         self.pvt_o = o
  */
-  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_Double_wrapped); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(2, 35, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_kp_s_Double_wrapped); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(2, 34, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":197
+  /* "pyprotect/Wrapped_Frozen.pxi":196
  *     cdef help_str_protected(self):
  *         return '\n'.join(
  *             pydoc.render_doc(self.pvt_o).splitlines()[2:]             # <<<<<<<<<<<<<<
  *         ).rstrip('\n') + '\n'
  * 
  */
-  __pyx_slice__21 = PySlice_New(__pyx_int_2, Py_None, Py_None); if (unlikely(!__pyx_slice__21)) __PYX_ERR(2, 197, __pyx_L1_error)
+  __pyx_slice__21 = PySlice_New(__pyx_int_2, Py_None, Py_None); if (unlikely(!__pyx_slice__21)) __PYX_ERR(2, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_slice__21);
   __Pyx_GIVEREF(__pyx_slice__21);
 
-  /* "pyprotect/Wrapped_Frozen.pxi":254
+  /* "pyprotect/Wrapped_Frozen.pxi":253
  * 
  *         '''
  *         def pass_to_wrapped():             # <<<<<<<<<<<<<<
  *             '''Trap RecursionError if object is too deeply nested'''
  *             if op == Py_LT:
  */
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_Wrapped_Frozen_pxi, __pyx_n_s_pass_to_wrapped, 254, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(2, 254, __pyx_L1_error)
+  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_Wrapped_Frozen_pxi, __pyx_n_s_pass_to_wrapped, 253, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(2, 253, __pyx_L1_error)
 
-  /* "pyprotect/Wrapped_Frozen.pxi":333
+  /* "pyprotect/Wrapped_Frozen.pxi":332
  *         # PREVENT pickling - doesn't work even if methods are implemented,
  *         if a in pickle_attributes:
  *             raise AttributeError('Wrapped object cannot be pickled')             # <<<<<<<<<<<<<<
  * 
  *         delegated = getattr(self.pvt_o, a, None)
  */
-  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_kp_s_Wrapped_object_cannot_be_pickled); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(2, 333, __pyx_L1_error)
+  __pyx_tuple__23 = PyTuple_Pack(1, __pyx_kp_s_Wrapped_object_cannot_be_pickled); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(2, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__23);
   __Pyx_GIVEREF(__pyx_tuple__23);
 
@@ -53823,304 +53844,304 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * # ------------------------------------------------------------------------
  * 
  * def attribute_protected():             # <<<<<<<<<<<<<<
- *     '''Returns: str: name of special attribute in Wrapped objects'''
- *     return PROT_ATTR_NAME
+ *     '''
+ *     attribute_protected() -> str: name of special attribute in Wrapped objects
  */
   __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_attribute_protected, 6, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 6, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":10
+  /* "pyprotect/python_visible.pxi":12
  *     return PROT_ATTR_NAME
  * 
  * def id_protected(o: object) -> int:             # <<<<<<<<<<<<<<
  *     '''
  *     id_protected(o: object) -> int:
  */
-  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__35);
   __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_id_protected, 10, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_id_protected, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 12, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":20
+  /* "pyprotect/python_visible.pxi":22
  * 
  * 
  * def hash_protected(o: object) -> int:             # <<<<<<<<<<<<<<
  *     '''
  *     hash_protected(o: object) -> int:
  */
-  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__37);
   __Pyx_GIVEREF(__pyx_tuple__37);
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_hash_protected, 20, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_hash_protected, 22, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 22, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":30
+  /* "pyprotect/python_visible.pxi":32
  * 
  * 
  * def isinstance_protected(o: object, c: type) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isinstance_protected(o: object, c: type) -> bool:
  */
-  __pyx_tuple__39 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_c); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_c); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__39);
   __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isinstance_protected, 30, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isinstance_protected, 32, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 32, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":41
+  /* "pyprotect/python_visible.pxi":43
  * 
  * 
  * def issubclass_protected(o: type, c: type) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     issubclass_protected(o: object, c: type) -> bool:
  */
-  __pyx_tuple__41 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_c); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_tuple__41 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_c); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_issubclass_protected, 41, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_issubclass_protected, 43, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 43, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":52
+  /* "pyprotect/python_visible.pxi":54
  * 
  * 
  * def instance_of_protected(x: object, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     instance_of_protected(x: object, w: object) -> bool
  */
-  __pyx_tuple__43 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_w); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_tuple__43 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_w); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__43);
   __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_instance_of_protected, 52, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_instance_of_protected, 54, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 54, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":63
+  /* "pyprotect/python_visible.pxi":66
  * 
  * 
  * def subclass_of_protected(x: object, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     subclass_of_protected(x: object, w: object) -> bool
  */
-  __pyx_tuple__45 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_w); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_tuple__45 = PyTuple_Pack(2, __pyx_n_s_x, __pyx_n_s_w); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__45);
   __Pyx_GIVEREF(__pyx_tuple__45);
-  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_subclass_of_protected, 63, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_subclass_of_protected, 66, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 66, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":74
+  /* "pyprotect/python_visible.pxi":78
  * 
  * 
  * def same_class_protected(c: type, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     same_class_protected(c: type, w: object) -> bool
  */
-  __pyx_tuple__47 = PyTuple_Pack(2, __pyx_n_s_c, __pyx_n_s_w); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_tuple__47 = PyTuple_Pack(2, __pyx_n_s_c, __pyx_n_s_w); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__47);
   __Pyx_GIVEREF(__pyx_tuple__47);
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_same_class_protected, 74, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_same_class_protected, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(0, 78, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":85
+  /* "pyprotect/python_visible.pxi":90
  * 
  * 
  * def help_protected(o: object) -> None:             # <<<<<<<<<<<<<<
  *     '''
- *     Calls help(wrapped_object) if iswrapped(o); help(o) otherwise
+ *     help_protected(o: object) -> None
  */
-  __pyx_tuple__49 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_tuple__49 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_help_protected, 85, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_help_protected, 90, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 90, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":94
+  /* "pyprotect/python_visible.pxi":100
  * 
  * 
  * def contains(p: object, o: object):             # <<<<<<<<<<<<<<
  *     '''
  *     contains(p: object, o: object): bool: whether 'p' wraps 'o'
  */
-  __pyx_tuple__51 = PyTuple_Pack(2, __pyx_n_s_p, __pyx_n_s_o); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_tuple__51 = PyTuple_Pack(2, __pyx_n_s_p, __pyx_n_s_o); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__51);
   __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_contains_2, 94, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_contains_2, 100, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(0, 100, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":108
+  /* "pyprotect/python_visible.pxi":114
  * 
  * 
  * def isimmutable(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isimmutable(o: object) -> bool: 'o' is KNOWN to be immutable
  */
-  __pyx_tuple__53 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_tuple__53 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__53);
   __Pyx_GIVEREF(__pyx_tuple__53);
-  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isimmutable, 108, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isimmutable, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(0, 114, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":125
+  /* "pyprotect/python_visible.pxi":131
  * 
  * 
  * def iswrapped(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     iswrapped(o: object) -> bool:
  */
-  __pyx_tuple__55 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_tuple__55 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__55);
   __Pyx_GIVEREF(__pyx_tuple__55);
-  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_iswrapped, 125, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_iswrapped, 131, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 131, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":133
+  /* "pyprotect/python_visible.pxi":139
  * 
  * 
  * def isfrozen(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isfrozen(o: object) -> bool: 'o' was created using freeze()
  */
-  __pyx_tuple__57 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_tuple__57 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__57);
   __Pyx_GIVEREF(__pyx_tuple__57);
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isfrozen, 133, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isfrozen, 139, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 139, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":142
+  /* "pyprotect/python_visible.pxi":148
  * 
  * 
  * def isprivate(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isprivate(o: object) -> bool: 'o' was created using private()
  */
-  __pyx_tuple__59 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_tuple__59 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__59);
   __Pyx_GIVEREF(__pyx_tuple__59);
-  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isprivate, 142, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isprivate, 148, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 148, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":152
+  /* "pyprotect/python_visible.pxi":158
  * 
  * 
  * def isprotected(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isprotected(o: object) -> bool: 'o' was created using protect()
  */
-  __pyx_tuple__61 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_tuple__61 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__61);
   __Pyx_GIVEREF(__pyx_tuple__61);
-  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isprotected, 152, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isprotected, 158, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 158, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":162
+  /* "pyprotect/python_visible.pxi":168
  * 
  * 
  * def isreadonly(o: object, a: str) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isreadonly(o: object, a: str) -> bool:
  */
-  __pyx_tuple__63 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_a); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_tuple__63 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_a); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__63);
   __Pyx_GIVEREF(__pyx_tuple__63);
-  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isreadonly, 162, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isreadonly, 168, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(0, 168, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":182
+  /* "pyprotect/python_visible.pxi":188
  * 
  * 
  * def isvisible(o: object, a: str) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isvisible(o: object, a: str) -> bool:
  */
-  __pyx_tuple__65 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_a); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_tuple__65 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_a); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__65);
   __Pyx_GIVEREF(__pyx_tuple__65);
-  __pyx_codeobj__66 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__65, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isvisible, 182, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__66)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_codeobj__66 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__65, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_isvisible, 188, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__66)) __PYX_ERR(0, 188, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":203
+  /* "pyprotect/python_visible.pxi":209
  * 
  * 
  * def wrap(o: object) -> object:             # <<<<<<<<<<<<<<
  *     '''
  *     wrap(o: object) -> object:
  */
-  __pyx_tuple__67 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_tuple__67 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__67);
   __Pyx_GIVEREF(__pyx_tuple__67);
-  __pyx_codeobj__68 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__67, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_wrap, 203, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__68)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_codeobj__68 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__67, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_wrap, 209, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__68)) __PYX_ERR(0, 209, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":226
+  /* "pyprotect/python_visible.pxi":232
  * 
  * 
  * def freeze(o: object) -> object:             # <<<<<<<<<<<<<<
  *     '''
  *     freeze(o: object) -> object:
  */
-  __pyx_tuple__69 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_tuple__69 = PyTuple_Pack(1, __pyx_n_s_o); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__69);
   __Pyx_GIVEREF(__pyx_tuple__69);
-  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__69, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_freeze, 226, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__69, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_freeze, 232, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) __PYX_ERR(0, 232, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":248
+  /* "pyprotect/python_visible.pxi":254
  * 
  * 
  * def private(o: object, frozen: bool = False) -> object:             # <<<<<<<<<<<<<<
  *     '''
  *     private(o: object, frozen: bool = False) -> object:
  */
-  __pyx_tuple__71 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_frozen); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_tuple__71 = PyTuple_Pack(2, __pyx_n_s_o, __pyx_n_s_frozen); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__71);
   __Pyx_GIVEREF(__pyx_tuple__71);
-  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__71, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_private, 248, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__71, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_private, 254, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) __PYX_ERR(0, 254, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":281
+  /* "pyprotect/python_visible.pxi":287
  * 
  * 
  * def protect(             # <<<<<<<<<<<<<<
  *     o: object,
  *     frozen: bool = False, dynamic: bool = True,
  */
-  __pyx_tuple__73 = PyTuple_Pack(17, __pyx_n_s_o, __pyx_n_s_frozen, __pyx_n_s_dynamic, __pyx_n_s_hide_private, __pyx_n_s_ro_data, __pyx_n_s_ro_method, __pyx_n_s_ro, __pyx_n_s_rw, __pyx_n_s_hide, __pyx_n_s_kwargs, __pyx_n_s_kw1, __pyx_n_s_d, __pyx_n_s_k, __pyx_n_s_v, __pyx_n_s_kw2, __pyx_n_s_rules, __pyx_n_s_want_frozen); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_tuple__73 = PyTuple_Pack(17, __pyx_n_s_o, __pyx_n_s_frozen, __pyx_n_s_dynamic, __pyx_n_s_hide_private, __pyx_n_s_ro_data, __pyx_n_s_ro_method, __pyx_n_s_ro, __pyx_n_s_rw, __pyx_n_s_hide, __pyx_n_s_kwargs, __pyx_n_s_kw1, __pyx_n_s_d, __pyx_n_s_k, __pyx_n_s_v, __pyx_n_s_kw2, __pyx_n_s_rules, __pyx_n_s_want_frozen); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__73);
   __Pyx_GIVEREF(__pyx_tuple__73);
-  __pyx_codeobj__74 = (PyObject*)__Pyx_PyCode_New(9, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_protect, 281, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__74)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_codeobj__74 = (PyObject*)__Pyx_PyCode_New(9, 0, 17, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_protect, 287, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__74)) __PYX_ERR(0, 287, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":379
+  /* "pyprotect/python_visible.pxi":385
  * # ------------------------------------------------------------------------
  * 
  * def never_writeable():             # <<<<<<<<<<<<<<
  *     '''
  *     never_writeable() -> set(str): Attributes that are never writeable
  */
-  __pyx_codeobj__75 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_never_writeable, 379, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__75)) __PYX_ERR(0, 379, __pyx_L1_error)
+  __pyx_codeobj__75 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_never_writeable, 385, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__75)) __PYX_ERR(0, 385, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":386
+  /* "pyprotect/python_visible.pxi":392
  *     return overridden_always
  * 
  * def never_writeable_private():             # <<<<<<<<<<<<<<
  *     '''
  *     never_writeable_private() -> set(str): Attributes that are never
  */
-  __pyx_codeobj__76 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_never_writeable_private, 386, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__76)) __PYX_ERR(0, 386, __pyx_L1_error)
+  __pyx_codeobj__76 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_never_writeable_private, 392, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__76)) __PYX_ERR(0, 392, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":396
+  /* "pyprotect/python_visible.pxi":402
  *     ))
  * 
  * def hidden_pickle_attributes():             # <<<<<<<<<<<<<<
  *     '''
  *     hidden_pickle_attributes() -> set(str): Attributes that are never
  */
-  __pyx_codeobj__77 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_hidden_pickle_attributes, 396, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__77)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_codeobj__77 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_hidden_pickle_attributes, 402, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__77)) __PYX_ERR(0, 402, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":403
+  /* "pyprotect/python_visible.pxi":409
  *     return pickle_attributes
  * 
  * def always_delegated_attributes():             # <<<<<<<<<<<<<<
  *     '''
  *     always_delegated_attributes() -> set(str): Attributes that are
  */
-  __pyx_codeobj__78 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_always_delegated_attributes, 403, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__78)) __PYX_ERR(0, 403, __pyx_L1_error)
+  __pyx_codeobj__78 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_always_delegated_attributes, 409, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__78)) __PYX_ERR(0, 409, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":410
+  /* "pyprotect/python_visible.pxi":416
  *     return always_delegated
  * 
  * def immutable_builtin_attributes():             # <<<<<<<<<<<<<<
  *     '''
- *     Returns: frozenset of str: attributes in builtins that are immutable
+ *     immutable_builtin_attributes() -> frozenset(str)
  */
-  __pyx_codeobj__79 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_immutable_builtin_attributes, 410, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__79)) __PYX_ERR(0, 410, __pyx_L1_error)
+  __pyx_codeobj__79 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_immutable_builtin_attributes, 416, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__79)) __PYX_ERR(0, 416, __pyx_L1_error)
 
-  /* "pyprotect/python_visible.pxi":428
+  /* "pyprotect/python_visible.pxi":437
  * 
  * 
  * def __dir__():             # <<<<<<<<<<<<<<
  *     return __all__
  * 
  */
-  __pyx_codeobj__80 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_dir, 428, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__80)) __PYX_ERR(0, 428, __pyx_L1_error)
+  __pyx_codeobj__80 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_python_visible_pxi, __pyx_n_s_dir, 437, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__80)) __PYX_ERR(0, 437, __pyx_L1_error)
 
   /* "pyprotect/global_cdefs.pxi":8
  * # PROT_ATTR_NAME is set ONLY in get_protected_attr_name()
@@ -54137,10 +54158,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
  * )
  * cdef object overridden_always = frozenset([             # <<<<<<<<<<<<<<
- *     '__getattr__', '__getattribute__', '__delattr__', '__setattr__',
+ *     '__getattribute__', '__delattr__', '__setattr__',
  *     '__hash__',
  */
-  __pyx_tuple__82 = PyTuple_Pack(5, __pyx_n_s_getattr, __pyx_n_s_getattribute, __pyx_n_s_delattr, __pyx_n_s_setattr, __pyx_n_s_hash_2); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(10, 18, __pyx_L1_error)
+  __pyx_tuple__82 = PyTuple_Pack(4, __pyx_n_s_getattribute, __pyx_n_s_delattr, __pyx_n_s_setattr, __pyx_n_s_hash_2); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(10, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__82);
   __Pyx_GIVEREF(__pyx_tuple__82);
 
@@ -54386,12 +54407,13 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_Wrapped.tp_dict, __pyx_vtabptr_9pyprotect_9protected_Wrapped) < 0) __PYX_ERR(2, 3, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Wrapped, (PyObject *)&__pyx_type_9pyprotect_9protected_Wrapped) < 0) __PYX_ERR(2, 3, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_Wrapped) < 0) __PYX_ERR(2, 3, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_Wrapped = &__pyx_type_9pyprotect_9protected_Wrapped;
   __pyx_vtabptr_9pyprotect_9protected_Frozen = &__pyx_vtable_9pyprotect_9protected_Frozen;
   __pyx_vtable_9pyprotect_9protected_Frozen.__pyx_base = *__pyx_vtabptr_9pyprotect_9protected_Wrapped;
   __pyx_type_9pyprotect_9protected_Frozen.tp_base = __pyx_ptype_9pyprotect_9protected_Wrapped;
-  if (PyType_Ready(&__pyx_type_9pyprotect_9protected_Frozen) < 0) __PYX_ERR(2, 936, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_9pyprotect_9protected_Frozen) < 0) __PYX_ERR(2, 935, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_9pyprotect_9protected_Frozen.tp_print = 0;
   #endif
@@ -54400,7 +54422,7 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #if CYTHON_COMPILING_IN_CPYTHON
   {
-    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_9pyprotect_9protected_Frozen, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(2, 936, __pyx_L1_error)
+    PyObject *wrapper = PyObject_GetAttrString((PyObject *)&__pyx_type_9pyprotect_9protected_Frozen, "__init__"); if (unlikely(!wrapper)) __PYX_ERR(2, 935, __pyx_L1_error)
     if (Py_TYPE(wrapper) == &PyWrapperDescr_Type) {
       __pyx_wrapperbase_9pyprotect_9protected_6Frozen___init__ = *((PyWrapperDescrObject *)wrapper)->d_base;
       __pyx_wrapperbase_9pyprotect_9protected_6Frozen___init__.doc = __pyx_doc_9pyprotect_9protected_6Frozen___init__;
@@ -54408,8 +54430,9 @@ static int __Pyx_modinit_type_init_code(void) {
     }
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_Frozen.tp_dict, __pyx_vtabptr_9pyprotect_9protected_Frozen) < 0) __PYX_ERR(2, 936, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_Frozen) < 0) __PYX_ERR(2, 936, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_Frozen.tp_dict, __pyx_vtabptr_9pyprotect_9protected_Frozen) < 0) __PYX_ERR(2, 935, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Frozen, (PyObject *)&__pyx_type_9pyprotect_9protected_Frozen) < 0) __PYX_ERR(2, 935, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_Frozen) < 0) __PYX_ERR(2, 935, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_Frozen = &__pyx_type_9pyprotect_9protected_Frozen;
   __pyx_vtabptr_9pyprotect_9protected_PrivacyDict = &__pyx_vtable_9pyprotect_9protected_PrivacyDict;
   __pyx_vtable_9pyprotect_9protected_PrivacyDict.__pyx_base = *__pyx_vtabptr_9pyprotect_9protected_Wrapped;
@@ -54429,6 +54452,7 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_PrivacyDict.tp_dict, __pyx_vtabptr_9pyprotect_9protected_PrivacyDict) < 0) __PYX_ERR(3, 3, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PrivacyDict, (PyObject *)&__pyx_type_9pyprotect_9protected_PrivacyDict) < 0) __PYX_ERR(3, 3, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_PrivacyDict) < 0) __PYX_ERR(3, 3, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_PrivacyDict = &__pyx_type_9pyprotect_9protected_PrivacyDict;
   __pyx_vtabptr_9pyprotect_9protected_FrozenPrivacyDict = &__pyx_vtable_9pyprotect_9protected_FrozenPrivacyDict;
@@ -54452,6 +54476,7 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_FrozenPrivacyDict.tp_dict, __pyx_vtabptr_9pyprotect_9protected_FrozenPrivacyDict) < 0) __PYX_ERR(3, 204, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FrozenPrivacyDict, (PyObject *)&__pyx_type_9pyprotect_9protected_FrozenPrivacyDict) < 0) __PYX_ERR(3, 204, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_FrozenPrivacyDict) < 0) __PYX_ERR(3, 204, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_FrozenPrivacyDict = &__pyx_type_9pyprotect_9protected_FrozenPrivacyDict;
   __pyx_vtabptr_9pyprotect_9protected_Private = &__pyx_vtable_9pyprotect_9protected_Private;
@@ -54480,6 +54505,7 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_Private.tp_dict, __pyx_vtabptr_9pyprotect_9protected_Private) < 0) __PYX_ERR(6, 3, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Private, (PyObject *)&__pyx_type_9pyprotect_9protected_Private) < 0) __PYX_ERR(6, 3, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_Private) < 0) __PYX_ERR(6, 3, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_Private = &__pyx_type_9pyprotect_9protected_Private;
   __pyx_vtabptr_9pyprotect_9protected_FrozenPrivate = &__pyx_vtable_9pyprotect_9protected_FrozenPrivate;
@@ -54503,6 +54529,7 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_FrozenPrivate.tp_dict, __pyx_vtabptr_9pyprotect_9protected_FrozenPrivate) < 0) __PYX_ERR(6, 138, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FrozenPrivate, (PyObject *)&__pyx_type_9pyprotect_9protected_FrozenPrivate) < 0) __PYX_ERR(6, 138, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_FrozenPrivate) < 0) __PYX_ERR(6, 138, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_FrozenPrivate = &__pyx_type_9pyprotect_9protected_FrozenPrivate;
   __pyx_vtabptr_9pyprotect_9protected_Protected = &__pyx_vtable_9pyprotect_9protected_Protected;
@@ -54536,6 +54563,7 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_Protected.tp_dict, __pyx_vtabptr_9pyprotect_9protected_Protected) < 0) __PYX_ERR(7, 3, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Protected_2, (PyObject *)&__pyx_type_9pyprotect_9protected_Protected) < 0) __PYX_ERR(7, 3, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_Protected) < 0) __PYX_ERR(7, 3, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_Protected = &__pyx_type_9pyprotect_9protected_Protected;
   __pyx_vtabptr_9pyprotect_9protected_FrozenProtected = &__pyx_vtable_9pyprotect_9protected_FrozenProtected;
@@ -54559,9 +54587,10 @@ static int __Pyx_modinit_type_init_code(void) {
   }
   #endif
   if (__Pyx_SetVtable(__pyx_type_9pyprotect_9protected_FrozenProtected.tp_dict, __pyx_vtabptr_9pyprotect_9protected_FrozenProtected) < 0) __PYX_ERR(7, 279, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FrozenProtected, (PyObject *)&__pyx_type_9pyprotect_9protected_FrozenProtected) < 0) __PYX_ERR(7, 279, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_9pyprotect_9protected_FrozenProtected) < 0) __PYX_ERR(7, 279, __pyx_L1_error)
   __pyx_ptype_9pyprotect_9protected_FrozenProtected = &__pyx_type_9pyprotect_9protected_FrozenProtected;
-  if (PyType_Ready(&__pyx_type_9pyprotect_9protected___pyx_scope_struct__comparator) < 0) __PYX_ERR(2, 226, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_9pyprotect_9protected___pyx_scope_struct__comparator) < 0) __PYX_ERR(2, 225, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_9pyprotect_9protected___pyx_scope_struct__comparator.tp_print = 0;
   #endif
@@ -54569,7 +54598,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_9pyprotect_9protected___pyx_scope_struct__comparator.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_9pyprotect_9protected___pyx_scope_struct__comparator = &__pyx_type_9pyprotect_9protected___pyx_scope_struct__comparator;
-  if (PyType_Ready(&__pyx_type_9pyprotect_9protected___pyx_scope_struct_1___iter__) < 0) __PYX_ERR(2, 442, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_9pyprotect_9protected___pyx_scope_struct_1___iter__) < 0) __PYX_ERR(2, 441, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_9pyprotect_9protected___pyx_scope_struct_1___iter__.tp_print = 0;
   #endif
@@ -54905,40 +54934,40 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(8, 1, __pyx_L1_error)
   #endif
 
-  /* "pyprotect/protected.pyx":357
+  /* "pyprotect/protected.pyx":378
  * '''
  * 
  * import sys             # <<<<<<<<<<<<<<
  * cdef bint PY2
  * cdef object builtin_module
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 357, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_sys, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 378, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(8, 357, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_sys, __pyx_t_1) < 0) __PYX_ERR(8, 378, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":360
+  /* "pyprotect/protected.pyx":381
  * cdef bint PY2
  * cdef object builtin_module
  * if sys.version_info.major > 2:             # <<<<<<<<<<<<<<
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 360, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_version_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 360, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_version_info); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_major); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 360, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_major); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_2, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 360, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_2, Py_GT); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 381, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(8, 360, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(8, 381, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "pyprotect/protected.pyx":361
+    /* "pyprotect/protected.pyx":382
  * cdef object builtin_module
  * if sys.version_info.major > 2:
  *     PY2 = False             # <<<<<<<<<<<<<<
@@ -54947,19 +54976,19 @@ if (!__Pyx_RefNanny) {
  */
     __pyx_v_9pyprotect_9protected_PY2 = 0;
 
-    /* "pyprotect/protected.pyx":362
+    /* "pyprotect/protected.pyx":383
  * if sys.version_info.major > 2:
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']             # <<<<<<<<<<<<<<
  *     import collections.abc as CollectionsABC
  * else:
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_sys); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 362, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_sys); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 383, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modules); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 362, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_modules); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 383, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_builtins); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 362, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_n_s_builtins); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 383, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XGOTREF(__pyx_v_9pyprotect_9protected_builtin_module);
@@ -54967,25 +54996,25 @@ if (!__Pyx_RefNanny) {
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "pyprotect/protected.pyx":363
+    /* "pyprotect/protected.pyx":384
  *     PY2 = False
  *     builtin_module = sys.modules['builtins']
  *     import collections.abc as CollectionsABC             # <<<<<<<<<<<<<<
  * else:
  *     PY2 = True
  */
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 363, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 384, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_n_s__33);
     __Pyx_GIVEREF(__pyx_n_s__33);
     PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s__33);
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections_abc, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 363, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections_abc, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 384, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 363, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 384, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pyprotect/protected.pyx":360
+    /* "pyprotect/protected.pyx":381
  * cdef bint PY2
  * cdef object builtin_module
  * if sys.version_info.major > 2:             # <<<<<<<<<<<<<<
@@ -54995,7 +55024,7 @@ if (!__Pyx_RefNanny) {
     goto __pyx_L2;
   }
 
-  /* "pyprotect/protected.pyx":365
+  /* "pyprotect/protected.pyx":386
  *     import collections.abc as CollectionsABC
  * else:
  *     PY2 = True             # <<<<<<<<<<<<<<
@@ -55005,19 +55034,19 @@ if (!__Pyx_RefNanny) {
   /*else*/ {
     __pyx_v_9pyprotect_9protected_PY2 = 1;
 
-    /* "pyprotect/protected.pyx":366
+    /* "pyprotect/protected.pyx":387
  * else:
  *     PY2 = True
  *     builtin_module = sys.modules['__builtin__']             # <<<<<<<<<<<<<<
  *     import collections as CollectionsABC
  * import os
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 366, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_sys); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 387, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modules); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 366, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_modules); if (unlikely(!__pyx_t_2)) __PYX_ERR(8, 387, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_n_s_builtin); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 366, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_n_s_builtin); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 387, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_XGOTREF(__pyx_v_9pyprotect_9protected_builtin_module);
@@ -55025,423 +55054,423 @@ if (!__Pyx_RefNanny) {
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/protected.pyx":367
+    /* "pyprotect/protected.pyx":388
  *     PY2 = True
  *     builtin_module = sys.modules['__builtin__']
  *     import collections as CollectionsABC             # <<<<<<<<<<<<<<
  * import os
  * import re
  */
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 367, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 388, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 367, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_CollectionsABC, __pyx_t_1) < 0) __PYX_ERR(8, 388, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L2:;
 
-  /* "pyprotect/protected.pyx":368
+  /* "pyprotect/protected.pyx":389
  *     builtin_module = sys.modules['__builtin__']
  *     import collections as CollectionsABC
  * import os             # <<<<<<<<<<<<<<
  * import re
  * import types
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 368, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_os, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 389, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(8, 368, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_os, __pyx_t_1) < 0) __PYX_ERR(8, 389, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":369
+  /* "pyprotect/protected.pyx":390
  *     import collections as CollectionsABC
  * import os
  * import re             # <<<<<<<<<<<<<<
  * import types
  * import functools
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_re, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 369, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_re, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 390, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_re, __pyx_t_1) < 0) __PYX_ERR(8, 369, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_re, __pyx_t_1) < 0) __PYX_ERR(8, 390, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":370
+  /* "pyprotect/protected.pyx":391
  * import os
  * import re
  * import types             # <<<<<<<<<<<<<<
  * import functools
  * import pydoc
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_types, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 370, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_types, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_types, __pyx_t_1) < 0) __PYX_ERR(8, 370, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_types, __pyx_t_1) < 0) __PYX_ERR(8, 391, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":371
+  /* "pyprotect/protected.pyx":392
  * import re
  * import types
  * import functools             # <<<<<<<<<<<<<<
  * import pydoc
  * 
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_functools, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 371, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_functools, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 392, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_functools, __pyx_t_1) < 0) __PYX_ERR(8, 371, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_functools, __pyx_t_1) < 0) __PYX_ERR(8, 392, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/protected.pyx":372
+  /* "pyprotect/protected.pyx":393
  * import types
  * import functools
  * import pydoc             # <<<<<<<<<<<<<<
  * 
  * include "python_visible.pxi"
  */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pydoc, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 372, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_pydoc, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(8, 393, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pydoc, __pyx_t_1) < 0) __PYX_ERR(8, 372, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pydoc, __pyx_t_1) < 0) __PYX_ERR(8, 393, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "pyprotect/python_visible.pxi":6
  * # ------------------------------------------------------------------------
  * 
  * def attribute_protected():             # <<<<<<<<<<<<<<
- *     '''Returns: str: name of special attribute in Wrapped objects'''
- *     return PROT_ATTR_NAME
+ *     '''
+ *     attribute_protected() -> str: name of special attribute in Wrapped objects
  */
   __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_1attribute_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_attribute_protected, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":10
+  /* "pyprotect/python_visible.pxi":12
  *     return PROT_ATTR_NAME
  * 
  * def id_protected(o: object) -> int:             # <<<<<<<<<<<<<<
  *     '''
  *     id_protected(o: object) -> int:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_3id_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_3id_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_id_protected, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_id_protected, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":20
+  /* "pyprotect/python_visible.pxi":22
  * 
  * 
  * def hash_protected(o: object) -> int:             # <<<<<<<<<<<<<<
  *     '''
  *     hash_protected(o: object) -> int:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_5hash_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_5hash_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hash_protected, __pyx_t_1) < 0) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hash_protected, __pyx_t_1) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":30
+  /* "pyprotect/python_visible.pxi":32
  * 
  * 
  * def isinstance_protected(o: object, c: type) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isinstance_protected(o: object, c: type) -> bool:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_7isinstance_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_7isinstance_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isinstance_protected, __pyx_t_1) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isinstance_protected, __pyx_t_1) < 0) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":41
+  /* "pyprotect/python_visible.pxi":43
  * 
  * 
  * def issubclass_protected(o: type, c: type) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     issubclass_protected(o: object, c: type) -> bool:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_9issubclass_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_9issubclass_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_issubclass_protected, __pyx_t_1) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_issubclass_protected, __pyx_t_1) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":52
+  /* "pyprotect/python_visible.pxi":54
  * 
  * 
  * def instance_of_protected(x: object, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     instance_of_protected(x: object, w: object) -> bool
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_11instance_of_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_11instance_of_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_instance_of_protected, __pyx_t_1) < 0) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_instance_of_protected, __pyx_t_1) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":63
+  /* "pyprotect/python_visible.pxi":66
  * 
  * 
  * def subclass_of_protected(x: object, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     subclass_of_protected(x: object, w: object) -> bool
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_13subclass_of_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_13subclass_of_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_subclass_of_protected, __pyx_t_1) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_subclass_of_protected, __pyx_t_1) < 0) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":74
+  /* "pyprotect/python_visible.pxi":78
  * 
  * 
  * def same_class_protected(c: type, w: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
- *     If iswrapped(w) and w wraps 'o':
+ *     same_class_protected(c: type, w: object) -> bool
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_15same_class_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_15same_class_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_same_class_protected, __pyx_t_1) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_same_class_protected, __pyx_t_1) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":85
+  /* "pyprotect/python_visible.pxi":90
  * 
  * 
  * def help_protected(o: object) -> None:             # <<<<<<<<<<<<<<
  *     '''
- *     Calls help(wrapped_object) if iswrapped(o); help(o) otherwise
+ *     help_protected(o: object) -> None
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_17help_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_17help_protected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_help_protected, __pyx_t_1) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_help_protected, __pyx_t_1) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":94
+  /* "pyprotect/python_visible.pxi":100
  * 
  * 
  * def contains(p: object, o: object):             # <<<<<<<<<<<<<<
  *     '''
  *     contains(p: object, o: object): bool: whether 'p' wraps 'o'
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_19contains, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_19contains, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_contains_2, __pyx_t_1) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_contains_2, __pyx_t_1) < 0) __PYX_ERR(0, 100, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":108
+  /* "pyprotect/python_visible.pxi":114
  * 
  * 
  * def isimmutable(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isimmutable(o: object) -> bool: 'o' is KNOWN to be immutable
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_21isimmutable, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_21isimmutable, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isimmutable, __pyx_t_1) < 0) __PYX_ERR(0, 108, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isimmutable, __pyx_t_1) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":125
+  /* "pyprotect/python_visible.pxi":131
  * 
  * 
  * def iswrapped(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     iswrapped(o: object) -> bool:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_23iswrapped, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_23iswrapped, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_iswrapped, __pyx_t_1) < 0) __PYX_ERR(0, 125, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_iswrapped, __pyx_t_1) < 0) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":133
+  /* "pyprotect/python_visible.pxi":139
  * 
  * 
  * def isfrozen(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isfrozen(o: object) -> bool: 'o' was created using freeze()
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_25isfrozen, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_25isfrozen, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isfrozen, __pyx_t_1) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isfrozen, __pyx_t_1) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":142
+  /* "pyprotect/python_visible.pxi":148
  * 
  * 
  * def isprivate(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isprivate(o: object) -> bool: 'o' was created using private()
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_27isprivate, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 142, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_27isprivate, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isprivate, __pyx_t_1) < 0) __PYX_ERR(0, 142, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isprivate, __pyx_t_1) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":152
+  /* "pyprotect/python_visible.pxi":158
  * 
  * 
  * def isprotected(o: object) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isprotected(o: object) -> bool: 'o' was created using protect()
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_29isprotected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_29isprotected, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isprotected, __pyx_t_1) < 0) __PYX_ERR(0, 152, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isprotected, __pyx_t_1) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":162
+  /* "pyprotect/python_visible.pxi":168
  * 
  * 
  * def isreadonly(o: object, a: str) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isreadonly(o: object, a: str) -> bool:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_31isreadonly, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_31isreadonly, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isreadonly, __pyx_t_1) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isreadonly, __pyx_t_1) < 0) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":182
+  /* "pyprotect/python_visible.pxi":188
  * 
  * 
  * def isvisible(o: object, a: str) -> bool:             # <<<<<<<<<<<<<<
  *     '''
  *     isvisible(o: object, a: str) -> bool:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_33isvisible, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_33isvisible, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isvisible, __pyx_t_1) < 0) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_isvisible, __pyx_t_1) < 0) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":203
+  /* "pyprotect/python_visible.pxi":209
  * 
  * 
  * def wrap(o: object) -> object:             # <<<<<<<<<<<<<<
  *     '''
  *     wrap(o: object) -> object:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_35wrap, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_35wrap, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_wrap, __pyx_t_1) < 0) __PYX_ERR(0, 203, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_wrap, __pyx_t_1) < 0) __PYX_ERR(0, 209, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":226
+  /* "pyprotect/python_visible.pxi":232
  * 
  * 
  * def freeze(o: object) -> object:             # <<<<<<<<<<<<<<
  *     '''
  *     freeze(o: object) -> object:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_37freeze, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_37freeze, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_freeze, __pyx_t_1) < 0) __PYX_ERR(0, 226, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_freeze, __pyx_t_1) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":248
+  /* "pyprotect/python_visible.pxi":254
  * 
  * 
  * def private(o: object, frozen: bool = False) -> object:             # <<<<<<<<<<<<<<
  *     '''
  *     private(o: object, frozen: bool = False) -> object:
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_39private, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_39private, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_private, __pyx_t_1) < 0) __PYX_ERR(0, 248, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_private, __pyx_t_1) < 0) __PYX_ERR(0, 254, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":286
+  /* "pyprotect/python_visible.pxi":292
  *     hide_private: bool = False,
  *     ro_data: bool = False, ro_method: bool = True,
  *     ro=[], rw=[], hide=[],             # <<<<<<<<<<<<<<
  * ):
  *     '''
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_k_ = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_k__2 = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_k__3 = __pyx_t_1;
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":281
+  /* "pyprotect/python_visible.pxi":287
  * 
  * 
  * def protect(             # <<<<<<<<<<<<<<
  *     o: object,
  *     frozen: bool = False, dynamic: bool = True,
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_41protect, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_41protect, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_protect, __pyx_t_1) < 0) __PYX_ERR(0, 281, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_protect, __pyx_t_1) < 0) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":379
+  /* "pyprotect/python_visible.pxi":385
  * # ------------------------------------------------------------------------
  * 
  * def never_writeable():             # <<<<<<<<<<<<<<
  *     '''
  *     never_writeable() -> set(str): Attributes that are never writeable
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_43never_writeable, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 379, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_43never_writeable, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_never_writeable, __pyx_t_1) < 0) __PYX_ERR(0, 379, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_never_writeable, __pyx_t_1) < 0) __PYX_ERR(0, 385, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":386
+  /* "pyprotect/python_visible.pxi":392
  *     return overridden_always
  * 
  * def never_writeable_private():             # <<<<<<<<<<<<<<
  *     '''
  *     never_writeable_private() -> set(str): Attributes that are never
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_45never_writeable_private, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 386, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_45never_writeable_private, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 392, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_never_writeable_private, __pyx_t_1) < 0) __PYX_ERR(0, 386, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_never_writeable_private, __pyx_t_1) < 0) __PYX_ERR(0, 392, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":396
+  /* "pyprotect/python_visible.pxi":402
  *     ))
  * 
  * def hidden_pickle_attributes():             # <<<<<<<<<<<<<<
  *     '''
  *     hidden_pickle_attributes() -> set(str): Attributes that are never
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_47hidden_pickle_attributes, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_47hidden_pickle_attributes, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 402, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hidden_pickle_attributes, __pyx_t_1) < 0) __PYX_ERR(0, 396, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_hidden_pickle_attributes, __pyx_t_1) < 0) __PYX_ERR(0, 402, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":403
+  /* "pyprotect/python_visible.pxi":409
  *     return pickle_attributes
  * 
  * def always_delegated_attributes():             # <<<<<<<<<<<<<<
  *     '''
  *     always_delegated_attributes() -> set(str): Attributes that are
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_49always_delegated_attributes, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 403, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_49always_delegated_attributes, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 409, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_always_delegated_attributes, __pyx_t_1) < 0) __PYX_ERR(0, 403, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_always_delegated_attributes, __pyx_t_1) < 0) __PYX_ERR(0, 409, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":410
+  /* "pyprotect/python_visible.pxi":416
  *     return always_delegated
  * 
  * def immutable_builtin_attributes():             # <<<<<<<<<<<<<<
  *     '''
- *     Returns: frozenset of str: attributes in builtins that are immutable
+ *     immutable_builtin_attributes() -> frozenset(str)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_51immutable_builtin_attributes, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 410, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_51immutable_builtin_attributes, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_immutable_builtin_attributes, __pyx_t_1) < 0) __PYX_ERR(0, 410, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_immutable_builtin_attributes, __pyx_t_1) < 0) __PYX_ERR(0, 416, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":416
+  /* "pyprotect/python_visible.pxi":423
  *     return builtin_module_immutable_attributes
  * 
  * __all__ = [             # <<<<<<<<<<<<<<
  *     'contains', 'freeze', 'id_protected', 'immutable_builtin_attributes',
  *     'isfrozen', 'isimmutable', 'isinstance_protected', 'isprivate',
  */
-  __pyx_t_1 = PyList_New(27); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 416, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(27); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_contains_2);
   __Pyx_GIVEREF(__pyx_n_s_contains_2);
@@ -55524,40 +55553,40 @@ if (!__Pyx_RefNanny) {
   __Pyx_INCREF(__pyx_n_s_same_class_protected);
   __Pyx_GIVEREF(__pyx_n_s_same_class_protected);
   PyList_SET_ITEM(__pyx_t_1, 26, __pyx_n_s_same_class_protected);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_all, __pyx_t_1) < 0) __PYX_ERR(0, 416, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_all, __pyx_t_1) < 0) __PYX_ERR(0, 423, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":428
+  /* "pyprotect/python_visible.pxi":437
  * 
  * 
  * def __dir__():             # <<<<<<<<<<<<<<
  *     return __all__
  * 
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_53__dir__, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 428, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9pyprotect_9protected_53__dir__, NULL, __pyx_n_s_pyprotect_protected); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 437, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_dir, __pyx_t_1) < 0) __PYX_ERR(0, 428, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_dir, __pyx_t_1) < 0) __PYX_ERR(0, 437, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/python_visible.pxi":431
+  /* "pyprotect/python_visible.pxi":440
  *     return __all__
  * 
  * class ProtectionError(Exception):             # <<<<<<<<<<<<<<
  *     pass
  * 
  */
-  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 431, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
   __Pyx_GIVEREF(((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
   PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)(&((PyTypeObject*)PyExc_Exception)[0])));
-  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 431, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_ProtectionError, __pyx_n_s_ProtectionError, (PyObject *) NULL, __pyx_n_s_pyprotect_protected, (PyObject *) NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 431, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_1, __pyx_n_s_ProtectionError, __pyx_n_s_ProtectionError, (PyObject *) NULL, __pyx_n_s_pyprotect_protected, (PyObject *) NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_ProtectionError, __pyx_t_1, __pyx_t_4, NULL, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 431, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_ProtectionError, __pyx_t_1, __pyx_t_4, NULL, 0, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ProtectionError, __pyx_t_5) < 0) __PYX_ERR(0, 431, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ProtectionError, __pyx_t_5) < 0) __PYX_ERR(0, 440, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -55686,7 +55715,7 @@ if (!__Pyx_RefNanny) {
  *     Py_LT, Py_EQ, Py_GT, Py_LE, Py_NE, Py_GE,
  * )
  * cdef object overridden_always = frozenset([             # <<<<<<<<<<<<<<
- *     '__getattr__', '__getattribute__', '__delattr__', '__setattr__',
+ *     '__getattribute__', '__delattr__', '__setattr__',
  *     '__hash__',
  */
   __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_tuple__82); if (unlikely(!__pyx_t_2)) __PYX_ERR(10, 18, __pyx_L1_error)

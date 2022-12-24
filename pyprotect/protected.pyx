@@ -21,21 +21,22 @@ MUTABILITY or WRITEABILITY: Ability to CHANGE or DELETE an attribute
 Classes
 =======
 
-Not directly exported by this module:
+These classes are not directly exported by the module so as to not
+clutter the pydoc documentation for the module.
 
                                 Wrapped
-                                   |
-                                   |
-    |------------------------------|-----------|
-    |                                          |
+                                   │
+                                   │
+    ┌──────────────────────────────┴───────────┐
+    │                                          │
     Frozen                                  Private
-                                               |
-                                               |
-         |------------------------|------------|---------------|
-         |                        |                            |
-    PrivacyDict                   |                        Protected
-         |                        |                            |
-         |                        |                            |
+                                               │
+                                               │
+         ┌────────────────────────┬────────────┴───────────────┐
+         │                        │                            │
+    PrivacyDict                   │                        Protected
+         │                        │                            │
+         │                        │                            │
     FrozenPrivacyDict         FrozenPrivate            FrozenProtected
 
 
@@ -172,30 +173,29 @@ In the table below, the left-most column shows starting state.
 The top row shows operation applied to the starting state.
 The intersecting cell shows the result.
 
-==============================================================================================
-Operation ----> wrap        freeze      private     private     protect     protect
-Starting with                                       + frozen                + frozen
-==============================================================================================
-
-Wrapped         UNCH        Frozen      Private     Frozen      Protected   FrozenProtected
-                [2]         [2]                     Private
-----------------------------------------------------------------------------------------------
-Frozen          Wrapped     UNCH        Frozen      Frozen      Frozen      Frozen
-                [2]         [2]         Private     Private     Protected   Protected
-----------------------------------------------------------------------------------------------
-Private         UNCH        Frozen      UNCH        Frozen      Protected   Frozen
-                            Private                 Private                 Protected
-----------------------------------------------------------------------------------------------
-FrozenPrivate   UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected
-                                                                Protected
-----------------------------------------------------------------------------------------------
-Protected       UNCH        Frozen      UNCH        Frozen      Protected   FrozenProtected
-                            Protected               Protected   [1]         [1]
-----------------------------------------------------------------------------------------------
-FrozenProtected UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected
-                                                                Protected   [1]
-                                                                [1]
-==============================================================================================
+═══════════════╤══════════════════════════════════════════════════════════════════════════════
+Operation  🡆   │ wrap        freeze      private     private     protect     protect
+🡇  with        │                                     + frozen                + frozen
+═══════════════╪══════════════════════════════════════════════════════════════════════════════
+Wrapped        │ UNCH        Frozen      Private     Frozen      Protected   FrozenProtected
+               │ [2]         [2]                     Private
+───────────────┼──────────────────────────────────────────────────────────────────────────────
+Frozen         │ Wrapped     UNCH        Frozen      Frozen      Frozen      Frozen
+               │ [2]         [2]         Private     Private     Protected   Protected
+───────────────┼──────────────────────────────────────────────────────────────────────────────
+Private        │ UNCH        Frozen      UNCH        Frozen      Protected   Frozen
+               │             Private                 Private                 Protected
+───────────────┼──────────────────────────────────────────────────────────────────────────────
+FrozenPrivate  │ UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected
+               │                                                 Protected
+───────────────┼──────────────────────────────────────────────────────────────────────────────
+Protected      │ UNCH        Frozen      UNCH        Frozen      Protected   FrozenProtected
+               │             Protected               Protected   [1]         [1]
+───────────────┼──────────────────────────────────────────────────────────────────────────────
+FrozenProtected│ UNCH        UNCH        UNCH        UNCH        Frozen      FrozenProtected
+               │                                                 Protected   [1]
+               │                                                 [1]
+═══════════════╧══════════════════════════════════════════════════════════════════════════════
 
 [1]: protect applied twice, will merge the protect() rules, enforcing the most restrictive
      combination among the two sets of protect() options:
@@ -352,6 +352,27 @@ attribute 'a':
 Can use isreadonly(w, a) if 'w' is a wrapped object and 'a' is an attribute.
 'isreadonly' return value (ONLY) represents whether type of wrapping imposes
 specific mutability rules (i.e. limits mutabiity).
+
+
+Viewing help for the classes:
+============================
+You can see the help for each of the classes below - EXCEPT
+PrivacyDict as follows:
+
+    Wrapped         : help(type(wrap(None)))
+    Frozen          : help(type(freeze([])))
+    Private         : help(type(private(None)))
+    Protected       : help(type(protect(None)))
+    FrozenPrivate   : help(type(private(None, frozen=True)))
+    FrozenProtected : help(type(protect(None, frozen=True)))
+
+To see help for FrozenPrivacyDict:
+    class C(object):
+        pass
+
+    help(type(private(C()).__dict__))
+
+PrivacyDict is not exposed directly.
 '''
 
 import sys
