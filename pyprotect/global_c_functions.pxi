@@ -117,7 +117,14 @@ cdef get_immutables():
         immutable_sequence_ytpes +
         immutable_set_types
     ))
-    immutable_types = [x for x in immutable_types if isinstance(x, type)]
+    # Although 'tuple' is immutable in python, for our purposes, 'tuple' does
+    # NOT prevent modification to MEMBERS of the tuple that may be mutable
+    # Hence, 'tuple' is considered a mutable sequence type
+    immutable_types = [
+        x for x in immutable_types
+        if isinstance(x, type) and
+        x is not tuple
+    ]
 
     # Since builtin_module is by default writeable in Python and attributes
     # in builtin_module can be overwritten, we only track attributes

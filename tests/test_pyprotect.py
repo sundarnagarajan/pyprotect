@@ -1315,10 +1315,10 @@ class test_pyprotect(unittest.TestCase):
             w = op(d1)
             assert(w['a'] == 1)
 
-            assert(
-                set(list(w.items())) == set([
-                    ('a', 1), ('b', 2),
-                ])
+            self.assertSetEqual(
+                # with op == 'freeze', w.items() returns Frozen, not tuple
+                set([(x[0], x[1]) for x in w.items()]),
+                set(d1.items())
             )
 
             # Test __len__ and __contains

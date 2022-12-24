@@ -932,7 +932,7 @@ struct __pyx_opt_args_9pyprotect_9protected_9Protected_check_1_op;
 struct __pyx_opt_args_9pyprotect_9protected_9Protected_protected_visible;
 struct __pyx_opt_args_9pyprotect_9protected_9Protected_protected_writeable;
 
-/* "pyprotect/global_c_functions.pxi":261
+/* "pyprotect/global_c_functions.pxi":268
  * 
  * 
  * cdef privatedict(o, cn, frozen=False, oldstyle_class=None):             # <<<<<<<<<<<<<<
@@ -8648,14 +8648,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
   PyObject *__pyx_t_4 = NULL;
   int __pyx_t_5;
   int __pyx_t_6;
-  PyObject *__pyx_t_7 = NULL;
+  int __pyx_t_7;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
   PyObject *__pyx_t_11 = NULL;
   PyObject *__pyx_t_12 = NULL;
-  int __pyx_t_13;
-  PyObject *__pyx_t_14 = NULL;
+  PyObject *__pyx_t_13 = NULL;
+  int __pyx_t_14;
+  PyObject *__pyx_t_15 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -9484,57 +9485,122 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
   __pyx_v_immutable_types = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":120
- *         immutable_set_types
- *     ))
- *     immutable_types = [x for x in immutable_types if isinstance(x, type)]             # <<<<<<<<<<<<<<
- * 
- *     # Since builtin_module is by default writeable in Python and attributes
+  /* "pyprotect/global_c_functions.pxi":123
+ *     # NOT prevent modification to MEMBERS of the tuple that may be mutable
+ *     # Hence, 'tuple' is considered a mutable sequence type
+ *     immutable_types = [             # <<<<<<<<<<<<<<
+ *         x for x in immutable_types
+ *         if isinstance(x, type) and
  */
   { /* enter inner scope */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 120, __pyx_L65_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 123, __pyx_L65_error)
     __Pyx_GOTREF(__pyx_t_2);
+
+    /* "pyprotect/global_c_functions.pxi":124
+ *     # Hence, 'tuple' is considered a mutable sequence type
+ *     immutable_types = [
+ *         x for x in immutable_types             # <<<<<<<<<<<<<<
+ *         if isinstance(x, type) and
+ *         x is not tuple
+ */
     __pyx_t_1 = __pyx_v_immutable_types; __Pyx_INCREF(__pyx_t_1); __pyx_t_3 = 0;
     for (;;) {
       if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_1)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_4); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(4, 120, __pyx_L65_error)
+      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_3); __Pyx_INCREF(__pyx_t_4); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(4, 124, __pyx_L65_error)
       #else
-      __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 120, __pyx_L65_error)
+      __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 124, __pyx_L65_error)
       __Pyx_GOTREF(__pyx_t_4);
       #endif
       __Pyx_XDECREF_SET(__pyx_8genexpr9__pyx_v_x, __pyx_t_4);
       __pyx_t_4 = 0;
-      __pyx_t_5 = PyType_Check(__pyx_8genexpr9__pyx_v_x); 
-      __pyx_t_6 = (__pyx_t_5 != 0);
-      if (__pyx_t_6) {
-        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_8genexpr9__pyx_v_x))) __PYX_ERR(4, 120, __pyx_L65_error)
+
+      /* "pyprotect/global_c_functions.pxi":125
+ *     immutable_types = [
+ *         x for x in immutable_types
+ *         if isinstance(x, type) and             # <<<<<<<<<<<<<<
+ *         x is not tuple
+ *     ]
+ */
+      __pyx_t_6 = PyType_Check(__pyx_8genexpr9__pyx_v_x); 
+      __pyx_t_7 = (__pyx_t_6 != 0);
+      if (__pyx_t_7) {
+      } else {
+        __pyx_t_5 = __pyx_t_7;
+        goto __pyx_L69_bool_binop_done;
       }
+
+      /* "pyprotect/global_c_functions.pxi":126
+ *         x for x in immutable_types
+ *         if isinstance(x, type) and
+ *         x is not tuple             # <<<<<<<<<<<<<<
+ *     ]
+ * 
+ */
+      __pyx_t_7 = (__pyx_8genexpr9__pyx_v_x != ((PyObject *)(&PyTuple_Type)));
+      __pyx_t_6 = (__pyx_t_7 != 0);
+      __pyx_t_5 = __pyx_t_6;
+      __pyx_L69_bool_binop_done:;
+
+      /* "pyprotect/global_c_functions.pxi":125
+ *     immutable_types = [
+ *         x for x in immutable_types
+ *         if isinstance(x, type) and             # <<<<<<<<<<<<<<
+ *         x is not tuple
+ *     ]
+ */
+      if (__pyx_t_5) {
+
+        /* "pyprotect/global_c_functions.pxi":124
+ *     # Hence, 'tuple' is considered a mutable sequence type
+ *     immutable_types = [
+ *         x for x in immutable_types             # <<<<<<<<<<<<<<
+ *         if isinstance(x, type) and
+ *         x is not tuple
+ */
+        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_8genexpr9__pyx_v_x))) __PYX_ERR(4, 123, __pyx_L65_error)
+
+        /* "pyprotect/global_c_functions.pxi":125
+ *     immutable_types = [
+ *         x for x in immutable_types
+ *         if isinstance(x, type) and             # <<<<<<<<<<<<<<
+ *         x is not tuple
+ *     ]
+ */
+      }
+
+      /* "pyprotect/global_c_functions.pxi":124
+ *     # Hence, 'tuple' is considered a mutable sequence type
+ *     immutable_types = [
+ *         x for x in immutable_types             # <<<<<<<<<<<<<<
+ *         if isinstance(x, type) and
+ *         x is not tuple
+ */
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF(__pyx_8genexpr9__pyx_v_x); __pyx_8genexpr9__pyx_v_x = 0;
-    goto __pyx_L69_exit_scope;
+    goto __pyx_L71_exit_scope;
     __pyx_L65_error:;
     __Pyx_XDECREF(__pyx_8genexpr9__pyx_v_x); __pyx_8genexpr9__pyx_v_x = 0;
     goto __pyx_L1_error;
-    __pyx_L69_exit_scope:;
+    __pyx_L71_exit_scope:;
   } /* exit inner scope */
   __Pyx_DECREF_SET(__pyx_v_immutable_types, ((PyObject*)__pyx_t_2));
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":125
+  /* "pyprotect/global_c_functions.pxi":132
  *     # in builtin_module can be overwritten, we only track attributes
  *     # that do not allow __class__ attribute to be overwritten (crude test)
  *     s = set()             # <<<<<<<<<<<<<<
  *     test_attr_name = '__class__'
  *     for a in builtin_names:
  */
-  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 125, __pyx_L1_error)
+  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 132, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_s = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":126
+  /* "pyprotect/global_c_functions.pxi":133
  *     # that do not allow __class__ attribute to be overwritten (crude test)
  *     s = set()
  *     test_attr_name = '__class__'             # <<<<<<<<<<<<<<
@@ -9544,7 +9610,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
   __Pyx_INCREF(__pyx_n_s_class);
   __pyx_v_test_attr_name = __pyx_n_s_class;
 
-  /* "pyprotect/global_c_functions.pxi":127
+  /* "pyprotect/global_c_functions.pxi":134
  *     s = set()
  *     test_attr_name = '__class__'
  *     for a in builtin_names:             # <<<<<<<<<<<<<<
@@ -9553,21 +9619,21 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  */
   if (unlikely(__pyx_v_builtin_names == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(4, 127, __pyx_L1_error)
+    __PYX_ERR(4, 134, __pyx_L1_error)
   }
   __pyx_t_2 = __pyx_v_builtin_names; __Pyx_INCREF(__pyx_t_2); __pyx_t_3 = 0;
   for (;;) {
     if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_2)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(4, 127, __pyx_L1_error)
+    __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(4, 134, __pyx_L1_error)
     #else
-    __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 127, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 134, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_a, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":128
+    /* "pyprotect/global_c_functions.pxi":135
  *     test_attr_name = '__class__'
  *     for a in builtin_names:
  *         try:             # <<<<<<<<<<<<<<
@@ -9577,13 +9643,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
     {
       __Pyx_PyThreadState_declare
       __Pyx_PyThreadState_assign
-      __Pyx_ExceptionSave(&__pyx_t_7, &__pyx_t_8, &__pyx_t_9);
-      __Pyx_XGOTREF(__pyx_t_7);
+      __Pyx_ExceptionSave(&__pyx_t_8, &__pyx_t_9, &__pyx_t_10);
       __Pyx_XGOTREF(__pyx_t_8);
       __Pyx_XGOTREF(__pyx_t_9);
+      __Pyx_XGOTREF(__pyx_t_10);
       /*try:*/ {
 
-        /* "pyprotect/global_c_functions.pxi":129
+        /* "pyprotect/global_c_functions.pxi":136
  *     for a in builtin_names:
  *         try:
  *             x = getattr(builtin_module, a)             # <<<<<<<<<<<<<<
@@ -9592,13 +9658,13 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  */
         __pyx_t_1 = __pyx_v_9pyprotect_9protected_builtin_module;
         __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_4 = __Pyx_GetAttr(__pyx_t_1, __pyx_v_a); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 129, __pyx_L72_error)
+        __pyx_t_4 = __Pyx_GetAttr(__pyx_t_1, __pyx_v_a); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 136, __pyx_L74_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "pyprotect/global_c_functions.pxi":130
+        /* "pyprotect/global_c_functions.pxi":137
  *         try:
  *             x = getattr(builtin_module, a)
  *             try:             # <<<<<<<<<<<<<<
@@ -9608,34 +9674,34 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
         {
           __Pyx_PyThreadState_declare
           __Pyx_PyThreadState_assign
-          __Pyx_ExceptionSave(&__pyx_t_10, &__pyx_t_11, &__pyx_t_12);
-          __Pyx_XGOTREF(__pyx_t_10);
+          __Pyx_ExceptionSave(&__pyx_t_11, &__pyx_t_12, &__pyx_t_13);
           __Pyx_XGOTREF(__pyx_t_11);
           __Pyx_XGOTREF(__pyx_t_12);
+          __Pyx_XGOTREF(__pyx_t_13);
           /*try:*/ {
 
-            /* "pyprotect/global_c_functions.pxi":131
+            /* "pyprotect/global_c_functions.pxi":138
  *             x = getattr(builtin_module, a)
  *             try:
  *                 setattr(x, test_attr_name, getattr(x, test_attr_name))             # <<<<<<<<<<<<<<
  *                 continue
  *             except:
  */
-            __pyx_t_4 = __Pyx_GetAttr(__pyx_v_x, __pyx_v_test_attr_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 131, __pyx_L80_error)
+            __pyx_t_4 = __Pyx_GetAttr(__pyx_v_x, __pyx_v_test_attr_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 138, __pyx_L82_error)
             __Pyx_GOTREF(__pyx_t_4);
-            __pyx_t_13 = PyObject_SetAttr(__pyx_v_x, __pyx_v_test_attr_name, __pyx_t_4); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(4, 131, __pyx_L80_error)
+            __pyx_t_14 = PyObject_SetAttr(__pyx_v_x, __pyx_v_test_attr_name, __pyx_t_4); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(4, 138, __pyx_L82_error)
             __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-            /* "pyprotect/global_c_functions.pxi":132
+            /* "pyprotect/global_c_functions.pxi":139
  *             try:
  *                 setattr(x, test_attr_name, getattr(x, test_attr_name))
  *                 continue             # <<<<<<<<<<<<<<
  *             except:
  *                 s.add(a)
  */
-            goto __pyx_L86_try_continue;
+            goto __pyx_L88_try_continue;
 
-            /* "pyprotect/global_c_functions.pxi":130
+            /* "pyprotect/global_c_functions.pxi":137
  *         try:
  *             x = getattr(builtin_module, a)
  *             try:             # <<<<<<<<<<<<<<
@@ -9643,11 +9709,11 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  *                 continue
  */
           }
-          __pyx_L80_error:;
+          __pyx_L82_error:;
           __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-          /* "pyprotect/global_c_functions.pxi":133
+          /* "pyprotect/global_c_functions.pxi":140
  *                 setattr(x, test_attr_name, getattr(x, test_attr_name))
  *                 continue
  *             except:             # <<<<<<<<<<<<<<
@@ -9656,52 +9722,52 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  */
           /*except:*/ {
             __Pyx_AddTraceback("pyprotect.protected.get_immutables", __pyx_clineno, __pyx_lineno, __pyx_filename);
-            if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_1, &__pyx_t_14) < 0) __PYX_ERR(4, 133, __pyx_L82_except_error)
+            if (__Pyx_GetException(&__pyx_t_4, &__pyx_t_1, &__pyx_t_15) < 0) __PYX_ERR(4, 140, __pyx_L84_except_error)
             __Pyx_GOTREF(__pyx_t_4);
             __Pyx_GOTREF(__pyx_t_1);
-            __Pyx_GOTREF(__pyx_t_14);
+            __Pyx_GOTREF(__pyx_t_15);
 
-            /* "pyprotect/global_c_functions.pxi":134
+            /* "pyprotect/global_c_functions.pxi":141
  *                 continue
  *             except:
  *                 s.add(a)             # <<<<<<<<<<<<<<
  *         except:
  *             continue
  */
-            __pyx_t_13 = PySet_Add(__pyx_v_s, __pyx_v_a); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(4, 134, __pyx_L82_except_error)
+            __pyx_t_14 = PySet_Add(__pyx_v_s, __pyx_v_a); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(4, 141, __pyx_L84_except_error)
             __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
             __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-            __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-            goto __pyx_L81_exception_handled;
+            __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
+            goto __pyx_L83_exception_handled;
           }
-          __pyx_L82_except_error:;
+          __pyx_L84_except_error:;
 
-          /* "pyprotect/global_c_functions.pxi":130
+          /* "pyprotect/global_c_functions.pxi":137
  *         try:
  *             x = getattr(builtin_module, a)
  *             try:             # <<<<<<<<<<<<<<
  *                 setattr(x, test_attr_name, getattr(x, test_attr_name))
  *                 continue
  */
-          __Pyx_XGIVEREF(__pyx_t_10);
           __Pyx_XGIVEREF(__pyx_t_11);
           __Pyx_XGIVEREF(__pyx_t_12);
-          __Pyx_ExceptionReset(__pyx_t_10, __pyx_t_11, __pyx_t_12);
-          goto __pyx_L72_error;
-          __pyx_L86_try_continue:;
-          __Pyx_XGIVEREF(__pyx_t_10);
+          __Pyx_XGIVEREF(__pyx_t_13);
+          __Pyx_ExceptionReset(__pyx_t_11, __pyx_t_12, __pyx_t_13);
+          goto __pyx_L74_error;
+          __pyx_L88_try_continue:;
           __Pyx_XGIVEREF(__pyx_t_11);
           __Pyx_XGIVEREF(__pyx_t_12);
-          __Pyx_ExceptionReset(__pyx_t_10, __pyx_t_11, __pyx_t_12);
-          goto __pyx_L78_try_continue;
-          __pyx_L81_exception_handled:;
-          __Pyx_XGIVEREF(__pyx_t_10);
+          __Pyx_XGIVEREF(__pyx_t_13);
+          __Pyx_ExceptionReset(__pyx_t_11, __pyx_t_12, __pyx_t_13);
+          goto __pyx_L80_try_continue;
+          __pyx_L83_exception_handled:;
           __Pyx_XGIVEREF(__pyx_t_11);
           __Pyx_XGIVEREF(__pyx_t_12);
-          __Pyx_ExceptionReset(__pyx_t_10, __pyx_t_11, __pyx_t_12);
+          __Pyx_XGIVEREF(__pyx_t_13);
+          __Pyx_ExceptionReset(__pyx_t_11, __pyx_t_12, __pyx_t_13);
         }
 
-        /* "pyprotect/global_c_functions.pxi":128
+        /* "pyprotect/global_c_functions.pxi":135
  *     test_attr_name = '__class__'
  *     for a in builtin_names:
  *         try:             # <<<<<<<<<<<<<<
@@ -9709,16 +9775,16 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  *             try:
  */
       }
-      __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      goto __pyx_L79_try_end;
-      __pyx_L72_error:;
+      __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
+      goto __pyx_L81_try_end;
+      __pyx_L74_error:;
       __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
+      __Pyx_XDECREF(__pyx_t_15); __pyx_t_15 = 0;
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "pyprotect/global_c_functions.pxi":135
+      /* "pyprotect/global_c_functions.pxi":142
  *             except:
  *                 s.add(a)
  *         except:             # <<<<<<<<<<<<<<
@@ -9727,84 +9793,84 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  */
       /*except:*/ {
         __Pyx_AddTraceback("pyprotect.protected.get_immutables", __pyx_clineno, __pyx_lineno, __pyx_filename);
-        if (__Pyx_GetException(&__pyx_t_14, &__pyx_t_1, &__pyx_t_4) < 0) __PYX_ERR(4, 135, __pyx_L74_except_error)
-        __Pyx_GOTREF(__pyx_t_14);
+        if (__Pyx_GetException(&__pyx_t_15, &__pyx_t_1, &__pyx_t_4) < 0) __PYX_ERR(4, 142, __pyx_L76_except_error)
+        __Pyx_GOTREF(__pyx_t_15);
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_GOTREF(__pyx_t_4);
 
-        /* "pyprotect/global_c_functions.pxi":136
+        /* "pyprotect/global_c_functions.pxi":143
  *                 s.add(a)
  *         except:
  *             continue             # <<<<<<<<<<<<<<
  * 
  *     ret_immutable_types_set = frozenset(immutable_types)
  */
-        goto __pyx_L91_except_continue;
-        __pyx_L91_except_continue:;
-        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+        goto __pyx_L93_except_continue;
+        __pyx_L93_except_continue:;
+        __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        goto __pyx_L78_try_continue;
+        goto __pyx_L80_try_continue;
       }
-      __pyx_L74_except_error:;
+      __pyx_L76_except_error:;
 
-      /* "pyprotect/global_c_functions.pxi":128
+      /* "pyprotect/global_c_functions.pxi":135
  *     test_attr_name = '__class__'
  *     for a in builtin_names:
  *         try:             # <<<<<<<<<<<<<<
  *             x = getattr(builtin_module, a)
  *             try:
  */
-      __Pyx_XGIVEREF(__pyx_t_7);
       __Pyx_XGIVEREF(__pyx_t_8);
       __Pyx_XGIVEREF(__pyx_t_9);
-      __Pyx_ExceptionReset(__pyx_t_7, __pyx_t_8, __pyx_t_9);
+      __Pyx_XGIVEREF(__pyx_t_10);
+      __Pyx_ExceptionReset(__pyx_t_8, __pyx_t_9, __pyx_t_10);
       goto __pyx_L1_error;
-      __pyx_L78_try_continue:;
-      __Pyx_XGIVEREF(__pyx_t_7);
+      __pyx_L80_try_continue:;
       __Pyx_XGIVEREF(__pyx_t_8);
       __Pyx_XGIVEREF(__pyx_t_9);
-      __Pyx_ExceptionReset(__pyx_t_7, __pyx_t_8, __pyx_t_9);
-      goto __pyx_L70_continue;
-      __pyx_L79_try_end:;
+      __Pyx_XGIVEREF(__pyx_t_10);
+      __Pyx_ExceptionReset(__pyx_t_8, __pyx_t_9, __pyx_t_10);
+      goto __pyx_L72_continue;
+      __pyx_L81_try_end:;
     }
 
-    /* "pyprotect/global_c_functions.pxi":127
+    /* "pyprotect/global_c_functions.pxi":134
  *     s = set()
  *     test_attr_name = '__class__'
  *     for a in builtin_names:             # <<<<<<<<<<<<<<
  *         try:
  *             x = getattr(builtin_module, a)
  */
-    __pyx_L70_continue:;
+    __pyx_L72_continue:;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":138
+  /* "pyprotect/global_c_functions.pxi":145
  *             continue
  * 
  *     ret_immutable_types_set = frozenset(immutable_types)             # <<<<<<<<<<<<<<
  *     ret_builtin_module_immutable_attributes = frozenset(s)
  *     ret_builtins_ids = frozenset([
  */
-  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_immutable_types); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 138, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_immutable_types); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_ret_immutable_types_set = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":139
+  /* "pyprotect/global_c_functions.pxi":146
  * 
  *     ret_immutable_types_set = frozenset(immutable_types)
  *     ret_builtin_module_immutable_attributes = frozenset(s)             # <<<<<<<<<<<<<<
  *     ret_builtins_ids = frozenset([
  *         id(getattr(builtin_module, a)) for a in builtin_names
  */
-  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 139, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 146, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_ret_builtin_module_immutable_attributes = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":140
+  /* "pyprotect/global_c_functions.pxi":147
  *     ret_immutable_types_set = frozenset(immutable_types)
  *     ret_builtin_module_immutable_attributes = frozenset(s)
  *     ret_builtins_ids = frozenset([             # <<<<<<<<<<<<<<
@@ -9812,10 +9878,10 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  *         if a in ret_builtin_module_immutable_attributes
  */
   { /* enter inner scope */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 140, __pyx_L94_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 147, __pyx_L96_error)
     __Pyx_GOTREF(__pyx_t_2);
 
-    /* "pyprotect/global_c_functions.pxi":141
+    /* "pyprotect/global_c_functions.pxi":148
  *     ret_builtin_module_immutable_attributes = frozenset(s)
  *     ret_builtins_ids = frozenset([
  *         id(getattr(builtin_module, a)) for a in builtin_names             # <<<<<<<<<<<<<<
@@ -9824,32 +9890,32 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  */
     if (unlikely(__pyx_v_builtin_names == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(4, 141, __pyx_L94_error)
+      __PYX_ERR(4, 148, __pyx_L96_error)
     }
     __pyx_t_4 = __pyx_v_builtin_names; __Pyx_INCREF(__pyx_t_4); __pyx_t_3 = 0;
     for (;;) {
       if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_4)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(4, 141, __pyx_L94_error)
+      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(4, 148, __pyx_L96_error)
       #else
-      __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 141, __pyx_L94_error)
+      __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 148, __pyx_L96_error)
       __Pyx_GOTREF(__pyx_t_1);
       #endif
       __Pyx_XDECREF_SET(__pyx_9genexpr10__pyx_v_a, __pyx_t_1);
       __pyx_t_1 = 0;
 
-      /* "pyprotect/global_c_functions.pxi":142
+      /* "pyprotect/global_c_functions.pxi":149
  *     ret_builtins_ids = frozenset([
  *         id(getattr(builtin_module, a)) for a in builtin_names
  *         if a in ret_builtin_module_immutable_attributes             # <<<<<<<<<<<<<<
  *     ])
  * 
  */
-      __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_9genexpr10__pyx_v_a, __pyx_v_ret_builtin_module_immutable_attributes, Py_EQ)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(4, 142, __pyx_L94_error)
-      __pyx_t_5 = (__pyx_t_6 != 0);
-      if (__pyx_t_5) {
+      __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_9genexpr10__pyx_v_a, __pyx_v_ret_builtin_module_immutable_attributes, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(4, 149, __pyx_L96_error)
+      __pyx_t_6 = (__pyx_t_5 != 0);
+      if (__pyx_t_6) {
 
-        /* "pyprotect/global_c_functions.pxi":141
+        /* "pyprotect/global_c_functions.pxi":148
  *     ret_builtin_module_immutable_attributes = frozenset(s)
  *     ret_builtins_ids = frozenset([
  *         id(getattr(builtin_module, a)) for a in builtin_names             # <<<<<<<<<<<<<<
@@ -9858,16 +9924,16 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  */
         __pyx_t_1 = __pyx_v_9pyprotect_9protected_builtin_module;
         __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_14 = __Pyx_GetAttr(__pyx_t_1, __pyx_9genexpr10__pyx_v_a); if (unlikely(!__pyx_t_14)) __PYX_ERR(4, 141, __pyx_L94_error)
-        __Pyx_GOTREF(__pyx_t_14);
+        __pyx_t_15 = __Pyx_GetAttr(__pyx_t_1, __pyx_9genexpr10__pyx_v_a); if (unlikely(!__pyx_t_15)) __PYX_ERR(4, 148, __pyx_L96_error)
+        __Pyx_GOTREF(__pyx_t_15);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 141, __pyx_L94_error)
+        __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_id, __pyx_t_15); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 148, __pyx_L96_error)
         __Pyx_GOTREF(__pyx_t_1);
-        __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_1))) __PYX_ERR(4, 140, __pyx_L94_error)
+        __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
+        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_1))) __PYX_ERR(4, 147, __pyx_L96_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "pyprotect/global_c_functions.pxi":142
+        /* "pyprotect/global_c_functions.pxi":149
  *     ret_builtins_ids = frozenset([
  *         id(getattr(builtin_module, a)) for a in builtin_names
  *         if a in ret_builtin_module_immutable_attributes             # <<<<<<<<<<<<<<
@@ -9876,7 +9942,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  */
       }
 
-      /* "pyprotect/global_c_functions.pxi":141
+      /* "pyprotect/global_c_functions.pxi":148
  *     ret_builtin_module_immutable_attributes = frozenset(s)
  *     ret_builtins_ids = frozenset([
  *         id(getattr(builtin_module, a)) for a in builtin_names             # <<<<<<<<<<<<<<
@@ -9886,27 +9952,27 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_XDECREF(__pyx_9genexpr10__pyx_v_a); __pyx_9genexpr10__pyx_v_a = 0;
-    goto __pyx_L98_exit_scope;
-    __pyx_L94_error:;
+    goto __pyx_L100_exit_scope;
+    __pyx_L96_error:;
     __Pyx_XDECREF(__pyx_9genexpr10__pyx_v_a); __pyx_9genexpr10__pyx_v_a = 0;
     goto __pyx_L1_error;
-    __pyx_L98_exit_scope:;
+    __pyx_L100_exit_scope:;
   } /* exit inner scope */
 
-  /* "pyprotect/global_c_functions.pxi":140
+  /* "pyprotect/global_c_functions.pxi":147
  *     ret_immutable_types_set = frozenset(immutable_types)
  *     ret_builtin_module_immutable_attributes = frozenset(s)
  *     ret_builtins_ids = frozenset([             # <<<<<<<<<<<<<<
  *         id(getattr(builtin_module, a)) for a in builtin_names
  *         if a in ret_builtin_module_immutable_attributes
  */
-  __pyx_t_4 = __Pyx_PyFrozenSet_New(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 140, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyFrozenSet_New(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 147, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_ret_builtins_ids = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":145
+  /* "pyprotect/global_c_functions.pxi":152
  *     ])
  * 
  *     return (             # <<<<<<<<<<<<<<
@@ -9915,14 +9981,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
  */
   __Pyx_XDECREF(__pyx_r);
 
-  /* "pyprotect/global_c_functions.pxi":146
+  /* "pyprotect/global_c_functions.pxi":153
  * 
  *     return (
  *         ret_immutable_types_set,             # <<<<<<<<<<<<<<
  *         ret_builtin_module_immutable_attributes,
  *         ret_builtins_ids,
  */
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 146, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_v_ret_immutable_types_set);
   __Pyx_GIVEREF(__pyx_v_ret_immutable_types_set);
@@ -9950,7 +10016,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_14);
+  __Pyx_XDECREF(__pyx_t_15);
   __Pyx_AddTraceback("pyprotect.protected.get_immutables", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
@@ -9996,7 +10062,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_get_immutables(void) {
   return __pyx_r;
 }
 
-/* "pyprotect/global_c_functions.pxi":159
+/* "pyprotect/global_c_functions.pxi":166
  *     Called once by protect() before Protected class initialization
  *     '''
  *     def _build_regex(alist):             # <<<<<<<<<<<<<<
@@ -10037,7 +10103,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_build_regex", 0);
 
-  /* "pyprotect/global_c_functions.pxi":160
+  /* "pyprotect/global_c_functions.pxi":167
  *     '''
  *     def _build_regex(alist):
  *         _ret = ''             # <<<<<<<<<<<<<<
@@ -10047,30 +10113,30 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
   __Pyx_INCREF(__pyx_kp_s__6);
   __pyx_v__ret = __pyx_kp_s__6;
 
-  /* "pyprotect/global_c_functions.pxi":161
+  /* "pyprotect/global_c_functions.pxi":168
  *     def _build_regex(alist):
  *         _ret = ''
  *         _rl = []             # <<<<<<<<<<<<<<
  *         if not alist:
  *             return re.compile(_ret)
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 161, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v__rl = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":162
+  /* "pyprotect/global_c_functions.pxi":169
  *         _ret = ''
  *         _rl = []
  *         if not alist:             # <<<<<<<<<<<<<<
  *             return re.compile(_ret)
  *         for _x in alist:
  */
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_alist); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(4, 162, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v_alist); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(4, 169, __pyx_L1_error)
   __pyx_t_3 = ((!__pyx_t_2) != 0);
   if (__pyx_t_3) {
 
-    /* "pyprotect/global_c_functions.pxi":163
+    /* "pyprotect/global_c_functions.pxi":170
  *         _rl = []
  *         if not alist:
  *             return re.compile(_ret)             # <<<<<<<<<<<<<<
@@ -10078,9 +10144,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
  *             if not isinstance(_x, str):
  */
     __Pyx_XDECREF(__pyx_r);
-    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_re); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 163, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_re); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_compile); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 163, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_compile); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = NULL;
@@ -10095,14 +10161,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
     }
     __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_4, __pyx_v__ret) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v__ret);
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 163, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 170, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/global_c_functions.pxi":162
+    /* "pyprotect/global_c_functions.pxi":169
  *         _ret = ''
  *         _rl = []
  *         if not alist:             # <<<<<<<<<<<<<<
@@ -10111,7 +10177,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
  */
   }
 
-  /* "pyprotect/global_c_functions.pxi":164
+  /* "pyprotect/global_c_functions.pxi":171
  *         if not alist:
  *             return re.compile(_ret)
  *         for _x in alist:             # <<<<<<<<<<<<<<
@@ -10122,26 +10188,26 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
     __pyx_t_1 = __pyx_v_alist; __Pyx_INCREF(__pyx_t_1); __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_alist); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 164, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_alist); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 171, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(4, 164, __pyx_L1_error)
+    __pyx_t_7 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(4, 171, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_7)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(4, 164, __pyx_L1_error)
+        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(4, 171, __pyx_L1_error)
         #else
-        __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 164, __pyx_L1_error)
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 171, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         #endif
       } else {
         if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(4, 164, __pyx_L1_error)
+        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(4, 171, __pyx_L1_error)
         #else
-        __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 164, __pyx_L1_error)
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 171, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         #endif
       }
@@ -10151,7 +10217,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(4, 164, __pyx_L1_error)
+          else __PYX_ERR(4, 171, __pyx_L1_error)
         }
         break;
       }
@@ -10160,7 +10226,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
     __Pyx_XDECREF_SET(__pyx_v__x, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":165
+    /* "pyprotect/global_c_functions.pxi":172
  *             return re.compile(_ret)
  *         for _x in alist:
  *             if not isinstance(_x, str):             # <<<<<<<<<<<<<<
@@ -10171,7 +10237,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
     __pyx_t_2 = ((!(__pyx_t_3 != 0)) != 0);
     if (__pyx_t_2) {
 
-      /* "pyprotect/global_c_functions.pxi":166
+      /* "pyprotect/global_c_functions.pxi":173
  *         for _x in alist:
  *             if not isinstance(_x, str):
  *                 continue             # <<<<<<<<<<<<<<
@@ -10180,7 +10246,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
  */
       goto __pyx_L4_continue;
 
-      /* "pyprotect/global_c_functions.pxi":165
+      /* "pyprotect/global_c_functions.pxi":172
  *             return re.compile(_ret)
  *         for _x in alist:
  *             if not isinstance(_x, str):             # <<<<<<<<<<<<<<
@@ -10189,14 +10255,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
  */
     }
 
-    /* "pyprotect/global_c_functions.pxi":167
+    /* "pyprotect/global_c_functions.pxi":174
  *             if not isinstance(_x, str):
  *                 continue
  *             if attr_identifier.match(_x):             # <<<<<<<<<<<<<<
  *                 _rl += ['^%s$' % (_x,)]
  *         for _x in _rl:
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_attr_identifier, __pyx_n_s_match); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 167, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_attr_identifier, __pyx_n_s_match); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 174, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_4))) {
@@ -10210,40 +10276,40 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
     }
     __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_8, __pyx_v__x) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v__x);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 167, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 174, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(4, 167, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(4, 174, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     if (__pyx_t_2) {
 
-      /* "pyprotect/global_c_functions.pxi":168
+      /* "pyprotect/global_c_functions.pxi":175
  *                 continue
  *             if attr_identifier.match(_x):
  *                 _rl += ['^%s$' % (_x,)]             # <<<<<<<<<<<<<<
  *         for _x in _rl:
  *             if _ret:
  */
-      __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 168, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 175, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_INCREF(__pyx_v__x);
       __Pyx_GIVEREF(__pyx_v__x);
       PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_v__x);
-      __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_s, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 168, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_s, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 175, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 168, __pyx_L1_error)
+      __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 175, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GIVEREF(__pyx_t_4);
       PyList_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
       __pyx_t_4 = 0;
-      __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v__rl, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 168, __pyx_L1_error)
+      __pyx_t_4 = PyNumber_InPlaceAdd(__pyx_v__rl, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 175, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF_SET(__pyx_v__rl, ((PyObject*)__pyx_t_4));
       __pyx_t_4 = 0;
 
-      /* "pyprotect/global_c_functions.pxi":167
+      /* "pyprotect/global_c_functions.pxi":174
  *             if not isinstance(_x, str):
  *                 continue
  *             if attr_identifier.match(_x):             # <<<<<<<<<<<<<<
@@ -10252,7 +10318,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
  */
     }
 
-    /* "pyprotect/global_c_functions.pxi":164
+    /* "pyprotect/global_c_functions.pxi":171
  *         if not alist:
  *             return re.compile(_ret)
  *         for _x in alist:             # <<<<<<<<<<<<<<
@@ -10263,7 +10329,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":169
+  /* "pyprotect/global_c_functions.pxi":176
  *             if attr_identifier.match(_x):
  *                 _rl += ['^%s$' % (_x,)]
  *         for _x in _rl:             # <<<<<<<<<<<<<<
@@ -10274,40 +10340,40 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
   for (;;) {
     if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(4, 169, __pyx_L1_error)
+    __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(4, 176, __pyx_L1_error)
     #else
-    __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 169, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 176, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_XDECREF_SET(__pyx_v__x, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":170
+    /* "pyprotect/global_c_functions.pxi":177
  *                 _rl += ['^%s$' % (_x,)]
  *         for _x in _rl:
  *             if _ret:             # <<<<<<<<<<<<<<
  *                 _ret = _ret + '|' + _x
  *             else:
  */
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v__ret); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(4, 170, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_v__ret); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(4, 177, __pyx_L1_error)
     if (__pyx_t_2) {
 
-      /* "pyprotect/global_c_functions.pxi":171
+      /* "pyprotect/global_c_functions.pxi":178
  *         for _x in _rl:
  *             if _ret:
  *                 _ret = _ret + '|' + _x             # <<<<<<<<<<<<<<
  *             else:
  *                 _ret = _x
  */
-      __pyx_t_4 = PyNumber_Add(__pyx_v__ret, __pyx_kp_s__7); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 171, __pyx_L1_error)
+      __pyx_t_4 = PyNumber_Add(__pyx_v__ret, __pyx_kp_s__7); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 178, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_5 = PyNumber_Add(__pyx_t_4, __pyx_v__x); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 171, __pyx_L1_error)
+      __pyx_t_5 = PyNumber_Add(__pyx_t_4, __pyx_v__x); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 178, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF_SET(__pyx_v__ret, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "pyprotect/global_c_functions.pxi":170
+      /* "pyprotect/global_c_functions.pxi":177
  *                 _rl += ['^%s$' % (_x,)]
  *         for _x in _rl:
  *             if _ret:             # <<<<<<<<<<<<<<
@@ -10317,7 +10383,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
       goto __pyx_L10;
     }
 
-    /* "pyprotect/global_c_functions.pxi":173
+    /* "pyprotect/global_c_functions.pxi":180
  *                 _ret = _ret + '|' + _x
  *             else:
  *                 _ret = _x             # <<<<<<<<<<<<<<
@@ -10330,7 +10396,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
     }
     __pyx_L10:;
 
-    /* "pyprotect/global_c_functions.pxi":169
+    /* "pyprotect/global_c_functions.pxi":176
  *             if attr_identifier.match(_x):
  *                 _rl += ['^%s$' % (_x,)]
  *         for _x in _rl:             # <<<<<<<<<<<<<<
@@ -10340,7 +10406,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":174
+  /* "pyprotect/global_c_functions.pxi":181
  *             else:
  *                 _ret = _x
  *         return re.compile(_ret)             # <<<<<<<<<<<<<<
@@ -10348,9 +10414,9 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
  *     ro_method = bool(kwargs.get('ro_method', False))
  */
   __Pyx_XDECREF(__pyx_r);
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_re); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 174, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_re); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_compile); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 174, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_n_s_compile); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_5 = NULL;
@@ -10365,14 +10431,14 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
   }
   __pyx_t_1 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_4, __pyx_t_5, __pyx_v__ret) : __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v__ret);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 174, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "pyprotect/global_c_functions.pxi":159
+  /* "pyprotect/global_c_functions.pxi":166
  *     Called once by protect() before Protected class initialization
  *     '''
  *     def _build_regex(alist):             # <<<<<<<<<<<<<<
@@ -10397,7 +10463,7 @@ static PyObject *__pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__b
   return __pyx_r;
 }
 
-/* "pyprotect/global_c_functions.pxi":153
+/* "pyprotect/global_c_functions.pxi":160
  * 
  * 
  * cdef protected_rules_from_kwargs(kwargs):             # <<<<<<<<<<<<<<
@@ -10439,72 +10505,72 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("protected_rules_from_kwargs", 0);
 
-  /* "pyprotect/global_c_functions.pxi":159
+  /* "pyprotect/global_c_functions.pxi":166
  *     Called once by protect() before Protected class initialization
  *     '''
  *     def _build_regex(alist):             # <<<<<<<<<<<<<<
  *         _ret = ''
  *         _rl = []
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9pyprotect_9protected_27protected_rules_from_kwargs_1_build_regex, 0, __pyx_n_s_protected_rules_from_kwargs_loca, NULL, __pyx_n_s_pyprotect_protected, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 159, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9pyprotect_9protected_27protected_rules_from_kwargs_1_build_regex, 0, __pyx_n_s_protected_rules_from_kwargs_loca, NULL, __pyx_n_s_pyprotect_protected, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v__build_regex = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":176
+  /* "pyprotect/global_c_functions.pxi":183
  *         return re.compile(_ret)
  * 
  *     ro_method = bool(kwargs.get('ro_method', False))             # <<<<<<<<<<<<<<
  *     ro_data = bool(kwargs.get('ro_data', False))
  *     hide_private = kwargs.get('hide_private', False)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 176, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 176, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__10, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 176, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 183, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 176, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_ro_method = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":177
+  /* "pyprotect/global_c_functions.pxi":184
  * 
  *     ro_method = bool(kwargs.get('ro_method', False))
  *     ro_data = bool(kwargs.get('ro_data', False))             # <<<<<<<<<<<<<<
  *     hide_private = kwargs.get('hide_private', False)
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 177, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 177, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 177, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 184, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 177, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_ro_data = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":178
+  /* "pyprotect/global_c_functions.pxi":185
  *     ro_method = bool(kwargs.get('ro_method', False))
  *     ro_data = bool(kwargs.get('ro_data', False))
  *     hide_private = kwargs.get('hide_private', False)             # <<<<<<<<<<<<<<
  * 
  *     ro = [
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 178, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 178, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_hide_private = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":180
+  /* "pyprotect/global_c_functions.pxi":187
  *     hide_private = kwargs.get('hide_private', False)
  * 
  *     ro = [             # <<<<<<<<<<<<<<
@@ -10512,19 +10578,19 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
  *         if isinstance(x, str) and attr_identifier.match(x)
  */
   { /* enter inner scope */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 180, __pyx_L5_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 187, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_2);
 
-    /* "pyprotect/global_c_functions.pxi":181
+    /* "pyprotect/global_c_functions.pxi":188
  * 
  *     ro = [
  *         x for x in list(kwargs.get('ro', []))             # <<<<<<<<<<<<<<
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 181, __pyx_L5_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 188, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 181, __pyx_L5_error)
+    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 188, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_6 = NULL;
     __pyx_t_7 = 0;
@@ -10541,7 +10607,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_n_s_ro, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 181, __pyx_L5_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 188, __pyx_L5_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -10550,14 +10616,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_n_s_ro, __pyx_t_5};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 181, __pyx_L5_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 188, __pyx_L5_error)
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else
     #endif
     {
-      __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(4, 181, __pyx_L5_error)
+      __pyx_t_8 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_8)) __PYX_ERR(4, 188, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_8);
       if (__pyx_t_6) {
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -10568,12 +10634,12 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
       __Pyx_GIVEREF(__pyx_t_5);
       PyTuple_SET_ITEM(__pyx_t_8, 1+__pyx_t_7, __pyx_t_5);
       __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 181, __pyx_L5_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 188, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 181, __pyx_L5_error)
+    __pyx_t_4 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 188, __pyx_L5_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = __pyx_t_4; __Pyx_INCREF(__pyx_t_1); __pyx_t_9 = 0;
@@ -10581,15 +10647,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     for (;;) {
       if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_1)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(4, 181, __pyx_L5_error)
+      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(4, 188, __pyx_L5_error)
       #else
-      __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 181, __pyx_L5_error)
+      __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 188, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_4);
       #endif
       __Pyx_XDECREF_SET(__pyx_9genexpr11__pyx_v_x, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "pyprotect/global_c_functions.pxi":182
+      /* "pyprotect/global_c_functions.pxi":189
  *     ro = [
  *         x for x in list(kwargs.get('ro', []))
  *         if isinstance(x, str) and attr_identifier.match(x)             # <<<<<<<<<<<<<<
@@ -10603,7 +10669,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
         __pyx_t_3 = __pyx_t_11;
         goto __pyx_L9_bool_binop_done;
       }
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_attr_identifier, __pyx_n_s_match); if (unlikely(!__pyx_t_8)) __PYX_ERR(4, 182, __pyx_L5_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_attr_identifier, __pyx_n_s_match); if (unlikely(!__pyx_t_8)) __PYX_ERR(4, 189, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_5 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -10617,25 +10683,25 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
       }
       __pyx_t_4 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_5, __pyx_9genexpr11__pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_9genexpr11__pyx_v_x);
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 182, __pyx_L5_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 189, __pyx_L5_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(4, 182, __pyx_L5_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(4, 189, __pyx_L5_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_3 = __pyx_t_11;
       __pyx_L9_bool_binop_done:;
       if (__pyx_t_3) {
 
-        /* "pyprotect/global_c_functions.pxi":181
+        /* "pyprotect/global_c_functions.pxi":188
  * 
  *     ro = [
  *         x for x in list(kwargs.get('ro', []))             # <<<<<<<<<<<<<<
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  */
-        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_9genexpr11__pyx_v_x))) __PYX_ERR(4, 180, __pyx_L5_error)
+        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_9genexpr11__pyx_v_x))) __PYX_ERR(4, 187, __pyx_L5_error)
 
-        /* "pyprotect/global_c_functions.pxi":182
+        /* "pyprotect/global_c_functions.pxi":189
  *     ro = [
  *         x for x in list(kwargs.get('ro', []))
  *         if isinstance(x, str) and attr_identifier.match(x)             # <<<<<<<<<<<<<<
@@ -10644,7 +10710,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
  */
       }
 
-      /* "pyprotect/global_c_functions.pxi":181
+      /* "pyprotect/global_c_functions.pxi":188
  * 
  *     ro = [
  *         x for x in list(kwargs.get('ro', []))             # <<<<<<<<<<<<<<
@@ -10663,7 +10729,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
   __pyx_v_ro = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":184
+  /* "pyprotect/global_c_functions.pxi":191
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  *     rw = [             # <<<<<<<<<<<<<<
@@ -10671,19 +10737,19 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
  *         if isinstance(x, str) and attr_identifier.match(x)
  */
   { /* enter inner scope */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 184, __pyx_L14_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 191, __pyx_L14_error)
     __Pyx_GOTREF(__pyx_t_2);
 
-    /* "pyprotect/global_c_functions.pxi":185
+    /* "pyprotect/global_c_functions.pxi":192
  *     ]
  *     rw = [
  *         x for x in list(kwargs.get('rw', []))             # <<<<<<<<<<<<<<
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 185, __pyx_L14_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 192, __pyx_L14_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = PyList_New(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(4, 185, __pyx_L14_error)
+    __pyx_t_8 = PyList_New(0); if (unlikely(!__pyx_t_8)) __PYX_ERR(4, 192, __pyx_L14_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_5 = NULL;
     __pyx_t_7 = 0;
@@ -10700,7 +10766,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_n_s_rw, __pyx_t_8};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 185, __pyx_L14_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 192, __pyx_L14_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
@@ -10709,14 +10775,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_5, __pyx_n_s_rw, __pyx_t_8};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 185, __pyx_L14_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 192, __pyx_L14_error)
       __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     } else
     #endif
     {
-      __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(4, 185, __pyx_L14_error)
+      __pyx_t_6 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_6)) __PYX_ERR(4, 192, __pyx_L14_error)
       __Pyx_GOTREF(__pyx_t_6);
       if (__pyx_t_5) {
         __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
@@ -10727,12 +10793,12 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
       __Pyx_GIVEREF(__pyx_t_8);
       PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_7, __pyx_t_8);
       __pyx_t_8 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 185, __pyx_L14_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 192, __pyx_L14_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 185, __pyx_L14_error)
+    __pyx_t_4 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 192, __pyx_L14_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = __pyx_t_4; __Pyx_INCREF(__pyx_t_1); __pyx_t_9 = 0;
@@ -10740,15 +10806,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     for (;;) {
       if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_1)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(4, 185, __pyx_L14_error)
+      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(4, 192, __pyx_L14_error)
       #else
-      __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 185, __pyx_L14_error)
+      __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 192, __pyx_L14_error)
       __Pyx_GOTREF(__pyx_t_4);
       #endif
       __Pyx_XDECREF_SET(__pyx_9genexpr12__pyx_v_x, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "pyprotect/global_c_functions.pxi":186
+      /* "pyprotect/global_c_functions.pxi":193
  *     rw = [
  *         x for x in list(kwargs.get('rw', []))
  *         if isinstance(x, str) and attr_identifier.match(x)             # <<<<<<<<<<<<<<
@@ -10762,7 +10828,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
         __pyx_t_3 = __pyx_t_10;
         goto __pyx_L18_bool_binop_done;
       }
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_attr_identifier, __pyx_n_s_match); if (unlikely(!__pyx_t_6)) __PYX_ERR(4, 186, __pyx_L14_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_attr_identifier, __pyx_n_s_match); if (unlikely(!__pyx_t_6)) __PYX_ERR(4, 193, __pyx_L14_error)
       __Pyx_GOTREF(__pyx_t_6);
       __pyx_t_8 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -10776,25 +10842,25 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
       }
       __pyx_t_4 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_8, __pyx_9genexpr12__pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_9genexpr12__pyx_v_x);
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 186, __pyx_L14_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 193, __pyx_L14_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(4, 186, __pyx_L14_error)
+      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(4, 193, __pyx_L14_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_3 = __pyx_t_10;
       __pyx_L18_bool_binop_done:;
       if (__pyx_t_3) {
 
-        /* "pyprotect/global_c_functions.pxi":185
+        /* "pyprotect/global_c_functions.pxi":192
  *     ]
  *     rw = [
  *         x for x in list(kwargs.get('rw', []))             # <<<<<<<<<<<<<<
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  */
-        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_9genexpr12__pyx_v_x))) __PYX_ERR(4, 184, __pyx_L14_error)
+        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_9genexpr12__pyx_v_x))) __PYX_ERR(4, 191, __pyx_L14_error)
 
-        /* "pyprotect/global_c_functions.pxi":186
+        /* "pyprotect/global_c_functions.pxi":193
  *     rw = [
  *         x for x in list(kwargs.get('rw', []))
  *         if isinstance(x, str) and attr_identifier.match(x)             # <<<<<<<<<<<<<<
@@ -10803,7 +10869,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
  */
       }
 
-      /* "pyprotect/global_c_functions.pxi":185
+      /* "pyprotect/global_c_functions.pxi":192
  *     ]
  *     rw = [
  *         x for x in list(kwargs.get('rw', []))             # <<<<<<<<<<<<<<
@@ -10822,7 +10888,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
   __pyx_v_rw = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":188
+  /* "pyprotect/global_c_functions.pxi":195
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  *     hide = [             # <<<<<<<<<<<<<<
@@ -10830,19 +10896,19 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
  *         if isinstance(x, str) and attr_identifier.match(x)
  */
   { /* enter inner scope */
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 188, __pyx_L23_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 195, __pyx_L23_error)
     __Pyx_GOTREF(__pyx_t_2);
 
-    /* "pyprotect/global_c_functions.pxi":189
+    /* "pyprotect/global_c_functions.pxi":196
  *     ]
  *     hide = [
  *         x for x in list(kwargs.get('hide', []))             # <<<<<<<<<<<<<<
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 189, __pyx_L23_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 196, __pyx_L23_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(4, 189, __pyx_L23_error)
+    __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(4, 196, __pyx_L23_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_8 = NULL;
     __pyx_t_7 = 0;
@@ -10859,7 +10925,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_n_s_hide, __pyx_t_6};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 189, __pyx_L23_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 196, __pyx_L23_error)
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -10868,14 +10934,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_4)) {
       PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_n_s_hide, __pyx_t_6};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 189, __pyx_L23_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_4, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 196, __pyx_L23_error)
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else
     #endif
     {
-      __pyx_t_5 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 189, __pyx_L23_error)
+      __pyx_t_5 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 196, __pyx_L23_error)
       __Pyx_GOTREF(__pyx_t_5);
       if (__pyx_t_8) {
         __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -10886,12 +10952,12 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
       __Pyx_GIVEREF(__pyx_t_6);
       PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_7, __pyx_t_6);
       __pyx_t_6 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 189, __pyx_L23_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 196, __pyx_L23_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 189, __pyx_L23_error)
+    __pyx_t_4 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 196, __pyx_L23_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = __pyx_t_4; __Pyx_INCREF(__pyx_t_1); __pyx_t_9 = 0;
@@ -10899,15 +10965,15 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
     for (;;) {
       if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_1)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(4, 189, __pyx_L23_error)
+      __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_9); __Pyx_INCREF(__pyx_t_4); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(4, 196, __pyx_L23_error)
       #else
-      __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 189, __pyx_L23_error)
+      __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 196, __pyx_L23_error)
       __Pyx_GOTREF(__pyx_t_4);
       #endif
       __Pyx_XDECREF_SET(__pyx_9genexpr13__pyx_v_x, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "pyprotect/global_c_functions.pxi":190
+      /* "pyprotect/global_c_functions.pxi":197
  *     hide = [
  *         x for x in list(kwargs.get('hide', []))
  *         if isinstance(x, str) and attr_identifier.match(x)             # <<<<<<<<<<<<<<
@@ -10921,7 +10987,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
         __pyx_t_3 = __pyx_t_11;
         goto __pyx_L27_bool_binop_done;
       }
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_attr_identifier, __pyx_n_s_match); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 190, __pyx_L23_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_9pyprotect_9protected_attr_identifier, __pyx_n_s_match); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 197, __pyx_L23_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -10935,25 +11001,25 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
       }
       __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_9genexpr13__pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_9genexpr13__pyx_v_x);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 190, __pyx_L23_error)
+      if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 197, __pyx_L23_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(4, 190, __pyx_L23_error)
+      __pyx_t_11 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_11 < 0)) __PYX_ERR(4, 197, __pyx_L23_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_3 = __pyx_t_11;
       __pyx_L27_bool_binop_done:;
       if (__pyx_t_3) {
 
-        /* "pyprotect/global_c_functions.pxi":189
+        /* "pyprotect/global_c_functions.pxi":196
  *     ]
  *     hide = [
  *         x for x in list(kwargs.get('hide', []))             # <<<<<<<<<<<<<<
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  */
-        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_9genexpr13__pyx_v_x))) __PYX_ERR(4, 188, __pyx_L23_error)
+        if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_9genexpr13__pyx_v_x))) __PYX_ERR(4, 195, __pyx_L23_error)
 
-        /* "pyprotect/global_c_functions.pxi":190
+        /* "pyprotect/global_c_functions.pxi":197
  *     hide = [
  *         x for x in list(kwargs.get('hide', []))
  *         if isinstance(x, str) and attr_identifier.match(x)             # <<<<<<<<<<<<<<
@@ -10962,7 +11028,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
  */
       }
 
-      /* "pyprotect/global_c_functions.pxi":189
+      /* "pyprotect/global_c_functions.pxi":196
  *     ]
  *     hide = [
  *         x for x in list(kwargs.get('hide', []))             # <<<<<<<<<<<<<<
@@ -10981,197 +11047,197 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
   __pyx_v_hide = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":192
+  /* "pyprotect/global_c_functions.pxi":199
  *         if isinstance(x, str) and attr_identifier.match(x)
  *     ]
  *     ro = frozenset(ro)             # <<<<<<<<<<<<<<
  *     rw = frozenset(rw)
  *     hide = frozenset(hide)
  */
-  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_ro); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 192, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_ro); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF_SET(__pyx_v_ro, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":193
+  /* "pyprotect/global_c_functions.pxi":200
  *     ]
  *     ro = frozenset(ro)
  *     rw = frozenset(rw)             # <<<<<<<<<<<<<<
  *     hide = frozenset(hide)
  * 
  */
-  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_rw); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 193, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_rw); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 200, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF_SET(__pyx_v_rw, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":194
+  /* "pyprotect/global_c_functions.pxi":201
  *     ro = frozenset(ro)
  *     rw = frozenset(rw)
  *     hide = frozenset(hide)             # <<<<<<<<<<<<<<
  * 
  *     # Build regexes
  */
-  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_hide); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 194, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyFrozenSet_New(__pyx_v_hide); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 201, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF_SET(__pyx_v_hide, __pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":197
+  /* "pyprotect/global_c_functions.pxi":204
  * 
  *     # Build regexes
  *     hide_regex = _build_regex(hide)             # <<<<<<<<<<<<<<
  *     ro_regex = _build_regex(ro)
  *     rw_regex = _build_regex(rw)
  */
-  __pyx_t_2 = __pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__build_regex(__pyx_v__build_regex, __pyx_v_hide); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 197, __pyx_L1_error)
+  __pyx_t_2 = __pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__build_regex(__pyx_v__build_regex, __pyx_v_hide); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 204, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_hide_regex = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":198
+  /* "pyprotect/global_c_functions.pxi":205
  *     # Build regexes
  *     hide_regex = _build_regex(hide)
  *     ro_regex = _build_regex(ro)             # <<<<<<<<<<<<<<
  *     rw_regex = _build_regex(rw)
  * 
  */
-  __pyx_t_2 = __pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__build_regex(__pyx_v__build_regex, __pyx_v_ro); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 198, __pyx_L1_error)
+  __pyx_t_2 = __pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__build_regex(__pyx_v__build_regex, __pyx_v_ro); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 205, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_ro_regex = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":199
+  /* "pyprotect/global_c_functions.pxi":206
  *     hide_regex = _build_regex(hide)
  *     ro_regex = _build_regex(ro)
  *     rw_regex = _build_regex(rw)             # <<<<<<<<<<<<<<
  * 
  *     d = {
  */
-  __pyx_t_2 = __pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__build_regex(__pyx_v__build_regex, __pyx_v_rw); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 199, __pyx_L1_error)
+  __pyx_t_2 = __pyx_pf_9pyprotect_9protected_27protected_rules_from_kwargs__build_regex(__pyx_v__build_regex, __pyx_v_rw); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_rw_regex = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":202
+  /* "pyprotect/global_c_functions.pxi":209
  * 
  *     d = {
  *         'hide_private': hide_private,             # <<<<<<<<<<<<<<
  *         'hide_regex': hide_regex,
  *         'ro_regex': ro_regex,
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 202, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 209, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_hide_private, __pyx_v_hide_private) < 0) __PYX_ERR(4, 202, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_hide_private, __pyx_v_hide_private) < 0) __PYX_ERR(4, 209, __pyx_L1_error)
 
-  /* "pyprotect/global_c_functions.pxi":203
+  /* "pyprotect/global_c_functions.pxi":210
  *     d = {
  *         'hide_private': hide_private,
  *         'hide_regex': hide_regex,             # <<<<<<<<<<<<<<
  *         'ro_regex': ro_regex,
  *         'rw_regex': rw_regex,
  */
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_hide_regex, __pyx_v_hide_regex) < 0) __PYX_ERR(4, 202, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_hide_regex, __pyx_v_hide_regex) < 0) __PYX_ERR(4, 209, __pyx_L1_error)
 
-  /* "pyprotect/global_c_functions.pxi":204
+  /* "pyprotect/global_c_functions.pxi":211
  *         'hide_private': hide_private,
  *         'hide_regex': hide_regex,
  *         'ro_regex': ro_regex,             # <<<<<<<<<<<<<<
  *         'rw_regex': rw_regex,
  *         'ro_method': bool(ro_method),
  */
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_ro_regex, __pyx_v_ro_regex) < 0) __PYX_ERR(4, 202, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_ro_regex, __pyx_v_ro_regex) < 0) __PYX_ERR(4, 209, __pyx_L1_error)
 
-  /* "pyprotect/global_c_functions.pxi":205
+  /* "pyprotect/global_c_functions.pxi":212
  *         'hide_regex': hide_regex,
  *         'ro_regex': ro_regex,
  *         'rw_regex': rw_regex,             # <<<<<<<<<<<<<<
  *         'ro_method': bool(ro_method),
  *         'ro_data': bool(ro_data),
  */
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_rw_regex, __pyx_v_rw_regex) < 0) __PYX_ERR(4, 202, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_rw_regex, __pyx_v_rw_regex) < 0) __PYX_ERR(4, 209, __pyx_L1_error)
 
-  /* "pyprotect/global_c_functions.pxi":206
+  /* "pyprotect/global_c_functions.pxi":213
  *         'ro_regex': ro_regex,
  *         'rw_regex': rw_regex,
  *         'ro_method': bool(ro_method),             # <<<<<<<<<<<<<<
  *         'ro_data': bool(ro_data),
  *     }
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_ro_method); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 206, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 206, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_ro_method); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 213, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 213, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_ro_method, __pyx_t_1) < 0) __PYX_ERR(4, 202, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_ro_method, __pyx_t_1) < 0) __PYX_ERR(4, 209, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":207
+  /* "pyprotect/global_c_functions.pxi":214
  *         'rw_regex': rw_regex,
  *         'ro_method': bool(ro_method),
  *         'ro_data': bool(ro_data),             # <<<<<<<<<<<<<<
  *     }
  *     d['dynamic'] = kwargs.get('dynamic', False)
  */
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_ro_data); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 207, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 207, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_v_ro_data); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 214, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_ro_data, __pyx_t_1) < 0) __PYX_ERR(4, 202, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_ro_data, __pyx_t_1) < 0) __PYX_ERR(4, 209, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_d = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":209
+  /* "pyprotect/global_c_functions.pxi":216
  *         'ro_data': bool(ro_data),
  *     }
  *     d['dynamic'] = kwargs.get('dynamic', False)             # <<<<<<<<<<<<<<
  *     d['frozen'] = bool(kwargs.get('frozen', False))
  *     d['kwargs'] = kwargs
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 209, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 209, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__13, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_dynamic, __pyx_t_1) < 0)) __PYX_ERR(4, 209, __pyx_L1_error)
+  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_dynamic, __pyx_t_1) < 0)) __PYX_ERR(4, 216, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":210
+  /* "pyprotect/global_c_functions.pxi":217
  *     }
  *     d['dynamic'] = kwargs.get('dynamic', False)
  *     d['frozen'] = bool(kwargs.get('frozen', False))             # <<<<<<<<<<<<<<
  *     d['kwargs'] = kwargs
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 210, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_kwargs, __pyx_n_s_get); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 217, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 210, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__14, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 217, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 210, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 217, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 210, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong((!(!__pyx_t_3))); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 217, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_frozen, __pyx_t_2) < 0)) __PYX_ERR(4, 210, __pyx_L1_error)
+  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_frozen, __pyx_t_2) < 0)) __PYX_ERR(4, 217, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":211
+  /* "pyprotect/global_c_functions.pxi":218
  *     d['dynamic'] = kwargs.get('dynamic', False)
  *     d['frozen'] = bool(kwargs.get('frozen', False))
  *     d['kwargs'] = kwargs             # <<<<<<<<<<<<<<
  * 
  *     d['attr_type_check'] = False
  */
-  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_kwargs, __pyx_v_kwargs) < 0)) __PYX_ERR(4, 211, __pyx_L1_error)
+  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_kwargs, __pyx_v_kwargs) < 0)) __PYX_ERR(4, 218, __pyx_L1_error)
 
-  /* "pyprotect/global_c_functions.pxi":213
+  /* "pyprotect/global_c_functions.pxi":220
  *     d['kwargs'] = kwargs
  * 
  *     d['attr_type_check'] = False             # <<<<<<<<<<<<<<
  *     for kw in ('ro_method', 'ro_data'):
  *         if bool(d.get(kw, False)):
  */
-  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_attr_type_check, Py_False) < 0)) __PYX_ERR(4, 213, __pyx_L1_error)
+  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_attr_type_check, Py_False) < 0)) __PYX_ERR(4, 220, __pyx_L1_error)
 
-  /* "pyprotect/global_c_functions.pxi":214
+  /* "pyprotect/global_c_functions.pxi":221
  * 
  *     d['attr_type_check'] = False
  *     for kw in ('ro_method', 'ro_data'):             # <<<<<<<<<<<<<<
@@ -11182,37 +11248,37 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
   for (;;) {
     if (__pyx_t_9 >= 2) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(4, 214, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_9); __Pyx_INCREF(__pyx_t_1); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(4, 221, __pyx_L1_error)
     #else
-    __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 214, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 221, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     #endif
     __Pyx_XDECREF_SET(__pyx_v_kw, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":215
+    /* "pyprotect/global_c_functions.pxi":222
  *     d['attr_type_check'] = False
  *     for kw in ('ro_method', 'ro_data'):
  *         if bool(d.get(kw, False)):             # <<<<<<<<<<<<<<
  *             d['attr_type_check'] = True
  * 
  */
-    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_d, __pyx_v_kw, Py_False); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 215, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_d, __pyx_v_kw, Py_False); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 222, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 215, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 222, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (((!(!__pyx_t_3)) != 0)) {
 
-      /* "pyprotect/global_c_functions.pxi":216
+      /* "pyprotect/global_c_functions.pxi":223
  *     for kw in ('ro_method', 'ro_data'):
  *         if bool(d.get(kw, False)):
  *             d['attr_type_check'] = True             # <<<<<<<<<<<<<<
  * 
  *     return d
  */
-      if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_attr_type_check, Py_True) < 0)) __PYX_ERR(4, 216, __pyx_L1_error)
+      if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_n_s_attr_type_check, Py_True) < 0)) __PYX_ERR(4, 223, __pyx_L1_error)
 
-      /* "pyprotect/global_c_functions.pxi":215
+      /* "pyprotect/global_c_functions.pxi":222
  *     d['attr_type_check'] = False
  *     for kw in ('ro_method', 'ro_data'):
  *         if bool(d.get(kw, False)):             # <<<<<<<<<<<<<<
@@ -11221,7 +11287,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
  */
     }
 
-    /* "pyprotect/global_c_functions.pxi":214
+    /* "pyprotect/global_c_functions.pxi":221
  * 
  *     d['attr_type_check'] = False
  *     for kw in ('ro_method', 'ro_data'):             # <<<<<<<<<<<<<<
@@ -11231,7 +11297,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":218
+  /* "pyprotect/global_c_functions.pxi":225
  *             d['attr_type_check'] = True
  * 
  *     return d             # <<<<<<<<<<<<<<
@@ -11243,7 +11309,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
   __pyx_r = __pyx_v_d;
   goto __pyx_L0;
 
-  /* "pyprotect/global_c_functions.pxi":153
+  /* "pyprotect/global_c_functions.pxi":160
  * 
  * 
  * cdef protected_rules_from_kwargs(kwargs):             # <<<<<<<<<<<<<<
@@ -11282,7 +11348,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_rules_from_kwargs(PyObj
   return __pyx_r;
 }
 
-/* "pyprotect/global_c_functions.pxi":220
+/* "pyprotect/global_c_functions.pxi":227
  *     return d
  * 
  * cdef protected_merge_kwargs(kw1: dict, kw2: dict):             # <<<<<<<<<<<<<<
@@ -11309,7 +11375,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   __Pyx_INCREF(__pyx_v_kw1);
   __Pyx_INCREF(__pyx_v_kw2);
 
-  /* "pyprotect/global_c_functions.pxi":227
+  /* "pyprotect/global_c_functions.pxi":234
  *     Called once by protect() before Protected class initialization
  *     '''
  *     (kw1, kw2) = (dict(kw1), dict(kw2))             # <<<<<<<<<<<<<<
@@ -11318,34 +11384,34 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
  */
   if (unlikely(__pyx_v_kw1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' is not iterable");
-    __PYX_ERR(4, 227, __pyx_L1_error)
+    __PYX_ERR(4, 234, __pyx_L1_error)
   }
-  __pyx_t_1 = PyDict_Copy(__pyx_v_kw1); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 227, __pyx_L1_error)
+  __pyx_t_1 = PyDict_Copy(__pyx_v_kw1); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_v_kw2 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' is not iterable");
-    __PYX_ERR(4, 227, __pyx_L1_error)
+    __PYX_ERR(4, 234, __pyx_L1_error)
   }
-  __pyx_t_2 = PyDict_Copy(__pyx_v_kw2); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 227, __pyx_L1_error)
+  __pyx_t_2 = PyDict_Copy(__pyx_v_kw2); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF_SET(__pyx_v_kw1, ((PyObject*)__pyx_t_1));
   __pyx_t_1 = 0;
   __Pyx_DECREF_SET(__pyx_v_kw2, ((PyObject*)__pyx_t_2));
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":228
+  /* "pyprotect/global_c_functions.pxi":235
  *     '''
  *     (kw1, kw2) = (dict(kw1), dict(kw2))
  *     d = {}             # <<<<<<<<<<<<<<
  *     # Permissive bool options - must be 'and-ed'
  *     # dynamic defaults to True while add defaults to False
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 228, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(4, 235, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_d = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":231
+  /* "pyprotect/global_c_functions.pxi":238
  *     # Permissive bool options - must be 'and-ed'
  *     # dynamic defaults to True while add defaults to False
  *     a = 'dynamic'             # <<<<<<<<<<<<<<
@@ -11355,16 +11421,16 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   __Pyx_INCREF(__pyx_n_s_dynamic);
   __pyx_v_a = __pyx_n_s_dynamic;
 
-  /* "pyprotect/global_c_functions.pxi":232
+  /* "pyprotect/global_c_functions.pxi":239
  *     # dynamic defaults to True while add defaults to False
  *     a = 'dynamic'
  *     d[a] = (kw1.get(a, True) and kw2.get(a, True))             # <<<<<<<<<<<<<<
  * 
  *     # Restrictive bool options must be 'or-ed'
  */
-  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw1, __pyx_v_a, Py_True); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 232, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw1, __pyx_v_a, Py_True); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 232, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 239, __pyx_L1_error)
   if (__pyx_t_3) {
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
@@ -11373,16 +11439,16 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     goto __pyx_L3_bool_binop_done;
   }
-  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw2, __pyx_v_a, Py_True); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 232, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw2, __pyx_v_a, Py_True); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_t_1);
   __pyx_t_2 = __pyx_t_1;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_L3_bool_binop_done:;
-  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_a, __pyx_t_2) < 0)) __PYX_ERR(4, 232, __pyx_L1_error)
+  if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_a, __pyx_t_2) < 0)) __PYX_ERR(4, 239, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":235
+  /* "pyprotect/global_c_functions.pxi":242
  * 
  *     # Restrictive bool options must be 'or-ed'
  *     for a in (             # <<<<<<<<<<<<<<
@@ -11393,24 +11459,24 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   for (;;) {
     if (__pyx_t_4 >= 4) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(4, 235, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(4, 242, __pyx_L1_error)
     #else
-    __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 235, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     #endif
     __Pyx_DECREF_SET(__pyx_v_a, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":238
+    /* "pyprotect/global_c_functions.pxi":245
  *         'frozen', 'hide_private', 'ro_data', 'ro_method',
  *     ):
  *         d[a] = (kw1.get(a, False) or kw2.get(a, False))             # <<<<<<<<<<<<<<
  * 
  *     # Restrictive lists (non-bool) are unioned
  */
-    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw1, __pyx_v_a, Py_False); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 238, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw1, __pyx_v_a, Py_False); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 245, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 238, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(4, 245, __pyx_L1_error)
     if (!__pyx_t_3) {
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     } else {
@@ -11419,16 +11485,16 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       goto __pyx_L7_bool_binop_done;
     }
-    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw2, __pyx_v_a, Py_False); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 238, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw2, __pyx_v_a, Py_False); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 245, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_t_5);
     __pyx_t_1 = __pyx_t_5;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_L7_bool_binop_done:;
-    if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_a, __pyx_t_1) < 0)) __PYX_ERR(4, 238, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_a, __pyx_t_1) < 0)) __PYX_ERR(4, 245, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":235
+    /* "pyprotect/global_c_functions.pxi":242
  * 
  *     # Restrictive bool options must be 'or-ed'
  *     for a in (             # <<<<<<<<<<<<<<
@@ -11438,7 +11504,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":241
+  /* "pyprotect/global_c_functions.pxi":248
  * 
  *     # Restrictive lists (non-bool) are unioned
  *     for a in (             # <<<<<<<<<<<<<<
@@ -11449,80 +11515,80 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   for (;;) {
     if (__pyx_t_4 >= 2) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(4, 241, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(4, 248, __pyx_L1_error)
     #else
-    __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 241, __pyx_L1_error)
+    __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 248, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     #endif
     __Pyx_DECREF_SET(__pyx_v_a, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":244
+    /* "pyprotect/global_c_functions.pxi":251
  *         'ro', 'hide',
  *     ):
  *         s1 = set(list(kw1.get(a, [])))             # <<<<<<<<<<<<<<
  *         s2 = set(list(kw2.get(a, [])))
  *         d[a] = list(
  */
-    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 244, __pyx_L1_error)
+    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 251, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw1, __pyx_v_a, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 244, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw1, __pyx_v_a, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 251, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 244, __pyx_L1_error)
+    __pyx_t_1 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 251, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PySet_New(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 244, __pyx_L1_error)
+    __pyx_t_5 = PySet_New(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 251, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v_s1, ((PyObject*)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":245
+    /* "pyprotect/global_c_functions.pxi":252
  *     ):
  *         s1 = set(list(kw1.get(a, [])))
  *         s2 = set(list(kw2.get(a, [])))             # <<<<<<<<<<<<<<
  *         d[a] = list(
  *             s1.union(s2)
  */
-    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 245, __pyx_L1_error)
+    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw2, __pyx_v_a, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 245, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw2, __pyx_v_a, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 245, __pyx_L1_error)
+    __pyx_t_5 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PySet_New(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 245, __pyx_L1_error)
+    __pyx_t_1 = PySet_New(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_XDECREF_SET(__pyx_v_s2, ((PyObject*)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":247
+    /* "pyprotect/global_c_functions.pxi":254
  *         s2 = set(list(kw2.get(a, [])))
  *         d[a] = list(
  *             s1.union(s2)             # <<<<<<<<<<<<<<
  *         )
  *     # Permissive lists (non-bool) are intersected
  */
-    __pyx_t_1 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PySet_Type_union, __pyx_v_s1, __pyx_v_s2); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 247, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PySet_Type_union, __pyx_v_s1, __pyx_v_s2); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 254, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
 
-    /* "pyprotect/global_c_functions.pxi":246
+    /* "pyprotect/global_c_functions.pxi":253
  *         s1 = set(list(kw1.get(a, [])))
  *         s2 = set(list(kw2.get(a, [])))
  *         d[a] = list(             # <<<<<<<<<<<<<<
  *             s1.union(s2)
  *         )
  */
-    __pyx_t_5 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 246, __pyx_L1_error)
+    __pyx_t_5 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 253, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_a, __pyx_t_5) < 0)) __PYX_ERR(4, 246, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_a, __pyx_t_5) < 0)) __PYX_ERR(4, 253, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":241
+    /* "pyprotect/global_c_functions.pxi":248
  * 
  *     # Restrictive lists (non-bool) are unioned
  *     for a in (             # <<<<<<<<<<<<<<
@@ -11532,7 +11598,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":250
+  /* "pyprotect/global_c_functions.pxi":257
  *         )
  *     # Permissive lists (non-bool) are intersected
  *     for a in (             # <<<<<<<<<<<<<<
@@ -11543,80 +11609,80 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   for (;;) {
     if (__pyx_t_4 >= 1) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_5); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(4, 250, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_5); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(4, 257, __pyx_L1_error)
     #else
-    __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 250, __pyx_L1_error)
+    __pyx_t_5 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 257, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     #endif
     __Pyx_DECREF_SET(__pyx_v_a, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":253
+    /* "pyprotect/global_c_functions.pxi":260
  *         'rw',
  *     ):
  *         s1 = set(list(kw1.get(a, [])))             # <<<<<<<<<<<<<<
  *         s2 = set(list(kw2.get(a, [])))
  *         d[a] = list(
  */
-    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 253, __pyx_L1_error)
+    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw1, __pyx_v_a, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 253, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw1, __pyx_v_a, __pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 253, __pyx_L1_error)
+    __pyx_t_5 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PySet_New(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 253, __pyx_L1_error)
+    __pyx_t_1 = PySet_New(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 260, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_XDECREF_SET(__pyx_v_s1, ((PyObject*)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":254
+    /* "pyprotect/global_c_functions.pxi":261
  *     ):
  *         s1 = set(list(kw1.get(a, [])))
  *         s2 = set(list(kw2.get(a, [])))             # <<<<<<<<<<<<<<
  *         d[a] = list(
  *             s1.intersection(s2)
  */
-    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 254, __pyx_L1_error)
+    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 261, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw2, __pyx_v_a, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 254, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyDict_GetItemDefault(__pyx_v_kw2, __pyx_v_a, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 261, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 254, __pyx_L1_error)
+    __pyx_t_1 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 261, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PySet_New(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 254, __pyx_L1_error)
+    __pyx_t_5 = PySet_New(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 261, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v_s2, ((PyObject*)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":256
+    /* "pyprotect/global_c_functions.pxi":263
  *         s2 = set(list(kw2.get(a, [])))
  *         d[a] = list(
  *             s1.intersection(s2)             # <<<<<<<<<<<<<<
  *         )
  *     return d
  */
-    __pyx_t_5 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PySet_Type_intersection, __pyx_v_s1, __pyx_v_s2); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 256, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PySet_Type_intersection, __pyx_v_s1, __pyx_v_s2); if (unlikely(!__pyx_t_5)) __PYX_ERR(4, 263, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
 
-    /* "pyprotect/global_c_functions.pxi":255
+    /* "pyprotect/global_c_functions.pxi":262
  *         s1 = set(list(kw1.get(a, [])))
  *         s2 = set(list(kw2.get(a, [])))
  *         d[a] = list(             # <<<<<<<<<<<<<<
  *             s1.intersection(s2)
  *         )
  */
-    __pyx_t_1 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 255, __pyx_L1_error)
+    __pyx_t_1 = PySequence_List(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 262, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_a, __pyx_t_1) < 0)) __PYX_ERR(4, 255, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_d, __pyx_v_a, __pyx_t_1) < 0)) __PYX_ERR(4, 262, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "pyprotect/global_c_functions.pxi":250
+    /* "pyprotect/global_c_functions.pxi":257
  *         )
  *     # Permissive lists (non-bool) are intersected
  *     for a in (             # <<<<<<<<<<<<<<
@@ -11626,7 +11692,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyprotect/global_c_functions.pxi":258
+  /* "pyprotect/global_c_functions.pxi":265
  *             s1.intersection(s2)
  *         )
  *     return d             # <<<<<<<<<<<<<<
@@ -11638,7 +11704,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   __pyx_r = __pyx_v_d;
   goto __pyx_L0;
 
-  /* "pyprotect/global_c_functions.pxi":220
+  /* "pyprotect/global_c_functions.pxi":227
  *     return d
  * 
  * cdef protected_merge_kwargs(kw1: dict, kw2: dict):             # <<<<<<<<<<<<<<
@@ -11665,7 +11731,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_protected_merge_kwargs(PyObject *
   return __pyx_r;
 }
 
-/* "pyprotect/global_c_functions.pxi":261
+/* "pyprotect/global_c_functions.pxi":268
  * 
  * 
  * cdef privatedict(o, cn, frozen=False, oldstyle_class=None):             # <<<<<<<<<<<<<<
@@ -11695,17 +11761,17 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
     }
   }
 
-  /* "pyprotect/global_c_functions.pxi":266
+  /* "pyprotect/global_c_functions.pxi":273
  *     Returns-->FrozenPrivacyDict if frozen; Privacybject otherwise
  *     '''
  *     if frozen:             # <<<<<<<<<<<<<<
  *         if isinstance (o, FrozenPrivacyDict):
  *             return o
  */
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_frozen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(4, 266, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_frozen); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(4, 273, __pyx_L1_error)
   if (__pyx_t_1) {
 
-    /* "pyprotect/global_c_functions.pxi":267
+    /* "pyprotect/global_c_functions.pxi":274
  *     '''
  *     if frozen:
  *         if isinstance (o, FrozenPrivacyDict):             # <<<<<<<<<<<<<<
@@ -11716,7 +11782,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (__pyx_t_2) {
 
-      /* "pyprotect/global_c_functions.pxi":268
+      /* "pyprotect/global_c_functions.pxi":275
  *     if frozen:
  *         if isinstance (o, FrozenPrivacyDict):
  *             return o             # <<<<<<<<<<<<<<
@@ -11728,7 +11794,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
       __pyx_r = __pyx_v_o;
       goto __pyx_L0;
 
-      /* "pyprotect/global_c_functions.pxi":267
+      /* "pyprotect/global_c_functions.pxi":274
  *     '''
  *     if frozen:
  *         if isinstance (o, FrozenPrivacyDict):             # <<<<<<<<<<<<<<
@@ -11737,7 +11803,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
  */
     }
 
-    /* "pyprotect/global_c_functions.pxi":269
+    /* "pyprotect/global_c_functions.pxi":276
  *         if isinstance (o, FrozenPrivacyDict):
  *             return o
  *         return FrozenPrivacyDict(o, cn, oldstyle_class)             # <<<<<<<<<<<<<<
@@ -11745,7 +11811,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
  *         if isinstance (o, FrozenPrivacyDict):
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(4, 269, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(3); if (unlikely(!__pyx_t_3)) __PYX_ERR(4, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_v_o);
     __Pyx_GIVEREF(__pyx_v_o);
@@ -11756,14 +11822,14 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
     __Pyx_INCREF(__pyx_v_oldstyle_class);
     __Pyx_GIVEREF(__pyx_v_oldstyle_class);
     PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_oldstyle_class);
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivacyDict), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 269, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_FrozenPrivacyDict), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 276, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_r = __pyx_t_4;
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "pyprotect/global_c_functions.pxi":266
+    /* "pyprotect/global_c_functions.pxi":273
  *     Returns-->FrozenPrivacyDict if frozen; Privacybject otherwise
  *     '''
  *     if frozen:             # <<<<<<<<<<<<<<
@@ -11772,7 +11838,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
  */
   }
 
-  /* "pyprotect/global_c_functions.pxi":271
+  /* "pyprotect/global_c_functions.pxi":278
  *         return FrozenPrivacyDict(o, cn, oldstyle_class)
  *     else:
  *         if isinstance (o, FrozenPrivacyDict):             # <<<<<<<<<<<<<<
@@ -11784,7 +11850,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
     __pyx_t_1 = (__pyx_t_2 != 0);
     if (__pyx_t_1) {
 
-      /* "pyprotect/global_c_functions.pxi":273
+      /* "pyprotect/global_c_functions.pxi":280
  *         if isinstance (o, FrozenPrivacyDict):
  *             # Underlying already frozen
  *             return o             # <<<<<<<<<<<<<<
@@ -11796,7 +11862,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
       __pyx_r = __pyx_v_o;
       goto __pyx_L0;
 
-      /* "pyprotect/global_c_functions.pxi":271
+      /* "pyprotect/global_c_functions.pxi":278
  *         return FrozenPrivacyDict(o, cn, oldstyle_class)
  *     else:
  *         if isinstance (o, FrozenPrivacyDict):             # <<<<<<<<<<<<<<
@@ -11805,7 +11871,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
  */
     }
 
-    /* "pyprotect/global_c_functions.pxi":274
+    /* "pyprotect/global_c_functions.pxi":281
  *             # Underlying already frozen
  *             return o
  *         elif isinstance(o, PrivacyDict):             # <<<<<<<<<<<<<<
@@ -11816,7 +11882,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (__pyx_t_2) {
 
-      /* "pyprotect/global_c_functions.pxi":275
+      /* "pyprotect/global_c_functions.pxi":282
  *             return o
  *         elif isinstance(o, PrivacyDict):
  *             return o             # <<<<<<<<<<<<<<
@@ -11828,7 +11894,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
       __pyx_r = __pyx_v_o;
       goto __pyx_L0;
 
-      /* "pyprotect/global_c_functions.pxi":274
+      /* "pyprotect/global_c_functions.pxi":281
  *             # Underlying already frozen
  *             return o
  *         elif isinstance(o, PrivacyDict):             # <<<<<<<<<<<<<<
@@ -11837,7 +11903,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
  */
     }
 
-    /* "pyprotect/global_c_functions.pxi":276
+    /* "pyprotect/global_c_functions.pxi":283
  *         elif isinstance(o, PrivacyDict):
  *             return o
  *         return PrivacyDict(o, cn, oldstyle_class)             # <<<<<<<<<<<<<<
@@ -11845,7 +11911,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 276, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(4, 283, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_v_o);
     __Pyx_GIVEREF(__pyx_v_o);
@@ -11856,7 +11922,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
     __Pyx_INCREF(__pyx_v_oldstyle_class);
     __Pyx_GIVEREF(__pyx_v_oldstyle_class);
     PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_v_oldstyle_class);
-    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_PrivacyDict), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(4, 276, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9pyprotect_9protected_PrivacyDict), __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(4, 283, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_r = __pyx_t_3;
@@ -11864,7 +11930,7 @@ static PyObject *__pyx_f_9pyprotect_9protected_privatedict(PyObject *__pyx_v_o, 
     goto __pyx_L0;
   }
 
-  /* "pyprotect/global_c_functions.pxi":261
+  /* "pyprotect/global_c_functions.pxi":268
  * 
  * 
  * cdef privatedict(o, cn, frozen=False, oldstyle_class=None):             # <<<<<<<<<<<<<<
@@ -53634,114 +53700,114 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "pyprotect/global_c_functions.pxi":159
+  /* "pyprotect/global_c_functions.pxi":166
  *     Called once by protect() before Protected class initialization
  *     '''
  *     def _build_regex(alist):             # <<<<<<<<<<<<<<
  *         _ret = ''
  *         _rl = []
  */
-  __pyx_tuple__8 = PyTuple_Pack(4, __pyx_n_s_alist, __pyx_n_s_ret, __pyx_n_s_rl, __pyx_n_s_x_2); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(4, 159, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(4, __pyx_n_s_alist, __pyx_n_s_ret, __pyx_n_s_rl, __pyx_n_s_x_2); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(4, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_global_c_functions_pxi, __pyx_n_s_build_regex, 159, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(4, 159, __pyx_L1_error)
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_pyprotect_global_c_functions_pxi, __pyx_n_s_build_regex, 166, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(4, 166, __pyx_L1_error)
 
-  /* "pyprotect/global_c_functions.pxi":176
+  /* "pyprotect/global_c_functions.pxi":183
  *         return re.compile(_ret)
  * 
  *     ro_method = bool(kwargs.get('ro_method', False))             # <<<<<<<<<<<<<<
  *     ro_data = bool(kwargs.get('ro_data', False))
  *     hide_private = kwargs.get('hide_private', False)
  */
-  __pyx_tuple__10 = PyTuple_Pack(2, __pyx_n_s_ro_method, Py_False); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(4, 176, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(2, __pyx_n_s_ro_method, Py_False); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(4, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__10);
   __Pyx_GIVEREF(__pyx_tuple__10);
 
-  /* "pyprotect/global_c_functions.pxi":177
+  /* "pyprotect/global_c_functions.pxi":184
  * 
  *     ro_method = bool(kwargs.get('ro_method', False))
  *     ro_data = bool(kwargs.get('ro_data', False))             # <<<<<<<<<<<<<<
  *     hide_private = kwargs.get('hide_private', False)
  * 
  */
-  __pyx_tuple__11 = PyTuple_Pack(2, __pyx_n_s_ro_data, Py_False); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(4, 177, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(2, __pyx_n_s_ro_data, Py_False); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(4, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__11);
   __Pyx_GIVEREF(__pyx_tuple__11);
 
-  /* "pyprotect/global_c_functions.pxi":178
+  /* "pyprotect/global_c_functions.pxi":185
  *     ro_method = bool(kwargs.get('ro_method', False))
  *     ro_data = bool(kwargs.get('ro_data', False))
  *     hide_private = kwargs.get('hide_private', False)             # <<<<<<<<<<<<<<
  * 
  *     ro = [
  */
-  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_n_s_hide_private, Py_False); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(4, 178, __pyx_L1_error)
+  __pyx_tuple__12 = PyTuple_Pack(2, __pyx_n_s_hide_private, Py_False); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(4, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__12);
   __Pyx_GIVEREF(__pyx_tuple__12);
 
-  /* "pyprotect/global_c_functions.pxi":209
+  /* "pyprotect/global_c_functions.pxi":216
  *         'ro_data': bool(ro_data),
  *     }
  *     d['dynamic'] = kwargs.get('dynamic', False)             # <<<<<<<<<<<<<<
  *     d['frozen'] = bool(kwargs.get('frozen', False))
  *     d['kwargs'] = kwargs
  */
-  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_n_s_dynamic, Py_False); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(4, 209, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_n_s_dynamic, Py_False); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(4, 216, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__13);
   __Pyx_GIVEREF(__pyx_tuple__13);
 
-  /* "pyprotect/global_c_functions.pxi":210
+  /* "pyprotect/global_c_functions.pxi":217
  *     }
  *     d['dynamic'] = kwargs.get('dynamic', False)
  *     d['frozen'] = bool(kwargs.get('frozen', False))             # <<<<<<<<<<<<<<
  *     d['kwargs'] = kwargs
  * 
  */
-  __pyx_tuple__14 = PyTuple_Pack(2, __pyx_n_s_frozen, Py_False); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(4, 210, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(2, __pyx_n_s_frozen, Py_False); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(4, 217, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
 
-  /* "pyprotect/global_c_functions.pxi":214
+  /* "pyprotect/global_c_functions.pxi":221
  * 
  *     d['attr_type_check'] = False
  *     for kw in ('ro_method', 'ro_data'):             # <<<<<<<<<<<<<<
  *         if bool(d.get(kw, False)):
  *             d['attr_type_check'] = True
  */
-  __pyx_tuple__15 = PyTuple_Pack(2, __pyx_n_s_ro_method, __pyx_n_s_ro_data); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(4, 214, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(2, __pyx_n_s_ro_method, __pyx_n_s_ro_data); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(4, 221, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__15);
   __Pyx_GIVEREF(__pyx_tuple__15);
 
-  /* "pyprotect/global_c_functions.pxi":236
+  /* "pyprotect/global_c_functions.pxi":243
  *     # Restrictive bool options must be 'or-ed'
  *     for a in (
  *         'frozen', 'hide_private', 'ro_data', 'ro_method',             # <<<<<<<<<<<<<<
  *     ):
  *         d[a] = (kw1.get(a, False) or kw2.get(a, False))
  */
-  __pyx_tuple__16 = PyTuple_Pack(4, __pyx_n_s_frozen, __pyx_n_s_hide_private, __pyx_n_s_ro_data, __pyx_n_s_ro_method); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(4, 236, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(4, __pyx_n_s_frozen, __pyx_n_s_hide_private, __pyx_n_s_ro_data, __pyx_n_s_ro_method); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(4, 243, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
 
-  /* "pyprotect/global_c_functions.pxi":242
+  /* "pyprotect/global_c_functions.pxi":249
  *     # Restrictive lists (non-bool) are unioned
  *     for a in (
  *         'ro', 'hide',             # <<<<<<<<<<<<<<
  *     ):
  *         s1 = set(list(kw1.get(a, [])))
  */
-  __pyx_tuple__17 = PyTuple_Pack(2, __pyx_n_s_ro, __pyx_n_s_hide); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(4, 242, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(2, __pyx_n_s_ro, __pyx_n_s_hide); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(4, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__17);
   __Pyx_GIVEREF(__pyx_tuple__17);
 
-  /* "pyprotect/global_c_functions.pxi":251
+  /* "pyprotect/global_c_functions.pxi":258
  *     # Permissive lists (non-bool) are intersected
  *     for a in (
  *         'rw',             # <<<<<<<<<<<<<<
  *     ):
  *         s1 = set(list(kw1.get(a, [])))
  */
-  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_n_s_rw); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(4, 251, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_n_s_rw); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(4, 258, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
