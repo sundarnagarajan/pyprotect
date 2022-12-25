@@ -18,27 +18,31 @@ CYTHONIZE_SCRIPT=$(readlink -m "$PROG_DIR"/../scripts/cythonize.sh)
     >&2 echo "Required script not found: $CYTHONIZE_SCRIPT"
     exit 1
 }
-docker image inspect $DOCKER_IMAGE 1>/dev/null 2>&1 || {
-    >&2 echo "Docker image not found: $DOCKER_IMAGE"
-}
 
 # CYTHONIZE_SCRIPT will rebuild protected.c only if required
 $CYTHONIZE_SCRIPT
 
 # Script path from docker mount path perspective
-PY3_BUILD_SCRIPT=${DOCKER_MOUNTPOINT}/scripts/inplace_build_py3.sh
-PY2_BUILD_SCRIPT=${DOCKER_MOUNTPOINT}/scripts/inplace_build_py2.sh
+BUILD_SCRIPT=${DOCKER_MOUNTPOINT}/scripts/inplace_build.sh
 
 
 cd "$PROG_DIR"/..
 [[ "$PYVER" == "PY3" || -z "$PYVER" ]] && {
-    rm -rf build
-    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $DOCKER_IMAGE ${PY3_BUILD_SCRIPT}"
-    $DOCKER_CMD
+    docker image inspect $PY3_DOCKER_IMAGE 1>/dev/null 2>&1 || {
+        >&2 echo "Docker image not found: $DOCKER_IMAGE"
+    } && {
+        rm -rf build
+        DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PY3_DOCKER_IMAGE ${BUILD_SCRIPT} python3"
+        $DOCKER_CMD
+    }
 }
 [[ "$PYVER" == "PY2" || -z "$PYVER" ]] && {
-    rm -rf build
-    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $DOCKER_IMAGE ${PY2_BUILD_SCRIPT}"
-    $DOCKER_CMD
+    docker image inspect $PY3_DOCKER_IMAGE 1>/dev/null 2>&1 || {
+        >&2 echo "Docker image not found: $DOCKER_IMAGE"
+    } && {
+        rm -rf build
+        DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PY2_DOCKER_IMAGE ${BUILD_SCRIPT} python2"
+        $DOCKER_CMD
+    }
 }
 rm -rf build
