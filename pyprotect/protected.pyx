@@ -24,6 +24,9 @@ Classes
 These classes are not directly exported by the module so as to not
 clutter the pydoc documentation for the module.
 
+                                 Proxy
+                                   │
+                                   │
                                 Wrapped
                                    │
                                    │
@@ -396,6 +399,7 @@ include "python_visible.pxi"
 include "global_cdefs.pxi"
 include "global_c_functions.pxi"
 include "ProtectionData.pxi"
+include "Proxy.pxi"
 include "Wrapped_Frozen.pxi"
 include "PrivacyDict_FrozenPrivacyDict.pxi"
 include "Private_FrozenPrivate.pxi"

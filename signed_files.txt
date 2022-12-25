@@ -9,6 +9,7 @@ pyprotect/PrivacyDict_FrozenPrivacyDict.pxi
 pyprotect/Private_FrozenPrivate.pxi
 pyprotect/Protected_FrozenProtected.pxi
 pyprotect/ProtectionData.pxi
+pyprotect/Proxy.pxi
 pyprotect/python_visible.pxi
 pyprotect/Wrapped_Frozen.pxi
 scripts/Dockerfile
