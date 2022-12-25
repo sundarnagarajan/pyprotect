@@ -3,7 +3,8 @@
 
 PROG_DIR=$(readlink -e $(dirname $0))
 # We need $pwd in case we run it from Makefile dir (from Makefile)
-export PYTHONPATH="$(readlink -e "${PROG_DIR}"):$(pwd):$PYTHONPATH"
+# export PYTHONPATH="$(readlink -e "${PROG_DIR}"):$(pwd):$PYTHONPATH"
+export PYTHONPATH=$(readlink -e "${PROG_DIR}")
 TEST_SCRIPT="${PROG_DIR}/test_pyprotect.py"
 
 env | grep -q '^VIRTUAL_ENV' && IN_VENV=yes || IN_VENV=no
