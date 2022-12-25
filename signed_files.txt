@@ -5,6 +5,7 @@ pyprotect/protected.pyx
 pyprotect/global_cdefs.pxi
 pyprotect/global_c_functions.pxi
 pyprotect/HiddenPartial.pxi
+pyprotect/imports.pxi
 pyprotect/PrivacyDict_FrozenPrivacyDict.pxi
 pyprotect/Private_FrozenPrivate.pxi
 pyprotect/Protected_FrozenProtected.pxi
