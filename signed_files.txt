@@ -23,8 +23,7 @@ scripts/cythonize.sh
 scripts/docker_as_root.sh
 scripts/docker_config.sh
 scripts/gpg_sign.sh
-scripts/inplace_build_py2.sh
-scripts/inplace_build_py3.sh
+scripts/inplace_build.sh
 scripts/upload_to_pypi.sh
 tests/__init__.py
 tests/cls_gen.py
