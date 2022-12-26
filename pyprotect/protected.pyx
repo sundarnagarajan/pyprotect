@@ -375,7 +375,7 @@ To see help for FrozenPrivacyDict:
 
     help(type(private(C()).__dict__))
 
-PrivacyDict is not exposed directly.
+Proxy and PrivacyDict are not exposed directly.
 '''
 include "imports.pxi"
 include "python_visible.pxi"
