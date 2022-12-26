@@ -21,6 +21,7 @@ scripts/clean.sh
 scripts/clean_build.sh
 scripts/cythonize.sh
 scripts/docker_as_root.sh
+scripts/docker_as_user.sh
 scripts/config.sh
 scripts/gpg_sign.sh
 scripts/inplace_build.sh

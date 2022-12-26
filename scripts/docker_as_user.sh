@@ -2,7 +2,7 @@
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 source "$PROG_DIR"/config.sh
-DOCKER_USER="root:root"
+DOCKER_USER="$(id -u):$(id -g)"
 
 [[ $# -lt 1 ]] && {
     PYVER='' 
