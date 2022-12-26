@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e -u -o pipefail
+PROG_DIR=$(readlink -e $(dirname $0))
+source "$PROG_DIR"/config.sh
 CYTHON_CMD=$(command -v cython3) || {
     >&2 echo "cython3 command not found"
     >&2 echo "On Debian-like system install package cython3"
@@ -10,7 +12,7 @@ PROG_DIR=$(readlink -e $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 
 cd "$PROG_DIR"/../pyprotect
-TARGET=protected.c
+TARGET=${EXTENSION_NAME}.c
 
 [[ -f $TARGET ]] && {
     REBUILD_REQUIRED=0
@@ -19,7 +21,7 @@ TARGET=protected.c
 }
 
 [[ $REBUILD_REQUIRED -eq 0 ]] && {
-    for f in protected.pyx *.pxi
+    for f in ${EXTENSION_NAME}.pyx *.pxi
     do
         [[ $f -nt $TARGET ]] && {
             >&2 echo "${SCRIPT_NAME}: Newer: $f"
@@ -35,4 +37,4 @@ TARGET=protected.c
 }
 
 >&2 echo "${SCRIPT_NAME}: Rebuilding ${TARGET}"
-$CYTHON_CMD --3str protected.pyx
+$CYTHON_CMD --3str ${EXTENSION_NAME}.pyx

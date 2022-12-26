@@ -4,6 +4,7 @@
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 SCRIPT_NAME=$(basename $0)
+source "$PROG_DIR"/config.sh
 
 [[ $# -lt 1 ]] && {
     >&2 echo "Usage: ${SCRIPT_NAME} <python2|python3>"
@@ -29,8 +30,8 @@ PYTHON_CMD=$(command -v ${PYTHON_BASENAME}) && {
     PY_CODE='import sysconfig; print(sysconfig.get_config_var("EXT_SUFFIX") or "");'
     SUFFIX=$($PYTHON_CMD -c "$PY_CODE")
     [[ -z "$SUFFIX" ]] && SUFFIX=".so"
-    SRC="pyprotect/protected.c"
-    TARGET="pyprotect/protected${SUFFIX}"
+    SRC="pyprotect/${EXTENSION_NAME}.c"
+    TARGET="pyprotect/${EXTENSION_NAME}${SUFFIX}"
     [[ -f "$TARGET" ]] && REBUILD_REQUIRED=0 || REBUILD_REQUIRED=1
     [[ $REBUILD_REQUIRED -eq 0 ]] && {
         [[ "$SRC" -nt "$TARGET" ]] && REBUILD_REQUIRED=1
