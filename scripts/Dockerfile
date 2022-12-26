@@ -13,7 +13,7 @@ RUN apt install -y less python2-dev python-pip python-setuptools python3-dev pyt
 RUN python2 -m pip install -U --force pip
 # Now install python3-pip, which will uninstall python-pip
 RUN apt install -y python3-pip
-# Upgrade pip3 to 22.3.1 - v22.0.2 has problems uninstalling packages !
-RUN pip3 install -U pip
+# Upgrade pip3 to 22.3.1 - v22.0.2+dfsg-1 has problems uninstalling packages !
+RUN pip3 install -U "pip>=22.3.1"
 
 RUN rm -rf /var/lib/apt/lists
