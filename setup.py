@@ -18,4 +18,8 @@ setup(
     packages=['pyprotect'],
     ext_modules=ext_modules,
     scripts=['bin/help_pyprotect.sh'],
+    # We use __file__, so we need zip_safe=False
+    # See: http://tiny.cc/nef2vz
+    # or: https://t.ly/XBwC
+    zip_safe=False,
 )
