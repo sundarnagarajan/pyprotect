@@ -1,4 +1,3 @@
-bin/help_pyprotect.sh
 pyprotect/__init__.py
 pyprotect/protected.c
 pyprotect/protected.pyx
