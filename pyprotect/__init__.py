@@ -16,6 +16,7 @@ except ImportError:
     sys.path.append(module_dir)
     import protected as protected
     sys.path.remove(module_dir)
+    del module_dir
 
 __doc__ = protected.__doc__
 from protected import *   # noqa: F403
