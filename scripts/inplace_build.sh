@@ -1,4 +1,6 @@
 #!/bin/bash
+# Can be fully reused, changing only config.sh
+#
 # Expects Python basename ('python2' or 'python3' as first argument
 
 set -e -u -o pipefail
@@ -30,8 +32,8 @@ PYTHON_CMD=$(command -v ${PYTHON_BASENAME}) && {
     PY_CODE='import sysconfig; print(sysconfig.get_config_var("EXT_SUFFIX") or "");'
     SUFFIX=$($PYTHON_CMD -c "$PY_CODE")
     [[ -z "$SUFFIX" ]] && SUFFIX=".so"
-    SRC="pyprotect/${EXTENSION_NAME}.c"
-    TARGET="pyprotect/${EXTENSION_NAME}${SUFFIX}"
+    SRC="${PY_MODULE}/${EXTENSION_NAME}.c"
+    TARGET="${PY_MODULE}/${EXTENSION_NAME}${SUFFIX}"
     [[ -f "$TARGET" ]] && REBUILD_REQUIRED=0 || REBUILD_REQUIRED=1
     [[ $REBUILD_REQUIRED -eq 0 ]] && {
         [[ "$SRC" -nt "$TARGET" ]] && REBUILD_REQUIRED=1

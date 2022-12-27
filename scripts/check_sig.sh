@@ -1,4 +1,5 @@
 #!/bin/bash
+# Fully resuable
 set -e -u -o pipefail
 
 # Need gpg2 (preferred) or gpg

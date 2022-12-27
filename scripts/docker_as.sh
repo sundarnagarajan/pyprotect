@@ -1,4 +1,6 @@
 #!/bin/bash
+# Can be fully reused, changing only config.sh
+#
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 SCRIPT_NAME=$(basename $0)

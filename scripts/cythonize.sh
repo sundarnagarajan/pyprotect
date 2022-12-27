@@ -1,17 +1,18 @@
 #!/bin/bash
+# Can be fully reused, changing only config.sh
+#
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
+SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/config.sh
 CYTHON_CMD=$(command -v cython3) || {
-    >&2 echo "cython3 command not found"
-    >&2 echo "On Debian-like system install package cython3"
+    >&2 echo "${SCRIPT_NAME}: cython3 command not found"
+    >&2 echo "${SCRIPT_NAME}: On Debian-like system install package cython3"
     exit 1
 }
 
-PROG_DIR=$(readlink -e $(dirname $0))
-SCRIPT_NAME=$(basename $0)
 
-cd "$PROG_DIR"/../pyprotect
+cd "$PROG_DIR"/../${PY_MODULE}
 TARGET=${EXTENSION_NAME}.c
 
 [[ -f $TARGET ]] && {
