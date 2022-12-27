@@ -58408,9 +58408,9 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "pyprotect/protected.pyx":1
- * '''             # <<<<<<<<<<<<<<
+ * # coding=utf8             # <<<<<<<<<<<<<<
+ * '''
  * Module with methods to wrap an object and additionally restrict
- * visibility and mutability of attributes
  */
   __pyx_t_5 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(10, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);

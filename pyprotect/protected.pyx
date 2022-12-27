@@ -1,3 +1,4 @@
+# coding=utf8
 '''
 Module with methods to wrap an object and additionally restrict
 visibility and mutability of attributes
