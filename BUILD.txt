@@ -11,8 +11,20 @@ To Modify and build Cython source, you will additionally need:
     cython3
 
 All these dependencies are installed in a docker image that can
-be built with scripts/Docukerfile using docker command:
+be built with scripts/Dockerfile using docker command:
     DOCKER_IMAGE='py23:jammy'
     docker build -t $DOCKER_IMAGE scripts
 
     Update scripts/config.sh with name of DOCKER_IMAGE
+
+To build module in-place (under pyprotect) using docker container:
+    PY3:
+        ./scripts/build_PY2_PY3_in_place.sh PY3
+    PY2:
+        ./scripts/build_PY2_PY3_in_place.sh PY2
+
+To run tests after building:
+    PY3:
+        ./tests/run_func_tests.sh PY3
+    PY2:
+        ./tests/run_func_tests.sh PY2
