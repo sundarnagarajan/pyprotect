@@ -29,7 +29,7 @@ RUN echo "export PYTHONDONTWRITEBYTECODE=Y" >> /root/.bashrc
 # Need python2-dev python3-dev and cython3 ONLY to BUILD module
 # These are not required to install from PyPi or from bdist / wheel
 # python3-numpy is used in a unit test test_62_matmul)
-RUN apt-get install -y less build-essential python2-dev python-pip python-setuptools python3-dev python3-setuptools cython3 python3-numpy
+RUN apt-get install -y less unzip build-essential python2-dev python-pip python-setuptools python3-dev python3-setuptools cython3 python3-numpy
 # Install pip2 under /usr/local/bin
 RUN python2 -m pip install -U --force pip
 # Now install python3-pip, which will uninstall python-pip
