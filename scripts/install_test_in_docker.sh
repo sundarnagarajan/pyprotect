@@ -27,6 +27,9 @@ function run_tests() {
 }
 
 cd ${DOCKER_MOUNTPOINT}
+${DOCKER_MOUNTPOINT}/scripts/cythonize.sh
+
+cd ${DOCKER_MOUNTPOINT}
 uninstall
 ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 pip2 install .
