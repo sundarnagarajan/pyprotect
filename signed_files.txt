@@ -36,6 +36,7 @@ tests/test_utils.py
 setup.cfg
 pyproject.toml
 setup.py
+BUILD.txt
 LICENSE
 README.md
 MANIFEST.in
