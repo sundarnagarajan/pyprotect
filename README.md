@@ -9,9 +9,8 @@
     - Looking at python stack frame
 - Tested on Python 2.7.17 and python 3.6.9, 3.7.5, 3.8.0, 3.10.6
 - Should work on any Python 3 version
-- Well documented (docstring)
-- doctests in tests directory
-- Tested (only) on Ubuntu Bionic 18.04. Should work on any Linux distribution
+- Unit / functional tests in tests directory
+- Tested (only) on Ubuntu Bionic 18.04, Ubunto Focal 20.04, Ubuntu Jammy 22.04. Should work on any Linux distribution
 - Should work wherever cython works
 - If you want to CHANGE the source and recompile protected.c, and you want it
   to work with Python 3.7+, you need to install cython version >= 0.27.3
