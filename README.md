@@ -34,6 +34,10 @@
 - Wrapping object will not allow CHANGING OR DELETING an attribute that is not VISIBLE - per rules of Protected class
 - Attributes set to read-only using protect() method cannot be modified through wrapping object. The code of the original wrapped object is not affected by this.
 
+### Classes
+
+[![class diagram](classdiagram.svg)](IMG src="classdiagram.svg")
+
 
 ### FUNCTIONS
 #### contains(p: object, o: object):

@@ -1,0 +1,27 @@
+
+@startuml
+skinparam linetype polyline
+'skinparam linetype ortho
+ 
+rectangle Proxy
+rectangle Wrapped
+rectangle Frozen
+rectangle Private
+rectangle PrivacyDict
+rectangle FrozenPrivacyDict
+rectangle FrozenPrivate
+rectangle Protected
+rectangle FrozenProtected
+
+Proxy --> Wrapped
+Wrapped --> Frozen
+Wrapped --> Private
+
+Private --> PrivacyDict
+Private --> FrozenPrivate
+Private --> Protected
+
+PrivacyDict --> FrozenPrivacyDict
+Protected --> FrozenProtected
+
+@enduml
