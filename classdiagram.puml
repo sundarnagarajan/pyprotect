@@ -1,5 +1,8 @@
 
 @startuml
+' Create classdiagram.svg using command:
+' java -jar plantuml.jar -tsvg classdiagram.puml
+!theme bluegray
 skinparam linetype polyline
 'skinparam linetype ortho
  
