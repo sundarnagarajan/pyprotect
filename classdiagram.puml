@@ -3,7 +3,7 @@
 ' Create classdiagram.svg using command:
 ' java -jar plantuml.jar -tsvg classdiagram.puml
 '!theme bluegray
-!theme spacelab
+!theme sketchy
 
 skinparam linetype polyline
 'skinparam linetype ortho
