@@ -97,12 +97,12 @@ Private:
 - The following attributes of wrapped object are NEVER writeable:
     '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
 - Traditional (mangled) Python private vars are ALWAYS hidden
+- Private vars (form \_var) will be read-only
 - Attributes cannot be added or removed
 - Attributes not part of dir(wrapped_object) are not visible
 - Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
     - Properties indicate an intention of class author to expose them
     - Whether they are actually writable depends on whether class author implemented property.setter
-- Private vars (form _var) will be read-only
 
 FrozenPrivate:
 - Features of Private PLUS prevents modification of ANY attribute
@@ -124,47 +124,47 @@ FrozenPrivate:
         Overrides 'ro_*'
     
     hide-->list of str: attributes that will be hidden. Default: []
-    Returns-->Instance of FrozenProtected if frozen; Instance of Protected otherwise
+
+Returns-->Instance of FrozenProtected if frozen; Instance of Protected otherwise
     
-    Protected:
-        Features of Private PLUS allows customization of:
-            - Which attributes are VISIBLE
-            - Which attributes are WRITEABLE
+Protected:
+- Features of Private PLUS allows __further restriction__ of:
+    - Which attributes are VISIBLE
+    - Which attributes are WRITEABLE
     
-    FrozenProtected:
-        Features of Protected PLUS prevents modification of ANY attribute
+FrozenProtected:
+    - Features of Protected PLUS prevents modification of ANY attribute
     
-    Default settings:
-    Features of Private:
-        - Cannot access traditionally 'private' mangled python attributes
-        - Cannot modify traditionally private attributes (form '_var')
-        - Cannot add or delete attributes
-        - Cannot modify CLASS of wrapped object
-        - Cannot modify __dict__ of wrapped object
-        - Cannot modify __slots__ of wrapped object
-        - The following attributes of wrapped object are NEVER writeable:
-               '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
-        - Traditional (mangled) Python private vars are ALWAYS hidden
-        - Attributes cannot be added or removed
-        - Attributes not part of dir(wrapped_object) are not visible
-        - Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
-            - Properties indicate an intention of class author to expose them
-            - Whether they are actually writable depends on whether class author implemented property.setter
-        - Private vars (form _var) will be read-only
-    - dynamic == True
-      Attribute additions, deletions, type changes automatically visible
-    - ro_method == True: Method attributes will be read-only
-    - All other non-dunder non-private data attributes are read-write
+Default settings:
+Features of Private:
+- Cannot access traditionally 'private' mangled python attributes
+- Cannot modify traditionally private attributes (form '_var')
+- Cannot add or delete attributes
+- Cannot modify CLASS of wrapped object
+- Cannot modify __dict__ of wrapped object
+- Cannot modify __slots__ of wrapped object
+- The following attributes of wrapped object are NEVER writeable:
+    '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
+- Traditional (mangled) Python private vars are ALWAYS hidden
+- Private vars (form \_var) will be read-only
+- Attributes cannot be added or removed
+- Attributes not part of dir(wrapped_object) are not visible
+- Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
+    - Properties indicate an intention of class author to expose them
+    - Whether they are actually writable depends on whether class author implemented property.setter
+- dynamic == True
+    Attribute additions, deletions, type changes automatically visible
+- ro_method == True: Method attributes will be read-only
+- All other non-private data attributes are read-write
     
 #### wrap(o: object) -> object:
-    Wrapped:
-        - Should behave just like the wrapped object, except
-          following attributes cannot be modified:
-            '__getattribute__', '__delattr__', '__setattr__', '__slots__',
-        - Does NOT protect CLASS of wrapped object from modification
-        - Does NOT protect __dict__ or __slots__
+Returns: Wrapped
+- Should behave just like the wrapped object, except following attributes cannot be modified:
+    '__getattribute__', '__delattr__', '__setattr__', '__slots__',
+- Does NOT protect CLASS of wrapped object from modification
+- Does NOT protect __dict__ or __slots__
     
-    Useful for testing if wrapping is failing for a particular type of object
+Useful for testing if wrapping is failing for a particular type of object
 
 
 ### Usage
