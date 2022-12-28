@@ -31,11 +31,12 @@ RUN echo "export PYTHONDONTWRITEBYTECODE=Y" >> /root/.bashrc
 # python3-numpy is used in a unit test test_62_matmul)
 RUN apt-get install -y less unzip build-essential python2-dev python-pip python-setuptools python3-dev python3-setuptools cython3 python3-numpy
 # Install pip2 under /usr/local/bin
-RUN python2 -m pip install -U --force pip
+RUN python2 -m pip install -U --force --no-python-version-warning pip
 # Now install python3-pip, which will uninstall python-pip
 RUN apt-get install -y python3-pip
 # Upgrade pip3 to 22.3.1 - v22.0.2+dfsg-1 has problems uninstalling packages !
 # AttributeError: 'EggMetadata' object has no attribute 'isdir'
-RUN pip3 install -U "pip>=22.3.1"
+# Silence irrelevant warning about running pip as root user
+RUN pip3 install -U "pip>=22.3.1" 2>/dev/null
 
 RUN rm -rf /var/lib/apt/lists
