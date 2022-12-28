@@ -1,7 +1,6 @@
-## pyprotect module
+# pyprotect module
 
-### Protect attributes in any python object instance
-
+## Protect attributes in any python object instance (or class)
 - Supports (virtually) any python object
 - Uses Cython to build a C extension
 - Tested on Python 2.7.18 and Python 3.6.9, 3.7.5, 3.8.0, 3.10.6
@@ -14,27 +13,27 @@
   Do this with: ```sudo pip3 install --upgrade cython>=0.27.3```
 - This README.md is not completely up to date. Use ```pydoc pyprotect``` for more up-to-date documentation
 
-### VISIBILITY versus READABILITY or ACCESSIBILITY
-#### VISIBILITY: appears in dir(object)
+## VISIBILITY versus READABILITY or ACCESSIBILITY
+### VISIBILITY: appears in dir(object)
 - Never affected by wrapping: ```object.__dir__(myinst)``` will still show ALL attribute **NAMES**
 - Note: visibility in wrapping object IS controlled by Protected class: ```object.__dir__(wrapped)``` will show attributes based on options used with protect() method
 
-#### READABILITY or ACCESSIBILITY: Accessing the VALUE of the attribute
+### READABILITY or ACCESSIBILITY: Accessing the VALUE of the attribute
 - Applies to wrapping object instance - NOT original wrapped object
 - Code of original wrapped object instance is completely UNAFFECTED by Protected Class
 - Accessibility of attributes of original wrapped object through Protected class instance IS controled by Protected class
 - Affects ```getattr```, ```hasattr```, ```object.__getattribute__``` etc
 
-### MUTABILITY: Ability to CHANGE or DELETE an attribute
+## MUTABILITY: Ability to CHANGE or DELETE an attribute
 - Wrapping object will not allow CHANGING OR DELETING an attribute that is not VISIBLE - per rules of Protected class
 - Attributes set to read-only using protect() method cannot be modified through wrapping object. The code of the original wrapped object is not affected by this.
 
-### Classes
+## Classes
 
 ![class diagram](classdiagram.svg)
 
 
-### FUNCTIONS
+## FUNCTIONS
 #### contains(p: object, o: object):
     Returns--whether 'p' wraps 'o'
 
@@ -162,7 +161,7 @@ Returns: Wrapped
 Useful for testing if wrapping is failing for a particular type of object
 
 
-### Usage
+## Usage
 ```python
 # Use any custom class of your own
 class MyClass(object):
@@ -180,7 +179,7 @@ from pyprotect import protect
 wrapped = protect(myinst)
 ```
 
-### Options: protect method arguments
+## Options: protect method arguments
 
 | Option            | Type        | Default  | Description | Overrides |
 | ----------------- | ----------- | -------- | ----------- | --------- |
@@ -192,7 +191,7 @@ wrapped = protect(myinst)
 | rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <li>ro_data</li><li>ro_method</li><li>ro</li></ul> |
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li></ul> | |
 
-### Readability and mutability of attributes with protect() method
+## Readability and mutability of attributes with protect() method
 | Option        | Attribute Type    | Restricts Readability | Restricts Mutability     |
 | ------------- | ----------------- | ----------- | -------------- |
 | frozen        | Any               | NO          | YES            |
@@ -205,16 +204,16 @@ wrapped = protect(myinst)
 | show          | ANY               | YES         | NO             |
 
 
-### Python rules for attributes of type 'property':
+## Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
 - Properties cannot be DELETED
 - Properties cannot be WRITTEN to unless property has a 'setter' method defined in the CLASS
 - These rules are implemented by the python language (interpreter) and Protected class does not enforce or check
 
-### What kind of python objects can be wrapped?
+## What kind of python objects can be wrapped?
 Pretty much anything. pyprotect only mediates attribute access using ```object.\_\_getattribute\_\_```, ```object.\_\_setattr\_\_``` and ```object.\_\_delatr\_\_```. If these methods work on your object, your object can be wrapped
 
-### Why can't I subclass Protected class?
+## Why can't I subclass Protected class?
 - Protected class is only for wrapping a python object INSTANCE
 - NONE of the atributes of Protected class are exposed - only (selecive) attributes of the WRAPPED object
 - Overriding methods of Protected class is not possible - since Protected is implemented in C
@@ -224,18 +223,18 @@ Pretty much anything. pyprotect only mediates attribute access using ```object.\
 - Subclass your python object BEFORE wrapping with Protected
 
 
-### How do I
-#### Make my object completely read-only
+## How do I
+### Make my object completely read-only
 - Use ```frozen=True```
 
-#### Completely hide private variables hat are normally read-only, but visible
+### Completely hide private variables hat are normally read-only, but visible
 - Use ```hide_private=True```
 
-### Work in progress
+## Work in progress
 - Uploading to pypi.org
 
-### Changelog
-#### Dec-08-2022
+## Changelog
+### Dec-08-2022
 A number of parameters to protect() have been discontinued. See list and reasons below, as well as how to achieve the same effect without thos parameters (sometimes, it takes more work). Most of them would be realistically useful very rarely, and / or do not align with what I call 'idiomatic python'.
 
 **hide_all, hide_method, hide_dunder**
