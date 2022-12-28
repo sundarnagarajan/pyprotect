@@ -182,7 +182,7 @@ wrapped = protect(myinst)
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li></ul> | |
 
 ### Configurable readability and mutability of attributes with protect() method
-| Option        | Attribute Type    | Readability | Mutability     |
+| Option        | Attribute Type    | Restricts Readability | Restricts Mutability     |
 | ------------- | ----------------- | ----------- | -------------- |
 | frozen        | Any               | NO          | YES            |
 | hide_private  | Private attributes | YES         | YES (Indirect) |
@@ -197,12 +197,13 @@ wrapped = protect(myinst)
 ### Default settings for private() and protect() methods
 - Traditional (mangled) Python private vars are ALWAYS hidden
     - CANNOT be overridden
+- Attributes cannot be added or removed - same as Private
+    - CANNOT be overridden
 - Private vars (form _var) will be read-only
     - Can use hide_private to hide them
     - They CANNOT be made read-write
-- add == True: New attributes can be added (Python philosophy)
 - ro_method == True: Method attributes will be read-only
-- All other non-dunder non-private data attributes are read-write
+- All other non-private data attributes are read-write
 
 ### Non-overrideable behaviors of Protected class:
 1. Traditional python 'private' vars - start with ```__``` but do not end with ```__``` - can never be read, written or deleted
@@ -210,9 +211,9 @@ wrapped = protect(myinst)
 3. Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
     - Properties indicate an intention of class author to expose them
     - Whether they are actually writable depends on whether class author implemented property.setter
-4. The following attributes of wrapped object are NEVER visible:
+4. The following attributes of wrapped object are NEVER writeable:
        ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
-5. You cannot subclass Protected class
+
 
 ### Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
