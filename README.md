@@ -90,6 +90,7 @@
     Private:
         - Cannot access traditionally 'private' mangled python attributes
         - Cannot modify traditionally private attributes (form '_var')
+	- Cannot add or delete attributes
         - Cannot modify CLASS of wrapped object
         - Cannot modify __dict__ of wrapped object
         - Cannot modify __slots__ of wrapped object
@@ -130,6 +131,7 @@
     Features of Private:
         - Cannot access traditionally 'private' mangled python attributes
         - Cannot modify traditionally private attributes (form '_var')
+	- Cannot add or delete attributes
         - Cannot modify CLASS of wrapped object
         - Cannot modify __dict__ of wrapped object
         - Cannot modify __slots__ of wrapped object
