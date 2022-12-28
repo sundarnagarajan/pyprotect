@@ -4,18 +4,14 @@
 
 - Supports (virtually) any python object
 - Uses Cython to build a C extension
-- Does not leave a back door like:
-    - Attributes still accessible using ```object.__getattribute__(myobj, atribute)```
-    - Looking at python stack frame
-- Tested on Python 2.7.17 and python 3.6.9, 3.7.5, 3.8.0, 3.10.6
+- Tested on Python 2.7.18 and Python 3.6.9, 3.7.5, 3.8.0, 3.10.6
 - Should work on any Python 3 version
-- Unit / functional tests in tests directory
-- Tested (only) on Ubuntu Bionic 18.04, Ubunto Focal 20.04, Ubuntu Jammy 22.04. Should work on any Linux distribution
 - Should work wherever cython works
+- Tested (only) on Ubuntu Bionic 18.04, Ubunto Focal 20.04, Ubuntu Jammy 22.04. Should work on any Linux distribution
+- Unit / functional tests in tests directory
 - If you want to CHANGE the source and recompile protected.c, and you want it
   to work with Python 3.7+, you need to install cython version >= 0.27.3
-  Do this with
-  ```sudo pip3 install --upgrade cython>=0.27.3```
+  Do this with: ```sudo pip3 install --upgrade cython>=0.27.3```
 - This README.md is not completely up to date. Use ```pydoc pyprotect``` for more up-to-date documentation
 
 ### VISIBILITY versus READABILITY or ACCESSIBILITY
