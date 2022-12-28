@@ -102,10 +102,8 @@
 
     o-->object to be wrapped
     frozen-->bool: No attribute can be modified. Default: False
-        - Overrides 'add'
     dynamic-->bool: Attribute additions, deletions, type changes in wrapped
         object are automatically visible
-        If True, 'add' is automatically set to False
         Default: True
     
     hide_private-->bool: Private vars (_var) will be hidden. Default: False
