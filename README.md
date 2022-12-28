@@ -230,13 +230,10 @@ Pretty much anything. pyprotect only mediates attribute access using ```object.\
 
 ### How do I
 #### Make my object completely read-only
-- Use ```add=False, frozen=True```
+- Use ```frozen=True```
 
 #### Completely hide private variables hat are normally read-only, but visible
 - Use ```hide_private=True```
-
-#### Hide all except properties
-- Use ```ro_all=True```
 
 ### Work in progress
 - Uploading to pypi.org
