@@ -17,7 +17,7 @@
   to work with Python 3.7+, you need to install cython version >= 0.27.3
   Do this with
   ```sudo pip3 install --upgrade cython>=0.27.3```
-- This README.md is not completely up to date. Use ```pydoc pyprotect``` for the most up-to-date documentation
+- This README.md is not completely up to date. Use ```pydoc pyprotect``` for more up-to-date documentation
 
 ### VISIBILITY versus READABILITY or ACCESSIBILITY
 #### VISIBILITY: appears in dir(object)
@@ -185,7 +185,6 @@ from pyprotect import protect
 wrapped = protect(myinst)
 ```
 
-
 ### Options: protect method arguments
 
 | Option            | Type        | Default  | Description | Overrides |
@@ -198,7 +197,7 @@ wrapped = protect(myinst)
 | rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <li>ro_data</li><li>ro_method</li><li>ro</li></ul> |
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li></ul> | |
 
-### Configurable readability and mutability of attributes with protect() method
+### Readability and mutability of attributes with protect() method
 | Option        | Attribute Type    | Restricts Readability | Restricts Mutability     |
 | ------------- | ----------------- | ----------- | -------------- |
 | frozen        | Any               | NO          | YES            |
@@ -211,23 +210,6 @@ wrapped = protect(myinst)
 | show          | ANY               | YES         | NO             |
 
 
-### Default settings for protect() method
-Features of Private and Protected that CANNOT be overridden:
-- The following attributes of wrapped object are NEVER writeable:
-       ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
-- Traditional (mangled) Python private vars are ALWAYS hidden
-- Attributes cannot be added or removed
-- Attributes not part of dir(wrapped_object) are not visible
-- Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
-    - Properties indicate an intention of class author to expose them
-    - Whether they are actually writable depends on whether class author implemented property.setter
-    - They can be made read-only by using the 'ro' option
-- Private vars (form _var) will be read-only
-    - Can use hide_private to hide them
-    - They CANNOT be made read-write
-- ro_method == True: Method attributes will be read-only
-- All other non-private data attributes are read-write
-
 ### Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
 - Properties cannot be DELETED
@@ -236,9 +218,6 @@ Features of Private and Protected that CANNOT be overridden:
 
 ### What kind of python objects can be wrapped?
 Pretty much anything. Protected only mediates attribute access using ```object.__getattribute__```, ```object.__setattr__``` and ```object.__delatr__```. If these methods work on your object, your object can be wrapped
-
-### Can a Protected class instance be wrapped again using Protected?
-**YES !**
 
 ### Why can't I subclass Protected class?
 - Protected class is only for wrapping a python object INSTANCE
@@ -259,31 +238,6 @@ Pretty much anything. Protected only mediates attribute access using ```object._
 
 #### Hide all except properties
 - Use ```ro_all=True```
-
-#### Hide all dunder-attributes except specific ones
-- Use ```hide_dunder=True, show=['exception1', 'exception2']```
-
-#### Hide all attributes except specific ones
-- Use ```hide_all=True, show=['exception1', 'exception2']```
-
-#### Make all attributes read-only except specific ones
-- Use ```ro_all=True, rw=['exception1', 'exception2']```
-
-#### How can I get close to default python behavior
-- Use ```add=True, protect_class=False, ro_method=False, ro_dunder=False```
-- Mangled private variables still won't be visible
-- Private variables (form ```_var```) will still be read-only
-
-### Some RUN-TIME behaviors to AVOID in wrapped objects:
-- Do not create attribute - these will not be detected once the object instance is wrapped in Protected
-- Do not delete attributes - these will still appear to be part of the wrapped object when accessing through the wrapping Protected class. Actual access will result in ```AttributeError``` as expected
-- Do not change attribute TYPE - from METHOD to DATA or vice-versa
-    - This will cause predictable effects if Protected instance was created using any of the following options:
-          hide_method
-          hide_data
-          ro_method
-          ro_data
-- None of the above run-time behaviors should be common or recommended - especially when wanting to expose a wrapped interface with visibility and/or mutability protections
 
 ### Work in progress
 - Uploading to pypi.org
