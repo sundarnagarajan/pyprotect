@@ -36,7 +36,7 @@
 
 ### Classes
 
-[![class diagram](classdiagram.svg)]
+![class diagram](classdiagram.svg)
 
 
 ### FUNCTIONS
