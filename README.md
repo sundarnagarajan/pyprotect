@@ -91,10 +91,10 @@ Private:
 - Cannot modify traditionally private attributes (form '_var')
 - Cannot add or delete attributes
 - Cannot modify CLASS of wrapped object
-- Cannot modify __dict__ of wrapped object
-- Cannot modify __slots__ of wrapped object
+- Cannot modify \_\_dict\_\_ of wrapped object
+- Cannot modify \_\_slots\_\_ of wrapped object
 - The following attributes of wrapped object are NEVER writeable:
-    '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
+    '\_\_dict\_\_', '\_\_delattr\_\_', '\_\_setattr\_\_', '\_\_slots\_\_', '\_\_getattribute\_\_'
 - Traditional (mangled) Python private vars are ALWAYS hidden
 - Private vars (form \_var) will be read-only
 - Attributes cannot be added or removed
@@ -140,10 +140,10 @@ Features of Private:
 - Cannot modify traditionally private attributes (form '_var')
 - Cannot add or delete attributes
 - Cannot modify CLASS of wrapped object
-- Cannot modify __dict__ of wrapped object
-- Cannot modify __slots__ of wrapped object
+- Cannot modify \_\_dict\_\_ of wrapped object
+- Cannot modify \_\_slots\_\_ of wrapped object
 - The following attributes of wrapped object are NEVER writeable:
-    '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
+    '\_\_dict\_\_', '\_\_delattr\_\_', '\_\_setattr\_\_', '\_\_slots\_\_', '\_\_getattribute\_\_'
 - Traditional (mangled) Python private vars are ALWAYS hidden
 - Private vars (form \_var) will be read-only
 - Attributes cannot be added or removed
@@ -159,9 +159,9 @@ Features of Private:
 #### wrap(o: object) -> object:
 Returns: Wrapped
 - Should behave just like the wrapped object, except following attributes cannot be modified:
-    '__getattribute__', '__delattr__', '__setattr__', '__slots__',
+    '\_\_getattribute\_\_', '\_\_delattr\_\_', '\_\_setattr\_\_', '\_\_slots\_\_',
 - Does NOT protect CLASS of wrapped object from modification
-- Does NOT protect __dict__ or __slots__
+- Does NOT protect \_\_dict\_\_ or \_\_slots\_\_
     
 Useful for testing if wrapping is failing for a particular type of object
 
@@ -216,7 +216,7 @@ wrapped = protect(myinst)
 - These rules are implemented by the python language (interpreter) and Protected class does not enforce or check
 
 ### What kind of python objects can be wrapped?
-Pretty much anything. Protected only mediates attribute access using ```object.__getattribute__```, ```object.__setattr__``` and ```object.__delatr__```. If these methods work on your object, your object can be wrapped
+Pretty much anything. pyprotect only mediates attribute access using ```object.\_\_getattribute\_\_```, ```object.\_\_setattr\_\_``` and ```object.\_\_delatr\_\_```. If these methods work on your object, your object can be wrapped
 
 ### Why can't I subclass Protected class?
 - Protected class is only for wrapping a python object INSTANCE
