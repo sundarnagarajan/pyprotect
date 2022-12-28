@@ -85,28 +85,27 @@
     'o' was created using wrap / freeze / private / protect
 
 #### private(o: object, frozen: bool = False) -> object:
-    FrozenPrivate instance if frozen; Private instance otherwise
+Returns: FrozenPrivate instance if frozen; Private instance otherwise
     
-    Private:
-        - Cannot access traditionally 'private' mangled python attributes
-        - Cannot modify traditionally private attributes (form '_var')
-        - Cannot add or delete attributes
-        - Cannot modify CLASS of wrapped object
-        - Cannot modify __dict__ of wrapped object
-        - Cannot modify __slots__ of wrapped object
-        - The following attributes of wrapped object are NEVER writeable:
-               '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
-        - Traditional (mangled) Python private vars are ALWAYS hidden
-        - Attributes cannot be added or removed
-        - Attributes not part of dir(wrapped_object) are not visible
-        - Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
-            - Properties indicate an intention of class author to expose them
-            - Whether they are actually writable depends on whether class author implemented property.setter
-        - Private vars (form _var) will be read-only
+Private:
+- Cannot access traditionally 'private' mangled python attributes
+- Cannot modify traditionally private attributes (form '_var')
+- Cannot add or delete attributes
+- Cannot modify CLASS of wrapped object
+- Cannot modify __dict__ of wrapped object
+- Cannot modify __slots__ of wrapped object
+- The following attributes of wrapped object are NEVER writeable:
+    '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
+- Traditional (mangled) Python private vars are ALWAYS hidden
+- Attributes cannot be added or removed
+- Attributes not part of dir(wrapped_object) are not visible
+- Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
+    - Properties indicate an intention of class author to expose them
+    - Whether they are actually writable depends on whether class author implemented property.setter
+- Private vars (form _var) will be read-only
 
-
-    FrozenPrivate:
-        Features of Private PLUS prevents modification of ANY attribute
+FrozenPrivate:
+- Features of Private PLUS prevents modification of ANY attribute
 
 #### protect(o: object frozen: bool = False, dynamic: bool = True, hide_private: bool = False, ro_data: bool = False, ro_method: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = []
 
