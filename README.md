@@ -94,7 +94,17 @@
         - Cannot modify CLASS of wrapped object
         - Cannot modify __dict__ of wrapped object
         - Cannot modify __slots__ of wrapped object
-    
+        - The following attributes of wrapped object are NEVER writeable:
+               ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
+        - Traditional (mangled) Python private vars are ALWAYS hidden
+        - Attributes cannot be added or removed
+        - Attributes not part of dir(wrapped_object) are not visible
+        - Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
+            - Properties indicate an intention of class author to expose them
+            - Whether they are actually writable depends on whether class author implemented property.setter
+        - Private vars (form _var) will be read-only
+
+
     FrozenPrivate:
         Features of Private PLUS prevents modification of ANY attribute
 
@@ -133,6 +143,15 @@
         - Cannot modify CLASS of wrapped object
         - Cannot modify __dict__ of wrapped object
         - Cannot modify __slots__ of wrapped object
+        - The following attributes of wrapped object are NEVER writeable:
+               ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
+        - Traditional (mangled) Python private vars are ALWAYS hidden
+        - Attributes cannot be added or removed
+        - Attributes not part of dir(wrapped_object) are not visible
+        - Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
+            - Properties indicate an intention of class author to expose them
+            - Whether they are actually writable depends on whether class author implemented property.setter
+        - Private vars (form _var) will be read-only
     - dynamic == True
       Attribute additions, deletions, type changes automatically visible
     - ro_method == True: Method attributes will be read-only
@@ -194,26 +213,22 @@ wrapped = protect(myinst)
 | show          | ANY               | YES         | NO             |
 
 
-### Default settings for private() and protect() methods
+### Default settings for protect() method
+Features of Private and Protected that CANNOT be overridden:
+- The following attributes of wrapped object are NEVER writeable:
+       ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
 - Traditional (mangled) Python private vars are ALWAYS hidden
-    - CANNOT be overridden
-- Attributes cannot be added or removed - same as Private
-    - CANNOT be overridden
+- Attributes cannot be added or removed
+- Attributes not part of dir(wrapped_object) are not visible
+- Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
+    - Properties indicate an intention of class author to expose them
+    - Whether they are actually writable depends on whether class author implemented property.setter
+    - They can be made read-only by using the 'ro' option
 - Private vars (form _var) will be read-only
     - Can use hide_private to hide them
     - They CANNOT be made read-write
 - ro_method == True: Method attributes will be read-only
 - All other non-private data attributes are read-write
-
-### Non-overrideable behaviors of Protected class:
-1. Traditional python 'private' vars - start with ```__``` but do not end with ```__``` - can never be read, written or deleted
-2. If an attribute cannot be read, it cannot be written or deleted
-3. Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
-    - Properties indicate an intention of class author to expose them
-    - Whether they are actually writable depends on whether class author implemented property.setter
-4. The following attributes of wrapped object are NEVER writeable:
-       ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
-
 
 ### Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
