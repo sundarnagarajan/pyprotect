@@ -95,7 +95,7 @@
         - Cannot modify __dict__ of wrapped object
         - Cannot modify __slots__ of wrapped object
         - The following attributes of wrapped object are NEVER writeable:
-               ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
+               '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
         - Traditional (mangled) Python private vars are ALWAYS hidden
         - Attributes cannot be added or removed
         - Attributes not part of dir(wrapped_object) are not visible
@@ -144,7 +144,7 @@
         - Cannot modify __dict__ of wrapped object
         - Cannot modify __slots__ of wrapped object
         - The following attributes of wrapped object are NEVER writeable:
-               ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
+               '__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'
         - Traditional (mangled) Python private vars are ALWAYS hidden
         - Attributes cannot be added or removed
         - Attributes not part of dir(wrapped_object) are not visible
@@ -161,8 +161,7 @@
     Wrapped:
         - Should behave just like the wrapped object, except
           following attributes cannot be modified:
-            'getattr, __getattribute__',
-            '__delattr__', '__setattr__', '__slots__',
+            '__getattribute__', '__delattr__', '__setattr__', '__slots__',
         - Does NOT protect CLASS of wrapped object from modification
         - Does NOT protect __dict__ or __slots__
     
