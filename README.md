@@ -1,5 +1,46 @@
 # pyprotect module
 
+## Table of Contents
+
+<!-- vim-markdown-toc GFM -->
+
+* [Protect attributes in any python object instance (or class)](#protect-attributes-in-any-python-object-instance-or-class)
+* [VISIBILITY versus READABILITY or ACCESSIBILITY](#visibility-versus-readability-or-accessibility)
+    * [VISIBILITY: appears in dir(object)](#visibility-appears-in-dirobject)
+    * [READABILITY or ACCESSIBILITY: Accessing the VALUE of the attribute](#readability-or-accessibility-accessing-the-value-of-the-attribute)
+* [MUTABILITY: Ability to CHANGE or DELETE an attribute](#mutability-ability-to-change-or-delete-an-attribute)
+* [Classes](#classes)
+* [FUNCTIONS](#functions)
+        * [contains(p: object, o: object):](#containsp-object-o-object)
+        * [freeze(o: object) -> object:](#freezeo-object---object)
+        * [help_protected(o: object) -> None:](#help_protectedo-object---none)
+        * [id_protected(o: object) -> int:](#id_protectedo-object---int)
+        * [immutable_builtin_attributes() -> Set[str]:](#immutable_builtin_attributes---setstr)
+        * [isfrozen(o: object) -> bool:](#isfrozeno-object---bool)
+        * [isimmutable(o: object) -> bool:](#isimmutableo-object---bool)
+        * [isinstance_protected(o: object, c: type) -> bool:](#isinstance_protectedo-object-c-type---bool)
+        * [isprivate(o: object) -> bool:](#isprivateo-object---bool)
+        * [isprotected(o: object) -> bool:](#isprotectedo-object---bool)
+        * [isreadonly(o: object, a: str) -> bool:](#isreadonlyo-object-a-str---bool)
+        * [iswrapped(o: object) -> bool:](#iswrappedo-object---bool)
+        * [private(o: object, frozen: bool = False) -> object:](#privateo-object-frozen-bool--false---object)
+        * [protect(o: object frozen: bool = False, dynamic: bool = True, hide_private: bool = False, ro_data: bool = False, ro_method: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = []](#protecto-object-frozen-bool--false-dynamic-bool--true-hide_private-bool--false-ro_data-bool--false-ro_method-bool--true-ro-liststr---rw-liststr---hide-liststr--)
+        * [wrap(o: object) -> object:](#wrapo-object---object)
+* [Usage](#usage)
+* [Options: protect method arguments](#options-protect-method-arguments)
+* [Readability and mutability of attributes with protect() method](#readability-and-mutability-of-attributes-with-protect-method)
+* [Python rules for attributes of type 'property':](#python-rules-for-attributes-of-type-property)
+* [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
+* [Why can't I subclass Protected class?](#why-cant-i-subclass-protected-class)
+* [How do I](#how-do-i)
+    * [Make my object completely read-only](#make-my-object-completely-read-only)
+    * [Completely hide private variables hat are normally read-only, but visible](#completely-hide-private-variables-hat-are-normally-read-only-but-visible)
+* [Work in progress](#work-in-progress)
+* [Changelog](#changelog)
+    * [Dec-08-2022](#dec-08-2022)
+
+<!-- vim-markdown-toc -->
+
 ## Protect attributes in any python object instance (or class)
 - Supports (virtually) any python object
 - Uses Cython to build a C extension
