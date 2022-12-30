@@ -87,28 +87,29 @@ __Readability and mutability of attributes with protect() method__
 ![class diagram](classdiagram.svg "class diagram")
 
 ## Features of key classes
+### Wrapped
+- Visibility: No additional restrictions
+- Mutability: No additional restrictions
 ### Frozen
-Frozen object prevents modification of ANY attribute
-- Does not __additionally__ restrict visibility of any attributes in __wrapped__ object accessed through __wrapping__ object
-
+- Visibility: Does not __additionally__ restrict visibility of any attributes in __wrapped__ object accessed through __wrapping__ object
+- Mutability: Prevents modification of ANY attribute
 ### Private
-- Cannot access traditionally 'private' mangled python attributes
-- Cannot modify traditionally private attributes (form '_var')
-- Cannot add or delete attributes
-- Cannot modify CLASS (```__class__```)of wrapped object
-- Cannot modify ```__dict__``` of wrapped object
-- Cannot modify ```__slots__``` of wrapped object
-- The following attributes of wrapped object are NEVER writeable:
-    ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
-- Traditional (mangled) Python private vars are ALWAYS hidden
-- Private vars (form \_var) will be read-only
-- Attributes cannot be added or removed
-- Attributes not part of dir(wrapped_object) are not visible
-- Attributes that are properties are ALWAYS visible AND WRITABLE (except if '_frozen_' is used)
-    - Properties indicate an intention of class author to expose them
-    - Whether they are actually writable depends on whether class author implemented property.setter
+- Visibility:
+    - Cannot access traditionally 'private' mangled python attributes
+    - Cannot modify traditionally private attributes (form '_var_')
+    - Attributes not part of dir(wrapped_object) are not visible
+- Mutability:
+    - The following attributes of wrapped object are NEVER writeable:
+        ```__class__```, ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
+    - Traditional (mangled) Python private vars are ALWAYS hidden
+    - Private vars (form \_var) will be read-only
+    - Attributes cannot be added or removed
+    - Attributes that are properties are ALWAYS visible AND WRITABLE (except if '_frozen_' is used)
+        - Properties indicate an intention of class author to expose them
+        - Whether they are actually writable depends on whether class author implemented property.setter
 ### FrozenPrivate
-- Features of Private PLUS prevents modification of ANY attribute
+- Visibility: Same as Private
+- Mutability: Prevents modification of ANY attribute
 ### Protected
 - Features of Private PLUS allows __further restriction__ of:
     - Which attributes are VISIBLE
@@ -128,11 +129,29 @@ Frozen object prevents modification of ANY attribute
 
 freeze(o: object) -> Frozen:
 ```
+- If _o_ is immutable (e.g. int , string), returns _o_ UNCHANGED
+- If _o_ is Wrapped, returns _o_ UNCHANGED if object WRAPPPED INSIDE _o_ is immutable, returns Frozen otherwise
+- If _o_ is Frozen, returns _o_ UNCHANGED
+- If _o_ is FrozenPrivate, FrozenProtected or FrozenPrivacyDict, returns _o_ UNCHANGED
+- If _o_ is Private, returns FrozenPrivate
+- If _o_ is Protected, returns FrozenProtected
+- Otherwise, returns Frozen
+    
+Object returned prevents modification of ANY attribute
+
+
 
 ```python
 private(o: object, frozen: bool = False) -> object:
 ```
-Returns: __FrozenPrivate__ instance if _frozen_; __Private__ instance otherwise
+ - If _frozen_ is False:
+      - If _o_ is an instance of Private, returns _o_ UNCHANGED
+     - If 'o' is an instance of Protected, returns _o_ UNCHANGED
+- If _frozen_ is True:
+     - If _o_ is an instance of Private, returns _freeze(o)_ (FrozenPrivate)
+     - If _o_ is an instance of Protected, returns _freeze(o)_ (FrozenProtected)
+     - Otherwise:
+          If _frozen_ is True, returns FrozenPrivate; returns Private otherwise
     
 ```python
 protect(
@@ -148,6 +167,19 @@ protect(
 # o-->object to be wrapped
 ```
 Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
+
+If protect() is called on an object 'o' that is an instance ofProtected:
+- protect() will merge the protect() rules, enforcing the most restrictive combination among the two sets of protect() options:
+    - _hide_ and _hide_private_ are OR-ed
+    - _ro_method_, _ro_data_ and _ro_ are OR-ed
+    - _rw_ is AND-ed, but _rw_ of second protect overrides _ro*_ of __second__ protect but __not__ the __first__ protect.
+    
+In short, by calling protect() a second time (or multiple times):
+    - Additoinal attributes can be hidden
+    - Additional attributes can be made read-only
+but:
+    - No previously hidden attribute will become visible
+    - No previously read-only attribute will become mutable
 
 __Options: protect method arguments__
 | Option       | Type        | Default | Description                                                                            | Overrides                  |
