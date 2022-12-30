@@ -124,7 +124,6 @@ Default settings:
 | ro           | ANY                | NO                    | YES                  |
 | rw           | ANY                | NO                    | YES                  |
 | hide         | ANY                | YES                   | YES (Indirect)       |
-| show         | ANY                | YES                   | NO                   |
 
 ### FrozenProtected
 - Features of Protected PLUS prevents modification of ANY attribute
