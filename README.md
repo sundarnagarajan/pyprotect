@@ -38,12 +38,28 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 
 freeze(o: object) -> Frozen:
 ```
+- If _o_ is immutable (e.g. int , string), returns _o_ UNCHANGED
+- If _o_ is Wrapped, returns _o_ UNCHANGED if object WRAPPPED INSIDE _o_ is immutable, returns Frozen otherwise
+- If _o_ is Frozen, returns _o_ UNCHANGED
+- If _o_ is FrozenPrivate, FrozenProtected or FrozenPrivacyDict, returns _o_ UNCHANGED
+- If _o_ is Private, returns FrozenPrivate
+- If _o_ is Protected, returns FrozenProtected
+- Otherwise, returns Frozen
+    
+Object returned prevents modification of ANY attribute
 
 ```python
 private(o: object, frozen: bool = False) -> object:
 ```
-Returns: __FrozenPrivate__ instance if _frozen_; __Private__ instance otherwise
-    
+ - If _frozen_ is False:
+      - If _o_ is an instance of Private, returns _o_ UNCHANGED
+     - If 'o' is an instance of Protected, returns _o_ UNCHANGED
+- If _frozen_ is True:
+     - If _o_ is an instance of Private, returns _freeze(o)_ (FrozenPrivate)
+     - If _o_ is an instance of Protected, returns _freeze(o)_ (FrozenProtected)
+     - Otherwise:
+          If _frozen_ is True, returns FrozenPrivate; returns Private otherwise
+
 ```python
 protect(
     o: object frozen: bool = False,
@@ -58,6 +74,19 @@ protect(
 # o-->object to be wrapped
 ```
 Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
+
+If _protect()_ is called on an object 'o' that is an instance of Protected, _protect()_ will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
+- _hide_ and _hide_private_ are OR-ed
+- _ro_method_, _ro_data_ and _ro_ are OR-ed
+- _rw_ is AND-ed, but _rw_ of second protect overrides _ro*_ of __second__ protect but __not__ the __first__ protect.
+    
+In short, by calling protect() a second time (or multiple times):
+    - Additoinal attributes can be hidden
+    - Additional attributes can be made read-only
+but:
+    - No previously hidden attribute will become visible
+    - No previously read-only attribute will become mutable
+
 
 __Options: protect method arguments__
 | Option       | Type        | Default | Description                                                                            | Overrides                  |
@@ -138,8 +167,6 @@ freeze(o: object) -> Frozen:
 - Otherwise, returns Frozen
     
 Object returned prevents modification of ANY attribute
-
-
 
 ```python
 private(o: object, frozen: bool = False) -> object:
