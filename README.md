@@ -11,8 +11,6 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 ## Table of Contents
 
 
-<!-- vim-markdown-toc GFM -->
-
 * [Quick start](#quick-start)
     * [Options: protect method arguments](#options-protect-method-arguments)
     * [Readability and mutability of attributes with protect() method](#readability-and-mutability-of-attributes-with-protect-method)
@@ -24,19 +22,6 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
     * [Protected](#protected)
     * [FrozenProtected](#frozenprotected)
 * [FUNCTIONS](#functions)
-        * [contains(p: object, o: object):](#containsp-object-o-object)
-        * [freeze(o: object) -> object:](#freezeo-object---object)
-        * [help_protected(o: object) -> None:](#help_protectedo-object---none)
-        * [id_protected(o: object) -> int:](#id_protectedo-object---int)
-        * [immutable_builtin_attributes() -> Set[str]:](#immutable_builtin_attributes---setstr)
-        * [isfrozen(o: object) -> bool:](#isfrozeno-object---bool)
-        * [isimmutable(o: object) -> bool:](#isimmutableo-object---bool)
-        * [isinstance_protected(o: object, c: type) -> bool:](#isinstance_protectedo-object-c-type---bool)
-        * [isprivate(o: object) -> bool:](#isprivateo-object---bool)
-        * [isprotected(o: object) -> bool:](#isprotectedo-object---bool)
-        * [isreadonly(o: object, a: str) -> bool:](#isreadonlyo-object-a-str---bool)
-        * [iswrapped(o: object) -> bool:](#iswrappedo-object---bool)
-        * [wrap(o: object) -> object:](#wrapo-object---object)
 * [Usage](#usage)
 * [Python rules for attributes of type 'property':](#python-rules-for-attributes-of-type-property)
 * [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
@@ -47,8 +32,6 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 * [Work in progress](#work-in-progress)
 * [Changelog](#changelog)
     * [Dec-08-2022](#dec-08-2022)
-
-<!-- vim-markdown-toc -->
 
 ## Quick start
 ```python
