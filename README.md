@@ -10,12 +10,9 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 
 ## Table of Contents
 
-
 <!-- vim-markdown-toc GFM -->
 
 * [Quick start](#quick-start)
-    * [Options: protect method arguments](#options-protect-method-arguments)
-    * [Readability and mutability of attributes with protect() method](#readability-and-mutability-of-attributes-with-protect-method)
 * [Classes](#classes)
 * [Features of key classes](#features-of-key-classes)
     * [Frozen](#frozen)
@@ -25,8 +22,6 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
     * [FrozenProtected](#frozenprotected)
 * [FUNCTIONS](#functions)
     * [Wrapping API](#wrapping-api)
-        * [Options: protect method arguments](#options-protect-method-arguments-1)
-        * [Readability and mutability of attributes with protect() method](#readability-and-mutability-of-attributes-with-protect-method-1)
     * [Checking types of wrapped objects](#checking-types-of-wrapped-objects)
     * [Checking properties objects inside wrapped objects](#checking-properties-objects-inside-wrapped-objects)
     * [pyprotect module metadata](#pyprotect-module-metadata)
@@ -64,7 +59,7 @@ protect(
 ```
 Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
 
-### Options: protect method arguments
+__Options: protect method arguments__
 | Option       | Type        | Default | Description                                                                            | Overrides                  |
 |--------------|-------------|---------|----------------------------------------------------------------------------------------|----------------------------|
 | frozen       | bool        | False   | If True, no attributes can be changed, added or deleted                                |                            |
@@ -75,7 +70,7 @@ Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__
 | rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
 | hide         | list of str | []   |                                                                                        |                            |
 
-### Readability and mutability of attributes with protect() method
+__Readability and mutability of attributes with protect() method__
 
 | Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
 |--------------|--------------------|-----------------------|----------------------|
@@ -154,7 +149,7 @@ protect(
 ```
 Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
 
-#### Options: protect method arguments
+__Options: protect method arguments__
 | Option       | Type        | Default | Description                                                                            | Overrides                  |
 |--------------|-------------|---------|----------------------------------------------------------------------------------------|----------------------------|
 | frozen       | bool        | False   | If True, no attributes can be changed, added or deleted                                |                            |
@@ -165,7 +160,7 @@ Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__
 | rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
 | hide         | list of str | []   |                                                                                        |                            |
 
-#### Readability and mutability of attributes with protect() method
+__Readability and mutability of attributes with protect() method__
 
 | Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
 |--------------|--------------------|-----------------------|----------------------|
