@@ -118,12 +118,12 @@ Frozen object prevents modification of ANY attribute
 - Features of Private PLUS allows __further restriction__ of:
     - Which attributes are VISIBLE
     - Which attributes are WRITEABLE
-Default settings:
-- Features of Private - see above
-- dynamic == True
-    Attribute additions, deletions, type changes automatically visible
-- ro_method == True: Method attributes will be read-only
-- All other non-private data attributes are read-write
+- Default settings:
+    - Features of Private - see above
+    - dynamic == True
+        Attribute additions, deletions, type changes automatically visible
+    - ro_method == True: Method attributes will be read-only
+    - All other non-private data attributes are read-write
 ### FrozenProtected
 - Features of Protected PLUS prevents modification of ANY attribute
 
