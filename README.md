@@ -86,7 +86,7 @@ Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__
 | ro_data           | bool        | False    | <ul><li>Data (non-method) attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
 | ro_method     | bool    | True | <ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
 | ro                | list of str | [ ]   | <ul><li>Attributes that will be read-only</li><li>Can selectively override with 'rw'</li></ul> | |
-| rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <li>ro_data</li><li>ro_method</li><li>ro</li></ul> |
+| rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | ro_data<br>ro_method<br>ro |
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li></ul> | |
 
 
