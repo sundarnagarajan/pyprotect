@@ -1,4 +1,12 @@
-# pyprotect module
+# pyprotect: Restrict visibility or mutability of Python object attributes
+pyprotect is a python module that provides API to restrict visibility or mutability of selected Python object attributes in a robust manner.
+
+The key functions in the pyprotect module API - __private()__ and __protect()__ wrap the python object (like a _Proxy_) to restrict visibility or mutability of selected attributes of the wrapped object, while allowing the __wrapping__ object to behave virtually identical to the __wrapped__ object.
+
+## Features
+- Can wrap virtually any Python object - instances, classes (types), modules, methods, classmethods, instancemethods, staticmethods, partials, lambdas.
+- Tested on Python 2.7.18 and Python 3.6.9, 3.7.5, 3.8.0, 3.10.6. Should work on any version of Python3.
+- Has extensive unit (functional) tests - in _tests_ directory.
 
 ## Table of Contents
 
@@ -41,37 +49,105 @@
 
 <!-- vim-markdown-toc -->
 
-## Protect attributes in any python object instance (or class)
-- Supports (virtually) any python object
-- Uses Cython to build a C extension
-- Tested on Python 2.7.18 and Python 3.6.9, 3.7.5, 3.8.0, 3.10.6
-- Should work on any Python 3 version
-- Should work wherever cython works
-- Tested (only) on Ubuntu Bionic 18.04, Ubunto Focal 20.04, Ubuntu Jammy 22.04. Should work on any Linux distribution
-- Unit / functional tests in tests directory
-- If you want to CHANGE the source and recompile protected.c, and you want it
-  to work with Python 3.7+, you need to install cython version >= 0.27.3
-  Do this with: ```sudo pip3 install --upgrade cython>=0.27.3```
-- This README.md is not completely up to date. Use ```pydoc pyprotect``` for more up-to-date documentation
+## Quick start
+```python
 
-## VISIBILITY versus READABILITY or ACCESSIBILITY
-### VISIBILITY: appears in dir(object)
-- Never affected by wrapping: ```object.__dir__(myinst)``` will still show ALL attribute **NAMES**
-- Note: visibility in wrapping object IS controlled by Protected class: ```object.__dir__(wrapped)``` will show attributes based on options used with protect() method
+freeze(o: object) -> Frozen:
+```
 
-### READABILITY or ACCESSIBILITY: Accessing the VALUE of the attribute
-- Applies to wrapping object instance - NOT original wrapped object
-- Code of original wrapped object instance is completely UNAFFECTED by Protected Class
-- Accessibility of attributes of original wrapped object through Protected class instance IS controled by Protected class
-- Affects ```getattr```, ```hasattr```, ```object.__getattribute__``` etc
+```python
+private(o: object, frozen: bool = False) -> object:
+```
+Returns: __FrozenPrivate__ instance if _frozen_; __Private__ instance otherwise
+    
+```python
+protect(o: object frozen: bool = False, dynamic: bool = True, hide_private: bool = False, ro_data: bool = False, ro_method: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = []
+    o-->object to be wrapped
+    frozen-->bool: No attribute can be modified. Default: False
+    dynamic-->bool: Attribute additions, deletions, type changes in wrapped
+        object are automatically visible
+        Default: True   
+    hide_private-->bool: Private vars (_var) will be hidden. Default: False
+    ro_data-->bool: Data attributes will be read-only. Default: False
+    ro_method-->bool: Method attributes will be read-only. Default: True    
+    ro-->list of str: attributes that will be read-only. Default: []
+    rw-->list of str: attributes that will be read-write. Default: []
+        Overrides 'ro_*'    
+    hide-->list of str: attributes that will be hidden. Default: []
+```
+Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
 
-## MUTABILITY: Ability to CHANGE or DELETE an attribute
-- Wrapping object will not allow CHANGING OR DELETING an attribute that is not VISIBLE - per rules of Protected class
-- Attributes set to read-only using protect() method cannot be modified through wrapping object. The code of the original wrapped object is not affected by this.
+### Options: protect method arguments
+
+| Option            | Type        | Default  | Description | Overrides |
+| ----------------- | ----------- | -------- | ----------- | --------- |
+| frozen            | bool        | False    | <ul><li>If True, no attributes can be CHANGED or ADDED</li></ul> |
+| hide_private      | bool        | False    | <ul><li>Private vars (form _var) will be hidden</li></ul> | |
+| ro_data           | bool        | False    | <ul><li>Data (non-method) attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
+| ro_method     | bool    | True | <ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
+| ro                | list of str | [ ]   | <ul><li>Attributes that will be read-only</li><li>Can selectively override with 'rw'</li></ul> | |
+| rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <li>ro_data</li><li>ro_method</li><li>ro</li></ul> |
+| hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li></ul> | |
+
+
+
 
 ## Classes
 
-![class diagram](classdiagram.svg)
+![class diagram](classdiagram.svg "class diagram")
+
+## Features of key classes
+### Frozen
+Frozen object prevents modification of ANY attribute
+- Does not additionally restrict visibility of any attributes in __wrapped__ object accessed through __wrapping__ object
+
+### Private
+- Cannot access traditionally 'private' mangled python attributes
+- Cannot modify traditionally private attributes (form '_var')
+- Cannot add or delete attributes
+- Cannot modify CLASS (```__class__```)of wrapped object
+- Cannot modify ```__dict__``` of wrapped object
+- Cannot modify ```__slots__``` of wrapped object
+- The following attributes of wrapped object are NEVER writeable:
+    ```'__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'```
+- Traditional (mangled) Python private vars are ALWAYS hidden
+- Private vars (form \_var) will be read-only
+- Attributes cannot be added or removed
+- Attributes not part of dir(wrapped_object) are not visible
+- Attributes that are properties are ALWAYS visible AND WRITABLE (except if '_frozen_' is used)
+    - Properties indicate an intention of class author to expose them
+    - Whether they are actually writable depends on whether class author implemented property.setter
+### FrozenPrivate
+- Features of Private PLUS prevents modification of ANY attribute
+### Protected
+- Features of Private PLUS allows __further restriction__ of:
+    - Which attributes are VISIBLE
+    - Which attributes are WRITEABLE
+Default settings:
+- Features of Private - see above
+- dynamic == True
+    Attribute additions, deletions, type changes automatically visible
+- ro_method == True: Method attributes will be read-only
+- All other non-private data attributes are read-write
+
+#### Readability and mutability of attributes with protect() method
+| Option        | Attribute Type    | Restricts Readability | Restricts Mutability     |
+| ------------- | ----------------- | ----------- | -------------- |
+| frozen        | Any               | NO          | YES            |
+| hide_private  | Private attributes | YES         | YES (Indirect) |
+| ro_data       | Data attributes   | NO          | YES            |
+| ro_method     | Method attributes | NO          | YES            |
+| ro            | ANY               | NO          | YES            |
+| rw            | ANY               | NO          | YES            |
+| hide          | ANY               | YES         | YES (Indirect) |
+| show          | ANY               | YES         | NO             |
+
+### FrozenProtected
+- Features of Protected PLUS prevents modification of ANY attribute
+### FrozenPrivacyDict
+abc
+
+
 
 
 ## FUNCTIONS
@@ -118,80 +194,7 @@
 
 #### iswrapped(o: object) -> bool:
     'o' was created using wrap / freeze / private / protect
-
-#### private(o: object, frozen: bool = False) -> object:
-Returns: FrozenPrivate instance if frozen; Private instance otherwise
-    
-Private:
-- Cannot access traditionally 'private' mangled python attributes
-- Cannot modify traditionally private attributes (form '_var')
-- Cannot add or delete attributes
-- Cannot modify CLASS of wrapped object
-- Cannot modify \_\_dict\_\_ of wrapped object
-- Cannot modify \_\_slots\_\_ of wrapped object
-- The following attributes of wrapped object are NEVER writeable:
-    '\_\_dict\_\_', '\_\_delattr\_\_', '\_\_setattr\_\_', '\_\_slots\_\_', '\_\_getattribute\_\_'
-- Traditional (mangled) Python private vars are ALWAYS hidden
-- Private vars (form \_var) will be read-only
-- Attributes cannot be added or removed
-- Attributes not part of dir(wrapped_object) are not visible
-- Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
-    - Properties indicate an intention of class author to expose them
-    - Whether they are actually writable depends on whether class author implemented property.setter
-
-FrozenPrivate:
-- Features of Private PLUS prevents modification of ANY attribute
-
-#### protect(o: object frozen: bool = False, dynamic: bool = True, hide_private: bool = False, ro_data: bool = False, ro_method: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = []
-
-    o-->object to be wrapped
-    frozen-->bool: No attribute can be modified. Default: False
-    dynamic-->bool: Attribute additions, deletions, type changes in wrapped
-        object are automatically visible
-        Default: True
-    
-    hide_private-->bool: Private vars (_var) will be hidden. Default: False
-    ro_data-->bool: Data attributes will be read-only. Default: False
-    ro_method-->bool: Method attributes will be read-only. Default: True
-    
-    ro-->list of str: attributes that will be read-only. Default: []
-    rw-->list of str: attributes that will be read-write. Default: []
-        Overrides 'ro_*'
-    
-    hide-->list of str: attributes that will be hidden. Default: []
-
-Returns-->Instance of FrozenProtected if frozen; Instance of Protected otherwise
-    
-Protected:
-- Features of Private PLUS allows __further restriction__ of:
-    - Which attributes are VISIBLE
-    - Which attributes are WRITEABLE
-    
-FrozenProtected:
-    - Features of Protected PLUS prevents modification of ANY attribute
-    
-Default settings:
-Features of Private:
-- Cannot access traditionally 'private' mangled python attributes
-- Cannot modify traditionally private attributes (form '_var')
-- Cannot add or delete attributes
-- Cannot modify CLASS of wrapped object
-- Cannot modify \_\_dict\_\_ of wrapped object
-- Cannot modify \_\_slots\_\_ of wrapped object
-- The following attributes of wrapped object are NEVER writeable:
-    '\_\_dict\_\_', '\_\_delattr\_\_', '\_\_setattr\_\_', '\_\_slots\_\_', '\_\_getattribute\_\_'
-- Traditional (mangled) Python private vars are ALWAYS hidden
-- Private vars (form \_var) will be read-only
-- Attributes cannot be added or removed
-- Attributes not part of dir(wrapped_object) are not visible
-- Attributes that are properties are ALWAYS visible AND WRITABLE (except if 'frozen' is used)
-    - Properties indicate an intention of class author to expose them
-    - Whether they are actually writable depends on whether class author implemented property.setter
-- dynamic == True
-    Attribute additions, deletions, type changes automatically visible
-- ro_method == True: Method attributes will be read-only
-- All other non-private data attributes are read-write
-    
+ 
 #### wrap(o: object) -> object:
 Returns: Wrapped
 - Should behave just like the wrapped object, except following attributes cannot be modified:
@@ -231,6 +234,7 @@ wrapped = protect(myinst)
 | ro                | list of str | [ ]   | <ul><li>Attributes that will be read-only</li><li>Can selectively override with 'rw'</li></ul> | |
 | rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <li>ro_data</li><li>ro_method</li><li>ro</li></ul> |
 | hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li></ul> | |
+
 
 ## Readability and mutability of attributes with protect() method
 | Option        | Attribute Type    | Restricts Readability | Restricts Mutability     |
