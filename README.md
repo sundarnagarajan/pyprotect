@@ -10,14 +10,19 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 
 ## Table of Contents
 
+
 <!-- vim-markdown-toc GFM -->
 
-* [Protect attributes in any python object instance (or class)](#protect-attributes-in-any-python-object-instance-or-class)
-* [VISIBILITY versus READABILITY or ACCESSIBILITY](#visibility-versus-readability-or-accessibility)
-    * [VISIBILITY: appears in dir(object)](#visibility-appears-in-dirobject)
-    * [READABILITY or ACCESSIBILITY: Accessing the VALUE of the attribute](#readability-or-accessibility-accessing-the-value-of-the-attribute)
-* [MUTABILITY: Ability to CHANGE or DELETE an attribute](#mutability-ability-to-change-or-delete-an-attribute)
+* [Quick start](#quick-start)
+    * [Options: protect method arguments](#options-protect-method-arguments)
+    * [Readability and mutability of attributes with protect() method](#readability-and-mutability-of-attributes-with-protect-method)
 * [Classes](#classes)
+* [Features of key classes](#features-of-key-classes)
+    * [Frozen](#frozen)
+    * [Private](#private)
+    * [FrozenPrivate](#frozenprivate)
+    * [Protected](#protected)
+    * [FrozenProtected](#frozenprotected)
 * [FUNCTIONS](#functions)
         * [contains(p: object, o: object):](#containsp-object-o-object)
         * [freeze(o: object) -> object:](#freezeo-object---object)
@@ -31,12 +36,8 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
         * [isprotected(o: object) -> bool:](#isprotectedo-object---bool)
         * [isreadonly(o: object, a: str) -> bool:](#isreadonlyo-object-a-str---bool)
         * [iswrapped(o: object) -> bool:](#iswrappedo-object---bool)
-        * [private(o: object, frozen: bool = False) -> object:](#privateo-object-frozen-bool--false---object)
-        * [protect(o: object frozen: bool = False, dynamic: bool = True, hide_private: bool = False, ro_data: bool = False, ro_method: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = []](#protecto-object-frozen-bool--false-dynamic-bool--true-hide_private-bool--false-ro_data-bool--false-ro_method-bool--true-ro-liststr---rw-liststr---hide-liststr--)
         * [wrap(o: object) -> object:](#wrapo-object---object)
 * [Usage](#usage)
-* [Options: protect method arguments](#options-protect-method-arguments)
-* [Readability and mutability of attributes with protect() method](#readability-and-mutability-of-attributes-with-protect-method)
 * [Python rules for attributes of type 'property':](#python-rules-for-attributes-of-type-property)
 * [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
 * [Why can't I subclass Protected class?](#why-cant-i-subclass-protected-class)
