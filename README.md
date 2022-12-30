@@ -11,6 +11,8 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 ## Table of Contents
 
 
+<!-- vim-markdown-toc GFM -->
+
 * [Quick start](#quick-start)
     * [Options: protect method arguments](#options-protect-method-arguments)
     * [Readability and mutability of attributes with protect() method](#readability-and-mutability-of-attributes-with-protect-method)
@@ -22,6 +24,12 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
     * [Protected](#protected)
     * [FrozenProtected](#frozenprotected)
 * [FUNCTIONS](#functions)
+    * [Wrapping API](#wrapping-api)
+        * [Options: protect method arguments](#options-protect-method-arguments-1)
+        * [Readability and mutability of attributes with protect() method](#readability-and-mutability-of-attributes-with-protect-method-1)
+    * [Checking types of wrapped objects](#checking-types-of-wrapped-objects)
+    * [Checking properties objects inside wrapped objects](#checking-properties-objects-inside-wrapped-objects)
+    * [pyprotect module metadata](#pyprotect-module-metadata)
 * [Usage](#usage)
 * [Python rules for attributes of type 'property':](#python-rules-for-attributes-of-type-property)
 * [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
@@ -32,6 +40,8 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 * [Work in progress](#work-in-progress)
 * [Changelog](#changelog)
     * [Dec-08-2022](#dec-08-2022)
+
+<!-- vim-markdown-toc -->
 
 ## Quick start
 ```python
