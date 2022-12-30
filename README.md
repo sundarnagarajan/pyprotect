@@ -63,35 +63,19 @@ Returns: __FrozenPrivate__ instance if _frozen_; __Private__ instance otherwise
 ```python
 protect(o: object frozen: bool = False, dynamic: bool = True, hide_private: bool = False, ro_data: bool = False, ro_method: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = []
     o-->object to be wrapped
-    frozen-->bool: No attribute can be modified. Default: False
-    dynamic-->bool: Attribute additions, deletions, type changes in wrapped
-        object are automatically visible
-        Default: True   
-    hide_private-->bool: Private vars (_var) will be hidden. Default: False
-    ro_data-->bool: Data attributes will be read-only. Default: False
-    ro_method-->bool: Method attributes will be read-only. Default: True    
-    ro-->list of str: attributes that will be read-only. Default: []
-    rw-->list of str: attributes that will be read-write. Default: []
-        Overrides 'ro_*'    
-    hide-->list of str: attributes that will be hidden. Default: []
 ```
 Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
 
 ### Options: protect method arguments
-
-| Option            | Type        | Default  | Description | Overrides |
-| ----------------- | ----------- | -------- | ----------- | --------- |
-| frozen            | bool        | False    | <ul><li>If True, no attributes can be CHANGED or ADDED</li></ul> |
-| hide_private      | bool        | False    | <ul><li>Private vars (form _var) will be hidden</li></ul> | |
-| ro_data           | bool        | False    | <ul><li>Data (non-method) attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
-| ro_method     | bool    | True | <ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
-| ro                | list of str | [ ]   | <ul><li>Attributes that will be read-only</li><li>Can selectively override with 'rw'</li></ul> | |
-| rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | ro_data<br>ro_method<br>ro |
-| hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li></ul> | |
-
-
-
-
+| Option       | Type        | Default | Description                                                                            | Overrides                  |
+|--------------|-------------|---------|----------------------------------------------------------------------------------------|----------------------------|
+| frozen       | bool        | False   | If True, no attributes can be changed, added or deleted                                |                            |
+| hide_private | bool        | False   | If True, private vars of the form ```_var``` will be hidden                            |                            |
+| ro_data      | bool        | False   | Data (non-method) attributes will be immutable<br>Can override selectively with __rw__ |                            |
+| ro_method    | bool        | True    | Method (callable) attributes will be immutable<br>Can override selectively with __rw__ |                            |
+| ro           | list of str | []      | Attributes that will be immutable<br>Can override selectively with __rw__              |                            |
+| rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
+| hide         | list of str | []      |                                                                                        |                            |
 ## Classes
 
 ![class diagram](classdiagram.svg "class diagram")
@@ -131,16 +115,16 @@ Default settings:
 - All other non-private data attributes are read-write
 
 #### Readability and mutability of attributes with protect() method
-| Option        | Attribute Type    | Restricts Readability | Restricts Mutability     |
-| ------------- | ----------------- | ----------- | -------------- |
-| frozen        | Any               | NO          | YES            |
-| hide_private  | Private attributes | YES         | YES (Indirect) |
-| ro_data       | Data attributes   | NO          | YES            |
-| ro_method     | Method attributes | NO          | YES            |
-| ro            | ANY               | NO          | YES            |
-| rw            | ANY               | NO          | YES            |
-| hide          | ANY               | YES         | YES (Indirect) |
-| show          | ANY               | YES         | NO             |
+| Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
+|--------------|--------------------|-----------------------|----------------------|
+| frozen       | Any                | NO                    | YES                  |
+| hide_private | Private attributes | YES                   | YES (Indirect)       |
+| ro_data      | Data attributes    | NO                    | YES                  |
+| ro_method    | Method attributes  | NO                    | YES                  |
+| ro           | ANY                | NO                    | YES                  |
+| rw           | ANY                | NO                    | YES                  |
+| hide         | ANY                | YES                   | YES (Indirect)       |
+| show         | ANY                | YES                   | NO                   |
 
 ### FrozenProtected
 - Features of Protected PLUS prevents modification of ANY attribute
