@@ -6,7 +6,7 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 ## Features
 - Can wrap virtually any Python object - instances, classes (types), modules, methods, classmethods, instancemethods, staticmethods, partials, lambdas.
 - Tested on Python 2.7.18 and Python 3.6.9, 3.7.5, 3.8.0, 3.10.6. Should work on any version of Python3.
-- Has extensive unit (functional) tests - in _tests_ directory.
+- Has extensive unit (functional) tests - in [_tests_](https://github.com/sundarnagarajan/python_protected_class/tree/main/tests) directory.
 
 ## Table of Contents
 
@@ -30,13 +30,8 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
     * [Checking types of wrapped objects](#checking-types-of-wrapped-objects)
     * [Checking properties objects inside wrapped objects](#checking-properties-objects-inside-wrapped-objects)
     * [pyprotect module metadata](#pyprotect-module-metadata)
-* [Usage](#usage)
 * [Python rules for attributes of type 'property':](#python-rules-for-attributes-of-type-property)
 * [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
-* [Why can't I subclass Protected class?](#why-cant-i-subclass-protected-class)
-* [How do I](#how-do-i)
-    * [Make my object completely read-only](#make-my-object-completely-read-only)
-    * [Completely hide private variables hat are normally read-only, but visible](#completely-hide-private-variables-hat-are-normally-read-only-but-visible)
 * [Work in progress](#work-in-progress)
 * [Changelog](#changelog)
     * [Dec-08-2022](#dec-08-2022)
@@ -131,7 +126,6 @@ Frozen object prevents modification of ANY attribute
     - All other non-private data attributes are read-write
 ### FrozenProtected
 - Features of Protected PLUS prevents modification of ANY attribute
-
 
 ## FUNCTIONS
 ### Wrapping API
@@ -259,24 +253,6 @@ immutable_builtin_attributes() -> Set[str]
 Returns-->set of str: attributes in builtins that are immutable
 Used in unit tests
 
-## Usage
-```python
-# Use any custom class of your own
-class MyClass(object):
-    def __init__(self):
-        self.__hidden = 1
-        self._private = 2
-        self.public = 3
-
-
-# Get an instance of your class
-myinst = MyClass()
-
-# import + ONE line to wrap and protect class attributes
-from pyprotect import protect
-wrapped = protect(myinst)
-```
-
 ## Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
 - Properties cannot be DELETED
@@ -284,24 +260,7 @@ wrapped = protect(myinst)
 - These rules are implemented by the python language (interpreter) and Protected class does not enforce or check
 
 ## What kind of python objects can be wrapped?
-Pretty much anything. pyprotect only mediates attribute access using ```object.\_\_getattribute\_\_```, ```object.\_\_setattr\_\_``` and ```object.\_\_delatr\_\_```. If these methods work on your object, your object can be wrapped
-
-## Why can't I subclass Protected class?
-- Protected class is only for wrapping a python object INSTANCE
-- NONE of the atributes of Protected class are exposed - only (selecive) attributes of the WRAPPED object
-- Overriding methods of Protected class is not possible - since Protected is implemented in C
-- Overriding attributes of wrapped object is not possible, since the original object is wrapped inside Protected and all accesses are hrough the Proteced class instance
-- New attributes defined in sub-class will not be accessible, since attribute access is mediated by Protected class
-- Because of this, Protected class PREVENTS sub-classing
-- Subclass your python object BEFORE wrapping with Protected
-
-
-## How do I
-### Make my object completely read-only
-- Use ```frozen=True```
-
-### Completely hide private variables hat are normally read-only, but visible
-- Use ```hide_private=True```
+Pretty much anything. pyprotect only mediates attribute access using ```object.__getattribute__```, ```object.__setattr__``` and ```object.__delatr__```. If these methods work on your object, your object can be wrapped
 
 ## Work in progress
 - Uploading to pypi.org
