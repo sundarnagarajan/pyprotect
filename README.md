@@ -168,11 +168,10 @@ protect(
 ```
 Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
 
-If protect() is called on an object 'o' that is an instance ofProtected:
-- protect() will merge the protect() rules, enforcing the most restrictive combination among the two sets of protect() options:
-    - _hide_ and _hide_private_ are OR-ed
-    - _ro_method_, _ro_data_ and _ro_ are OR-ed
-    - _rw_ is AND-ed, but _rw_ of second protect overrides _ro*_ of __second__ protect but __not__ the __first__ protect.
+If _protect()_ is called on an object 'o' that is an instance of Protected, _protect()_ will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
+- _hide_ and _hide_private_ are OR-ed
+- _ro_method_, _ro_data_ and _ro_ are OR-ed
+- _rw_ is AND-ed, but _rw_ of second protect overrides _ro*_ of __second__ protect but __not__ the __first__ protect.
     
 In short, by calling protect() a second time (or multiple times):
     - Additoinal attributes can be hidden
