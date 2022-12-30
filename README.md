@@ -76,6 +76,17 @@ Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__
 | ro           | list of str | []      | Attributes that will be immutable<br>Can override selectively with __rw__              |                            |
 | rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
 | hide         | list of str | []      |                                                                                        |                            |
+### Readability and mutability of attributes with protect() method
+
+| Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
+|--------------|--------------------|-----------------------|----------------------|
+| frozen       | Any                | NO                    | YES                  |
+| hide_private | Private attributes | YES                   | YES (Indirect)       |
+| ro_data      | Data attributes    | NO                    | YES                  |
+| ro_method    | Method attributes  | NO                    | YES                  |
+| ro           | ANY                | NO                    | YES                  |
+| rw           | ANY                | NO                    | YES                  |
+| hide         | ANY                | YES                   | YES (Indirect)       |
 ## Classes
 
 ![class diagram](classdiagram.svg "class diagram")
@@ -113,24 +124,8 @@ Default settings:
     Attribute additions, deletions, type changes automatically visible
 - ro_method == True: Method attributes will be read-only
 - All other non-private data attributes are read-write
-
-#### Readability and mutability of attributes with protect() method
-| Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
-|--------------|--------------------|-----------------------|----------------------|
-| frozen       | Any                | NO                    | YES                  |
-| hide_private | Private attributes | YES                   | YES (Indirect)       |
-| ro_data      | Data attributes    | NO                    | YES                  |
-| ro_method    | Method attributes  | NO                    | YES                  |
-| ro           | ANY                | NO                    | YES                  |
-| rw           | ANY                | NO                    | YES                  |
-| hide         | ANY                | YES                   | YES (Indirect)       |
-
 ### FrozenProtected
 - Features of Protected PLUS prevents modification of ANY attribute
-### FrozenPrivacyDict
-abc
-
-
 
 
 ## FUNCTIONS
