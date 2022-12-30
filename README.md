@@ -306,6 +306,39 @@ immutable_builtin_attributes() -> Set[str]
 Returns-->set of str: attributes in builtins that are immutable
 Used in unit tests
 
+## Calling wrap operations multiple times
+
+In the table below:
+- The left-most column shows starting state.
+- The top row shows operation applied to the starting state.
+- The intersecting cell shows the result.
+
+| Operation  🡆<br>🡇  with | wrap           | freeze          | private       | private<br>+ frozen | protect                | protect<br>+ frozen    |
+|---------------------------|----------------|-----------------|---------------|---------------------|------------------------|------------------------|
+| Wrapped                   | UNCH<br>[1]    | Frozen<br>[2]   | Private       | FrozenPrivate       | Protected              | FrozenProtected        |
+| Frozen                    | Wrapped<br>[2] | UNCH<br>[2]     | FrozenPrivate | FrozenPrivate       | FrozenProtected        | FrozenProtected        |
+| Private                   | UNCH           | FrozenPrivate   | UNCH          | FrozenPrivate       | Protected              | FrozenProtected        |
+| FrozenPrivate             | UNCH           | UNCH            | UNCH          | UNCH                | FrozenProtected        | FrozenProtected        |
+| Protected                 | UNCH           | FrozenProtected | UNCH          | FrozenProtected     | Protected<br>[1]       | FrozenProtected<br>[1] |
+| FrozenProtected           | UNCH           | UNCH            | UNCH          | UNCH                | FrozenProtected<br>[1] | FrozenProtected[1]     |   
+[1]\: _protect()_ applied twice will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
+- _hide_ and _hide_private_ are OR-ed
+- _ro_method_, _ro_data_ and _ro_ are OR-ed
+- _rw_ is AND-ed, but _rw_ of second protect overrides _ro*_ of __second__ protect but __not__ the __first__ protect.
+    
+In short, by calling protect() a second time (or multiple times):
+    - Additoinal attributes can be hidden
+    - Additional attributes can be made read-only
+but:
+    - No previously hidden attribute will become visible
+    - No previously read-only attribute will become mutable
+
+[2]\: If _x_ is an immutable object (e.g. int, str ...) having _isimmutable(x) \=\= True_, _freeze(x)_ returns _x_ and _iswrapped(freeze(x))_ will be False.
+    
+For all other objects _x_, having _isimmutable(x) \=\= False_, _freeze(x)_ will return a Frozen object having _iswrapped(freeze(x)) == True_
+    
+For all other wrapped objects _w_, created with _private(x)_ or _protect(x)_, _freeze(w)_ will always return a Wrapped object with _iswrapped(w) == True_
+
 ## Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
 - Properties cannot be DELETED
