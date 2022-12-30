@@ -320,7 +320,9 @@ In the table below:
 | Private                   | UNCH           | FrozenPrivate   | UNCH          | FrozenPrivate       | Protected              | FrozenProtected        |
 | FrozenPrivate             | UNCH           | UNCH            | UNCH          | UNCH                | FrozenProtected        | FrozenProtected        |
 | Protected                 | UNCH           | FrozenProtected | UNCH          | FrozenProtected     | Protected<br>[1]       | FrozenProtected<br>[1] |
-| FrozenProtected           | UNCH           | UNCH            | UNCH          | UNCH                | FrozenProtected<br>[1] | FrozenProtected[1]     |   
+| FrozenProtected           | UNCH           | UNCH            | UNCH          | UNCH                | FrozenProtected<br>[1] | FrozenProtected[1]     | 
+
+
 [1]\: _protect()_ applied twice will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
 - _hide_ and _hide_private_ are OR-ed
 - _ro_method_, _ro_data_ and _ro_ are OR-ed
