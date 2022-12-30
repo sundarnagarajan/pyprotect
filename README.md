@@ -68,7 +68,8 @@ Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__
 | ro_method    | bool        | True    | Method (callable) attributes will be immutable<br>Can override selectively with __rw__ |                            |
 | ro           | list of str | []      | Attributes that will be immutable<br>Can override selectively with __rw__              |                            |
 | rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
-| hide         | list of str | []      |                                                                                        |                            |
+| hide         | list of str | []   |                                                                                        |                            |
+
 ### Readability and mutability of attributes with protect() method
 
 | Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
@@ -80,6 +81,7 @@ Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__
 | ro           | ANY                | NO                    | YES                  |
 | rw           | ANY                | NO                    | YES                  |
 | hide         | ANY                | YES                   | YES (Indirect)       |
+
 ## Classes
 
 ![class diagram](classdiagram.svg "class diagram")
@@ -97,7 +99,7 @@ Frozen object prevents modification of ANY attribute
 - Cannot modify ```__dict__``` of wrapped object
 - Cannot modify ```__slots__``` of wrapped object
 - The following attributes of wrapped object are NEVER writeable:
-    ```'__dict__', '__delattr__', '__setattr__', '__slots__', '__getattribute__'```
+    ```__dict__```, ```__delattr__```, ```__setattr__```, ```__slots__```, ```__getattribute__```
 - Traditional (mangled) Python private vars are ALWAYS hidden
 - Private vars (form \_var) will be read-only
 - Attributes cannot be added or removed
