@@ -201,32 +201,6 @@ from pyprotect import protect
 wrapped = protect(myinst)
 ```
 
-## Options: protect method arguments
-
-| Option            | Type        | Default  | Description | Overrides |
-| ----------------- | ----------- | -------- | ----------- | --------- |
-| frozen            | bool        | False    | <ul><li>If True, no attributes can be CHANGED or ADDED</li></ul> |  | |
-| hide_private      | bool        | False    | <ul><li>Private vars (form _var) will be hidden</li></ul> | |
-| ro_data           | bool        | False    | <ul><li>Data (non-method) attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
-| ro_method     | bool    | True | <ul><li>Method attributes will be read-only</li><li>Override selectively with 'rw'</li></ul> | |
-| ro                | list of str | [ ]   | <ul><li>Attributes that will be read-only</li><li>Can selectively override with 'rw'</li></ul> | |
-| rw                | list of str | [ ]   | <ul><li>Attributes that will be read-write</li></ul> | <li>ro_data</li><li>ro_method</li><li>ro</li></ul> |
-| hide              | list of str | [ ]   | <ul><li>Attributes that will be hidden</li></ul> | |
-
-
-## Readability and mutability of attributes with protect() method
-| Option        | Attribute Type    | Restricts Readability | Restricts Mutability     |
-| ------------- | ----------------- | ----------- | -------------- |
-| frozen        | Any               | NO          | YES            |
-| hide_private  | Private attributes | YES         | YES (Indirect) |
-| ro_data       | Data attributes   | NO          | YES            |
-| ro_method     | Method attributes | NO          | YES            |
-| ro            | ANY               | NO          | YES            |
-| rw            | ANY               | NO          | YES            |
-| hide          | ANY               | YES         | YES (Indirect) |
-| show          | ANY               | YES         | NO             |
-
-
 ## Python rules for attributes of type 'property':
 - Properties are defined in the CLASS, and cannot be changed in the object INSTANCE
 - Properties cannot be DELETED
