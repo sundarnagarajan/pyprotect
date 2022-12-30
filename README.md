@@ -89,7 +89,7 @@ Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__
 ## Features of key classes
 ### Frozen
 Frozen object prevents modification of ANY attribute
-- Does not additionally restrict visibility of any attributes in __wrapped__ object accessed through __wrapping__ object
+- Does not __additionally__ restrict visibility of any attributes in __wrapped__ object accessed through __wrapping__ object
 
 ### Private
 - Cannot access traditionally 'private' mangled python attributes
@@ -124,52 +124,64 @@ Frozen object prevents modification of ANY attribute
 
 
 ## FUNCTIONS
-#### contains(p: object, o: object):
-    Returns--whether 'p' wraps 'o'
+### Wrapping API
+```python
 
-#### freeze(o: object) -> object:
-    Frozen object prevents modification of ANY attribute
-        - Does not hide traditionally 'private' mangled python attributes
+freeze(o: object) -> Frozen:
+```
 
-#### help_protected(o: object) -> None:
-    help for wrapped object if wrapped; help for 'o' otherwise
+```python
+private(o: object, frozen: bool = False) -> object:
+```
+Returns: __FrozenPrivate__ instance if _frozen_; __Private__ instance otherwise
+    
+```python
+protect(
+    o: object frozen: bool = False,
+    dynamic: bool = True,
+    hide_private: bool = False,
+    ro_data: bool = False,
+    ro_method: bool = True,
+    ro: List[str] = [],
+    rw: List[str] = [],
+    hide: List[str] = []
+) -> object:
+# o-->object to be wrapped
+```
+Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
 
-#### id_protected(o: object) -> int:
-    id of wrapped object if wrapped; id of 'o' otherwise
+#### Options: protect method arguments
+| Option       | Type        | Default | Description                                                                            | Overrides                  |
+|--------------|-------------|---------|----------------------------------------------------------------------------------------|----------------------------|
+| frozen       | bool        | False   | If True, no attributes can be changed, added or deleted                                |                            |
+| hide_private | bool        | False   | If True, private vars of the form ```_var``` will be hidden                            |                            |
+| ro_data      | bool        | False   | Data (non-method) attributes will be immutable<br>Can override selectively with __rw__ |                            |
+| ro_method    | bool        | True    | Method (callable) attributes will be immutable<br>Can override selectively with __rw__ |                            |
+| ro           | list of str | []      | Attributes that will be immutable<br>Can override selectively with __rw__              |                            |
+| rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
+| hide         | list of str | []   |                                                                                        |                            |
 
-#### immutable_builtin_attributes() -> Set[str]:
-    Returns-->set of str: attributes in builtins that are immutable
-    Used in unit tests
+#### Readability and mutability of attributes with protect() method
 
-#### isfrozen(o: object) -> bool:
-    'o' was created using freeze()
+| Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
+|--------------|--------------------|-----------------------|----------------------|
+| frozen       | Any                | NO                    | YES                  |
+| hide_private | Private attributes | YES                   | YES (Indirect)       |
+| ro_data      | Data attributes    | NO                    | YES                  |
+| ro_method    | Method attributes  | NO                    | YES                  |
+| ro           | ANY                | NO                    | YES                  |
+| rw           | ANY                | NO                    | YES                  |
+| hide         | ANY                | YES                   | YES (Indirect)       |
 
-#### isimmutable(o: object) -> bool:
-    'o' is KNOWN to be immutable
+```python
+freeze(o: object) -> object:
+```
+Frozen object prevents modification of ANY attribute
+- Does not hide traditionally 'private' mangled python attributes
 
-#### isinstance_protected(o: object, c: type) -> bool:
-    Returns-->True IFF isinstance(object_wrapped_by_o, c)
-    Similar to isinstance, but object o can be an object returned
-    by freeze(), private() or protect()
-
-#### isprivate(o: object) -> bool:
-    'o' was created using private()
-
-#### isprotected(o: object) -> bool:
-    'o' was created using protect()
-
-#### isreadonly(o: object, a: str) -> bool:
-    Returns-->bool: True IFF 'o' is wrapped AND 'o' makes arribute 'a'
-        read-only if present in wrapped object
-    This represents RULE of wrapped object - does not guarantee
-    that WRAPPED OBJECT has attribute 'a' or that setting attribute
-    'a' in object 'o' will not raise any exception
-
-#### iswrapped(o: object) -> bool:
-    'o' was created using wrap / freeze / private / protect
- 
-#### wrap(o: object) -> object:
-Returns: Wrapped
+```python
+wrap(o: object) -> Wrapped:
+```
 - Should behave just like the wrapped object, except following attributes cannot be modified:
     '\_\_getattribute\_\_', '\_\_delattr\_\_', '\_\_setattr\_\_', '\_\_slots\_\_',
 - Does NOT protect CLASS of wrapped object from modification
@@ -177,6 +189,65 @@ Returns: Wrapped
     
 Useful for testing if wrapping is failing for a particular type of object
 
+###  Checking types of wrapped objects
+```python
+isfrozen(x: object) -> bool
+```
+_x_ was created using _freeze()_ or _private(o, frozen=True)_ or _protect(o, frozen=True)_
+
+```python
+isimmutable(x: object) -> bool
+```
+_x_ is known to be immutable
+
+```python
+isprivate(x: object) -> bool
+```
+_x_ was created using _private()_
+
+```python
+isprotected(x: object) -> bool
+```
+_x_ was created using _protect()_
+
+### Checking properties objects inside wrapped objects
+```python
+contains(w: object, o: object) -> bool
+```
+If _w_ is a wrapped object (_iswrapped(w)_ is True), returns whether _w_ wraps _o_
+Otherwise unconditionally returns False
+
+```python
+help_protected(x: object) -> None
+```
+If _x_ wraps _o_, executes _help(o)_
+Otherwise executes h_elp(x)_
+
+```python
+id_protected(x: object) -> int
+```
+if _x_ is a wrapped object (_iswrapped(x)_ is True) and _x_ wraps _o_, returns _id(o)_
+Otherwise returns _id(x)_
+
+```python
+isinstance_protected(x: object, t: type) -> bool
+```
+If _x_ is a wrapped object (_iswrapped(x)_ is True) and _x_ wraps _o_, returns _isinstance(o, t)_
+Otherwise returns _isinstance(x, t)_
+
+```python
+isreadonly(x: object, a: str) -> bool
+```
+If _x_ is a wrapped object (_iswrapped(x)_ is True) and _x_ wraps _o_, returns whether rules of __wrapper__ make attribute _a_ read-only when accessed through _x_
+This represents __rule__ of wrapped object - does not guarantee that_o_ has attribute_a_ or that setting attribute _a_ in object _o_ will not raise any exception
+If _x_ is __not__ a wrapped object (_iswrapped(x)_ is False) , unconditionally returns False
+
+### pyprotect module metadata
+```python
+immutable_builtin_attributes() -> Set[str]
+```
+Returns-->set of str: attributes in builtins that are immutable
+Used in unit tests
 
 ## Usage
 ```python
