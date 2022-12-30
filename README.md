@@ -45,8 +45,17 @@ private(o: object, frozen: bool = False) -> object:
 Returns: __FrozenPrivate__ instance if _frozen_; __Private__ instance otherwise
     
 ```python
-protect(o: object frozen: bool = False, dynamic: bool = True, hide_private: bool = False, ro_data: bool = False, ro_method: bool = True, ro: List[str] = [], rw: List[str] = [], hide: List[str] = []
-    o-->object to be wrapped
+protect(
+    o: object frozen: bool = False,
+    dynamic: bool = True,
+    hide_private: bool = False,
+    ro_data: bool = False,
+    ro_method: bool = True,
+    ro: List[str] = [],
+    rw: List[str] = [],
+    hide: List[str] = []
+) -> object:
+# o-->object to be wrapped
 ```
 Returns-->Instance of __FrozenProtected__ if _frozen_; Instance of __Protected__ otherwise
 
