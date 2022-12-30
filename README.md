@@ -193,9 +193,9 @@ Frozen object prevents modification of ANY attribute
 wrap(o: object) -> Wrapped:
 ```
 - Should behave just like the wrapped object, except following attributes cannot be modified:
-    '\_\_getattribute\_\_', '\_\_delattr\_\_', '\_\_setattr\_\_', '\_\_slots\_\_',
-- Does NOT protect CLASS of wrapped object from modification
-- Does NOT protect \_\_dict\_\_ or \_\_slots\_\_
+    ```__getattribute__```, ```__delattr__```, ```__setattr__```, ```__slots__```,
+- Does NOT protect CLASS (or ```__class__```) of wrapped object from modification
+- Does NOT protect ```__dict__``` or ```__slots__```
     
 Useful for testing if wrapping is failing for a particular type of object
 
