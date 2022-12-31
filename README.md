@@ -123,9 +123,9 @@ __Options: protect method arguments__
 | rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
 | hide         | list of str | []   |                                                                                        |                            |
 
-__Readability and mutability of attributes with protect() method__
+__Visibility and mutability of attributes with protect() method__
 
-| Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
+| Option       | Attribute Type     | Restricts Visibility | Restricts Mutability |
 |--------------|--------------------|-----------------------|----------------------|
 | frozen       | Any                | NO                    | YES                  |
 | hide_private | Private attributes | YES                   | YES (Indirect)       |
@@ -244,9 +244,9 @@ __Options: protect method arguments__
 | rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
 | hide         | list of str | []   |                                                                                        |                            |
 
-__Readability and mutability of attributes with protect() method__
+__Visibility and mutability of attributes with protect() method__
 
-| Option       | Attribute Type     | Restricts Readability | Restricts Mutability |
+| Option       | Attribute Type     | Restricts Visibility | Restricts Mutability |
 |--------------|--------------------|-----------------------|----------------------|
 | frozen       | Any                | NO                    | YES                  |
 | hide_private | Private attributes | YES                   | YES (Indirect)       |
