@@ -414,10 +414,10 @@ In the table below:
 | Operation  🡆<br>🡇  with | wrap       | freeze          | private       | private<br>+ frozen | protect                | protect<br>+ frozen    |
 |---------------------------|------------|-----------------|---------------|---------------------|------------------------|------------------------|
 | Wrapped                   | UNCH       | Frozen(2)       | Private       | FrozenPrivate       | Protected              | FrozenProtected        |
-| Frozen                    | Wrapped(2) | UNCH<br>(2)     | FrozenPrivate | FrozenPrivate       | FrozenProtected        | FrozenProtected        |
+| Frozen                    | Wrapped<br>(2) | UNCH<br>(2)     | FrozenPrivate | FrozenPrivate       | FrozenProtected        | FrozenProtected        |
 | Private                   | UNCH       | FrozenPrivate   | UNCH          | FrozenPrivate       | Protected              | FrozenProtected        |
 | FrozenPrivate             | UNCH       | UNCH            | UNCH          | UNCH                | FrozenProtected        | FrozenProtected        |
-| Protected                 | UNCH       | FrozenProtected | UNCH          | FrozenProtected     | Protected(1)           | FrozenProtected(1)     |
+| Protected                 | UNCH       | FrozenProtected | UNCH          | FrozenProtected     | Protected<br>(1)           | FrozenProtected(1)     |
 | FrozenProtected           | UNCH       | UNCH            | UNCH          | UNCH                | FrozenProtected<br>(1) | FrozenProtected<br>(1) |
 1. _protect()_ applied twice will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
 - _hide_ and _hide_private_ are OR-ed
