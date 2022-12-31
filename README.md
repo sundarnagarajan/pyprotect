@@ -108,9 +108,6 @@ If _protect()_ is called on an object 'o' that is an instance of Protected, _pro
 In short, by calling protect() a second time (or multiple times):
 - Additoinal attributes can be hidden
 - Additional attributes can be made read-only
-<br>
-but:
-<br>
 - No previously hidden attribute will become visible
 - No previously read-only attribute will become mutable
 
@@ -233,9 +230,6 @@ If _protect()_ is called on an object 'o' that is an instance of Protected, _pro
 In short, by calling protect() a second time (or multiple times):
 - Additoinal attributes can be hidden
 - Additional attributes can be made read-only
-<br>
-but:
-<br>
 - No previously hidden attribute will become visible
 - No previously read-only attribute will become mutable
 
