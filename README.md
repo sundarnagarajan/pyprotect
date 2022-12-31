@@ -260,7 +260,7 @@ __Readability and mutability of attributes with protect() method__
 | hide         | ANY                | YES                   | YES (Indirect)       |
 
 #### wrap
-``````python
+```python
 wrap(o: object) -> Wrapped:
 ```
 - Should behave just like the wrapped object, except following attributes cannot be modified:
@@ -413,13 +413,13 @@ In the table below:
 - The intersecting cell shows the result.
 
 | Operation  🡆<br>🡇  with | wrap           | freeze          | private       | private<br>+ frozen | protect                | protect<br>+ frozen    |
-|---------------------------|----------------|-----------------|---------------|---------------------|------------------------|------------------------|
 | Wrapped                   | UNCH<br>[1]    | Frozen<br>[2]   | Private       | FrozenPrivate       | Protected              | FrozenProtected        |
 | Frozen                    | Wrapped<br>[2] | UNCH<br>[2]     | FrozenPrivate | FrozenPrivate       | FrozenProtected        | FrozenProtected        |
 | Private                   | UNCH           | FrozenPrivate   | UNCH          | FrozenPrivate       | Protected              | FrozenProtected        |
 | FrozenPrivate             | UNCH           | UNCH            | UNCH          | UNCH                | FrozenProtected        | FrozenProtected        |
 | Protected                 | UNCH           | FrozenProtected | UNCH          | FrozenProtected     | Protected<br>[1]       | FrozenProtected<br>[1] |
 | FrozenProtected           | UNCH           | UNCH            | UNCH          | UNCH                | FrozenProtected<br>[1] | FrozenProtected[1]     | 
+
 
 
 1. _protect()_ applied twice will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
