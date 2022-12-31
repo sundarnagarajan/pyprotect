@@ -106,11 +106,11 @@ If _protect()_ is called on an object 'o' that is an instance of Protected, _pro
 - _rw_ is AND-ed, but _rw_ of second protect overrides _ro*_ of __second__ protect but __not__ the __first__ protect.
     
 In short, by calling protect() a second time (or multiple times):
-    - Additoinal attributes can be hidden
-    - Additional attributes can be made read-only
+- Additoinal attributes can be hidden
+- Additional attributes can be made read-only
 but:
-    - No previously hidden attribute will become visible
-    - No previously read-only attribute will become mutable
+- No previously hidden attribute will become visible
+- No previously read-only attribute will become mutable
 
 
 __Options: protect method arguments__
@@ -229,11 +229,11 @@ If _protect()_ is called on an object 'o' that is an instance of Protected, _pro
 - _rw_ is AND-ed, but _rw_ of second protect overrides _ro*_ of __second__ protect but __not__ the __first__ protect.
     
 In short, by calling protect() a second time (or multiple times):
-    - Additoinal attributes can be hidden
-    - Additional attributes can be made read-only
+- Additoinal attributes can be hidden
+- Additional attributes can be made read-only
 but:
-    - No previously hidden attribute will become visible
-    - No previously read-only attribute will become mutable
+- No previously hidden attribute will become visible
+- No previously read-only attribute will become mutable
 
 __Options: protect method arguments__
 | Option       | Type        | Default | Description                                                                            | Overrides                  |
