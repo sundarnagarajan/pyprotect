@@ -410,9 +410,10 @@ In the table below:
 - The intersecting cell shows the result.
 - _UNCH_ represents operation returning the starting state unchanged
 
-| Operation  🡆<br>🡇  with | wrap       | freeze          | private       | private<br>+ frozen | protect                | protect<br>+ frozen    |
+| Operation  🡆<br>On type 🡇 | wrap       | freeze          | private       | private<br>+ frozen | protect                | protect<br>+ frozen    |
 |---------------------------|------------|-----------------|---------------|---------------------|------------------------|------------------------|
-| Wrapped                   | UNCH       | Frozen(2)       | Private       | FrozenPrivate       | Protected              | FrozenProtected        |
+| Ordinary object<br>_iswrapped(x)_ is False                   | Wrapped       | Frozen<br>(2)       | Private       | FrozenPrivate       | Protected              | FrozenProtected        |
+| Wrapped                   | UNCH       | Frozen<br>(2)       | Private       | FrozenPrivate       | Protected              | FrozenProtected        |
 | Frozen                    | Wrapped<br>(2) | UNCH<br>(2)     | FrozenPrivate | FrozenPrivate       | FrozenProtected        | FrozenProtected        |
 | Private                   | UNCH       | FrozenPrivate   | UNCH          | FrozenPrivate       | Protected              | FrozenProtected        |
 | FrozenPrivate             | UNCH       | UNCH            | UNCH          | UNCH                | FrozenProtected        | FrozenProtected        |
