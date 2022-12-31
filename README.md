@@ -408,6 +408,7 @@ In the table below:
 - The left-most column shows starting state.
 - The top row shows operation applied to the starting state.
 - The intersecting cell shows the result.
+- _UNCH_ represents operation returning the starting state unchanged
 
 | Operation  🡆<br>🡇  with | wrap       | freeze          | private       | private<br>+ frozen | protect                | protect<br>+ frozen    |
 |---------------------------|------------|-----------------|---------------|---------------------|------------------------|------------------------|
