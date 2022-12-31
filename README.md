@@ -1,4 +1,4 @@
-# pyprotect: Restrict visibility or mutability of Python object attributes
+# Restrict visibility or mutability of Python object attributes
 pyprotect is a python module that provides API to restrict visibility or mutability of selected Python object attributes in a robust manner.
 
 The key functions in the pyprotect module API - __private()__ and __protect()__ wrap the python object (like a _Proxy_) to restrict visibility or mutability of selected attributes of the wrapped object, while allowing the __wrapping__ object to behave virtually identical to the __wrapped__ object.
