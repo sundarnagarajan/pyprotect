@@ -110,6 +110,7 @@ In short, by calling protect() a second time (or multiple times):
 - Additional attributes can be made read-only
 <br>
 but:
+<br>
 - No previously hidden attribute will become visible
 - No previously read-only attribute will become mutable
 
@@ -234,6 +235,7 @@ In short, by calling protect() a second time (or multiple times):
 - Additional attributes can be made read-only
 <br>
 but:
+<br>
 - No previously hidden attribute will become visible
 - No previously read-only attribute will become mutable
 
