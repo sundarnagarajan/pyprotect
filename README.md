@@ -422,7 +422,7 @@ In the table below:
 | FrozenProtected           | UNCH           | UNCH            | UNCH          | UNCH                | FrozenProtected<br>[1] | FrozenProtected[1]     | 
 
 
-[1]\: _protect()_ applied twice will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
+1. _protect()_ applied twice will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
 - _hide_ and _hide_private_ are OR-ed
 - _ro_method_, _ro_data_ and _ro_ are OR-ed
 - _rw_ is AND-ed, but _rw_ of second protect overrides _ro*_ of __second__ protect but __not__ the __first__ protect.
@@ -434,7 +434,7 @@ but:
     - No previously hidden attribute will become visible
     - No previously read-only attribute will become mutable
 
-[2]\: If _x_ is an immutable object (e.g. int, str ...) having _isimmutable(x) \=\= True_, _freeze(x)_ returns _x_ and _iswrapped(freeze(x))_ will be False.
+2. If _x_ is an immutable object (e.g. int, str ...) having _isimmutable(x) \=\= True_, _freeze(x)_ returns _x_ and _iswrapped(freeze(x))_ will be False.
     
 For all other objects _x_, having _isimmutable(x) \=\= False_, _freeze(x)_ will return a Frozen object having _iswrapped(freeze(x)) == True_
     
