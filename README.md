@@ -22,7 +22,7 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
     * [FrozenPrivate](#frozenprivate)
     * [Protected](#protected)
     * [FrozenProtected](#frozenprotected)
-* [FUNCTIONS](#functions)
+* [API](#api)
     * [Wrapping API](#wrapping-api)
         * [freeze](#freeze)
         * [private](#private-1)
@@ -178,7 +178,7 @@ __Readability and mutability of attributes with protect() method__
 ### FrozenProtected
 - Features of Protected PLUS prevents modification of ANY attribute
 
-## FUNCTIONS
+## API
 ### Wrapping API
 #### freeze
 ```python
