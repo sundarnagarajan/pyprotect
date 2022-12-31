@@ -240,7 +240,8 @@ Frozen object prevents modification of ANY attribute
 wrap(o: object) -> Wrapped:
 ```
 - Should behave just like the wrapped object, except following attributes cannot be modified:
-    ```__getattribute__```, ```__delattr__```, ```__setattr__```, ```__slots__```,
+    ```__getattribute__```, ```__delattr__```, ```__setattr__```, ```__slots__```
+- Explicitly does NOT support pickling, and will raise _pickle.PicklingError_
 - Does NOT protect CLASS (or ```__class__```) of wrapped object from modification
 - Does NOT protect ```__dict__``` or ```__slots__```
     
@@ -299,12 +300,70 @@ If _x_ is a wrapped object (_iswrapped(x)_ is True) and _x_ wraps _o_, returns w
 This represents __rule__ of wrapped object - does not guarantee that_o_ has attribute_a_ or that setting attribute _a_ in object _o_ will not raise any exception
 If _x_ is __not__ a wrapped object (_iswrapped(x)_ is False) , unconditionally returns False
 
+```python
+instance_of_protected(x: object, w: object) -> bool
+```
+If _iswrapped(w)_ and w wraps _o_: Returns _isinstance(x, type(o))_
+<br>
+Otherwise: returns _isinstance(x, w)_
+
+```python
+isvisible(x: object, a: str) -> bool
+```
+Returns False if and only if _iswrapped(x)_ is True AND _x_ makes attribute _a_ invisible if present in wrapped object
+<br>
+This represents __rule__ of wrapped object - does not guarantee that __wrapped object__ has attribute _a_ or that accessing attribute _a_ in object _x_ will not raise any exception
+<br>        
+If _x_ is not a wrapped object, unconditionally returns False
+
+```python
+same_class_protected(c: type, w: object) -> bool
+```
+If _iswrapped(w)_ and _w_ wraps _o_: Returns _(c is type(o))_
+<br>
+Otherwise: returns _(c is type(w))_
+
+```python
+subclass_of_protected(x: object, w: object) -> bool
+```
+If _iswrapped(w)_ and _w_ wraps _o_: Returns _issubclass(x, type(o))_
+<br>
+Otherwise: returns _issubclass(x, w)_
+
 ### pyprotect module metadata
 ```python
 immutable_builtin_attributes() -> Set[str]
 ```
 Returns-->set of str: attributes in builtins that are immutable
 Used in unit tests
+
+```python
+always_delegated_attributes() -> set(str)
+```
+Attributes that are always delegated to wrapped object
+
+```python
+attribute_protected() -> str
+```
+Name of special attribute in Wrapped objects
+
+```python
+hidden_pickle_attributes() -> set(str)
+```
+Attributes that are never visible in object 'o' if iswrapped(o) - to disallow pickling
+
+```python
+never_writeable() -> set(str)
+```
+Attributes that are never writeable in object _o_ if _iswrapped(o)_
+
+```python
+never_writeable_private() -> set(str)
+```
+Attributes that are never writeable in object _o_ if _isprivate(o)_
+
+
+
 
 ## Calling wrap operations multiple times
 
