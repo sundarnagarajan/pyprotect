@@ -24,9 +24,32 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
     * [FrozenProtected](#frozenprotected)
 * [FUNCTIONS](#functions)
     * [Wrapping API](#wrapping-api)
+        * [freeze](#freeze)
+        * [private](#private-1)
+        * [protect](#protect)
+        * [wrap](#wrap)
     * [Checking types of wrapped objects](#checking-types-of-wrapped-objects)
+        * [isfrozen](#isfrozen)
+        * [isimmutable](#isimmutable)
+        * [isprivate](#isprivate)
+        * [isprotected](#isprotected)
     * [Checking properties objects inside wrapped objects](#checking-properties-objects-inside-wrapped-objects)
+        * [contains](#contains)
+        * [help_protected](#help_protected)
+        * [id_protected](#id_protected)
+        * [isinstance_protected](#isinstance_protected)
+        * [isreadonly](#isreadonly)
+        * [instance_or_protected](#instance_or_protected)
+        * [isvisible](#isvisible)
+        * [same_class_protected](#same_class_protected)
+        * [subclass_of_protected](#subclass_of_protected)
     * [pyprotect module metadata](#pyprotect-module-metadata)
+        * [immutable_builtin_attributes](#immutable_builtin_attributes)
+        * [always_delegated_attributes](#always_delegated_attributes)
+        * [attribute_protected](#attribute_protected)
+        * [hidden_pickle_attributes](#hidden_pickle_attributes)
+        * [never_writeable](#never_writeable)
+        * [never_writeable_private](#never_writeable_private)
 * [Calling wrap operations multiple times](#calling-wrap-operations-multiple-times)
 * [Python rules for attributes of type 'property':](#python-rules-for-attributes-of-type-property)
 * [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
@@ -157,6 +180,7 @@ __Readability and mutability of attributes with protect() method__
 
 ## FUNCTIONS
 ### Wrapping API
+#### freeze
 ```python
 
 freeze(o: object) -> Frozen:
@@ -171,6 +195,7 @@ freeze(o: object) -> Frozen:
     
 Object returned prevents modification of ANY attribute
 
+#### private
 ```python
 private(o: object, frozen: bool = False) -> object:
 ```
@@ -182,7 +207,8 @@ private(o: object, frozen: bool = False) -> object:
      - If _o_ is an instance of Protected, returns _freeze(o)_ (FrozenProtected)
      - Otherwise:
           If _frozen_ is True, returns FrozenPrivate; returns Private otherwise
-    
+
+#### protect
 ```python
 protect(
     o: object frozen: bool = False,
@@ -233,13 +259,8 @@ __Readability and mutability of attributes with protect() method__
 | rw           | ANY                | NO                    | YES                  |
 | hide         | ANY                | YES                   | YES (Indirect)       |
 
-```python
-freeze(o: object) -> object:
-```
-Frozen object prevents modification of ANY attribute
-- Does not hide traditionally 'private' mangled python attributes
-
-```python
+#### wrap
+``````python
 wrap(o: object) -> Wrapped:
 ```
 - Should behave just like the wrapped object, except following attributes cannot be modified:
@@ -251,51 +272,60 @@ wrap(o: object) -> Wrapped:
 Useful for testing if wrapping is failing for a particular type of object
 
 ###  Checking types of wrapped objects
+#### isfrozen
 ```python
 isfrozen(x: object) -> bool
 ```
 _x_ was created using _freeze()_ or _private(o, frozen=True)_ or _protect(o, frozen=True)_
 
+#### isimmutable
 ```python
 isimmutable(x: object) -> bool
 ```
 _x_ is known to be immutable
 
+#### isprivate
 ```python
 isprivate(x: object) -> bool
 ```
 _x_ was created using _private()_
 
+#### isprotected
 ```python
 isprotected(x: object) -> bool
 ```
 _x_ was created using _protect()_
 
 ### Checking properties objects inside wrapped objects
+#### contains
 ```python
 contains(w: object, o: object) -> bool
 ```
 If _w_ is a wrapped object (_iswrapped(w)_ is True), returns whether _w_ wraps _o_
 Otherwise unconditionally returns False
 
+#### help_protected
 ```python
 help_protected(x: object) -> None
 ```
 If _x_ wraps _o_, executes _help(o)_
 Otherwise executes h_elp(x)_
 
+#### id_protected
 ```python
 id_protected(x: object) -> int
 ```
 if _x_ is a wrapped object (_iswrapped(x)_ is True) and _x_ wraps _o_, returns _id(o)_
 Otherwise returns _id(x)_
 
+#### isinstance_protected
 ```python
 isinstance_protected(x: object, t: type) -> bool
 ```
 If _x_ is a wrapped object (_iswrapped(x)_ is True) and _x_ wraps _o_, returns _isinstance(o, t)_
 Otherwise returns _isinstance(x, t)_
 
+#### isreadonly
 ```python
 isreadonly(x: object, a: str) -> bool
 ```
@@ -303,6 +333,7 @@ If _x_ is a wrapped object (_iswrapped(x)_ is True) and _x_ wraps _o_, returns w
 This represents __rule__ of wrapped object - does not guarantee that_o_ has attribute_a_ or that setting attribute _a_ in object _o_ will not raise any exception
 If _x_ is __not__ a wrapped object (_iswrapped(x)_ is False) , unconditionally returns False
 
+#### instance_or_protected
 ```python
 instance_of_protected(x: object, w: object) -> bool
 ```
@@ -310,6 +341,7 @@ If _iswrapped(w)_ and w wraps _o_: Returns _isinstance(x, type(o))_
 <br>
 Otherwise: returns _isinstance(x, w)_
 
+#### isvisible
 ```python
 isvisible(x: object, a: str) -> bool
 ```
@@ -319,6 +351,7 @@ This represents __rule__ of wrapped object - does not guarantee that __wrapped o
 <br>        
 If _x_ is not a wrapped object, unconditionally returns False
 
+#### same_class_protected
 ```python
 same_class_protected(c: type, w: object) -> bool
 ```
@@ -326,6 +359,7 @@ If _iswrapped(w)_ and _w_ wraps _o_: Returns _(c is type(o))_
 <br>
 Otherwise: returns _(c is type(w))_
 
+#### subclass_of_protected
 ```python
 subclass_of_protected(x: object, w: object) -> bool
 ```
@@ -334,39 +368,42 @@ If _iswrapped(w)_ and _w_ wraps _o_: Returns _issubclass(x, type(o))_
 Otherwise: returns _issubclass(x, w)_
 
 ### pyprotect module metadata
+#### immutable_builtin_attributes
 ```python
 immutable_builtin_attributes() -> Set[str]
 ```
 Returns-->set of str: attributes in builtins that are immutable
 Used in unit tests
 
+#### always_delegated_attributes
 ```python
 always_delegated_attributes() -> set(str)
 ```
 Attributes that are always delegated to wrapped object
 
+#### attribute_protected
 ```python
 attribute_protected() -> str
 ```
 Name of special attribute in Wrapped objects
 
+#### hidden_pickle_attributes
 ```python
 hidden_pickle_attributes() -> set(str)
 ```
 Attributes that are never visible in object 'o' if iswrapped(o) - to disallow pickling
 
+#### never_writeable
 ```python
 never_writeable() -> set(str)
 ```
 Attributes that are never writeable in object _o_ if _iswrapped(o)_
 
+#### never_writeable_private
 ```python
 never_writeable_private() -> set(str)
 ```
 Attributes that are never writeable in object _o_ if _isprivate(o)_
-
-
-
 
 ## Calling wrap operations multiple times
 
