@@ -10,11 +10,13 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 
 ## Table of Contents
 
+
 <!-- vim-markdown-toc GFM -->
 
 * [Quick start](#quick-start)
 * [Classes](#classes)
 * [Features of key classes](#features-of-key-classes)
+    * [Wrapped](#wrapped)
     * [Frozen](#frozen)
     * [Private](#private)
     * [FrozenPrivate](#frozenprivate)
@@ -25,6 +27,7 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
     * [Checking types of wrapped objects](#checking-types-of-wrapped-objects)
     * [Checking properties objects inside wrapped objects](#checking-properties-objects-inside-wrapped-objects)
     * [pyprotect module metadata](#pyprotect-module-metadata)
+* [Calling wrap operations multiple times](#calling-wrap-operations-multiple-times)
 * [Python rules for attributes of type 'property':](#python-rules-for-attributes-of-type-property)
 * [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
 * [Work in progress](#work-in-progress)
