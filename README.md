@@ -108,6 +108,7 @@ If _protect()_ is called on an object 'o' that is an instance of Protected, _pro
 In short, by calling protect() a second time (or multiple times):
 - Additoinal attributes can be hidden
 - Additional attributes can be made read-only
+<br>
 but:
 - No previously hidden attribute will become visible
 - No previously read-only attribute will become mutable
@@ -231,6 +232,7 @@ If _protect()_ is called on an object 'o' that is an instance of Protected, _pro
 In short, by calling protect() a second time (or multiple times):
 - Additoinal attributes can be hidden
 - Additional attributes can be made read-only
+<br>
 but:
 - No previously hidden attribute will become visible
 - No previously read-only attribute will become mutable
@@ -419,6 +421,7 @@ In the table below:
 | FrozenPrivate             | UNCH       | UNCH            | UNCH          | UNCH                | FrozenProtected        | FrozenProtected        |
 | Protected                 | UNCH       | FrozenProtected | UNCH          | FrozenProtected     | Protected<br>(1)           | FrozenProtected<br>(1)     |
 | FrozenProtected           | UNCH       | UNCH            | UNCH          | UNCH                | FrozenProtected<br>(1) | FrozenProtected<br>(1) |
+
 1. _protect()_ applied twice will merge the _protect()_ rules, enforcing the most restrictive combination among the two sets of protect() options:
 - _hide_ and _hide_private_ are OR-ed
 - _ro_method_, _ro_data_ and _ro_ are OR-ed
