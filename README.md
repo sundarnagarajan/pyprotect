@@ -119,9 +119,9 @@ __Options: protect method arguments__
 | hide_private | bool        | False   | If True, private vars of the form ```_var``` will be hidden                            |                            |
 | ro_data      | bool        | False   | Data (non-method) attributes will be immutable<br>Can override selectively with __rw__ |                            |
 | ro_method    | bool        | True    | Method (callable) attributes will be immutable<br>Can override selectively with __rw__ |                            |
-| ro           | list of str | []      | Attributes that will be immutable<br>Can override selectively with __rw__              |                            |
-| rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
-| hide         | list of str | []   |                                                                                        |                            |
+| ro           | list of str | [ ]      | Attributes that will be immutable<br>Can override selectively with __rw__              |                            |
+| rw           | list of str | [ ]      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
+| hide         | list of str | [ ]   |                                                                                        |                            |
 
 __Visibility and mutability of attributes with protect() method__
 
@@ -240,9 +240,9 @@ __Options: protect method arguments__
 | hide_private | bool        | False   | If True, private vars of the form ```_var``` will be hidden                            |                            |
 | ro_data      | bool        | False   | Data (non-method) attributes will be immutable<br>Can override selectively with __rw__ |                            |
 | ro_method    | bool        | True    | Method (callable) attributes will be immutable<br>Can override selectively with __rw__ |                            |
-| ro           | list of str | []      | Attributes that will be immutable<br>Can override selectively with __rw__              |                            |
-| rw           | list of str | []      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
-| hide         | list of str | []   |                                                                                        |                            |
+| ro           | list of str | [ ]      | Attributes that will be immutable<br>Can override selectively with __rw__              |                            |
+| rw           | list of str | [ ]      | Attributes that will be mutable                                                        | ro_data<br>ro_method<br>ro |
+| hide         | list of str | [ ]   |                                                                                        |                            |
 
 __Visibility and mutability of attributes with protect() method__
 
