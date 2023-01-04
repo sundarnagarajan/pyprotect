@@ -27,6 +27,7 @@ case "$1" in
 esac
 
 cd "$PROG_DIR"/..
+export CFLAGS="-O3"
 PYTHON_CMD=$(command -v ${PYTHON_BASENAME}) && {
     # Check if .so has to be rebuilt
     PY_CODE='import sysconfig; print(sysconfig.get_config_var("EXT_SUFFIX") or "");'
@@ -43,6 +44,7 @@ PYTHON_CMD=$(command -v ${PYTHON_BASENAME}) && {
         exit 0
     }
     $PYTHON_CMD setup.py build_ext --inplace
+    [[ -f "$TARGET" ]] && strip "$TARGET"
 } || {
     >&2 echo "${SCRIPT_NAME}: ${PYTHON_BASENAME} not found"
 }
