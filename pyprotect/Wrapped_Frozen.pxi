@@ -39,13 +39,11 @@ cdef class Wrapped(Proxy):
             self.oldstyle_class = oldstyle_class
         if PY2:
             # In PY2 old-style classes don't have __class__ attribute !
-            # When such CLASSES (not INSTANCES of such classes) are
-            # wrapped with Private, the class name cannot be used to
-            # identify mangled private attributes to hide, so ALL
-            # attributes of the form _CCC__YYYz where z is '' or '_'
-            # are hidden.
-            # If it is an old style PY2 CLASS, CCC is a REGEX, otherwise
-            # CCC is self.cn
+            # When such CLASSES (not INSTANCES of such classes) are wrapped
+            # with Private, the class name cannot be used to identify mangled
+            # private attributes to hide, so ALL attributes of the form _CCC__YYYz
+            # where z is '' or '_' are hidden. If it is an old style PY2 CLASS,
+            # CCC is a REGEX, otherwise # CCC is self.cn
             # Instances of such classes CAN be wrapped normally.
             if hasattr(o, '__class__'):
                 if type(o) is type:
