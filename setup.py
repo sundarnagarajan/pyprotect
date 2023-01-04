@@ -2,6 +2,12 @@ import sys
 sys.dont_write_bytecode = True
 from setuptools import setup, Extension
 
+import os
+# Set CFLAGS to optimize further
+os.environ['CFLAGS'] = "-O3"
+# Set LDFLAGS to automatically strip .so
+os.environ['LDFLAGS'] = "-s"
+
 long_description = open('README.md', 'r').read(),
 version = '1.3'
 PY_MODULE = 'pyprotect'

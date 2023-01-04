@@ -27,7 +27,10 @@ case "$1" in
 esac
 
 cd "$PROG_DIR"/..
+# Set CFLAGS to optimize further
 export CFLAGS="-O3"
+# Set LDFLAGS to automatically strip .so
+export LDFLAGS=-s
 PYTHON_CMD=$(command -v ${PYTHON_BASENAME}) && {
     # Check if .so has to be rebuilt
     PY_CODE='import sysconfig; print(sysconfig.get_config_var("EXT_SUFFIX") or "");'
