@@ -25,10 +25,10 @@ function test_in_1_python() {
     # $1: python command to use
     local PYTHON=$1
     local ret=0
-    $PYTHON -c "from pyprotect_finder import pyprotect" 1>/dev/null 2>&1 || ret=1
+    $PYTHON -B -c "from pyprotect_finder import pyprotect" 1>/dev/null 2>&1 || ret=1
     if [[ $ret -eq 0 ]]; then
         echo "---------- Testing in $PYTHON ----------"
-        $PYTHON "${TEST_SCRIPT}" $REST_ARGS
+        $PYTHON -B "${TEST_SCRIPT}" $REST_ARGS
     else
         >&2 echo "$PYTHON module $MODULE_NAME not found"
         return 1
