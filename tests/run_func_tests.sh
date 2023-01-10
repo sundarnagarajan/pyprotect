@@ -11,7 +11,7 @@ env | grep -q '^VIRTUAL_ENV' && IN_VENV=yes || IN_VENV=no
 if [[ "$IN_VENV" = "yes" ]]; then
     echo "Running in virtualenv"
 fi
-if [[ "$1" = "PY2" || "$1" = "PY3" ]]; then
+if [[ "$1" = "PY2" || "$1" = "PY3" || "$1" = "PYPY3" || "$1" = "PYPY" ]]; then
     PYVER=$1
     shift
 else
@@ -49,6 +49,16 @@ function run_all()
         if [[ -z "$PYVER" || "$PYVER" = "PY2" ]]; then
             ret=0
             test_in_1_python python2 || ret=1
+            if [[ $ret -ne 0 && -n "$PYVER" ]]; then
+                exit 1
+            fi
+        fi
+        # For some reason test_01_multiwrap_1300_tests is VERY slow on PPY3
+        # So PYPY3 is run only if explicitly requested
+        if [[ -z "$PYVER" || "$PYVER" = "PYPY3" ]]; then
+        # if [[ "$PYVER" = "PYPY3" ]]; then
+            ret=0
+            test_in_1_python pypy3 || ret=1
             if [[ $ret -ne 0 && -n "$PYVER" ]]; then
                 exit 1
             fi

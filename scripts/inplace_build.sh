@@ -1,7 +1,7 @@
 #!/bin/bash
 # Can be fully reused, changing only config.sh
 #
-# Expects Python basename ('python2' or 'python3' as first argument
+# Expects Python basename (python2 | python3 | pypy3 | pypy) as first argument
 
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
@@ -17,6 +17,9 @@ case "$1" in
         PYTHON_BASENAME=$1
         ;;
     python3)
+        PYTHON_BASENAME=$1
+        ;;
+    pypy3)
         PYTHON_BASENAME=$1
         ;;
     *)

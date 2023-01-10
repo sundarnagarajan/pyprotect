@@ -17,6 +17,7 @@ grep -q '/init\.scope$' /proc/1/cgroup && {
 function uninstall() {
     pip2 uninstall -y pyprotect
     pip3 uninstall -y pyprotect
+    pypy3 -m pip uninstall -y pyprotect
 }
 
 function run_tests() {
@@ -34,14 +35,16 @@ uninstall
 ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 pip2 install .
 pip3 install . 
+pypy3 -m pip install .
 ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 run_tests
-
 
 cd ${DOCKER_MOUNTPOINT}
 uninstall
 ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 python2 setup.py install
 python3 setup.py install
+pypy3 setup.py install
 ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 run_tests
+

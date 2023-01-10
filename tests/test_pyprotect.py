@@ -23,6 +23,8 @@ from test_utils import (
     always_frozen,
     isfrozen, isprotected, isprivate, isimmutable,
 )
+import platform
+PYPY = (platform.python_implementation() == 'PyPy')
 if not PY2:
     import numpy
 from pyprotect_finder import pyprotect    # noqa: F401
