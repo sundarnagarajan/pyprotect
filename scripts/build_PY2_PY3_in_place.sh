@@ -18,7 +18,8 @@ BUILD_SCRIPT=${DOCKER_MOUNTPOINT}/scripts/inplace_build.sh
     PYVER=$1
 }
 [[ "$PYVER" == "PY3" || "$PYVER" == "PY2" \
-    || "$PYVER" == "PYPY3" || "$PYVER" == "PYPY2" || -z "$PYVER" ]] || {
+    || "$PYVER" == "PYPY3" || "$PYVER" == "PYPY2" || \
+    "$PYVER" == "PYPY2" || -z "$PYVER" ]] || {
     >&2 echo "Unknown PYVER: $PYVER"
     exit 1
 }
@@ -58,6 +59,16 @@ docker image inspect $CYTHON3_DOCKER_IMAGE 1>/dev/null 2>&1 || {
     } && {
         "${CLEAN_BUILD_SCRIPT}"
         DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PY3_DOCKER_IMAGE ${BUILD_SCRIPT} pypy3"
+        $DOCKER_CMD
+    }
+}
+
+[[ "$PYVER" == "PYPY2" || -z "$PYVER" ]] && {
+    docker image inspect $PYPY2_DOCKER_IMAGE 1>/dev/null 2>&1 || {
+        >&2 echo "Docker image not found: $PYPY2_DOCKER_IMAGE"
+    } && {
+        "${CLEAN_BUILD_SCRIPT}"
+        DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PY2_DOCKER_IMAGE ${BUILD_SCRIPT} pypy"
         $DOCKER_CMD
     }
 }

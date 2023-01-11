@@ -50,7 +50,7 @@ RUN curl -sL "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2862D0785AF
 WORKDIR /etc/apt/sources.list.d
 RUN echo "deb [ arch=amd64 signed-by=/etc/apt/repo-keyrings/pypy.gpg ] https://ppa.launchpadcontent.net/pypy/ppa/ubuntu jammy main" > pypy.list
 RUN apt-get update
-RUN apt-get install -y pypy3 pypy3-dev
+RUN apt-get install -y pypy3 pypy3-dev pypy pypy-dev pypy-setuptools
 
 # Rest is only to install numpy for pypy3
 

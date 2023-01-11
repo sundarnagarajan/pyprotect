@@ -36,6 +36,31 @@ from testcases import gen_test_objects
 from cls_gen import generate
 
 
+# In PY2, this is a 'new style class', and will behave just like
+# classes in PY3 when wrapped
+# In test_05_private_vs_wrapped instantiating NewStyleClassInPY2
+# using:
+#   o = NewStyleClassInPY2()
+# fails ONLY in PYPY2 and ONLY when instantiation is NOT at the
+# module scope (within a function)
+# Exception message is:
+# TypeError: unbound method __new__() must be called with
+# NewStyleClassInPY2 instance as first argument (got type instance
+# instead)
+#
+# See also:
+# https://github.com/gevent/gevent/issues/1709#issuecomment-735290530
+class NewStyleClassInPY2(object):
+    __pvt = 1
+    _ShouldBeVisible__abc = 2
+    _ShouldBeVisible__def_ = 3
+    _ro = 4
+    a = 5
+
+
+_inst_NewStyleClassInPY2 = NewStyleClassInPY2()
+
+
 def protected_merge_kwargs(kw1, kw2):
     '''
     Merges kw1 and kw2 to return dict with most restrictive options
@@ -114,15 +139,6 @@ class test_pyprotect(unittest.TestCase):
             check_predictions(o, w)
 
     def test_05_private_vs_wrapped(self):
-        # In PY2, this is a 'new style class', and will behave just like
-        # classes in PY3 when wrapped
-        class NewStyleClassInPY2(object):
-            __pvt = 1
-            _ShouldBeVisible__abc = 2
-            _ShouldBeVisible__def_ = 3
-            _ro = 4
-            a = 5
-
         # ---------- NewStyleClassInPY2 identical in PY2 | PY3 ---------------
         # Test wrapping CLASS itself
         o = NewStyleClassInPY2
@@ -161,7 +177,12 @@ class test_pyprotect(unittest.TestCase):
             ]).union(frozen_present)
         )
         # Now test wrapping INSTANCE of the class
-        o = NewStyleClassInPY2()
+        #
+        # Fixing TEST here with a PYPY-specific "hack"
+        if PY2 and PYPY:
+            o = _inst_NewStyleClassInPY2
+        else:
+            o = NewStyleClassInPY2()
         w = wrap(o)
         p = private(o)
 

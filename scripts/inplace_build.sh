@@ -22,9 +22,12 @@ case "$1" in
     pypy3)
         PYTHON_BASENAME=$1
         ;;
+    pypy)
+        PYTHON_BASENAME=$1
+        ;;
     *)
         >&2 echo "Unknown argument: $1"
-        >&2 echo "Usage: ${SCRIPT_NAME} <python2|python3>"
+        >&2 echo "Usage: ${SCRIPT_NAME} <python2|python3|pypy3|pypy>"
         exit 1
         ;;
 esac
@@ -52,7 +55,16 @@ export CFLAGS="-O3"
 export LDFLAGS=-s
 PYTHON_CMD=$(command -v ${PYTHON_BASENAME}) && {
     # Check if .so has to be rebuilt
-    PY_CODE='import sysconfig; print(sysconfig.get_config_var("EXT_SUFFIX") or "");'
+    # PY_CODE='import sysconfig; print(sysconfig.get_config_var("EXT_SUFFIX") or "");'
+    PY_CODE='
+import sys
+import sysconfig
+if sys.version_info.major == 2:
+    CONFIG_KEY = "SO"
+else:
+    CONFIG_KEY = "EXT_SUFFIX"
+print(sysconfig.get_config_var(CONFIG_KEY) or "");
+'
     SUFFIX=$($PYTHON_CMD -c "$PY_CODE")
     [[ -z "$SUFFIX" ]] && SUFFIX=".so"
     SRC="${PY_MODULE}/${EXTENSION_NAME}.c"

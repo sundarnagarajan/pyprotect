@@ -37,6 +37,8 @@ function uninstall() {
     hide_output_unless_error pip3 uninstall -y  pyprotect
     echo "---------- Uninstalling using pypy3 -m pip --------------------"
     hide_output_unless_error pypy3 -m pip uninstall -y  pyprotect
+    echo "---------- Uninstalling using pypy -m pip ---------------------"
+    hide_output_unless_error pypy -m pip uninstall -y  pyprotect
 }
 
 function run_tests() {
@@ -58,6 +60,8 @@ echo "---------- Installing using pip3 ------------------------------"
 hide_output_unless_error pip3 install . 
 echo "---------- Installing using pypy3 -m pip ----------------------"
 hide_output_unless_error pypy3 -m pip install .
+echo "---------- Installing using pypy -m pip -----------------------"
+hide_output_unless_error pypy -m pip install .
 ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 run_tests
 
@@ -70,6 +74,8 @@ echo "---------- Installing using python3 setup.py ------------------"
 hide_output_unless_error python3 setup.py install
 echo "---------- Installing using pypy3 setup.py --------------------"
 hide_output_unless_error pypy3 setup.py install
+echo "---------- Installing using pypy setup.py ---------------------"
+hide_output_unless_error pypy setup.py install
 ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 run_tests
 
