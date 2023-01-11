@@ -29,6 +29,22 @@ case "$1" in
         ;;
 esac
 
+# Disable pip warnings that are irrelevant here
+export PIP_DISABLE_PIP_VERSION_CHECK=1
+export PIP_NO_PYTHON_VERSION_WARNING=1
+export PIP_ROOT_USER_ACTION=ignore
+
+function hide_output_unless_error() {
+    local ret=0
+    local out=$($@ 2>&1 || ret=$?)
+    [[ $ret -ne 0 ]] && {
+        >&2 echo "$out"
+        return $ret
+    }
+    return 0
+}
+
+
 cd "$PROG_DIR"/..
 # Set CFLAGS to optimize further
 export CFLAGS="-O3"
@@ -49,8 +65,15 @@ PYTHON_CMD=$(command -v ${PYTHON_BASENAME}) && {
         >&2 echo "${SCRIPT_NAME}: ${TARGET}: No rebuild required"
         exit 0
     }
-    $PYTHON_CMD setup.py build_ext --inplace
-    [[ -f "$TARGET" ]] && strip "$TARGET"
+    [[ "$SUFFIX" = ".so" ]] && {
+        TARGET_BASENAME=$(basename "$TARGET" )
+    } || {
+        TARGET_BASENAME=$(basename "$TARGET" | sed -e 's/^protected\.//')
+    }
+    PYTHON_BASENAME=$(basename "$PYTHON_CMD")
+    echo "Building ${TARGET_BASENAME} using $PYTHON_BASENAME setup.py build_ext --inplace"
+    hide_output_unless_error $PYTHON_CMD setup.py build_ext --inplace
+    # [[ -f "$TARGET" ]] && strip "$TARGET"
 } || {
     >&2 echo "${SCRIPT_NAME}: ${PYTHON_BASENAME} not found"
 }
