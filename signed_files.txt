@@ -34,6 +34,7 @@ scripts/docker_as.sh
 scripts/gpg_sign.sh
 scripts/inplace_build.sh
 scripts/install_test_in_docker.sh
+scripts/test_in_docker.sh
 scripts/upload_to_pypi.sh
 setup.cfg
 setup.py
