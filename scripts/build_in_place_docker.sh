@@ -4,21 +4,13 @@
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 source "$PROG_DIR"/config.sh
+source "$PROG_DIR"/common_functions.sh
 
 # Script path OUTSIDE docker
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/../scripts/clean_build.sh
 # Script path from docker mount path perspective
 CYTHONIZE_SCRIPT=${DOCKER_MOUNTPOINT}/scripts/cythonize.sh
 BUILD_SCRIPT=${DOCKER_MOUNTPOINT}/scripts/inplace_build.sh
-
-function red() {
-    ANSI_ESC=$(printf '\033')
-    ANSI_RS="${ANSI_ESC}[0m"    # reset
-    ANSI_HC="${ANSI_ESC}[1m"    # hicolor
-    ANSI_FRED="${ANSI_ESC}[31m" # foreground red
-
-    echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
-}
 
 [[ $# -lt 1 ]] && {
     PYVER='' 

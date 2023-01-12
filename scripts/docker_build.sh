@@ -5,15 +5,7 @@ set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 
 source "$PROG_DIR"/config.sh
-
-function red() {
-    ANSI_ESC=$(printf '\033')
-    ANSI_RS="${ANSI_ESC}[0m"    # reset
-    ANSI_HC="${ANSI_ESC}[1m"    # hicolor
-    ANSI_FRED="${ANSI_ESC}[31m" # foreground red
-
-    echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
-}
+source "$PROG_DIR"/common_functions.sh
 
 
 # Check that required variables are set

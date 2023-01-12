@@ -5,9 +5,11 @@ set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/config.sh
+source "$PROG_DIR"/common_functions.sh
+
 CYTHON_CMD=$(command -v cython3) || {
-    >&2 echo "${SCRIPT_NAME}: cython3 command not found"
-    >&2 echo "${SCRIPT_NAME}: On Debian-like system install package cython3"
+    >&2 red "${SCRIPT_NAME}: cython3 command not found"
+    >&2 red "${SCRIPT_NAME}: On Debian-like system install package cython3"
     exit 1
 }
 
