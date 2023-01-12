@@ -28,6 +28,7 @@ scripts/check_sha256.sh
 scripts/check_sig.sh
 scripts/clean.sh
 scripts/clean_build.sh
+scripts/common_functions.sh
 scripts/config.sh
 scripts/cythonize.sh
 scripts/docker_as.sh
