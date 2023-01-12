@@ -36,6 +36,7 @@ scripts/docker_build.sh
 scripts/gpg_sign.sh
 scripts/inplace_build.sh
 scripts/install_test_in_docker.sh
+scripts/README.txt
 scripts/test_in_docker.sh
 scripts/upload_to_pypi.sh
 scripts/venv_test_install_inplace.sh
