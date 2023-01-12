@@ -5,12 +5,81 @@ set -eu -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/../scripts/config.sh
+
+function red() {
+    ANSI_ESC=$(printf '\033')
+    ANSI_RS="${ANSI_ESC}[0m"    # reset
+    ANSI_HC="${ANSI_ESC}[1m"    # hicolor
+    ANSI_FRED="${ANSI_ESC}[31m" # foreground red
+
+    echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
+}
+
+function hide_output_unless_error() {
+    local ret=0
+    local out=$($@ 2>&1 || ret=$?)
+    [[ $ret -ne 0 ]] && {
+        >&2 red "$out"
+        return $ret
+    }
+    return 0
+}
+
+function uninstall() {
+    cd ${DOCKER_MOUNTPOINT}
+    for cmd in pip3 pip2 "pypy3 -m pip" "pypy -m pip"
+    do
+        echo "Uninstalling using $cmd uninstall"
+        hide_output_unless_error $cmd uninstall -y $PY_MODULE
+    done
+}
+
+function install_pip() {
+    cd ${DOCKER_MOUNTPOINT}
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    for cmd in pip3 pip2 "pypy3 -m pip" "pypy -m pip"
+    do
+        echo "Installing using $cmd install ."
+        hide_output_unless_error $cmd install .
+    done
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+}
+
+function install_setup() {
+    cd ${DOCKER_MOUNTPOINT}
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    for cmd in python3 python2 pypy3 pypy
+    do
+        echo "Installing using $cmd setup.py install"
+        hide_output_unless_error $cmd setup.py install
+    done
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+}
+
+function run_tests() {
+    local TEST_DIR=/root/tests
+    # optimistic that we do not overwrite tests
+    [[ -x "$TEST_DIR"/run_func_tests.sh ]] || {
+        mkdir -p "$TEST_DIR"
+        cp -a "${DOCKER_MOUNTPOINT}"/tests/. "$TEST_DIR"/
+    }
+    cd /
+    for p in PY3 PY2 PYPY3 PYPY2
+    do
+        "$TEST_DIR"/run_func_tests.sh $p
+    done
+}
+
+# ------------------------------------------------------------------------
+# Actual script starts after this
+# ------------------------------------------------------------------------
+
 [[ $(id -u) -ne 0 ]] && {
-    >&2 echo "${SCRIPT_NAME}: Run as root"
+    >&2 red "${SCRIPT_NAME}: Run as root"
     exit 1
 }
 grep -q '/init\.scope$' /proc/1/cgroup && {
-    >&2 echo "${SCRIPT_NAME}: Not running in docker"
+    >&2 red "${SCRIPT_NAME}: Not running in docker"
     exit 1
 }
 
@@ -19,63 +88,18 @@ export PIP_DISABLE_PIP_VERSION_CHECK=1
 export PIP_NO_PYTHON_VERSION_WARNING=1
 export PIP_ROOT_USER_ACTION=ignore
 
-function hide_output_unless_error() {
-    local ret=0
-    local out=$($@ 2>&1 || ret=$?)
-    [[ $ret -ne 0 ]] && {
-        >&2 echo "$out"
-        return $ret
-    }
-    return 0
-}
-
-
-function uninstall() {
-    echo "---------- Uninstalling using pip2 ----------------------------"
-    hide_output_unless_error pip2 uninstall -y  pyprotect
-    echo "---------- Uninstalling using pip3 ----------------------------"
-    hide_output_unless_error pip3 uninstall -y  pyprotect
-    echo "---------- Uninstalling using pypy3 -m pip --------------------"
-    hide_output_unless_error pypy3 -m pip uninstall -y  pyprotect
-    echo "---------- Uninstalling using pypy -m pip ---------------------"
-    hide_output_unless_error pypy -m pip uninstall -y  pyprotect
-}
-
-function run_tests() {
-    rm -rf /root/tests
-    cp -a /home/tests /root/ 
-    cd /root
-    /root/tests/run_func_tests.sh
-}
-
 cd ${DOCKER_MOUNTPOINT}
 ${DOCKER_MOUNTPOINT}/scripts/cythonize.sh
 
-cd ${DOCKER_MOUNTPOINT}
 uninstall
-${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-echo "---------- Installing using pip2 ------------------------------"
-hide_output_unless_error pip2 install .
-echo "---------- Installing using pip3 ------------------------------"
-hide_output_unless_error pip3 install . 
-echo "---------- Installing using pypy3 -m pip ----------------------"
-hide_output_unless_error pypy3 -m pip install .
-echo "---------- Installing using pypy -m pip -----------------------"
-hide_output_unless_error pypy -m pip install .
-${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+install_pip
+run_tests
+uninstall
+install_setup
 run_tests
 
-cd ${DOCKER_MOUNTPOINT}
-uninstall
-${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-echo "---------- Installing using python2 setup.py ------------------"
-hide_output_unless_error python2 setup.py install
-echo "---------- Installing using python3 setup.py ------------------"
-hide_output_unless_error python3 setup.py install
-echo "---------- Installing using pypy3 setup.py --------------------"
-hide_output_unless_error pypy3 setup.py install
-echo "---------- Installing using pypy setup.py ---------------------"
-hide_output_unless_error pypy setup.py install
-${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-run_tests
-
+[[ -z ${NORMAL_USER+x} ]] && {
+    >&2 red "NORMAL_USER env var not found"
+} || {
+    su $NORMAL_USER -c "${PROG_DIR}"/venv_test_in_docker.sh
+}
