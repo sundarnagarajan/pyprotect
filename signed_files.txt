@@ -23,7 +23,7 @@ pyprotect/protected.c
 pyprotect/protected.pyx
 pyprotect/python_visible.pxi
 scripts/Dockerfile
-scripts/build_PY2_PY3_in_place.sh
+scripts/build_in_place_docker.sh
 scripts/check_sha256.sh
 scripts/check_sig.sh
 scripts/clean.sh
@@ -31,11 +31,13 @@ scripts/clean_build.sh
 scripts/config.sh
 scripts/cythonize.sh
 scripts/docker_as.sh
+scripts/docker_build.sh
 scripts/gpg_sign.sh
 scripts/inplace_build.sh
 scripts/install_test_in_docker.sh
 scripts/test_in_docker.sh
 scripts/upload_to_pypi.sh
+scripts/venv_test_in_docker.sh
 setup.cfg
 setup.py
 signature.asc
