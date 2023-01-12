@@ -6,6 +6,8 @@ PROG_DIR=$(readlink -e $(dirname $0))
 source "$PROG_DIR"/config.sh
 source "$PROG_DIR"/common_functions.sh
 
+must_not_be_in_docker
+
 # Script path from docker mount path perspective
 TEST_SCRIPT=${DOCKER_MOUNTPOINT}/tests/run_func_tests.sh
 
@@ -23,36 +25,24 @@ TEST_SCRIPT=${DOCKER_MOUNTPOINT}/tests/run_func_tests.sh
 
 cd "$PROG_DIR"/..
 [[ "$PYVER" == "PY3" || -z "$PYVER" ]] && {
-    docker image inspect $PY3_DOCKER_IMAGE 1>/dev/null 2>&1 || {
-        >&2 red "Docker image not found: $PY3_DOCKER_IMAGE"
-    } && {
-        DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PY3_DOCKER_IMAGE ${TEST_SCRIPT} PY3"
-        $DOCKER_CMD
-    }
+    docker_image_must_exist $PY3_DOCKER_IMAGE
+    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PY3_DOCKER_IMAGE ${TEST_SCRIPT} PY3"
+    $DOCKER_CMD
 }
 [[ "$PYVER" == "PY2" || -z "$PYVER" ]] && {
-    docker image inspect $PY3_DOCKER_IMAGE 1>/dev/null 2>&1 || {
-        >&2 red "Docker image not found: $PY2_DOCKER_IMAGE"
-    } && {
-        DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PY2_DOCKER_IMAGE ${TEST_SCRIPT} PY2"
-        $DOCKER_CMD
-    }
+    docker_image_must_exist $PY2_DOCKER_IMAGE
+    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PY2_DOCKER_IMAGE ${TEST_SCRIPT} PY2"
+    $DOCKER_CMD
 }
 
 [[ "$PYVER" == "PYPY3" || -z "$PYVER" ]] && {
-    docker image inspect $PYPY3_DOCKER_IMAGE 1>/dev/null 2>&1 || {
-        >&2 red "Docker image not found: $PYPY3_DOCKER_IMAGE"
-    } && {
-        DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PYPY3_DOCKER_IMAGE ${TEST_SCRIPT} PYPY3"
-        $DOCKER_CMD
-    }
+    docker_image_must_exist $PYPY3_DOCKER_IMAGE
+    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PYPY3_DOCKER_IMAGE ${TEST_SCRIPT} PYPY3"
+    $DOCKER_CMD
 }
 
 [[ "$PYVER" == "PYPY2" || -z "$PYVER" ]] && {
-    docker image inspect $PYPY2_DOCKER_IMAGE 1>/dev/null 2>&1 || {
-        >&2 red "Docker image not found: $PYPY2_DOCKER_IMAGE"
-    } && {
-        DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PYPY2_DOCKER_IMAGE ${TEST_SCRIPT} PYPY2"
-        $DOCKER_CMD
-    }
+    docker_image_must_exist $PYPY2_DOCKER_IMAGE
+    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $PYPY2_DOCKER_IMAGE ${TEST_SCRIPT} PYPY2"
+    $DOCKER_CMD
 }
