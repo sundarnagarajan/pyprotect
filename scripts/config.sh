@@ -10,3 +10,12 @@ CYTHON3_DOCKER_IMAGE=$PY3_DOCKER_IMAGE
 DOCKER_MOUNTPOINT=/home
 PY_MODULE=pyprotect
 EXTENSION_NAME=protected
+PY3_WHEELS_DIR=/wheels/PY3
+PYPY3_WHEELS_DIR=/wheels/PYPY3
+
+# Rest are automatic - do not need to be set / reviewed
+HOST_USERNAME=$(id -un)
+HOST_GROUPNAME=$(id -gn)
+HOST_UID=$(id -u)
+HOST_GID=$(id -g)
+DOCKER_USER="${HOST_UID}:${HOST_GID}"
