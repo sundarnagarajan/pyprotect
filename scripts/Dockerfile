@@ -7,8 +7,6 @@ ARG HOST_GROUPNAME
 ARG HOST_UID
 ARG HOST_USERNAME
 ARG HOME_DIR
-ARG PY3_WHEELS_DIR
-ARG PYPY3_WHEELS_DIR
 
 # ----------------------------------------------------------------------
 # Common things to always do
@@ -37,10 +35,9 @@ RUN echo "export PYTHONDONTWRITEBYTECODE=Y" >> /root/.bashrc
 
 # Need build-essential python2-dev python3-dev and cython3 ONLY to BUILD module
 # These are not required to install from PyPi or from bdist / wheel
-# python3-numpy is used in a unit (test test_62_matmul)
 # python2-setuptools-whl and python2-pip-whl are only needed to create
 # PY2 virtualenv using virtualenv command
-RUN apt-get install -y curl less unzip build-essential python2-dev python-setuptools python3-dev python3-setuptools cython3 python3-numpy python3-pip python3-virtualenv python2-setuptools-whl python2-pip-whl
+RUN apt-get install -y curl less unzip build-essential python2-dev python-setuptools python3-dev python3-setuptools cython3 python3-pip python3-virtualenv python2-setuptools-whl python2-pip-whl
 
 # Upgrade pip3 to 22.3.1 - v22.0.2+dfsg-1 has problems uninstalling packages !
 # AttributeError: 'EggMetadata' object has no attribute 'isdir'
@@ -63,27 +60,6 @@ RUN echo "deb [ arch=amd64 signed-by=/etc/apt/repo-keyrings/pypy.gpg ] https://p
 RUN apt-get update
 RUN apt-get install -y pypy3 pypy3-dev pypy pypy-dev pypy-setuptools
 
-# Rest is only to install numpy for pypy3
-
-# cython >= 0.29.30 needed to BUILD numpy module for pypy3
-# Cannot hide irrelevant warning during docker build!
-RUN pypy3 -m pip install "cython >= 0.29.30" 2>/dev/null
-WORKDIR /root
-RUN rm -f *.whl
-RUN >&2 echo "Building numpy wheel - takes 8-10 minutes"
-RUN pypy3 -m pip wheel numpy
-# Cannot hide irrelevant warning during docker build!
-RUN pypy3 -m pip install numpy-*.whl 2>/dev/null
-
-# Store the numpy wheel for reuse within a PYPY3 virtualenv
-RUN mkdir -p $PYPY3_WHEELS_DIR
-RUN mv numpy-*.whl "${PYPY3_WHEELS_DIR}"/
-RUN chmod -R ugo+rX $PYPY3_WHEELS_DIR
-
-RUN rm -f *.whl
-# Cannot hide irrelevant warning during docker build!
-RUN pypy3 -m pip uninstall -y cython 2>/dev/null
-
 # Installing pip for pypy2 is fairly complex
 # get-pip.py from https://bootstrap.pypa.io/pip/2.7/get-pip.py does not install with
 # pypy because /usr/local/lib/pypy2.7/dist-packages/pip/_internal/operations/install/wheel.py
@@ -104,12 +80,6 @@ WORKDIR /usr/local/lib/python2.7/dist-packages
 RUN cp -a pip* wheel* /usr/local/lib/pypy2.7/dist-packages/
 RUN sed -i '719,719 s/^/#/' /usr/local/lib/pypy2.7/dist-packages/pip/_internal/operations/install/wheel.py
 # ----------------------------------------------------------------------
-
-
-# Store PY3 numpy wheel in PY3_WHEELS_DIR for use in PY3 virtualenv
-WORKDIR $PY3_WHEELS_DIR
-RUN pip3 download numpy || pip3 wheel numpy
-RUN chmod -R ugo+rX $PY3_WHEELS_DIR
 
 
 # Create the non-root user

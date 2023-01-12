@@ -55,18 +55,6 @@ function run_1_in_venv() {
     hide_output_unless_error virtualenv -p $PY_CMD ${TEST_VENV_DIR}
     source ${TEST_VENV_DIR}/bin/activate
 
-    case "$PY_CHOICE" in
-        PY3|PYPY3)
-            WHEEL_DIR=/wheels/${PY_CHOICE}
-            [[ -n $(ls -1 ${WHEEL_DIR}/*.whl 2>/dev/null) ]] || {
-                >&2 red "$PY_CHOICE numpy wheel not found"
-                return 1
-            }
-            echo "Installing numpy module"
-            hide_output_unless_error pip install ${WHEEL_DIR}/*.whl
-            ;;
-    esac
-
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
     echo "Installing pyprotect using pip"

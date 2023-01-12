@@ -25,8 +25,6 @@ from test_utils import (
 )
 import platform
 PYPY = (platform.python_implementation() == 'PyPy')
-if not PY2:
-    import numpy
 from pyprotect_finder import pyprotect    # noqa: F401
 from pyprotect import (
     freeze, private, protect, wrap,
@@ -1497,14 +1495,39 @@ class test_pyprotect(unittest.TestCase):
             sys.version_info.major == 3 and sys.version_info.minor < 5
         ):
             return
-        else:
-            n1 = numpy.ones((2, 2))
-            n2 = numpy.ones((2, 2))
-            for op in wrap, freeze, private, protect:
-                w = op(n1)
-                comparison = (w.__matmul__(n2) == n1.__matmul__(n2))
-                # comparison = (w @ n2) == (n1 @ n2)
-                assert(comparison.all())
+
+        # Test __matmul__ without requiring numpy
+        class MatMul:
+            def __init__(self, l):
+                self.__l = l
+
+            def __matmul_impl(self, a, b):
+                # From: https://stackoverflow.com/a/10508239
+                zip_b = list(zip(*b))
+                return [
+                    [
+                        sum(
+                            ele_a * ele_b for ele_a, ele_b in zip(row_a, col_b)
+                        )
+                        for col_b in zip_b
+                    ] for row_a in a
+                ]
+
+            def __matmul__(self, other):
+                return self.__matmul_impl(self.__l, other)
+
+            def __rmatmul__(self, other):
+                return self.__matmul_impl(other, self.__l)
+
+        l1 = [[1, 2], [3, 5]]
+        l2 = [[7, 11], [13, 17], [19, 23]]
+        o = MatMul(l1)
+        for op in wrap, freeze, private, protect:
+            w = op(o)
+            assert(w.__matmul__(l2) == o.__matmul__(l2))
+            assert(w.__rmatmul__(l2) == o.__rmatmul__(l2))
+            assert((w @ l2) == (o @ l2))
+            assert((l2 @ w) == (l2 @ o))
 
     def test_63_complex(self):
         class CN(object):
