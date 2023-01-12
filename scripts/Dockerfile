@@ -88,3 +88,4 @@ RUN adduser --home ${HOME_DIR} --no-create-home --uid $HOST_UID --gid $HOST_GID 
 
 ENV NORMAL_USER=$HOST_USERNAME
 RUN rm -rf /var/lib/apt/lists
+WORKDIR $HOME_DIR
