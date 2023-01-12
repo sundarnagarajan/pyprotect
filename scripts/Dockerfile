@@ -6,6 +6,7 @@ ARG HOST_GID
 ARG HOST_GROUPNAME
 ARG HOST_UID
 ARG HOST_USERNAME
+ARG HOME_DIR
 ARG PY3_WHEELS_DIR
 ARG PYPY3_WHEELS_DIR
 
@@ -113,7 +114,7 @@ RUN chmod -R ugo+rX $PY3_WHEELS_DIR
 
 # Create the non-root user
 RUN addgroup --gid $HOST_GID $HOST_GROUPNAME
-RUN adduser --home /home --no-create-home --uid $HOST_UID --gid $HOST_GID --disabled-password --gecos "$HOST_USERNAME" $HOST_USERNAME
+RUN adduser --home ${HOME_DIR} --no-create-home --uid $HOST_UID --gid $HOST_GID --disabled-password --gecos "$HOST_USERNAME" $HOST_USERNAME
 
 ENV NORMAL_USER=$HOST_USERNAME
 RUN rm -rf /var/lib/apt/lists

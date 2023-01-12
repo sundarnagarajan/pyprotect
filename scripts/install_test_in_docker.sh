@@ -83,5 +83,5 @@ run_tests
 [[ -z ${NORMAL_USER+x} ]] && {
     >&2 red "NORMAL_USER env var not found"
 } || {
-    su $NORMAL_USER -c "${PROG_DIR}"/venv_test_in_docker.sh
+    su $NORMAL_USER -c "${PROG_DIR}"/venv_test_install_inplace.sh
 }
