@@ -11,7 +11,7 @@ source "$PROG_DIR"/common_functions.sh
 
 
 [[ $# -lt 1 ]] && {
-    >&2 red "Usage: ${SCRIPT_NAME} <python2|python3>"
+    >&2 red "Usage: ${SCRIPT_NAME} <python2|python3|pypy3|pypy>"
     exit 1
 }
 case "$1" in
