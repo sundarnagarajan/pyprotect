@@ -1526,8 +1526,9 @@ class test_pyprotect(unittest.TestCase):
             w = op(o)
             assert(w.__matmul__(l2) == o.__matmul__(l2))
             assert(w.__rmatmul__(l2) == o.__rmatmul__(l2))
-            assert((w @ l2) == (o @ l2))
-            assert((l2 @ w) == (l2 @ o))
+            # The '@' operator generates a syntax error in python2
+            assert(eval('w @ l2') == eval('o @ l2'))
+            assert(eval('l2 @ w') == eval('l2 @ o'))
 
     def test_63_complex(self):
         class CN(object):
