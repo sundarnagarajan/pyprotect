@@ -60,10 +60,7 @@ function run_tests() {
     >&2 red "${SCRIPT_NAME}: Run as root"
     exit 1
 }
-grep -q '/init\.scope$' /proc/1/cgroup && {
-    >&2 red "${SCRIPT_NAME}: Not running in docker"
-    exit 1
-}
+must_be_in_docker
 
 # Disable pip warnings that are irrelevant here
 export PIP_DISABLE_PIP_VERSION_CHECK=1
