@@ -5,6 +5,7 @@ set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/config.sh
+source "$PROG_DIR"/common_functions.sh
 
 function show_usage() {
     >&2 echo "$SCRIPT_NAME [-|--help] [-p <PY2  PY3>] [-u DOCKER_USER"
@@ -59,9 +60,7 @@ done
 }
 [[ "$PYVER" = "PY3" ]] && DOCKER_IMAGE=$PY3_DOCKER_IMAGE || DOCKER_IMAGE=$PY2_DOCKER_IMAGE
 
-docker image inspect $DOCKER_IMAGE 1>/dev/null 2>&1 || {
-    >&2 echo "Docker image not found: $DOCKER_IMAGE"
-}
+docker_image_must_exist $DOCKER_IMAGE
 
 cd "$PROG_DIR"/..
 DOCKER_CMD="docker run -it --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER  $DOCKER_IMAGE /bin/bash"
