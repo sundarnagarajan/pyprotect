@@ -3,5 +3,5 @@
 set -e -u -o pipefail
 PROG_DIR=$(dirname $0)
 cd "$PROG_DIR"/..
-rm -rf .eggs build dist pyprotect.egg-info .local
+rm -rf .eggs build dist pyprotect.egg-info
 find -name '*.pyc' -exec rm -fv {} \;

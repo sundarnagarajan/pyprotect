@@ -52,5 +52,6 @@ docker build ${ADDL_ARGS:-} \
     --build-arg HOST_GROUPNAME=$HOST_GROUPNAME \
     --build-arg HOST_UID=$HOST_UID \
     --build-arg HOST_GID=$HOST_GID \
-    --build-arg HOME_DIR=$DOCKER_MOUNTPOINT \
+    --build-arg HOME_DIR=/home \
+    --build-arg PYPROTECT_DIR=/${PY_MODULE} \
     -t $IMAGE_NAME .

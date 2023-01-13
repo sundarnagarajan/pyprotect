@@ -47,7 +47,9 @@ function run_1_in_venv() {
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
     echo "Installing $PY_MODULE using $PYTHON_CMD -m pip"
+    unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $PYTHON_CMD -m pip install .
+    export PYTHONDONTWRITEBYTECODE=Y
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     echo "Running tests"
@@ -58,7 +60,9 @@ function run_1_in_venv() {
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
     echo "Installing $PY_MODULE using $PYTHON_CMD setup.py"
+    unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $PYTHON_CMD setup.py install
+    export PYTHONDONTWRITEBYTECODE=Y
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     echo "Running tests"
@@ -85,6 +89,7 @@ function inplace_build_ant_test_1_pyver() {
     echo "---------- Inplace build and test with $pyver -----------------"
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    export PYTHONDONTWRITEBYTECODE=Y
     ./scripts/cythonize.sh
     ./scripts/inplace_build.sh $pyver
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh

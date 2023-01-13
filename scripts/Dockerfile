@@ -7,6 +7,7 @@ ARG HOST_GROUPNAME
 ARG HOST_UID
 ARG HOST_USERNAME
 ARG HOME_DIR
+ARG PYPROTECT_DIR
 
 # ----------------------------------------------------------------------
 # Common things to always do
@@ -31,13 +32,19 @@ RUN apt-get dist-upgrade -y
 # ----------------------------------------------------------------------
 
 ENV PIP_ROOT_USER_ACTION=ignore
-RUN echo "export PYTHONDONTWRITEBYTECODE=Y" >> /root/.bashrc
 
 # Need build-essential python2-dev python3-dev and cython3 ONLY to BUILD module
 # These are not required to install from PyPi or from bdist / wheel
 # python2-setuptools-whl and python2-pip-whl are only needed to create
 # PY2 virtualenv using virtualenv command
-RUN apt-get install -y curl less unzip build-essential python2-dev python-setuptools python3-dev python3-setuptools cython3 python3-pip python3-virtualenv python2-setuptools-whl python2-pip-whl
+#
+# PY3-only packages: python3-dev python3-setuptools python3-pip python3-virtualenv
+# PY2-only packages: python2-dev python-setuptools python2-setuptools-whl python2-pip-whl
+RUN apt-get install -y \
+    curl less unzip \
+    cython3 build-essential \
+    python3-dev python3-setuptools python3-pip python3-virtualenv \
+    python2-dev python-setuptools python2-setuptools-whl python2-pip-whl 
 
 # Upgrade pip3 to 22.3.1 - v22.0.2+dfsg-1 has problems uninstalling packages !
 # AttributeError: 'EggMetadata' object has no attribute 'isdir'
@@ -58,22 +65,24 @@ RUN curl -sL "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2862D0785AF
 WORKDIR /etc/apt/sources.list.d
 RUN echo "deb [ arch=amd64 signed-by=/etc/apt/repo-keyrings/pypy.gpg ] https://ppa.launchpadcontent.net/pypy/ppa/ubuntu jammy main" > pypy.list
 RUN apt-get update
+# PYPY3-only packages: pypy3 pypy3-dev
+# PYPY2-only packages: pypy pypy-dev pypy-setuptools
 RUN apt-get install -y pypy3 pypy3-dev pypy pypy-dev pypy-setuptools
 
-# Installing pip for pypy2 is fairly complex
+# Installing pip for pypy2 is not straightforward
 # get-pip.py from https://bootstrap.pypa.io/pip/2.7/get-pip.py does not install with
-# pypy because /usr/local/lib/pypy2.7/dist-packages/pip/_internal/operations/install/wheel.py
-# assert on line 719 fails:
-# assert os.path.exists(pyc_path)
+# pypy because assert on line 719 of 
+# /usr/local/lib/pypy2.7/dist-packages/pip/_internal/operations/install/wheel.py
+# fails:
+#   assert os.path.exists(pyc_path)
 #
-# So need to copy pip and wheel from python2.7 dir and PATCH
+# Workaround used is to copy pip and wheel from python2.7 dir and PATCH
 # /usr/local/lib/pypy2.7/dist-packages/pip/_internal/operations/install/wheel.py
 # to comment out line 719
-# Although this works for the purpose of this Docker image -
-# using pypy -m pip to install / uninstall pyprotect, there may be other
-# untested effects
+# Although this works for the purpose of this Docker image - using 'pypy -m pip'
+# to install / uninstall pyprotect, there may be other untested effects
 # See: https://github.com/pypa/pip/issues/8653#issuecomment-667124536
-# Seems to be something to do with PEP 3147 and related differences
+# It seems to be something to do with PEP 3147 and related differences
 # between python 2.7 and pypy 2.7
 #
 WORKDIR /usr/local/lib/python2.7/dist-packages
@@ -83,9 +92,17 @@ RUN sed -i '719,719 s/^/#/' /usr/local/lib/pypy2.7/dist-packages/pip/_internal/o
 
 
 # Create the non-root user
+RUN mkdir -p $HOME_DIR
 RUN addgroup --gid $HOST_GID $HOST_GROUPNAME
-RUN adduser --home ${HOME_DIR} --no-create-home --uid $HOST_UID --gid $HOST_GID --disabled-password --gecos "$HOST_USERNAME" $HOST_USERNAME
-
+RUN adduser \
+    --home ${HOME_DIR} --no-create-home \
+    --uid $HOST_UID --gid $HOST_GID \
+    --disabled-password --gecos "$HOST_USERNAME" $HOST_USERNAME
+RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
+# NORMAL_USER env var is used in install_test_in_docker.sh
 ENV NORMAL_USER=$HOST_USERNAME
+
+ENV PYTHONDONTWRITEBYTECODE=Y
 RUN rm -rf /var/lib/apt/lists
-WORKDIR $HOME_DIR
+# Start in PYPROTECT_DIR
+WORKDIR $PYPROTECT_DIR

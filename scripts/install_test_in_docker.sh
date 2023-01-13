@@ -22,8 +22,10 @@ function install_test_1_pyver() {
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-    echo "Installing using $pip_cmd install ."
+    echo "Installing ${PY_MODULE} using $pip_cmd install ."
+    unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $pip_cmd install .
+    export PYTHONDONTWRITEBYTECODE=Y
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     local TEST_DIR=/root/tests
@@ -41,8 +43,10 @@ function install_test_1_pyver() {
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-    echo "Installing using $PYTHON_CMD setup.py install"
+    echo "Installing ${PY_MODULE} using $PYTHON_CMD setup.py install"
+    unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $PYTHON_CMD setup.py install
+    export PYTHONDONTWRITEBYTECODE=Y
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     local TEST_DIR=/root/tests
@@ -83,12 +87,14 @@ ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
 for p in $VALID_PYVER
 do
+    echo "-------------------- Executing for $p --------------------"
     install_test_1_pyver $p
-done
 
-[[ -z ${NORMAL_USER+x} ]] && {
-    >&2 red "NORMAL_USER env var not found"
-} || {
-    su $NORMAL_USER -c "${PROG_DIR}/venv_test_install_inplace.sh $VALID_PYVER"
-}
+    # Keep tests for each pyver together
+    [[ -z ${NORMAL_USER+x} ]] && {
+        >&2 red "NORMAL_USER env var not found"
+    } || {
+        su $NORMAL_USER -c "${PROG_DIR}/venv_test_install_inplace.sh $p"
+    }
+done
 
