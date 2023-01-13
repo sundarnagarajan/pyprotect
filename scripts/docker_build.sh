@@ -3,11 +3,7 @@
 #
 # config.sh supports having separate Docker images for
 # Cython3, PY3, PY2, PYPY3, PYPY2
-#	PY3_DOCKER_IMAGE
-#	PY2_DOCKER_IMAGE
-#	PYPY3_DOCKER_IMAGE
-#	PYPY2_DOCKER_IMAGE
-#	CYTHON3_DOCKER_IMAGE
+#   TAG_IMAGE
 #
 # Following scripts source config.sh and use these variables:
 #   build_in_place_in_docker.sh
@@ -32,7 +28,7 @@ source "$PROG_DIR"/common_functions.sh
 
 
 # Check that required variables are set
-for v in HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID PY3_DOCKER_IMAGE
+for v in HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID
 do
     declare -n check=${v}
     [[ ${check+x} ]] || {
@@ -40,11 +36,18 @@ do
         exit 1
     }
 done
+[[ -n $(declare -p TAG_IMAGE 2>/dev/null) ]] || {
+    >&2 red "Required variable not set in config.sh: TAG_IMAGE" 
+    exit 1
+}
+[[ -n "${TAG_IMAGE[PY3]}+_" ]] || {
+    >&2 red "Required variable not set in config.sh: TAG_IMAGE[PY3]"
+    exit 1
+}
 
-IMAGE_NAME=${PY3_DOCKER_IMAGE}
 
+IMAGE_NAME=${TAG_IMAGE[PY3]}
 cd "${PROG_DIR}"
-
 docker build ${ADDL_ARGS:-} \
     --build-arg HOST_USERNAME=$HOST_USERNAME \
     --build-arg HOST_GROUPNAME=$HOST_GROUPNAME \
