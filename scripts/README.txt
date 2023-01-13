@@ -8,16 +8,16 @@ Following scripts can run ONLY inside a docker container:
     test_in_docker.sh
 - Remaining scripts CAN run inside Docker containers or on the host
 
-- Python versions:
-    - python3 - denoted with 'tag' PY3
-    - python2 - denoted with 'tag' PY2
-    - pypy3 - denoted with 'tag' PYPY3
-    - pypy - denoted with 'tag' PYPY2
+- PYTHON_VERSION tags:
+    - PY3   : python3
+    - PY2   : python2
+    - PYPY3 : pypy3
+    - PYPY2 : pypy
 
 build_in_place_in_docker.sh:
     - Builds extensions in-place using inplace_build.sh
     - Builds for PY3 PY2 PYPY3 PYPY2
-    - Takes no arguments
+    - Takes one or more optional PYTHON_VERSION tags as arguments
 
 check_sha256.sh: Checks sha256sums in signature.asc. Takes no arguments
 
@@ -33,10 +33,12 @@ clean.sh:
 cythonize.sh: Creates protected.c if it is missing or outdated
 
 docker_as.sh: Run docker_as.sh --help
-    -h | --help        : Show this help and exit
-    -p <PY2 | PY3>     : Use docker image for PY2 | PY3
-    -u <DOCKER_USER>
-        DOCKER_USER: <username | uid | uid:gid>
+    docker_as.sh [-|--help] [-p <PYTHON_VERSION_TAG>] [-u DOCKER_USER
+        -h | --help              : Show this help and exit
+        -p <PYTHON_VERSION_TAG>  : Use docker image for PYTHON_VERSION_TAG
+            PYTHON_VERSION_TAG   : Key of TAG_PYVER in config.sh
+        -u <DOCKER_USER>
+            DOCKER_USER          : <username | uid | uid:gid>
 
 docker_build.sh:
     - Builds docker image
@@ -49,16 +51,16 @@ gpg_sign.sh:
     - Takes no arguments
 
 inplace_build.sh:
+    - Takes one or more optional PYTHON_VERSION tags as arguments
     - Builds pyprotect extension in place using
       PYTHON_VERSION setup.py build_ext --inplace
-    - REQUIRES one argument: python executable basename
-    - Must be python2 | python3 | pypy3 | pypy
 
 install_test_in_docker.sh:
     - Can only be run inside a Docker container
     - Must be run as root inside Docker container
+    - Takes one or more optional PYTHON_VERSION tags as arguments
     - Runs various tests inside Docker container:
-        - For each tag: PY3, PY2, PYPY3, PYPY2
+        - For PYTHON_VERSION tag:
             - Install and test using 'PYTHON_VERSION -m pip install .'
             - Uninstall using 'PYTHON_VERSION -m pip uninstall -y pyprotect'
             - Install and test using 'PYTHON_VERSION setup.py install'
@@ -68,16 +70,15 @@ install_test_in_docker.sh:
 
 test_in_docker.sh:
     - Runs tests inside Docker container
-    - Accepts one optional argument: python tag: PY3 | PY2 | PYPY3 | PYPY2
-    - If no python tag provided, runs tests for PY3 | PY2 | PYPY3 | PYPY2
+    - Takes one or more optional PYTHON_VERSION tags as arguments
 
 venv_test_install_inplace.sh:
-    - Accepts no arguments
+    - Takes one or more optional PYTHON_VERSION tags as arguments
     - Expects to be run inside Docker container as non-root user, but
         - Can run as root inside Docker container
         - Can run outside Docker container
 
-    - For each tag: PY3, PY2, PYPY3, PYPY2
+    - For PYTHON_VERSION tag:
         - Creates  a virtualenv with that PYTHON_VERSION
             - Install and test using 'PYTHON_VERSION -m pip install .'
             - Uninstall using 'PYTHON_VERSION -m pip uninstall -y pyprotect'
