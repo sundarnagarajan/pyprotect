@@ -4,7 +4,6 @@
 set -eu -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 SCRIPT_NAME=$(basename $0)
-source "$PROG_DIR"/../scripts/config.sh
 source "$PROG_DIR"/common_functions.sh
 
 function __run_tests() {
@@ -36,7 +35,6 @@ function run_1_in_venv() {
         >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
-
 
     echo "---------- venv: Install and test with $pyver -----------------"
     local TEST_VENV_DIR=/tmp/test_venv
