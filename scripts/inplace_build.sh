@@ -6,46 +6,28 @@
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 SCRIPT_NAME=$(basename $0)
-source "$PROG_DIR"/config.sh
 source "$PROG_DIR"/common_functions.sh
 
+function build_1_in_place() {
+    # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
+    local pyver=$1
 
-[[ $# -lt 1 ]] && {
-    >&2 red "Usage: ${SCRIPT_NAME} <python2|python3|pypy3|pypy>"
-    exit 1
-}
-case "$1" in
-    python2)
-        PYTHON_BASENAME=$1
-        ;;
-    python3)
-        PYTHON_BASENAME=$1
-        ;;
-    pypy3)
-        PYTHON_BASENAME=$1
-        ;;
-    pypy)
-        PYTHON_BASENAME=$1
-        ;;
-    *)
-        >&2 red "Unknown argument: $1"
-        >&2 red "Usage: ${SCRIPT_NAME} <python2|python3|pypy3|pypy>"
-        exit 1
-        ;;
-esac
+    # Disable pip warnings that are irrelevant here
+    export PIP_DISABLE_PIP_VERSION_CHECK=1
+    export PIP_NO_PYTHON_VERSION_WARNING=1
+    export PIP_ROOT_USER_ACTION=ignore
 
-# Disable pip warnings that are irrelevant here
-export PIP_DISABLE_PIP_VERSION_CHECK=1
-export PIP_NO_PYTHON_VERSION_WARNING=1
-export PIP_ROOT_USER_ACTION=ignore
+    # Set CFLAGS to optimize further
+    export CFLAGS="-O3"
+    # Set LDFLAGS to automatically strip .so
+    export LDFLAGS=-s
 
-
-cd "$PROG_DIR"/..
-# Set CFLAGS to optimize further
-export CFLAGS="-O3"
-# Set LDFLAGS to automatically strip .so
-export LDFLAGS=-s
-PYTHON_CMD=$(command -v ${PYTHON_BASENAME}) && {
+    cd "$PROG_DIR"/..
+    PYTHON_BASENAME=${TAG_PYVER[$pyver]}
+    PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
     # Check if .so has to be rebuilt
     PY_CODE='
 import sys
@@ -58,7 +40,6 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
 '
     SUFFIX=$($PYTHON_CMD -c "$PY_CODE")
     [[ -z "$SUFFIX" ]] && SUFFIX=".so"
-    SRC="${PY_MODULE}/${EXTENSION_NAME}.c"
     TARGET="${PY_MODULE}/${EXTENSION_NAME}${SUFFIX}"
     [[ "$SUFFIX" = ".so" ]] && {
         TARGET_BASENAME=$(basename "$TARGET" )
@@ -71,11 +52,27 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
     }
     [[ $REBUILD_REQUIRED -eq 0 ]] && {
         >&2 echo "${SCRIPT_NAME}: ${TARGET_BASENAME}: No rebuild required"
-        exit 0
+        return 0
     }
-    PYTHON_BASENAME=$(basename "$PYTHON_CMD")
     echo "Building ${TARGET_BASENAME} using $PYTHON_BASENAME setup.py build_ext --inplace"
     hide_output_unless_error $PYTHON_CMD setup.py build_ext --inplace
-} || {
-    >&2 red "${SCRIPT_NAME}: ${PYTHON_BASENAME} not found"
 }
+
+
+CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize.sh
+SRC="${PY_MODULE}/${EXTENSION_NAME}.c"
+[[ -f "$SRC" ]] || {
+    $CYTHONIZE_SCRIPT || {
+        # Could fail if cython3 was not found in this container
+        >&2 red "C source not found: ${SRC}. Running cythonize.sh failed"
+        exit 1
+    }
+}
+
+# This script does not launch docker containers
+VALID_PYVER=$(process_std_cmdline_args no yes $@)
+
+for p in $VALID_PYVER
+do
+    build_1_in_place $p || continue
+done

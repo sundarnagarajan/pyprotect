@@ -15,7 +15,6 @@ function show_usage() {
     >&2 echo "        DOCKER_USER: <username | uid | uid:gid>"
 }
 
-DOCKER_USER="$(id -u):$(id -g)"
 PYVER=PY3
 
 while [ $# -gt 0 ];

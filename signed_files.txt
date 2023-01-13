@@ -37,6 +37,7 @@ scripts/gpg_sign.sh
 scripts/inplace_build.sh
 scripts/install_test_in_docker.sh
 scripts/README.txt
+scripts/run_func_tests.sh
 scripts/test_in_docker.sh
 scripts/upload_to_pypi.sh
 scripts/venv_test_install_inplace.sh
@@ -49,7 +50,6 @@ tests/cls_gen.py
 tests/nested.py
 tests/obj_utils.py
 tests/pyprotect_finder.py
-tests/run_func_tests.sh
 tests/test_module.py
 tests/test_pyprotect.py
 tests/test_utils.py

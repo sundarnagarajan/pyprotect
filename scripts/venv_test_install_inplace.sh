@@ -8,75 +8,90 @@ source "$PROG_DIR"/../scripts/config.sh
 source "$PROG_DIR"/common_functions.sh
 
 function __run_tests() {
-    # $1: one of PY3 | PY2 | PYPY3 | PYPY2
-    # Only expected to be called from within this script
+    # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
+        return 1
+    }
+    local pyver=$1
     local TEST_DIR=/tmp/tests
     # optimistic that we do not overwrite tests
-    [[ -x "$TEST_DIR"/run_func_tests.sh ]] || {
+    [[ -x "$TEST_DIR"/test_pyprotect.py ]] || {
         mkdir -p "$TEST_DIR"
-        cp -a /home/tests/. "$TEST_DIR"/
+        cp -a ${DOCKER_MOUNTPOINT}/tests/. "$TEST_DIR"/
     }
     cd /
-    "$TEST_DIR"/run_func_tests.sh $1
+    "$PROG_DIR"/run_func_tests.sh $pyver
 }
 
 function run_1_in_venv() {
-    # $1: one of PY3 | PY2 | PYPY3 | PYPY2
+    # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
     [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_in_venv PY3 | PY2 | PYPY3 | PYPY2"
+        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
         return 1
     }
-    local PY_CHOICE=$1
-    local PY_CMD=""
+    local pyver=$1
+    PYTHON_BASENAME=${TAG_PYVER[$pyver]}
+    PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
 
-    case "$PY_CHOICE" in 
-        PY3)
-            PY_CMD=python3
-            ;;
-        PY2)
-            PY_CMD=python2
-            ;;
-        PYPY3)
-            PY_CMD=pypy3
-            ;;
-        PYPY2)
-            PY_CMD=pypy
-            ;;
-        *)
-            red "Usage: run_1_in_venv PY3 | PY2 | PYPY3 | PYPY2"
-            return 1
-    esac
 
-    echo "---------- venv: Install and test with $PY_CHOICE -----------------"
+    echo "---------- venv: Install and test with $pyver -----------------"
     local TEST_VENV_DIR=/tmp/test_venv
     echo "Clearing virtualenv dir"
     rm -rf ${TEST_VENV_DIR}
-    echo "Creating virtualenv $PY_CMD"
-    hide_output_unless_error virtualenv -p $PY_CMD ${TEST_VENV_DIR}
+    echo "Creating virtualenv $PYTHON_CMD"
+    hide_output_unless_error virtualenv -p $PYTHON_CMD ${TEST_VENV_DIR}
     source ${TEST_VENV_DIR}/bin/activate
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-    echo "Installing pyprotect using pip"
-    hide_output_unless_error pip install .
+    echo "Installing $PY_MODULE using $PYTHON_CMD -m pip"
+    hide_output_unless_error $PYTHON_CMD -m pip install .
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     echo "Running tests"
-    __run_tests $PY_CHOICE
-    echo "Uninstalling pyprotect using pip"
-    hide_output_unless_error pip uninstall -y pyprotect
+    __run_tests $pyver
+    echo "Uninstalling $PY_MODULE using $PYTHON_CMD -m pip"
+    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-    echo "Installing pyprotect using $PY_CMD setup.py"
-    hide_output_unless_error $PY_CMD setup.py install
+    echo "Installing $PY_MODULE using $PYTHON_CMD setup.py"
+    hide_output_unless_error $PYTHON_CMD setup.py install
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     echo "Running tests"
-    __run_tests $PY_CHOICE
-    echo "Uninstalling pyprotect using pip"
-    hide_output_unless_error pip uninstall -y pyprotect
+    __run_tests $pyver
+
+    echo "Uninstalling $PY_MODULE using $PYTHON_CMD -m pip"
+    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE
     rm -rf ${TEST_VENV_DIR}
+}
+
+function inplace_build_ant_test_1_pyver() {
+    # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
+        return 1
+    }
+    local pyver=$1
+    PYTHON_BASENAME=${TAG_PYVER[$pyver]}
+    PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
+
+    echo "---------- Inplace build and test with $pyver -----------------"
+    cd ${DOCKER_MOUNTPOINT}
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ./scripts/cythonize.sh
+    ./scripts/inplace_build.sh $pyver
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+
+    ${PROG_DIR}/run_func_tests.sh $pyver
 }
 
 # ------------------------------------------------------------------------
@@ -92,35 +107,22 @@ export PIP_DISABLE_PIP_VERSION_CHECK=1
 export PIP_NO_PYTHON_VERSION_WARNING=1
 export PIP_ROOT_USER_ACTION=ignore
 
-for p in python3 python2 pypy3 pypy
-do
-    echo "---------- Inplace build and test with $p -----------------"
-    cd ${DOCKER_MOUNTPOINT}
-    ./scripts/cythonize.sh
-    ./scripts/inplace_build.sh $p
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-    case "$p" in 
-        python3)
-            PY_CHOICE=PY3
-            ;;
-        python2)
-            PY_CHOICE=PY2
-            ;;
-        pypy3)
-            PY_CHOICE=PYPY3
-            ;;
-        pypy)
-            PY_CHOICE=PYPY2
-            ;;
-    esac
-    ./tests/run_func_tests.sh $PY_CHOICE
-done
-${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
-cd ${DOCKER_MOUNTPOINT}
-${DOCKER_MOUNTPOINT}/scripts/cythonize.sh
-for p in PY3 PY2 PYPY3 PYPY2
-do
-    run_1_in_venv $p || true
-done
+CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize.sh
+SRC="${PY_MODULE}/${EXTENSION_NAME}.c"
+[[ -f "$SRC" ]] || {
+    $CYTHONIZE_SCRIPT || {
+        # Could fail if cython3 was not found in this container
+        >&2 red "C source not found: ${SRC}. Running cythonize.sh failed"
+        exit 1
+    }
+}
 
+# This script does not launch docker containers
+VALID_PYVER=$(process_std_cmdline_args no yes $@)
+
+for p in $VALID_PYVER
+do
+    inplace_build_ant_test_1_pyver $p
+    run_1_in_venv $p
+done
