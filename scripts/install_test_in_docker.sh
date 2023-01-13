@@ -27,7 +27,7 @@ function install_test_1_pyver() {
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     local TEST_DIR=/root/tests
-    # optimistic that we do not overwrite tests
+    # optimistic that tests do not get overwritten / changed
     [[ -x "$TEST_DIR"/test_pyprotect.py ]] || {
         mkdir -p "$TEST_DIR"
         cp -a "${DOCKER_MOUNTPOINT}"/tests/. "$TEST_DIR"/
@@ -46,7 +46,7 @@ function install_test_1_pyver() {
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     local TEST_DIR=/root/tests
-    # optimistic that we do not overwrite tests
+    # optimistic that tests do not get overwritten / changed
     [[ -x "$TEST_DIR"/test_pyprotect.py ]] || {
         mkdir -p "$TEST_DIR"
         cp -a "${DOCKER_MOUNTPOINT}"/tests/. "$TEST_DIR"/

@@ -27,7 +27,7 @@ function build_1_pyver() {
 }
 
 
-# We will be running build in docker, so we need image validation
+# Will be running build in docker, so need image validation
 VALID_PYVER=$(process_std_cmdline_args yes yes $@)
 
 cd "$PROG_DIR"/..

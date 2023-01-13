@@ -13,8 +13,7 @@
 # At this time, this script and Dockerfile use a SINGLE Docker image for
 # Cython3, PY3, PY2, PYPY3, PYPY2
 #
-# If / when we want to split out into multiple DOcker images, following
-# changes will be required:
+# To split out into multiple Docker images, following changes will be required:
 #   - Changes to this script
 #   - Changes to config.sh: variables specifying separate Dockerfiles
 #   - Creating / splitting out into separate Dockerfiles

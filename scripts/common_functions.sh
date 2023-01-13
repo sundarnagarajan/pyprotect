@@ -144,7 +144,8 @@ function process_std_cmdline_args() {
 
     # add_tags_if_missing if no PYVER args were provided
     [[ ${#chosen_pyver_args[@]} -eq 0 && -z "$pyver_list" && "$add_tags_if_missing" = "yes" ]] && {
-        for k in "${!TAG_PYVER[@]}"
+        # for k in "${!TAG_PYVER[@]}"
+        for k in $(echo ${!TAG_PYVER[@]} | tr ' ' '\n' | LC_ALL=C sort)
         do
             # When automatically adding defined tags, do not show errors
             [[ "$need_images" = "yes" ]] && {
