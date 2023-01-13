@@ -1,22 +1,34 @@
 
 - All '.sh' files REQUIRE bash
-Following scripts can run ONLY inside a docker container:
-    install_test_in_docker.sh
-    venv_test_install_inplace.sh
-- Following scripts USE Docker container(s) and MUST be run on the host:
-    build_in_place_in_docker.sh
-    test_in_docker.sh
-- Remaining scripts CAN run inside Docker containers or on the host
 
-- PYTHON_VERSION tags:
+- PYTHON_VERSION tags: in TAG_PYVER associative array in config.sh
     - PY3   : python3
     - PY2   : python2
     - PYPY3 : pypy3
     - PYPY2 : pypy
 
+__________________________________________________________________________
+Script                              root        Docker      Host
+__________________________________________________________________________
+build_in_place_in_docker.sh         Allowed     NO          Required
+check_sha256.sh                     Allowed     Allowed     Allowed
+check_sig.sh                        Allowed     Allowed     Allowed
+clean_build.sh                      Allowed     Allowed     Allowed
+clean.sh                            Allowed     Allowed     Allowed
+cythonize.sh                        Allowed     Allowed     Allowed
+docker_as.sh                        Allowed     NO          Required
+docker_build.sh                     Allowed     NO          Required
+gpg_sign.sh                         Allowed     Allowed     Allowed
+inplace_build.sh                    Allowed     Allowed     Allowed
+install_test_in_docker.sh           Required    NO          Required
+run_func_tests.sh                   Allowed     Allowed     Allowed
+test_in_docker.sh                   Allowed     NO          Required
+venv_test_install_inplace.sh        Allowed     Allowed     Allowed
+__________________________________________________________________________
+
+
 build_in_place_in_docker.sh:
     - Builds extensions in-place using inplace_build.sh
-    - Builds for PY3 PY2 PYPY3 PYPY2
     - Takes one or more optional PYTHON_VERSION tags as arguments
 
 check_sha256.sh: Checks sha256sums in signature.asc. Takes no arguments
