@@ -41,3 +41,5 @@ TARGET=${EXTENSION_NAME}.c
 
 >&2 echo "${SCRIPT_NAME}: Rebuilding ${TARGET}"
 $CYTHON_CMD --3str ${EXTENSION_NAME}.pyx
+
+restore_file_ownership ${EXTENSION_NAME}.pyx ${EXTENSION_NAME}.c

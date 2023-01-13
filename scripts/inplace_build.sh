@@ -56,6 +56,7 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
     }
     echo "Building ${TARGET_BASENAME} using $PYTHON_BASENAME setup.py build_ext --inplace"
     hide_output_unless_error $PYTHON_CMD setup.py build_ext --inplace
+    restore_file_ownership ${PY_MODULE}/${EXTENSION_NAME}.pyx "$TARGET"
 }
 
 
