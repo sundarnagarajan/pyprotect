@@ -61,6 +61,31 @@ function command_must_exist() {
     command -v $1 2>&1
 }
 
+function restore_file_ownership() {
+    # $1: mandatory: path to reference file
+    # $2+ files to chown
+    # If not root, cannot chown anyway
+    [[ $(id -u) -ne 0 ]] && return 0
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: restore_ownership <ref_file_path> [files to chown]"
+        return 0
+    }
+    local ref_file=$1
+    shift
+    [[ $# -lt 1 ]] && return 0
+    [[ -f "$ref_file" ]] || {
+        >&2 red "restore_ownership: ref file not found: $ref_file"
+        return 0
+    }
+    ref_file=$(readlink -e "$ref_file")
+    local uid_gid=$(find "$ref_file" -printf '%U:%G\n')
+    while [[ $# -gt 0 ]]
+    do
+        chown $uid_gid "$1"
+        shift
+    done
+}
+
 function process_std_cmdline_args() {
     # $1: mandatory: yes: tags need valid images
     # $2: mandatory: yes: If no tags supplied, choose all valid TAG_PYVER tags
