@@ -8,12 +8,7 @@
     EXTENSION_NAME=protected
     PY_MODULE=pyprotect
     DOCKER_MOUNTPOINT=/home
-
-    PY3_DOCKER_IMAGE=python23:jammy
-    PY2_DOCKER_IMAGE=$PY3_DOCKER_IMAGE
-    PYPY3_DOCKER_IMAGE=$PY3_DOCKER_IMAGE
-    PYPY2_DOCKER_IMAGE=$PY3_DOCKER_IMAGE
-    CYTHON3_DOCKER_IMAGE=$PY3_DOCKER_IMAGE
+    CYTHON3_DOCKER_IMAGE=python23:jammy
 
     # TAG_PYVER: Maps PYTHON_VERSION tags to python executable basename
     # Values should be basenames of respective python executables
