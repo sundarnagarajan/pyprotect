@@ -172,7 +172,7 @@ function process_std_cmdline_args() {
     # If PYVER args were provided, any errors are fatal
     [[ ${#chosen_pyver_args[@]} -ne 0 && ${#errors[@]} -ne 0 ]] && return 1
 
-    # add_tags_if_missing if no PYVER args were provided
+    # add tags if missing if no PYVER args were provided
     [[ ${#chosen_pyver_args[@]} -eq 0 && -z "$pyver_list" && "$add_tags_if_missing" = "yes" ]] && {
         # for k in "${!TAG_PYVER[@]}"
         for k in $(echo ${!TAG_PYVER[@]} | tr ' ' '\n' | LC_ALL=C sort)
