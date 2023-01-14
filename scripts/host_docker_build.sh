@@ -51,14 +51,14 @@ do
     }
     >&2 red "Building $IMAGE_NAME from $k"
 
-    docker build ${ADDL_ARGS:-} \
+    docker build \
         --build-arg HOST_USERNAME=$HOST_USERNAME \
         --build-arg HOST_GROUPNAME=$HOST_GROUPNAME \
         --build-arg HOST_UID=$HOST_UID \
         --build-arg HOST_GID=$HOST_GID \
         --build-arg HOME_DIR=/home \
         --build-arg PYPROTECT_DIR=/${PY_MODULE} \
-        -t $IMAGE_NAME -f $k .
+        -t $IMAGE_NAME -f $k $@ .
 done
 
 

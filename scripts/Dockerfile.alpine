@@ -23,6 +23,7 @@ ENV PIP_ROOT_USER_ACTION=ignore
 # PY2-only packages: python2-dev py-setuptools
 
 RUN apk update
+RUN apk upgrade
 # RUN apk add curl less unzip cython build-base python3-dev py3-setuptools py3-pip py3-virtualenv python2-dev py-setuptools
 RUN apk add \
     curl less unzip \
@@ -45,6 +46,7 @@ RUN PIP_ROOT_USER_ACTION=ignore pip3 install -U "pip>=22.3.1" 2>/dev/null
 # Cannot install pypy3 and pypy in Alpine, because they clobber each others' files !
 RUN apk --no-cache --update add --repository https://dl-cdn.alpinelinux.org/alpine/edge/main libcrypto3 libssl3
 RUN apk --no-cache --update add --repository https://dl-cdn.alpinelinux.org/alpine/edge/testing pypy3
+RUN apk upgrade
 # pypy3 doesn't come with pip !
 RUN curl -s https://bootstrap.pypa.io/pip/get-pip.py | pypy3 2>/dev/null
 # python3 doesn't come with pip !

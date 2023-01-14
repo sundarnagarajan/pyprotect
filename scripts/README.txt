@@ -76,9 +76,9 @@ host_build_in_place.sh:
 
 host_docker_build.sh:
     - Builds docker image
-    - Can specify additional build arguments - e.g. '--no-cache'
-      using env var 'ADDL_ARGS':
-        ADDL_ARGS='--no-cache' ./docker_build.sh
+    - Can specify additional build arguments to docker build as arguments
+    - Some cases where this can be useful:
+        - Use '--no-cache' to discard old cached intermediate layers   
 
 host_test.sh:
     - Runs tests inside Docker container
