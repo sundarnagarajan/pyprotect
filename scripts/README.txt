@@ -1,5 +1,18 @@
 
-- All '.sh' files REQUIRE bash
+- All '.sh' files REQUIRE bash. The scripts use bash-specific features,
+  such as associative arrays
+
+config.sh and Dockerfiles for different Linux distributions:
+__________________________________________________________________________
+Distribution        config.sh           Dockerfile(s)
+__________________________________________________________________________
+Ubuntu jammy 22.04  config.sh.ubuntu    Dockerfile.ubuntu
+Alpine 3.15         config.sh.alpine    Dockerfile.alpine (PY2, PY3, PYPY3)
+                                        Dockerfile.alpine.pypy2 (PYPY2)
+__________________________________________________________________________
+To use a specific distribution in Docker:
+    - COPY respective config.sh file to 'config.sh'
+    - Run host_docker_build.sh to build Docker image(s)
 
 - PYTHON_VERSION tags: in TAG_PYVER associative array in config.sh
     - PY3   : python3
@@ -7,29 +20,30 @@
     - PYPY3 : pypy3
     - PYPY2 : pypy
 
-__________________________________________________________________________
-Script                              root        Docker      Host
-__________________________________________________________________________
-build_in_place_in_docker.sh         Allowed     NO          Required
-check_sha256.sh                     Allowed     Allowed     Allowed
-check_sig.sh                        Allowed     Allowed     Allowed
-clean_build.sh                      Allowed     Allowed     Allowed
-clean.sh                            Allowed     Allowed     Allowed
-cythonize.sh                        Allowed     Allowed     Allowed
-docker_as.sh                        Allowed     NO          Required
-docker_build.sh                     Allowed     NO          Required
-gpg_sign.sh                         Allowed     Allowed     Allowed
-inplace_build.sh                    Allowed     Allowed     Allowed
-install_test_in_docker.sh           Required    NO          Required
-run_func_tests.sh                   Allowed     Allowed     Allowed
-test_in_docker.sh                   Allowed     NO          Required
-venv_test_install_inplace.sh        Allowed     Allowed     Allowed
-__________________________________________________________________________
+- Scripts with names starting with 'host_' require docker command
+- Scripts with names starting with 'root_' need to be run as root
+- Scripts with names endiing in '_in_docker.sh' need to be run in
+  a docker container
 
-
-build_in_place_in_docker.sh:
-    - Builds extensions in-place using inplace_build.sh
-    - Takes one or more optional PYTHON_VERSION tags as arguments
+__________________________________________________________________________
+Script                                  Needs       Only in     Needs
+Name                                    root        Docker      docker
+__________________________________________________________________________
+check_sha256.sh                         NO          NO          No
+check_sig.sh                            NO          NO          No
+clean_build.sh                          NO          NO          No
+clean.sh                                NO          NO          No
+cythonize.sh                            NO          NO          No
+docker_as.sh                            NO          NO          YES
+gpg_sign.sh                             NO          NO          No
+host_build_in_place.sh                  NO          NO          YES
+host_docker_build.sh                    NO          NO          YES
+host_test.sh                            NO          NO          YES
+inplace_build.sh                        NO          NO          No
+root_install_test_in_docker.sh          YES         YES         NO
+run_func_tests.sh                       NO          NO          No
+venv_test_install_inplace.sh            NO          YES         No
+__________________________________________________________________________
 
 check_sha256.sh: Checks sha256sums in signature.asc. Takes no arguments
 
@@ -52,22 +66,30 @@ docker_as.sh: Run docker_as.sh --help
         -u <DOCKER_USER>
             DOCKER_USER          : <username | uid | uid:gid>
 
-docker_build.sh:
+gpg_sign.sh:
+    - Signs files in signed_files.txt and creates signature.asc
+    - Takes no arguments
+
+host_build_in_place.sh:
+    - Builds extensions in-place using inplace_build.sh
+    - Takes one or more optional PYTHON_VERSION tags as arguments
+
+host_docker_build.sh:
     - Builds docker image
     - Can specify additional build arguments - e.g. '--no-cache'
       using env var 'ADDL_ARGS':
         ADDL_ARGS='--no-cache' ./docker_build.sh
 
-gpg_sign.sh:
-    - Signs files in signed_files.txt and creates signature.asc
-    - Takes no arguments
+host_test.sh:
+    - Runs tests inside Docker container
+    - Takes one or more optional PYTHON_VERSION tags as arguments
 
 inplace_build.sh:
     - Takes one or more optional PYTHON_VERSION tags as arguments
     - Builds pyprotect extension in place using
       PYTHON_VERSION setup.py build_ext --inplace
 
-install_test_in_docker.sh:
+root_install_test_in_docker.sh:
     - Can only be run inside a Docker container
     - Must be run as root inside Docker container
     - Takes one or more optional PYTHON_VERSION tags as arguments
@@ -80,15 +102,15 @@ install_test_in_docker.sh:
     - Calls venv_test_install_inplace.sh to run virtualenv and in-place
       tests as non-root user
 
-test_in_docker.sh:
-    - Runs tests inside Docker container
+run_func_tests.sh:
     - Takes one or more optional PYTHON_VERSION tags as arguments
+    - Runs tests
 
 venv_test_install_inplace.sh:
+    - Can only be run inside a Docker container
     - Takes one or more optional PYTHON_VERSION tags as arguments
-    - Expects to be run inside Docker container as non-root user, but
-        - Can run as root inside Docker container
-        - Can run outside Docker container
+    - Expects to be run as non-root user, but
+        - Can run as root
 
     - For PYTHON_VERSION tag:
         - Creates  a virtualenv with that PYTHON_VERSION
