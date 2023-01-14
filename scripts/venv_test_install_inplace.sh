@@ -41,7 +41,8 @@ function run_1_in_venv() {
         return 1
     }
     echo "Creating virtualenv $PYTHON_CMD"
-    hide_output_unless_error virtualenv -p $PYTHON_CMD ${TEST_VENV_DIR} || {
+    # hide_output_unless_error virtualenv -p $PYTHON_CMD ${TEST_VENV_DIR} || {
+    hide_output_unless_error $PYTHON_CMD -m venv ${TEST_VENV_DIR} || {
         return 1
     }
     source ${TEST_VENV_DIR}/bin/activate
