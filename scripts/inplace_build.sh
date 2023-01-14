@@ -4,7 +4,7 @@
 # Expects Python basename (python2 | python3 | pypy3 | pypy) as first argument
 
 set -e -u -o pipefail
-PROG_DIR=$(readlink -e $(dirname $0))
+PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
@@ -36,6 +36,7 @@ if sys.version_info.major == 2:
     CONFIG_KEY = "SO"
 else:
     CONFIG_KEY = "EXT_SUFFIX"
+
 print(sysconfig.get_config_var(CONFIG_KEY) or "");
 '
     SUFFIX=$($PYTHON_CMD -c "$PY_CODE")
@@ -54,12 +55,18 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
         >&2 echo "${SCRIPT_NAME}: ${TARGET_BASENAME}: No rebuild required"
         return 0
     }
+    "${CLEAN_BUILD_SCRIPT}"
     echo "Building ${TARGET_BASENAME} using $PYTHON_BASENAME setup.py build_ext --inplace"
-    hide_output_unless_error $PYTHON_CMD setup.py build_ext --inplace
+    hide_output_unless_error $PYTHON_CMD setup.py build_ext --inplace || {
+        "${CLEAN_BUILD_SCRIPT}"
+        return 1
+    }
     restore_file_ownership ${PY_MODULE}/${EXTENSION_NAME}.pyx "$TARGET"
+    "${CLEAN_BUILD_SCRIPT}"
 }
 
 
+CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize.sh
 SRC="${PY_MODULE}/${EXTENSION_NAME}.c"
 [[ -f "$SRC" ]] || {
