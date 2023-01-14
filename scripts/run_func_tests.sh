@@ -2,7 +2,7 @@
 # $1: PY3 | PY2 | PYPY3 | PYPY2 - defaults to testing in all
 
 set -eu -o pipefail
-PROG_DIR=$(readlink -e $(dirname $0))
+PROG_DIR=$(readlink -f $(dirname $0))
 
 function test_in_1_pyver() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
@@ -36,9 +36,9 @@ TEST_SCRIPT_BASENAME=test_pyprotect.py
 # Otherwise ONLY $PROG_DIR/../tests/test_pyprotect.py is tried
 
 [[ -n $(declare -p __TESTS_DIR 2>/dev/null) ]] && {
-    TEST_SCRIPT=$(readlink -m "$__TESTS_DIR")/test_pyprotect.py
+    TEST_SCRIPT=$(readlink -f "$__TESTS_DIR")/test_pyprotect.py
 } || {
-    __TESTS_DIR=$(readlink -e "$PROG_DIR"/../tests)
+    __TESTS_DIR=$(readlink -f "$PROG_DIR"/../tests)
 }
 export PYTHONPATH=$__TESTS_DIR
 
