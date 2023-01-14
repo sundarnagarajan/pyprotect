@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e -u -o pipefail
-PROG_DIR=$(readlink -e $(dirname $BASH_SOURCE))
+PROG_DIR=$(readlink -f $(dirname $BASH_SOURCE))
 source "$PROG_DIR"/config.sh
 
 function red() {
@@ -15,8 +15,13 @@ function red() {
 
 function hide_output_unless_error() {
     # Runs arguments and shows output only if there is an error
+    [[ $# -lt 1 ]] && return
     local ret=0
-    local out=$($@ 2>&1 || ret=$?)
+    local out=""
+    set +e
+    out=$($@ 2>&1)
+    ret=$?
+    set -e
     [[ $ret -ne 0 ]] && {
         >&2 red "$out"
         return $ret
@@ -77,7 +82,7 @@ function restore_file_ownership() {
         >&2 red "restore_ownership: ref file not found: $ref_file"
         return 0
     }
-    ref_file=$(readlink -e "$ref_file")
+    ref_file=$(readlink -f "$ref_file")
     local uid_gid=$(find "$ref_file" -printf '%U:%G\n')
     while [[ $# -gt 0 ]]
     do
