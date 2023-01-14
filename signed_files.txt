@@ -22,7 +22,7 @@ pyprotect/imports.pxi
 pyprotect/protected.c
 pyprotect/protected.pyx
 pyprotect/python_visible.pxi
-scripts/build_in_place_in_docker.sh
+scripts/host_build_in_place_using_docker.sh
 scripts/check_sha256.sh
 scripts/check_sig.sh
 scripts/clean.sh
@@ -42,7 +42,7 @@ scripts/inplace_build.sh
 scripts/install_test_in_docker.sh
 scripts/README.txt
 scripts/run_func_tests.sh
-scripts/test_in_docker.sh
+scripts/host_test_using_docker.sh
 scripts/upload_to_pypi.sh
 scripts/venv_test_install_inplace.sh
 setup.cfg
