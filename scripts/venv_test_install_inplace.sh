@@ -2,7 +2,7 @@
 # Fully reusable - changing only config.sh
 #
 set -eu -o pipefail
-PROG_DIR=$(readlink -e $(dirname $0))
+PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
@@ -31,37 +31,52 @@ function run_1_in_venv() {
     }
     local pyver=$1
     PYTHON_BASENAME=${TAG_PYVER[$pyver]}
-    PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
-        return 1
-    }
 
     echo "---------- venv: Install and test with $pyver -----------------"
     local TEST_VENV_DIR=/tmp/test_venv
     echo "Clearing virtualenv dir"
     rm -rf ${TEST_VENV_DIR}
+    PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
     echo "Creating virtualenv $PYTHON_CMD"
-    hide_output_unless_error virtualenv -p $PYTHON_CMD ${TEST_VENV_DIR}
+    hide_output_unless_error virtualenv -p $PYTHON_CMD ${TEST_VENV_DIR} || {
+        return 1
+    }
     source ${TEST_VENV_DIR}/bin/activate
+    PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
     echo "Installing $PY_MODULE using $PYTHON_CMD -m pip"
     unset PYTHONDONTWRITEBYTECODE
-    hide_output_unless_error $PYTHON_CMD -m pip install .
+    hide_output_unless_error $PYTHON_CMD -m pip install . || {
+        deactivate
+        return 1
+    }
     export PYTHONDONTWRITEBYTECODE=Y
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     echo "Running tests"
     __run_tests $pyver
     echo "Uninstalling $PY_MODULE using $PYTHON_CMD -m pip"
-    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE
+    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE || {
+        deactivate
+        return 1
+    }
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
     echo "Installing $PY_MODULE using $PYTHON_CMD setup.py"
     unset PYTHONDONTWRITEBYTECODE
-    hide_output_unless_error $PYTHON_CMD setup.py install
+    hide_output_unless_error $PYTHON_CMD setup.py install || {
+        deactivate
+        return 1
+    }
     export PYTHONDONTWRITEBYTECODE=Y
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
@@ -69,7 +84,11 @@ function run_1_in_venv() {
     __run_tests $pyver
 
     echo "Uninstalling $PY_MODULE using $PYTHON_CMD -m pip"
-    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE
+    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE || {
+        deactivate
+        return 1
+    }
+    deactivate
     rm -rf ${TEST_VENV_DIR}
 }
 
@@ -126,6 +145,8 @@ VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
 for p in $VALID_PYVER
 do
-    inplace_build_ant_test_1_pyver $p
     run_1_in_venv $p
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    inplace_build_ant_test_1_pyver $p
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 done

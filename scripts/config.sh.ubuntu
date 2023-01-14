@@ -10,8 +10,7 @@
     EXTENSION_NAME=protected
     PY_MODULE=pyprotect
     DOCKER_MOUNTPOINT=/${PY_MODULE}
-    # COMMON_CONTAINER_NAME=python23:jammy
-    COMMON_CONTAINER_NAME=py23_pypy3:alpine-3.15
+    COMMON_CONTAINER_NAME=python23:jammy
     CYTHON3_DOCKER_IMAGE=$COMMON_CONTAINER_NAME
 
     # TAG_PYVER: Maps PYTHON_VERSION tags to python executable basename
@@ -28,13 +27,12 @@
         ["PY3"]=$COMMON_CONTAINER_NAME
         ["PY2"]=$COMMON_CONTAINER_NAME
         ["PYPY3"]=$COMMON_CONTAINER_NAME
-        ["PYPY2"]=pypy2:alpine-3.15
+        ["PYPY2"]=$COMMON_CONTAINER_NAME
     )
     # DOCKERFILE_IMAGE maps Docker file names to Docker image names
     # Used (only) in docker_build.sh
     declare -A DOCKERFILE_IMAGE=(
-        [Dockerfile.alpine]=${TAG_IMAGE[PY3]}
-        [Dockerfile.alpine.pypy2]=${TAG_IMAGE[PYPY2]}
+        [Dockerfile.ubuntu]=${TAG_IMAGE[PY3]}
     )
 
     # Rest are related to UID / GID on the host

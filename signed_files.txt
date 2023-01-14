@@ -22,7 +22,6 @@ pyprotect/imports.pxi
 pyprotect/protected.c
 pyprotect/protected.pyx
 pyprotect/python_visible.pxi
-scripts/Dockerfile
 scripts/build_in_place_in_docker.sh
 scripts/check_sha256.sh
 scripts/check_sig.sh
@@ -30,9 +29,14 @@ scripts/clean.sh
 scripts/clean_build.sh
 scripts/common_functions.sh
 scripts/config.sh
+scripts/config.sh.alpine
+scripts/config.sh.ubuntu
 scripts/cythonize.sh
 scripts/docker_as.sh
 scripts/docker_build.sh
+scripts/Dockerfile.alpine
+scripts/Dockerfile.alpine.pypy2
+scripts/Dockerfile.ubuntu
 scripts/gpg_sign.sh
 scripts/inplace_build.sh
 scripts/install_test_in_docker.sh

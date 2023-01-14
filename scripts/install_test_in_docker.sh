@@ -2,7 +2,7 @@
 # Fully reusable - changing only config.sh
 #
 set -eu -o pipefail
-PROG_DIR=$(readlink -e $(dirname $0))
+PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
@@ -14,17 +14,21 @@ function install_test_1_pyver() {
         >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
+    [[ -z "$PYTHON_CMD" ]] && {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
     local pip_cmd="${PYTHON_CMD} -m pip"
 
     cd ${DOCKER_MOUNTPOINT}
     echo "Uninstalling using $pip_cmd uninstall"
-    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE
+    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
     echo "Installing ${PY_MODULE} using $pip_cmd install ."
     unset PYTHONDONTWRITEBYTECODE
-    hide_output_unless_error $pip_cmd install .
+    hide_output_unless_error $pip_cmd install . || return 1
     export PYTHONDONTWRITEBYTECODE=Y
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
@@ -39,13 +43,13 @@ function install_test_1_pyver() {
 
     cd ${DOCKER_MOUNTPOINT}
     echo "Uninstalling using $pip_cmd uninstall"
-    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE
+    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
     echo "Installing ${PY_MODULE} using $PYTHON_CMD setup.py install"
     unset PYTHONDONTWRITEBYTECODE
-    hide_output_unless_error $PYTHON_CMD setup.py install
+    hide_output_unless_error $PYTHON_CMD setup.py install || return 1
     export PYTHONDONTWRITEBYTECODE=Y
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
@@ -60,7 +64,7 @@ function install_test_1_pyver() {
 
     cd ${DOCKER_MOUNTPOINT}
     echo "Uninstalling using $pip_cmd uninstall"
-    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE
+    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
 }
 
 # ------------------------------------------------------------------------
@@ -79,6 +83,7 @@ export PIP_NO_PYTHON_VERSION_WARNING=1
 export PIP_ROOT_USER_ACTION=ignore
 
 # This script does not launch docker containers
+PYVER_CHOSEN=$@
 VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
 cd ${DOCKER_MOUNTPOINT}
@@ -88,13 +93,25 @@ ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 for p in $VALID_PYVER
 do
     echo "-------------------- Executing for $p --------------------"
-    install_test_1_pyver $p
+    install_test_1_pyver $p || {
+        [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
+            ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+            continue
+        }
+    }
+    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
     # Keep tests for each pyver together
     [[ -z ${NORMAL_USER+x} ]] && {
         >&2 red "NORMAL_USER env var not found"
     } || {
-        su $NORMAL_USER -c "${PROG_DIR}/venv_test_install_inplace.sh $p"
+        su $NORMAL_USER -c "${PROG_DIR}/venv_test_install_inplace.sh $p" || {
+            [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
+                ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+                continue
+            }
+        }
     }
 done
+${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
 
