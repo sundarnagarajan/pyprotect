@@ -41,9 +41,10 @@ function run_1_in_venv() {
         return 1
     }
     echo "Creating virtualenv $PYTHON_CMD"
-    # hide_output_unless_error virtualenv -p $PYTHON_CMD ${TEST_VENV_DIR} || {
-    hide_output_unless_error $PYTHON_CMD -m venv ${TEST_VENV_DIR} || {
-        return 1
+    $PYTHON_CMD -B -c 'import venv' 2>/dev/null && {
+        hide_output_unless_error $PYTHON_CMD -m venv ${TEST_VENV_DIR} || return 1
+    } || {
+        hide_output_unless_error virtualenv -p $PYTHON_CMD ${TEST_VENV_DIR} || return 1
     }
     source ${TEST_VENV_DIR}/bin/activate
     PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
@@ -53,7 +54,7 @@ function run_1_in_venv() {
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-    echo "Installing $PY_MODULE using $PYTHON_CMD -m pip"
+    echo "Installing $PY_MODULE in virtualenv using $PYTHON_CMD -m pip install ."
     unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $PYTHON_CMD -m pip install . || {
         deactivate
@@ -64,7 +65,7 @@ function run_1_in_venv() {
 
     echo "Running tests"
     __run_tests $pyver
-    echo "Uninstalling $PY_MODULE using $PYTHON_CMD -m pip"
+    echo "Uninstalling $PY_MODULE in virtualenv using $PYTHON_CMD -m pip"
     hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE || {
         deactivate
         return 1
@@ -72,7 +73,7 @@ function run_1_in_venv() {
 
     cd ${DOCKER_MOUNTPOINT}
     ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
-    echo "Installing $PY_MODULE using $PYTHON_CMD setup.py"
+    echo "Installing $PY_MODULE in virtualenv using $PYTHON_CMD setup.py"
     unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $PYTHON_CMD setup.py install || {
         deactivate
@@ -84,7 +85,7 @@ function run_1_in_venv() {
     echo "Running tests"
     __run_tests $pyver
 
-    echo "Uninstalling $PY_MODULE using $PYTHON_CMD -m pip"
+    echo "Uninstalling $PY_MODULE in virtualenv using $PYTHON_CMD -m pip"
     hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE || {
         deactivate
         return 1
