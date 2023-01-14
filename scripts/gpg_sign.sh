@@ -13,7 +13,7 @@ GPG_CMD=$(command -v gpg2)  || {
 }
 
 
-PROG_DIR=$(readlink -e $(dirname "$0"))
+PROG_DIR=$(readlink -f $(dirname "$0"))
 cd "${PROG_DIR}"/..
 
 FILES_TO_SIGN=$(cat signed_files.txt)
