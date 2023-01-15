@@ -33,8 +33,8 @@ scripts/clean.sh
 scripts/clean_build.sh
 scripts/common_functions.sh
 scripts/config.sh
-scripts/config.sh.alpine
-scripts/config.sh.ubuntu
+scripts/config_docker_alpine.sh
+scripts/config_docker_ubuntu.sh
 scripts/cythonize.sh
 scripts/docker_as.sh
 scripts/gpg_sign.sh

@@ -22,13 +22,13 @@ function build_1_in_place() {
     export LDFLAGS=-s
 
     cd "$PROG_DIR"/..
-    PYTHON_BASENAME=${TAG_PYVER[$pyver]}
-    PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+    local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
+    local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
         >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
     # Check if .so has to be rebuilt
-    PY_CODE='
+    local PY_CODE='
 import sys
 import sysconfig
 if sys.version_info.major == 2:
@@ -38,17 +38,31 @@ else:
 
 print(sysconfig.get_config_var(CONFIG_KEY) or "");
 '
-    SUFFIX=$($PYTHON_CMD -c "$PY_CODE")
+    local SUFFIX=$($PYTHON_CMD -B -c "$PY_CODE")
     [[ -z "$SUFFIX" ]] && SUFFIX=".so"
-    TARGET="${PY_MODULE}/${EXTENSION_NAME}${SUFFIX}"
+    local TARGET="${PY_MODULE}/${EXTENSION_NAME}${SUFFIX}"
+    local TARGET_BASENAME=""
     [[ "$SUFFIX" = ".so" ]] && {
         TARGET_BASENAME=$(basename "$TARGET" )
     } || {
         TARGET_BASENAME=$(basename "$TARGET" | sed -e 's/^protected\.//')
     }
+    local REBUILD_REQUIRED=0
     [[ -f "$TARGET" ]] && REBUILD_REQUIRED=0 || REBUILD_REQUIRED=1
     [[ $REBUILD_REQUIRED -eq 0 ]] && {
         [[ "$SRC" -nt "$TARGET" ]] && REBUILD_REQUIRED=1
+    }
+    # PY2 Extension may be present but be incmpatible with chosen distro / platform
+    [[ $REBUILD_REQUIRED -eq 0 && $SUFFIX = ".so" ]] && {
+        local incompatible=0
+        ldd "$TARGET" 1>/dev/null 2>&1 || incompatible=1
+        [[ $incompatible -eq 0 ]] && {
+            [[ $(ldd "$TARGET" 2>/dev/null | awk -F' => ' '$2 == "not found" {print $1}' | wc -l) -eq 0 ]] || incompatible=1
+        }
+        [[ $incompatible -ne 0 ]] && {
+            >&2 echo "${SCRIPT_NAME}: ${TARGET_BASENAME}: Rebuilding because of incompatibility"
+            REBUILD_REQUIRED=1
+        }
     }
     [[ $REBUILD_REQUIRED -eq 0 ]] && {
         >&2 echo "${SCRIPT_NAME}: ${TARGET_BASENAME}: No rebuild required"
