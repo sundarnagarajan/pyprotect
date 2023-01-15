@@ -50,7 +50,6 @@ scripts/upload_to_pypi.sh
 scripts/venv_test_install_inplace.sh
 setup.cfg
 setup.py
-signature.asc
 signed_files.txt
 tests/__init__.py
 tests/cls_gen.py
