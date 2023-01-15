@@ -11,7 +11,7 @@ import re
 import types
 import itertools
 import pydoc
-from pyprotect_finder import pyprotect    # noqa: F401
+from module_finder import pyprotect    # noqa: F401
 from pyprotect import (
     attribute_protected,
     id_protected,

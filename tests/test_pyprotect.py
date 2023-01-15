@@ -22,14 +22,11 @@ from test_utils import (
     always_delegated,
     always_frozen,
     isfrozen, isprotected, isprivate, isimmutable,
-)
-import platform
-PYPY = (platform.python_implementation() == 'PyPy')
-from pyprotect_finder import pyprotect    # noqa: F401
-from pyprotect import (
     freeze, private, protect, wrap,
     iswrapped,
 )
+import platform
+PYPY = (platform.python_implementation() == 'PyPy')
 from testcases import gen_test_objects
 from cls_gen import generate
 

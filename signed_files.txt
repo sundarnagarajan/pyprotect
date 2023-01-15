@@ -53,9 +53,9 @@ signature.asc
 signed_files.txt
 tests/__init__.py
 tests/cls_gen.py
+tests/module_finder.py
 tests/nested.py
 tests/obj_utils.py
-tests/pyprotect_finder.py
 tests/test_module.py
 tests/test_pyprotect.py
 tests/test_utils.py

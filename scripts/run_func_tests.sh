@@ -14,7 +14,7 @@ function test_in_1_pyver() {
     }
 
     local ret=0
-    $python_cmd -B -c "from pyprotect_finder import pyprotect" 1>/dev/null 2>&1 || ret=1
+    $python_cmd -B -c "from module_finder import pyprotect" 1>/dev/null 2>&1 || ret=1
     
     if [[ $ret -eq 0 ]]; then
         echo "Executing tests in: $__TESTS_DIR"
