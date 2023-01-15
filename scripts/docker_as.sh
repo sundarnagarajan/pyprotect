@@ -59,6 +59,6 @@ DOCKER_IMAGE=${TAG_IMAGE[$VALID_PYVER]}
 docker_image_must_exist $DOCKER_IMAGE
 
 cd "$PROG_DIR"/..
-DOCKER_CMD="docker run -it --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER  $DOCKER_IMAGE /bin/bash"
+DOCKER_CMD="docker run -it --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER --env __DISTRO=${__DISTRO:-} $DOCKER_IMAGE /bin/bash"
 >&2 echo $DOCKER_CMD
 $DOCKER_CMD

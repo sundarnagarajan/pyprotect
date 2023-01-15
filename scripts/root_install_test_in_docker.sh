@@ -104,7 +104,7 @@ do
     [[ -z ${NORMAL_USER+x} ]] && {
         >&2 red "NORMAL_USER env var not found"
     } || {
-        su $NORMAL_USER -c "${PROG_DIR}/venv_test_install_inplace.sh $p" || {
+        su $NORMAL_USER -c "__CONFIG_DOCKER=${__CONFIG_DOCKER:-}  ${PROG_DIR}/venv_test_install_inplace.sh $p" || {
             [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
                 ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
                 continue

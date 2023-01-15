@@ -1,5 +1,7 @@
 # A dir to stash local stuff that will not show up as untracked
 local/
+# symlink to actual default config_docker_<distro>.sh
+scripts/config_docker.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

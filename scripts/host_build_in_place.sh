@@ -20,7 +20,7 @@ function build_1_pyver() {
     local build_args=${TAG_PYVER[${pyver}]}
     cd "$PROG_DIR"/..
     "${CLEAN_BUILD_SCRIPT}"
-    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $img ${BUILD_SCRIPT} $pyver"
+    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER --env __DISTRO=${__DISTRO:-} $img ${BUILD_SCRIPT} $pyver"
     $DOCKER_CMD
     "${CLEAN_BUILD_SCRIPT}"
 }
@@ -33,7 +33,7 @@ cd "$PROG_DIR"/..
 
 # Still need to check for CYTHON3_DOCKER_IMAGE and run CYTHONIZE_SCRIPT
 docker_image_must_exist $CYTHON3_DOCKER_IMAGE
-DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER $CYTHON3_DOCKER_IMAGE ${CYTHONIZE_SCRIPT}"
+DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER --env __DISTRO=${__DISTRO:-} $CYTHON3_DOCKER_IMAGE ${CYTHONIZE_SCRIPT}"
 $DOCKER_CMD
 
 for p in $VALID_PYVER
