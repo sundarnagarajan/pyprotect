@@ -54,6 +54,7 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 * [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
 * [Work in progress](#work-in-progress)
 * [Changelog](#changelog)
+    * [Jan-15-2022](#jan-15-2022)
     * [Dec-08-2022](#dec-08-2022)
 
 <!-- vim-markdown-toc -->
@@ -456,7 +457,7 @@ Pretty much anything. pyprotect only mediates attribute access using ```object._
 
 ## Changelog
 ### Jan-15-2022
-- Started signing commits with my GPG key
+- Tried signing commits with my GPG key
 ### Dec-08-2022
 A number of parameters to protect() have been discontinued. See list and reasons below, as well as how to achieve the same effect without thos parameters (sometimes, it takes more work). Most of them would be realistically useful very rarely, and / or do not align with what I call 'idiomatic python'.
 
