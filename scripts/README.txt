@@ -29,20 +29,22 @@ __________________________________________________________________________
 Script                                  Needs       Only in     Needs
 Name                                    root        Docker      docker
 __________________________________________________________________________
-check_sha256.sh                         NO          NO          No
-check_sig.sh                            NO          NO          No
-clean_build.sh                          NO          NO          No
-clean.sh                                NO          NO          No
-cythonize.sh                            NO          NO          No
+check_sha256.sh                         NO          NO          NO
+check_sig.sh                            NO          NO          NO
+clean_build.sh                          NO          NO          NO
+clean.sh                                NO          NO          NO
+cythonize.sh                            NO          NO          NO
 docker_as.sh                            NO          NO          YES
-gpg_sign.sh                             NO          NO          No
+gpg_sign.sh                             NO          NO          NO
 host_build_in_place.sh                  NO          NO          YES
 host_docker_build.sh                    NO          NO          YES
 host_test.sh                            NO          NO          YES
 inplace_build.sh                        NO          NO          No
 root_install_test_in_docker.sh          YES         YES         NO
-run_func_tests.sh                       NO          NO          No
-venv_test_install_inplace.sh            NO          YES         No
+run_func_tests.sh                       NO          NO          NO
+update_manifest.sh                      NO          NO          NO
+update_signed_files.sh                  NO          NO          NO
+venv_test_install_inplace.sh            NO          YES         NO
 __________________________________________________________________________
 
 check_sha256.sh: Checks sha256sums in signature.asc. Takes no arguments
@@ -105,6 +107,10 @@ root_install_test_in_docker.sh:
 run_func_tests.sh:
     - Takes one or more optional PYTHON_VERSION tags as arguments
     - Runs tests
+
+update_manifest.sh: Updates MANIFEST.in - takes no arguments
+
+update_signed_files.sh: Updates signed_files.txt. Takes no arguments
 
 venv_test_install_inplace.sh:
     - Can only be run inside a Docker container
