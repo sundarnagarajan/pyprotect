@@ -4,7 +4,7 @@ set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 source "$PROG_DIR"/common_functions.sh
 
-must_not_be_in_docker
+need_docker_command
 
 # Script path OUTSIDE docker
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/../scripts/clean_build.sh

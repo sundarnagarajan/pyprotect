@@ -4,7 +4,7 @@ set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
 source "$PROG_DIR"/common_functions.sh
 
-must_not_be_in_docker
+need_docker_command
 
 # Script path from docker mount path perspective
 TEST_SCRIPT=${DOCKER_MOUNTPOINT}/scripts/run_func_tests.sh

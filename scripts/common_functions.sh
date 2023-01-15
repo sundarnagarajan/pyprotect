@@ -60,6 +60,14 @@ function must_not_be_in_docker() {
     } || return 0
 }
 
+function need_docker_command() {
+    command -v docker 1>/dev/null 2>&1 || {
+        >&2 red "docker command is required, but not found"
+        return 1
+    }
+    return 0
+}
+
 function command_must_exist() {
     # $1: command
     [[ $# -lt 1 ]] && return 1
