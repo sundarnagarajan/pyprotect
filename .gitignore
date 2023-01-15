@@ -1,4 +1,4 @@
-# pyprotect-specific
+# A dir to stash local stuff that will not show up as untracked
 local/
 
 # Byte-compiled / optimized / DLL files
