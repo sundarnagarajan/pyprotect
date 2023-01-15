@@ -457,7 +457,7 @@ Pretty much anything. pyprotect only mediates attribute access using ```object._
 
 ## Changelog
 ### Jan-15-2022
-- Tried signing commits with my GPG key
+- Started signing commits with my GPG key and displaying 'verified' for signed commits
 ### Dec-08-2022
 A number of parameters to protect() have been discontinued. See list and reasons below, as well as how to achieve the same effect without thos parameters (sometimes, it takes more work). Most of them would be realistically useful very rarely, and / or do not align with what I call 'idiomatic python'.
 
