@@ -7,6 +7,8 @@ MANIFEST.in
 README.md
 classdiagram.puml
 classdiagram.svg
+docs/Packaging.md
+docs/Scripts.md
 pyproject.toml
 pyprotect/HiddenPartial.pxi
 pyprotect/PrivacyDict_FrozenPrivacyDict.pxi
