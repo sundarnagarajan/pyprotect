@@ -1,28 +1,7 @@
 #!/bin/bash
-# Can be fully reused, changing only config.sh
 #
-# config.sh supports having separate Docker images for
-# Cython3, PY3, PY2, PYPY3, PYPY2
-#   TAG_IMAGE
-#
-# Following scripts source config.sh and use these variables:
-#   build_in_place_in_docker.sh
-#   install_test_in_docker.sh
-#   test_in_docker.sh
-#
-# At this time, this script and Dockerfile use a SINGLE Docker image for
-# Cython3, PY3, PY2, PYPY3, PYPY2
-#
-# To split out into multiple Docker images, following changes will be required:
-#   - Changes to this script
-#   - Changes to config.sh: variables specifying separate Dockerfiles
-#   - Creating / splitting out into separate Dockerfiles
-
-
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
-
-source "$PROG_DIR"/config.sh
 source "$PROG_DIR"/common_functions.sh
 
 

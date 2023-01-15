@@ -1,9 +1,7 @@
 #!/bin/bash
-# Can be fully reused, changing only config.sh
 #
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
-source "$PROG_DIR"/config.sh
 source "$PROG_DIR"/common_functions.sh
 
 must_not_be_in_docker

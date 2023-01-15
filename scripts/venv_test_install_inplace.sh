@@ -1,5 +1,4 @@
 #!/bin/bash
-# Fully reusable - changing only config.sh
 #
 set -eu -o pipefail
 PROG_DIR=$(readlink -f $(dirname $0))

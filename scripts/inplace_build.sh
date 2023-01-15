@@ -1,5 +1,4 @@
 #!/bin/bash
-# Can be fully reused, changing only config.sh
 #
 # Expects Python basename (python2 | python3 | pypy3 | pypy) as first argument
 

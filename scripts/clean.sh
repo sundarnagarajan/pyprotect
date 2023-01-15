@@ -1,5 +1,4 @@
 #!/bin/bash
-# Can be fully reused, changing only config.sh
 #
 set -e -u -o pipefail
 PROG_DIR=$(dirname $0)

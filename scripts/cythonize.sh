@@ -1,10 +1,8 @@
 #!/bin/bash
-# Can be fully reused, changing only config.sh
 #
 set -e -u -o pipefail
 PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
-source "$PROG_DIR"/config.sh
 source "$PROG_DIR"/common_functions.sh
 
 CYTHON_CMD=$(command -v cython3) || {

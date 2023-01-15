@@ -14,6 +14,7 @@ GPG_CMD=$(command -v gpg2)  || {
 
 
 PROG_DIR=$(readlink -f $(dirname "$0"))
+"${PROG_DIR}"/update_signed_files.sh
 cd "${PROG_DIR}"/..
 
 FILES_TO_SIGN=$(cat signed_files.txt)
