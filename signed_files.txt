@@ -27,7 +27,6 @@ pyprotect/python_visible.pxi
 scripts/Dockerfile.alpine
 scripts/Dockerfile.alpine.pypy2
 scripts/Dockerfile.ubuntu
-scripts/README.txt
 scripts/check_sha256.sh
 scripts/check_sig.sh
 scripts/clean.sh
