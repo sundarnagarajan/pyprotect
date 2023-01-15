@@ -455,6 +455,8 @@ Pretty much anything. pyprotect only mediates attribute access using ```object._
 - [Dockerfiles required](https://github.com/sundarnagarajan/python_protected_class/issues?q=is%3Aopen+is%3Aissue+label%3ADockerfiles)
 
 ## Changelog
+### Jan-15-2022
+- Started signing commits with my GPG key
 ### Dec-08-2022
 A number of parameters to protect() have been discontinued. See list and reasons below, as well as how to achieve the same effect without thos parameters (sometimes, it takes more work). Most of them would be realistically useful very rarely, and / or do not align with what I call 'idiomatic python'.
 
