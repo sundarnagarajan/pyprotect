@@ -32,7 +32,7 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
         * [isimmutable](#isimmutable)
         * [isprivate](#isprivate)
         * [isprotected](#isprotected)
-    * [Checking properties objects inside wrapped objects](#checking-properties-objects-inside-wrapped-objects)
+    * [Checking properties of objects inside wrapped objects](#checking-properties-of-objects-inside-wrapped-objects)
         * [contains](#contains)
         * [help_protected](#help_protected)
         * [id_protected](#id_protected)
@@ -293,7 +293,7 @@ isprotected(x: object) -> bool
 ```
 _x_ was created using _protect()_
 
-### Checking properties objects inside wrapped objects
+### Checking properties of objects inside wrapped objects
 #### contains
 ```python
 contains(w: object, o: object) -> bool
