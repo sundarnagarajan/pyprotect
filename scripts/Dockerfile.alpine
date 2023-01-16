@@ -27,10 +27,10 @@ RUN apk upgrade
 # RUN apk add curl less unzip cython build-base python3-dev py3-setuptools py3-pip py3-virtualenv python2-dev py-setuptools
 RUN apk add \
     curl less unzip \
-    bash findutils \
+    bash findutils git \
     cython build-base \
     python3-dev py3-setuptools py3-pip py3-virtualenv \
-    python2-dev py-setuptools
+    python2-dev py-setuptools 
 
 # On alpine there is only cython 0.29.24 - no cython3
 # We look for cython3 specifically in cythonize.sh
@@ -51,7 +51,8 @@ RUN apk upgrade
 RUN python3 -m ensurepip 2>/dev/null
 RUN pypy3 -m ensurepip 2>/dev/null
 # Suppress stderr to hide irrelevant warning about Python2 EOL
-RUN /usr/bin/python2 -m pip install --upgrade pip 2>/dev/null
+RUN python2 -m ensurepip 2>/dev/null
+RUN python2 -m pip install --upgrade pip 2>/dev/null
 
 # Create the non-root user
 # Alpine adduser options / syntax is different

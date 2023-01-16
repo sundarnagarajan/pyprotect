@@ -15,7 +15,7 @@ function test_1_pyver() {
     local pyver=$1
     local img=${TAG_IMAGE[${pyver}]}
     cd "$PROG_DIR"/..
-    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER --env __DISTRO=${__DISTRO:-} $img ${TEST_SCRIPT} $pyver"
+    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user "${HOST_UID}:${HOST_GID}" --env __DISTRO=${__DISTRO:-} $img ${TEST_SCRIPT} $pyver"
     $DOCKER_CMD
 }
 

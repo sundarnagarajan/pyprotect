@@ -27,9 +27,9 @@ RUN apk upgrade
 # RUN apk add curl less unzip cython build-base python3-dev py3-setuptools py3-pip py3-virtualenv python2-dev py-setuptools
 RUN apk add \
     curl less unzip \
-    bash findutils \
+    bash findutils git \
     cython build-base \
-    py3-virtualenv
+    py3-virtualenv 
 
 # On alpine there is only cython 0.29.24 - no cython3
 # We look for cython3 specifically in cythonize.sh

@@ -16,6 +16,7 @@ function show_usage() {
 
 PYVER=PY3
 
+DOCKER_USER="${HOST_UID}:${HOST_GID}"
 while [ $# -gt 0 ];
 do
     case "$1" in

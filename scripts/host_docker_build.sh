@@ -59,7 +59,7 @@ done
     } || [[ "${CYTHONIZE_REQUIRED:-}" != "yes" ]] && {
         >&2 echo "C-extension does not require cython"
     }
-    >&2 echo "Cython is in Docker image $CYTHON_IN_IMAGE"
+    >&2 red "Cython is in Docker image $CYTHON_IN_IMAGE"
     exit 0
 }
 

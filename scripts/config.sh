@@ -52,7 +52,6 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     HOST_GROUPNAME=$(id -gn)
     HOST_UID=$(id -u)
     HOST_GID=$(id -g)
-    DOCKER_USER="${HOST_UID}:${HOST_GID}"
 
     # Source the distro-specific config_docker_XXX.sh
     DOCKER_CONFIG_FILE=${__DISTRO:-}
@@ -64,7 +63,6 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     source "$DOCKER_CONFIG_FILE"
 
     # Make config entries read-only
-    # DOCKER_USER is not read-only - it may be set in docker_as.sh
     SCRIPTS_DIR=$(basename "$SCRIPTS_DIR")
     TEST_MODULE_FILENAME=$(basename "$TEST_MODULE_FILENAME")
     readonly \
