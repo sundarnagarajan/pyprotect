@@ -24,12 +24,12 @@ function install_test_1_pyver() {
     hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
 
     cd ${DOCKER_MOUNTPOINT}
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
     echo "Installing ${PY_MODULE} using $pip_cmd install ."
     unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $pip_cmd install . || return 1
     export PYTHONDONTWRITEBYTECODE=Y
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
 
     local TEST_DIR=/root/tests
     # optimistic that tests do not get overwritten / changed
@@ -45,12 +45,12 @@ function install_test_1_pyver() {
     hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
 
     cd ${DOCKER_MOUNTPOINT}
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
     echo "Installing ${PY_MODULE} using $PYTHON_CMD setup.py install"
     unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $PYTHON_CMD setup.py install || return 1
     export PYTHONDONTWRITEBYTECODE=Y
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
 
     local TEST_DIR=/root/tests
     # optimistic that tests do not get overwritten / changed
@@ -81,24 +81,27 @@ export PIP_DISABLE_PIP_VERSION_CHECK=1
 export PIP_NO_PYTHON_VERSION_WARNING=1
 export PIP_ROOT_USER_ACTION=ignore
 
+CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
+CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize.sh
+
 # This script does not launch docker containers
 PYVER_CHOSEN=$@
 VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
 cd ${DOCKER_MOUNTPOINT}
-${DOCKER_MOUNTPOINT}/scripts/cythonize.sh
-${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+${CYTHONIZE_SCRIPT}
+${CLEAN_BUILD_SCRIPT}
 
 for p in $VALID_PYVER
 do
     echo "-------------------- Executing for $p --------------------"
     install_test_1_pyver $p || {
         [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
-            ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+            ${CLEAN_BUILD_SCRIPT}
             continue
         }
     }
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
 
     # Keep tests for each pyver together
     [[ -z ${NORMAL_USER+x} ]] && {
@@ -106,11 +109,11 @@ do
     } || {
         su $NORMAL_USER -c "__CONFIG_DOCKER=${__CONFIG_DOCKER:-}  ${PROG_DIR}/venv_test_install_inplace.sh $p" || {
             [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
-                ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+                ${CLEAN_BUILD_SCRIPT}
                 continue
             }
         }
     }
 done
-${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+${CLEAN_BUILD_SCRIPT}
 

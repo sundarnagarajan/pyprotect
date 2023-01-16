@@ -52,7 +52,7 @@ function run_1_in_venv() {
     }
 
     cd ${DOCKER_MOUNTPOINT}
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
     echo "Installing $PY_MODULE in virtualenv using $PYTHON_CMD -m pip install ."
     unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $PYTHON_CMD -m pip install . || {
@@ -60,7 +60,7 @@ function run_1_in_venv() {
         return 1
     }
     export PYTHONDONTWRITEBYTECODE=Y
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
 
     echo "Running tests"
     __run_tests $pyver
@@ -71,7 +71,7 @@ function run_1_in_venv() {
     }
 
     cd ${DOCKER_MOUNTPOINT}
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
     echo "Installing $PY_MODULE in virtualenv using $PYTHON_CMD setup.py"
     unset PYTHONDONTWRITEBYTECODE
     hide_output_unless_error $PYTHON_CMD setup.py install || {
@@ -79,7 +79,7 @@ function run_1_in_venv() {
         return 1
     }
     export PYTHONDONTWRITEBYTECODE=Y
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
 
     echo "Running tests"
     __run_tests $pyver
@@ -108,11 +108,11 @@ function inplace_build_ant_test_1_pyver() {
 
     echo "---------- Inplace build and test with $pyver -----------------"
     cd ${DOCKER_MOUNTPOINT}
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
     export PYTHONDONTWRITEBYTECODE=Y
-    ./scripts/cythonize.sh
-    ./scripts/inplace_build.sh $pyver
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CYTHONIZE_SCRIPT}
+    ${INPLACE_BUILD_SCRIPT}
+    ${CLEAN_BUILD_SCRIPT}
 
     ${PROG_DIR}/run_func_tests.sh $pyver
 }
@@ -130,8 +130,10 @@ export PIP_DISABLE_PIP_VERSION_CHECK=1
 export PIP_NO_PYTHON_VERSION_WARNING=1
 export PIP_ROOT_USER_ACTION=ignore
 
-
 CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize.sh
+CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
+INPLACE_BUILD_SCRIPT="${PROG_DIR}"/inplace_build.sh
+
 SRC="${PY_MODULE}/${EXTENSION_NAME}.c"
 [[ -f "$SRC" ]] || {
     $CYTHONIZE_SCRIPT || {
@@ -147,7 +149,7 @@ VALID_PYVER=$(process_std_cmdline_args no yes $@)
 for p in $VALID_PYVER
 do
     run_1_in_venv $p
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
     inplace_build_ant_test_1_pyver $p
-    ${DOCKER_MOUNTPOINT}/scripts/clean_build.sh
+    ${CLEAN_BUILD_SCRIPT}
 done

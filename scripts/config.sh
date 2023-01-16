@@ -11,6 +11,10 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     EXTENSION_NAME=protected
     PY_MODULE=pyprotect
     DOCKER_MOUNTPOINT=/${PY_MODULE}
+    # SCRIPTS_DIR should be basename of directory with scripts
+    # This is for cases where the project already has a top-level directory
+    # named 'scripts'
+    SCRIPTS_DIR=scripts
 
     # TAG_PYVER: Maps PYTHON_VERSION tags to python executable basename
     # Values should be respective python executables - with or without path
@@ -21,13 +25,17 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
         ["PYPY2"]=pypy
     )
 
-    # Rest are related to UID / GID on the host
+    # --------------------------------------------------------------------
+    # Do not change anything beow this
+    # --------------------------------------------------------------------
+    # These are related to UID / GID on the host
     HOST_USERNAME=$(id -un)
     HOST_GROUPNAME=$(id -gn)
     HOST_UID=$(id -u)
     HOST_GID=$(id -g)
     DOCKER_USER="${HOST_UID}:${HOST_GID}"
 
+    # Source the distro-specific config_docker_XXX.sh
     DOCKER_CONFIG_FILE=${__DISTRO:-}
     [[ -z "$DOCKER_CONFIG_FILE" ]] && {
         DOCKER_CONFIG_FILE=$SCRIPT_DIR/config_docker.sh
@@ -36,14 +44,13 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     }
     source "$DOCKER_CONFIG_FILE"
 
-    # --------------------------------------------------------------------
-    # Do not change anything beow this
-    # --------------------------------------------------------------------
     # Make config entries read-only
     # DOCKER_USER is not read-only - it may be set in docker_as.sh
+    SCRIPTS_DIR=$(basename "$SCRIPTS_DIR")
     readonly EXTENSION_NAME PY_MODULE DOCKER_MOUNTPOINT \
         TAG_PYVER \
         HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID \
+        SCRIPTS_DIR 
     __CONFIG_SOURCED=yes
     readonly __CONFIG_SOURCED
 }

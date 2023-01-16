@@ -7,7 +7,7 @@ source "$PROG_DIR"/common_functions.sh
 need_docker_command
 
 # Script path from docker mount path perspective
-TEST_SCRIPT=${DOCKER_MOUNTPOINT}/scripts/run_func_tests.sh
+TEST_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/run_func_tests.sh
 
 
 function test_1_pyver() {
