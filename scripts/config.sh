@@ -15,6 +15,9 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     # This is for cases where the project already has a top-level directory
     # named 'scripts'
     SCRIPTS_DIR=scripts
+    # TEST_MODULE_FILENAME should be basename of top-level test module
+    # under tests/ WITH '.py' extension
+    TEST_MODULE_FILENAME=test_pyprotect.py
 
     # TAG_PYVER: Maps PYTHON_VERSION tags to python executable basename
     # Values should be respective python executables - with or without path
@@ -47,10 +50,11 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     # Make config entries read-only
     # DOCKER_USER is not read-only - it may be set in docker_as.sh
     SCRIPTS_DIR=$(basename "$SCRIPTS_DIR")
+    TEST_MODULE_FILENAME=$(basename "$TEST_MODULE_FILENAME")
     readonly EXTENSION_NAME PY_MODULE DOCKER_MOUNTPOINT \
         TAG_PYVER \
         HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID \
-        SCRIPTS_DIR 
+        SCRIPTS_DIR TEST_MODULE_FILENAME
     __CONFIG_SOURCED=yes
     readonly __CONFIG_SOURCED
 }

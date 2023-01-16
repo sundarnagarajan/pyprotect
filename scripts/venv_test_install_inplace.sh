@@ -14,7 +14,7 @@ function __run_tests() {
     local pyver=$1
     local TEST_DIR=/tmp/tests
     # optimistic that tests will not be overwritten / changed
-    [[ -x "$TEST_DIR"/test_pyprotect.py ]] || {
+    [[ -x "$TEST_DIR"/$TEST_MODULE_FILENAME ]] || {
         mkdir -p "$TEST_DIR"
         cp -a ${DOCKER_MOUNTPOINT}/tests/. "$TEST_DIR"/
     }

@@ -30,13 +30,13 @@ function test_in_1_pyver() {
 # Actual script starts after this
 # ------------------------------------------------------------------------
 source "$PROG_DIR"/common_functions.sh
-TEST_SCRIPT_BASENAME=test_pyprotect.py
+TEST_SCRIPT_BASENAME=$TEST_MODULE_FILENAME
 
-# If __TESTS_DIR env var is set, ONLY $TESTS_DIR/test_pyprotect.py is tried
-# Otherwise ONLY $PROG_DIR/../tests/test_pyprotect.py is tried
+# If __TESTS_DIR env var is set, ONLY $TESTS_DIR/$TEST_MODULE_FILENAME is tried
+# Otherwise ONLY $PROG_DIR/../tests/$TEST_MODULE_FILENAME is tried
 
 [[ -n $(declare -p __TESTS_DIR 2>/dev/null) ]] && {
-    TEST_SCRIPT=$(readlink -f "$__TESTS_DIR")/test_pyprotect.py
+    TEST_SCRIPT=$(readlink -f "$__TESTS_DIR")/$TEST_MODULE_FILENAME
 } || {
     __TESTS_DIR=$(readlink -f "$PROG_DIR"/../tests)
 }
