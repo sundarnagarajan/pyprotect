@@ -224,10 +224,12 @@ VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
 for p in $VALID_PYVER
 do
-    run_1_in_venv $p
-    ${CLEAN_BUILD_SCRIPT}
-    inplace_build_ant_test_1_pyver $p
-    ${CLEAN_BUILD_SCRIPT}
+    [[ -z "${__MINIMAL_TESTS:-}" ]] && {
+        run_1_in_venv $p
+        ${CLEAN_BUILD_SCRIPT}
+        inplace_build_ant_test_1_pyver $p
+        ${CLEAN_BUILD_SCRIPT}
+    }
     pip_install_user_1_pyver $p
     ${CLEAN_BUILD_SCRIPT}
 done

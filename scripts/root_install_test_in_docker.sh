@@ -117,14 +117,17 @@ ${CLEAN_BUILD_SCRIPT}
 
 for p in $VALID_PYVER
 do
-    echo "-------------------- Executing for $p --------------------"
-    install_test_1_pyver $p || {
-        [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
-            ${CLEAN_BUILD_SCRIPT}
-            continue
+    # Skip if __MINIMAL_TESTS is set
+    [[ -z "${__MINIMAL_TESTS:-}" ]] && {
+        echo "-------------------- Executing for $p --------------------"
+        install_test_1_pyver $p || {
+            [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
+                ${CLEAN_BUILD_SCRIPT}
+                continue
+            }
         }
+        ${CLEAN_BUILD_SCRIPT}
     }
-    ${CLEAN_BUILD_SCRIPT}
 
     # Keep tests for each pyver together
     [[ -z ${NORMAL_USER+x} ]] && {
