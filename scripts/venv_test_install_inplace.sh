@@ -90,6 +90,8 @@ function run_1_in_venv() {
         return 1
     }
 
+
+
     [[ -n "${GIT_URL:-}" ]] || return 0
 
     cd ${DOCKER_MOUNTPOINT}
@@ -139,6 +141,39 @@ function inplace_build_ant_test_1_pyver() {
     ${PROG_DIR}/run_func_tests.sh $pyver
 }
 
+
+function pip_install_user_1_pyver() {
+    # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: pip_install_user_1_pyver PYTHON_VERSION_TAG"
+        return 1
+    }
+    local pyver=$1
+    PYTHON_BASENAME=${TAG_PYVER[$pyver]}
+    PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
+
+    cd ${DOCKER_MOUNTPOINT}
+    ${CLEAN_BUILD_SCRIPT}
+    echo "Installing $PY_MODULE using $PYTHON_CMD -m pip install --user ."
+    unset PYTHONDONTWRITEBYTECODE
+    hide_output_unless_error $PYTHON_CMD -m pip install --user . || {
+        return 1
+    }
+    export PYTHONDONTWRITEBYTECODE=Y
+    ${CLEAN_BUILD_SCRIPT}
+
+    echo "Running tests"
+    __run_tests $pyver
+    echo "Uninstalling $PY_MODULE using $PYTHON_CMD -m pip"
+    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE || {
+        return 1
+    }
+}
+
+
 # ------------------------------------------------------------------------
 # Actual script starts after this
 # ------------------------------------------------------------------------
@@ -173,5 +208,7 @@ do
     run_1_in_venv $p
     ${CLEAN_BUILD_SCRIPT}
     inplace_build_ant_test_1_pyver $p
+    ${CLEAN_BUILD_SCRIPT}
+    pip_install_user_1_pyver $p
     ${CLEAN_BUILD_SCRIPT}
 done
