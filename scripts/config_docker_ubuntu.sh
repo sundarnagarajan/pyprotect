@@ -8,7 +8,10 @@
     # --------------------------------------------------------------------
 
     COMMON_CONTAINER_NAME=python23:jammy
-    CYTHON3_DOCKER_IMAGE=$COMMON_CONTAINER_NAME
+    # If $CYTHON_DOCKER_FILE is in DOCKERFILE_IMAGE, CYTHON3_DOCKER_IMAGE
+    # is not required
+    CYTHON_DOCKER_FILE=Dockerfile.ubuntu
+    # CYTHON3_DOCKER_IMAGE=$COMMON_CONTAINER_NAME
 
     # TAG_IMAGE: maps PYTHON_VERSION tags to docker image names
     declare -A TAG_IMAGE=(
@@ -26,6 +29,19 @@
     # --------------------------------------------------------------------
     # Do not change anything beow this
     # --------------------------------------------------------------------
+    # If required, Derive CYTHON3_DOCKER_IMAGE or make sure it is set
+    [[ -n "${EXTENSION_NAME:-}" && "${CYTHONIZE_REQUIRED:-}" = "yes" ]] && {
+        [[ -z "${CYTHON_DOCKER_FILE:-}" ]] && {
+            >&2 red "$(basename $BASH_SOURCE): C-Extension with CYTHONIZE_REQUIRED=yes, but CYTHON_DOCKER_FILE not set"
+            return 1
+        }
+        [[ -n ${DOCKERFILE_IMAGE[$CYTHON_DOCKER_FILE]+_} ]] && {
+            [[ -z "${CYTHON3_DOCKER_IMAGE:-}" ]] && CYTHON3_DOCKER_IMAGE=${DOCKERFILE_IMAGE[$CYTHON_DOCKER_FILE]}
+        } || {
+            >&2 red "$(basename $BASH_SOURCE): C-Extension with CYTHONIZE_REQUIRED=yes, but CYTHON3_DOCKER_IMAGE not set and $CYTHON_DOCKER_FILE not in DOCKERFILE_IMAGE"
+            return 1
+        }
+    }
     unset COMMON_CONTAINER_NAME
     # Make config entries read-only
     readonly TAG_IMAGE DOCKERFILE_IMAGE CYTHON3_DOCKER_IMAGE

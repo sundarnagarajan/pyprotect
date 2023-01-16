@@ -4,6 +4,14 @@ set -e -u -o pipefail
 PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
+[[ -z "${EXTENSION_NAME:-}" ]] && {
+    >&2 echo "${SCRIPT_NAME}: Not using C-extension"
+    exit 0
+}
+[[ "${CYTHONIZE_REQUIRED:-}" != "yes" ]] && {
+    >&2 echo "${SCRIPT_NAME}: C-extension does not require cython"
+    exit 0
+}
 
 CYTHON_CMD=$(command -v cython3) || {
     >&2 red "${SCRIPT_NAME}: cython3 command not found"

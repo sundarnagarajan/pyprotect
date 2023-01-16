@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e -u -o pipefail
 PROG_DIR=$(readlink -f $(dirname $BASH_SOURCE))
-source "$PROG_DIR"/config.sh
 
+# Make 'red' available in config files
 function red() {
     # Prints arguments in bold red
     ANSI_ESC=$(printf '\033')
@@ -12,6 +12,8 @@ function red() {
 
     echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
 }
+
+source "$PROG_DIR"/config.sh
 
 function hide_output_unless_error() {
     # Runs arguments and shows output only if there is an error

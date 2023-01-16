@@ -79,6 +79,11 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
 }
 
 
+[[ -z "${EXTENSION_NAME:-}" ]] && {
+    >&2 echo "${SCRIPT_NAME}: Not using C-extension"
+    exit 0
+}
+
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize.sh
 SRC="${PY_MODULE}/${EXTENSION_NAME}.c"

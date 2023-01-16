@@ -21,6 +21,9 @@ done
 
 cd "${PROG_DIR}"
 
+CYTHON_DOCKER_BUILD_REQUIRED=1
+CYTHON_IN_IMAGE=""
+
 for k in ${!DOCKERFILE_IMAGE[@]}
 do
     IMAGE_NAME=${DOCKERFILE_IMAGE[$k]}
@@ -38,7 +41,47 @@ do
         --build-arg HOME_DIR=/home \
         --build-arg PYPROTECT_DIR=/${PY_MODULE} \
         -t $IMAGE_NAME -f $k $@ .
+
+    # Track requirement to build separate image for cython
+    [[ -n "${EXTENSION_NAME:-}" && "${CYTHONIZE_REQUIRED:-}" = "yes" ]] && {
+        [[ "${CYTHON_DOCKER_FILE:-}" = "$k" ]] && {
+            CYTHON_DOCKER_BUILD_REQUIRED=0
+            CYTHON_IN_IMAGE=$IMAGE_NAME
+        }
+    }
 done
 
+# Build separate image for cython if required
+
+[[ "$CYTHON_DOCKER_BUILD_REQUIRED" -eq 0 ]] && {
+    [[ -z "${EXTENSION_NAME:-}" ]] && {
+        >&2 echo "No C-extension: EXTENSION_NAME not set"
+    } || [[ "${CYTHONIZE_REQUIRED:-}" != "yes" ]] && {
+        >&2 echo "C-extension does not require cython"
+    }
+    >&2 echo "Cython is in Docker image $CYTHON_IN_IMAGE"
+    exit 0
+}
+
+# Need separate image for Cython
+
+[[ -n "${EXTENSION_NAME:-}" && "${CYTHONIZE_REQUIRED:-}" = "yes" ]] && {
+    [[ -n "${CYTHON_DOCKER_FILE:-}" ]] && {
+        [[ -n "${CYTHON3_DOCKER_IMAGE:-}" ]] && {
+            docker build \
+                --build-arg HOST_USERNAME=$HOST_USERNAME \
+                --build-arg HOST_GROUPNAME=$HOST_GROUPNAME \
+                --build-arg HOST_UID=$HOST_UID \
+                --build-arg HOST_GID=$HOST_GID \
+                --build-arg HOME_DIR=/home \
+                --build-arg PYPROTECT_DIR=/${PY_MODULE} \
+                -t $CYTHON3_DOCKER_IMAGE -f $CYTHON_DOCKER_FILE $@ .
+        } || {
+            >&2 red "CYTHON3_DOCKER_IMAGE not set in $(basename ${DOCKER_CONFIG_FILE})"
+        }
+    } || {
+        >&2 red "CYTHON3_DOCKER_FILE not set in $(basename ${DOCKER_CONFIG_FILE})"
+    }
+}
 
 
