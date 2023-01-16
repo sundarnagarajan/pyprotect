@@ -89,6 +89,28 @@ function run_1_in_venv() {
         deactivate
         return 1
     }
+
+    [[ -n "${GIT_URL:-}" ]] || return 0
+
+    cd ${DOCKER_MOUNTPOINT}
+    ${CLEAN_BUILD_SCRIPT}
+    echo "Installing $PY_MODULE in virtualenv using $PYTHON_CMD -m pip install git+GIT_URL"
+    unset PYTHONDONTWRITEBYTECODE
+    hide_output_unless_error $PYTHON_CMD -m pip install git+${GIT_URL} || {
+        deactivate
+        return 1
+    }
+    export PYTHONDONTWRITEBYTECODE=Y
+    ${CLEAN_BUILD_SCRIPT}
+
+    echo "Running tests"
+    __run_tests $pyver
+    echo "Uninstalling $PY_MODULE in virtualenv using $PYTHON_CMD -m pip"
+    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE || {
+        deactivate
+        return 1
+    }
+
     deactivate
     rm -rf ${TEST_VENV_DIR}
 }

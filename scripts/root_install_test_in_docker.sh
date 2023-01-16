@@ -64,6 +64,29 @@ function install_test_1_pyver() {
     cd ${DOCKER_MOUNTPOINT}
     echo "Uninstalling using $pip_cmd uninstall"
     hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
+
+    [[ -n "${GIT_URL:-}" ]] || return 0
+
+    cd ${DOCKER_MOUNTPOINT}
+    ${CLEAN_BUILD_SCRIPT}
+    echo "Installing ${PY_MODULE} using $pip_cmd install git+GIT_URL"
+    unset PYTHONDONTWRITEBYTECODE
+    hide_output_unless_error $pip_cmd install git+${GIT_URL} || return 1
+    export PYTHONDONTWRITEBYTECODE=Y
+    ${CLEAN_BUILD_SCRIPT}
+
+    local TEST_DIR=/root/tests
+    # optimistic that tests do not get overwritten / changed
+    [[ -x "$TEST_DIR"/$TEST_MODULE_FILENAME ]] || {
+        mkdir -p "$TEST_DIR"
+        cp -a "${DOCKER_MOUNTPOINT}"/tests/. "$TEST_DIR"/
+    }
+    cd /
+    __TESTS_DIR=$TEST_DIR "$PROG_DIR"/run_func_tests.sh $pyver
+
+    cd ${DOCKER_MOUNTPOINT}
+    echo "Uninstalling using $pip_cmd uninstall"
+    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
 }
 
 # ------------------------------------------------------------------------
