@@ -13,10 +13,30 @@ function __run_tests() {
     }
     local pyver=$1
     local TEST_DIR=/tmp/tests
+    # Check that TEST_DIR is writeable
+    [[ -e "$TEST_DIR" && ! -d "$TEST_DIR" ]] && {
+        ( rm -f "$TEST_DIR" && mkdir -p "$TEST_DIR" ) || {
+            >&2 red "TEST_DIR: $TEST_DIR is a non-directory, but cannot be replaced"
+            return 1
+        }
+    }
+    [[ -d "$TEST_DIR" ]] || {
+        mkdir -p "$TEST_DIR" || {
+            >&2 red "Could not create TEST_DIR: $TEST_DIR"
+            return 1
+        }
+    }
+    [[ -w "$TEST_DIR" ]] || {
+        >&2 red "TEST_DIR not writeable: $TEST_DIR"
+        return 1
+    }
     # optimistic that tests will not be overwritten / changed
     [[ -x "$TEST_DIR"/$TEST_MODULE_FILENAME ]] || {
         mkdir -p "$TEST_DIR"
-        cp -a ${DOCKER_MOUNTPOINT}/tests/. "$TEST_DIR"/
+        cp -a --no-clobber ${DOCKER_MOUNTPOINT}/tests/. "$TEST_DIR"/ || {
+            >&2 red "Copying to TEST_DIR failed: $TEST_DIR"
+            return 1
+        }
     }
     cd /
     "$PROG_DIR"/run_func_tests.sh $pyver
