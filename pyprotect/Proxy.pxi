@@ -108,10 +108,10 @@ cdef class Proxy(object):
         return self.pvt_o.__trunc__()
 
     def __floor__(self):
-        return self.pvt_o.__floor__()
+        return math.floor(self.pvt_o)
 
     def __ceil__(self):
-        return self.pvt_o.__ceil__()
+        return math.ceil(self.pvt_o)
 
     # The numeric operations below - including the reversed versions
     # are not required for INT or FLOAT, but SOME (like __add__) ARE
