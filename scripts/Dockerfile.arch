@@ -1,0 +1,85 @@
+FROM archlinux:latest
+
+# Check required arg before doing extra work
+ARG HOST_GID
+ARG HOST_GROUPNAME
+ARG HOST_UID
+ARG HOST_USERNAME
+ARG HOME_DIR
+ARG PYPROTECT_DIR
+
+# Arch is a rolling distro - upgrade all packages
+RUN pacman --noconfirm -Syu 1>/dev/null
+RUN pacman-key --init 
+RUN pacman-key --populate archlinux
+RUN pacman --noconfirm -Syu archlinux-keyring 1>/dev/null
+
+# ------------------------------------------------------------------------
+# Create normal user
+RUN mkdir -p $HOME_DIR
+RUN groupadd --gid $HOST_GID $HOST_GROUPNAME
+RUN useradd \
+    --home-dir ${HOME_DIR} --no-create-home \
+    --uid $HOST_UID --gid $HOST_GID \
+    --comment "$HOST_USERNAME" \
+    $HOST_USERNAME
+RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
+# NORMAL_USER env var is used in install_test_in_docker.sh
+ENV NORMAL_USER=$HOST_USERNAME
+# ------------------------------------------------------------------------
+# Create non-root user - for running makepkg _OR_ running pacaur
+RUN groupadd --gid 9000 build
+RUN useradd --uid 9000 --gid 9000 --home-dir /home/build --create-home build
+RUN echo "build ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+# ------------------------------------------------------------------------
+
+# Minimal stuff needed to compile packages from AUR etc
+# base-devel is base-essential of archlinux
+RUN pacman --noconfirm -S --needed binutils sudo vi perl git base-devel unzip time 1>/dev/null
+RUN pacman --noconfirm -S --needed expac yajl 1>/dev/null
+# ------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------
+# Build and install pacaur
+# pod2man - needed by auracle-git
+WORKDIR /tmp
+RUN git clone https://aur.archlinux.org/pod2man.git && chown build:build pod2man && cd pod2man && su build -c 'makepkg --noconfirm --needed -rsi 1>/dev/null' && cd - && rm -rf pod2man
+# auracle-git - needed by pacaur
+WORKDIR /tmp
+RUN git clone https://aur.archlinux.org/auracle-git.git && chown build:build auracle-git && cd auracle-git && su build -c 'makepkg --noconfirm --needed -rsi 1>/dev/null' && cd - && rm -rf auracle-git
+# pacaur
+WORKDIR /tmp
+RUN git clone https://aur.archlinux.org/pacaur.git && chown build:build pacaur && cd pacaur && su build -c 'makepkg --noconfirm -si 1>/dev/null' && cd - && rm -rf pacaur
+# ------------------------------------------------------------------------
+
+ENV PIP_ROOT_USER_ACTION=ignore
+# PY3, PYPY3, PYPY2
+RUN pacman --noconfirm -S --needed python3 pypy3 pypy 1>/dev/null
+# python-setuptools
+# PY2 - from AUR with pacaur
+RUN su build -c 'pacaur --noconfirm -S --aur --noedit --quiet --needed --silent python2-bin'
+# cython3 - from AUR with pacaur
+RUN su build -c 'pacaur --noconfirm -S --aur --noedit --quiet --needed --silent cython3'
+# On archlinux there is cython3 package v3.0.0a11 - installs cython andnot cython3
+# We look for cython3 specifically in cythonize.sh
+RUN ln -s `which cython` /usr/local/bin/cython3
+
+# Install / update pip
+# Silence irrelevant warning about running pip as root user
+RUN python3 -m ensurepip 2>/dev/null
+RUN python2 -m ensurepip 2>/dev/null
+RUN pypy3 -m ensurepip 2>/dev/null
+RUN pypy -m ensurepip 2>/dev/null
+# Virtualenv / venv
+# Silence irrelevant warning about running pip as root user
+RUN python3 -m pip install virtualenv 2>/dev/null
+RUN pypy3 -m pip install virtualenv 2>/dev/null
+RUN pypy -m pip install virtualenv 2>/dev/null
+
+ENV PYTHONDONTWRITEBYTECODE=Y
+
+# Delete build user
+# RUN userdel build
+
+# Start in PYPROTECT_DIR
+WORKDIR $PYPROTECT_DIR

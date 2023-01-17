@@ -26,6 +26,7 @@ pyprotect/protected.pyx
 pyprotect/python_visible.pxi
 scripts/Dockerfile.alpine
 scripts/Dockerfile.alpine.pypy2
+scripts/Dockerfile.arch
 scripts/Dockerfile.ubuntu
 scripts/check_sha256.sh
 scripts/check_sig.sh
@@ -34,6 +35,7 @@ scripts/clean_build.sh
 scripts/common_functions.sh
 scripts/config.sh
 scripts/config_docker_alpine.sh
+scripts/config_docker_arch.sh
 scripts/config_docker_ubuntu.sh
 scripts/cythonize.sh
 scripts/docker_as.sh
