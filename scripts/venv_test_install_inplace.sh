@@ -198,6 +198,7 @@ function pip_install_user_1_pyver() {
 # ------------------------------------------------------------------------
 
 echo "Running as $(id -un)"
+echo "Running in $(distro_name)"
 
 must_be_in_docker
 
