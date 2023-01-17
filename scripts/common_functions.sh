@@ -101,6 +101,39 @@ function restore_file_ownership() {
     done
 }
 
+function need_minimum_version() {
+    # $1: existing_ver (mandatory)
+    # $2: minimim_ver required (mandatory)
+    # $3: program_name (optional - used only in error message)
+    [[ $# -lt 2 ]] && {
+        >&2 red "Usage: need_minimum_version <existing_ver> <minimum_ver> [prog_name]"
+        return 1
+    }
+    local existing=$1
+    local min_reqd=$2
+    local prog_name="Need: "
+    [[ $# -gt 2 ]] && {
+        prog_name="${3} : Need: "
+    }
+    local highest=$(echo -e "${existing}\n${min_reqd}" | sort -r -V | head -1)
+    [[ "$highest" = "$existing" ]] || {
+        >&red "${prog_name} ${min_reqd}. Have ${existing}"
+        return 1
+    }
+    return 0
+}
+
+function distro_name() {
+    # Outputs multi-word string on stdout
+    [[ -f /etc/os-release ]] && {
+        # Run in sub-shell
+        ( 
+            source /etc/os-release
+            echo $PRETTY_NAME
+        )
+    }
+}
+
 function process_std_cmdline_args() {
     # $1: mandatory: yes: tags need valid images
     # $2: mandatory: yes: If no tags supplied, choose all valid TAG_PYVER tags
