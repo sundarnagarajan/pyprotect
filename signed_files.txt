@@ -9,6 +9,10 @@ classdiagram.puml
 classdiagram.svg
 docs/Packaging.md
 docs/Scripts.md
+docs/samples/.gitignore
+docs/samples/Dockerfiles_DevEnv/Dockerfile.arch
+docs/samples/Dockerfiles_DevEnv/Dockerfile.fedora
+docs/samples/Dockerfiles_DevEnv/Dockerfile.ubuntu
 pyproject.toml
 pyprotect/HiddenPartial.pxi
 pyprotect/PrivacyDict_FrozenPrivacyDict.pxi

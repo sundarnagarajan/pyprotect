@@ -1,0 +1,62 @@
+# ------------------------------------------------------------------------
+# This Dockerfile is based on Dockerfile of the same name under /scripts
+# It provides an environment with functioning PY3, PY2, PYPY3, PYPY2
+# To use this as a daily-driver development environment, you will
+# ALMOST CERTAINLY need to install additional software
+# ------------------------------------------------------------------------
+FROM fedora:latest
+
+# Check required arg before doing extra works
+ARG HOST_GID
+ARG HOST_GROUPNAME
+ARG HOST_UID
+ARG HOST_USERNAME
+ARG HOME_DIR
+ARG PYPROTECT_DIR
+
+RUN dnf -y --quiet makecache
+RUN dnf -y --quiet upgrade
+
+# ------------------------------------------------------------------------
+# Create normal user
+RUN mkdir -p $HOME_DIR
+RUN groupadd --gid $HOST_GID $HOST_GROUPNAME
+RUN useradd \
+    --home-dir ${HOME_DIR} --no-create-home \
+    --uid $HOST_UID --gid $HOST_GID \
+    --comment "$HOST_USERNAME" \
+    $HOST_USERNAME
+RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
+# NORMAL_USER env var is used in install_test_in_docker.sh
+ENV NORMAL_USER=$HOST_USERNAME
+# ------------------------------------------------------------------------
+
+# Equivalent of build-essential
+RUN dnf -y --quiet group install "C Development Tools and Libraries" "Development Tools"
+RUN dnf -y --quiet install which curl less unzip time
+# fedora:latest (Fedora Modular 37) ships with python3.11 and python3-Cython is not compatible (yet)
+RUN dnf -y --quiet install python3.10 python2 pypy3 pypy python3-virtualenv python3-Cython
+RUN dnf -y --quiet install python3.10-devel python-devel pypy-devel pypy3-devel
+RUN ln -s `which python3.10` /usr/local/bin/python3
+
+# On fedora there is python3-Cython package v 0.29.32- installs cython andnot cython3
+# We look for cython3 specifically in cythonize.sh
+RUN ln -s `command -v cython` /usr/local/bin/cython3
+
+ENV PIP_ROOT_USER_ACTION=ignore
+# pip
+# Silence irrelevant warning about running pip as root user
+RUN python3 -m ensurepip 2>/dev/null
+RUN python2 -m ensurepip 2>/dev/null
+RUN pypy3 -m ensurepip 2>/dev/null
+RUN pypy -m ensurepip 2>/dev/null
+RUN python3 -m pip install -U pip 2>/dev/null
+RUN python2 -m pip install -U pip 2>/dev/null
+RUN pypy3 -m pip install -U pip 2>/dev/null
+RUN pypy -m pip install -U pip 2>/dev/null
+
+RUN dnf -y clean all
+
+ENV PYTHONDONTWRITEBYTECODE=Y
+# Start in PYPROTECT_DIR
+WORKDIR $PYPROTECT_DIR
