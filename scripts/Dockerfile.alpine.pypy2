@@ -31,10 +31,6 @@ RUN apk add \
     cython build-base \
     py3-virtualenv 
 
-# On alpine there is only cython 0.29.24 - no cython3
-# We look for cython3 specifically in cythonize.sh
-RUN ln -s `which cython` /usr/local/bin/cython3
-
 # ----------------------------------------------------------------------
 # Install pypy from testing repository
 # Cannot install pypy3 and pypy in Alpine, because they clobber each others' files !

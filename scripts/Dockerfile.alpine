@@ -32,10 +32,6 @@ RUN apk add \
     python3-dev py3-setuptools py3-pip py3-virtualenv \
     python2-dev py-setuptools 
 
-# On alpine there is only cython 0.29.24 - no cython3
-# We look for cython3 specifically in cythonize.sh
-RUN ln -s `which cython` /usr/local/bin/cython3
-
 # Upgrade pip3 to 22.3.1 - v22.0.2+dfsg-1 has problems uninstalling packages !
 # AttributeError: 'EggMetadata' object has no attribute 'isdir'
 # Silence irrelevant warning about running pip as root user
