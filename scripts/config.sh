@@ -13,6 +13,8 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
 
     # Set CYTHONIZE_REQUIRED=no (not yes) if C-Extension does not need cython
     CYTHONIZE_REQUIRED=yes
+    CYTHON3_PROG_NAME=cython3
+    CYTHON3_MIN_VER=0.27.3
 
     PY_MODULE=pyprotect
     DOCKER_MOUNTPOINT=/${PY_MODULE}
@@ -25,6 +27,10 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     # TEST_MODULE_FILENAME should be basename of top-level test module
     # under tests/ WITH '.py' extension
     TEST_MODULE_FILENAME=test_pyprotect.py
+
+    # Distro to use if __DISTRO env var is not set
+    # Should have corresponding config_docker_<distro>.sh and Dockerfile.<distro>
+    DEFAULT_DISTRO=ubuntu
 
     # git URL (can be github URL)
     # In general, GIT_URL could be:
@@ -57,21 +63,20 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     HOST_GID=$(id -g)
 
     # Source the distro-specific config_docker_XXX.sh
-    DOCKER_CONFIG_FILE=${__DISTRO:-}
-    [[ -z "$DOCKER_CONFIG_FILE" ]] && {
-        DOCKER_CONFIG_FILE=$SCRIPT_DIR/config_docker.sh
-    } || {
-        DOCKER_CONFIG_FILE=${SCRIPT_DIR}/config_docker_${DOCKER_CONFIG_FILE}.sh
-    }
+    DISTRO=${__DISTRO:-$DEFAULT_DISTRO}
+    DOCKER_CONFIG_FILE=${SCRIPT_DIR}/config_docker_${DISTRO}.sh
     source "$DOCKER_CONFIG_FILE"
+    unset DISTRO
 
     # Make config entries read-only
     SCRIPTS_DIR=$(basename "$SCRIPTS_DIR")
     TEST_MODULE_FILENAME=$(basename "$TEST_MODULE_FILENAME")
     readonly \
         EXTENSION_NAME CYTHONIZE_REQUIRED \
+        CYTHON3_PROG_NAME CYTHON3_MIN_VER \
         PY_MODULE DOCKER_MOUNTPOINT \
         SCRIPTS_DIR TEST_MODULE_FILENAME \
+        DEFAULT_DISTRO \
         GIT_URL GPG_KEY \
         TAG_PYVER \
         HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID \
