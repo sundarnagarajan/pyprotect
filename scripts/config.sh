@@ -35,6 +35,9 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
     #   SSH URL   - e.g. ssh:git@github.com:sundarnagarajan/python_protected_class.git
     GIT_URL="https://github.com/sundarnagarajan/python_protected_class.git"
 
+    # Used in gpg_sign.sh
+    GPG_KEY=3DCAB9392661EB519C4CCDCC5CFEABFDEFDB2DE3
+
     # TAG_PYVER: Maps PYTHON_VERSION tags to python executable basename
     # Values should be respective python executables - with or without path
     declare -A TAG_PYVER=(
@@ -69,6 +72,7 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
         EXTENSION_NAME CYTHONIZE_REQUIRED \
         PY_MODULE DOCKER_MOUNTPOINT \
         SCRIPTS_DIR TEST_MODULE_FILENAME \
+        GIT_URL GPG_KEY \
         TAG_PYVER \
         HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID \
         DOCKER_CONFIG_FILE
