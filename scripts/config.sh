@@ -64,7 +64,7 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
 
     # Source the distro-specific config_docker_XXX.sh
     DISTRO=${__DISTRO:-$DEFAULT_DISTRO}
-    DOCKER_CONFIG_FILE=${SCRIPT_DIR}/config_docker_${DISTRO}.sh
+    DOCKER_CONFIG_FILE=${SCRIPT_DIR}/docker/config_docker_${DISTRO}.sh
     source "$DOCKER_CONFIG_FILE"
     unset DISTRO
 

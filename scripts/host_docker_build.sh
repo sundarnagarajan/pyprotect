@@ -19,7 +19,7 @@ done
     exit 1
 }
 
-cd "${PROG_DIR}"
+cd "${PROG_DIR}"/docker
 
 CYTHON_DOCKER_BUILD_REQUIRED=1
 CYTHON_IN_IMAGE=""
