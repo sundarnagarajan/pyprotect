@@ -36,11 +36,11 @@ RUN dnf -y --quiet install python3.10-devel python-devel pypy-devel pypy3-devel
 ENV PIP_ROOT_USER_ACTION=ignore
 # pip
 # Silence irrelevant warning about running pip as root user
-RUN python3 -m ensurepip 2>/dev/null
+RUN python3.10 -m ensurepip 2>/dev/null
 RUN python2 -m ensurepip 2>/dev/null
 RUN pypy3 -m ensurepip 2>/dev/null
 RUN pypy -m ensurepip 2>/dev/null
-RUN python3 -m pip install -U pip 2>/dev/null
+RUN python3.10 -m pip install -U pip 2>/dev/null
 RUN python2 -m pip install -U pip 2>/dev/null
 RUN pypy3 -m pip install -U pip 2>/dev/null
 RUN pypy -m pip install -U pip 2>/dev/null
