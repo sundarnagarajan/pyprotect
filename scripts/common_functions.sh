@@ -127,9 +127,11 @@ function distro_name() {
     # Outputs multi-word string on stdout
     [[ -f /etc/os-release ]] && {
         # Run in sub-shell
+            local in_docker="(Not in docker)"
+        running_in_docker && in_docker="(In docker)"
         ( 
             source /etc/os-release
-            echo $PRETTY_NAME
+            echo "$PRETTY_NAME $in_docker"
         )
     }
 }
