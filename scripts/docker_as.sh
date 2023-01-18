@@ -17,6 +17,8 @@ function show_usage() {
 PYVER=PY3
 
 DOCKER_USER="${HOST_UID}:${HOST_GID}"
+DOCKER_COMMAND_ARGS=""
+
 while [ $# -gt 0 ];
 do
     case "$1" in
@@ -46,12 +48,13 @@ do
             shift
             ;;
         *)
-            >&2 echo "Unknown argument"
-            show_usage
-            exit 1
+            DOCKER_COMMAND_ARGS="${DOCKER_COMMAND_ARGS} $1"
+            shift
             ;;
     esac
 done
+
+[[ -z "${DOCKER_COMMAND_ARGS:-}" ]] && DOCKER_COMMAND_ARGS=/bin/bash
 
 VALID_PYVER=$(process_std_cmdline_args yes yes $PYVER)
 [[ -z "$VALID_PYVER" ]] && exit 1
@@ -60,6 +63,6 @@ DOCKER_IMAGE=${TAG_IMAGE[$VALID_PYVER]}
 docker_image_must_exist $DOCKER_IMAGE
 
 cd "$PROG_DIR"/..
-DOCKER_CMD="docker run -it --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER --env __DISTRO=${__DISTRO:-} $DOCKER_IMAGE /bin/bash"
+DOCKER_CMD="docker run -it --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user $DOCKER_USER --env __DISTRO=${__DISTRO:-} --env __MINIMAL_TESTS=${__MINIMAL_TESTS:-} $DOCKER_IMAGE $DOCKER_COMMAND_ARGS"
 >&2 echo $DOCKER_CMD
 $DOCKER_CMD
