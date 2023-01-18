@@ -1,6 +1,7 @@
 # ------------------------------------------------------------------------
 # This Dockerfile is based on Dockerfile of the same name under /scripts
 # It provides an environment with functioning PY3, PY2, PYPY3, PYPY2
+# This Dockerfile also installs docker
 # To use this as a daily-driver development environment, you will
 # ALMOST CERTAINLY need to install additional software
 # ------------------------------------------------------------------------
@@ -54,6 +55,9 @@ RUN python3 -m pip install -U pip 2>/dev/null
 RUN python2 -m pip install -U pip 2>/dev/null
 RUN pypy3 -m pip install -U pip 2>/dev/null
 RUN pypy -m pip install -U pip 2>/dev/null
+
+# Install docker
+RUN dnf -y --quiet install docker
 
 RUN dnf -y clean all
 

@@ -1,6 +1,7 @@
 # ------------------------------------------------------------------------
 # This Dockerfile is based on Dockerfile of the same name under /scripts
 # It provides an environment with functioning PY3, PY2, PYPY3, PYPY2
+# This Dockerfile also installs docker
 # To use this as a daily-driver development environment, you will
 # ALMOST CERTAINLY need to install additional software
 # ------------------------------------------------------------------------
@@ -35,6 +36,17 @@ RUN dpkg-reconfigure locales 2>/dev/null
 RUN apt-get upgrade -y
 RUN apt-get dist-upgrade -y
 # ----------------------------------------------------------------------
+# Create the non-root user
+RUN mkdir -p $HOME_DIR
+RUN addgroup --gid $HOST_GID $HOST_GROUPNAME
+RUN adduser \
+    --home ${HOME_DIR} --no-create-home \
+    --uid $HOST_UID --gid $HOST_GID \
+    --disabled-password --gecos "$HOST_USERNAME" $HOST_USERNAME
+RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
+# NORMAL_USER env var is used in install_test_in_docker.sh
+ENV NORMAL_USER=$HOST_USERNAME
+
 
 ENV PIP_ROOT_USER_ACTION=ignore
 
@@ -95,17 +107,8 @@ RUN cp -a pip* wheel* /usr/local/lib/pypy2.7/dist-packages/
 RUN sed -i '719,719 s/^/#/' /usr/local/lib/pypy2.7/dist-packages/pip/_internal/operations/install/wheel.py
 # ----------------------------------------------------------------------
 
-
-# Create the non-root user
-RUN mkdir -p $HOME_DIR
-RUN addgroup --gid $HOST_GID $HOST_GROUPNAME
-RUN adduser \
-    --home ${HOME_DIR} --no-create-home \
-    --uid $HOST_UID --gid $HOST_GID \
-    --disabled-password --gecos "$HOST_USERNAME" $HOST_USERNAME
-RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
-# NORMAL_USER env var is used in install_test_in_docker.sh
-ENV NORMAL_USER=$HOST_USERNAME
+# Install docker
+RUN apt-get install -y docker
 
 ENV PYTHONDONTWRITEBYTECODE=Y
 RUN rm -rf /var/lib/apt/lists
