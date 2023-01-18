@@ -54,7 +54,9 @@ EXISTING_CYTHON_VER=$($CYTHON3_PROG_NAME --version 2>&1 | cut -d' ' -f3)
     [[ -z "${EXISTING_CYTHON_VER:-}" ]] && {
         >&2 red "${SCRIPT_NAME}: Warning: could not get existing version of $(basename $CYTHON_CMD)"
     }
-} || {
+}
+[[ -z "${CYTHON3_MIN_VER:-}" ]] && {
+    echo "DEBUG: CYTHON3_MIN_VER : $CYTHON3_MIN_VER"
     >&2 red "${SCRIPT_NAME}: Warning: CYTHON3_MIN_VER not set in config.sh"
 }
 [[ -n "${EXISTING_CYTHON_VER:-}" && -n "${CYTHON3_MIN_VER:-}" ]] && {
