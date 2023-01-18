@@ -3,6 +3,9 @@
 
 set -eu -o pipefail
 PROG_DIR=$(readlink -f $(dirname $0))
+SCRIPT_NAME=$(basename $0)
+source "$PROG_DIR"/common_functions.sh
+TEST_SCRIPT_BASENAME=$TEST_MODULE_FILENAME
 
 function test_in_1_pyver() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
@@ -14,14 +17,14 @@ function test_in_1_pyver() {
     }
 
     local ret=0
-    $python_cmd -B -c "from module_finder import pyprotect" 1>/dev/null 2>&1 || ret=1
+    $python_cmd -B -c "from module_finder import ${PY_MODULE}" 1>/dev/null 2>&1 || ret=1
     
     if [[ $ret -eq 0 ]]; then
         echo "Executing tests in: $__TESTS_DIR"
         echo "$pyver : Testing with $python_cmd"
         $python_cmd -B "${TEST_SCRIPT_BASENAME}"
     else
-        >&2 red "$pyver : $python_cmd module pyprotect not found"
+        >&2 red "$pyver : $python_cmd module ${PY_MODULE} not found"
         return 1
     fi
 }
@@ -29,8 +32,6 @@ function test_in_1_pyver() {
 # ------------------------------------------------------------------------
 # Actual script starts after this
 # ------------------------------------------------------------------------
-source "$PROG_DIR"/common_functions.sh
-TEST_SCRIPT_BASENAME=$TEST_MODULE_FILENAME
 
 # If __TESTS_DIR env var is set, ONLY $TESTS_DIR/$TEST_MODULE_FILENAME is tried
 # Otherwise ONLY $PROG_DIR/../tests/$TEST_MODULE_FILENAME is tried
@@ -40,8 +41,9 @@ TEST_SCRIPT_BASENAME=$TEST_MODULE_FILENAME
 } || {
     __TESTS_DIR=$(readlink -f "$PROG_DIR"/../tests)
 }
-export PYTHONPATH=$__TESTS_DIR
+# export PYTHONPATH=$__TESTS_DIR
 
+PYVER_CHOSEN=$@
 # This script does not launch docker containers
 VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
@@ -53,5 +55,7 @@ fi
 for p in $VALID_PYVER
 do
     cd "${__TESTS_DIR}"
-    test_in_1_pyver $p || continue
+    test_in_1_pyver $p || {
+        [[ -n "$PYVER_CHOSEN" ]] && exit 1 || continue
+    }
 done

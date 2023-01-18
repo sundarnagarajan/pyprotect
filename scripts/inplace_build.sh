@@ -94,12 +94,8 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
 echo "Running in $(distro_name)"
 
 running_in_docker && {
-    # relocate_source and chdir
-    RELOCATED_DIR=$(relocate_source)
-    [[ -n "$RELOCATED_DIR" ]] && {
-        trap cleanup 0 1 2 3 15
-        PROG_DIR=${RELOCATED_DIR}/scripts
-    }
+    PROG_DIR="$(relocate_source)"/scripts
+    PROG_DIR=$(readlink -f "$PROG_DIR")
 }
 cd "$PROG_DIR"
 

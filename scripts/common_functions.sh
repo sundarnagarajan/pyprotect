@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e -u -o pipefail
 PROG_DIR=$(readlink -f $(dirname $BASH_SOURCE))
+# SCRIPT_NAME=$(basename $BASH_SOURCE)
 
 # Make 'red' available in config files
 function red() {
@@ -255,21 +256,24 @@ function relocate_source() {
     # Relocates (copies) ${PROG_DIR}/.. to a temp dir under /tmp
     # and sets PROG_DIR to ${NEW_TMP_DIR}/scripts
     # Echoes new tmp dir location to stdout
-    # If __RELOCATED_DIR env var is set, just sets PROG_DIR=$__RELOCATED_DIR
-    # and echoes nothing
+    # If __RELOCATED_DIR env var is set, just echoes $__RELOCATED_DIR
 
-    [[ -n $(declare -p __RELOCATED_DIR 2>/dev/null) && -n "${__RELOCATED_DIR}+_" ]]  && {
+    [[ -n $(declare -p __RELOCATED_DIR 2>/dev/null) && -n "${__RELOCATED_DIR:-}" ]]  && {
         [[ -d "$__RELOCATED_DIR" ]] && {
-            PROG_DIR=${__RELOCATED_DIR}/scripts
-            return
+            echo $__RELOCATED_DIR
+            return 0
         }
     }
     local NEW_TMP_DIR=$(mktemp -d -p /tmp)
     local old_top_dir=$(readlink -f "${PROG_DIR}/..")
-    # We copy all non-hidden files
-    cp -a "$old_top_dir"/* ${NEW_TMP_DIR}/
-    # Clean out .so files under $PY_MODULE
-    rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
+    (
+        cd "$old_top_dir"
+        cp -a LICENSE MANIFEST.in README.md pyproject.toml $PY_MODULE $SCRIPTS_DIR setup.cfg setup.py tests ${NEW_TMP_DIR}/
+        # We copy all non-hidden files
+        # cp -a "$old_top_dir"/* ${NEW_TMP_DIR}/
+        # Clean out .so files under $PY_MODULE
+        rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
+    )
     trap cleanup 0 1 2 3 15
     echo -n ${NEW_TMP_DIR}
 }

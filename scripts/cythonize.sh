@@ -5,6 +5,8 @@ PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
+echo "${SCRIPT_NAME}: Running on $(distro_name) in ${PROG_DIR}"
+
 [[ -z "${EXTENSION_NAME:-}" ]] && {
     >&2 echo "${SCRIPT_NAME}: Not using C-extension"
     exit 0
