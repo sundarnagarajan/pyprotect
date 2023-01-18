@@ -7,7 +7,29 @@ PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
-function build_1_in_place() {
+function cleanup() {
+    # Cleans up RELOCATED_DIR if set and present
+    [[ -n $(declare -p RELOCATED_DIR 2>/dev/null) && -n "${RELOCATED_DIR}+_"  && -d "${RELOCATED_DIR}" ]] && {
+        echo "Removing RELOCATED_DIR: $RELOCATED_DIR"
+        rm -rf "$RELOCATED_DIR"
+    }
+}
+
+function relocate() {
+    # Relocates DOCKER_MOUNTPOINT to a temp dir under /tmp
+    # and sets PROG_DIR to ${NEW_TMP_DIR}/scripts
+    # Echoes new tmp dir location to stdout
+
+    local NEW_TMP_DIR=$(mktemp -d -p /tmp)
+    local old_top_dir=$(readlink -f "${PROG_DIR}/..")
+    # We copy all non-hidden files
+    cp -a "$old_top_dir"/* ${NEW_TMP_DIR}/
+    # Clean out .so files under $PY_MODULE
+    rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
+    echo -n ${NEW_TMP_DIR}
+}
+
+function build_1_in_place_and_test() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
     local pyver=$1
 
@@ -21,12 +43,18 @@ function build_1_in_place() {
     # Set LDFLAGS to automatically strip .so
     export LDFLAGS=-s
 
+    echo "${SCRIPT_NAME}: build_1_in_place_and_test: Running in $PROG_DIR"
     cd "$PROG_DIR"/..
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
         >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
+    [[ -z "$PYTHON_CMD" ]] && {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
+    echo "${SCRIPT_NAME}: Building for $pyver using $PYTHON_CMD"
     # Check if .so has to be rebuilt
     local PY_CODE='
 import sys
@@ -38,7 +66,7 @@ else:
 
 print(sysconfig.get_config_var(CONFIG_KEY) or "");
 '
-    local SUFFIX=$($PYTHON_CMD -B -c "$PY_CODE")
+    local SUFFIX=$($PYTHON_CMD -c "$PY_CODE")
     [[ -z "$SUFFIX" ]] && SUFFIX=".so"
     local TARGET="${PY_MODULE}/${EXTENSION_NAME}${SUFFIX}"
     local TARGET_BASENAME=""
@@ -76,6 +104,7 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
     }
     restore_file_ownership ${PY_MODULE}/${EXTENSION_NAME}.pyx "$TARGET"
     "${CLEAN_BUILD_SCRIPT}"
+    "${PROG_DIR}"/run_func_tests.sh $pyver
 }
 
 
@@ -83,6 +112,16 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
     >&2 echo "${SCRIPT_NAME}: Not using C-extension"
     exit 0
 }
+
+echo "Running in $(distro_name)"
+
+running_in_docker && {
+    # relocate and chdir
+    RELOCATED_DIR=$(relocate)
+    trap cleanup 0 1 2 3 15
+    PROG_DIR=${RELOCATED_DIR}/scripts
+}
+cd "$PROG_DIR"
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize.sh
@@ -100,5 +139,6 @@ VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
 for p in $VALID_PYVER
 do
-    build_1_in_place $p || continue
+    build_1_in_place_and_test $p || continue
 done
+
