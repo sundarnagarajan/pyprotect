@@ -10,7 +10,11 @@ function red() {
     ANSI_HC="${ANSI_ESC}[1m"    # hicolor
     ANSI_FRED="${ANSI_ESC}[31m" # foreground red
 
-    echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
+    [[ -t 1 ]] && {
+        echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
+    } || {
+        echo -e "$@"
+    }
 }
 
 source "$PROG_DIR"/config.sh
