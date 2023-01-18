@@ -236,3 +236,35 @@ function process_std_cmdline_args() {
     }
     echo "$pyver_list"
 }
+
+function cleanup() {
+    # Cleans up RELOCATED_DIR if set and present
+    [[ -n $(declare -p RELOCATED_DIR 2>/dev/null) && -n "${RELOCATED_DIR}+_"  && -d "${RELOCATED_DIR}" ]] && {
+        rm -rf "$RELOCATED_DIR"
+        echo "Removed RELOCATED_DIR: $RELOCATED_DIR"
+    }
+}
+
+function relocate_source() {
+    # Relocates (copies) ${PROG_DIR}/.. to a temp dir under /tmp
+    # and sets PROG_DIR to ${NEW_TMP_DIR}/scripts
+    # Echoes new tmp dir location to stdout
+    # If __RELOCATED_DIR env var is set, just sets PROG_DIR=$__RELOCATED_DIR
+    # and echoes nothing
+
+    [[ -n $(declare -p __RELOCATED_DIR 2>/dev/null) && -n "${__RELOCATED_DIR}+_" ]]  && {
+        [[ -d "$__RELOCATED_DIR" ]] && {
+            PROG_DIR=${__RELOCATED_DIR}/scripts
+            return
+        }
+    }
+    local NEW_TMP_DIR=$(mktemp -d -p /tmp)
+    local old_top_dir=$(readlink -f "${PROG_DIR}/..")
+    # We copy all non-hidden files
+    cp -a "$old_top_dir"/* ${NEW_TMP_DIR}/
+    # Clean out .so files under $PY_MODULE
+    rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
+    trap cleanup 0 1 2 3 15
+    echo -n ${NEW_TMP_DIR}
+}
+

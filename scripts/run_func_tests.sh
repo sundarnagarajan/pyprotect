@@ -47,7 +47,7 @@ VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
 env | grep -q '^VIRTUAL_ENV' && IN_VENV=yes || IN_VENV=no
 if [[ "$IN_VENV" = "yes" ]]; then
-    echo "Running in virtualenv"
+    echo "${SCRIPT_NAME}: Running in virtualenv"
 fi
 
 for p in $VALID_PYVER

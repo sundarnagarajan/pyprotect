@@ -14,12 +14,6 @@ source "$PROG_DIR"/common_functions.sh
     exit 0
 }
 
-CYTHON_CMD=$(command -v $(basename $CYTHON3_PROG_NAME)) || {
-    >&2 red "${SCRIPT_NAME}: cython command not found: $CYTHON3_PROG_NAME"
-    >&2 red "${SCRIPT_NAME}: On Debian-like system install package cython3"
-    exit 1
-}
-
 cd "$PROG_DIR"/../${PY_MODULE}
 TARGET=${EXTENSION_NAME}.c
 
@@ -49,6 +43,12 @@ TARGET=${EXTENSION_NAME}.c
     >&2 red "${SCRIPT_NAME}: CYTHON3_PROG_NAME not set in config.sh"
     exit 1
 }
+CYTHON_CMD=$(command -v $(basename $CYTHON3_PROG_NAME)) || {
+    >&2 red "${SCRIPT_NAME}: cython command not found: $CYTHON3_PROG_NAME"
+    >&2 red "${SCRIPT_NAME}: On Debian-like system install package cython3"
+    exit 1
+}
+
 EXISTING_CYTHON_VER=$($CYTHON3_PROG_NAME --version 2>&1 | cut -d' ' -f3)
 [[ -n "${CYTHON3_MIN_VER:-}" ]] && {
     [[ -z "${EXISTING_CYTHON_VER:-}" ]] && {

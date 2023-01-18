@@ -136,7 +136,7 @@ function run_1_in_venv() {
     rm -rf ${TEST_VENV_DIR}
 }
 
-function inplace_build_ant_test_1_pyver() {
+function inplace_build_and_test_1_pyver() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
     [[ $# -lt 1 ]] && {
         >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
@@ -154,12 +154,9 @@ function inplace_build_ant_test_1_pyver() {
     ${CLEAN_BUILD_SCRIPT}
     export PYTHONDONTWRITEBYTECODE=Y
     ${CYTHONIZE_SCRIPT}
-    ${INPLACE_BUILD_SCRIPT}
+    ${INPLACE_BUILD_SCRIPT} $pyver
     ${CLEAN_BUILD_SCRIPT}
-
-    ${PROG_DIR}/run_func_tests.sh $pyver
 }
-
 
 function pip_install_user_1_pyver() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
@@ -197,8 +194,8 @@ function pip_install_user_1_pyver() {
 # Actual script starts after this
 # ------------------------------------------------------------------------
 
-echo "Running as $(id -un)"
-echo "Running in $(distro_name)"
+echo "${SCRIPT_NAME}: Running as $(id -un)"
+echo "${SCRIPT_NAME}: Running in $(distro_name)"
 
 must_be_in_docker
 
@@ -228,9 +225,14 @@ do
     [[ -z "${__MINIMAL_TESTS:-}" ]] && {
         run_1_in_venv $p
         ${CLEAN_BUILD_SCRIPT}
-        inplace_build_ant_test_1_pyver $p
+        pip_install_user_1_pyver $p
         ${CLEAN_BUILD_SCRIPT}
     }
-    pip_install_user_1_pyver $p
+done
+
+
+for p in $VALID_PYVER
+do
+    inplace_build_and_test_1_pyver $p
     ${CLEAN_BUILD_SCRIPT}
 done

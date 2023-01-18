@@ -7,28 +7,6 @@ PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
-function cleanup() {
-    # Cleans up RELOCATED_DIR if set and present
-    [[ -n $(declare -p RELOCATED_DIR 2>/dev/null) && -n "${RELOCATED_DIR}+_"  && -d "${RELOCATED_DIR}" ]] && {
-        echo "Removing RELOCATED_DIR: $RELOCATED_DIR"
-        rm -rf "$RELOCATED_DIR"
-    }
-}
-
-function relocate() {
-    # Relocates DOCKER_MOUNTPOINT to a temp dir under /tmp
-    # and sets PROG_DIR to ${NEW_TMP_DIR}/scripts
-    # Echoes new tmp dir location to stdout
-
-    local NEW_TMP_DIR=$(mktemp -d -p /tmp)
-    local old_top_dir=$(readlink -f "${PROG_DIR}/..")
-    # We copy all non-hidden files
-    cp -a "$old_top_dir"/* ${NEW_TMP_DIR}/
-    # Clean out .so files under $PY_MODULE
-    rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
-    echo -n ${NEW_TMP_DIR}
-}
-
 function build_1_in_place_and_test() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
     local pyver=$1
@@ -116,10 +94,12 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
 echo "Running in $(distro_name)"
 
 running_in_docker && {
-    # relocate and chdir
-    RELOCATED_DIR=$(relocate)
-    trap cleanup 0 1 2 3 15
-    PROG_DIR=${RELOCATED_DIR}/scripts
+    # relocate_source and chdir
+    RELOCATED_DIR=$(relocate_source)
+    [[ -n "$RELOCATED_DIR" ]] && {
+        trap cleanup 0 1 2 3 15
+        PROG_DIR=${RELOCATED_DIR}/scripts
+    }
 }
 cd "$PROG_DIR"
 

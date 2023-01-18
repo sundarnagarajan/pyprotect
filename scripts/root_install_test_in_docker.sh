@@ -97,7 +97,7 @@ function install_test_1_pyver() {
     >&2 red "${SCRIPT_NAME}: Run as root"
     exit 1
 }
-echo "Running in $(distro_name)"
+echo "${SCRIPT_NAME}: Running in $(distro_name)"
 must_be_in_docker
 
 # Disable pip warnings that are irrelevant here
