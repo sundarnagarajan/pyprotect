@@ -10,7 +10,7 @@ function red() {
     ANSI_HC="${ANSI_ESC}[1m"    # hicolor
     ANSI_FRED="${ANSI_ESC}[31m" # foreground red
 
-    [[ -t 1 ]] && {
+    [[ -t 1 && -t 2 ]] && {
         echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
     } || {
         echo -e "$@"
