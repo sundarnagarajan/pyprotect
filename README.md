@@ -327,17 +327,16 @@ Otherwise returns _isinstance(x, t)_
 ```python
 isreadonly(x: object, a: str) -> bool
 ```
-If _x_ is a wrapped object (_iswrapped(x)_ is True) and _x_ wraps _o_, returns whether rules of __wrapper__ make attribute _a_ read-only when accessed through _x_
+If _x_ is a wrapped object - with _iswrapped(x)_ == True - and _x_ wraps _o_, _isreadonly(x, a)_ returns whether rules of __wrapper__ make attribute _a_ read-only when accessed through _x_
 This represents __rule__ of wrapped object - does not guarantee that_o_ has attribute_a_ or that setting attribute _a_ in object _o_ will not raise any exception
 If _x_ is __not__ a wrapped object (_iswrapped(x)_ is False) , unconditionally returns False
 
-#### instance_or_protected
+#### instance_of_protected
 ```python
-instance_of_protected(x: object, w: object) -> bool
+instance_of_protected(x: object, o: object) -> bool
 ```
-If _iswrapped(w)_ and w wraps _o_: Returns _isinstance(x, type(o))_
-<br>
-Otherwise: returns _isinstance(x, w)_
+If _x_ is a wrapped object - with _iswrapped(x)_ == True - and _x_ wraps _o_, _instance_of_protected(x, o)_ returns True if and only if _isinstance(x, type(o))_
+If _x_ is not a wrapped object - _iswrapped(x)_ == False - _instance_of_protected(x, o)_ returns _isinstance(x, o)_
 
 #### isvisible
 ```python
