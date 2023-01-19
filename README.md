@@ -449,10 +449,7 @@ Pretty much anything. pyprotect only mediates attribute access using ```object._
 
 ## Work in progress
 - Uploading to pypi.org
-- [Issues still requiring triage](https://github.com/sundarnagarajan/python_protected_class/issues?q=is%3Aopen+is%3Aissue+no%3Alabel)
-- [Tasks remaining - maximizing reusability of scripts](https://github.com/sundarnagarajan/python_protected_class/issues?q=is%3Aopen+is%3Aissue+label%3ATasks)
 - [Test cases required](https://github.com/sundarnagarajan/python_protected_class/issues?q=is%3Aopen+is%3Aissue+label%3ATests)
-- [Dockerfiles required](https://github.com/sundarnagarajan/python_protected_class/issues?q=is%3Aopen+is%3Aissue+label%3ADockerfiles)
 
 ## Changelog
 ### Jan-15-2022
