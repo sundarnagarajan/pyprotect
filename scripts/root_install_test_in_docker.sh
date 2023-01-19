@@ -12,8 +12,8 @@ function uninstall_with_pip() {
     }
     local local_py_cmd=$1
     cd ${RELOCATED_DIR}
-    echo "${SCRIPT_NAME}: ($(id -un)): $local_py_cmd uninstall -y $PY_MODULE"
-    hide_output_unless_error $local_py_cmd uninstall -y $PY_MODULE || return 1
+    echo "${SCRIPT_NAME}: ($(id -un)): $local_py_cmd -m pip uninstall -y $PY_MODULE"
+    hide_output_unless_error $local_py_cmd -m pip uninstall -y $PY_MODULE || return 1
 }
 
 function run_tests() {
