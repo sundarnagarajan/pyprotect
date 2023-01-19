@@ -130,7 +130,6 @@ function inplace_build_and_test_1_pyver() {
     echo "---------- Inplace build and test with $pyver -----------------"
     cd ${RELOCATED_DIR}
     ${CLEAN_BUILD_SCRIPT}
-    ${CYTHONIZE_SCRIPT}
     ${INPLACE_BUILD_SCRIPT} $pyver
     ${CLEAN_BUILD_SCRIPT}
 }

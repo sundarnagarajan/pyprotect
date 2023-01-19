@@ -34,6 +34,7 @@ scripts/clean.sh
 scripts/clean_build.sh
 scripts/common_functions.sh
 scripts/config.sh
+scripts/config_source_validate.sh
 scripts/cythonize.sh
 scripts/docker/Dockerfile.alpine
 scripts/docker/Dockerfile.alpine.pypy2
@@ -45,6 +46,7 @@ scripts/docker/config_docker_arch.sh
 scripts/docker/config_docker_fedora.sh
 scripts/docker/config_docker_ubuntu.sh
 scripts/docker_as.sh
+scripts/generic_bash_functions.sh
 scripts/gpg_sign.sh
 scripts/host_build_test_in_place.sh
 scripts/host_docker_build.sh

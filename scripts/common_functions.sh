@@ -1,24 +1,9 @@
 #!/bin/bash
 set -e -u -o pipefail
 PROG_DIR=$(readlink -f $(dirname $BASH_SOURCE))
-# SCRIPT_NAME=$(basename $BASH_SOURCE)
+source "${PROG_DIR}"/generic_bash_functions.sh
 
-# Make 'red' available in config files
-function red() {
-    # Prints arguments in bold red
-    ANSI_ESC=$(printf '\033')
-    ANSI_RS="${ANSI_ESC}[0m"    # reset
-    ANSI_HC="${ANSI_ESC}[1m"    # hicolor
-    ANSI_FRED="${ANSI_ESC}[31m" # foreground red
-
-    [[ -t 1 && -t 2 ]] && {
-        echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
-    } || {
-        echo -e "$@"
-    }
-}
-
-source "$PROG_DIR"/config.sh
+source "$PROG_DIR"/config_source_validate.sh
 
 function hide_output_unless_error() {
     # Runs arguments and shows output only if there is an error
