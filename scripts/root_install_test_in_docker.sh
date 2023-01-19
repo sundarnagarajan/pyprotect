@@ -1,93 +1,86 @@
 #!/bin/bash
-#
 set -eu -o pipefail
 PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
+function uninstall_with_pip() {
+    # $1: py_cmd - e.g. '/usr/bin/python3'
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: uninstall_with_pip <py_cmd>"
+        return 1
+    }
+    local local_py_cmd=$1
+    cd ${RELOCATED_DIR}
+    echo "${SCRIPT_NAME}: ($(id -un)): $local_py_cmd uninstall -y $PY_MODULE"
+    hide_output_unless_error $local_py_cmd uninstall -y $PY_MODULE || return 1
+}
+
+function run_tests() {
+    # $1: TEST_DIR location
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: run_tests <test_dir>"
+        return 1
+    }
+    local local_test_dir=$1
+    # optimistic that tests do not get overwritten / changed
+    [[ -x "$local_test_dir"/$TEST_MODULE_FILENAME ]] || {
+        mkdir -p "$local_test_dir"
+        cp -a "${RELOCATED_DIR}"/tests/. "$local_test_dir"/
+    }
+    cd /
+    __TESTS_DIR=$local_test_dir "$PROG_DIR"/run_func_tests.sh $pyver
+}
+
+function run_1_install_cmd() {
+    # $2+ : command to execute
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: run_1_install_cmd <cmd> [args...]"
+        return 1
+    }
+    cd ${RELOCATED_DIR}
+    ${CLEAN_BUILD_SCRIPT}
+    echo -e "${SCRIPT_NAME}: ($(id -un)): $@"
+    hide_output_unless_error $@ || return 1
+    ${CLEAN_BUILD_SCRIPT}
+}
+
 function install_test_1_pyver() {
-    # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
+    # $1: PYVER
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: install_test_1_pyver <pyver>"
+        return 1
+    }
     local pyver=$1
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
     [[ -z "$PYTHON_CMD" ]] && {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
     local pip_cmd="${PYTHON_CMD} -m pip"
-
-    cd ${RELOCATED_DIR}
-    echo "Uninstalling using $pip_cmd uninstall"
-    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
-
-    cd ${RELOCATED_DIR}
-    ${CLEAN_BUILD_SCRIPT}
-    echo "Installing ${PY_MODULE} using $pip_cmd install ."
-    unset PYTHONDONTWRITEBYTECODE
-    hide_output_unless_error $pip_cmd install . || return 1
-    export PYTHONDONTWRITEBYTECODE=Y
-    ${CLEAN_BUILD_SCRIPT}
-
     local TEST_DIR=/root/tests
-    # optimistic that tests do not get overwritten / changed
-    [[ -x "$TEST_DIR"/$TEST_MODULE_FILENAME ]] || {
-        mkdir -p "$TEST_DIR"
-        cp -a "${RELOCATED_DIR}"/tests/. "$TEST_DIR"/
-    }
-    cd /
-    __TESTS_DIR=$TEST_DIR "$PROG_DIR"/run_func_tests.sh $pyver
 
-    cd ${RELOCATED_DIR}
-    echo "Uninstalling using $pip_cmd uninstall"
-    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
+    uninstall_with_pip "$PYTHON_CMD"
 
-    cd ${RELOCATED_DIR}
-    ${CLEAN_BUILD_SCRIPT}
-    echo "Installing ${PY_MODULE} using $PYTHON_CMD setup.py install"
-    unset PYTHONDONTWRITEBYTECODE
-    hide_output_unless_error $PYTHON_CMD setup.py install || return 1
-    export PYTHONDONTWRITEBYTECODE=Y
-    ${CLEAN_BUILD_SCRIPT}
+    run_1_install_cmd $pip_cmd install .
+    run_tests "$TEST_DIR"
+    uninstall_with_pip "$PYTHON_CMD"
 
-    local TEST_DIR=/root/tests
-    # optimistic that tests do not get overwritten / changed
-    [[ -x "$TEST_DIR"/$TEST_MODULE_FILENAME ]] || {
-        mkdir -p "$TEST_DIR"
-        cp -a "${RELOCATED_DIR}"/tests/. "$TEST_DIR"/
-    }
-    cd /
-    __TESTS_DIR=$TEST_DIR "$PROG_DIR"/run_func_tests.sh $pyver
-
-    cd ${RELOCATED_DIR}
-    echo "Uninstalling using $pip_cmd uninstall"
-    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
+    run_1_install_cmd $PYTHON_CMD setup.py install
+    run_tests "$TEST_DIR"
+    uninstall_with_pip "$PYTHON_CMD"
 
     [[ -n "${GIT_URL:-}" ]] || return 0
 
-    cd ${RELOCATED_DIR}
-    ${CLEAN_BUILD_SCRIPT}
-    echo "Installing ${PY_MODULE} using $pip_cmd install git+GIT_URL"
-    unset PYTHONDONTWRITEBYTECODE
-    hide_output_unless_error $pip_cmd install git+${GIT_URL} || return 1
-    export PYTHONDONTWRITEBYTECODE=Y
-    ${CLEAN_BUILD_SCRIPT}
-
-    local TEST_DIR=/root/tests
-    # optimistic that tests do not get overwritten / changed
-    [[ -x "$TEST_DIR"/$TEST_MODULE_FILENAME ]] || {
-        mkdir -p "$TEST_DIR"
-        cp -a "${RELOCATED_DIR}"/tests/. "$TEST_DIR"/
-    }
-    cd /
-    __TESTS_DIR=$TEST_DIR "$PROG_DIR"/run_func_tests.sh $pyver
-
-    cd ${RELOCATED_DIR}
-    echo "Uninstalling using $pip_cmd uninstall"
-    hide_output_unless_error $pip_cmd uninstall -y $PY_MODULE || return 1
+    run_1_install_cmd $pip_cmd install git+${GIT_URL}
+    run_tests "$TEST_DIR"
+    uninstall_with_pip "$PYTHON_CMD"
 }
+
 
 # ------------------------------------------------------------------------
 # Actual script starts after this
@@ -111,8 +104,6 @@ export PIP_NO_PYTHON_VERSION_WARNING=1
 export PIP_ROOT_USER_ACTION=ignore
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
-# CYTHONIZE_SCRIPT location WITHIN docker image
-CYTHONIZE_SCRIPT="${DOCKER_MOUNTPOINT}"/scripts/cythonize.sh
 
 # This script launches a container only for cythonize.sh (above)
 PYVER_CHOSEN=$@

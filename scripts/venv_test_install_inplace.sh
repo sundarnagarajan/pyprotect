@@ -1,23 +1,8 @@
 #!/bin/bash
-#
 set -eu -o pipefail
 PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
-
-function __run_tests() {
-    # $1: PYVER
-    # Do not need to copy tests; can just use $RELOCATED_DIR
-    [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
-        return 1
-    }
-    local pyver=$1
-    echo "Running tests"
-    rm -f "$RELOCATED_DIR"/$PY_MODULE/*.so
-    cd /
-    "$RELOCATED_DIR"/scripts/run_func_tests.sh $pyver
-}
 
 function create_activate_venv() {
     # $1: PYVER
@@ -50,34 +35,43 @@ function create_activate_venv() {
     }
 }
 
-function uninstall_in_venv() {
-    # $1: PYTHON_CMD
-    local py_cmd=$1
-    echo "Uninstalling $PY_MODULE in virtualenv using $py_cmd -m pip"
-    hide_output_unless_error $py_cmd -m pip uninstall -y $PY_MODULE || {
-        deactivate
+function run_1_install_cmd() {
+    # $@ : command to execute
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: run_1_install_cmd <cmd> [args...]"
         return 1
     }
-}
-
-function exec_cmd_in_venv() {
-    # $1: str to echo
-    # $2+ : command to execute
-    [[ $# -lt 2 ]] && {
-        >&2 red "Usage: exec_cmd_in_venv <msg_str> <cmd> [args...]"
-        return 1
-    }
-    local msg=$1
-    shift
-
     cd ${RELOCATED_DIR}
     ${CLEAN_BUILD_SCRIPT}
-    echo "$msg"
-    hide_output_unless_error $@ || {
-        deactivate
+    echo -e "${SCRIPT_NAME}: ($(id -un)): $@"
+    hide_output_unless_error $@ || return 1
+    ${CLEAN_BUILD_SCRIPT}
+}
+
+function __run_tests() {
+    # $1: PYVER
+    # Do not need to copy tests; can just use $RELOCATED_DIR
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
         return 1
     }
-    ${CLEAN_BUILD_SCRIPT}
+    local pyver=$1
+    echo "Running tests"
+    rm -f "$RELOCATED_DIR"/$PY_MODULE/*.so
+    cd /
+    "$RELOCATED_DIR"/scripts/run_func_tests.sh $pyver
+}
+
+function uninstall_with_pip() {
+    # $1: py_cmd - e.g. '/usr/bin/python3'
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: uninstall_with_pip <py_cmd>"
+        return 1
+    }
+    local local_py_cmd=$1
+    cd ${RELOCATED_DIR}
+    echo "${SCRIPT_NAME}: ($(id -un)): $local_py_cmd -m pip uninstall -y $PY_MODULE"
+    hide_output_unless_error $local_py_cmd -m pip uninstall -y $PY_MODULE || return 1
 }
 
 function run_1_in_venv() {
@@ -96,19 +90,19 @@ function run_1_in_venv() {
         return 1
     }
 
-    exec_cmd_in_venv "Installing $PY_MODULE in virtualenv using $PYTHON_CMD setup.py" $PYTHON_CMD setup.py install 
+    run_1_install_cmd $PYTHON_CMD setup.py install 
     __run_tests $pyver
-    uninstall_in_venv "$PYTHON_CMD"
+    uninstall_with_pip "$PYTHON_CMD"
 
-    exec_cmd_in_venv "Installing $PY_MODULE in virtualenv using $PYTHON_CMD -m pip install ." $PYTHON_CMD -m pip install . 
+    run_1_install_cmd $PYTHON_CMD -m pip install . 
     __run_tests $pyver
-    uninstall_in_venv "$PYTHON_CMD"
+    uninstall_with_pip "$PYTHON_CMD"
 
     [[ -n "${GIT_URL:-}" ]] || return 0
 
-    exec_cmd_in_venv "Installing $PY_MODULE in virtualenv using $PYTHON_CMD -m pip install git+GIT_URL" $PYTHON_CMD -m pip install git+${GIT_URL}
+    run_1_install_cmd $PYTHON_CMD -m pip install git+${GIT_URL}
     __run_tests $pyver
-    uninstall_in_venv "$PYTHON_CMD"
+    uninstall_with_pip "$PYTHON_CMD"
 
     deactivate
     rm -rf ${TEST_VENV_DIR}
