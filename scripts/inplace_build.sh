@@ -25,11 +25,11 @@ function build_1_in_place_and_test() {
     cd "$PROG_DIR"/..
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
     [[ -z "$PYTHON_CMD" ]] && {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
     echo "${SCRIPT_NAME}: Building for $pyver using $PYTHON_CMD"
@@ -66,7 +66,7 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
             [[ $(ldd "$TARGET" 2>/dev/null | awk -F' => ' '$2 == "not found" {print $1}' | wc -l) -eq 0 ]] || incompatible=1
         }
         [[ $incompatible -ne 0 ]] && {
-            >&2 echo "${SCRIPT_NAME}: ${TARGET_BASENAME}: Rebuilding because of incompatibility"
+            blue "${SCRIPT_NAME}: ${TARGET_BASENAME}: Rebuilding because of incompatibility"
             REBUILD_REQUIRED=1
         }
     }
@@ -91,7 +91,7 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
     exit 0
 }
 
-echo "Running in $(distro_name)"
+echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 
 running_in_docker && {
     PROG_DIR="$(relocate_source)"/scripts
@@ -105,7 +105,7 @@ SRC="${PY_MODULE}/${EXTENSION_NAME}.c"
 [[ -f "$SRC" ]] || {
     $CYTHONIZE_SCRIPT || {
         # Could fail if cython3 was not found in this container
-        >&2 red "C source not found: ${SRC}. Running cythonize.sh failed"
+        >&2 red "${SCRIPT_NAME}: C source not found: ${SRC}. Running cythonize.sh failed"
         exit 1
     }
 }

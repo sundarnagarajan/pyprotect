@@ -29,7 +29,7 @@ TARGET=${EXTENSION_NAME}.c
     for f in ${EXTENSION_NAME}.pyx *.pxi
     do
         [[ $f -nt $TARGET ]] && {
-            >&2 echo "${SCRIPT_NAME}: Newer: $f"
+            blue "${SCRIPT_NAME}: Newer: $f"
             REBUILD_REQUIRED=1
             break
         }
@@ -58,8 +58,7 @@ EXISTING_CYTHON_VER=$($CYTHON3_PROG_NAME --version 2>&1 | cut -d' ' -f3)
     }
 }
 [[ -z "${CYTHON3_MIN_VER:-}" ]] && {
-    echo "DEBUG: CYTHON3_MIN_VER : $CYTHON3_MIN_VER"
-    >&2 red "${SCRIPT_NAME}: Warning: CYTHON3_MIN_VER not set in config.sh"
+    blue "${SCRIPT_NAME}: Warning: CYTHON3_MIN_VER not set in config.sh"
 }
 [[ -n "${EXISTING_CYTHON_VER:-}" && -n "${CYTHON3_MIN_VER:-}" ]] && {
     need_minimum_version $EXISTING_CYTHON_VER $CYTHON3_MIN_VER cython || exit 1
