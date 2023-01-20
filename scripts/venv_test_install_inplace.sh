@@ -166,7 +166,7 @@ export PIP_NO_PYTHON_VERSION_WARNING=1
 export PIP_ROOT_USER_ACTION=ignore
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
-INPLACE_BUILD_SCRIPT="${PROG_DIR}"/inplace_build.sh
+INPLACE_BUILD_SCRIPT="${PROG_DIR}"/build_inplace.sh
 
 # inplace_cythonize.sh already run in the correct image in host_install_test_in_docker.sh
 [[ -f "${RELOCATED_DIR}"/${PY_MODULE}/${EXTENSION_NAME}.c ]] || {

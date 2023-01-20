@@ -10,7 +10,7 @@ need_docker_command
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 # Script path from docker mount path perspective
 CYTHONIZE_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/inplace_cythonize.sh
-BUILD_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/inplace_build.sh
+BUILD_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/build_inplace.sh
 
 
 function build_1_pyver() {
