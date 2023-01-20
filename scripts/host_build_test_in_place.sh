@@ -9,7 +9,7 @@ need_docker_command
 # Script path OUTSIDE docker
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 # Script path from docker mount path perspective
-CYTHONIZE_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/cythonize.sh
+CYTHONIZE_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/inplace_cythonize.sh
 BUILD_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/inplace_build.sh
 
 
