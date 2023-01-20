@@ -26,7 +26,7 @@ function run_tests() {
     # optimistic that tests do not get overwritten / changed
     [[ -x "$local_test_dir"/$TEST_MODULE_FILENAME ]] || {
         mkdir -p "$local_test_dir"
-        cp -a "${RELOCATED_DIR}"/tests/. "$local_test_dir"/
+        cp -a "${RELOCATED_DIR}"/$TESTS_DIR/. "$local_test_dir"/
     }
     cd /
     __TESTS_DIR=$local_test_dir "$PROG_DIR"/run_func_tests.sh $pyver
