@@ -4,30 +4,6 @@ PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
-function run_1_cmd_in_relocated_dir() {
-    # $@ : command to execute
-    # Needs following vars set:
-    #   RELOCATED_DIR
-    #   CLEAN_BUILD_SCRIPT
-    [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_cmd_in_relocated_dir <cmd> [args...]"
-        return 1
-    }
-    var_empty RELOCATED_DIR && {
-        >&2 red "${SCRIPT_NAME:-}: run_1_cmd_in_relocated_dir: Needs RELOCATED_DIR set"
-        return 1
-    }
-    var_empty CLEAN_BUILD_SCRIPT && {
-        >&2 red "run_1_cmd_in_relocated_dir: Needs CLEAN_BUILD_SCRIPT set"
-        return 1
-    }
-    cd ${RELOCATED_DIR}
-    ${CLEAN_BUILD_SCRIPT}
-    echo -e "${SCRIPT_NAME:-}: ($(id -un)): $@"
-    hide_output_unless_error $@ || return 1
-    ${CLEAN_BUILD_SCRIPT}
-}
-
 function __run_tests() {
     # $1: PYVER
     # Do not need to copy tests; can just use $RELOCATED_DIR
@@ -38,36 +14,6 @@ function __run_tests() {
     local pyver=$1
     cd /
     "$RELOCATED_DIR"/scripts/run_func_tests.sh $pyver
-}
-
-function create_activate_venv() {
-    # $1: PYVER
-    # $2: VENV_DIR
-    [[ $# -lt 2 ]] && {
-        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG VENV_DIR"
-        return 1
-    }
-    local pyver=$1
-    local VENV_DIR=$2
-    local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
-
-    echo "${SCRIPT_NAME}: Clearing virtualenv dir"
-    rm -rf ${VENV_DIR}
-    local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
-        return 1
-    }
-    echo "${SCRIPT_NAME}: Creating virtualenv $PYTHON_CMD"
-    $PYTHON_CMD -B -c 'import venv' 2>/dev/null && {
-        hide_output_unless_error $PYTHON_CMD -m venv ${VENV_DIR} || return 1
-    } || {
-        hide_output_unless_error virtualenv -p $PYTHON_CMD ${VENV_DIR} || return 1
-    }
-    source ${VENV_DIR}/bin/activate
-    command_must_exist ${PYTHON_BASENAME} 1>/dev/null || {
-        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
-        return 1
-    }
 }
 
 function run_1_in_venv() {
@@ -165,7 +111,7 @@ export PIP_NO_PYTHON_VERSION_WARNING=1
 export PIP_ROOT_USER_ACTION=ignore
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
-INPLACE_BUILD_SCRIPT="${PROG_DIR}"/build_inplace.sh
+INPLACE_BUILD_SCRIPT="${PROG_DIR}"/build_test_inplace.sh
 
 # cythonize_inplace.sh already run in the correct image in host_install_test_in_docker.sh
 [[ -f "${RELOCATED_DIR}"/${PY_MODULE}/${EXTENSION_NAME}.c ]] || {
