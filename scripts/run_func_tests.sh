@@ -20,9 +20,14 @@ function test_in_1_pyver() {
     $python_cmd -B -c "from module_finder import ${PY_MODULE}" 1>/dev/null 2>&1 || ret=1
     
     if [[ $ret -eq 0 ]]; then
-        echo "Executing tests in: $__TESTS_DIR"
-        echo "$pyver : Testing with $python_cmd"
-        $python_cmd -B "${TEST_SCRIPT_BASENAME}"
+        var_empty __NOTEST && {
+            echo "Executing tests in: $__TESTS_DIR"
+            echo "$pyver : Testing with $python_cmd"
+            $python_cmd -B "${TEST_SCRIPT_BASENAME}"
+        } || {
+            blue "__NOTEST set, not executing tests"
+            return
+        }
     else
         >&2 red "$pyver : $python_cmd module ${PY_MODULE} not found"
         return 1
@@ -34,14 +39,13 @@ function test_in_1_pyver() {
 # ------------------------------------------------------------------------
 
 # If __TESTS_DIR env var is set, ONLY $TESTS_DIR/$TEST_MODULE_FILENAME is tried
-# Otherwise ONLY $PROG_DIR/../tests/$TEST_MODULE_FILENAME is tried
+# Otherwise ONLY $PROG_DIR/../$TESTS_DIR/$TEST_MODULE_FILENAME is tried
 
 [[ -n $(declare -p __TESTS_DIR 2>/dev/null) ]] && {
     TEST_SCRIPT=$(readlink -f "$__TESTS_DIR")/$TEST_MODULE_FILENAME
 } || {
-    __TESTS_DIR=$(readlink -f "$PROG_DIR"/../tests)
+    __TESTS_DIR=$(readlink -f "$PROG_DIR"/../$TESTS_DIR)
 }
-# export PYTHONPATH=$__TESTS_DIR
 
 PYVER_CHOSEN=$@
 # This script does not launch docker containers
