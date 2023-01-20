@@ -4,46 +4,26 @@ PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
-function create_activate_venv() {
-    # $1: PYVER
-    # $2: VENV_DIR
-    [[ $# -lt 2 ]] && {
-        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG VENV_DIR"
-        return 1
-    }
-    local pyver=$1
-    local VENV_DIR=$2
-    local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
-
-    echo "---------- venv: Install and test with $pyver as $(id -un) -----------------"
-    echo "Clearing virtualenv dir"
-    rm -rf ${VENV_DIR}
-    local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
-        return 1
-    }
-    echo "Creating virtualenv $PYTHON_CMD"
-    $PYTHON_CMD -B -c 'import venv' 2>/dev/null && {
-        hide_output_unless_error $PYTHON_CMD -m venv ${VENV_DIR} || return 1
-    } || {
-        hide_output_unless_error virtualenv -p $PYTHON_CMD ${VENV_DIR} || return 1
-    }
-    source ${VENV_DIR}/bin/activate
-    command_must_exist ${PYTHON_BASENAME} 1>/dev/null || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
-        return 1
-    }
-}
-
-function run_1_install_cmd() {
+function run_1_cmd_in_relocated_dir() {
     # $@ : command to execute
+    # Needs following vars set:
+    #   RELOCATED_DIR
+    #   CLEAN_BUILD_SCRIPT
     [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_install_cmd <cmd> [args...]"
+        >&2 red "Usage: run_1_cmd_in_relocated_dir <cmd> [args...]"
+        return 1
+    }
+    var_empty RELOCATED_DIR && {
+        >&2 red "${SCRIPT_NAME:-}: run_1_cmd_in_relocated_dir: Needs RELOCATED_DIR set"
+        return 1
+    }
+    var_empty CLEAN_BUILD_SCRIPT && {
+        >&2 red "run_1_cmd_in_relocated_dir: Needs CLEAN_BUILD_SCRIPT set"
         return 1
     }
     cd ${RELOCATED_DIR}
     ${CLEAN_BUILD_SCRIPT}
-    echo -e "${SCRIPT_NAME}: ($(id -un)): $@"
+    echo -e "${SCRIPT_NAME:-}: ($(id -un)): $@"
     hide_output_unless_error $@ || return 1
     ${CLEAN_BUILD_SCRIPT}
 }
@@ -56,22 +36,38 @@ function __run_tests() {
         return 1
     }
     local pyver=$1
-    echo "Running tests"
-    rm -f "$RELOCATED_DIR"/$PY_MODULE/*.so
     cd /
     "$RELOCATED_DIR"/scripts/run_func_tests.sh $pyver
 }
 
-function uninstall_with_pip() {
-    # $1: py_cmd - e.g. '/usr/bin/python3'
-    [[ $# -lt 1 ]] && {
-        >&2 red "Usage: uninstall_with_pip <py_cmd>"
+function create_activate_venv() {
+    # $1: PYVER
+    # $2: VENV_DIR
+    [[ $# -lt 2 ]] && {
+        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG VENV_DIR"
         return 1
     }
-    local local_py_cmd=$1
-    cd ${RELOCATED_DIR}
-    echo "${SCRIPT_NAME}: ($(id -un)): $local_py_cmd -m pip uninstall -y $PY_MODULE"
-    hide_output_unless_error $local_py_cmd -m pip uninstall -y $PY_MODULE || return 1
+    local pyver=$1
+    local VENV_DIR=$2
+    local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
+
+    echo "${SCRIPT_NAME}: Clearing virtualenv dir"
+    rm -rf ${VENV_DIR}
+    local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
+    echo "${SCRIPT_NAME}: Creating virtualenv $PYTHON_CMD"
+    $PYTHON_CMD -B -c 'import venv' 2>/dev/null && {
+        hide_output_unless_error $PYTHON_CMD -m venv ${VENV_DIR} || return 1
+    } || {
+        hide_output_unless_error virtualenv -p $PYTHON_CMD ${VENV_DIR} || return 1
+    }
+    source ${VENV_DIR}/bin/activate
+    command_must_exist ${PYTHON_BASENAME} 1>/dev/null || {
+        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
 }
 
 function run_1_in_venv() {
@@ -82,30 +78,35 @@ function run_1_in_venv() {
     }
     local pyver=$1
     local TEST_VENV_DIR=/tmp/test_venv
+    echo "---------- venv: Install and test with $pyver as $(id -un) -----------------"
+
+    function cleanup_venv() {
+        deactivate
+        rm -rf "$TEST_VENV_DIR"
+    }
 
     create_activate_venv $pyver "$TEST_VENV_DIR" || return 1
+    trap cleanup_venv RETURN
+
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
 
-    run_1_install_cmd $PYTHON_CMD setup.py install 
-    __run_tests $pyver
-    uninstall_with_pip "$PYTHON_CMD"
+    run_1_cmd_in_relocated_dir $PYTHON_CMD setup.py install || return 1
+    __run_tests $pyver|| return 1
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE|| return 1
 
-    run_1_install_cmd $PYTHON_CMD -m pip install . 
-    __run_tests $pyver
-    uninstall_with_pip "$PYTHON_CMD"
+    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install . || return 1
+    __run_tests $pyver|| return 1
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE|| return 1
 
     [[ -n "${GIT_URL:-}" ]] || return 0
 
-    run_1_install_cmd $PYTHON_CMD -m pip install git+${GIT_URL}
-    __run_tests $pyver
-    uninstall_with_pip "$PYTHON_CMD"
-
-    deactivate
-    rm -rf ${TEST_VENV_DIR}
+    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install git+${GIT_URL}|| return 1
+    __run_tests $pyver|| return 1
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE|| return 1
 }
 
 function inplace_build_and_test_1_pyver() {
@@ -122,10 +123,8 @@ function inplace_build_and_test_1_pyver() {
     }
 
     echo "---------- Inplace build and test with $pyver -----------------"
-    cd ${RELOCATED_DIR}
-    ${CLEAN_BUILD_SCRIPT}
-    ${INPLACE_BUILD_SCRIPT} $pyver
-    ${CLEAN_BUILD_SCRIPT}
+    run_1_cmd_in_relocated_dir ${INPLACE_BUILD_SCRIPT} $pyver || return 1
+    __run_tests $pyver|| return 1
 }
 
 function pip_install_user_1_pyver() {
@@ -142,19 +141,9 @@ function pip_install_user_1_pyver() {
     }
 
     echo "---------- Install and test --user with $pyver -----------------"
-    cd ${RELOCATED_DIR}
-    ${CLEAN_BUILD_SCRIPT}
-    echo "Installing $PY_MODULE using $PYTHON_CMD -m pip install --user ."
-    hide_output_unless_error $PYTHON_CMD -m pip install --user . || {
-        return 1
-    }
-    ${CLEAN_BUILD_SCRIPT}
-
+    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install --user . || return 1
     __run_tests $pyver
-    echo "Uninstalling $PY_MODULE using $PYTHON_CMD -m pip"
-    hide_output_unless_error $PYTHON_CMD -m pip uninstall -y $PY_MODULE || {
-        return 1
-    }
+    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip uninstall -y $PY_MODULE || return 1
 }
 
 
