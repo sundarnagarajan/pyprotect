@@ -29,7 +29,7 @@ ANSI_BWHT="${ANSI_ESC}[47m" # background white
 
 function red() {
     # Prints arguments in bold red
-    [[ -t 1 && -t 2 ]] && {
+    [[ -t 2 ]] && {
         echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FRED}$@${ANSI_RS}"
     } || {
         echo -e "$@"
@@ -37,8 +37,8 @@ function red() {
 }
 
 function blue() {
-    # Prints arguments in bold red
-    [[ -t 1 && -t 2 ]] && {
+    # Prints arguments in bold blue
+    [[ -t 1 ]] && {
         echo -e "${ANSI_RS}${ANSI_HC}${ANSI_FBLE}$@${ANSI_RS}"
     } || {
         echo -e "$@"
