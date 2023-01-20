@@ -105,7 +105,7 @@ export PIP_ROOT_USER_ACTION=ignore
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 
-# This script launches a container only for inplace_cythonize.sh (above)
+# This script launches a container only for cythonize_inplace.sh (above)
 PYVER_CHOSEN=$@
 VALID_PYVER=$(process_std_cmdline_args no yes $@)
 

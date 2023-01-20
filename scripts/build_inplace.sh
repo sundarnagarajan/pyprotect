@@ -100,7 +100,7 @@ running_in_docker && {
 cd "$PROG_DIR"
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
-CYTHONIZE_SCRIPT="${PROG_DIR}"/inplace_cythonize.sh
+CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize_inplace.sh
 SRC="${PY_MODULE}/${EXTENSION_NAME}.c"
 [[ -f "$SRC" ]] || {
     $CYTHONIZE_SCRIPT || {

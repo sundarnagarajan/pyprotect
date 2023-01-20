@@ -9,7 +9,7 @@ need_docker_command
 # Script path from docker mount path perspective
 ROOT_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/root_install_test_in_docker.sh
 # Script path from docker mount path perspective
-CYTHONIZE_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/inplace_cythonize.sh
+CYTHONIZE_SCRIPT=${DOCKER_MOUNTPOINT}/${SCRIPTS_DIR}/cythonize_inplace.sh
 DISTRO=${__DISTRO:-${DEFAULT_DISTRO}}
 
 
