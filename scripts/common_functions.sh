@@ -262,3 +262,58 @@ function relocate_source() {
     echo -n ${NEW_TMP_DIR}
 }
 
+function run_1_cmd_in_relocated_dir() {
+    # $@ : command to execute
+    # Needs following vars set:
+    #   RELOCATED_DIR
+    #   CLEAN_BUILD_SCRIPT
+    [[ $# -lt 1 ]] && {
+        >&2 red "Usage: run_1_cmd_in_relocated_dir <cmd> [args...]"
+        return 1
+    }
+    var_empty RELOCATED_DIR && {
+        >&2 red "${SCRIPT_NAME:-}: run_1_cmd_in_relocated_dir: Needs RELOCATED_DIR set"
+        return 1
+    }
+    var_empty CLEAN_BUILD_SCRIPT && {
+        >&2 red "run_1_cmd_in_relocated_dir: Needs CLEAN_BUILD_SCRIPT set"
+        return 1
+    }
+    cd ${RELOCATED_DIR}
+    ${CLEAN_BUILD_SCRIPT}
+    echo -e "${SCRIPT_NAME:-}: ($(id -un)): $@"
+    hide_output_unless_error $@ || return 1
+    ${CLEAN_BUILD_SCRIPT}
+}
+
+function create_activate_venv() {
+    # $1: PYVER
+    # $2: VENV_DIR
+    # Needs following vars set:
+    #   SCRIPT_NAME (optional)
+    [[ $# -lt 2 ]] && {
+        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG VENV_DIR"
+        return 1
+    }
+    local pyver=$1
+    local VENV_DIR=$2
+    local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
+
+    echo "${SCRIPT_NAME:-}: Clearing virtualenv dir"
+    rm -rf ${VENV_DIR}
+    local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
+    echo "${SCRIPT_NAME:-}: Creating virtualenv $PYTHON_CMD"
+    $PYTHON_CMD -B -c 'import venv' 2>/dev/null && {
+        hide_output_unless_error $PYTHON_CMD -m venv ${VENV_DIR} || return 1
+    } || {
+        hide_output_unless_error virtualenv -p $PYTHON_CMD ${VENV_DIR} || return 1
+    }
+    source ${VENV_DIR}/bin/activate
+    command_must_exist ${PYTHON_BASENAME} 1>/dev/null || {
+        >&2 red "${SCRIPT_NAME:-}: $pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
+}
