@@ -16,7 +16,7 @@ function install_test_1_pyver() {
     local pyver=$1
     local img=${TAG_IMAGE[${pyver}]}
     cd "$PROG_DIR"/..
-    DOCKER_CMD="docker run --rm -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user root --env __DISTRO=$DISTRO --env __MINIMAL_TESTS=${__MINIMAL_TESTS:-} $img ${ROOT_SCRIPT} $pyver"
+    DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user root --env __DISTRO=$DISTRO --env __MINIMAL_TESTS=${__MINIMAL_TESTS:-} --env __NOTEST=${__NOTEST:-} $img ${ROOT_SCRIPT} $pyver"
     $DOCKER_CMD
 }
 
