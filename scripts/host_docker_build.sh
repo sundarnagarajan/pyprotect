@@ -39,7 +39,7 @@ do
         --build-arg HOST_UID=$HOST_UID \
         --build-arg HOST_GID=$HOST_GID \
         --build-arg HOME_DIR=/home \
-        --build-arg PYPROTECT_DIR=/${PY_MODULE} \
+        --build-arg MODULE_MOUNT_DIR=/${PY_MODULE} \
         -t $IMAGE_NAME -f $k $@ .
 
     # Track requirement to build separate image for cython
@@ -74,7 +74,7 @@ done
                 --build-arg HOST_UID=$HOST_UID \
                 --build-arg HOST_GID=$HOST_GID \
                 --build-arg HOME_DIR=/home \
-                --build-arg PYPROTECT_DIR=/${PY_MODULE} \
+                --build-arg MODULE_MOUNT_DIR=/${PY_MODULE} \
                 -t $CYTHON3_DOCKER_IMAGE -f $CYTHON_DOCKER_FILE $@ .
         } || {
             >&2 red "CYTHON3_DOCKER_IMAGE not set in $(basename ${DOCKER_CONFIG_FILE})"

@@ -7,7 +7,7 @@ ARG HOST_GROUPNAME
 ARG HOST_UID
 ARG HOST_USERNAME
 ARG HOME_DIR
-ARG PYPROTECT_DIR
+ARG MODULE_MOUNT_DIR
 
 # ----------------------------------------------------------------------
 # Common things to always do
@@ -104,5 +104,5 @@ ENV NORMAL_USER=$HOST_USERNAME
 
 ENV PYTHONDONTWRITEBYTECODE=Y
 RUN rm -rf /var/lib/apt/lists
-# Start in PYPROTECT_DIR
-WORKDIR $PYPROTECT_DIR
+# Start in MODULE_MOUNT_DIR
+WORKDIR $MODULE_MOUNT_DIR

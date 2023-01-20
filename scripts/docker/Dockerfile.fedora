@@ -7,7 +7,7 @@ ARG HOST_GROUPNAME
 ARG HOST_UID
 ARG HOST_USERNAME
 ARG HOME_DIR
-ARG PYPROTECT_DIR
+ARG MODULE_MOUNT_DIR
 
 RUN dnf -y --quiet makecache
 RUN dnf -y --quiet upgrade
@@ -48,5 +48,5 @@ RUN pypy -m pip install -U pip 2>/dev/null
 RUN dnf -y clean all
 
 ENV PYTHONDONTWRITEBYTECODE=Y
-# Start in PYPROTECT_DIR
-WORKDIR $PYPROTECT_DIR
+# Start in MODULE_MOUNT_DIR
+WORKDIR $MODULE_MOUNT_DIR

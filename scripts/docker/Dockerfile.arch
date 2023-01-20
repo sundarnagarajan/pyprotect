@@ -6,7 +6,7 @@ ARG HOST_GROUPNAME
 ARG HOST_UID
 ARG HOST_USERNAME
 ARG HOME_DIR
-ARG PYPROTECT_DIR
+ARG MODULE_MOUNT_DIR
 
 # Arch is a rolling distro - upgrade all packages
 RUN pacman --noconfirm -Syu 1>/dev/null
@@ -78,5 +78,5 @@ ENV PYTHONDONTWRITEBYTECODE=Y
 # Delete build user
 # RUN userdel build
 
-# Start in PYPROTECT_DIR
-WORKDIR $PYPROTECT_DIR
+# Start in MODULE_MOUNT_DIR
+WORKDIR $MODULE_MOUNT_DIR
