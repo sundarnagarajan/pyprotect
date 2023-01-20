@@ -95,7 +95,7 @@ do
     [[ -z ${NORMAL_USER+x} ]] && {
         >&2 red "NORMAL_USER env var not found"
     } || {
-        su $NORMAL_USER -c "__RELOCATED_DIR="${RELOCATED_DIR}" ${PROG_DIR}/venv_test_install_inplace.sh $p" || {
+        su $NORMAL_USER -c "__RELOCATED_DIR="${RELOCATED_DIR}" ${PROG_DIR}/venv_test_install_inplace_in_docker.sh $p" || {
             [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
                 ${CLEAN_BUILD_SCRIPT}
                 continue

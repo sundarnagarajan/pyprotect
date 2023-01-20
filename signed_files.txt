@@ -58,7 +58,7 @@ scripts/run_func_tests.sh
 scripts/update_manifest.sh
 scripts/update_signed_files.sh
 scripts/upload_to_pypi.sh
-scripts/venv_test_install_inplace.sh
+scripts/venv_test_install_inplace_in_docker.sh
 setup.cfg
 setup.py
 signed_files.txt
