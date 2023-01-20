@@ -253,11 +253,10 @@ function relocate_source() {
     local old_top_dir=$(readlink -f "${PROG_DIR}/..")
     (
         cd "$old_top_dir"
-        cp -a LICENSE MANIFEST.in README.md pyproject.toml $PY_MODULE $SCRIPTS_DIR setup.cfg setup.py tests ${NEW_TMP_DIR}/
-        # We copy all non-hidden files
-        # cp -a "$old_top_dir"/* ${NEW_TMP_DIR}/
+        cp $PROJECT_FILES ${NEW_TMP_DIR}/
+        cp -a $PY_MODULE $SCRIPTS_DIR $TESTS_DIR ${NEW_TMP_DIR}/
         # Clean out .so files under $PY_MODULE
-        rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
+        [[ -d ${NEW_TMP_DIR}/${PY_MODULE} ]] && rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
     )
     trap cleanup 0 1 2 3 15
     echo -n ${NEW_TMP_DIR}
