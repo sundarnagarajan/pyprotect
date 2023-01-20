@@ -151,8 +151,7 @@ function pip_install_user_1_pyver() {
 # Actual script starts after this
 # ------------------------------------------------------------------------
 
-echo "${SCRIPT_NAME}: Running as $(id -un)"
-echo "${SCRIPT_NAME}: Running in $(distro_name)"
+echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 must_be_in_docker
 
 PROG_DIR="$(relocate_source)"/scripts

@@ -90,7 +90,7 @@ function install_test_1_pyver() {
     >&2 red "${SCRIPT_NAME}: Run as root"
     exit 1
 }
-echo "${SCRIPT_NAME}: Running in $(distro_name)"
+echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 must_be_in_docker
 
 PROG_DIR="$(relocate_source)"/scripts
