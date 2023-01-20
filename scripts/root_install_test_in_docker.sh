@@ -4,18 +4,6 @@ PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
-function uninstall_with_pip() {
-    # $1: py_cmd - e.g. '/usr/bin/python3'
-    [[ $# -lt 1 ]] && {
-        >&2 red "Usage: uninstall_with_pip <py_cmd>"
-        return 1
-    }
-    local local_py_cmd=$1
-    cd ${RELOCATED_DIR}
-    echo "${SCRIPT_NAME}: ($(id -un)): $local_py_cmd -m pip uninstall -y $PY_MODULE"
-    hide_output_unless_error $local_py_cmd -m pip uninstall -y $PY_MODULE || return 1
-}
-
 function run_tests() {
     # $1: TEST_DIR location
     [[ $# -lt 1 ]] && {
@@ -30,19 +18,6 @@ function run_tests() {
     }
     cd /
     __TESTS_DIR=$local_test_dir "$PROG_DIR"/run_func_tests.sh $pyver
-}
-
-function run_1_install_cmd() {
-    # $2+ : command to execute
-    [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_install_cmd <cmd> [args...]"
-        return 1
-    }
-    cd ${RELOCATED_DIR}
-    ${CLEAN_BUILD_SCRIPT}
-    echo -e "${SCRIPT_NAME}: ($(id -un)): $@"
-    hide_output_unless_error $@ || return 1
-    ${CLEAN_BUILD_SCRIPT}
 }
 
 function install_test_1_pyver() {
@@ -64,21 +39,21 @@ function install_test_1_pyver() {
     local pip_cmd="${PYTHON_CMD} -m pip"
     local TEST_DIR=/root/tests
 
-    uninstall_with_pip "$PYTHON_CMD"
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
 
-    run_1_install_cmd $pip_cmd install .
+    run_1_cmd_in_relocated_dir $pip_cmd install .
     run_tests "$TEST_DIR"
-    uninstall_with_pip "$PYTHON_CMD"
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
 
-    run_1_install_cmd $PYTHON_CMD setup.py install
+    run_1_cmd_in_relocated_dir $PYTHON_CMD setup.py install
     run_tests "$TEST_DIR"
-    uninstall_with_pip "$PYTHON_CMD"
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
 
     [[ -n "${GIT_URL:-}" ]] || return 0
 
-    run_1_install_cmd $pip_cmd install git+${GIT_URL}
+    run_1_cmd_in_relocated_dir $pip_cmd install git+${GIT_URL}
     run_tests "$TEST_DIR"
-    uninstall_with_pip "$PYTHON_CMD"
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
 }
 
 
