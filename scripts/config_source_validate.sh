@@ -27,6 +27,8 @@ for v in PY_MODULE \
     CYTHON3_PROG_NAME \
     CYTHON3_PROG_NAME \
     SCRIPTS_DIR \
+    TESTS_DIR \
+    PROJECT_FILES \
     TEST_MODULE_FILENAME \
     TAG_IMAGE \
     DOCKERFILE_IMAGE \
@@ -47,11 +49,13 @@ do
     }
 done
 # Somr vars should NOT be arrays
-for v in PY_MODULE DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE_FILENAME
+for v in PY_MODULE DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE_FILENAME SCRIPTS_DIR TESTS_DIR PROJECT_FILES
 do
-    var_is_nonarray $v || {
+    var_declared $v && {
+        var_is_nonarray $v || {
         >&2 red "$v should be ordinary (non-array) in config.sh"
         errors=1
+        }
     }
 done
 
@@ -80,8 +84,34 @@ CYTHONIZE_REQUIRED=${CYTHONIZE_REQUIRED:-no}
 CYTHON3_PROG_NAME=${CYTHON3_PROG_NAME:-cython3}
 SCRIPTS_DIR=${SCRIPTS_DIR:-scripts}
 SCRIPTS_DIR=$(basename "$SCRIPTS_DIR")
+TESTS_DIR=${TESTS_DIR:-tests}
 TEST_MODULE_FILENAME=$(basename "$TEST_MODULE_FILENAME")
 GIT_URL=${GIT_URL:-}
+DEFAULT_PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
+PROJECT_FILES=${PROJECT_FILES:-$DEFAULT_PROJECT_FILES}
+unset DEFAULT_PROJECT_FILES
+
+# Validate vars that must be existing files / dirs
+for v in SCRIPTS_DIR TESTS_DIR PY_MODULE
+do
+    x="${SCRIPT_DIR}/../${!v}"
+    [[ -d "$x" ]] || {
+        >&2 red "$v is not a directory: ${!v}"
+        errors=1
+    }
+done
+for x in $PROJECT_FILES
+do
+    [[ -e "${SCRIPT_DIR}/../${x}" ]] && {
+        [[ -f "${SCRIPT_DIR}/../${x}" ]] || {
+            >&2 red "Project file is not a file: ${SCRIPT_DIR}/../${x}"
+            errors=1
+        }
+    } || {
+        >&2 red "Project file does not exist: ${SCRIPT_DIR}/../${x}"
+        errors=1
+    }
+done
 
 # These are related to UID / GID on the host
 HOST_USERNAME=$(id -un)
@@ -95,7 +125,8 @@ readonly \
     EXTENSION_NAME CYTHONIZE_REQUIRED \
     CYTHON3_MIN_VER \
     PY_MODULE DOCKER_MOUNTPOINT \
-    SCRIPTS_DIR TEST_MODULE_FILENAME \
+    SCRIPTS_DIR TESTS_DIR PROJECT_FILES \
+    TEST_MODULE_FILENAME \
     DEFAULT_DISTRO \
     GIT_URL GPG_KEY \
     HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID 
@@ -150,7 +181,7 @@ done
 }
 
 [[ $errors -ne 0 ]] && return 1
-unset errors
+unset errors v x
 
 # Make config entries from config.sh read-only
 readonly CYTHON3_PROG_NAME TAG_PYVER  DOCKER_CONFIG_FILE
