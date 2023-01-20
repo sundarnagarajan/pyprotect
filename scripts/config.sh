@@ -16,7 +16,21 @@ DOCKER_MOUNTPOINT=/${PY_MODULE}
 # SCRIPTS_DIR should be basename of directory with scripts
 # This is for cases where the project already has a top-level directory
 # named 'scripts'
+# Optional - defaults to 'scripts'
 SCRIPTS_DIR=scripts
+
+# TESTS_DIR should be basename of directory with tests
+# This is for cases where the project already has a top-level directory
+# named 'tests'
+# Optional - defaults to 'tests'
+TESTS_DIR=tests
+
+# PROJECT_FILES is used only in relocate_source
+# Include only FILES required to run python setup.py install
+# Do not include $PY_MODULE or $SCRIPTS_DIR or $TESTS_DIR
+# All the files must EXIST
+# Optional - defaults to "MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
+PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
 
 # TEST_MODULE_FILENAME should be basename of top-level test module
 # under tests/ WITH '.py' extension
