@@ -113,7 +113,7 @@ export PIP_ROOT_USER_ACTION=ignore
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 INPLACE_BUILD_SCRIPT="${PROG_DIR}"/build_test_inplace.sh
 
-# cythonize_inplace.sh already run in the correct image in host_install_test_in_docker.sh
+# cythonize_inplace.sh already run in the correct image in host_install_test.sh
 [[ -f "${RELOCATED_DIR}"/${PY_MODULE}/${EXTENSION_NAME}.c ]] || {
     >&2 red "${RELOCATED_DIR}/${PY_MODULE}/${EXTENSION_NAME}.c not found"
     >&2 red "Should have already run cythonize_inplace.sh"
