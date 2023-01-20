@@ -1,7 +1,7 @@
 #!/bin/bash
-#
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
+SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
 need_docker_command
@@ -20,6 +20,7 @@ function build_1_pyver() {
     local build_args=${TAG_PYVER[${pyver}]}
     cd "$PROG_DIR"/..
     "${CLEAN_BUILD_SCRIPT}"
+    echo "${SCRIPT_NAME}: Running docker in $img"
     DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user "${HOST_UID}:${HOST_GID}" --env __DISTRO=${__DISTRO:-} --env __NOTEST=${__NOTEST:-} $img ${BUILD_SCRIPT} $pyver"
     $DOCKER_CMD
     "${CLEAN_BUILD_SCRIPT}"
@@ -34,6 +35,7 @@ cd "$PROG_DIR"/..
 [[ -n "${EXTENSION_NAME:-}" && "${CYTHONIZE_REQUIRED:-}" = "yes" ]] && {
     # Still need to check for CYTHON3_DOCKER_IMAGE and run CYTHONIZE_SCRIPT
     docker_image_must_exist $CYTHON3_DOCKER_IMAGE
+    echo "${SCRIPT_NAME}: Running docker in $CYTHON3_DOCKER_IMAGE"
     DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user "${HOST_UID}:${HOST_GID}" --env __DISTRO=${__DISTRO:-} $CYTHON3_DOCKER_IMAGE ${CYTHONIZE_SCRIPT}"
     $DOCKER_CMD
 }

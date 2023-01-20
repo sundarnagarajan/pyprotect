@@ -1,7 +1,7 @@
 #!/bin/bash
-#
 set -e -u -o pipefail
 PROG_DIR=$(readlink -e $(dirname $0))
+SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
 need_docker_command
@@ -16,6 +16,7 @@ function install_test_1_pyver() {
     local pyver=$1
     local img=${TAG_IMAGE[${pyver}]}
     cd "$PROG_DIR"/..
+    echo "${SCRIPT_NAME}: Running docker in $img"
     DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user root --env __DISTRO=$DISTRO --env __MINIMAL_TESTS=${__MINIMAL_TESTS:-} --env __NOTEST=${__NOTEST:-} $img ${ROOT_SCRIPT} $pyver"
     $DOCKER_CMD
 }
