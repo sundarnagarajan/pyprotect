@@ -51,6 +51,7 @@ PYVER_CHOSEN=$@
 # This script does not launch docker containers
 VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
+echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 env | grep -q '^VIRTUAL_ENV' && IN_VENV=yes || IN_VENV=no
 if [[ "$IN_VENV" = "yes" ]]; then
     echo "${SCRIPT_NAME}: Running in virtualenv"
