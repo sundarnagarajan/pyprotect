@@ -23,6 +23,14 @@ def check_pypirc():
         sys.stderr.write('PYPIRC not found: %s\n' % (PYPIRC_FILE,))
         return False
 
+    # Check that file permissions are secure
+    if (os.stat(PYPIRC_FILE).st_mode & 0o777) != 0o600:
+        sys.stderr.write(
+            'PYPIRC file permissions are not (octal) 600: %s\n' % (
+                PYPIRC_FILE,
+            )
+        )
+
     # Check PYPIRC_FILE
     cfg = ConfigParser()
     try:
