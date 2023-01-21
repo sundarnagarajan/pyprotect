@@ -29,6 +29,7 @@ pyprotect/protected.c
 pyprotect/protected.pyx
 pyprotect/python_visible.pxi
 scripts/build_test_inplace.sh
+scripts/check_pypirc_python3.py
 scripts/check_sha256.sh
 scripts/check_sig.sh
 scripts/clean.sh
