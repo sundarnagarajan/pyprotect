@@ -5,6 +5,7 @@ INSTALL.TXT
 LICENSE
 MANIFEST.in
 README.md
+VERSION.txt
 classdiagram.puml
 classdiagram.svg
 docs/Packaging.md
@@ -58,6 +59,7 @@ scripts/root_install_test_in_docker.sh
 scripts/run_func_tests.sh
 scripts/update_manifest.sh
 scripts/update_signed_files.sh
+scripts/update_version.sh
 scripts/upload_to_pypi.sh
 scripts/venv_test_install_inplace_in_docker.sh
 setup.cfg
