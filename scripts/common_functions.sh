@@ -126,6 +126,30 @@ function distro_name() {
     }
 }
 
+function get_version() {
+    # Echoes version number from version.py to stdout
+    local cur_dir=$(dirname "$BASH_SOURCE")
+    local ver_dir=$(readlink -f "$cur_dir"/..)
+    cd "$ver_dir"
+    [[ -f version.py ]] || {
+        >&2 red "${ver_dir}/version.py not found"
+        return 1
+    }
+    local ver=$(python3 -B -c 'import version; print(version.version);')
+    [[ -n "$ver" ]] && {
+        echo $ver
+        return 0
+    } || {
+        ver=$(grep '^version =' version.py | tail -1 | awk -F= '{print $2}' | sed -e 's/^[[:space:]]*//g' -e "s/'//g")
+        [[ -n "$ver" ]] && {
+            echo $ver
+            return 0
+        } || {
+            >&2 red "'version' not found in ${ver_dir}/version.py"
+        }
+    }
+}
+
 function process_std_cmdline_args() {
     # $1: mandatory: yes: tags need valid images
     # $2: mandatory: yes: If no tags supplied, choose all valid TAG_PYVER tags

@@ -1,7 +1,11 @@
 #!/bin/bash
 set -e -u -o pipefail
 PROG_DIR=$(dirname $BASH_SOURCE)
-# source "${PROG_DIR}"/common_functions.sh
-cd "$PROG_DIR"/..
+source "${PROG_DIR}"/common_functions.sh
+ver=$(get_version)
+[[ -z "$ver" ]] && {
+    >&2 red "Version number not found"
+    exit 1
+}
 echo "Updating VERSION.txt"
-grep '^version =' version.py | awk -F= '{print $2}' | sed -e 's/^[[:space:]]*//g' -e "s/'//g" > "${PROG_DIR}"/VERSION.txt
+echo "$ver" > "${PROG_DIR}"/VERSION.txt
