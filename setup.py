@@ -9,7 +9,7 @@ os.environ['CFLAGS'] = "-O3"
 os.environ['LDFLAGS'] = "-s"
 
 long_description = open('README.md', 'r').read(),
-version = '1.3'
+version = '1.3.1'
 PY_MODULE = 'pyprotect'
 # Set EXT_Name = None if you don't have an extension
 # Do not require cython for INSTALLATION
