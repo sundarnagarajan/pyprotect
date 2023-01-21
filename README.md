@@ -454,7 +454,7 @@ Pretty much anything. pyprotect only mediates attribute access using ```object._
 
 ## Changelog
 ### Jan-20-2022
-- Project name on github changed to ```pyprotect``` to match the name of the module. This has been long-pending. The [old github link](https://github.com/sundar_nagarajan/python_protected_class) redirects to the new project name. 
+- Project name on github changed to ```pyprotect``` to match the name of the module. This has been long-pending. The [old github link](https://github.com/sundarnagarajan/python_protected_class) redirects to the new project name. 
 ### Jan-15-2022
 - Started signing commits with my GPG key and displaying 'verified' for signed commits
 ### Dec-08-2022
