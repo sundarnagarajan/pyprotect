@@ -8,4 +8,4 @@ ver=$(get_version)
     exit 1
 }
 echo "Updating VERSION.txt"
-echo "$ver" > "${PROG_DIR}"/VERSION.txt
+echo "$ver" > "${PROG_DIR}"/../VERSION.txt
