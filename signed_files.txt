@@ -5,7 +5,6 @@ INSTALL.TXT
 LICENSE
 MANIFEST.in
 README.md
-VERSION.txt
 classdiagram.puml
 classdiagram.svg
 docs/Packaging.md
@@ -29,6 +28,7 @@ pyprotect/imports.pxi
 pyprotect/protected.c
 pyprotect/protected.pyx
 pyprotect/python_visible.pxi
+scripts/VERSION.txt
 scripts/build_test_inplace.sh
 scripts/check_pypirc_python3.py
 scripts/check_sha256.sh
@@ -74,3 +74,4 @@ tests/test_module.py
 tests/test_pyprotect.py
 tests/test_utils.py
 tests/testcases.py
+version.py

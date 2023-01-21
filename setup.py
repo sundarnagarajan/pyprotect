@@ -1,15 +1,14 @@
 import sys
 sys.dont_write_bytecode = True
 from setuptools import setup, Extension
-
 import os
+from version import version
 # Set CFLAGS to optimize further
 os.environ['CFLAGS'] = "-O3"
 # Set LDFLAGS to automatically strip .so
 os.environ['LDFLAGS'] = "-s"
 
 long_description = open('README.md', 'r').read(),
-version = '1.3.1'
 PY_MODULE = 'pyprotect'
 # Set EXT_Name = None if you don't have an extension
 # Do not require cython for INSTALLATION

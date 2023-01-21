@@ -30,9 +30,9 @@ TESTS_DIR=tests
 # Include only FILES required to run python setup.py install
 # Do not include $PY_MODULE or $SCRIPTS_DIR or $TESTS_DIR
 # All the files MUST EXIST as regular files
-# Optional - defaults to "MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
+# Optional - defaults to "MANIFEST.in README.md pyproject.toml setup.cfg setup.py version.py"
 # Can be commented if using default list
-PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
+PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py version.py"
 
 # TEST_MODULE_FILENAME should be basename of top-level test module under
 # TESTS_DIR/ WITH '.py' extension - mandatory
