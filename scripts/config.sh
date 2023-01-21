@@ -39,12 +39,12 @@ TEST_MODULE_FILENAME=test_pyprotect.py
 # can be used with the 'git' command to clone a repository
 # In general, GIT_URL could be:
 #   HTTPS URL - e.g.:
-#       github:    https://github.com/sundarnagarajan/python_protected_class.git
+#       github:    https://github.com/sundarnagarajan/pyprotect.git
 #       gitlab:    https://gitlab.com/{your_gitlab_username}/{repository_name}.git
 #       bitbucket: https://bitbucket.org/<project_owner>/<project_name>
-#   SSH URL   - e.g. ssh:git@github.com:sundarnagarajan/python_protected_class.git
+#   SSH URL   - e.g. ssh:git@github.com:sundarnagarajan/pyprotect.git
 # Optional
-GIT_URL="https://github.com/sundarnagarajan/python_protected_class.git"
+GIT_URL="https://github.com/sundarnagarajan/pyprotect.git"
 
 # Used in gpg_sign.sh
 GPG_KEY=3DCAB9392661EB519C4CCDCC5CFEABFDEFDB2DE3

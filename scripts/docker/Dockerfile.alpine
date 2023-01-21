@@ -28,7 +28,7 @@ RUN apk upgrade
 RUN apk add \
     curl less unzip \
     bash findutils git \
-    cython build-base \
+    cython build-base py3-twine \
     python3-dev py3-setuptools py3-pip py3-virtualenv \
     python2-dev py-setuptools 
 

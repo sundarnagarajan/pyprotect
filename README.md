@@ -38,7 +38,7 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
         * [id_protected](#id_protected)
         * [isinstance_protected](#isinstance_protected)
         * [isreadonly](#isreadonly)
-        * [instance_or_protected](#instance_or_protected)
+        * [instance_of_protected](#instance_of_protected)
         * [isvisible](#isvisible)
         * [same_class_protected](#same_class_protected)
         * [subclass_of_protected](#subclass_of_protected)
@@ -54,6 +54,7 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 * [What kind of python objects can be wrapped?](#what-kind-of-python-objects-can-be-wrapped)
 * [Work in progress](#work-in-progress)
 * [Changelog](#changelog)
+    * [Jan-20-2022](#jan-20-2022)
     * [Jan-15-2022](#jan-15-2022)
     * [Dec-08-2022](#dec-08-2022)
 
@@ -452,6 +453,8 @@ Pretty much anything. pyprotect only mediates attribute access using ```object._
 - [Test cases required](https://github.com/sundarnagarajan/python_protected_class/issues?q=is%3Aopen+is%3Aissue+label%3ATests)
 
 ## Changelog
+### Jan-20-2022
+- Project name on github changed to ```pyprotect``` to match the name of the module. This has been long-pending. The [old github link](https://github.com/sundar_nagarajan/python_protected_class) redirects to the new project name. 
 ### Jan-15-2022
 - Started signing commits with my GPG key and displaying 'verified' for signed commits
 ### Dec-08-2022
