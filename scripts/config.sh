@@ -5,6 +5,9 @@
 # The name of the module - should be a top-level directory
 PY_MODULE=pyprotect
 
+# The name of the project on PyPi - can omit if same as PY_MODULE
+PIP_NAME=pyprotect_package
+
 # Set EXTENSION_NAME="" if module does not use a C-Extension
 EXTENSION_NAME=protected
 

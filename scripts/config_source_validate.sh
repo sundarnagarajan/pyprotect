@@ -17,7 +17,9 @@ errors=0
 
 # Unset variables that are supposed to come from config files so that
 # they are never used from the environment
-for v in PY_MODULE \
+for v in \
+    PY_MODULE \
+    PIP_NAME \
     EXTENSION_NAME \
     DOCKER_MOUNTPOINT \
     DEFAULT_DISTRO \
@@ -49,7 +51,7 @@ do
     }
 done
 # Somr vars should NOT be arrays
-for v in PY_MODULE DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE_FILENAME SCRIPTS_DIR TESTS_DIR PROJECT_FILES
+for v in PY_MODULE PIP_NAME DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE_FILENAME SCRIPTS_DIR TESTS_DIR PROJECT_FILES
 do
     var_declared $v && {
         var_is_nonarray $v || {
@@ -65,6 +67,7 @@ var_is_map TAG_PYVER || {
 }
 
 PY_MODULE=${PY_MODULE:-}
+PIP_NAME=${PIP_NAME:-$PY_MODULE}
 EXTENSION_NAME=${EXTENSION_NAME:-}
 DOCKER_MOUNTPOINT=${DOCKER_MOUNTPOINT:-}
 DEFAULT_DISTRO=${DEFAULT_DISTRO:-}
@@ -125,7 +128,7 @@ HOST_GID=$(id -g)
 readonly \
     EXTENSION_NAME CYTHONIZE_REQUIRED \
     CYTHON3_MIN_VER \
-    PY_MODULE DOCKER_MOUNTPOINT \
+    PY_MODULE PIP_NAME DOCKER_MOUNTPOINT \
     SCRIPTS_DIR TESTS_DIR PROJECT_FILES \
     TEST_MODULE_FILENAME \
     DEFAULT_DISTRO \

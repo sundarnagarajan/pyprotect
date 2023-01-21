@@ -67,7 +67,7 @@ function pip_install_user_1_pyver() {
     echo "---------- Install and test --user with $pyver -----------------"
     run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install --user . || return 1
     run_tests_in_relocated_dir || return 1
-    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip uninstall -y $PY_MODULE || return 1
+    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip uninstall -y $PIP_NAME || return 1
 }
 
 

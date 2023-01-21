@@ -363,20 +363,20 @@ function run_std_tests_in_relocated_dir() {
         >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
-    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PIP_NAME
 
     run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install .
     run_tests_in_relocated_dir
-    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PIP_NAME
 
     run_1_cmd_in_relocated_dir $PYTHON_CMD setup.py install
     run_tests_in_relocated_dir
-    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PIP_NAME
 
     [[ -n "${GIT_URL:-}" ]] || return 0
 
     run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install git+${GIT_URL}
     run_tests_in_relocated_dir
-    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PIP_NAME
 }
 
