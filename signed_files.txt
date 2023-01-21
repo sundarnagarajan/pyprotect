@@ -52,7 +52,7 @@ scripts/gpg_sign.sh
 scripts/host_build_test_inplace.sh
 scripts/host_docker_build.sh
 scripts/host_install_test.sh
-scripts/host_minimal_install.sh
+scripts/host_minimal_install_test.sh
 scripts/root_install_test_in_docker.sh
 scripts/run_func_tests.sh
 scripts/update_manifest.sh

@@ -4,18 +4,6 @@ PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
 source "$PROG_DIR"/common_functions.sh
 
-function __run_tests() {
-    # $1: PYVER
-    # Do not need to copy tests; can just use $RELOCATED_DIR
-    [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
-        return 1
-    }
-    local pyver=$1
-    cd /
-    "$RELOCATED_DIR"/scripts/run_func_tests.sh $pyver
-}
-
 function run_1_in_venv() {
     # $1: PYVER
     [[ $# -lt 1 ]] && {
@@ -40,19 +28,8 @@ function run_1_in_venv() {
         return 1
     }
 
-    run_1_cmd_in_relocated_dir $PYTHON_CMD setup.py install || return 1
-    __run_tests $pyver|| return 1
-    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE|| return 1
-
-    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install . || return 1
-    __run_tests $pyver|| return 1
-    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE|| return 1
-
-    [[ -n "${GIT_URL:-}" ]] || return 0
-
-    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install git+${GIT_URL}|| return 1
-    __run_tests $pyver|| return 1
-    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE|| return 1
+    run_std_tests_in_relocated_dir $pyver 
+    return 0
 }
 
 function inplace_build_and_test_1_pyver() {
@@ -70,7 +47,8 @@ function inplace_build_and_test_1_pyver() {
 
     echo "---------- Inplace build and test with $pyver -----------------"
     run_1_cmd_in_relocated_dir ${INPLACE_BUILD_SCRIPT} $pyver || return 1
-    __run_tests $pyver|| return 1
+    # Need to run tests in place
+    ${RELOCATED_DIR}/${SCRIPTS_DIR}/run_func_tests.sh $pyver
 }
 
 function pip_install_user_1_pyver() {
@@ -88,7 +66,7 @@ function pip_install_user_1_pyver() {
 
     echo "---------- Install and test --user with $pyver -----------------"
     run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install --user . || return 1
-    __run_tests $pyver
+    run_tests_in_relocated_dir || return 1
     run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip uninstall -y $PY_MODULE || return 1
 }
 
@@ -100,9 +78,33 @@ function pip_install_user_1_pyver() {
 echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 must_be_in_docker
 
-PROG_DIR="$(relocate_source)"/scripts
+# Expected ONLY to be run from root_install_test_in_docker.sh
+# which will call relocate_source, which will set __RELOCATED_DIR
+var_empty __RELOCATED_DIR && {
+    >&2 red "${SCRIPT_NAME}: __RELOCATED_DIR not set"
+    exit 1
+}
+[[ -d "$__RELOCATED_DIR" ]] || {
+    >&2 red "${SCRIPT_NAME}: __RELOCATED_DIR is not a directory: $__RELOCATED_DIR"
+    exit 1
+}
+# Expected ONLY to be run from root_install_test_in_docker.sh
+# which will call relocate_tests, which will set __RELOCATED_TESTS_DIR
+var_empty __RELOCATED_TESTS_DIR && {
+    >&2 red "${SCRIPT_NAME}: __RELOCATED_TESTS_DIR not set"
+    exit 1
+}
+[[ -d "$__RELOCATED_TESTS_DIR" ]] || {
+    >&2 red "${SCRIPT_NAME}: __RELOCATED_TESTS_DIR is not a directory: $__RELOCATED_TESTS_DIR"
+    exit 1
+}
+[[ -f "$__RELOCATED_TESTS_DIR"/$TEST_MODULE_FILENAME ]] || {
+    >&2 red "${SCRIPT_NAME}: Test module not found ${__RELOCATED_TESTS_DIR}/$TEST_MODULE_FILENAME"
+    exit 1
+}
+
+PROG_DIR="$__RELOCATED_DIR"/scripts
 PROG_DIR=$(readlink -f "$PROG_DIR")
-RELOCATED_DIR=$(readlink -f "${PROG_DIR}"/..)
 echo "${SCRIPT_NAME}: Running in $PROG_DIR"
 
 # Disable pip warnings that are irrelevant here

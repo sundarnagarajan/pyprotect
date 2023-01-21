@@ -233,21 +233,22 @@ function cleanup() {
     # Cleans up RELOCATED_DIR if set and present
     [[ -n $(declare -p RELOCATED_DIR 2>/dev/null) && -n "${RELOCATED_DIR}+_"  && -d "${RELOCATED_DIR}" ]] && {
         rm -rf "$RELOCATED_DIR"
-        echo "Removed RELOCATED_DIR: $RELOCATED_DIR"
+        blue "${SCRIPT_NAME}: Removed RELOCATED_DIR: $RELOCATED_DIR"
+    }
+    # Cleans up __RELOCATED_TESTS_DIR if set and present
+    [[ -n $(declare -p __RELOCATED_TESTS_DIR 2>/dev/null) && -n "${__RELOCATED_TESTS_DIR}+_"  && -d "${__RELOCATED_TESTS_DIR}" ]] && {
+        rm -rf "$__RELOCATED_TESTS_DIR"
+        blue "${SCRIPT_NAME}: Removed __RELOCATED_TESTS_DIR: $__RELOCATED_TESTS_DIR"
     }
 }
 
-function relocate_source() {
-    # Relocates (copies) ${PROG_DIR}/.. to a temp dir under /tmp
-    # and sets PROG_DIR to ${NEW_TMP_DIR}/scripts
+function relocate_source_dir() {
     # Echoes new tmp dir location to stdout
-    # If __RELOCATED_DIR env var is set, just echoes $__RELOCATED_DIR
+    # If __RELOCATED_DIR env var is set, does nothing
 
-    [[ -n $(declare -p __RELOCATED_DIR 2>/dev/null) && -n "${__RELOCATED_DIR:-}" ]]  && {
-        [[ -d "$__RELOCATED_DIR" ]] && {
-            echo $__RELOCATED_DIR
-            return 0
-        }
+    var_empty __RELOCATED_DIR || {
+        blue "${SCRIPT_NAME:-}: relocate_source_dir: __RELOCATED_DIR already set"
+        return 0
     }
     local NEW_TMP_DIR=$(mktemp -d -p /tmp)
     local old_top_dir=$(readlink -f "${PROG_DIR}/..")
@@ -258,8 +259,24 @@ function relocate_source() {
         # Clean out .so files under $PY_MODULE
         [[ -d ${NEW_TMP_DIR}/${PY_MODULE} ]] && rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
     )
+    export __RELOCATED_DIR=${NEW_TMP_DIR}
+    export RELOCATED_DIR=${NEW_TMP_DIR}
     trap cleanup 0 1 2 3 15
-    echo -n ${NEW_TMP_DIR}
+    blue "${SCRIPT_NAME}: Relocated source to $__RELOCATED_DIR"
+}
+
+function relocate_tests_dir() {
+    var_empty __RELOCATED_TESTS_DIR || {
+        blue "${SCRIPT_NAME:-}: relocate_source_dir: __RELOCATED_DIR already set"
+        return 0
+    }
+    local NEW_TMP_DIR=$(mktemp -d -p /tmp)
+
+    cp -a "${RELOCATED_DIR}"/$TESTS_DIR/. "$NEW_TMP_DIR"/
+    chmod -R go+rX "$NEW_TMP_DIR"
+    export __RELOCATED_TESTS_DIR=${NEW_TMP_DIR}
+    trap cleanup 0 1 2 3 15
+    blue "${SCRIPT_NAME}: Relocated tests to $__RELOCATED_TESTS_DIR"
 }
 
 function run_1_cmd_in_relocated_dir() {
@@ -317,3 +334,49 @@ function create_activate_venv() {
         return 1
     }
 }
+
+function run_tests_in_relocated_dir() {
+    # Needs following vars set:
+    #   __RELOCATED_TESTS_DIR - set in relocate_tests
+    var_empty __RELOCATED_TESTS_DIR && {
+        >&2 red "${SCRIPT_NAME:-}: __RELOCATED_TESTS_DIR not set. relocate_tests not run."
+        return 1
+    }
+    local local_test_dir=${__RELOCATED_TESTS_DIR}
+    [[ -f "$local_test_dir"/$TEST_MODULE_FILENAME ]] || {
+        >&2 red "${SCRIPT_NAME:-}: test module not found ${local_test_dir}/${TEST_MODULE_FILENAME}"
+        return 1
+    }
+    cd /
+    __TESTS_DIR=$local_test_dir "$PROG_DIR"/run_func_tests.sh $pyver
+}
+
+function run_std_tests_in_relocated_dir() {
+    # $1: PYVER
+    local pyver=$1
+    local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
+    local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
+        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
+    [[ -z "$PYTHON_CMD" ]] && {
+        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
+        return 1
+    }
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
+
+    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install .
+    run_tests_in_relocated_dir
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
+
+    run_1_cmd_in_relocated_dir $PYTHON_CMD setup.py install
+    run_tests_in_relocated_dir
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
+
+    [[ -n "${GIT_URL:-}" ]] || return 0
+
+    run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install git+${GIT_URL}
+    run_tests_in_relocated_dir
+    run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PY_MODULE
+}
+

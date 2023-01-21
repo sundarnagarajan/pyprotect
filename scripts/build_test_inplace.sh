@@ -1,7 +1,4 @@
 #!/bin/bash
-#
-# Expects Python basename (python2 | python3 | pypy3 | pypy) as first argument
-
 set -e -u -o pipefail
 PROG_DIR=$(readlink -f $(dirname $0))
 SCRIPT_NAME=$(basename $0)
@@ -93,9 +90,15 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
 
 echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 
-running_in_docker && {
-    PROG_DIR="$(relocate_source)"/scripts
+var_empty __RELOCATED_DIR || {
+    PROG_DIR="$__RELOCATED_DIR"/scripts
     PROG_DIR=$(readlink -f "$PROG_DIR")
+} && {
+    running_in_docker && {
+        relocate_source_dir
+        PROG_DIR="$__RELOCATED_DIR"/scripts
+        PROG_DIR=$(readlink -f "$PROG_DIR")
+    }
 }
 cd "$PROG_DIR"
 
