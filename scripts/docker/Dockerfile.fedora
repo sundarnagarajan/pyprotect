@@ -32,8 +32,6 @@ RUN dnf -y --quiet install which curl less unzip time
 # fedora:latest (Fedora Modular 37) ships with python3.11 and python3-Cython is not compatible (yet)
 RUN dnf -y --quiet install python3.10 python2 pypy3 pypy python3-virtualenv python3-Cython
 RUN dnf -y --quiet install python3.10-devel python-devel pypy-devel pypy3-devel
-# twine: to upload to pypi
-RUN dnf -y --quiet install twine
 
 ENV PIP_ROOT_USER_ACTION=ignore
 # pip
@@ -46,6 +44,10 @@ RUN python3.10 -m pip install -U pip 2>/dev/null
 RUN python2 -m pip install -U pip 2>/dev/null
 RUN pypy3 -m pip install -U pip 2>/dev/null
 RUN pypy -m pip install -U pip 2>/dev/null
+
+# Install wheel, twine, auditwheel and patchelf for upload to PyPi
+RUN python3 -m pip install wheel
+RUN python3 -m pip install twine auditwheel patchelf
 
 RUN dnf -y clean all
 

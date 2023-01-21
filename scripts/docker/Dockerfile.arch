@@ -54,7 +54,7 @@ RUN git clone https://aur.archlinux.org/pacaur.git && chown build:build pacaur &
 
 ENV PIP_ROOT_USER_ACTION=ignore
 # PY3, PYPY3, PYPY2
-RUN pacman --noconfirm -S --needed python3 pypy3 pypy twine 1>/dev/null
+RUN pacman --noconfirm -S --needed python3 pypy3 pypy 1>/dev/null
 # python-setuptools
 # PY2 - from AUR with pacaur
 RUN su build -c 'pacaur --noconfirm -S --aur --noedit --quiet --needed --silent python2-bin'
@@ -72,6 +72,10 @@ RUN pypy -m ensurepip 2>/dev/null
 RUN python3 -m pip install virtualenv 2>/dev/null
 RUN pypy3 -m pip install virtualenv 2>/dev/null
 RUN pypy -m pip install virtualenv 2>/dev/null
+
+# Install wheel, twine, auditwheel and patchelf for upload to PyPi
+RUN python3 -m pip install wheel
+RUN python3 -m pip install twine auditwheel patchelf
 
 ENV PYTHONDONTWRITEBYTECODE=Y
 
