@@ -52,6 +52,8 @@ RUN python2 -m pip install --upgrade pip 2>/dev/null
 
 # Install wheel, twine, auditwheel and patchelf for upload to PyPi
 RUN python3 -m pip install wheel
+RUN python2 -m pip install wheel
+RUN pypy3 -m pip install wheel
 RUN python3 -m pip install twine auditwheel patchelf
 
 # Create the non-root user
