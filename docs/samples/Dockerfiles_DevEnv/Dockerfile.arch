@@ -61,15 +61,12 @@ RUN git clone https://aur.archlinux.org/pacaur.git && chown build:build pacaur &
 
 ENV PIP_ROOT_USER_ACTION=ignore
 # PY3, PYPY3, PYPY2
-RUN pacman --noconfirm -S --needed python3 pypy3 pypy 1>/dev/null
+RUN pacman --noconfirm -S --needed python3 pypy3 pypy twine 1>/dev/null
 # python-setuptools
 # PY2 - from AUR with pacaur
 RUN su build -c 'pacaur --noconfirm -S --aur --noedit --quiet --needed --silent python2-bin'
 # cython3 - from AUR with pacaur
 RUN su build -c 'pacaur --noconfirm -S --aur --noedit --quiet --needed --silent cython3'
-# On archlinux there is cython3 package v3.0.0a11 - installs cython andnot cython3
-# We look for cython3 specifically in cythonize.sh
-RUN ln -s `which cython` /usr/local/bin/cython3
 
 # Install / update pip
 # Silence irrelevant warning about running pip as root user
