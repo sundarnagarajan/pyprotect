@@ -54,8 +54,8 @@ RUN pypy3 -m pip install wheel
 # Takes about 2 mins
 # Building (and running) cython requires python3.10
 RUN dnf -y --quiet install python3.10 python3.10-devel
-RUN python3.10 -m ensurepip
 # Silence irrelevant warning about running pip as root user
+RUN python3.10 -m ensurepip 2>/dev/null
 RUN python3.10 -m pip install --upgrade pip wheel 2>/dev/null
 RUN python3.10 -m pip install git+https://github.com/cython/cython@3.0.0a10 2>/dev/null
 

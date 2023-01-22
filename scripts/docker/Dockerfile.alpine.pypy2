@@ -61,7 +61,8 @@ RUN python3 -m pip install wheel 2>/dev/null
 # Build and install cython 3.0.0 from github source that works with python 3.11 (also)
 # Takes about 2 mins
 RUN apk add python3-dev
-RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a10
+# Silence irrelevant warning about running pip as root user
+RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a10 2>/dev/null
 RUN apk del python3-dev
 
 ENV PYTHONDONTWRITEBYTECODE=Y
