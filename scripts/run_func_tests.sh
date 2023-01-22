@@ -23,7 +23,7 @@ function test_in_1_pyver() {
         var_empty __NOTEST && {
             echo "Executing tests in: $__TESTS_DIR"
             echo "$pyver : Testing with $python_cmd"
-            $python_cmd -B "${TEST_SCRIPT_BASENAME}"
+            $python_cmd -B "${TEST_SCRIPT_BASENAME}" || return $?
         } || {
             blue "__NOTEST set, not executing tests"
             return

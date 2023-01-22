@@ -10,6 +10,17 @@ ARG HOST_USERNAME
 ARG HOME_DIR
 ARG MODULE_MOUNT_DIR
 
+# ----------------------------------------------------------------------
+# Create the non-root user
+# Alpine adduser options / syntax is different
+RUN mkdir -p $HOME_DIR
+RUN addgroup --gid $HOST_GID $HOST_GROUPNAME
+RUN adduser -h ${HOME_DIR} -H -u $HOST_UID -G $HOST_GROUPNAME -D -g "$HOST_USERNAME" $HOST_USERNAME
+RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
+# NORMAL_USER env var is used in install_test_in_docker.sh
+ENV NORMAL_USER=$HOST_USERNAME
+# ----------------------------------------------------------------------
+
 ENV PIP_ROOT_USER_ACTION=ignore
 
 # NEED bash - scripts all use bash-specific associative arrays etc
@@ -39,15 +50,19 @@ RUN apk --no-cache --update add --repository https://dl-cdn.alpinelinux.org/alpi
 RUN apk upgrade
 # Silence irrelevant warning about running pip as root user
 RUN pypy -m ensurepip 2>/dev/null
+RUN pypy -m pip install --upgrade pip 2>/dev/null
 
-# Create the non-root user
-# Alpine adduser options / syntax is different
-RUN mkdir -p $HOME_DIR
-RUN addgroup --gid $HOST_GID $HOST_GROUPNAME
-RUN adduser -h ${HOME_DIR} -H -u $HOST_UID -G $HOST_GROUPNAME -D -g "$HOST_USERNAME" $HOST_USERNAME
-RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
-# NORMAL_USER env var is used in install_test_in_docker.sh
-ENV NORMAL_USER=$HOST_USERNAME
+# Install wheel
+# Silence irrelevant warning about running pip as root user
+RUN python3 -m ensurepip 2>/dev/null
+RUN pypy -m pip install --upgrade pip 2>/dev/null
+RUN python3 -m pip install wheel 2>/dev/null
+
+# Build and install cython 3.0.0 from github source that works with python 3.11 (also)
+# Takes about 2 mins
+RUN apk add python3-dev
+RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a10
+RUN apk del python3-dev
 
 ENV PYTHONDONTWRITEBYTECODE=Y
 # Start in MODULE_MOUNT_DIR

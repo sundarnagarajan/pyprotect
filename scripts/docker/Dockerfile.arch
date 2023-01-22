@@ -75,7 +75,8 @@ RUN pypy -m pip install virtualenv 2>/dev/null
 
 # Install wheel, twine, auditwheel and patchelf for upload to PyPi
 RUN python3 -m pip install wheel
-RUN python3 -m pip install twine auditwheel patchelf
+# Suppress stderr to hide irrelevant warning about Python2 EOL
+RUN python2 -m pip install wheel
 
 ENV PYTHONDONTWRITEBYTECODE=Y
 

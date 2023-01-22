@@ -9,6 +9,16 @@ ARG HOST_UID
 ARG HOST_USERNAME
 ARG HOME_DIR
 ARG MODULE_MOUNT_DIR
+# ----------------------------------------------------------------------
+# Create the non-root user
+# Alpine adduser options / syntax is different
+RUN mkdir -p $HOME_DIR
+RUN addgroup --gid $HOST_GID $HOST_GROUPNAME
+RUN adduser -h ${HOME_DIR} -H -u $HOST_UID -G $HOST_GROUPNAME -D -g "$HOST_USERNAME" $HOST_USERNAME
+RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
+# NORMAL_USER env var is used in install_test_in_docker.sh
+ENV NORMAL_USER=$HOST_USERNAME
+# ----------------------------------------------------------------------
 
 ENV PIP_ROOT_USER_ACTION=ignore
 
@@ -45,25 +55,23 @@ RUN apk --no-cache --update add --repository https://dl-cdn.alpinelinux.org/alpi
 RUN apk upgrade
 # Silence irrelevant warning about running pip as root user
 RUN python3 -m ensurepip 2>/dev/null
+RUN python3 -m pip install --upgrade pip 2>/dev/null
 RUN pypy3 -m ensurepip 2>/dev/null
+RUN pypy3 -m pip install --upgrade pip 2>/dev/null
 # Suppress stderr to hide irrelevant warning about Python2 EOL
 RUN python2 -m ensurepip 2>/dev/null
 RUN python2 -m pip install --upgrade pip 2>/dev/null
 
-# Install wheel, twine, auditwheel and patchelf for upload to PyPi
-RUN python3 -m pip install wheel
-RUN python2 -m pip install wheel
-RUN pypy3 -m pip install wheel
-RUN python3 -m pip install twine auditwheel patchelf
+# Install wheel
+# Silence irrelevant warning about running pip as root user
+RUN python3 -m pip install wheel 2>/dev/null
+# Suppress stderr to hide irrelevant warning about Python2 EOL
+RUN python2 -m pip install wheel 2>/dev/null
+RUN pypy3 -m pip install wheel 2>/dev/null
 
-# Create the non-root user
-# Alpine adduser options / syntax is different
-RUN mkdir -p $HOME_DIR
-RUN addgroup --gid $HOST_GID $HOST_GROUPNAME
-RUN adduser -h ${HOME_DIR} -H -u $HOST_UID -G $HOST_GROUPNAME -D -g "$HOST_USERNAME" $HOST_USERNAME
-RUN chown ${HOST_UID}:${HOST_GID} $HOME_DIR
-# NORMAL_USER env var is used in install_test_in_docker.sh
-ENV NORMAL_USER=$HOST_USERNAME
+# Build and install cython 3.0.0 from github source that works with python 3.11 (also)
+# Takes about 2 mins
+RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a10 2>/dev/null
 
 ENV PYTHONDONTWRITEBYTECODE=Y
 # Start in MODULE_MOUNT_DIR

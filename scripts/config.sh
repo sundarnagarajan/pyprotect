@@ -13,8 +13,8 @@ EXTENSION_NAME=protected
 
 # Set CYTHONIZE_REQUIRED=no (not yes) if C-Extension does not need cython
 CYTHONIZE_REQUIRED=yes
-CYTHON3_PROG_NAME=cython3
-CYTHON3_MIN_VER=0.27.3
+CYTHON3_PROG_NAME=cython
+CYTHON3_MIN_VER=3.0.0
 
 # SCRIPTS_DIR should be basename of directory with scripts - for cases
 # where the project already has a top-level directory named 'scripts'

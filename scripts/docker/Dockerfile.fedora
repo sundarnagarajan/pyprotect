@@ -29,25 +29,35 @@ ENV NORMAL_USER=$HOST_USERNAME
 # Equivalent of build-essential
 RUN dnf -y --quiet group install "C Development Tools and Libraries" "Development Tools"
 RUN dnf -y --quiet install which curl less unzip time
-# fedora:latest (Fedora Modular 37) ships with python3.11 and python3-Cython is not compatible (yet)
-RUN dnf -y --quiet install python3.10 python2 pypy3 pypy python3-virtualenv python3-Cython
-RUN dnf -y --quiet install python3.10-devel python-devel pypy-devel pypy3-devel
+RUN dnf -y --quiet install python2 pypy3 pypy python3-virtualenv
+RUN dnf -y --quiet install python3-devel python-devel pypy-devel pypy3-devel
 
 ENV PIP_ROOT_USER_ACTION=ignore
 # pip
 # Silence irrelevant warning about running pip as root user
-RUN python3.10 -m ensurepip 2>/dev/null
+RUN python3 -m ensurepip 2>/dev/null
 RUN python2 -m ensurepip 2>/dev/null
 RUN pypy3 -m ensurepip 2>/dev/null
 RUN pypy -m ensurepip 2>/dev/null
-RUN python3.10 -m pip install -U pip 2>/dev/null
+RUN python3 -m pip install -U pip 2>/dev/null
 RUN python2 -m pip install -U pip 2>/dev/null
 RUN pypy3 -m pip install -U pip 2>/dev/null
 RUN pypy -m pip install -U pip 2>/dev/null
 
-# Install wheel, twine, auditwheel and patchelf for upload to PyPi
+# Install wheel
 RUN python3 -m pip install wheel
-RUN python3 -m pip install twine auditwheel patchelf
+# Suppress stderr to hide irrelevant warning about Python2 EOL
+RUN python2 -m pip install wheel 2>/dev/null
+RUN pypy3 -m pip install wheel
+
+# Build and install cython 3.0.0 from github source that works with python 3.11 (also)
+# Takes about 2 mins
+# Building (and running) cython requires python3.10
+RUN dnf -y --quiet install python3.10 python3.10-devel
+RUN python3.10 -m ensurepip
+# Silence irrelevant warning about running pip as root user
+RUN python3.10 -m pip install --upgrade pip wheel 2>/dev/null
+RUN python3.10 -m pip install git+https://github.com/cython/cython@3.0.0a10 2>/dev/null
 
 RUN dnf -y clean all
 
