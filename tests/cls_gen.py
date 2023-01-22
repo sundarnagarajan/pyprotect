@@ -4,7 +4,12 @@ Utilities to generate test classes
 
 import sys
 sys.dont_write_bytecode = True
-if sys.version_info.major == 2:
+if (
+    sys.version_info.major == 2 or
+    (
+        (sys.version_info.major, sys.version_info.minor) < (3, 6)
+    )
+):
     from random import sample as choices
 else:
     from random import choices

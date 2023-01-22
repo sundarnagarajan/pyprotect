@@ -32,14 +32,20 @@ cdef class Private(Wrapped):
             return False
         if a not in dir(self.pvt_o):
             return False
-        # Special hack for PY2 that does not seem to obey __dir__ for modules
-        if PY2 and isinstance(self.pvt_o, types.ModuleType):
-                if (
-                    hasattr(self.pvt_o, '__dir__') and
-                    callable(self.pvt_o.__dir__)
-                ):
-                    if a not in self.pvt_o.__dir__():
-                        return False
+        # Special case for PY2 that does not seem to obey __dir__ for modules
+        # Also applies to PY3 < 3.7
+        if (
+            isinstance(self.pvt_o, types.ModuleType) and
+            (
+                PY2 or (sys.version_info.major, sys.version_info.minor) < (3, 7)
+            )
+        ):
+            if (
+                hasattr(self.pvt_o, '__dir__') and
+                callable(self.pvt_o.__dir__)
+            ):
+                if a not in self.pvt_o.__dir__():
+                    return False
         return True
 
     cdef private_writeable(self, a):
