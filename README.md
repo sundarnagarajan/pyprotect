@@ -6,6 +6,11 @@ The key functions in the pyprotect module API - __private()__ and __protect()__ 
 ## Features
 - Can wrap virtually any Python object - instances, classes (types), modules, methods, classmethods, instancemethods, staticmethods, partials, lambdas.
 - Tested on Python 2.7 and Python 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11
+- Tested on the following distributions with the latest versions of python2, python3, pypy3, pypy shipped by the respective distributions:
+    - Ubuntu Jammy 22.04
+    - Arch linux (20220101)
+    - Fedora 37
+    - Alpine Linux 3.15 (Alpine 3.16 does not have python2-dev)
 - Has extensive unit (functional) tests - in [_tests_](https://github.com/sundarnagarajan/python_protected_class/tree/main/tests) directory.
 
 ## Table of Contents
