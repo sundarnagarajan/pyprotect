@@ -7,7 +7,7 @@ CYTHON_DOCKER_FILE=Dockerfile.fedora
 
 # Can OVERRIDE CYTHON3_PROG_NAME from default in cconfig.sh
 # As of 20220122 we build cython 3.0.0a10 from github source
-CYTHON3_PROG_NAME=cython
+# CYTHON3_PROG_NAME=cython
 
 # Can selectively OVERRIDE python program executable basename for
 # selected tags set in TAG_PYVER in config.sh

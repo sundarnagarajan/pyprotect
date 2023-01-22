@@ -13,6 +13,9 @@ EXTENSION_NAME=protected
 
 # Set CYTHONIZE_REQUIRED=no (not yes) if C-Extension does not need cython
 CYTHONIZE_REQUIRED=yes
+# As of 20220122 we build cython 3.0.0a10 from github source
+# Cython 3.0 is required to inter-operate with python 3.11
+# See: https://github.com/numpy/numpy/issues/21422#issuecomment-1115775992
 CYTHON3_PROG_NAME=cython
 CYTHON3_MIN_VER=3.0.0
 

@@ -31,7 +31,7 @@ do
         >&2 red "Image name not found for Docker file: $k"
         exit 1
     }
-    >&2 red "Building $IMAGE_NAME from $k"
+    >&2 blue "Building $IMAGE_NAME from $k"
 
     docker build \
         --build-arg HOST_USERNAME=$HOST_USERNAME \
@@ -59,7 +59,7 @@ done
     } || [[ "${CYTHONIZE_REQUIRED:-}" != "yes" ]] && {
         >&2 echo "C-extension does not require cython"
     }
-    >&2 red "Cython is in Docker image $CYTHON_IN_IMAGE"
+    >&2 blue "Cython is in Docker image $CYTHON_IN_IMAGE"
     exit 0
 }
 
