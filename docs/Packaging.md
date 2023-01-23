@@ -1,26 +1,26 @@
 
 ## Features explored
-    - Single package
-    - Includes C extension
-    - Includes README.md
-    - Includes additional source files (MANIFEST.IN)
-    - Installing with 'python[23] setup.py install'
-    - Installing with 'pip[23] install .'
-    - Installing with 'python[23] setup.py install' in virtualenv
-    - Installing with 'pip[23] install .' in virtualenv
-    - Uninstalling  with 'pip[23] uninstall -y'
-    - Build in-place
-    - Build, install, test inside docker container
-    - Uploading source to PyPi
-    - Uploading wheel to PyPi (using manylinux docker images)
+- Single package
+- Includes C extension
+- Includes README.md
+- Includes additional source files (MANIFEST.IN)
+- Installing with 'python[23] setup.py install'
+- Installing with 'pip[23] install .'
+- Installing with 'python[23] setup.py install' in virtualenv
+- Installing with 'pip[23] install .' in virtualenv
+- Uninstalling  with 'pip[23] uninstall -y'
+- Build in-place
+- Build, install, test inside docker container
+- Uploading source to PyPi
+- Uploading wheel to PyPi (using manylinux docker images)
 
 ## Files
-    - pyproject.toml    - Fully reusable
-    - setup.py          - Fully reusable
-    - version.py        - Fully reusable
-    - setup.cfg         - Fully reusable (change metadata)
-    - MANIFEST.in       - Project-specific (list of files)
-    - README.md         - Project-specific
+- yproject.toml - Fully reusable
+- setup.py - Fully reusable
+- version.py - Fully reusable
+- setup.cfg- Fully reusable (change metadata)
+- MANIFEST.in - Project-specific (list of files)
+- README.md - Project-specific
 
 
 
