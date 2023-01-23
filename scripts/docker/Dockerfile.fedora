@@ -59,6 +59,9 @@ RUN python3.10 -m ensurepip 2>/dev/null
 RUN python3.10 -m pip install --upgrade pip wheel 2>/dev/null
 RUN python3.10 -m pip install git+https://github.com/cython/cython@3.0.0a11 2>/dev/null
 
+# Install twine - for source upload only
+RUN dnf install --quiet -y twine
+
 RUN dnf -y clean all
 
 ENV PYTHONDONTWRITEBYTECODE=Y

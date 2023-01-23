@@ -78,6 +78,9 @@ RUN python3 -m pip install wheel
 # Suppress stderr to hide irrelevant warning about Python2 EOL
 RUN python2 -m pip install wheel
 
+# Install twine - for source upload only
+RUN pacman --noconfirm -S twine
+
 ENV PYTHONDONTWRITEBYTECODE=Y
 
 # Delete build user

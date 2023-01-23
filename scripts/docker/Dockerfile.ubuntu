@@ -111,6 +111,9 @@ RUN pypy3 -m pip install wheel
 # Takes about 2 mins
 RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a11 2>/dev/null
 
+# Install twine - for source upload only
+RUN apt-get install -y twine
+
 ENV PYTHONDONTWRITEBYTECODE=Y
 RUN rm -rf /var/lib/apt/lists
 # Start in MODULE_MOUNT_DIR
