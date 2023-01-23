@@ -56,6 +56,10 @@ scripts/host_cythonize_inplace.sh
 scripts/host_distro_test.sh
 scripts/host_docker_build.sh
 scripts/host_minimal_distro_test.sh
+scripts/manylinux/Dockerfile.manylinux1
+scripts/manylinux/Dockerfile.manylinux_2_28
+scripts/manylinux/Dockerfile.musllinux
+scripts/manylinux/install_twine.sh
 scripts/root_install_test_in_docker.sh
 scripts/run_func_tests.sh
 scripts/update_manifest.sh

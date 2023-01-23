@@ -1,0 +1,7 @@
+FROM quay.io/pypa/manylinux1_x86_64
+
+ARG MANYLINUX_IMAGE
+
+RUN echo "$MANYLINUX_IMAGE" > /usr/local/bin/MANYLINUX_IMAGE
+COPY install_twine.sh /usr/local/bin
+RUN /usr/local/bin/install_twine.sh
