@@ -13,26 +13,19 @@
 - Build, install, test inside docker container
 - Uploading source to PyPi
 - Uploading wheel to PyPi (using manylinux docker images)
-
 ## Files
-- yproject.toml - Fully reusable
+- pyproject.toml - Fully reusable
 - setup.py - Fully reusable
 - version.py - Fully reusable
 - setup.cfg- Fully reusable (change metadata)
 - MANIFEST.in - Project-specific (list of files)
 - README.md - Project-specific
-
-
-
 ## pyproject.toml - no changes required
 ```
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 ```
-
-
-
 ## setup.py (sample)
 ```python
 import sys
@@ -69,9 +62,10 @@ if ext_modules:
     kwargs['ext_modules'] = ext_modules
 setup(**kwargs)
 ```
-
-
-
+## version.py
+```python
+version = '1.3.0'
+```
 ## setup.cfg (sample)
 ```
 [metadata]
@@ -113,9 +107,6 @@ zip_safe = False
 # Otherwise (to ignore MANIFEST.in if present), omit this line
 include_package_data = True
 ```
-
-
-
 ## MANIFEST.in:
 ```
 include PYMODULE/EXT_NAME.pyx
