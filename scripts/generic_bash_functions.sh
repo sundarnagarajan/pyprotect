@@ -236,12 +236,31 @@ function var_empty() {
     # Other than in var_declared, var_type, var_is_ref and var_deref always dereference first
     [[ $# -lt 1 ]] && return 1
     set +e
-    local dereferenced=$(var_deref "$1")
+    local dereferenced=$(var_deref $1)
     [[ $? -ne 0 ]] && return 0
-    set +e
-    var_is_nonarray "$dereferenced" && [[ -z "${dereferenced}" ]] && return 0
+    set -e
+    var_is_nonarray "$dereferenced" && {
+        [[ -z "${!dereferenced}" ]] && return 0 || return 1
+    }
     # Otherwise it is set and it is some type of array
     [[ $(var_len "$1") -eq 0 ]]
+}
+
+function var_empty_not_spaces() {
+    # $1: variable name - WITHOUT '$'
+    # Similar to var_empty, except, additionally returns 1 if
+    # $1 is a non-array variable AND it's value contains only whitespace or \n
+    # If var_empty_not_spaces VAR returns 0:
+    #   [[ -f $VAR ]] would give a syntax error
+    #   'for x in $var; do xxx; done would fail
+    [[ $# -lt 1 ]] && return 1
+    var_empty "$1" && return 0
+    var_is_nonarray "$1" || return 1
+    set +e
+    local dereferenced=$(var_deref "$1")
+    [[ $? -ne 0 ]] && return 0
+    set -e
+    [[ "${!dereferenced}" =~ ^[[:space:]\n]*$ ]] && return 0 || return 1
 }
 
 function var_show_vars() {
