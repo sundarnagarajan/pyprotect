@@ -10,17 +10,17 @@
 - Pypy3
 - Pypy
 ## Testing done
-- Building inplace with 'python setup.py build_ext --inplace'
-- Installing with 'python setup.py install'
-- Installing with 'python -m pip install .'
-- Installing with 'python -m pip install git+GIT_URL'
-- Installing with 'python setup.py install' in virtualenv
-- Installing with 'python -m pip install .' in virtualenv
-- Installing with 'python -m pip install git+GIT_URL' in virtualenv
-- Uninstalling  with 'python -m pip uninstall -y mypackage'
-- Building sdist: 'python setup.py sdist'
-- Building bdist: 'python setup.py bdist'
-- Building wheel: 'python setup.py bdist_wheel'
+- Building inplace with ```python setup.py build_ext \-\-inplace```
+- Installing with ```python setup.py install```
+- Installing with ```python -m pip install .```
+- Installing with ```python -m pip install git+GIT_URL```
+- Installing with ```python setup.py install``` in virtualenv
+- Installing with ```python -m pip install .``` in virtualenv
+- Installing with ```python -m pip install git+GIT_URL``` in virtualenv
+- Uninstalling  with ```python -m pip uninstall -y mypackage```
+- Building sdist: ```python setup.py sdist```
+- Building bdist: ```python setup.py bdist```
+- Building wheel: ```python setup.py bdist_wheel```
 - Uploading source to PyPi
 - Uploading wheel to PyPi (using manylinux docker images)
 ## Files
