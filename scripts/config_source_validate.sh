@@ -40,7 +40,7 @@ do
     unset $v
 done
 
-source ${SCRIPT_DIR}/config.sh
+source ${SCRIPT_DIR}/config/config.sh
 
 # Some variables MUST be set in config.sh
 for v in PY_MODULE DOCKER_MOUNTPOINT DEFAULT_DISTRO TAG_PYVER GPG_KEY TEST_MODULE_FILENAME
@@ -138,7 +138,7 @@ readonly \
 
 # Source the distro-specific config_docker_XXX.sh
 DISTRO=${__DISTRO:-$DEFAULT_DISTRO}
-DOCKER_CONFIG_FILE=${SCRIPT_DIR}/docker/config_docker_${DISTRO}.sh
+DOCKER_CONFIG_FILE=${SCRIPT_DIR}/config/config_docker_${DISTRO}.sh
 DOCKER_CONFIG_FILE_BASENAME=$(basename "$DOCKER_CONFIG_FILE")
 source "$DOCKER_CONFIG_FILE"
 unset DISTRO
