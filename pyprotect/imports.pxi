@@ -10,10 +10,14 @@ else:
     PY2 = True
     builtin_module = sys.modules['__builtin__']
     import collections as CollectionsABC
+import platform
+PYPY = (platform.python_implementation() == 'PyPy')
+del platform
 import os
 import re
 import types
 import functools
 import pydoc
 import math
-
+if PYPY and PY2:
+    int = long
