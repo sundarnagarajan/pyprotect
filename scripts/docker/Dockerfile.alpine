@@ -69,6 +69,9 @@ RUN python3 -m pip install wheel 2>/dev/null
 RUN python2 -m pip install wheel 2>/dev/null
 RUN pypy3 -m pip install wheel 2>/dev/null
 
+# Install twine - for source upload only
+RUN apk add py3-twine
+
 # Build and install cython 3.0.0 from github source that works with python 3.11 (also)
 # Takes about 2 mins
 RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a11 2>/dev/null
