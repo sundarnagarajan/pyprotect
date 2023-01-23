@@ -109,7 +109,7 @@ RUN pypy3 -m pip install wheel
 
 # Build and install cython 3.0.0 from github source that works with python 3.11 (also)
 # Takes about 2 mins
-RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a10 2>/dev/null
+RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a11 2>/dev/null
 
 ENV PYTHONDONTWRITEBYTECODE=Y
 RUN rm -rf /var/lib/apt/lists
