@@ -4,13 +4,23 @@
 - Includes C extension
 - Includes README.md
 - Includes additional source files (MANIFEST.IN)
-- Installing with 'python[23] setup.py install'
-- Installing with 'pip[23] install .'
-- Installing with 'python[23] setup.py install' in virtualenv
-- Installing with 'pip[23] install .' in virtualenv
-- Uninstalling  with 'pip[23] uninstall -y'
-- Build in-place
-- Build, install, test inside docker container
+## Python versions tested (pyprotect)
+- Python3
+- Python2
+- Pypy3
+- Pypy
+## Testing done
+- Building inplace with 'python setup.py build_ext --inplace'
+- Installing with 'python setup.py install'
+- Installing with 'python -m pip install .'
+- Installing with 'python -m pip install git+GIT_URL'
+- Installing with 'python setup.py install' in virtualenv
+- Installing with 'python -m pip install .' in virtualenv
+- Installing with 'python -m pip install git+GIT_URL' in virtualenv
+- Uninstalling  with 'python -m pip uninstall -y mypackage'
+- Building sdist: 'python setup.py sdist'
+- Building bdist: 'python setup.py bdist'
+- Building wheel: 'python setup.py bdist_wheel'
 - Uploading source to PyPi
 - Uploading wheel to PyPi (using manylinux docker images)
 ## Files
@@ -35,12 +45,15 @@ import os
 from version import version
 
 long_description = open('README.md', 'r').read(),
-PY_MODULE = 'pyprotect'
+# PY_MODULE is what users will import after installing your package
+# This will (should) be a top-level dir in the git repo
+PY_MODULE = 'mymodule'
 # Set EXT_Name = None if you don't have an extension
 # Do not require cython for INSTALLATION
 # Instead make sure DEVELOPER runs:
 #   'cython --3str ${EXT_NAME}.pyx' when(ever) ${EXT_NAME}.pyx changes
-EXT_NAME = 'protected'
+# git_top-level_dir/PYMODULE/__init__.py should handle importing EXT_NAME
+EXT_NAME = 'myextension'
 
 # ---------- Should not need to change anything after this ---------------
 # Set CFLAGS to optimize further
