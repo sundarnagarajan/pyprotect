@@ -10,7 +10,7 @@
 - Pypy3
 - Pypy
 ## Testing done
-- Building inplace with ```python setup.py build_ext \-\-inplace```
+- Building inplace with ```python setup.py build_ext --inplace```
 - Installing with ```python setup.py install```
 - Installing with ```python -m pip install .```
 - Installing with ```python -m pip install git+GIT_URL```
