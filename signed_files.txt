@@ -52,6 +52,7 @@ scripts/docker_as.sh
 scripts/generic_bash_functions.sh
 scripts/gpg_sign.sh
 scripts/host_build_test_inplace.sh
+scripts/host_cythonize_inplace.sh
 scripts/host_distro_test.sh
 scripts/host_docker_build.sh
 scripts/host_minimal_distro_test.sh
