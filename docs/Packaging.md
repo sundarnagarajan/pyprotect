@@ -2,6 +2,7 @@
 ## Features explored
 - Single package
 - Includes C extension
+- Includes Cython code compiling to C
 - Includes README.md
 - Includes additional source files (MANIFEST.IN)
 ## Python versions tested (pyprotect)
