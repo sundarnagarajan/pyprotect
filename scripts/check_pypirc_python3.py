@@ -75,9 +75,10 @@ def check_pypirc():
             'index-servers', 'distutils'
         ))
         return False
-    # Need to parse value of 'index-servers'
+    # value of 'index-servers' may contain '\n'
     servers_val = cfg.get('distutils', 'index-servers')
-    servers_val = [x for x in servers_val.splitlines() if x]
+    servers_val = servers_val.replace('\n', ' ')
+    servers_val = servers_val.split()
     if PYPIRC_SECTION not in servers_val:
         sys.stderr.write('%s not found in value of %s in section %s' % (
             PYPIRC_SECTION, 'index-servers', 'distutils'
