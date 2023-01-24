@@ -7,51 +7,53 @@
 ### Files
 ```
 .
-├── build_test_inplace.sh
-├── check_pypirc_python3.py
-├── check_sha256.sh
-├── check_sig.sh
-├── clean_build.sh
-├── clean.sh
-├── common_functions.sh
 ├── config
-│   ├── config_docker_alpine.sh
-│   ├── config_docker_arch.sh
-│   ├── config_docker_fedora.sh
-│   ├── config_docker_ubuntu.sh
-│   └── config.sh
-├── config_source_validate.sh
-├── cythonize_inplace.sh
-├── docker_as.sh
-├── docker_as_upload_pypi.sh
+│   ├── config_distro_alpine.sh
+│   ├── config_distro_arch.sh
+│   ├── config_distro_fedora.sh
+│   ├── config_distro_ubuntu.sh
+│   └── config.sh
 ├── docker_distros
-│   ├── Dockerfile.alpine
-│   ├── Dockerfile.alpine.pypy2
-│   ├── Dockerfile.arch
-│   ├── Dockerfile.fedora
-│   └── Dockerfile.ubuntu
+│   ├── Dockerfile.alpine
+│   ├── Dockerfile.alpine.pypy2
+│   ├── Dockerfile.arch
+│   ├── Dockerfile.fedora
+│   └── Dockerfile.ubuntu
 ├── docker_manylinux
-│   ├── Dockerfile.manylinux1
-│   ├── Dockerfile.manylinux_2_28
-│   ├── Dockerfile.musllinux
-│   └── install_twine.sh
-├── generic_bash_functions.sh
-├── gpg_sign.sh
-├── host_build_test_inplace.sh
-├── host_cythonize_inplace.sh
-├── host_distro_test.sh
-├── host_docker_build.sh
-├── host_manylinux_docker_build.sh
-├── host_minimal_distro_test.sh
-├── host_upload_to_pypi.sh
-├── root_install_test_in_docker.sh
-├── run_func_tests.sh
-├── update_manifest.sh
-├── update_signed_files.sh
-├── update_version.sh
-├── upload_functions.sh
-├── upload_to_pypi.sh
-└── venv_test_install_inplace_in_docker.sh
+│   ├── Dockerfile.manylinux1
+│   ├── Dockerfile.manylinux_2_28
+│   ├── Dockerfile.musllinux
+│   └── install_twine.sh
+├── features
+│   ├── signature.asc
+│   ├── signed_files.txt
+│   └── VERSION.txt
+└── scripts
+    ├── build_test_inplace.sh
+    ├── check_pypirc_python3.py
+    ├── check_sha256.sh
+    ├── check_sig.sh
+    ├── clean_build.sh
+    ├── clean.sh
+    ├── common_functions.sh
+    ├── config_dirs.sh
+    ├── config_source_validate.sh
+    ├── cythonize_inplace.sh
+    ├── docker_as.sh
+    ├── generic_bash_functions.sh
+    ├── gpg_sign.sh
+    ├── host_build_test_inplace.sh
+    ├── host_cythonize_inplace.sh
+    ├── host_distro_test.sh
+    ├── host_docker_build.sh
+    ├── host_minimal_distro_test.sh
+    ├── root_install_test_in_docker.sh
+    ├── run_func_tests.sh
+    ├── update_manifest.sh
+    ├── update_signed_files.sh
+    ├── update_version.sh
+    ├── upload_to_pypi.sh
+    └── venv_test_install_inplace_in_docker.sh
 ```
 #### config.sh and Dockerfiles for different Linux distributions
 
