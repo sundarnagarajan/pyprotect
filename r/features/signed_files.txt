@@ -1,12 +1,12 @@
 .flake8
 .gitignore
-BUILD.TXT
-INSTALL.TXT
 LICENSE
 MANIFEST.in
 README.md
 classdiagram.puml
 classdiagram.svg
+docs/BUILD.TXT
+docs/INSTALL.TXT
 docs/Packaging.md
 docs/Scripts.md
 docs/samples/.gitignore
