@@ -3,12 +3,12 @@
 LICENSE
 MANIFEST.in
 README.md
-classdiagram.puml
-classdiagram.svg
 docs/BUILD.TXT
 docs/INSTALL.TXT
 docs/Packaging.md
 docs/Scripts.md
+docs/classdiagram.puml
+docs/classdiagram.svg
 docs/samples/.gitignore
 docs/samples/Dockerfiles_DevEnv/Dockerfile.arch
 docs/samples/Dockerfiles_DevEnv/Dockerfile.fedora

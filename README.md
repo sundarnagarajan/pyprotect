@@ -144,7 +144,7 @@ __Visibility and mutability of attributes with protect() method__
 
 ## Classes
 
-![class diagram](classdiagram.svg "class diagram")
+![class diagram](docs/classdiagram.svg "class diagram")
 
 ## Features of key classes
 ### Wrapped
