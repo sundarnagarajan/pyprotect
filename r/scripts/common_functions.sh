@@ -275,11 +275,11 @@ function relocate_source_dir() {
         return 0
     }
     local NEW_TMP_DIR=$(mktemp -d -p /tmp)
-    local old_top_dir=$(readlink -f "${PROG_DIR}/..")
+    local old_top_dir=$(readlink -f "${SOURCE_TOPLEVEL_DIR}")
     (
         cd "$old_top_dir"
         cp $PROJECT_FILES ${NEW_TMP_DIR}/
-        cp -a $PY_MODULE $SCRIPTS_DIR $TESTS_DIR ${NEW_TMP_DIR}/
+        cp -a $PY_MODULE $TOPLEVEL_SUBDIR $TESTS_DIR ${NEW_TMP_DIR}/
         # Clean out .so files under $PY_MODULE
         [[ -d ${NEW_TMP_DIR}/${PY_MODULE} ]] && rm -f ${NEW_TMP_DIR}/${PY_MODULE}/*.so
     )

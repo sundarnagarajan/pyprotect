@@ -14,7 +14,7 @@ must_be_in_docker
 
 relocate_source_dir
 relocate_tests_dir
-PROG_DIR="$__RELOCATED_DIR"/scripts
+PROG_DIR="$__RELOCATED_DIR"/${SCRIPTS_DIR}
 PROG_DIR=$(readlink -f "$PROG_DIR")
 echo "${SCRIPT_NAME}: Running in $PROG_DIR"
 

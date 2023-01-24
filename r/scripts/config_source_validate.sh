@@ -2,6 +2,9 @@
 # --------------------------------------------------------------------
 # DO NOT CHANGE ANYTHING in this file
 # Only change 'config.sh' and 'docker/config_docker_*.sh'
+#
+# Needs generic_bash_functions.sh sourced before this file is sourced
+#
 # --------------------------------------------------------------------
 SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
 
@@ -9,11 +12,9 @@ SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
 # config vars are made read-only, so they are guarded by __CONFIG_SOURCED
 var_declared __CONFIG_SOURCED && return
 var_empty __CONFIG_SOURCED || return
-
-# Variables that belong ONLY in config.sh and cannot be overridden
-# in config_docker_<distro>.sh are defaulted, validated and marked read-only
-
 errors=0
+
+source "${SCRIPT_DIR}"/config_dirs.sh
 
 # Unset variables that are supposed to come from config files so that
 # they are never used from the environment
@@ -28,7 +29,6 @@ for v in \
     CYTHONIZE_REQUIRED \
     CYTHON3_PROG_NAME \
     CYTHON3_PROG_NAME \
-    SCRIPTS_DIR \
     TESTS_DIR \
     PROJECT_FILES \
     TEST_MODULE_FILENAME \
@@ -40,7 +40,10 @@ do
     unset $v
 done
 
-source ${SCRIPT_DIR}/config/config.sh
+source "${SOURCE_TOPLEVEL_DIR}"/${CONFIG_DIR}/config.sh
+
+# Variables that belong ONLY in config.sh and cannot be overridden
+# in config_docker_<distro>.sh are defaulted, validated and marked read-only
 
 # Some variables MUST be set in config.sh
 for v in PY_MODULE DOCKER_MOUNTPOINT DEFAULT_DISTRO TAG_PYVER GPG_KEY TEST_MODULE_FILENAME
@@ -51,7 +54,7 @@ do
     }
 done
 # Somr vars should NOT be arrays
-for v in PY_MODULE PIP_NAME DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE_FILENAME SCRIPTS_DIR TESTS_DIR PROJECT_FILES
+for v in PY_MODULE PIP_NAME DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE_FILENAME TESTS_DIR PROJECT_FILES
 do
     var_declared $v && {
         var_is_nonarray $v || {
@@ -85,34 +88,32 @@ done
 # Set defaults
 CYTHONIZE_REQUIRED=${CYTHONIZE_REQUIRED:-no}
 CYTHON3_PROG_NAME=${CYTHON3_PROG_NAME:-cython3}
-SCRIPTS_DIR=${SCRIPTS_DIR:-scripts}
-SCRIPTS_DIR=$(basename "$SCRIPTS_DIR")
 TESTS_DIR=${TESTS_DIR:-tests}
 TESTS_DIR=$(basename "${TESTS_DIR}")
 TEST_MODULE_FILENAME=$(basename "$TEST_MODULE_FILENAME")
 GIT_URL=${GIT_URL:-}
-DEFAULT_PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py version.py"
+DEFAULT_PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
 PROJECT_FILES=${PROJECT_FILES:-$DEFAULT_PROJECT_FILES}
 unset DEFAULT_PROJECT_FILES
 
 # Validate vars that must be existing files / dirs
-for v in SCRIPTS_DIR TESTS_DIR PY_MODULE
+for v in TESTS_DIR PY_MODULE
 do
-    x="${SCRIPT_DIR}/../${!v}"
+    x="${SOURCE_TOPLEVEL_DIR}/${!v}"
     [[ -d "$x" ]] || {
-        >&2 red "$v is not a directory: ${!v}"
+        >&2 red "$v is not a directory: ${x}"
         errors=1
     }
 done
 for x in $PROJECT_FILES
 do
-    [[ -e "${SCRIPT_DIR}/../${x}" ]] && {
-        [[ -f "${SCRIPT_DIR}/../${x}" ]] || {
-            >&2 red "Project file is not a file: ${SCRIPT_DIR}/../${x}"
+    [[ -e "${SOURCE_TOPLEVEL_DIR}/${x}" ]] && {
+        [[ -f "${SOURCE_TOPLEVEL_DIR}/${x}" ]] || {
+            >&2 red "Project file is not a file: ${SOURCE_TOPLEVEL_DIR}/${x}"
             errors=1
         }
     } || {
-        >&2 red "Project file does not exist: ${SCRIPT_DIR}/../${x}"
+        >&2 red "Project file does not exist: ${SOURCE_TOPLEVEL_DIR}/${x}"
         errors=1
     }
 done
@@ -129,7 +130,7 @@ readonly \
     EXTENSION_NAME CYTHONIZE_REQUIRED \
     CYTHON3_MIN_VER \
     PY_MODULE PIP_NAME DOCKER_MOUNTPOINT \
-    SCRIPTS_DIR TESTS_DIR PROJECT_FILES \
+    TESTS_DIR PROJECT_FILES \
     TEST_MODULE_FILENAME \
     DEFAULT_DISTRO \
     GIT_URL GPG_KEY \
@@ -138,7 +139,7 @@ readonly \
 
 # Source the distro-specific config_docker_XXX.sh
 DISTRO=${__DISTRO:-$DEFAULT_DISTRO}
-DOCKER_CONFIG_FILE=${SCRIPT_DIR}/config/config_docker_${DISTRO}.sh
+DOCKER_CONFIG_FILE=${SOURCE_TOPLEVEL_DIR}/${CONFIG_DIR}/config_distro_${DISTRO}.sh
 DOCKER_CONFIG_FILE_BASENAME=$(basename "$DOCKER_CONFIG_FILE")
 source "$DOCKER_CONFIG_FILE"
 unset DISTRO

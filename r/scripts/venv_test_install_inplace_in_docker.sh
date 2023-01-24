@@ -103,7 +103,7 @@ var_empty __RELOCATED_TESTS_DIR && {
     exit 1
 }
 
-PROG_DIR="$__RELOCATED_DIR"/scripts
+PROG_DIR="$__RELOCATED_DIR"/${SCRIPTS_DIR}
 PROG_DIR=$(readlink -f "$PROG_DIR")
 echo "${SCRIPT_NAME}: Running in $PROG_DIR"
 

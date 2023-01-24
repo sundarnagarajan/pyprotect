@@ -44,7 +44,7 @@ function test_in_1_pyver() {
 [[ -n $(declare -p __TESTS_DIR 2>/dev/null) ]] && {
     TEST_SCRIPT=$(readlink -f "$__TESTS_DIR")/$TEST_MODULE_FILENAME
 } || {
-    __TESTS_DIR=$(readlink -f "$PROG_DIR"/../$TESTS_DIR)
+    __TESTS_DIR=$(readlink -f "$PROG_DIR"/../../$TESTS_DIR)
 }
 
 PYVER_CHOSEN=$@

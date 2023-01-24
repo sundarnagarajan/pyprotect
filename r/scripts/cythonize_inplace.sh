@@ -16,7 +16,7 @@ echo "${SCRIPT_NAME}: Running on $(distro_name) in ${PROG_DIR}"
     exit 0
 }
 
-cd "$PROG_DIR"/../${PY_MODULE}
+cd "${SOURCE_TOPLEVEL_DIR}"/${PY_MODULE}
 TARGET=${EXTENSION_NAME}.c
 
 [[ -f $TARGET ]] && {

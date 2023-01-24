@@ -19,11 +19,6 @@ CYTHONIZE_REQUIRED=yes
 CYTHON3_PROG_NAME=cython
 CYTHON3_MIN_VER=3.0.0
 
-# SCRIPTS_DIR should be basename of directory with scripts - for cases
-# where the project already has a top-level directory named 'scripts'
-# Optional - defaults to 'scripts' - can be commented if using default
-SCRIPTS_DIR=scripts
-
 # TESTS_DIR should be basename of directory with tests - for cases
 # where the project already has a top-level directory named 'tests'
 # Optional - defaults to 'tests' - can be commented if using default
@@ -35,7 +30,7 @@ TESTS_DIR=tests
 # All the files MUST EXIST as regular files
 # Optional - defaults to "MANIFEST.in README.md pyproject.toml setup.cfg setup.py version.py"
 # Can be commented if using default list
-PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py version.py"
+PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
 
 # TEST_MODULE_FILENAME should be basename of top-level test module under
 # TESTS_DIR/ WITH '.py' extension - mandatory

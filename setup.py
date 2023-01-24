@@ -2,7 +2,7 @@ import sys
 sys.dont_write_bytecode = True
 from setuptools import setup, Extension
 import os
-from version import version
+version = '1.3.2'
 # Set CFLAGS to optimize further
 os.environ['CFLAGS'] = "-O3"
 # Set LDFLAGS to automatically strip .so

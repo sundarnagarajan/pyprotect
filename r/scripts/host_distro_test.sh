@@ -17,14 +17,14 @@ function install_test_1_pyver() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
     local pyver=$1
     local img=${TAG_IMAGE[${pyver}]}
-    cd "$PROG_DIR"/..
+    cd "$SOURCE_TOPLEVEL_DIR"
     echo "${SCRIPT_NAME}: Running docker in $img"
     DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user root --env __DISTRO=$DISTRO --env __MINIMAL_TESTS=${__MINIMAL_TESTS:-} --env __NOTEST=${__NOTEST:-} $img ${ROOT_SCRIPT} $pyver"
     $DOCKER_CMD
 }
 
 
-cd "$PROG_DIR"/..
+cd "$SOURCE_TOPLEVEL_DIR"
 [[ -n "${EXTENSION_NAME:-}" && "${CYTHONIZE_REQUIRED:-}" = "yes" ]] && {
     # Still need to check for CYTHON3_DOCKER_IMAGE and run CYTHONIZE_SCRIPT
     docker_image_must_exist $CYTHON3_DOCKER_IMAGE
