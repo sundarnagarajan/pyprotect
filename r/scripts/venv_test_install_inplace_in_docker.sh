@@ -7,7 +7,7 @@ source "$PROG_DIR"/common_functions.sh
 function run_1_in_venv() {
     # $1: PYVER
     [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
+        >&2 red "i$(basename ${BASH_SOURCE}): Usage: ${FUNCNAME[0]} PYTHON_VERSION_TAG"
         return 1
     }
     local pyver=$1
@@ -24,7 +24,7 @@ function run_1_in_venv() {
 
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): ${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
 
@@ -35,13 +35,13 @@ function run_1_in_venv() {
 function inplace_build_and_test_1_pyver() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
     [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG"
+        >&2 red "$(basename ${BASH_SOURCE}): Usage: ${FUNCNAME[0]} PYTHON_VERSION_TAG"
         return 1
     }
     local pyver=$1
     PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "$$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
 
@@ -54,13 +54,13 @@ function inplace_build_and_test_1_pyver() {
 function pip_install_user_1_pyver() {
     # $1: PYVER - guaranteed to be in TAG_PYVER and have valid image in TAG_IMAGE
     [[ $# -lt 1 ]] && {
-        >&2 red "Usage: pip_install_user_1_pyver PYTHON_VERSION_TAG"
+        >&2 red "$(basename ${BASH_SOURCE}): Usage: ${FUNCNAME[0]} PYTHON_VERSION_TAG"
         return 1
     }
     local pyver=$1
     PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "$pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
 
@@ -105,7 +105,7 @@ var_empty __RELOCATED_TESTS_DIR && {
 
 PROG_DIR="$__RELOCATED_DIR"/${SCRIPTS_DIR}
 PROG_DIR=$(readlink -f "$PROG_DIR")
-echo "${SCRIPT_NAME}: Running in $PROG_DIR"
+# echo "${SCRIPT_NAME}: Running in $PROG_DIR"
 
 # Disable pip warnings that are irrelevant here
 export PIP_DISABLE_PIP_VERSION_CHECK=1

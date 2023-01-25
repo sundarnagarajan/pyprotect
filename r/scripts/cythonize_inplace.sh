@@ -42,12 +42,12 @@ TARGET=${EXTENSION_NAME}.c
 }
 
 [[ -z "${CYTHON3_PROG_NAME:-}" ]] && {
-    >&2 red "${SCRIPT_NAME}: CYTHON3_PROG_NAME not set in config.sh"
+    >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): ${SCRIPT_NAME}: CYTHON3_PROG_NAME not set in config.sh"
     exit 1
 }
 CYTHON_CMD=$(command -v $(basename $CYTHON3_PROG_NAME)) || {
-    >&2 red "${SCRIPT_NAME}: cython command not found: $CYTHON3_PROG_NAME"
-    >&2 red "${SCRIPT_NAME}: On Debian-like system install package cython3"
+    >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): ${SCRIPT_NAME}: cython command not found: $CYTHON3_PROG_NAME"
+    >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): ${SCRIPT_NAME}: On Debian-like system install package cython3"
     exit 1
 }
 

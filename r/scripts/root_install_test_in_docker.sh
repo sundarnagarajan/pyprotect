@@ -16,7 +16,7 @@ relocate_source_dir
 relocate_tests_dir
 PROG_DIR="$__RELOCATED_DIR"/${SCRIPTS_DIR}
 PROG_DIR=$(readlink -f "$PROG_DIR")
-echo "${SCRIPT_NAME}: Running in $PROG_DIR"
+# echo "${SCRIPT_NAME}: Running in $PROG_DIR"
 
 # Disable pip warnings that are irrelevant here
 export PIP_DISABLE_PIP_VERSION_CHECK=1
@@ -39,7 +39,7 @@ do
 
     # Keep tests for each pyver together
     [[ -z ${NORMAL_USER+x} ]] && {
-        >&2 red "NORMAL_USER env var not found"
+        >&2 red "$(basename ${BASH_SOURCE}): NORMAL_USER env var not found"
     } || {
         su $NORMAL_USER -c "__RELOCATED_DIR=${RELOCATED_DIR} __RELOCATED_TESTS_DIR=${__RELOCATED_TESTS_DIR} ${PROG_DIR}/venv_test_install_inplace_in_docker.sh $p" || {
             [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {

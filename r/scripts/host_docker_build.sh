@@ -10,12 +10,12 @@ for v in HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID
 do
     declare -n check=${v}
     [[ ${check+x} ]] || {
-        >&2 red "Required variable not set in config.sh: ${v}"
+        >&2 red "$(basename ${BASH_SOURCE}): Required variable not set in config.sh: ${v}"
         exit 1
     }
 done
 [[ -n $(declare -p DOCKERFILE_IMAGE 2>/dev/null) ]] || {
-    >&2 red "Required variable not set in config.sh: DOCKERFILE_IMAGE" 
+    >&2 red "$(basename ${BASH_SOURCE}): Required variable not set in config.sh: DOCKERFILE_IMAGE" 
     exit 1
 }
 
@@ -28,7 +28,7 @@ for k in ${!DOCKERFILE_IMAGE[@]}
 do
     IMAGE_NAME=${DOCKERFILE_IMAGE[$k]}
     [[ ${IMAGE_NAME}+x == "x" ]] && {
-        >&2 red "Image name not found for Docker file: $k"
+        >&2 red "$(basename ${BASH_SOURCE}): Image name not found for Docker file: $k"
         exit 1
     }
     >&2 blue "Building $IMAGE_NAME from $k"
@@ -77,10 +77,10 @@ done
                 --build-arg MODULE_MOUNT_DIR=/${PY_MODULE} \
                 -t $CYTHON3_DOCKER_IMAGE -f $CYTHON_DOCKER_FILE $@ .
         } || {
-            >&2 red "CYTHON3_DOCKER_IMAGE not set in $(basename ${DOCKER_CONFIG_FILE})"
+            >&2 red "$(basename ${BASH_SOURCE}): CYTHON3_DOCKER_IMAGE not set in $(basename ${DOCKER_CONFIG_FILE})"
         }
     } || {
-        >&2 red "CYTHON3_DOCKER_FILE not set in $(basename ${DOCKER_CONFIG_FILE})"
+        >&2 red "$(basename ${BASH_SOURCE}): CYTHON3_DOCKER_FILE not set in $(basename ${DOCKER_CONFIG_FILE})"
     }
 }
 

@@ -11,7 +11,7 @@ function test_in_1_pyver() {
     local pyver=$1
     local python_cmd_basename=${TAG_PYVER[${pyver}]}
     python_cmd=$(command_must_exist $python_cmd_basename) || {
-        >&2 red "$pyver : Command not found: $python_cmd_basename"
+        >&2 red "$(basename ${BASH_SOURCE})(${FUNCNAME[0]}): $pyver : Command not found: $python_cmd_basename"
         return 1
     }
 
@@ -21,16 +21,15 @@ function test_in_1_pyver() {
     $python_cmd -B -c "from module_finder import ${PY_MODULE}" 1>/dev/null 2>&1 || ret=1
     
     if [[ $ret -eq 0 ]]; then
-        echo "$pyver : Testing with $python_cmd"
         var_empty __NOTEST && {
-            echo "Executing tests in: $__TESTS_DIR"
+            echo "${SCRIPT_NAME}: $python_cmd ${__TESTS_DIR}/${TEST_MODULE_FILENAME}"
             $python_cmd -B "${TEST_MODULE_FILENAME}" || return $?
         } || {
-            blue "__NOTEST set, not executing tests"
+            blue "${SCRIPT_NAME}: __NOTEST set, not executing tests with $python_cmd ${__TESTS_DIR}/${TEST_MODULE_FILENAME}"
             return
         }
     else
-        >&2 red "$pyver : $python_cmd module ${PY_MODULE} not found"
+        >&2 red "$(basename ${BASH_SOURCE})(${FUNCNAME[0]}): $pyver : $python_cmd module ${PY_MODULE} not found"
         return 1
     fi
 }
@@ -38,7 +37,12 @@ function test_in_1_pyver() {
 # ------------------------------------------------------------------------
 # Actual script starts after this
 # ------------------------------------------------------------------------
-echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
+env | grep -q '^VIRTUAL_ENV' && IN_VENV=yes || IN_VENV=no
+[[ "$IN_VENV" = "yes" ]] && {
+    echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un) in virtualenv"
+} || {
+    echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
+}
 
 # If __TESTS_DIR env var is set, ONLY $TESTS_DIR/$TEST_MODULE_FILENAME is tried
 # Otherwise ONLY $PROG_DIR/../$TESTS_DIR/$TEST_MODULE_FILENAME is tried
@@ -50,11 +54,6 @@ echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 PYVER_CHOSEN=$@
 # This script does not launch docker containers
 VALID_PYVER=$(process_std_cmdline_args no yes $@)
-
-env | grep -q '^VIRTUAL_ENV' && IN_VENV=yes || IN_VENV=no
-if [[ "$IN_VENV" = "yes" ]]; then
-    echo "${SCRIPT_NAME}: Running in virtualenv"
-fi
 
 for p in $VALID_PYVER
 do

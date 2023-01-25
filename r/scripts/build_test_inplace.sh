@@ -18,14 +18,14 @@ function build_1_in_place_and_test() {
     # Set LDFLAGS to automatically strip .so
     export LDFLAGS=-s
 
-    echo "${SCRIPT_NAME}: build_1_in_place_and_test: Running in $PROG_DIR"
+    # echo "${SCRIPT_NAME}: build_1_in_place_and_test: Running in $PROG_DIR"
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
-        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "${SCRIPT_NAME}(${FUNCNAME[0]}): $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
     [[ -z "$PYTHON_CMD" ]] && {
-        >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
+        >&2 red "${SCRIPT_NAME}(${FUNCNAME[0]}): $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
     echo "${SCRIPT_NAME}: Building for $pyver using $PYTHON_CMD"
@@ -105,7 +105,7 @@ var_empty __RELOCATED_DIR || {
     }
 }
 cd "$PROG_DIR"/../..
-echo "${SCRIPT_NAME}: Running in $(pwd)"
+# echo "${SCRIPT_NAME}: Running in $(pwd)"
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize_inplace.sh
