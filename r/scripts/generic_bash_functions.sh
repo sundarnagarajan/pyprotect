@@ -317,12 +317,21 @@ function var_show_vars() {
 
 function hide_output_unless_error() {
     # Runs arguments and shows output only if there is an error
+    # Useful for commands with moderate output size - preferably not
+    # MEGABYTES of output
+    # Not suitable for commands running indefinitely
+    # Shows output prefixed by CALLING script and function name
+    # Prefix is only showed ONCE - not prefixed to every line
     [[ $# -lt 1 ]] && return
     local ret=0
     local out=""
     if ! out=$($@ 2>&1); then
         ret=$?
-        >&2 red "$out"
+        [[ -n "$out" ]] && {
+            >&2 red "$( basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): $@ : $out"
+        } || {
+            >&2 red "$( basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): $@"
+        }
         return $ret
     fi
     return 0
