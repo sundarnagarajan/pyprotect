@@ -1,7 +1,9 @@
 FROM quay.io/pypa/musllinux_1_1_x86_64
 
 ARG MANYLINUX_IMAGE
+RUN : "${MANYLINUX_IMAGE?Missing arument: MANYLINUX_IMAGE needs to be set}"
 
 RUN echo "$MANYLINUX_IMAGE" > /usr/local/bin/MANYLINUX_IMAGE
-COPY install_twine.sh /usr/local/bin
-RUN /usr/local/bin/install_twine.sh
+COPY manylinux_functions.sh /usr/local/bin/
+COPY prepare_env.sh /usr/local/bin/
+RUN /usr/local/bin/prepare_env.sh

@@ -25,7 +25,7 @@ ENV PIP_ROOT_USER_ACTION=ignore
 
 # NEED bash - scripts all use bash-specific associative arrays etc
 # NEED findutils - and not busybox find
-# Need build-essential python2-dev python3-dev and cython3 ONLY to BUILD module
+# Need build-essential python2-dev python3-dev and ONLY to BUILD module
 # These are not required to install from PyPi or from bdist / wheel
 # python2-setuptools-whl and python2-pip-whl are only needed to create
 # PY2 virtualenv using virtualenv command
@@ -35,11 +35,11 @@ ENV PIP_ROOT_USER_ACTION=ignore
 
 RUN apk update
 RUN apk upgrade
-# RUN apk add curl less unzip cython build-base python3-dev py3-setuptools py3-pip py3-virtualenv python2-dev py-setuptools
+# RUN apk add curl less unzip build-base python3-dev py3-setuptools py3-pip py3-virtualenv python2-dev py-setuptools
 RUN apk add \
     curl less unzip \
     bash findutils git \
-    cython build-base \
+    build-base \
     py3-virtualenv 
 
 # ----------------------------------------------------------------------
@@ -63,10 +63,14 @@ RUN apk add py3-twine
 
 # Build and install cython 3.0.0 from github source that works with python 3.11 (also)
 # Takes about 2 mins
-RUN apk add python3-dev
 # Silence irrelevant warning about running pip as root user
-RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a11 2>/dev/null
-RUN apk del python3-dev
+# Install fails on alpine:
+# File "/usr/lib/python3.9/site-packages/setuptools/command/build_py.py", line 126, in build_package_data
+# srcfile in self.distribution.convert_2to3_doctests):
+# AttributeError: 'Distribution' object has no attribute 'convert_2to3_doctests'
+# RUN apk add python3-dev
+# RUN python3 -m pip install git+https://github.com/cython/cython@3.0.0a12
+# RUN apk del python3-dev
 
 ENV PYTHONDONTWRITEBYTECODE=Y
 # Start in MODULE_MOUNT_DIR

@@ -3,7 +3,7 @@ set -e -u -o pipefail
 PROG_DIR=$(readlink -f $(dirname $BASH_SOURCE))
 source "${PROG_DIR}"/generic_bash_functions.sh
 
-source "$PROG_DIR"/config_source_validate.sh
+source "$PROG_DIR"/config_distro_source_validate.sh
 
 function hide_output_unless_error() {
     # Runs arguments and shows output only if there is an error
@@ -127,27 +127,21 @@ function distro_name() {
 }
 
 function get_version() {
-    # Echoes version number from version.py to stdout
-    local cur_dir=$(dirname "$BASH_SOURCE")
-    local ver_dir=$(readlink -f "$cur_dir"/..)
-    cd "$ver_dir"
-    [[ -f version.py ]] || {
-        >&2 red "${ver_dir}/version.py not found"
-        return 1
+    # Echoes version number from VERSION.TXT to stdout
+    var_empty_not_spaces FEATURES_DIR && {
+        >&2 red "FEATURES_DIR not set"
+        return
     }
-    local ver=$(python3 -B -c 'import version; print(version.version);')
-    [[ -n "$ver" ]] && {
-        echo $ver
-        return 0
-    } || {
-        ver=$(grep '^version =' version.py | tail -1 | awk -F= '{print $2}' | sed -e 's/^[[:space:]]*//g' -e "s/'//g")
-        [[ -n "$ver" ]] && {
-            echo $ver
-            return 0
-        } || {
-            >&2 red "'version' not found in ${ver_dir}/version.py"
-        }
+    local local_features_dir=${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR
+    [[ -d "$local_features_dir" ]] || {
+        >&2 red "FEATURES_DIR not a directory: $local_features_dir"
+        return
     }
+    local local_ver_file=${local_features_dir}/VERSION.TXT
+    [[ -f "$local_ver_file" ]] || {
+        >&2 red "Version file not found: $local_ver_file"
+    }
+    cat "$local_ver_file"
 }
 
 function process_std_cmdline_args() {
@@ -257,12 +251,12 @@ function cleanup() {
     # Cleans up RELOCATED_DIR if set and present
     [[ -n $(declare -p RELOCATED_DIR 2>/dev/null) && -n "${RELOCATED_DIR}+_"  && -d "${RELOCATED_DIR}" ]] && {
         rm -rf "$RELOCATED_DIR"
-        blue "${SCRIPT_NAME}: Removed RELOCATED_DIR: $RELOCATED_DIR"
+        echo "${SCRIPT_NAME}: Removed RELOCATED_DIR: $RELOCATED_DIR"
     }
     # Cleans up __RELOCATED_TESTS_DIR if set and present
     [[ -n $(declare -p __RELOCATED_TESTS_DIR 2>/dev/null) && -n "${__RELOCATED_TESTS_DIR}+_"  && -d "${__RELOCATED_TESTS_DIR}" ]] && {
         rm -rf "$__RELOCATED_TESTS_DIR"
-        blue "${SCRIPT_NAME}: Removed __RELOCATED_TESTS_DIR: $__RELOCATED_TESTS_DIR"
+        echo "${SCRIPT_NAME}: Removed __RELOCATED_TESTS_DIR: $__RELOCATED_TESTS_DIR"
     }
 }
 
@@ -286,7 +280,7 @@ function relocate_source_dir() {
     export __RELOCATED_DIR=${NEW_TMP_DIR}
     export RELOCATED_DIR=${NEW_TMP_DIR}
     trap cleanup 0 1 2 3 15
-    blue "${SCRIPT_NAME}: Relocated source to $__RELOCATED_DIR"
+    echo "${SCRIPT_NAME}: Relocated source to $__RELOCATED_DIR"
 }
 
 function relocate_tests_dir() {
@@ -300,7 +294,7 @@ function relocate_tests_dir() {
     chmod -R go+rX "$NEW_TMP_DIR"
     export __RELOCATED_TESTS_DIR=${NEW_TMP_DIR}
     trap cleanup 0 1 2 3 15
-    blue "${SCRIPT_NAME}: Relocated tests to $__RELOCATED_TESTS_DIR"
+    echo "${SCRIPT_NAME}: Relocated tests to $__RELOCATED_TESTS_DIR"
 }
 
 function run_1_cmd_in_relocated_dir() {

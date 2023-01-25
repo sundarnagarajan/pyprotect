@@ -33,6 +33,7 @@ r/config/config_distro_alpine.sh
 r/config/config_distro_arch.sh
 r/config/config_distro_fedora.sh
 r/config/config_distro_ubuntu.sh
+r/config/config_manylinux.sh
 r/docker_distros/Dockerfile.alpine
 r/docker_distros/Dockerfile.alpine.pypy2
 r/docker_distros/Dockerfile.arch
@@ -41,8 +42,9 @@ r/docker_distros/Dockerfile.ubuntu
 r/docker_manylinux/Dockerfile.manylinux1
 r/docker_manylinux/Dockerfile.manylinux_2_28
 r/docker_manylinux/Dockerfile.musllinux
-r/docker_manylinux/install_twine.sh
-r/features/VERSION.txt
+r/docker_manylinux/manylinux_functions.sh
+r/docker_manylinux/prepare_env.sh
+r/features/VERSION.TXT
 r/features/signed_files.txt
 r/scripts/build_test_inplace.sh
 r/scripts/check_pypirc_python3.py
@@ -52,7 +54,8 @@ r/scripts/clean.sh
 r/scripts/clean_build.sh
 r/scripts/common_functions.sh
 r/scripts/config_dirs.sh
-r/scripts/config_source_validate.sh
+r/scripts/config_distro_source_validate.sh
+r/scripts/config_manylinux_source_validate.sh
 r/scripts/cythonize_inplace.sh
 r/scripts/docker_as.sh
 r/scripts/generic_bash_functions.sh
@@ -61,6 +64,7 @@ r/scripts/host_build_test_inplace.sh
 r/scripts/host_cythonize_inplace.sh
 r/scripts/host_distro_test.sh
 r/scripts/host_docker_build.sh
+r/scripts/host_manylinux_docker_build.sh
 r/scripts/host_minimal_distro_test.sh
 r/scripts/root_install_test_in_docker.sh
 r/scripts/run_func_tests.sh

@@ -19,7 +19,6 @@ function build_1_in_place_and_test() {
     export LDFLAGS=-s
 
     echo "${SCRIPT_NAME}: build_1_in_place_and_test: Running in $PROG_DIR"
-    cd "$SOURCE_TOPLEVEL_DIR"
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
         >&2 red "${SCRIPT_NAME}: $pyver : python command not found: $PYTHON_BASENAME"
@@ -69,6 +68,8 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
     }
     [[ $REBUILD_REQUIRED -eq 0 ]] && {
         >&2 echo "${SCRIPT_NAME}: ${TARGET_BASENAME}: No rebuild required"
+        "${CLEAN_BUILD_SCRIPT}"
+        "${PROG_DIR}"/run_func_tests.sh $pyver
         return 0
     }
     "${CLEAN_BUILD_SCRIPT}"
@@ -77,19 +78,22 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
         "${CLEAN_BUILD_SCRIPT}"
         return 1
     }
+    echo "${SCRIPT_NAME}: Built target: $TARGET"
     restore_file_ownership ${PY_MODULE}/${EXTENSION_NAME}.pyx "$TARGET"
-    "${CLEAN_BUILD_SCRIPT}"
     "${PROG_DIR}"/run_func_tests.sh $pyver
+    "${CLEAN_BUILD_SCRIPT}"
 }
 
 
+# ------------------------------------------------------------------------
+# Actual script starts after this
+# ------------------------------------------------------------------------
+
+echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 [[ -z "${EXTENSION_NAME:-}" ]] && {
     >&2 echo "${SCRIPT_NAME}: Not using C-extension"
     exit 0
 }
-
-echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
-
 var_empty __RELOCATED_DIR || {
     PROG_DIR="$__RELOCATED_DIR"/${SCRIPTS_DIR}
     PROG_DIR=$(readlink -f "$PROG_DIR")
@@ -100,7 +104,8 @@ var_empty __RELOCATED_DIR || {
         PROG_DIR=$(readlink -f "$PROG_DIR")
     }
 }
-cd "$PROG_DIR"
+cd "$PROG_DIR"/../..
+echo "${SCRIPT_NAME}: Running in $(pwd)"
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize_inplace.sh

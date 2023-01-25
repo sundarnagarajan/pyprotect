@@ -2,7 +2,7 @@ import sys
 sys.dont_write_bytecode = True
 from setuptools import setup, Extension
 import os
-version = '1.3.2'
+__version__ = '1.3.2'
 # Set CFLAGS to optimize further
 os.environ['CFLAGS'] = "-O3"
 # Set LDFLAGS to automatically strip .so
@@ -24,7 +24,7 @@ if EXT_NAME:
         ['%s/%s.c' % (PY_MODULE, EXT_NAME)],
     )]
 kwargs = dict(
-    version=version,
+    version=__version__,
     packages=[PY_MODULE],
 )
 if ext_modules:

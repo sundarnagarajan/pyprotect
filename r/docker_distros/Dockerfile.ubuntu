@@ -44,7 +44,7 @@ ENV NORMAL_USER=$HOST_USERNAME
 
 ENV PIP_ROOT_USER_ACTION=ignore
 
-# Need build-essential python2-dev python3-dev and cython3 ONLY to BUILD module
+# Need build-essential python2-dev python3-dev and ONLY to BUILD module
 # These are not required to install from PyPi or from bdist / wheel
 # python2-setuptools-whl and python2-pip-whl are only needed to create
 # PY2 virtualenv using virtualenv command

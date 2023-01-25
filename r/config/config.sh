@@ -52,11 +52,11 @@ GPG_KEY=3DCAB9392661EB519C4CCDCC5CFEABFDEFDB2DE3
 
 # TAG_PYVER: Maps PYTHON_VERSION tags to python executable basename
 # Values should be respective python executables - with or without path
-declare -A TAG_PYVER=(
-    ["PY3"]=python3
-    ["PY2"]=python2
-    ["PYPY3"]=pypy3
-    ["PYPY2"]=pypy
+declare -A TAG_PYVER=( \
+    ["PY3"]=python3 \
+    ["PY2"]=python2 \
+    ["PYPY3"]=pypy3 \
+    ["PYPY2"]=pypy \
 )
 
 # More related to docker than the project, but it is in config.sh
