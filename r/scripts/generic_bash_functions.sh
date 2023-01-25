@@ -235,10 +235,8 @@ function var_empty() {
     # Works for ordinary vars, ordinary arrays and associative arrays and references
     # Other than in var_declared, var_type, var_is_ref and var_deref always dereference first
     [[ $# -lt 1 ]] && return 1
-    set +e
-    local dereferenced=$(var_deref $1)
-    [[ $? -ne 0 ]] && return 0
-    set -e
+    local dereferenced=
+    if ! dereferenced=$(var_deref $1); then return 0; fi
     var_is_nonarray "$dereferenced" && {
         [[ -z "${!dereferenced}" ]] && return 0 || return 1
     }
@@ -256,10 +254,8 @@ function var_empty_not_spaces() {
     [[ $# -lt 1 ]] && return 1
     var_empty "$1" && return 0
     var_is_nonarray "$1" || return 1
-    set +e
-    local dereferenced=$(var_deref "$1")
-    [[ $? -ne 0 ]] && return 0
-    set -e
+    local dereferenced=
+    if ! dereferenced=$(var_deref $1); then return 0; fi
     [[ "${!dereferenced}" =~ ^[[:space:]\n]*$ ]] && return 0 || return 1
 }
 
@@ -318,4 +314,23 @@ function var_show_vars() {
 # --------------------------------------------------------------------
 # End of bash_functions
 # --------------------------------------------------------------------
+
+function hide_output_unless_error() {
+    # Runs arguments and shows output only if there is an error
+    [[ $# -lt 1 ]] && return
+    local ret=0
+    local out=""
+    if ! out=$($@ 2>&1); then
+        ret=$?
+        >&2 red "$out"
+        return $ret
+    fi
+    return 0
+}
+
+function command_must_exist() {
+    # $1: command
+    [[ $# -lt 1 ]] && return 1
+    command -v $1 2>&1
+}
 

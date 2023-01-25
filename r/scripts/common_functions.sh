@@ -5,26 +5,10 @@ source "${PROG_DIR}"/generic_bash_functions.sh
 
 source "$PROG_DIR"/config_distro_source_validate.sh
 
-function hide_output_unless_error() {
-    # Runs arguments and shows output only if there is an error
-    [[ $# -lt 1 ]] && return
-    local ret=0
-    local out=""
-    set +e
-    out=$($@ 2>&1)
-    ret=$?
-    set -e
-    [[ $ret -ne 0 ]] && {
-        >&2 red "$out"
-        return $ret
-    }
-    return 0
-}
-
 function docker_image_must_exist() {
     # $1: image name
     [[ $# -lt  1 ]] && {
-        >&2 red "Usage: docker_image_must_exist <image_name>"
+        >&2 red "Usage: ${FUNCNAME[0]} <image_name>"
         return 1
     }
     docker image inspect "$1" 1>/dev/null 2>&1 || {
@@ -60,26 +44,20 @@ function need_docker_command() {
     return 0
 }
 
-function command_must_exist() {
-    # $1: command
-    [[ $# -lt 1 ]] && return 1
-    command -v $1 2>&1
-}
-
 function restore_file_ownership() {
     # $1: mandatory: path to reference file
     # $2+ files to chown
     # If not root, cannot chown anyway
     [[ $(id -u) -ne 0 ]] && return 0
     [[ $# -lt 1 ]] && {
-        >&2 red "Usage: restore_ownership <ref_file_path> [files to chown]"
+        >&2 red "Usage: ${FUNCNAME[0]} <ref_file_path> [files to chown]"
         return 0
     }
     local ref_file=$1
     shift
     [[ $# -lt 1 ]] && return 0
     [[ -f "$ref_file" ]] || {
-        >&2 red "restore_ownership: ref file not found: $ref_file"
+        >&2 red "${FUNCNAME[0]}: ref file not found: $ref_file"
         return 0
     }
     ref_file=$(readlink -f "$ref_file")
@@ -89,28 +67,6 @@ function restore_file_ownership() {
         chown $uid_gid "$1"
         shift
     done
-}
-
-function need_minimum_version() {
-    # $1: existing_ver (mandatory)
-    # $2: minimim_ver required (mandatory)
-    # $3: program_name (optional - used only in error message)
-    [[ $# -lt 2 ]] && {
-        >&2 red "Usage: need_minimum_version <existing_ver> <minimum_ver> [prog_name]"
-        return 1
-    }
-    local existing=$1
-    local min_reqd=$2
-    local prog_name="Need: "
-    [[ $# -gt 2 ]] && {
-        prog_name="${3} : Need: "
-    }
-    local highest=$(echo -e "${existing}\n${min_reqd}" | sort -r -V | head -1)
-    [[ "$highest" = "$existing" ]] || {
-        >&red "${prog_name} ${min_reqd}. Have ${existing}"
-        return 1
-    }
-    return 0
 }
 
 function distro_name() {
@@ -126,24 +82,6 @@ function distro_name() {
     }
 }
 
-function get_version() {
-    # Echoes version number from VERSION.TXT to stdout
-    var_empty_not_spaces FEATURES_DIR && {
-        >&2 red "FEATURES_DIR not set"
-        return
-    }
-    local local_features_dir=${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR
-    [[ -d "$local_features_dir" ]] || {
-        >&2 red "FEATURES_DIR not a directory: $local_features_dir"
-        return
-    }
-    local local_ver_file=${local_features_dir}/VERSION.TXT
-    [[ -f "$local_ver_file" ]] || {
-        >&2 red "Version file not found: $local_ver_file"
-    }
-    cat "$local_ver_file"
-}
-
 function process_std_cmdline_args() {
     # $1: mandatory: yes: tags need valid images
     # $2: mandatory: yes: If no tags supplied, choose all valid TAG_PYVER tags
@@ -153,7 +91,7 @@ function process_std_cmdline_args() {
     # that are guaranteed to be present in TAG_PYVER (and TAG_IMAGE based on $1
     #
     [[ $# -lt 2 ]] && {
-        >&2 red "Usage: process_std_cmdline_args <images> <no_tags> [PYVER_ARGS]"
+        >&2 red "Usage: ${FUNCNAME[0]} <images> <no_tags> [PYVER_ARGS]"
         >&2 red "    <images>:  yes: All tags need valid Docker images"
         >&2 red "    <no_tags>: yes: If no tags, choose all valid TAG_PYVER tags"
         return 1
@@ -219,7 +157,7 @@ function process_std_cmdline_args() {
         unrecognized_list="$unrecognized_list $k"
     done
     [[ -n "$unrecognized_list" ]] && {
-        >&2 red "Unrecognized arguments: $unrecognized_list"
+        >&2 red "${FUNCNAME[0]}: Unrecognized arguments: $unrecognized_list"
     }
 
     # If PYVER args were provided, any errors are fatal
@@ -265,7 +203,7 @@ function relocate_source_dir() {
     # If __RELOCATED_DIR env var is set, does nothing
 
     var_empty __RELOCATED_DIR || {
-        blue "${SCRIPT_NAME:-}: relocate_source_dir: __RELOCATED_DIR already set"
+        blue "${SCRIPT_NAME:-}: ${FUNCNAME[0]}: __RELOCATED_DIR already set"
         return 0
     }
     local NEW_TMP_DIR=$(mktemp -d -p /tmp)
@@ -285,7 +223,7 @@ function relocate_source_dir() {
 
 function relocate_tests_dir() {
     var_empty __RELOCATED_TESTS_DIR || {
-        blue "${SCRIPT_NAME:-}: relocate_source_dir: __RELOCATED_DIR already set"
+        blue "${SCRIPT_NAME:-}: ${FUNCNAME[0]}: __RELOCATED_DIR already set"
         return 0
     }
     local NEW_TMP_DIR=$(mktemp -d -p /tmp)
@@ -303,15 +241,15 @@ function run_1_cmd_in_relocated_dir() {
     #   RELOCATED_DIR
     #   CLEAN_BUILD_SCRIPT
     [[ $# -lt 1 ]] && {
-        >&2 red "Usage: run_1_cmd_in_relocated_dir <cmd> [args...]"
+        >&2 red "Usage: ${FUNCNAME[0]} <cmd> [args...]"
         return 1
     }
     var_empty RELOCATED_DIR && {
-        >&2 red "${SCRIPT_NAME:-}: run_1_cmd_in_relocated_dir: Needs RELOCATED_DIR set"
+        >&2 red "${SCRIPT_NAME:-}: ${FUNCNAME[0]}: Needs RELOCATED_DIR set"
         return 1
     }
     var_empty CLEAN_BUILD_SCRIPT && {
-        >&2 red "run_1_cmd_in_relocated_dir: Needs CLEAN_BUILD_SCRIPT set"
+        >&2 red "${FUNCNAME[0]}: Needs CLEAN_BUILD_SCRIPT set"
         return 1
     }
     cd ${RELOCATED_DIR}
@@ -327,7 +265,7 @@ function create_activate_venv() {
     # Needs following vars set:
     #   SCRIPT_NAME (optional)
     [[ $# -lt 2 ]] && {
-        >&2 red "Usage: run_1_in_venv PYTHON_VERSION_TAG VENV_DIR"
+        >&2 red "Usage: ${FUNCNAME[0]} PYTHON_VERSION_TAG VENV_DIR"
         return 1
     }
     local pyver=$1
@@ -396,5 +334,49 @@ function run_std_tests_in_relocated_dir() {
     run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install git+${GIT_URL}
     run_tests_in_relocated_dir
     run_1_cmd_in_relocated_dir "$PYTHON_CMD" -m pip uninstall -y $PIP_NAME
+}
+
+# ------------------------------------------------------------------------
+# Version-related functions
+# ------------------------------------------------------------------------
+
+function need_minimum_version() {
+    # $1: existing_ver (mandatory)
+    # $2: minimim_ver required (mandatory)
+    # $3: program_name (optional - used only in error message)
+    [[ $# -lt 2 ]] && {
+        >&2 red "Usage: ${FUNCNAME[0]} <existing_ver> <minimum_ver> [prog_name]"
+        return 1
+    }
+    local existing=$1
+    local min_reqd=$2
+    local prog_name="Need: "
+    [[ $# -gt 2 ]] && {
+        prog_name="${3} : Need: "
+    }
+    local highest=$(echo -e "${existing}\n${min_reqd}" | sort -r -V | head -1)
+    [[ "$highest" = "$existing" ]] || {
+        >&red "${prog_name} ${min_reqd}. Have ${existing}"
+        return 1
+    }
+    return 0
+}
+
+function get_version() {
+    # Echoes version number from VERSION.TXT to stdout
+    var_empty_not_spaces FEATURES_DIR && {
+        >&2 red "FEATURES_DIR not set"
+        return
+    }
+    local local_features_dir=${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR
+    [[ -d "$local_features_dir" ]] || {
+        >&2 red "FEATURES_DIR not a directory: $local_features_dir"
+        return
+    }
+    local local_ver_file=${local_features_dir}/VERSION.TXT
+    [[ -f "$local_ver_file" ]] || {
+        >&2 red "Version file not found: $local_ver_file"
+    }
+    cat "$local_ver_file"
 }
 

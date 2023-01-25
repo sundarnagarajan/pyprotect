@@ -1,6 +1,7 @@
 #!/bin/bash
 set -eu -o pipefail
-source /usr/local/bin/manylinux_functions.sh || exit 1
+SCRIPT_DIR=$(readlink -f $(dirname "$BASH_SOURCE"))
+source "$SCRIPT_DIR"/minimal_manylinux_functions.sh || return 1
 
 # Find highest-version PY3 version
 PYTHON_CMD=$(python3_latest_version)

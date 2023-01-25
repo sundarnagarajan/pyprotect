@@ -43,6 +43,7 @@ r/docker_manylinux/Dockerfile.manylinux1
 r/docker_manylinux/Dockerfile.manylinux_2_28
 r/docker_manylinux/Dockerfile.musllinux
 r/docker_manylinux/manylinux_functions.sh
+r/docker_manylinux/minimal_manylinux_functions.sh
 r/docker_manylinux/prepare_env.sh
 r/features/VERSION.TXT
 r/features/signed_files.txt
