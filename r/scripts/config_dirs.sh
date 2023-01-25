@@ -58,7 +58,7 @@ FEATURES_DIR=features
 }
 
 # Make these relative paths under SOURCE_TOPLEVEL_DIR
-# Will work when source is relocated by using RELOCATED_DIR
+# Will work when source is relocated using relocate_source
 CONFIG_DIR=${TOPLEVEL_SUBDIR}/$(basename "${CONFIG_DIR}")
 SCRIPTS_DIR=${TOPLEVEL_SUBDIR}/$(basename "${SCRIPTS_DIR}")
 DOCKER_DISTROS_DIR=${TOPLEVEL_SUBDIR}/$(basename "${DOCKER_DISTROS_DIR}")
