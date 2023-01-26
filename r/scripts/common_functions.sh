@@ -188,12 +188,12 @@ function cleanup() {
     # Cleans up RELOCATED_DIR if set and present
     [[ -n $(declare -p RELOCATED_DIR 2>/dev/null) && -n "${RELOCATED_DIR}+_"  && -d "${RELOCATED_DIR}" ]] && {
         rm -rf "$RELOCATED_DIR"
-        # echo "${SCRIPT_NAME}: Removed RELOCATED_DIR: $RELOCATED_DIR"
+        [[ $VERBOSITY -lt 7 ]] || echo "${SCRIPT_NAME}: Removed RELOCATED_DIR: $RELOCATED_DIR"
     }
     # Cleans up __RELOCATED_TESTS_DIR if set and present
     [[ -n $(declare -p __RELOCATED_TESTS_DIR 2>/dev/null) && -n "${__RELOCATED_TESTS_DIR}+_"  && -d "${__RELOCATED_TESTS_DIR}" ]] && {
         rm -rf "$__RELOCATED_TESTS_DIR"
-        # echo "${SCRIPT_NAME}: Removed __RELOCATED_TESTS_DIR: $__RELOCATED_TESTS_DIR"
+        [[ $VERBOSITY -lt 7 ]] || echo "${SCRIPT_NAME}: Removed __RELOCATED_TESTS_DIR: $__RELOCATED_TESTS_DIR"
     }
 }
 
@@ -202,7 +202,7 @@ function relocate_source_dir() {
     # If __RELOCATED_DIR env var is set, does nothing
 
     var_empty __RELOCATED_DIR || {
-        blue "${SCRIPT_NAME:-}: ${FUNCNAME[0]}: __RELOCATED_DIR already set"
+        [[ $VERBOSITY -lt 4 ]] || blue "${SCRIPT_NAME:-}: ${FUNCNAME[0]}: __RELOCATED_DIR already set"
         return 0
     }
     local NEW_TMP_DIR=$(mktemp -d -p /tmp)
@@ -217,12 +217,12 @@ function relocate_source_dir() {
     export __RELOCATED_DIR=${NEW_TMP_DIR}
     export RELOCATED_DIR=${NEW_TMP_DIR}
     trap cleanup 0 1 2 3 15
-    # echo "${SCRIPT_NAME}: Relocated source to $__RELOCATED_DIR"
+    [[ $VERBOSITY -lt 6 ]] || echo "${SCRIPT_NAME}: Relocated source to $__RELOCATED_DIR"
 }
 
 function relocate_tests_dir() {
     var_empty __RELOCATED_TESTS_DIR || {
-        blue "${SCRIPT_NAME:-}: ${FUNCNAME[0]}: __RELOCATED_DIR already set"
+        [[ $VERBOSITY -lt 4 ]] || blue "${SCRIPT_NAME:-}: ${FUNCNAME[0]}: __RELOCATED_DIR already set"
         return 0
     }
     local NEW_TMP_DIR=$(mktemp -d -p /tmp)
@@ -231,7 +231,7 @@ function relocate_tests_dir() {
     chmod -R go+rX "$NEW_TMP_DIR"
     export __RELOCATED_TESTS_DIR=${NEW_TMP_DIR}
     trap cleanup 0 1 2 3 15
-    # echo "${SCRIPT_NAME}: Relocated tests to $__RELOCATED_TESTS_DIR"
+    [[ $VERBOSITY -lt 6 ]] || echo "${SCRIPT_NAME}: Relocated tests to $__RELOCATED_TESTS_DIR"
 }
 
 function run_1_cmd_in_relocated_dir() {
@@ -253,7 +253,7 @@ function run_1_cmd_in_relocated_dir() {
     }
     cd ${RELOCATED_DIR}
     ${CLEAN_BUILD_SCRIPT}
-    echo -e "${SCRIPT_NAME:-}: ($(id -un)): $@"
+    [[ $VERBOSITY -lt 3 ]] || echo -e "${SCRIPT_NAME:-}: ($(id -un)): $@"
     hide_output_unless_error $@ || return 1
     ${CLEAN_BUILD_SCRIPT}
 }
@@ -271,13 +271,13 @@ function create_activate_venv() {
     local VENV_DIR=$2
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
 
-    echo "${SCRIPT_NAME:-}: Clearing virtualenv dir"
+    [[ $VERBOSITY -lt 3 ]] || echo "${SCRIPT_NAME:-}: Clearing virtualenv dir"
     rm -rf ${VENV_DIR}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
         >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
-    echo "${SCRIPT_NAME:-}: Creating virtualenv $PYTHON_CMD"
+    [[ $VERBOSITY -lt 3 ]] || echo "${SCRIPT_NAME:-}: Creating virtualenv $PYTHON_CMD"
     $PYTHON_CMD -B -c 'import venv' 2>/dev/null && {
         hide_output_unless_error $PYTHON_CMD -m venv ${VENV_DIR} || return 1
     } || {
@@ -346,6 +346,7 @@ function sort_versions() {
     # Reads one version per line, writes one version per line
     # Can fail (return 1) if no python command was found
     local PYCMD=
+    # Cannot use [[ cmd ]] construct for this
     if ! PYCMD=$(command -v python3 || command -v python || command -v python2); then
         >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): ${FUNCNAME[0]}: Could not find python3 or python2"
         return 1
@@ -428,6 +429,7 @@ function compare_versions() {
     #     compare_versions '<'  3.0 3.0.0g11
 
     local PYCMD=
+    # Cannot use [[ cmd ]] construct for this
     if ! PYCMD=$(command -v python3); then
         >&2 red "${SCRIPT_NAME}: ${FUNCNAME[0]}: No python3 found"
         return -1

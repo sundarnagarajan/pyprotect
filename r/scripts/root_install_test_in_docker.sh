@@ -9,14 +9,13 @@ source "$PROG_DIR"/common_functions.sh
     >&2 red "${SCRIPT_NAME}: Run as root"
     exit 1
 }
-echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
+[[ $VERBOSITY -lt 2 ]] || echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 must_be_in_docker
-
 relocate_source_dir
 relocate_tests_dir
 PROG_DIR="$__RELOCATED_DIR"/${SCRIPTS_DIR}
 PROG_DIR=$(readlink -f "$PROG_DIR")
-# echo "${SCRIPT_NAME}: Running in $PROG_DIR"
+[[ $VERBOSITY -lt 5 ]] ||  echo "${SCRIPT_NAME}: Running in $PROG_DIR"
 
 # Disable pip warnings that are irrelevant here
 export PIP_DISABLE_PIP_VERSION_CHECK=1
@@ -30,7 +29,6 @@ PYVER_CHOSEN=$@
 VALID_PYVER=$(process_std_cmdline_args no yes $@)
 
 ${CLEAN_BUILD_SCRIPT}
-
 
 for p in $VALID_PYVER
 do
@@ -52,7 +50,6 @@ do
 
     # Skip if __MINIMAL_TESTS is set
     [[ -z "${__MINIMAL_TESTS:-}" ]] && {
-        echo "-------------------- Executing as root for $p --------------------"
         run_std_tests_in_relocated_dir $p || {
             [[ -n "$PYVER_CHOSEN" ]] && exit 1 || {
                 ${CLEAN_BUILD_SCRIPT}

@@ -5,14 +5,14 @@ PROG_DIR=$(readlink -f $(dirname "$0"))
 source "${PROG_DIR}"/common_functions.sh
 # Exit if feature is not implemented
 var_empty_not_spaces GPG_KEY && {
-    >&2 blue "GPG_KEY not set"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "GPG_KEY not set"
 }
 var_empty_not_spaces FEATURES_DIR && {
-    >&2 blue "FEATURES_DIR not set"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "FEATURES_DIR not set"
     exit 0
 }
 [[ -d "${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR" ]] || {
-    >&2 blue "FEATURES_DIR not a directory: ${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "FEATURES_DIR not a directory: ${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR"
     exit 0
 }
 # Need gpg2 (preferred) or gpg

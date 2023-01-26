@@ -35,7 +35,8 @@ for v in \
     TAG_IMAGE \
     DOCKERFILE_IMAGE \
     CYTHON_DOCKER_FILE \
-    CYTHON3_DOCKER_IMAGE
+    CYTHON3_DOCKER_IMAGE \
+    VERBOSITY
 do
     unset $v
 done
@@ -54,7 +55,7 @@ do
     }
 done
 # Somr vars should NOT be arrays
-for v in PY_MODULE PIP_NAME DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE_FILENAME TESTS_DIR PROJECT_FILES
+for v in PY_MODULE PIP_NAME DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE_FILENAME TESTS_DIR PROJECT_FILES VERBOSITY
 do
     var_declared $v && {
         var_is_nonarray $v || {
@@ -69,6 +70,7 @@ var_is_map TAG_PYVER || {
     errors=1
 }
 
+# Initialize optional variables
 PY_MODULE=${PY_MODULE:-}
 PIP_NAME=${PIP_NAME:-$PY_MODULE}
 EXTENSION_NAME=${EXTENSION_NAME:-}
@@ -76,6 +78,19 @@ DOCKER_MOUNTPOINT=${DOCKER_MOUNTPOINT:-}
 DEFAULT_DISTRO=${DEFAULT_DISTRO:-}
 GPG_KEY=${GPG_KEY:-}
 TEST_MODULE_FILENAME=${TEST_MODULE_FILENAME:-}
+VERBOSITY=${VERBOSITY:-4}
+# CAN override VERBOSITY in config.sh with env var __VERBOSITY
+VERBOSITY=${__VERBOSITY:-$VERBOSITY}
+
+
+# Some vars must be ints
+for v in VERBOSITY
+do
+    var_value_int $v || {
+        >&2 red "$v should be an integer in config.sh (${!v})"
+        errors=1
+    }
+done
 
 for v in PY_MODULE DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TAG_PYVER TEST_MODULE_FILENAME
 do
@@ -84,6 +99,7 @@ do
         errors=1
     }
 done
+
 
 # Set defaults
 CYTHONIZE_REQUIRED=${CYTHONIZE_REQUIRED:-no}
@@ -134,6 +150,7 @@ readonly \
     TEST_MODULE_FILENAME \
     DEFAULT_DISTRO \
     GIT_URL GPG_KEY \
+    VERBOSITY \
     HOST_USERNAME HOST_GROUPNAME HOST_UID HOST_GID 
 
 

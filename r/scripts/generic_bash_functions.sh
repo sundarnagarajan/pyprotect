@@ -181,8 +181,6 @@ function var_is_nonarray() {
     # Returns: 0 if $1 is a 'normal' var (non-array); 1 otherwise
     # Other than in var_declared, var_type, var_is_ref and var_deref always dereference first
     [[ $# -lt 1 ]] && return 1
-    # var_is_map $1 || return 1
-    # var_is_array $1 && return 1
     local dereferenced=$(var_deref "$1") || return 1
     local vt=$(var_type ${dereferenced})
     [[ -z "$vt" ]] && return 1
@@ -236,6 +234,7 @@ function var_empty() {
     # Other than in var_declared, var_type, var_is_ref and var_deref always dereference first
     [[ $# -lt 1 ]] && return 1
     local dereferenced=
+    # Cannot use [[ cmd ]] construct for this
     if ! dereferenced=$(var_deref $1); then return 0; fi
     var_is_nonarray "$dereferenced" && {
         [[ -z "${!dereferenced}" ]] && return 0 || return 1
@@ -255,8 +254,26 @@ function var_empty_not_spaces() {
     var_empty "$1" && return 0
     var_is_nonarray "$1" || return 1
     local dereferenced=
+    # Cannot use [[ cmd ]] construct for this
     if ! dereferenced=$(var_deref $1); then return 0; fi
     [[ "${!dereferenced}" =~ ^[[:space:]\n]*$ ]] && return 0 || return 1
+}
+
+function var_value_int() {
+    # $1: variable name - WITHOUT '$'
+    # Returns: 0 if value of $1 is an integer; 1 otherwise
+    # Undeclared variable names return 1
+    # All array-type variables return 1
+    [[ $# -lt 1 ]] && return 1
+    var_is_nonarray "$1" || return 1
+    local dereferenced=
+    # Cannot use [[ cmd ]] construct for this
+    if ! dereferenced=$(var_deref $1); then return 0; fi
+    # zero / positive integers
+    [[ "${!dereferenced}" =~ ^[0-9][0-9]*$ ]] && return 0
+    # Negative integers
+    [[ "${!dereferenced}" =~ ^-[0-9][0-9]*$ ]] && return 0
+    return 1
 }
 
 function var_show_vars() {
@@ -325,6 +342,7 @@ function hide_output_unless_error() {
     [[ $# -lt 1 ]] && return
     local ret=0
     local out=""
+    # Cannot use [[ cmd ]] construct for this
     if ! out=$($@ 2>&1); then
         ret=$?
         [[ -n "$out" ]] && {
@@ -341,5 +359,11 @@ function command_must_exist() {
     # $1: command
     [[ $# -lt 1 ]] && return 1
     command -v $1 2>&1
+}
+
+function run_swap_stdout_stderr() {
+    # Runs arguments swapping stdout and stderr
+    [[ $# -lt 1 ]] && return
+    $@ 3>&1 1>&2 2>&3
 }
 

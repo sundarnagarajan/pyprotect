@@ -22,10 +22,14 @@ function test_in_1_pyver() {
     
     if [[ $ret -eq 0 ]]; then
         var_empty __NOTEST && {
-            echo "${SCRIPT_NAME}: $python_cmd ${__TESTS_DIR}/${TEST_MODULE_FILENAME}"
-            $python_cmd -B "${TEST_MODULE_FILENAME}" || return $?
+            [[ $VERBOSITY -lt 3 ]] || echo "${SCRIPT_NAME}: $python_cmd ${__TESTS_DIR}/${TEST_MODULE_FILENAME}"
+            [[ $VERBOSITY -lt 1 ]] && {
+                hide_output_unless_error $python_cmd -B "${TEST_MODULE_FILENAME}" || return $?
+            } || {
+                $python_cmd -B "${TEST_MODULE_FILENAME}" || return $?
+            }
         } || {
-            blue "${SCRIPT_NAME}: __NOTEST set, not executing tests with $python_cmd ${__TESTS_DIR}/${TEST_MODULE_FILENAME}"
+            [[ $VERBOSITY -lt 4 ]] || >&2 blue "${SCRIPT_NAME}: __NOTEST set, not executing tests with $python_cmd ${__TESTS_DIR}/${TEST_MODULE_FILENAME}"
             return
         }
     else
@@ -39,9 +43,9 @@ function test_in_1_pyver() {
 # ------------------------------------------------------------------------
 env | grep -q '^VIRTUAL_ENV' && IN_VENV=yes || IN_VENV=no
 [[ "$IN_VENV" = "yes" ]] && {
-    echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un) in virtualenv"
+    [[ $VERBOSITY -lt 2 ]] || echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un) in virtualenv"
 } || {
-    echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
+    [[ $VERBOSITY -lt 2 ]] || echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 }
 
 # If __TESTS_DIR env var is set, ONLY $TESTS_DIR/$TEST_MODULE_FILENAME is tried

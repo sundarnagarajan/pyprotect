@@ -12,7 +12,6 @@ function run_1_in_venv() {
     }
     local pyver=$1
     local TEST_VENV_DIR=/tmp/test_venv
-    echo "---------- venv: Install and test with $pyver as $(id -un) -----------------"
 
     function cleanup_venv() {
         deactivate
@@ -45,7 +44,6 @@ function inplace_build_and_test_1_pyver() {
         return 1
     }
 
-    echo "---------- Inplace build and test with $pyver -----------------"
     run_1_cmd_in_relocated_dir ${INPLACE_BUILD_SCRIPT} $pyver || return 1
     # Need to run tests in place
     ${RELOCATED_DIR}/${SCRIPTS_DIR}/run_func_tests.sh $pyver
@@ -64,7 +62,6 @@ function pip_install_user_1_pyver() {
         return 1
     }
 
-    echo "---------- Install and test --user with $pyver -----------------"
     run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip install --user . || return 1
     run_tests_in_relocated_dir || return 1
     run_1_cmd_in_relocated_dir $PYTHON_CMD -m pip uninstall -y $PIP_NAME || return 1
@@ -75,7 +72,7 @@ function pip_install_user_1_pyver() {
 # Actual script starts after this
 # ------------------------------------------------------------------------
 
-echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
+[[ $VERBOSITY -lt 2 ]] || echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 must_be_in_docker
 
 # Expected ONLY to be run from root_install_test_in_docker.sh
@@ -105,7 +102,7 @@ var_empty __RELOCATED_TESTS_DIR && {
 
 PROG_DIR="$__RELOCATED_DIR"/${SCRIPTS_DIR}
 PROG_DIR=$(readlink -f "$PROG_DIR")
-# echo "${SCRIPT_NAME}: Running in $PROG_DIR"
+[[ $VERBOSITY -lt 5 ]] || echo "${SCRIPT_NAME}: Running in $PROG_DIR"
 
 # Disable pip warnings that are irrelevant here
 export PIP_DISABLE_PIP_VERSION_CHECK=1

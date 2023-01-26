@@ -5,16 +5,16 @@ PROG_DIR=$(dirname $0)
 source "${PROG_DIR}"/common_functions.sh
 # Exit if feature is not implemented
 var_empty_not_spaces FEATURES_DIR && {
-    >&2 blue "FEATURES_DIR not set"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "FEATURES_DIR not set"
     exit 0
 }
 [[ -d "${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR" ]] || {
-    >&2 blue "FEATURES_DIR not a directory: ${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "FEATURES_DIR not a directory: ${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR"
     exit 0
 }
 cd "$SOURCE_TOPLEVEL_DIR"/$FEATURES_DIR
 [[ -f signature.asc ]] || {
-    >&2 blue "Signature file not found: ${SOURCE_TOPLEVEL_DIR}/${FEATURES_DIR}/signature.asc"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "Signature file not found: ${SOURCE_TOPLEVEL_DIR}/${FEATURES_DIR}/signature.asc"
     exit 0
 }
 # Need gpg2 (preferred) or gpg

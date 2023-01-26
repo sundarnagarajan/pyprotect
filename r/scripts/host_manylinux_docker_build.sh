@@ -14,9 +14,9 @@ do
         img=${MANYLINUX_TAG_IMAGE["$tag"]}
         dk_file=${MANYLINUX_TAG_DOCKERFILE["$tag"]}
     docker build --build-arg MANYLINUX_IMAGE=$tag  $@ -t $img -f $dk_file .
-    >&2 blue "Built image $img from $dk_file"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "Built image $img from $dk_file"
     } || {
-        >&2 blue "Ignoring tag without Dockerfile defined: $tag"
+        [[ $VERBOSITY -lt 4 ]] || >&2 blue "Ignoring tag without Dockerfile defined: $tag"
         continue
     }
 done

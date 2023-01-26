@@ -18,7 +18,7 @@ cd "$PROG_DIR"/..
     docker_image_must_exist $CYTHON3_DOCKER_IMAGE
     echo "${SCRIPT_NAME}: Running docker in $CYTHON3_DOCKER_IMAGE"
     cd "${SOURCE_TOPLEVEL_DIR}"
-    DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user "${HOST_UID}:${HOST_GID}" --env __DISTRO=${__DISTRO:-} $CYTHON3_DOCKER_IMAGE ${CYTHONIZE_SCRIPT}"
+    DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user "${HOST_UID}:${HOST_GID}" --env __VERBOSITY=${__VERBOSITY:-} --env __DISTRO=${__DISTRO:-} $CYTHON3_DOCKER_IMAGE ${CYTHONIZE_SCRIPT}"
     echo $DOCKER_CMD
     $DOCKER_CMD
 }

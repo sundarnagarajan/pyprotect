@@ -18,7 +18,7 @@ function build_1_in_place_and_test() {
     # Set LDFLAGS to automatically strip .so
     export LDFLAGS=-s
 
-    # echo "${SCRIPT_NAME}: build_1_in_place_and_test: Running in $PROG_DIR"
+    [[ $VERBOSITY -lt 5 ]] || echo "${SCRIPT_NAME}: build_1_in_place_and_test: Running in $PROG_DIR"
     local PYTHON_BASENAME=${TAG_PYVER[$pyver]}
     local PYTHON_CMD=$(command_must_exist ${PYTHON_BASENAME}) || {
         >&2 red "${SCRIPT_NAME}(${FUNCNAME[0]}): $pyver : python command not found: $PYTHON_BASENAME"
@@ -28,7 +28,7 @@ function build_1_in_place_and_test() {
         >&2 red "${SCRIPT_NAME}(${FUNCNAME[0]}): $pyver : python command not found: $PYTHON_BASENAME"
         return 1
     }
-    echo "${SCRIPT_NAME}: Building for $pyver using $PYTHON_CMD"
+    [[ $VERBOSITY -lt 3 ]] || echo "${SCRIPT_NAME}: Building for $pyver using $PYTHON_CMD"
     # Check if .so has to be rebuilt
     local PY_CODE='
 import sys
@@ -62,23 +62,23 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
             [[ $(ldd "$TARGET" 2>/dev/null | awk -F' => ' '$2 == "not found" {print $1}' | wc -l) -eq 0 ]] || incompatible=1
         }
         [[ $incompatible -ne 0 ]] && {
-            blue "${SCRIPT_NAME}: ${TARGET_BASENAME}: Rebuilding because of incompatibility"
+            [[ $VERBOSITY -lt 3 ]] || blue "${SCRIPT_NAME}: ${TARGET_BASENAME}: Rebuilding because of incompatibility"
             REBUILD_REQUIRED=1
         }
     }
     [[ $REBUILD_REQUIRED -eq 0 ]] && {
-        >&2 echo "${SCRIPT_NAME}: ${TARGET_BASENAME}: No rebuild required"
+        [[ $VERBOSITY -lt 4 ]] || >&2 echo "${SCRIPT_NAME}: ${TARGET_BASENAME}: No rebuild required"
         "${CLEAN_BUILD_SCRIPT}"
         "${PROG_DIR}"/run_func_tests.sh $pyver
         return 0
     }
     "${CLEAN_BUILD_SCRIPT}"
-    echo "Building ${TARGET_BASENAME} using $PYTHON_BASENAME setup.py build_ext --inplace"
+    [[ $VERBOSITY -lt 3 ]] || echo "Building ${TARGET_BASENAME} using $PYTHON_BASENAME setup.py build_ext --inplace"
     hide_output_unless_error $PYTHON_CMD setup.py build_ext --inplace || {
         "${CLEAN_BUILD_SCRIPT}"
         return 1
     }
-    echo "${SCRIPT_NAME}: Built target: $TARGET"
+    [[ $VERBOSITY -lt 4 ]] || echo "${SCRIPT_NAME}: Built target: $TARGET"
     restore_file_ownership ${PY_MODULE}/${EXTENSION_NAME}.pyx "$TARGET"
     "${PROG_DIR}"/run_func_tests.sh $pyver
     "${CLEAN_BUILD_SCRIPT}"
@@ -89,9 +89,9 @@ print(sysconfig.get_config_var(CONFIG_KEY) or "");
 # Actual script starts after this
 # ------------------------------------------------------------------------
 
-echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
+[[ $VERBOSITY -lt 2 ]] || echo "${SCRIPT_NAME}: Running in $(distro_name) as $(id -un)"
 [[ -z "${EXTENSION_NAME:-}" ]] && {
-    >&2 echo "${SCRIPT_NAME}: Not using C-extension"
+    [[ $VERBOSITY -lt 3 ]] || >&2 echo "${SCRIPT_NAME}: Not using C-extension"
     exit 0
 }
 var_empty __RELOCATED_DIR || {
@@ -105,7 +105,7 @@ var_empty __RELOCATED_DIR || {
     }
 }
 cd "$PROG_DIR"/../..
-# echo "${SCRIPT_NAME}: Running in $(pwd)"
+[[ $VERBOSITY -lt 5 ]] ||  echo "${SCRIPT_NAME}: Running in $(pwd)"
 
 CLEAN_BUILD_SCRIPT="${PROG_DIR}"/clean_build.sh
 CYTHONIZE_SCRIPT="${PROG_DIR}"/cythonize_inplace.sh

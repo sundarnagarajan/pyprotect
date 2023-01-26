@@ -18,8 +18,8 @@ function install_test_1_pyver() {
     local pyver=$1
     local img=${TAG_IMAGE[${pyver}]}
     cd "$SOURCE_TOPLEVEL_DIR"
-    echo "${SCRIPT_NAME}: Running docker in $img"
-    DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user root --env __DISTRO=$DISTRO --env __MINIMAL_TESTS=${__MINIMAL_TESTS:-} --env __NOTEST=${__NOTEST:-} $img ${ROOT_SCRIPT} $pyver"
+    [[ $VERBOSITY -lt 2 ]] || echo "${SCRIPT_NAME}: Running docker in $img"
+    DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user root --env __VERBOSITY=${__VERBOSITY:-} --env __DISTRO=$DISTRO --env __MINIMAL_TESTS=${__MINIMAL_TESTS:-} --env __NOTEST=${__NOTEST:-} $img ${ROOT_SCRIPT} $pyver"
     $DOCKER_CMD
 }
 
@@ -28,8 +28,8 @@ cd "$SOURCE_TOPLEVEL_DIR"
 [[ -n "${EXTENSION_NAME:-}" && "${CYTHONIZE_REQUIRED:-}" = "yes" ]] && {
     # Still need to check for CYTHON3_DOCKER_IMAGE and run CYTHONIZE_SCRIPT
     docker_image_must_exist $CYTHON3_DOCKER_IMAGE
-    echo "${SCRIPT_NAME}: Running docker in $CYTHON3_DOCKER_IMAGE"
-    DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user "${HOST_UID}:${HOST_GID}" --env __DISTRO=${__DISTRO:-} $CYTHON3_DOCKER_IMAGE ${CYTHONIZE_SCRIPT}"
+    [[ $VERBOSITY -lt 2 ]] || echo "${SCRIPT_NAME}: Running docker in $CYTHON3_DOCKER_IMAGE"
+    DOCKER_CMD="docker run --rm -it -v $(pwd):${DOCKER_MOUNTPOINT}:rw --user "${HOST_UID}:${HOST_GID}" --env __VERBOSITY=${__VERBOSITY:-} --env __DISTRO=${__DISTRO:-} $CYTHON3_DOCKER_IMAGE ${CYTHONIZE_SCRIPT}"
     $DOCKER_CMD
 }
 

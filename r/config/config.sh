@@ -59,6 +59,30 @@ declare -A TAG_PYVER=( \
     ["PYPY2"]=pypy \
 )
 
+# VERBOSITY is an INT that drives the level of output
+# With increasing values for VERBOSITY, more output is shown
+# VERBOSITY is OPTIONAL and defaults to 4
+# Errors are ALWAYS shown (in RED)
+# Test failures are ALWAYS shown
+#
+# VERBOSITY     Impact
+#  0            Silent - only errors and test failures are shown
+#  1            Only errors, test failures and test output are shown
+#  2            Running env (Distro, whether in docker / virtualenv shown
+#  3            Key test / build / install / uninstall commands shown
+#  4            Warnings / Notice messages in BLUE are shown
+#  5            Current working directory messages are shown
+#  6            Temporary files / dir creation is shown
+#  7            Automatic cleanup of temporary files / dirs are shown
+#
+# Anything larger than the maximum value above is the same as specifying
+# the maximum value
+# Can be overridden temporarily with env var __VERBOSITY
+#
+# Recommended level: 4 or above
+#
+declare -i VERBOSITY=4
+
 # More related to docker than the project, but it is in config.sh
 # to avoid repeating in each of the config_docker_<distro>.sh files
 DOCKER_MOUNTPOINT=/${PY_MODULE}

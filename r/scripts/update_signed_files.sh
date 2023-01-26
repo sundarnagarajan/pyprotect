@@ -5,11 +5,11 @@ PROG_DIR=$(dirname $0)
 source "${PROG_DIR}"/common_functions.sh
 # Exit if feature is not implemented
 var_empty_not_spaces FEATURES_DIR && {
-    >&2 blue "FEATURES_DIR not set"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "FEATURES_DIR not set"
     exit 1
 }
 [[ -d "${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR" ]] || {
-    >&2 blue "FEATURES_DIR not a directory: ${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR"
+    [[ $VERBOSITY -lt 4 ]] || >&2 blue "FEATURES_DIR not a directory: ${SOURCE_TOPLEVEL_DIR}/$FEATURES_DIR"
     exit 1
 }
 cd "$SOURCE_TOPLEVEL_DIR"
