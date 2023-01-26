@@ -345,18 +345,23 @@ function sort_versions() {
     # Reads stdin, writes stdout
     # Reads one version per line, writes one version per line
     # Can fail (return 1) if no python command was found
+    # Returns:
+    #   0  : On success
+    #  -1  : No python3 command was found
+    #   2  : packaging.version not found
     local PYCMD=
     # Cannot use [[ cmd ]] construct for this
-    if ! PYCMD=$(command -v python3 || command -v python || command -v python2); then
-        >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): ${FUNCNAME[0]}: Could not find python3 or python2"
-        return 1
+    if ! PYCMD=$(command -v python3); then
+        >&2 red "$(basename ${BASH_SOURCE[1]})(${FUNCNAME[1]}): ${FUNCNAME[0]}: No python3 found"
+        return -1
     fi
     local PY_CODE='
 import sys
 try:
     from packaging.version import parse as verfn
 except:
-    from distutils.version import LooseVersion as verfn
+    sys.stderr.write("packaging.version not found")
+    exit(2)
 
 l = []
 while True:
@@ -367,17 +372,10 @@ while True:
     x = x.rstrip("\n").strip()
     l.append(x)
 
-# packaging.version.parse is picky about what is a version
-# but  distutils.version.LooseVersion is not
-# If the list contains proper numeric versions, use verfn
-# Otherwise perform regular sort
-try:
-    l.sort(key=verfn)
-except:
-    l.sort()
+l.sort(key=verfn)
 print("\n".join(l))
 '
-    $PYCMD -c "$PY_CODE"
+    $PYCMD -c "$PY_CODE" || return $?
     return 0
 }
 
