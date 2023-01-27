@@ -1,78 +1,51 @@
 import sys
 sys.dont_write_bytecode = True
-
-# -------------------------------------------------------------------------
-# Setting __version__
-# -------------------------------------------------------------------------
-# KEEP Next line - for version-updater script to update
-__version__ = ''
-__module_name = 'pyprotect'
-# PyPi package name is set (only) in setup.cfg - set to None if it is
-# the same as module_name
-__pypi_name = 'pyprotect_package'
-
-
-def get_installed_version(module_name, default_version, pypi_name=None):
-    '''
-    Generic reusable function
-    module_name->str
-    default_version->str
-    pypi_name->str|None
-
-    Set pypi_name if different from module_name
-    '''
-    if not pypi_name:
-        pypi_name = module_name
-    import os.path
-    # pkg_resources is being deprecated, however importlib.metadata
-    # is not available in PY2 and even in PY3 < 3.7
-    try:
-        from importlib.metadata import version
-        try:
-            return version(pypi_name)
-        except:
-            return default_version
-    except:
-        # Silence PkgResourcesDeprecationWarning
-        import warnings
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore")
-            from pkg_resources import get_distribution, DistributionNotFound
-            try:
-                _dist = get_distribution(pypi_name)
-                if _dist.has_version():
-                    return _dist.version
-                return default_version
-            except:
-                return default_version
-
-
-__version__ = get_installed_version(
-    module_name=__module_name,
-    default_version='0.0.0-VERSION_NOT_FOUND',
-    pypi_name=__pypi_name,
-)
-del get_installed_version, __pypi_name, __module_name
-# -------------------------------------------------------------------------
-
-# I have .flake8 in parent dir containing:
-# [flake8]
-# per-file-ignores =
-#     __init__.py: F401
-
 import os
-try:
-    import protected as protected
-except ImportError:
-    module_dir = os.path.dirname(__file__)
-    if module_dir in sys.path:
-        raise
-    sys.path.append(module_dir)
-    import protected as protected
-    sys.path.remove(module_dir)
-    del module_dir
+UNKNOWN_VERSION = '0.0.0-VERSION_NOT_FOUND'
+DEFS_FILE_BASENAME = 'version_extname.ini'
 
-__doc__ = protected.__doc__
-from protected import *   # noqa: F403
-del os, sys, protected
 
+def get_ver_and_extmod():
+    import sys
+    import os
+    import sysconfig
+    import imp
+
+    if sys.version_info.major == 2:
+        from ConfigParser import ConfigParser
+    else:
+        from configparser import ConfigParser
+
+    global UNKNOWN_VERSION
+    global DEFS_FILE_BASENAME
+    MODULE_DIR = os.path.dirname(os.path.realpath(__file__))
+    DEFS_FILE = os.path.join(MODULE_DIR, DEFS_FILE_BASENAME)
+    cfg = ConfigParser()
+    cfg.read(DEFS_FILE)
+
+    __ver = UNKNOWN_VERSION
+    ext_name = None
+    if cfg.has_option('defs', 'VERSION'):
+        __ver = cfg.get('defs', 'VERSION')
+    if cfg.has_option('defs', 'EXTENSION_NAME'):
+        ext_name = cfg.get('defs', 'EXTENSION_NAME')
+
+    if not ext_name:
+        return (__ver, None)
+
+    if sys.version_info.major == 2:
+        CONFIG_KEY = "SO"
+    else:
+        CONFIG_KEY = 'EXT_SUFFIX'
+    ext_fn = ext_name + sysconfig.get_config_var(CONFIG_KEY)
+    ext_fn = os.path.join(MODULE_DIR, ext_fn)
+    return (__ver, imp.load_dynamic(ext_name, ext_fn))
+
+
+(__version__, e) = get_ver_and_extmod()
+if e:
+    globals().update({k: getattr(e, k) for k in e.__all__})
+    __doc__ = e.__doc__
+del sys, os, get_ver_and_extmod
+del UNKNOWN_VERSION, e
+# -------------------------------------------------------------------------

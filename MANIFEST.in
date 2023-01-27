@@ -12,3 +12,4 @@ include pyprotect/imports.pxi
 include pyprotect/protected.c
 include pyprotect/protected.pyx
 include pyprotect/python_visible.pxi
+include pyprotect/version_extname.ini

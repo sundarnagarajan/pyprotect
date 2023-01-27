@@ -9,6 +9,26 @@
 SCRIPT_DIR=$(readlink -f $(dirname $BASH_SOURCE))
 
 
+function get_config_vars_from_source() {
+    # Here are what we can get 'DRY' from the source:
+    #
+    # 1. PY_MODULE from setup.py
+    # grep '^PY_MODULE[[:space:]][[:space:]]*=' setup.py | awk -F= '{print $2}' | sed -e "s/'//g" -e 's/"//g' -e 's/ //g'
+    #
+    #
+    # 2. PIP_NAME from setup.cfg
+    # grep '^name[[:space:]][[:space:]]*=' setup.cfg | awk -F= '{print $2}' | sed -e 's/ //g'
+    #
+    # DEFS_FILE_BASENAME from PY_MODULE/__init__.py
+    # grep '^DEFS_FILE_BASENAME[[:space:]][[:space:]]*=' pyprotect/__init__.py | awk -F= '{print $2}' | sed -e "s/'//g" -e 's/"//g' -e 's/ //g'
+    #
+    # $PY_MODULE/$DEFS_FILE_BASENAME contains (ini form in section 'defs')
+    # EXTENSION_NAME
+    # VERSION
+    echo ""
+}
+
+
 # config vars are made read-only, so they are guarded by __CONFIG_SOURCED
 var_declared __CONFIG_SOURCED && return
 var_empty __CONFIG_SOURCED || return

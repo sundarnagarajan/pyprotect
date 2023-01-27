@@ -28,6 +28,7 @@ pyprotect/imports.pxi
 pyprotect/protected.c
 pyprotect/protected.pyx
 pyprotect/python_visible.pxi
+pyprotect/version_extname.ini
 r/config/config.sh
 r/config/config_distro_alpine.sh
 r/config/config_distro_arch.sh
