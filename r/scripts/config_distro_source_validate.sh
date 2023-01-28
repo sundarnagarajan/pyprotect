@@ -25,7 +25,27 @@ function get_config_vars_from_source() {
     # $PY_MODULE/$DEFS_FILE_BASENAME contains (ini form in section 'defs')
     # EXTENSION_NAME
     # VERSION
-    echo ""
+    #
+    # Should be called AFTER setting SOURCE_TOPLEVEL_DIR
+    # Should be called AFTER sourcing config.sh and unsetting the following
+    # variables:
+    #   PY_MODULE
+    #   PIP_NAME
+    #   DEFS_FILE_BASENAME
+    #   EXTENSION_NAME
+    #   VERSION
+    #
+    cd "${SOURCE_TOPLEVEL_DIR}"
+    for v in PY_MODULE PIP_NAME DEFS_FILE_BASENAME EXTENSION_NAME VERSION
+    do
+        unset $v
+    done
+
+    PY_MODULE=$(grep '^PY_MODULE[[:space:]][[:space:]]*=' "${SOURCE_TOPLEVEL_DIR}"/setup.py | awk -F= '{print $2}' | sed -e "s/'//g" -e 's/"//g' -e 's/ //g')
+    PIP_NAME=$(grep '^name[[:space:]][[:space:]]*=' "${SOURCE_TOPLEVEL_DIR}"/setup.cfg | awk -F= '{print $2}' | sed -e 's/ //g')
+    DEFS_FILE_BASENAME=$(grep '^DEFS_FILE_BASENAME[[:space:]][[:space:]]*=' "${SOURCE_TOPLEVEL_DIR}"/${PY_MODULE}/__init__.py | awk -F= '{print $2}' | sed -e "s/'//g" -e 's/"//g' -e 's/ //g')
+    EXTENSION_NAME=$(grep '^EXTENSION_NAME[[:space:]][[:space:]]*=' "${SOURCE_TOPLEVEL_DIR}"/${PY_MODULE}/${DEFS_FILE_BASENAME} | awk -F= '{print $2}' | sed -e 's/ //g')
+    VERSION=$(grep '^VERSION[[:space:]][[:space:]]*=' "${SOURCE_TOPLEVEL_DIR}"/${PY_MODULE}/${DEFS_FILE_BASENAME} | awk -F= '{print $2}' | sed -e 's/ //g')
 }
 
 
@@ -62,15 +82,13 @@ do
 done
 
 source "${SOURCE_TOPLEVEL_DIR}"/${CONFIG_DIR}/config.sh
+get_config_vars_from_source
 
-# Variables that belong ONLY in config.sh and cannot be overridden
-# in config_docker_<distro>.sh are defaulted, validated and marked read-only
-
-# Some variables MUST be set in config.sh
+# Some variables MUST be set in config.sh - now set by get_config_vars_from_source
 for v in PY_MODULE DOCKER_MOUNTPOINT DEFAULT_DISTRO TAG_PYVER GPG_KEY TEST_MODULE_FILENAME
 do
     var_declared $v || {
-        >&2 red "$v not set in config.sh"
+        >&2 red "$v not set (unexpected): get_config_vars_from_source"
         errors=1
     }
 done
@@ -79,7 +97,7 @@ for v in PY_MODULE PIP_NAME DOCKER_MOUNTPOINT DEFAULT_DISTRO GPG_KEY TEST_MODULE
 do
     var_declared $v && {
         var_is_nonarray $v || {
-        >&2 red "$v should be ordinary (non-array) in config.sh"
+        >&2 red "$v should be ordinary (non-array) (unexpected): get_config_vars_from_source"
         errors=1
         }
     }

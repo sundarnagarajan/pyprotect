@@ -1,20 +1,9 @@
 #!/bin/bash
-# As of now (ubuntu jammy) have Cython3, PY2, PY3, PYPY2, PYPY3
-# in the same container
-
-# The name of the module - should be a top-level directory
-PY_MODULE=pyprotect
-
-# The name of the project on PyPi - can omit if same as PY_MODULE
-PIP_NAME=pyprotect_package
-
-# Set EXTENSION_NAME="" if module does not use a C-Extension
-EXTENSION_NAME=protected
 
 # Set CYTHONIZE_REQUIRED=no (not yes) if C-Extension does not need cython
 CYTHONIZE_REQUIRED=yes
 # As of 20220122 we build cython 3.0.0a11 from github source
-# Cython 3.0 is required to inter-operate with python 3.11
+# Cython >=3.0a11 is required to inter-operate with python 3.11
 # See: https://github.com/numpy/numpy/issues/21422#issuecomment-1115775992
 CYTHON3_PROG_NAME=cython
 CYTHON3_MIN_VER=3.0.0
@@ -28,7 +17,7 @@ TESTS_DIR=tests
 # Include only FILES required to run python setup.py install
 # Do not include $PY_MODULE or $SCRIPTS_DIR or $TESTS_DIR
 # All the files MUST EXIST as regular files
-# Optional - defaults to "MANIFEST.in README.md pyproject.toml setup.cfg setup.py version.py"
+# Optional - defaults to "MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
 # Can be commented if using default list
 PROJECT_FILES="MANIFEST.in README.md pyproject.toml setup.cfg setup.py"
 
@@ -85,7 +74,7 @@ declare -i VERBOSITY=4
 
 # More related to docker than the project, but it is in config.sh
 # to avoid repeating in each of the config_docker_<distro>.sh files
-DOCKER_MOUNTPOINT=/${PY_MODULE}
+DOCKER_MOUNTPOINT=/source
 
 # Distro to use in docker if __DISTRO env var is not set
 # Should have corresponding config_docker_<distro>.sh and Dockerfile.<distro>
