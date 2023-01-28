@@ -64,6 +64,8 @@ def get_ver_and_extmod():
             import imp
             return imp.load_dynamic(name, path)
         else:
+            # See importlib python docs: https://is.gd/qAgDsD
+            # See: https://stackoverflow.com/a/56219484
             import importlib
             spec = importlib.util.spec_from_file_location(name, path)
             mod = importlib.util.module_from_spec(spec)
@@ -92,6 +94,8 @@ def get_ver_and_extmod():
             # At least on Ubuntu, system-wide installs do not seem to use egg
             # EVEN if zip_safe is True
             try:
+                # See:Migration guide: https://is.gd/uCwmdM
+                # importlib.resources python docs: https://is.gd/mjTuJK
                 try:
                     import importlib
                     import importlib.resources
@@ -104,6 +108,7 @@ def get_ver_and_extmod():
                     finally:
                         pass
             except NoImportlibError:
+                # See: https://is.gd/m9pK0G
                 import pkg_resources
                 try:
                     yield pkg_resources.resource_filename(
