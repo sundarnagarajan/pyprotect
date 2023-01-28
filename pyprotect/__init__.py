@@ -141,7 +141,7 @@ if e:
 del get_ver_and_extmod, e
 
 del sys, os
-del UNKNOWN_VERSION
+del UNKNOWN_VERSION, DEFS_FILE_BASENAME
 # -------------------------------------------------------------------------
 # Add additional __init__.py code AFTER this block
 # -------------------------------------------------------------------------
